@@ -2,7 +2,7 @@
 | Lecture | Notes | Date|
 |---|---|---|
 | [Lecture 01: Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) | ... | Aug , 2025|
-| [Lecture 02: Large Language Models (LLM) Basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| ... | Aug , 2025|
+| [Lecture 02: Large Language Models (LLM) Basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Lecture01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md) | Aug , 2025|
 | [Lecture 03: Pretraining LLMs vs Finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)| ... | Aug , 2025|
 | [Lecture 04: What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) | ... | Aug , 2025|
 | [Lecture 05: How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) | ... | Aug , 2025|
