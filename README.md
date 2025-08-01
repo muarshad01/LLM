@@ -1,7 +1,7 @@
 ## LLM (Dr. Raj Dandekar)
 | Lecture | Notes | Date|
 |---|---|---|
-| [Lecture 01: Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) | Aug , 2025|
+| [Lecture 01: Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) | | Aug , 2025|
 * [Lecture 02: Large Language Models (LLM) Basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)
 * [Lecture 03: Pretraining LLMs vs Finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)
 * [Lecture 04: What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8)
