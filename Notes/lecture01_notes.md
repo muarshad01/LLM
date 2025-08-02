@@ -43,72 +43,19 @@ lectures Now text is one thing right
 
 * __What is generative AI__ there are many other things which
 generative AI as a field is capable ofthere is also a lot of confusion with
-many people regarding what is generativeAI what are llms really but generative
-AI is a broader subset and it includes
-language it includes video audio 3D
-models all the things so have a look at
-some of these videos don't these videos look
-incredibly realistic this video then this video The Waves video this
-particular video you'll be surprised to know that all of these videos are made
-by artificial intelligence these videos are not shot on camera they are made by
-AI this is the power of generative AI currently finally uh when we work with
-schools we have developed our own a
-application so this is viu's AI application uh or application on llms
-here you can see that there are a huge number of functionalities for example
-you can click on McQ generator and you
-can just type in the topic let's say
-gravity and you can click on generate
-now you'll see that within a matter of
-seconds the LLM which is powering this application will
-generate a set of multiple choice questions see right here we are
-providing this application to teachers all of this was impossible to even
-imagine uh just four to 5 years back but
-now LLMs and generative AI are changing every single thing
-around us in fact what is probably more relevant to all of you watching this
-video is the global generative AI job market and just look at this growth it's
-incredible uh and this is the pro projected job market it's expected to
-grow about five to six times in the next
-5 years generate and LLMs is an extremely useful skill and
-the need for this skill is only going to
-increase in the future so this again
-brings me to the question that if
-someone wants to learn about LLMs how do they go about
-doing this so let's say you go to Google
-and you search build llms learn which
-say which means you want to learn about
-LLMs there are a number of courses which show up really over
-here now if you go to many of these courses you will see let let say build
-llm apps it's about app development it
-does not teach you how to build a LLM from scratch here is another course Master SL
+many people regarding what is generativeAI what are LLMS really but GenAI is a broader subset and it includes language it includes video audio 3D models all the things so have a look at some of these videos don't these videos look
+incredibly realistic this video then this video. The Waves video this particular video you'll be surprised to know that all of these videos are made
+by AI these videos are not shot on camera they are made by AI this is the power of GenAI currently finally uh when we work with schools we have developed our own a application so this is viu's AI application uh or application on llms
+here you can see that there are a huge number of functionalities for example you can click on McQ generator and you can just type in the topic let's say gravity and you can click on generate now you'll see that within a matter of seconds the LLM which is powering this application will generate a set of multiple choice questions see right here we are providing this application to teachers all of this was impossible to even
+imagine uh just four to 5 years back but now LLMs and generative AI are changing every single thing around us in fact what is probably more relevant to all of you watching this video is the global generative AI job market and just look at this growth it's
+incredible uh and this is the pro projected job market it's expected to grow about five to six times in the next 5 years generate and LLMs is an extremely useful skill and the need for this skill is only going to increase in the future so this again
+brings me to the question that if someone wants to learn about LLMs how do they go about doing this so let's say you go to Google and you search build llms learn which say which means you want to learn about LLMs there are a number of courses which show up really over here now if you go to many of these courses you will see let let say build llm apps it's about app development it does not teach you __how to build a LLM from scratch__ here is another course Master SL
 
-Master LLM Concepts if you look at this course description
-right they don't teach you how to build an llm from scratch at all they don't
-teach you the nuts-and-bolts it's a
-pretty quick course this is also not what I'm looking for what I'm looking
-for is one course which teaches me the foundations in a lot of detail and in a
-lot of depth I want to know about the foundations because I want to build an
-llm from scratch so that uh my skill set is improved and so that I feel confident
-about giving generative Ai and even llm job interviews this is what I'm looking
-for really I don't want a quick crash course I want something in
-depth then I go to YouTube and search about llm from scratch this is the first
-video which shows up or rather it's a first playlist you'll see that there are
-18 chapters in this playlist but each of these chapters is again only 10 15
-minutes and again I'm a bit demotivated seeing this because I'm not looking for
-this either I'm looking for a massive deep technical course which teaches me
-how to build an llm right from the very
-
-Basics there is Andre karpat is building a GPT course but if you look at this
-course it's actually quite complex it's not an easy course at all he starts
-right in the middle of uh a concept and it's not meant for beginners and it's just 90 minutes again this is not what
-I'm looking for here is another create a
-LLM from scratch but you see the red bar here I tried taking
-this course and I finished three hours of this but again this is not explained
-well it's not explained from scratch I want to make a course which people
-understand right from the very Basics and none of the courses on YouTube on
-Google are satisfying that need luckily very luckily I came across this book by
-an author called "Sebastian Rashka" I think it's one of the best books on
-LLM I purchased thisbook and this is going to serve as the
-reference material for our course what.
+* Master LLM Concepts if you look at this course description
+right they don't teach you how to build an llm from scratch at all they don't teach you the nuts-and-bolts it's a pretty quick course this is also not what I'm looking for what I'm looking
+for is one course which teaches me the foundations in a lot of detail and in a lot of depth I want to know about the foundations because I want to build an llm from scratch so that uh my skill set is improved and so that I feel confident
+about giving GenAI and even LLM job interviews this is what I'm looking for really I don't want a quick crash course I want something in depth then I go to YouTube and search about llm from scratch this is the first video which shows up or rather it's a first playlist you'll see that there are 18 chapters in this playlist but each of these chapters is again only 10 15
+minutes and again I'm a bit demotivated seeing this because I'm not looking for this either I'm looking for a massive deep technical course which teaches mehow to build an llm right from the very Basics there is Andre karpat is building a GPT course but if you look at this course it's actually quite complex it's not an easy course at all he starts right in the middle of uh a concept and it's not meant for beginners and it's just 90 minutes again this is not what I'm looking for here is another create a LLM from scratch but you see the red bar here I tried taking this course and I finished three hours of this but again this is not explained well it's not explained from scratch I want to make a course which people understand right from the very Basics and none of the courses on YouTube on Google are satisfying that need luckily very luckily I came across this book by an author called "Sebastian Rashka" I think it's one of the best books on LLM I purchased thisbook and this is going to serve as the reference material for our course what.
 
 I'm going to do is that this is a 48page book I'm going to convert every
 single aspect of this book into a set of
@@ -194,5 +141,6 @@ introduction to LLMs
 and we'll cover all these things what
 you are seeing in the board right now
 thanks everyone see you in the next
+
 
 
