@@ -100,7 +100,7 @@ on that so that's the first section which we dealt with today which is what is a
 6:42
 large language model great the second question you might be thinking is why is
 
-Why “Large” Language Models?
+### Why “Large” Language Models?
 6:48
 it called a large language model why not just a language model after all it just
 6:53
@@ -617,5 +617,6 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
