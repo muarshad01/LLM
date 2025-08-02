@@ -99,6 +99,7 @@ sounding more and more like humans and that has led to huge problems maybe we'll
 on that so that's the first section which we dealt with today which is what is a
 6:42
 large language model great the second question you might be thinking is why is
+
 Why “Large” Language Models?
 6:48
 it called a large language model why not just a language model after all it just
@@ -193,7 +194,9 @@ GPT that's why they are called language models because they generally do a wide 
 11:37
 language so this is the meaning behind the terminology large and language
 11:42
-models that covers the second aspect of today's lecture and now we come to the third aspect which is why have llms
+models that covers the second aspect of today's lecture and now we come to the 
+
+third aspect which is why have llms
 LLMs vs Earlier NLP Models
 11:50
 become so popular didn't we have the field of natural language processing before also and that's true natural
@@ -313,10 +316,14 @@ in Mind of a transformer it's awesome you have come to the perfect
 17:42
 place okay so as I said do not worry we will learn all about this Secret Sauce
 17:49
-which is the Transformers in the subsequent lectures that covers the fourth point of today's lecture and now
+which is the Transformers in the subsequent lectures that covers the 
+
+fourth point of today's lecture and now
 LLM vs GenAI vs DL vs ML vs AI
 17:56
-we come to the fifth point which is all about terminologies right so there are so many words people are throwing around
+we come to the 
+
+fifth point which is all about terminologies right so there are so many words people are throwing around
 18:02
 randomly these days right it feels it just getting confusing more and more confusing so people talk about llm
 18:09
@@ -610,4 +617,5 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
