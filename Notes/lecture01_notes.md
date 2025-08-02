@@ -14,93 +14,34 @@ LLM from scratch.
 
 * The way I'm making this playlist or the way I will make videos in this playlist is to teach to you everything from the basics as a beginner without assuming anything and at the end of this playlist you will have built an LLM from scratch successfully all by yourself.
 
-You'll see that after this point everything which comes later all the
-application Parts everything will just start seeming extremely easy to
-you so that's the whole philosophy behind making this lecture series it
-takes a huge amount of effort on our
-part to make this series because as you
-you will see and I'll show you in some
-time to make every lecture we are going
-to make detailed lecture notes.
+* You'll see that after this point everything which comes later all the application Parts everything will just start seeming extremely easy to you so that's the whole philosophy behind making this lecture series it takes a huge amount of effort on our part to make this series because as you you will see and I'll show you in some time to make every lecture we are going to make detailed lecture notes.
 
-I'll share those lecture notes with you and
-all the videos in this series will be
-available completely for free.  okay so now I'm going to tell you a
-bit about my story of learning LLMS then I'm going to tell you a bit 
-about what exists right now the material which is
-already available on the internet for learning LLMs why it is so inadequate
-why it is so insufficient and what we are trying to do new with this playlist
-so let's get into the video so let me Demonstration
-take you back in time a bit to show you
-how LLMS looked like in maybe 1960s uh or where the field of NLP
- was really about 50 to 60 years back so this is one of the
-first ChatBots which humans developed it's called as Elisa it was supposed to
-be a therapist and let's see how it works so first this interface asks me to
-choose my language so I'm choosing English let's
-go so then Elisa tells me how do you do
-please tell me your problem so then let
-me type I am trying to learn about LLMs but I am finding it
-difficult could you provide some resources for me to start with then Elisa asks is it because
-you're trying to learn about LLM that you came to me then
-I say yes and then Alisa says You seem to be quite positive and then and then Elisa
+I'll share those lecture notes with you and all the videos in this series will be
+available completely for free.  Okay so now I'm going to tell you a bit about my story of learning LLMS then I'm going to tell you a bit about what exists right now the material which is already available on the internet for learning LLMs why it is so inadequate? why it is so insufficient and what we are trying to do new with this playlist?  so let's get into the video so let me Demonstration
+take you back in time a bit to show you how LLMS looked like in maybe 1960s uh or where the field of NLP was really about 50 to 60 years back so this is one of the first __Chatbots__ which humans developed it's called as Elisa it was supposed to be a therapist and let's see how it works so first this interface asks me to choose my language so I'm choosing English. let's
+go so then Elisa tells me how do you do please tell me your problem so then let
+me type I am trying to learn about LLMs but I am finding it difficult could you provide some resources for me to start with then Elisa asks is it because
+you're trying to learn about LLM that you came to me then I say yes and then Alisa says You seem to be quite positive and then and then Elisa
 says you are sure you see this conversation is proceeding nowhere this
 was the state of LLMs 50 to 60 years 50 to 60 years back it's
-not very good right fast forward to ChatGPT and you
-ask what are LLMs or let me ask the same thing which I asked over
-here I am trying to learn about LLMs tell me me some
+not very good right.
+
+* Fast forward to __ChatGPT__ and you ask what are LLMs or let me ask the same thing which I asked over here I am trying to learn about LLMs tell me me some
 resources and then you'll see the response by chat GPT it's extremely
-useful it's to the point and uh it gives
-me books it gives me online courses it
-gives me research papers this is exactly
-what I need so you see this simple
-illustration shows that we are living in
-an age where we should be very lucky
-that the research on NLP and LLMs is
-at such a stage where LLM such as GPT are very powerful
-they are very sophisticated if you're not familiar
-with chat GPT that's fine we are going
-to be building our own GPT in this
-playlist so you'll learn about it along
-the way but I showed you this
-demonstration for you to appreciate the
-times we are living in right now llms
-have become really powerful and uh
-that's the first motivation to really
-learn about them there are several more
-Open Source vs Closed Source
-things which are happening as I'm making
-this video 
-Facebook released their Lama-3.1 which is one of their most capable
-LLMs up till date and this is an open-source model which means
-that the entire architecture of the model is available for free uh or rather
-it's available to the public anyone can see the architecture the models released
-by open AI are usually closed source, which means they don't release the
-weights uh the architecture not too many
-things are known about the model itself
-so here is a graph which shows closed
-Source versus open source models in 2022
-when the field of LLMs was booming most of the things were
-pretty closed Source when gp4 was
-released in 2023 it blew the world uh
-away everyone was surprised everyone was
-happy to see the functionality but still
-it was a closed Source model now in
-2024 can you see the gap between the
-open source and closed Source model is
-slowly decreasing and when Lama-3.1 is
-released you can see that it performs at
-the same level as gp4 which is closed
-Source this is to say that all the
-information which you need is available
-right now as open source models you
-should just be willing to learn if you
-are not sure what's open source close
-Source models what's this Lama 340 5B
-I'll explain to you about all of these
-things as we proceed with the
+useful it's to the point and uh it gives me books it gives me online courses it
+gives me research papers this is exactly what I need so you see this simple
+illustration shows that we are living in an age where we should be very lucky
+that the research on NLP and LLMs is at such a stage where LLM such as GPT are very powerful they are very sophisticated if you're not familiar with chat GPT that's fine we are going to be building our own GPT in this playlist so you'll learn about it along the way but I showed you this demonstration for you to appreciate the times we are living in right now LLMS have become really powerful and uh that's the first motivation to really learn about them there are several more Open Source vs Closed Source things which are happening as I'm making
+this video __Facebook released their Lama 3.1__ which is one of their most capable LLMs up till date and this is an open-source model which means that the entire architecture of the model is available for free uh or rather it's available to the public anyone can see the architecture the models released
+by __Open AI__ are usually closed source, which means they don't release the
+weights uh the architecture not too many things are known about the model itself
+so here is a graph which shows closed Source versus open source models in 2022
+when the field of LLMs was booming most of the things were pretty closed Source when gp4 was released in 2023 it blew the world uh away everyone was surprised everyone was happy to see the functionality but still it was a closed Source model now in 2024 can you see the gap between the open source and closed Source model is slowly decreasing and when Lama 3.1 is released you can see that it performs at the same level as __GPT-4__ which is closed Source this is to say that all the information which you need is available right now as open source models you should just be willing to learn if you are not sure what's open source close Source models what's this Lama 340 5B
+
+* I'll explain to you about all of these things as we proceed with the
 lectures Now text is one thing right
 
-What is generative AI there are many other things which
+* __What is generative AI__ there are many other things which
 generative AI as a field is capable ofthere is also a lot of confusion with
 many people regarding what is generativeAI what are llms really but generative
 AI is a broader subset and it includes
@@ -253,4 +194,5 @@ introduction to LLMs
 and we'll cover all these things what
 you are seeing in the board right now
 thanks everyone see you in the next
+
 
