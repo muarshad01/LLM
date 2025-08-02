@@ -52,95 +52,34 @@ incredible uh and this is the pro projected job market it's expected to grow abo
 brings me to the question that if someone wants to learn about LLMs how do they go about doing this so let's say you go to Google and you search build llms learn which say which means you want to learn about LLMs there are a number of courses which show up really over here now if you go to many of these courses you will see let let say build llm apps it's about app development it does not teach you __how to build a LLM from scratch__ here is another course Master SL
 
 * Master LLM Concepts if you look at this course description
-right they don't teach you how to build an llm from scratch at all they don't teach you the nuts-and-bolts it's a pretty quick course this is also not what I'm looking for what I'm looking
-for is one course which teaches me the foundations in a lot of detail and in a lot of depth I want to know about the foundations because I want to build an llm from scratch so that uh my skill set is improved and so that I feel confident
-about giving GenAI and even LLM job interviews this is what I'm looking for really I don't want a quick crash course I want something in depth then I go to YouTube and search about llm from scratch this is the first video which shows up or rather it's a first playlist you'll see that there are 18 chapters in this playlist but each of these chapters is again only 10 15
-minutes and again I'm a bit demotivated seeing this because I'm not looking for this either I'm looking for a massive deep technical course which teaches mehow to build an llm right from the very Basics there is Andre karpat is building a GPT course but if you look at this course it's actually quite complex it's not an easy course at all he starts right in the middle of uh a concept and it's not meant for beginners and it's just 90 minutes again this is not what I'm looking for here is another create a LLM from scratch but you see the red bar here I tried taking this course and I finished three hours of this but again this is not explained well it's not explained from scratch I want to make a course which people understand right from the very Basics and none of the courses on YouTube on Google are satisfying that need luckily very luckily I came across this book by an author called "Sebastian Rashka" I think it's one of the best books on LLM I purchased thisbook and this is going to serve as the reference material for our course what.
+right they don't teach you how to build an llm from scratch at all they don't teach you the nuts-and-bolts it's a pretty quick course this is also not what I'm looking for what I'm looking for is one course which teaches me the foundations in a lot of detail and in a lot of depth I want to know about the foundations because I want to build an llm from scratch so that uh my skill set is improved and so that I feel confident about giving GenAI and even LLM job interviews this is what I'm looking for really I don't want a quick crash course I want something in depth then I go to YouTube and search about llm from scratch this is the first video which shows up or rather it's a first playlist you'll see that there are 18 chapters in this playlist but each of these chapters is again only 10 15 minutes and again I'm a bit demotivated seeing this because I'm not looking for this either I'm looking for a massive deep technical course which teaches mehow to build an llm right from the very Basics there is Andre karpat is building a GPT course but if you look at this course it's actually quite complex it's not an easy course at all he starts right in the middle of uh a concept and it's not meant for beginners and it's just 90 minutes again this is not what I'm looking for here is another create a LLM from scratch but you see the red bar here I tried taking this course and I finished three hours of this but again this is not explained well it's not explained from scratch I want to make a course which people understand right from the very Basics and none of the courses on YouTube on Google are satisfying that need luckily very luckily I came across this book by an author called "Sebastian Rashka" I think it's one of the best books on LLM I purchased thisbook and this is going to serve as the reference material for our course what.
 
-I'm going to do is that this is a 48page book I'm going to convert every
-single aspect of this book into a set of
-videos I'll probably have 35 40 or maybe
-50 videos in this playlist similar to my
-playlist for ML and DL and uh whatever is given here right I'll convert it into
-uh I'll convert it into video format
-so for example here are some of the
-notes which I've already started to make
-we'll we'll start covering this when we
-move to uh the next lecture look at
-these notes what I've done over here is
-that I have built my understanding from
-this book over here and to to transfer
-my understanding to all of you I have
-started writing on a white board every
-single thing in detail look at this and
-I'm trying to make it as interesting as
-possible and as fundamental as possible
-so this is going to be the next lecture
-uh intro to llms so I finished making
-the notes for this and I finished making
-the notes for the lecture after that as
-well stages of building and llm so
-basically I'm making I'm in the process
-of making all these notes but I'm making
-the videos simultaneously so that I am
-also motivated and I am also on track
-eventually this will be a massive
-lecture notes of maybe 200 to 300 pages
-and uh there will be 50 to 60 videos
-based on this you'll learn everything
-right from the very Basics nothing will
-be assumed everything will be spelled
-out and these set of videos will be
-perfect for serious people who want to
-transition to LLMs
-really and we want to understand llms
-the right
-way uh okay so this is the main idea for
-the course
-
-another thing which I want to say is that you might have heard of
+I'm going to do is that this is a 48page book I'm going to convert every single aspect of this book into a set of videos I'll probably have 35 40 or maybe
+50 videos in this playlist similar to my playlist for ML and DL and uh whatever is given here right I'll convert it into uh I'll convert it into video format
+so for example here are some of the notes which I've already started to make
+we'll we'll start covering this when we move to uh the next lecture look at
+these notes what I've done over here is that I have built my understanding from
+this book over here and to to transfer my understanding to all of you I have
+started writing on a white board every single thing in detail look at this and
+I'm trying to make it as interesting as possible and as fundamental as possible
+so this is going to be the next lecture uh intro to llms so I finished making
+the notes for this and I finished making the notes for the lecture after that as
+well stages of building and llm so basically I'm making I'm in the process
+of making all these notes but I'm making the videos simultaneously so that I am
+also motivated and I am also on track eventually this will be a massive
+lecture notes of maybe 200 to 300 pages and uh there will be 50 to 60 videos
+based on this you'll learn everything right from the very Basics nothing will
+be assumed everything will be spelled out and these set of videos will be
+perfect for serious people who want to transition to LLMs really and we want to understand llms the right way uh okay so this is the main idea for
+the course another thing which I want to say is that you might have heard of
 applications like LangChain this is a tool which helps you build llm apps but
 again it's not useful if you don't know how to build an llm yourself many
 students directly start deploying apps as I mentioned before but I personally
 don't think that's the right way to learn about llms you need to know how to
 build a entire LLM from scratch and we'll teach you that in this
-playlist finally the goal is to equip
-all of you so that you feel confident in
-front of an interviewer right if you
-have just deployed applications by
-cloning some GitHub repository then if
-someone asks you a detailed question
-about key query and values let's say or
-positional embedding or positional
-positional encoding you need to be in a
-position to say that I have built this
-from scratch so I know the details
-better than anyone
-else that's really going to position you
-in a different boot than all the other
-people so this is the main objective of
-this course this is going to be the
-outline of this course we are going to
-follow uh all the top table of contents
-which have been mentioned over here and
-I'm going to convert those into video
-lecture formats and it's going to be an
-awesome series it's going to be a
-detailed Series so if this seems of
-interest to you please uh mention in the
-comments so that I also feel motivated
-to build subsequent videos and as I
-mentioned the plan is to release
-everything all of this content
-completely for free so that you all can
-benefit from
-it okay thank you so much everyone uh
-and I look forward to seeing you in the
-next lecture where we will cover
-introduction to LLMs
-and we'll cover all these things what
-you are seeing in the board right now
-thanks everyone see you in the next
-
-
-
+playlist finally the goal is to equip all of you so that you feel confident in
+front of an interviewer right if you have just deployed applications by
+cloning some GitHub repository then if someone asks you a detailed question
+about key query and values let's say or positional embedding or positional
+positional encoding you need to be in a position to say that I have built this
+from scratch so I know the details better than anyone else that's really going to position you in a different boot than all the other people so this is the main objective of this course this is going to be the outline of this course we are going to follow uh all the top table of contents which have been mentioned over here and I'm going to convert those into video lecture formats and it's going to be an awesome series it's going to be a detailed Series so if this seems of interest to you please uh mention in the comments so that I also feel motivated to build subsequent videos and as I mentioned the plan is to release everything all of this content completely for free so that you all can benefit from it okay thank you so much everyone uh and I look forward to seeing you in the next lecture where we will cover introduction to LLMs and we'll cover all these things what you are seeing in the board right now thanks everyone see you in the next
