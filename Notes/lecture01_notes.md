@@ -5,30 +5,14 @@
 * Since then I've come back to India and we are all on a mission to basically make AI accessible to everyone U at viua which is our YouTube channel. We have made several playlists now on ML on DL 
 and uh the main approach or the philosophy, which we really follow when we teach, is to teach-everything-from-the-basics not to assume anything. Teach you the nuts-and-bolts of every single concept. 
 
-The real reason behind this series is that as we all know that
-LLM and GenAI are transforming everything around us. 
-Startups are forming in this space. 
-Companies are switching to LLMs for various tasks. 
+* The real reason behind this series is that as we all know that LLM and GenAI are transforming everything around us. Startups are forming in this space. Companies are switching to LLMs for various tasks. 
 
-The jobs in this field are rising a lot but many people when 
-they are learning about this field are making one-common-mistake they directly-switch to
-the applications they directly-run some
-Google-collab notebook. They follow some YouTube video and directly-run a
-code uh but very few people really understand how LLM actually work. 
+* The jobs in this field are rising a lot but many people when they are learning about this field are making one-common-mistake that they directly-switch to the applications. They directly-run some __Google-Collab__ notebook. They follow some YouTube video and directly-run a code uh but very few people really understand how LLM actually work. 
 
-Very few people actually know the nuts-and-the-bolts, which make LLM really so powerful. 
-Wouldn't be it amazing if you can build
-a LLM completely from scratch wouldn't that make you feel very
-confident about this subject very few people have this knowledge 
-right now and I'm making this YouTube playlist which
-will be a very comprehensive playlist
-showing you everything about building an
-LLM from scratch the way I'm making this playlist
-or the way I will make videos in this playlist is to teach to 
-you everythingfrom the basics as a beginner without
-assuming anything and at the end of this
-playlist you will have built an LLM from
-scratch successfully all by yourself.
+* Very few people actually know the nuts-and-the-bolts, which make LLM really so powerful. Wouldn't be it amazing if you can build an LLM completely from scratch? Wouldn't that make you feel very confident about this subject? Very few people have this knowledge right now and I'm making this YouTube playlist which will be a very comprehensive playlist showing you everything about building an
+LLM from scratch.
+
+* The way I'm making this playlist or the way I will make videos in this playlist is to teach to you everything from the basics as a beginner without assuming anything and at the end of this playlist you will have built an LLM from scratch successfully all by yourself.
 
 You'll see that after this point everything which comes later all the
 application Parts everything will just start seeming extremely easy to
@@ -269,3 +253,4 @@ introduction to LLMs
 and we'll cover all these things what
 you are seeing in the board right now
 thanks everyone see you in the next
+
