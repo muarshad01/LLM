@@ -197,7 +197,8 @@ language so this is the meaning behind the terminology large and language
 models that covers the second aspect of today's lecture and now we come to the 
 
 third aspect which is why have llms
-LLMs vs Earlier NLP Models
+
+### LLMs vs Earlier NLP Models
 11:50
 become so popular didn't we have the field of natural language processing before also and that's true natural
 11:56
@@ -319,7 +320,9 @@ place okay so as I said do not worry we will learn all about this Secret Sauce
 which is the Transformers in the subsequent lectures that covers the 
 
 fourth point of today's lecture and now
-LLM vs GenAI vs DL vs ML vs AI
+
+
+### LLM vs GenAI vs DL vs ML vs AI
 17:56
 we come to the 
 
@@ -468,7 +471,8 @@ already seen they basically deal with text so this is the similarities and diffe
 generative AI I hope you have understood this part and you like these visuals if you have
 25:40
 any doubts until this part please write it in the YouTube comments and we will answer as quickly as possible and now we
-Applications of LLMs
+
+#### Applications of LLMs
 25:47
 come to the last part of this lecture which is applications of llms and as I speak the applications go on increasing
 25:54
@@ -617,6 +621,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
