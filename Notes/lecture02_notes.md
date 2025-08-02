@@ -1,51 +1,18 @@
-0:05
-hello everyone welcome to the second lecture in the building large language
-0:10
-models from scratch series the previous lecture was an
-0:16
-introduction to the entire series and in that lecture I described about what we
-0:21
-are planning to cover in this playlist and uh I mentioned about our end goal of
-0:27
-learning the nuts and bolts of building a large language model in this series we
-0:33
-are not just going to look at applications we are going to understand how things really work from a very very
-0:39
-fundamental level so let's get started my name is Dr Raj dander and I graduated with a PhD
-0:48
-from Massachusetts Institute of Technology in 2022 since two years uh I
-0:53
-have been in India working on our vision to make AI accessible to all this
-0:59
-playlist is a part of that Vision so let's get started with today's lecture
-1:04
+# Building LLMs from scratch series
 
+* End goal is learning the nuts-and-bolts of building a LLM. In this series, we are not just going to look at applications. We are going to understand how things really work from a very fundamental level.
 
 ### cover six major aspects 
 * __first__ we are going to learn about what exactly is a LLM?
-1:11
 * __secondly__ we are going to learn about what does __Large__ mean in the LLM terminology
-1:17
 * __third__ we are going to see what the difference between modern LLMs and earlier NLP models
-1:24
 * __fourth__ we are going to see see what's the secret Source behind LLMs what really makes them so good
-1:30
-* __fifth__ we
-1:35
-are going to see the difference between these terminologies which you might have heard LLM GenAI DL
-1:43
-ML AL it's getting so confusing right the number of terminologies just keep
-1:49
-increasing day by day how do we know which terminology means what and then in the
-* __last section__ I'm
-1:57
-going to discuss about the applications of LLMS and what all cool stuff we can
-2:03
-build with llms so with this we'll get started with the part one or section one of today's
+* __fifth__ we are going to see the difference between these terminologies which you might have heard LLM GenAI, DL, ML, AI it's getting so confusing right the number of terminologies just keep increasing day by day how do we know which terminology means what and then in the
+* __last section__ I'm going to discuss about the applications of LLMS and what all cool stuff we can build with llms so with this we'll get started with the part one or section one of today's
 
 ### What are Large Language Models (LLMs)
 2:10
-lecture which is explaining what is a large language model in the first place
+lecture which is explaining what is a LLM in the first place
 2:15
 now unless you have been living under a rock it might you would have definitely
 2:21
@@ -643,3 +610,4 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
