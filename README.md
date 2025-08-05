@@ -27,3 +27,6 @@
 #### [Transformers (how LLMs work) explained visually | DL5](https://www.youtube.com/watch?v=wjZofJX0v4M)
 
 ***
+
+* Attention in transformers, step-by-step | Deep Learning Chapter 6
+
