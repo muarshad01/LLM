@@ -1,4 +1,4 @@
-#### Build an LLM from Scratch
+## Build an LLM from Scratch
 
 * __Instructor__: My name is __Dr. Raj Dander__. I graduated from IIT Madras with a BTech in ME in 2017. After that, I did my PhD from the MIT. I graduated from MIT with a PhD in ML in 2022. Since then, I've come back to India and we are all on a mission to basically make AI accessible to everyone. At __Vizura__, which is our YouTube channel, we have made several playlists now on ML on DL. The main approach or the philosophy, which we really follow, when we teach, is to __teach everything from the basics__, i.e., not to assume anything. Teach you the __nuts and bolts__ of every single concept. 
 
@@ -45,3 +45,4 @@
 *  You need to know how to build a entire LLM from scratch.
 
 ***
+
