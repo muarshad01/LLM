@@ -9,7 +9,7 @@
    * Wouldn't be it amazing if you can __build an LLM completely from scratch?__
    * Teach to you everything from the basics as a beginner without assuming anything.
 
-#### How LLMS looked like in 1960s (field of NLP)?
+#### Natural Language Processing (NLP)
 * One of the first __Chatbots__, which humans developed, is called as __ELIZA__. It was supposed to be a therapist, and let's see how it works:
     * Eliza: ...
      * You: ...
@@ -33,3 +33,4 @@
 *  You need to know how to build a entire LLM from scratch.
 
 ***
+
