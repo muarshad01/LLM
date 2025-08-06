@@ -1,4 +1,4 @@
-# Building LLMs from scratch series
+## Building LLMs from Scratch
 
 * End goal is learning the nuts-and-bolts of building a LLM. In this series, we are not just going to look at applications. We are going to understand how things really work from a very fundamental level.
 
@@ -479,6 +479,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
