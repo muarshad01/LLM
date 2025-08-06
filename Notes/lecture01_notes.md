@@ -36,20 +36,12 @@
 * Now in 2024, you can see the gap between the open-source and closed-source models is slowly decreasing. When __Llama 3.1__ is released, you can see that it performs at the same level as __GPT-4__, which is closed Source.
 * Now, __TEXT__ is one thing right.
 
-#### What is generative AI?
-* There are many other things which GenAI as a field is capable of. There is also a lot of confusion with many people regarding what is GenAI? what are LLMS really? But GenAI is a broader subset and it includes language, video, audio, 3D models, all the things.
-* So have a look at some of these videos don't these videos look incredibly realistic. You'll be surprised to know that all of these videos are made
-by GenAI. These videos are not shot on camera they are made by AI. This is the power of GenAI.
-* Currently, we work with schools. We have developed our own a application (https://vizuara-one.vercel.app/tool). Here ere you can see that there are a huge number of functionalities for example you can click on __MCQ generator__ and you can just type in the topic. Let's say gravity and you can click on generate now you'll see that within a matter of seconds the LLM, which is powering this application, will generate a set of MCQs. See right here we are providing this application to all teachers. This was impossible to even to imagine just four to 5 years back, but now LLMs and GenAI are changing every single thing around us.
-* Infact what is probably more relevant to all of you watching this video is the __global GenAI job market__ and just look at this growth it's incredible and this is the projected job market. It's expected to grow about five to six times in the next 5 years __GenAI and LLMs__ is an extremely useful skill and the need for this skill is only going to increase in the future.
-* __How to build a LLM from scratch?__
-* A course which teaches me the foundations in a lot of detail and in a lot of depth.  I want to know about the foundations because I want to build an LLM from scratch. So that my skill-set is improved and so that I feel confident about giving GenAI and even LLM job interviews. This is what I'm looking for really.
+#### What is GenAI?
+* __GenAI__ is a broader subset and it includes __language, video, audio, 3D models__, all the things.
 
-* __Book: Build a Large Language Model (From Scratch) by Sebastian Raschka (Author)__
-* Purchase this book as this is going to serve as the reference material for our course.
+#### Book: Build a Large Language Model (From Scratch) by Sebastian Raschka (Author)
 
-* Serious people who want to transition to LLMs really and who want to understand LLMs the right way.
 *  __LangChain__, is a tool which helps you build LLM apps, but again it's not useful.
 *  You need to know how to build a entire LLM from scratch.
-*  __positional embedding__ or __positional encoding__ you need to be in a position to say that I have built this from scratch so I know the details better than anyone else.
 
+***
