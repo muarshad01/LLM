@@ -28,9 +28,9 @@
 #### What is GenAI?
 * __GenAI__ is a broader subset and it includes __language, video, audio, 3D models__, all the things.
 
-#### Book: Build a Large Language Model (From Scratch) by Sebastian Raschka
-*  __LangChain__, is a tool which helps you build LLM apps, but again it's not useful.
-*  You need to know how to build a entire LLM from scratch.
+#### [Book: Build a Large Language Model (From Scratch) by Sebastian Raschka](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?crid=MXTFKXE17P52&dib=eyJ2IjoiMSJ9.3ZAePWEmeg9GoDKd0fxCOmW-QTfMlcLJs5AGdnQO_Q5UgoDerIZ3bBzLbLsCsJkkH8-aDniAtq9xSNyIetK5SGF5muZm-WC_vDxdngfHjGQ4nvxyLSzG6hpfuqpWKRjV301arX9jrq9dS_HKycSHmTfJNplH9xzdhwZIGj6u55hDc4S5nzWxt_VO11yCdXTQkdOdgW-FqmrxpUjzcgeg7ZYeosIvcTlLWOTUafjGjNI.kQ6U_FCvho2U499FQnnYUS3xc0qeZHyd9W_8M3RZrio&dib_tag=se&keywords=Build+a+Large+Language+Model+%28From+Scratch%29+by+Sebastian+Raschka&qid=1754518820&sprefix=build+a+large+language+model+from+scratch+by+sebastian+raschka%2Caps%2C64&sr=8-1)
+*  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
