@@ -38,45 +38,14 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 3. DL
 4. LLM 
 
-* The broadest umbrella is AI and this contains all the other umbrellas. Any machine, which is remotely behaving like humans or it has some sort of intelligence that comes under the bucket of AI.
-*
-* That's the biggest bucket so you might be thinking what's the difference between AI and ML right?
-*
-* 
-* Rule-based ChatBot, you click some options and then Elisa is already programmed to answer so.
-*
-*
-*    I say that flight cancelled check Alternatives and rebook so if I click on this Ela is already program to answer this is an example of AI because it covers intelligence right Lanza chat assistant can be thought of to be intelligent but this is Rule-based intelligence it's not learning-based on your responses.
-*
-*
-*  
-*
-*
-*   
-*
-*   deep learning usually only involves neural networks but machine learning involves neural networks plus other fields and one such field is decision trees
-*
-*
-*   
-*
-*
-*   
-*
-*
-*   predict handwritten digit classification right so if you train a neural network like this if you start training so here you can see the neural network is being trained and the problem here is handwritten digit classification so I have given it a bunch of digits uh which actually look like this MN data it looks like this I've given this neural network bunch of digits to learn from and the task of this neural network is whenever I give it or whenever I write a new digit it should identify whether what digit is it now
-*
-*
-
-*
-*  machine learning involves these kind of neural network architectures plus it involves things which are not neural networks like decision trees
-*
-*  now within deep learning is llms why because deep learning as we saw involves images also but large like this involved images even this project involved images but large language models do not involve images they only deal with text and that's why they are a further subset of deep learning
-*
-*    this is the difference between AI ml DL and llm so then you might be thinking what is
-*
-*    generative AI generative AI you you can think of as a mixture of large language models plus deep learning why because generative AI also deals with other modalities like image sound video Etc
-*
-  
+* The broadest umbrella is AI and this contains all the other umbrellas. Any machine, which is remotely behaving like humans or it has some sort of intelligence, comes under the bucket of AI.
+* What's the difference between AI and ML?
+* Example, __Rule-based ChatBot__, is an example of AI because it covers intelligence. Rule-based intelligence it's not learning-based on your responses.
+*   DL usually only involves neural networks (NN), but machine learning involves neural networks (NN) plus other fields and one such field is __Decision Trees (DTs)__.
+*   Example, __predict handwritten-digit classification__. If you train a neural network (NN). I've given this neural network (NN) a bunch-of-digits to learn from and the task of this neural network (NN) is whenever I give it a new digit it should identify what digit is it now?
+*  ML involves these kind of neural network (NN) architectures plus it involves things, which are not neural networks, like decision trees.
+*  LLMs falls under DL llms why because deep learning and they only deal with text.
+*  GenAI you can think of as a mixture of LLM plus deep learning, why because GenAI also deals with other modalities like image, sound, video, etc.
 
 #### Applications of LLMs
 25:47
@@ -227,3 +196,4 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
