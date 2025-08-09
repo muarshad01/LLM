@@ -40,7 +40,7 @@
 | [How might LLMs store facts -- Deep Learning Chapter 7](https://www.youtube.com/watch?v=9-Jl0dxWQs8) ||
 
 ***
-
+* [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)
 * [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)
 * Autoencoders | Deep Learning Animated
 * [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)
