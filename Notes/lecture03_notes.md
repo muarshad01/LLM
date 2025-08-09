@@ -473,6 +473,9 @@ llm on the label data set
 19:59
 that's the three steps so the first step
 20:02
+
+***
+
 is data second step is training the
 20:05
 foundational model and the third step is
@@ -879,6 +882,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
