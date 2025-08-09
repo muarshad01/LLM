@@ -41,3 +41,6 @@
 
 ***
 
+* Autoencoders | Deep Learning Animated
+* [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)
+
