@@ -11,73 +11,16 @@
 #### What are Large Language Models (LLMs)
 * [ChatGPT](https://chatgpt.com/)
 * LLM is just a neural network (NN), which is designed to __understand, generate and respond to human like
-text.__ there are two key things here an llm is a neural network which is designed to understand generate and
-2:54
-respond to human like text let me explain the two parts separately first new neural network so I'm assuming
-3:02
-people who are coming to the series know a bit about neural networks if you don't it's totally fine I'll explain all those
-3:09
-Basics as well but a neural network essentially looks like this we have input data which feeds into a layer of
-3:17
-neurons and bunch of these layers are stacked together and we have the output layer the reason it's called a neural
-3:24
-network it's because these neurons represent the circuitry in our brain
-3:30
-uh or they do so in a very symbolic sense uh that's why this name deep
-3:35
-neural network comes and deep neural networks are shown to have a huge number of applications in image detection text
-3:43
-Generation Um self driving cars then let's say if you want to
-3:49
-detect whether patient has brain tumor or not they have huge number of applications so llms are essentially
-3:55
-just neural networks which are designed for very uh
-4:01
-generic type of text related applications such as understanding generating and responding to humanik
-4:07
-text what does it mean to understand generate and respond to humanik text so
-4:13
-the simplest way to demonstrate what does that mean is taking you to chat
-4:18
-GPT I'm sure all of you who are seeing this lecture have used chat GPT here you
-4:24
-can see on the dropdown I'm using gp4 you might be on gp40 or gp4 om mini so
-4:31
-you can ask basically any question to chat gptc here there are some questions and
-4:37
-uh or here there are some prompt so I'll click on this prompt and click on plan a relaxing day and you see can you help me
-4:44
-to plan a relaxing day that focuses on activities for Rejuvenation to start can you ask me what my favorite forms of
-4:50
-relaxation are and you see the chat GP responds like a human absolutely to help
-4:57
-craft the perfect day of relaxation could do you share your favorite forms of relaxation for instance do you prefer
-5:03
-spending time Outdoors engaging in activities like reading or yoga or
-5:08
-perhaps trying creative Pursuits like painting or cooking so I'll write here reading a
-5:15
-book let's see what chat GPT responds and then chat GPT says great reading can
-5:20
-be a central part of a rejuvenating day here's a plan focused around your enjoyment and then it tells me to do
-5:26
-morning meditation for 30 minutes healthy breakfast first for 45 minutes reading time for 2 hours nature walk for
-5:33
-1 hour uh so you can see it's almost like I'm talking with a human so that's the
-5:40
-second part of the llm definition large language models understand generate and
-5:45
-respond to humanik text and they also respond like humans so chat GPT the demonstration
-5:53
-which I just showed you is an llm but what many people don't know about or they don't think about llms is that at
-6:00
-the core of llm they are just neural networks which are designed to do these
-6:06
-tasks so if anyone asks you what an llm is tell them that they are deep neural
-6:11
-networks trained on massive amount of data which help to do specific tasks
-6:17
-such as understanding generating and respond to human like text and in many cases they also respond like humans this
+text.__
+
+* LLMs are essentially just neural networks (NN), which are designed for very generic type of text related applications such as understanding generating and responding to human like text. 
+
+
+
+
+
+* ChatGPT the demonstration, which I just showed you is an LLM but what many people don't know about or they don't think about llms is that at the core of llm they are just neural networks, which are designed to do these
+tasks. So, if anyone asks you what an llm is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding generating and respond to human like text, and in many cases they also respond like humans. this
 6:24
 is getting better and better as I making this lecture and llms are in fact
 6:29
@@ -466,6 +409,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
