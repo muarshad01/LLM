@@ -10,290 +10,23 @@ here but that's not the scope of today's lecture
 
 * Task: word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---" so this next word is not known and chat GPT then predicts or llms then predict this word as let's say "forest"
 
-if you train the llm for this simple task it turns out that it can do a wide range of other tasks as well so the underlying language model to begin to perform tasks without even training on them. for example Performance on tasks like picking the right answer to a multiple choice question steadily increases as the underlying language model improves this means that even though you just train the llm for predicting the next word like how how I mentioned to you before it turned out that the llm can also do variety of other things such as translation such as answering multiple choice question such
+* if you train the llm for this simple task it turns out that it can do a wide range of other tasks as well so the underlying language model to begin to perform tasks without even training on them. for example Performance on tasks like picking the right answer to a multiple choice question steadily increases as the underlying language model improves this means that even though you just train the llm for predicting the next word like how how I mentioned to you before it turned out that the llm can also do variety of other things such as translation such as answering multiple choice question such
 as summarizing a text then sentiment detection, etc. 
 
 ***
 
-pre-trained so why why is the second stage which is fine tuning why is that really needed the reason fine tuning is important is because let's say you are uh you are a manager of an airline company or you are the CEO of an airline company and you want to develop a chatbot so that users can interact with
+* pre-trained so why why is the second stage which is fine tuning why is that really needed the reason fine tuning is important is because let's say you are uh you are a manager of an airline company or you are the CEO of an airline company and you want to develop a chatbot so that users can interact with
 the chatbot and the chatbot responds let's a user can ask some question like hey what's the price for the Lanza Airline which leaves at 600 p.m. now the response which you want is very specific to your company the resp response which you want is not generic response which is collected from all the places on the internet so if you just use the pre-trained model and if you use that
 model to build the chatbot it it has been trained on a huge amount of data not just your company data Maybe the pre-trend model does not even have access to your company data so the answer which will come is pretty generic it will not be specific to your company it will not be specific to your application
 
 * secondly as I showed you before we can use chat GPT to generate multiple choice question but let's say if you are a very big educational company and if you want to develop really very high quality questions maybe you should not just rely on the pre-train model and you should fine tune the model so that it's better for your specific application so the main purposes of of fine tuning are it is basically a refinement on the pre-training on a much narrower data set so let's say you are a bank JP Morgan and if you have collected huge amount of data which is not publicly available what you can do you can take the pre-train model and then you can give your own data set and then train the model again on your data set so that when it answers it answers uh in such a way which is specific to your company so finetuning is needed if you
 
-want to build an application which is specific to a particular task or a particular domain if you are a general user if you are a student who just wants to let's say use chat GPT to get questions to uh get information about certain things then you can just use gp4 you will not need um fine tuning too much but if you are a big company let's say and if you are wanting to deploy llm applications in the real world on your data set you will need fine tuning let me give you some examples of this which are mentioned on open A's website also so open a actually mentions so many things on their blog posts and their website which not many people know about so let's say let's look at this company called SK Telecom and it wanted to build a chatbot to improve customer service interactions for Telecom related
+* want to build an application which is specific to a particular task or a particular domain if you are a general user if you are a student who just wants to let's say use chat GPT to get questions to uh get information about certain things then you can just use gp4 you will not need um fine tuning too much but if you are a big company let's say and if you are wanting to deploy llm applications in the real world on your data set you will need fine tuning let me give you some examples of this which are mentioned on open A's website also so open a actually mentions so many things on their blog posts and their website which not many people know about so let's say let's look at this company called SK Telecom and it wanted to build a chatbot to improve customer service interactions for Telecom related
 conversations in Korean now if it just used the gp4 it's not suited for this particular requirement right gp4 maybe is not trained on Telecom conversation in Korean so the training data did not involve this probably so what this SK Telecom will do is that it will finetune gp4 by using its own training data so that it gets a fine tune model which is specific for its purpose as you can see for SK Telecom this resulted in significant improve in per Improvement in performance 35% increase in conversation summarization quality and 33% increase in intent recognition accuracy that just one example uh the second example which you can see is the an example called Harvey so Harvey is basically an AI legal tool for attorneys so now imagine that if you have open a if you just use gp4 without fine tuning what if gp4 is not trained on legal cases what if the data is not
-14:25
-does not cover the legal cases which
-14:27
-happened in countries
-14:29
-so then that's not a good tool for
-14:31
-attorneys right attorneys ideally or
-14:34
-lawyers want an AI tool which is trained
-14:37
-on legal case
-14:39
-history so as you have seen here while
-14:42
-foundational models (also called pre-train models)
-14:44
-are also called foundational models
-14:47
-while foundational models were strong at
-14:49
-reasoning they lacked the extensive
-14:52
-knowledge of legal case history and
-14:55
-other knowledge required for legal work
-14:59
-so the training data set lack the
-15:01
-knowledge of legal case history and
-15:03
-that's why if you were to build such an
-15:05
-AI tool which can assist lawyers and
-15:08
-attorneys you have to include the
-15:11
-specific legal case history data and
-15:13
-that's why you will have to fine tune
-15:15
-the llm further remember one key
-15:18
-terminology which I used here the
-15:20
-pre-trained data or the pre-trained
-15:22
-model is also called as the foundational
-15:24
-model and the fine tuning happens after
-15:27
-that
-15:29
-so here's Harvey basically harvey. you
-15:32
-can go to this link right now so this is
-15:33
-a trusted legal AI platform and if you
-15:37
-are thinking how different is it from
-15:39
-gp4 now you have your answer this is a
-15:41
-fine-tuned model which is specifically
-15:45
-fine tuned on data sets which include
-15:47
-legal case
-15:49
-history and as you can see Harvey works
-15:52
-with the world's best legal teams it it
-15:54
-works really well here is another
-15:56
-article which says JP Morgan Chase UNS
-16:00
-AI powered llm Suite may replace
-16:03
-research analysis now you might be
-16:05
-thinking if gp4 is already there why did
-16:07
-JP Morgan unve its own AI power llm and
-16:11
-the reason is because it's fine-tuned
-16:13
-with their own data it's fine tuned for
-16:17
-their employees specifically maybe the
-16:20
-JP Morgans data is not available
-16:22
-publicly to anyone so only they have the
-16:24
-data and they have trained the llm which
-16:26
-is fine tuned so that the answers are
-16:28
-specific for their
-16:32
-company okay so this is so I showed you
-16:35
-examples in the tele communication
-16:38
-sector which is this SK Telecom I showed
-16:41
-you examples in the legal sector which
-16:43
-is the example of Harvey and then I also
-16:47
-showed you examples in the economics or
-16:49
-banking sector essentially you will see
-16:51
-that when you go to a production level
-16:53
-or when you think of startups or
-16:55
-Industries you will definitely need fine
-16:57
-tuning uh directly using gp4 is good for
-17:01
-students because it satisfies their
-17:03
-purposes but fine tuning is needed as
-17:05
-you build more advanced
-17:07
-applications so these are the two stages
-17:10
-of building an llm the first stage is
-17:13
-pre-training as I mentioned and the
-17:15
-second stage is fine tuning I hope you
-17:17
-have understood up till this point if
-17:19
-something is unclear please put it in
-17:21
-the comment section of this particular
-17:23
-video now just so that this explain this
-17:27
-concept is explained to you in a better
-17:29
-manner I have created this pre-training
-17:31
-plus fine tuning schematic so that you
-17:34
-can go through this schematic step by
-17:36
-step to get a visual
-17:38
-representation so let's start with the
-17:40
-first block the first block is the data
-17:43
-on which the models are trained on
-17:46
-whether you do pre-training and later
-17:48
-whether you do F tuning you cannot get
-17:50
-anywhere without data so the data is
-17:53
-either internet text books media
-17:55
-research
-17:56
-articles um we saw this data over here
-17:59
-right you need huge amount of data and
-18:02
-you need to train the large language
-18:06
-model on this data set this data set can
-18:09
-include billions or even trillions of
-18:11
-words now one more point which I want to
-18:14
-raise here is the computational cost for
-18:17
-training the llm right so you're
-18:19
-training this llm on a huge amount of
-18:21
-data which is also the second step of
-18:23
-this schematic now to train this you
-18:25
-need computational power you need
-18:27
-computational units and it's not
-18:30
-possible for normal students or even for
-18:32
-normal people who don't have access to
-18:34
-powerful gpus to do this just to give
-18:37
-you a sense of the cost the total
-18:39
-pre-training cost for gpt3 is $4.6
-18:44
-million this is a huge amount $4.6
-18:47
-million think about it for pre-training
-18:51
-of gpt3 it cost this
-18:53
-much so the first two steps in this
-18:56
-schematic which is collecting this huge
-18:58
-amount of data and then training the llm
-19:01
-requires a lot of computational power
-19:03
-requires a lot of computational energy
-19:05
-and of course a lot of
-19:07
-money so when you train a pre-trained
-19:10
-llm like this it's also called as
-19:11
-foundational model and it is this also
-19:14
-is awesome it has huge amount of
-19:16
-capabilities like I'm interacting with
-19:18
-gp4 right now it's a foundational model
-19:20
-it's a pre-trend model it still has huge
-19:23
-amount of
-19:25
-capabilities and then the third step in
-19:27
-this is find tuning and fine tuning is
-19:31
-also so the third step as I mentioned is
-19:33
-fine tuned llm and after fine tuning you
-19:36
-can get specific applications like you
-19:38
-can build your own personal assistant
-19:40
-you can build a lang translation bot you
-19:42
-can build a summarization assistant you
-19:44
-can build your own classification bot so
-19:47
-if you are a company or an industry or a
-19:49
-startup who is looking for these
-19:51
-specific applications using your own
-19:53
-data you will fine tune the pre-trend
-19:56
-llm on the label data set
-19:59
-that's the three steps so the first step
-20:02
+
+* does not cover the legal cases which happened in countries so then that's not a good tool for attorneys right attorneys ideally or lawyers want an AI tool which is trained on legal case history so as you have seen here while foundational models (also called pre-train models) are also called foundational models while foundational models were strong at reasoning they lacked the extensive knowledge of legal case history and other knowledge required for legal work so the training data set lack the knowledge of legal case history and that's why if you were to build such an AI tool which can assist lawyers and attorneys you have to include the specific legal case history data and that's why you will have to fine tune the llm further remember one key terminology which I used here the pre-trained data or the pre-trained model is also called as the foundational model and the fine tuning happens after that so here's Harvey basically harvey. you can go to this link right now so this is a trusted legal AI platform and if you are thinking how different is it from gp4 now you have your answer this is a fine-tuned model which is specifically
+
+* fine tuned on data sets which include legal case history and as you can see Harvey works with the world's best legal teams it it  works really well here is another article which says JP Morgan Chase UNS AI powered llm Suite may replace research analysis now you might be thinking if gp4 is already there why did JP Morgan unve its own AI power llm and the reason is because it's fine-tuned with their own data it's fine tuned for their employees specifically maybe the JP Morgans data is not available publicly to anyone so only they have the data and they have trained the llm which is fine tuned so that the answers are specific for their company okay so this is so I showed you examples in the tele communication sector which is this SK Telecom I showed you examples in the legal sector which is the example of Harvey and then I also showed you examples in the economics or banking sector essentially you will see that when you go to a production level or when you think of startups or Industries you will definitely need fine tuning uh directly using gp4 is good for students because it satisfies their purposes but fine tuning is needed as you build more advanced applications so these are the two stages of building an llm the first stage is pre-training as I mentioned and the second stage is fine tuning I hope you have understood up till this point if something is unclear please put it in the comment section of this particular video now just so that this explain this concept is explained to you in a better manner I have created this pre-training plus fine tuning schematic so that you can go through this schematic step by step to get a visual representation so let's start with the first block the first block is the data on which the models are trained on whether you do pre-training and later whether you do F tuning you cannot get anywhere without data so the data is either internet text books media research articles um we saw this data over here right you need huge amount of data and you need to train the large language model on this data set this data set can include billions or even trillions of words now one more point which I want to raise here is the computational cost for training the llm right so you're training this llm on a huge amount of data which is also the second step of this schematic now to train this you need computational power you need computational units and it's not possible for normal students or even for normal people who don't have access to powerful gpus to do this just to give you a sense of the cost the total pre-training cost for gpt3 is $4.6 million this is a huge amount $4.6 million think about it for pre-training of gpt3 it cost this much so the first two steps in this schematic which is collecting this huge amount of data and then training the llm requires a lot of computational power requires a lot of computational energy and of course a lot of money so when you train a pre-trained llm like this it's also called as foundational model and it is this also is awesome it has huge amount of capabilities like I'm interacting with gp4 right now it's a foundational model it's a pre-trend model it still has huge amount of capabilities and then the third step in this is find tuning and fine tuning is also so the third step as I mentioned is fine tuned llm and after fine tuning you can get specific applications like you can build your own personal assistant you can build a lang translation bot you can build a summarization assistant you can build your own classification bot so if you are a company or an industry or a startup who is looking for these specific applications using your own data you will fine tune the pre-trend llm on the label data set that's the three steps so the first step
 
 ***
 
@@ -703,6 +436,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
