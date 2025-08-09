@@ -1,30 +1,17 @@
 ## Building LLMs from Scratch
 
-* End goal is learning the nuts-and-bolts of building a LLM. In this series, we are not just going to look at applications. We are going to understand how things really work from a very fundamental level.
+## Six major aspects 
+1. What exactly is a LLM?
+2. What does __Large__ mean in the LLM terminology?
+3. What is difference between modern LLMs and earlier NLP models?
+4. What's the secret-sauce behind LLMs? What's really makes them so good?
+5. LLM, GenAI, DL, ML, AI
+6. Applications of LLMS?
 
-### cover six major aspects 
-* __first__ we are going to learn about what exactly is a LLM?
-* __secondly__ we are going to learn about what does __Large__ mean in the LLM terminology
-* __third__ we are going to see what the difference between modern LLMs and earlier NLP models
-* __fourth__ we are going to see see what's the secret Source behind LLMs what really makes them so good
-* __fifth__ we are going to see the difference between these terminologies which you might have heard LLM GenAI, DL, ML, AI it's getting so confusing right the number of terminologies just keep increasing day by day how do we know which terminology means what and then in the
-* __last section__ I'm going to discuss about the applications of LLMS and what all cool stuff we can build with llms so with this we'll get started with the part one or section one of today's
-
-### What are Large Language Models (LLMs)
-2:10
-lecture which is explaining what is a LLM in the first place
-2:15
-now unless you have been living under a rock it might you would have definitely
-2:21
-heard of llms open AI generative AI so you might have heard about the term
-2:26
-large language model but you might not be kn knowing what it exactly is you might have even used chat GPT without
-2:33
-knowing what an llm is at its simplest form an llm is just a neural network
-2:40
-which is designed to understand generate and respond to humanik
-2:48
-text there are two key things here an llm is a neural network which is designed to understand generate and
+#### What are Large Language Models (LLMs)
+* [ChatGPT](https://chatgpt.com/)
+* LLM is just a neural network (NN), which is designed to __understand, generate and respond to human like
+text.__ there are two key things here an llm is a neural network which is designed to understand generate and
 2:54
 respond to human like text let me explain the two parts separately first new neural network so I'm assuming
 3:02
@@ -479,6 +466,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
