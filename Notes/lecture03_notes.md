@@ -436,12 +436,3 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
-
-
-
-
-
-
-
-
-
