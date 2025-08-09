@@ -40,6 +40,8 @@
 | [How might LLMs store facts -- Deep Learning Chapter 7](https://www.youtube.com/watch?v=9-Jl0dxWQs8) ||
 
 ***
+
+* [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)
 * [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)
 * [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)
 * [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)
