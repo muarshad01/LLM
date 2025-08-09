@@ -24,91 +24,15 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 * That's the reason that's the first-part of the terminology __Large__.
 * Why why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
  
-
 #### 3. LLMs versus earlier NLP Models
 * NLP models were designed for very specific tasks. For example, there is one particular NLP model, which might be designed for __language translation__. There might be one specific NLP model, which might be for __sentiment analysis__. 
 * LLMs on the other hand can do a wide range of NLP tasks.
 
-
 #### 4. What's the Secret-Sauce behind LLMs? What's really makes them so good?
+* For LLMs, the Secret Sauce is __Transformer__ architecture.
+* [Paper: Attention is all you need](https://arxiv.org/abs/1706.03762)
 
-number four is what you all must be thinking about that llms are so good they can do these amazing tasks they can
-14:19
-almost behave like humans right but what makes llm so good what is the secret
-LLM Secret Sauce
-14:25
-sauce typically there has to be a secret sauce right which makes llm so much
-14:30
-better than NLP what's that magic bullet here and usually people say that there
-14:36
-is no secret sauce to things things just gradually improve over a period of time but in this case there is a specific
-14:43
-secret sauce and that is the Transformer architecture so you see here I've added
-14:50
-the logo of secret sauce and for llms the secret sauce is Transformer
-14:56
-architecture don't worry if you know what it what what it means what is transformer for all you know you might
-15:02
-be thinking of the Transformers movie in which there are these cars which get converted into mechanical robots so you
-15:09
-that might be your first thought when you hear about Transformers right of course people who know about this know
-15:14
-exactly what I'm talking about here but for people who don't know uh this this is the only Transformer if this is the
-15:21
-only Transformer you know this playlist is perfect for you because you will
-15:27
-understand what what does Transformer mean and what it actually means is it summarized by this one schematic over
-15:33
-here this is what a Transformer architecture looks like and you might be
-15:39
-confused by all of these terminologies what is input embedding what's multi- attention head or what speed forward
-15:45
-here what does ADD and nor mean here what's output embedding there are so many things which look confusing and
-15:51
-it's fine but we are going to learn about this Secret Sauce in a lot of detail in this playlist there is one
-15:59
-paper which was introduced in 2017 which really changed the game that paper is
-16:04
-what I'm showing you on the screen right now it's called attention is all you need it was published by eight authors
-16:12
-from Google brain and uh this introduced the architecture of Transformers so the
-16:18
-schematic which I showed you on the Whiteboard is this schematic which they had in the paper can you guess how many
-16:24
-citations this paper has today it has more than 100,000 citations
-16:30
-in just a matter of 5 years so people say that research is boring and research does not have any external reward in
-16:37
-this case it does if you are one of the few authors on this paper you have 100,000 citations in 5 years and you
-16:44
-completely revolutionize the field of artificial intelligence so this is that paper and
-16:49
-it's a 15-page paper but if you try to read it it's very dense to understand
-16:55
-this paper really takes a lot of time and it really takes a lot of effort there are some YouTube videos to explain
-17:01
-this but I don't think any of them do justice to really explaining everything
-17:06
-from scratch every single page of this paper can be three to four videos so if
-17:12
-you think about it these 15 pages contain huge amount of information and
-17:17
-we'll be devoting lectures to different sections here such as positional encoding what is this dot product
-17:23
-attention what is this attention formula what is key query value what is multi-head ention we'll be figuring all
-17:30
-of that out so don't worry at this stage if you don't know what a Transformer means even if you have just this image
-17:37
-in Mind of a transformer it's awesome you have come to the perfect
-17:42
-place okay so as I said do not worry we will learn all about this Secret Sauce
-17:49
-which is the Transformers in the subsequent lectures that covers the 
-
-fourth point of today's lecture and now
-
-
-### LLM vs GenAI vs DL vs ML vs AI
+#### 5. LLM, GenAI, DL, ML, AI
 1. AI 
 2. ML 
 3. DL
@@ -265,6 +189,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
