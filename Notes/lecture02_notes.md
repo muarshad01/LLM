@@ -25,54 +25,13 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 * Why why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
  
 
-### 3. LLMs versus earlier NLP Models
-11:50
-become so popular didn't we have the field of natural language processing before also and that's true natural
-11:56
-language processing as a field has been existing much before llms uh NLP models have been existing
-12:03
-much before llms but LLP models if you look at the models which came before
-12:10
-llms they were designed for very specific tasks so for example there is
-12:16
-one particular NLP model which might be designed for language translation there
-12:21
-might be one specific NLP model which might be for sentiment analysis let's
-12:26
-say llms on the other hand can do a wide range of NLP tasks so it turns out that
-12:33
-if you train a GPT for text completion that same architecture works well for
-12:38
-language translation also and it's pretty generic that way that's one
-12:43
-difference between llms and earlier NLP models earlier NLP models were designed for specific tasks modern llms can do a
-12:51
-wide range of NLP tasks the second difference is based on an application so
-12:57
-earlier llm models could not um earlier llm models or earlier
-13:03
-language models I should say could not write an email from Custom instructions it was very difficult for them to do
-13:09
-that now if you think of modern llm such as chat GPT and this task is almost
-13:15
-trivial for chat GPT so if I go to chat GPT right now and I
-13:20
-say draft an email for me to send to a colleague or to send to
-13:28
-a friend of mine to book movie tickets let's
-13:33
-say and I'll just zoom in here and see chat GPT not only starts drafting the
-13:39
-email but it also has inserted emojis and everything here it's a trivial task for chat GPT but you might be surprised
-13:46
-to know that this trivial task was very hard to do for earlier NLP models and
-13:53
-that's the big difference between L llm versus earlier NLP models they are broad
-13:58
-they can do a wide range of generic tasks and second is their applications are endless much more than the earlier
-14:04
-models and that's why we are even having this playlist in the first place so that's Point number three point
-14:12
+#### 3. LLMs versus earlier NLP Models
+* NLP models were designed for very specific tasks. For example, there is one particular NLP model, which might be designed for __language translation__. There might be one specific NLP model, which might be for __sentiment analysis__. 
+* LLMs on the other hand can do a wide range of NLP tasks.
+
+
+#### 4. What's the Secret-Sauce behind LLMs? What's really makes them so good?
+
 number four is what you all must be thinking about that llms are so good they can do these amazing tasks they can
 14:19
 almost behave like humans right but what makes llm so good what is the secret
@@ -306,6 +265,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
