@@ -50,6 +50,11 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 4. __Novel Text Generation__: writing books, writing media articles, news articles, etc.
 5. __Sentiment analysis__: you can give a big bunch of paragraph and ask the llm to identify whether what's the sentiment here this might be useful for hate speech detection.
 
+***
 
-limit for research applications for industrial applications but what we think is that students who will really contribute and make an impact are the ones who know the details of how to write the Transformer code how key query value Works what exactly is positional encoding until you understand these
-Concepts it becomes difficult your knowledge will be superficial and that's the whole purpose of this playlist please comment in the YouTube uh comment section if you liked the style of this uh content description if you like the this whiteboard approach I'm basically trying to write everything here and uh give a visual flavor and visual intuition for how things are working in subsequent sections we'll definitely dive a bit deeper into coding the next lesson as I mentioned here is stages of building llms we'll hav couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding make sure you make notes and ask questions in the comments
+#### In Future Lectures...
+* How to write the Transformer code?
+* How key-query-value works?
+* What exactly is positional encoding.
+
+***
