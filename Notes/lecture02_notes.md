@@ -41,8 +41,8 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 * __AI__ is the broadest umbrella. Any machine, which is remotely behaving like humans or it has some sort of intelligence, comes under the bucket of AI.
 * What's the difference between AI and ML?
   * Example, __rule-based ChatBot__, is an example of AI because it covers intelligence. Rule-based intelligence it's not learning-based on your responses.
-* __ML__ involves these kind of neural network (NN) architectures plus it involves things, which are not neural networks, like decision trees.
-* __DL__ usually only involves neural networks (NN), but machine learning involves neural networks (NN) plus other fields and one such field is __Decision Trees (DTs)__.
+* __ML__ involves neural networks (NN) plus it involves things, which are not neural networks, like __Decision Trees (DTs)__.
+* __DL__ usually ONLY involves neural networks (NN).
   * Example, __predict handwritten-digit classification__. If you train a neural network (NN). I've given this neural network (NN) a bunch-of-digits to learn and the task of this neural network (NN) is whenever I give it a new digit it should identify what digit is it now?
 *  __LLMs__ falls under DL llms why because deep learning and they only deal with text.
 *  __GenAI__ you can think of as a mixture of LLM plus deep learning, why because GenAI also deals with other modalities like image, sound, video, etc.
@@ -196,5 +196,6 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
