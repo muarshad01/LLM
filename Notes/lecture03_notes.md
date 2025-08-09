@@ -1,77 +1,4 @@
-Introduction and quick recap
-0:01
-[Music]
-0:06
-hello everyone welcome to the third
-0:09
-lecture in the building large language
-0:11
-models llms from scratch Series today we
-0:16
-are going to cover the topic which is
-0:19
-titled stages of building large language
-0:22
-models in this lecture I'm going to call
-0:25
-large language models as llms henceforth
-0:28
-so whenever I use the term l m you can
-0:31
-think of the terminology as large
-0:33
-language models so let's get started
-0:35
-with today's lecture in the previous
-0:38
-lectures we have covered a couple of
-0:40
-important things in the last lecture we
-0:42
-looked at the basics of large language
-0:45
-models where the terminology llm is
-0:48
-actually derived from then llm sources
-0:52
-earlier NLP
-0:53
-models we also saw that what's the
-0:56
-secret Source behind large language
-0:58
-models what really makes llm so good
-1:02
-then we looked at the difference between
-1:05
-terminologies what is llm what is Gen AI
-1:08
-deep learning machine learning
-1:10
-artificial intelligence what are the
-1:12
-similarities and differences between all
-1:14
-of these
-1:16
-terms and then finally we also took a
-1:19
-look at some applications of large
-1:21
-language
-1:22
-models if you have not gone through the
-1:24
-previous lecture I would highly
-1:25
-encourage you to quickly go through that
-1:27
-lecture before watching the current one
-1:30
-since the flow of the lectures has been
-1:33
-organized in a very specific manner if
-1:36
+
 you are watching this lecture as the
 1:38
 first one in this series welcome to this
@@ -464,6 +391,9 @@ you can get all of your work done just
 10:16
 on gp4 right which is probably only
 10:19
+
+***
+
 pre-trained so why why is the second
 10:22
 stage which is fine tuning why is that
@@ -1328,5 +1258,6 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
