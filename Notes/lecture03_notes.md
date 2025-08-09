@@ -1,113 +1,17 @@
-stages of building
-Pretraining
-1:44
-llms there are basically two stages
-1:47
-which we are going to look at creating
-1:49
-an llm involves the 
-first stage which is called as pre-training and second stage which is called as fine-tuning.
+### Stages of building
+1. Pre-training
+2. Fine-tuning
 
-What exactly is pre-training
-What exactly is finetuning
+* What exactly is pre-training: Pre-training just means training on a large and diverse dataset
+* What exactly is finetuning
 
-pre-training just means training on a large and diverse data set
-2:24
+* Token: you can think of one token as equal to one word there is a bit of detailing
+here but that's not the scope of today's lecture 
 
+* Task: word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---" so this next word is not known and chat GPT then predicts or llms then predict this word as let's say "forest"
 
-
-
-they are trained
-3:11
-on a huge and diverse set of
-3:14
-data.
-
-
-
-you can think of one token as equal to
-3:51
-one word there is a bit of detailing
-3:54
-here but that's not the scope of today's
-3:57
-lecture 
-
-so for the purposes of this
-3:59
-lecture just think of one token to be
-4:00
-equal to one word
-
-
-
-
-
-
-
-task
-5:59
-which is called called as word
-6:00
-completion which means you are given a
-6:04
-set of words let's say you are given uh
-6:07
-this
-6:09
-sentence the
-6:11
-[Music]
-6:14
-lion is in
-6:18
-the dash so this next word is not known
-6:23
-and chat GPT then predicts or llms then
-6:27
-predict this word as let's say forest
-
-if you train the llm for this
-6:41
-simple task it turns out that it can do
-6:44
-a wide range of other tasks as well so
- the underlying language model to
-7:13
-begin to perform tasks without even
-7:16
-training on
-7:18
-
-them for example Performance on tasks
-7:21
-like picking the right answer to a
-7:23
-multiple choice question steadily
-7:25
-increases as the underlying language
-7:27
-model improves this means that even
-7:30
-though you just train the llm for
-7:32
-predicting the next word 
-
-like how how I
-7:35
-mentioned to you before it turned out
-7:37
-that the llm can also do variety of
-7:39
-other things such as translation such as
-7:42
-answering multiple choice question such
-7:44
-as summarizing a text then sentiment
-7:47
-detection
-7:48
-Etc 
+if you train the llm for this simple task it turns out that it can do a wide range of other tasks as well so the underlying language model to begin to perform tasks without even training on them. for example Performance on tasks like picking the right answer to a multiple choice question steadily increases as the underlying language model improves this means that even though you just train the llm for predicting the next word like how how I mentioned to you before it turned out that the llm can also do variety of other things such as translation such as answering multiple choice question such
+as summarizing a text then sentiment detection, etc. 
 
 ***
 
@@ -975,6 +879,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
