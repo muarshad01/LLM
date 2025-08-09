@@ -1,84 +1,29 @@
-
-you are watching this lecture as the
-1:38
-first one in this series welcome to this
-1:40
-series so now in the stages of building
+stages of building
 Pretraining
 1:44
 llms there are basically two stages
 1:47
 which we are going to look at creating
 1:49
-an llm involves the first stage which is
-1:52
-called as
-1:53
-pre-training and second stage which is
-1:56
-called as fine
-1:57
-tuning in this series we are going to
-1:59
-build our own llm from scratch right so
-2:02
-we are going to be looking at both of
-2:04
-these stages for this you need to First
-2:07
-understand what exactly is pre-training
-2:09
-and you also have to understand what
-2:12
-exactly is finetuning so let us
-2:14
-initially look at pre-training first
-2:17
-basically pre-training just means
-2:20
-training on a large and diverse data set
+an llm involves the 
+first stage which is called as pre-training and second stage which is called as fine-tuning.
+
+What exactly is pre-training
+What exactly is finetuning
+
+pre-training just means training on a large and diverse data set
 2:24
-what does this mean so we have all
-2:26
-interacted with chat GPT right let me
-2:28
-show you an interaction right now
-2:31
-uh let me open my chat GPT prompt and
-2:35
-let me interact with
-2:36
-it okay so let me
-2:39
-ask uh here itself quiz me on ancient
-2:42
-civilizations can you test my knowledge
-2:44
-on ancient civilizations right I'm
-2:46
-interacting with this large language
-2:48
-model here now
-2:50
-pre-training basically answers the
-2:53
-question how can this llm interact so
-2:55
-effectively with me how is it able to
-2:58
-answer all of my questions how is it
-3:00
-able to understand what I'm speaking as
-3:03
-a human and how is it able to respond so
-3:05
-accurately and so correctly and the way
-3:08
-llms do that is because they are trained
+
+
+
+
+they are trained
 3:11
 on a huge and diverse set of
 3:14
-data so gpt3 which was the precursor or
+data.
+
+so gpt3 which was the precursor or
 3:18
 which came before gp4 which is right now
 3:20
@@ -1258,6 +1203,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
