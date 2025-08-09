@@ -10,123 +10,20 @@
 
 #### What are Large Language Models (LLMs)
 * [ChatGPT](https://chatgpt.com/)
-* LLM is just a neural network (NN), which is designed to __understand, generate and respond to human like
+* LLM is just a neural network (NN), which is designed to __Understand, Generate and Respond to human-like
 text.__
 
 * LLMs are essentially just neural networks (NN), which are designed for very generic type of text related applications such as understanding generating and responding to human like text. 
 
-
-
-
-
 * ChatGPT the demonstration, which I just showed you is an LLM but what many people don't know about or they don't think about llms is that at the core of llm they are just neural networks, which are designed to do these
-tasks. So, if anyone asks you what an llm is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding generating and respond to human like text, and in many cases they also respond like humans. this
-6:24
-is getting better and better as I making this lecture and llms are in fact
-6:29
-sounding more and more like humans and that has led to huge problems maybe we'll create a separate lecture series
-6:36
-on that so that's the first section which we dealt with today which is what is a
-6:42
-large language model great the second question you might be thinking is why is
+tasks. So, if anyone asks you what an llm is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
 
-### Why “Large” Language Models?
-6:48
-it called a large language model why not just a language model after all it just
-6:53
-a model dealing with language right why do we specifically have this one more large term here and the reason is
-7:01
-because until llms came into the picture model sizes were not very big and when I
-7:06
-mean model size I mean the number of parameters in the model but llms if you
-7:12
-if you know about the number of parameters which they deal with you will be shocked llms typically have billions
-7:19
-of parameters billion one billion it's a huge number of parameters and now there
-7:25
-are even some L llms which are trillions of parameters we can't even think of
-7:30
-those numbers but it's huge number of parameters so let me show you a visual
-7:35
-here so this is a table which shows the number of parameters in GPT as you know G we are at GPT 4 right now so gpt3
-7:44
-which was the earlier version of GPT you can see gpt3 small had 125 million
-7:49
-parameters GP gpt3 medium had 350 million gpt3 large at 760 million and if
-7:57
-you see GPT 313b had 13 billion gpt3 175b had 175 billion
-8:04
-parameters so usually the second term here is the number of parameters in the model so here it's 175b which is 175
-8:12
-billion parameters and GPT 4 has even more number of parameters that's why
-8:18
-they are called large language models so here is another graph which shows the
-8:23
-comparison between gpt1 gpt2 and gpt3 so as you go from GPT 1 to 2 to 3 the llms
-8:31
-also become better and better and better but their number of parameters also increase tremendously if you see from
-8:38
-gpt1 to gpt2 there is a factor of 100 so the parameters increase from 100 million
-8:44
-to almost 1 billion so actually there is a factor of 10 here but from gpt2 to gpt3 there is a factor of 100 so gpt2
-8:53
-had only 1.5 billion parameters but gpt3 had 175 billion parameters
-9:00
-you see there are some other terminologies also like gpt1 had 12 decoders gpt2 had 48 and gpt3 had 96 if
-9:08
-you don't know what this means it's totally fine we are going to cover that in this series token size take a look at
-9:14
-token size gpt1 has a token size of 512 gpt2 has 1024 gpt3 has
-9:22
-2048 it's fine if you don't know what it means just you can see everything is generally
-9:28
-increasing now here is a graph which shows the model size in artificial
-9:33
-intelligence type of models over the period of years so this graph is plotted from 1950 to 2022 and it was published
-9:41
-in nature so it is a reliable graph on the y- axis there are number of
-9:46
-parameters so if you see in 1950 number of parameters was around just 10 to 100
-9:53
-uh in a log scale so this Y axis is in log scale so 1950 to 1960 models barely
-9:59
-had ,000 10,000 parameters then in 1980 to 2000 model started having around
-10:05
-100,000 parameters but it's only in 2020 that we have reached 100 million 1
-10:10
-billion and even almost close to 1 trillion number of parameters now and you can see the uh orange symbol here so
-10:19
-mostly these parameters are for llms which is for language tasks I'm just zooming in here to show you that the
-10:25
-orange symbols here have the largest number of parameters
-10:30
-I hope this has convinced you why these models are called large number of models we are living in an age where the number
-10:37
-of parameters are unprecedented they are huge number that's why it's called as
-10:42
-large language models I'm sure by the time this video is released and maybe
-10:48
-one year after that you would have reached the parameter size of 1 trillion now the reason that's the first
-10:56
-part of the terminology large then why why are they called language models and that's pretty clear if you remember the
-11:03
-example which I showed you over here these models only deal with language they do not deal with other modalities
-11:09
-like image or video let's say they only deal with language llms only deal with
-11:14
-language so these models do a wide range of natural language processing tasks so
-11:20
-anything related to language such as question answering translation sentiment
-11:25
-analysis and so many more tasks which all of you definitely might have explored with chat
-11:30
-GPT that's why they are called language models because they generally do a wide range of tasks related to
-11:37
-language so this is the meaning behind the terminology large and language
-11:42
-models that covers the second aspect of today's lecture and now we come to the 
-
-third aspect which is why have llms
+#### What does __Large__ mean in the LLM terminology?
+* By model size, I mean the number-of-parameters in the model.
+* LLM typically have __Billions of Parameters__.
+* That's the reason that's the first-part of the terminology __Large__.
+* Why why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
+ 
 
 ### LLMs vs Earlier NLP Models
 11:50
@@ -409,6 +306,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
