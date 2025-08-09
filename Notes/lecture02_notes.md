@@ -8,7 +8,7 @@
 5. LLM, GenAI, DL, ML, AI
 6. Applications of LLMS?
 
-#### What are Large Language Models (LLMs)
+#### 1. What are Large Language Models (LLMs)
 * [ChatGPT](https://chatgpt.com/)
 * LLM is just a neural network (NN), which is designed to __Understand, Generate and Respond to human-like
 text.__
@@ -18,14 +18,14 @@ text.__
 * ChatGPT the demonstration, which I just showed you is an LLM but what many people don't know about or they don't think about llms is that at the core of llm they are just neural networks, which are designed to do these
 tasks. So, if anyone asks you what an llm is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
 
-#### What does __Large__ mean in the LLM terminology?
+#### 2. What does __Large__ mean in the LLM terminology?
 * By model size, I mean the number-of-parameters in the model.
 * LLM typically have __Billions of Parameters__.
 * That's the reason that's the first-part of the terminology __Large__.
 * Why why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
  
 
-### LLMs vs Earlier NLP Models
+### 3. LLMs versus earlier NLP Models
 11:50
 become so popular didn't we have the field of natural language processing before also and that's true natural
 11:56
@@ -306,6 +306,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
