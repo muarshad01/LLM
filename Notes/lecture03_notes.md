@@ -23,119 +23,29 @@ on a huge and diverse set of
 3:14
 data.
 
-so gpt3 which was the precursor or
-3:18
-which came before gp4 which is right now
-3:20
-the latest llm by open AI gpt3 had 175
-3:25
-billion parameters and it was trained on
-3:28
-a huge amount or huge Corpus of data so
-3:32
-let me just show you that data this is
-3:34
-the original paper on gpt3 which I'm
-3:36
-showing on the screen right now I'm sure
-3:38
-it has a huge number of citations but I
-3:40
-just want to show you the places from
-3:43
-where they got their data so look at the
-3:46
-amount of data which was used for now
-3:48
+
+
 you can think of one token as equal to
 3:51
 one word there is a bit of detailing
 3:54
 here but that's not the scope of today's
 3:57
-lecture so for the purposes of this
+lecture 
+
+so for the purposes of this
 3:59
 lecture just think of one token to be
 4:00
 equal to one word
-4:02
-approximately so when gpt3 was trained
-4:06
-they took 60% of data from common crawl
-4:09
-common crawl is basically let me show
-4:12
-you what common crawl is so if you type
-4:14
-common crawl on Google you'll be taken
-4:16
-through this which is basically a huge
-4:18
-and open repository of all the data on
-4:20
-the internet so they took 410 billion
-4:24
-words from this data set imagine this
-4:27
-let's say one word is uh let's say one
-4:30
-sentence is 10 words this means 41
-4:33
-billion sentences were taken from the
-4:35
-common craw 20 billion words or around 1
-4:39
-to two billion sentences were taken from
-4:41
-web text 2 so if you search web text 2
-4:45
-here you will see this is a corpus of a
-4:48
-huge amount of data which consists of uh
-4:52
-Reddit submissions let's say then blog
-4:55
-post stack Overflow articles codes all
-4:58
-of these data was in incorporated as the
-5:00
-data set not just that they also show
-5:03
-you the data which they got from books
-5:06
-so from a large number of books they got
-5:09
-around 12 billion plus 55 billion which
-5:11
-is 67 billion words from books and from
-5:17
-Wikipedia gpt3 got 3 billion words as
-5:20
-training data from Wikipedia so overall
-5:24
-gpt3 was trained on 300 billion tokens
-5:27
-or approximately 300 billion world
-5:30
-and you can think of it as when kids are
-5:33
-growing up their parents teach them
-5:34
-about stuff right and then they remember
-5:36
-that stuff the reason llms like what I
-5:40
-showed you here perform here right now
-5:43
-perform so well is because they're
-5:46
-trained on a huge amount of
-5:48
-data so initially when large language
-5:52
-models were actually trained on this
-5:54
-data uh they were trained for the task
+
+
+
+
+
+
+
+task
 5:59
 which is called called as word
 6:00
@@ -156,43 +66,19 @@ the dash so this next word is not known
 and chat GPT then predicts or llms then
 6:27
 predict this word as let's say forest
-6:29
-llms were trained on this type of a task
-6:32
-initially with such a huge amount of
-6:35
-data what really surprised people was
-6:37
-that even if you train the llm for this
+
+if you train the llm for this
 6:41
 simple task it turns out that it can do
 6:44
 a wide range of other tasks as well so
-6:47
-for example when openai released a paper
-6:51
-in
-6:53
-2018 related to pre-training which we
-6:55
-are which is what we are discussing
-6:57
-right now here is what they have written
-6:59
-WR so I'm showing you this blog post
-7:01
-from open Ai and they have written this
-7:04
-sentence please look at this sentence
-7:06
-carefully we also noticed that we can
-7:10
-use the underlying language model to
+ the underlying language model to
 7:13
 begin to perform tasks without even
 7:16
 training on
 7:18
+
 them for example Performance on tasks
 7:21
 like picking the right answer to a
@@ -205,7 +91,9 @@ model improves this means that even
 7:30
 though you just train the llm for
 7:32
-predicting the next word like how how I
+predicting the next word 
+
+like how how I
 7:35
 mentioned to you before it turned out
 7:37
@@ -219,123 +107,7 @@ as summarizing a text then sentiment
 7:47
 detection
 7:48
-Etc in fact it can do all of these
-7:51
-analysis sentiment analysis linguistic
-7:53
-acceptability question answering and we
-7:56
-did not specifically train the llm on
-7:58
-any of these tasks still just even if it
-8:02
-is trained for predicting the next word
-8:04
-it could do all of these tasks so well
-8:06
-and that's why llms have become so much
-8:09
-popular than natural language processing
-8:11
-because in NLP let's say you want to
-8:14
-make a language translator you need to
-8:16
-train it separately let's say you want
-8:18
-to make a quiz answer chatbot you need
-8:21
-to train it separately let's say you
-8:23
-want to make uh an AI which detects
-8:27
-emotion from the text you have to train
-8:29
-a separate NLP model but with
-8:32
-pre-training llms you get one model
-8:34
-which can do all of these tasks on its
-8:36
-own without ever being trained for these
-8:38
-tasks so when I'm interacting with GPT
-8:41
-right now and when let's say I'm
-8:42
-answering asking the question uh
-8:45
-generate four mcqs for
-8:49
-me in the topic of Egyptian
-8:56
-civilization it will generate those mcqs
-8:58
-for me right and it was specifically not
-9:02
-really trained for generating these
-9:03
-questions but the pre-training was so
-9:06
-good and it was done for such a huge
-9:08
-amount of data that it is good enough to
-9:11
-perform other tasks as well for example
-9:15
-here's a app or dashboard which we
-9:17
-ourselves have created at our company if
-9:19
-you want to generate let's say McQ
-9:22
-questions and you can give C certain
-9:24
-things like I want one hard question one
-9:26
-medium question one easy question and
-9:29
-the total number of questions I want is
-9:31
-three and the grade level is five and
-9:33
-the topic I want let's say is
-9:35
-photosynthesis maybe I can put grade
-9:37
-level to 7th and then I click on
-9:41
-generate you'll see that this is an llm
-9:44
-which generates this McQ question which
-9:45
-is one hard one medium and one easy so
-9:49
-we are making an API call to gp4 for
-9:52
-this which was not specifically trained
-9:53
-for this McQ generation but it does a
-9:56
-wonderful job of this so that's
-9:58
-essentially what pre-training is
-10:00
-pre-training means training an llm on a
-10:03
-huge amount of data so that it can do a
-10:06
-wide range of tasks that's it so then
-Finetuning
-10:09
-you must be thinking that what's this
-10:11
-second thing called fine tuning because
-10:14
-you can get all of your work done just
-10:16
-on gp4 right which is probably only
-10:19
+Etc 
 
 ***
 
@@ -1203,6 +975,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
