@@ -29,4 +29,6 @@
 ***
 
 * Attention in transformers, step-by-step | Deep Learning Chapter 6
+* How might LLMs store facts | Deep Learning Chapter 7
+
 
