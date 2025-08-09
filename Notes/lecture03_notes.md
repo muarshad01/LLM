@@ -15,193 +15,14 @@ as summarizing a text then sentiment detection, etc.
 
 ***
 
-pre-trained so why why is the second
-10:22
-stage which is fine tuning why is that
-10:24
-really needed the reason fine tuning is
-10:27
-important is because let's say you are
-10:31
-uh you are a manager of an airline
-10:32
-company or you are the CEO of an airline
-10:36
-company and you want to develop a
-10:39
-chatbot so that users can interact with
-10:42
-the chatbot and the chatbot responds
-10:45
-let's a user can ask some question like
-10:47
-hey what's the price for the Lanza
-10:49
-Airline which leaves at 600 p.m. now the
-10:54
-response which you want is very specific
-10:56
-to your company the resp response which
-10:59
-you want is not generic response which
-11:03
-is collected from all the places on the
-11:06
-internet so if you just use the
-11:08
-pre-trained model and if you use that
-11:11
-model to build the chatbot it it has
-11:13
-been trained on a huge amount of data
-11:15
-not just your company data Maybe the
-11:17
-pre-trend model does not even have
-11:18
-access to your company data so the
-11:21
-answer which will come is pretty generic
-11:23
-it will not be specific to your company
-11:26
-it will not be specific to your
-11:27
-application
-11:29
-secondly as I showed you before we can
-11:33
-use chat GPT to generate multiple choice
-11:36
-question but let's say if you are a very
-11:37
-big educational company and if you want
-11:40
-to develop really very high quality
-11:43
-questions maybe you should not just rely
-11:45
-on the pre-train model and you should
-11:47
-fine tune the model so that it's better
-11:50
-for your specific
-11:52
-application so the main purposes of of
-11:55
-fine tuning are it is basically a
-11:58
-refinement on the pre-training on a much
-12:01
-narrower data set so let's say you are a
-12:04
-bank JP Morgan and if you have collected
-12:06
-huge amount of data which is not
-12:08
-publicly available what you can do you
-12:10
-can take the pre-train model and then
-12:12
-you can give your own data set and then
-12:15
-train the model again on your data set
-12:17
-so that when it answers it
-12:20
-answers uh in such a way which is
-12:22
-specific to your
-12:24
-company so finetuning is needed if you
-12:27
-want to build an application which is
-12:28
-specific to a particular task or a
-12:30
-particular domain if you are a general
-12:33
-user if you are a student who just wants
-12:35
-to let's say use chat GPT to get
-12:37
-questions to uh get information about
-12:40
-certain things then you can just use gp4
-12:43
-you will not need um fine tuning too
-12:46
-much but if you are a big company let's
-12:47
-say and if you are wanting to deploy llm
-12:52
-applications in the real world on your
-12:54
-data set you will need fine tuning let
-12:57
-me give you some examples of this which
-12:58
-are mentioned on open A's website also
-13:01
-so open a actually mentions so many
-13:04
-things on their blog posts and their
-13:05
-website which not many people know about
-13:08
-so let's say let's look at this company
-13:10
-called SK Telecom and it wanted to build
-13:13
-a chatbot to improve customer service
-13:16
-interactions for Telecom related
-13:18
-conversations in Korean now if it just
-13:21
-used the gp4 it's not suited for this
-13:25
-particular requirement right gp4 maybe
-13:27
-is not trained on Telecom conversation
-13:31
-in Korean so the training data did not
-13:33
-involve this probably so what this SK
-13:36
-Telecom will do is that it will finetune
-13:38
-gp4 by using its own training data so
-13:41
-that it gets a fine tune model which is
-13:44
-specific for its purpose as you can see
-13:46
-for SK Telecom this resulted in
-13:48
-significant improve in per Improvement
-13:50
-in performance 35% increase in
-13:53
-conversation summarization quality and
-13:56
-33% increase in intent recognition
-13:59
-accuracy that just one
-14:01
-example uh the second example which you
-14:04
-can see is the an example called Harvey
-14:08
-so Harvey is basically an AI legal tool
-14:10
-for attorneys so now imagine that if you
-14:14
-have open a if you just use gp4 without
-14:18
-fine tuning what if gp4 is not trained
-14:21
-on legal cases what if the data is not
+pre-trained so why why is the second stage which is fine tuning why is that really needed the reason fine tuning is important is because let's say you are uh you are a manager of an airline company or you are the CEO of an airline company and you want to develop a chatbot so that users can interact with
+the chatbot and the chatbot responds let's a user can ask some question like hey what's the price for the Lanza Airline which leaves at 600 p.m. now the response which you want is very specific to your company the resp response which you want is not generic response which is collected from all the places on the internet so if you just use the pre-trained model and if you use that
+model to build the chatbot it it has been trained on a huge amount of data not just your company data Maybe the pre-trend model does not even have access to your company data so the answer which will come is pretty generic it will not be specific to your company it will not be specific to your application
+
+* secondly as I showed you before we can use chat GPT to generate multiple choice question but let's say if you are a very big educational company and if you want to develop really very high quality questions maybe you should not just rely on the pre-train model and you should fine tune the model so that it's better for your specific application so the main purposes of of fine tuning are it is basically a refinement on the pre-training on a much narrower data set so let's say you are a bank JP Morgan and if you have collected huge amount of data which is not publicly available what you can do you can take the pre-train model and then you can give your own data set and then train the model again on your data set so that when it answers it answers uh in such a way which is specific to your company so finetuning is needed if you
+
+want to build an application which is specific to a particular task or a particular domain if you are a general user if you are a student who just wants to let's say use chat GPT to get questions to uh get information about certain things then you can just use gp4 you will not need um fine tuning too much but if you are a big company let's say and if you are wanting to deploy llm applications in the real world on your data set you will need fine tuning let me give you some examples of this which are mentioned on open A's website also so open a actually mentions so many things on their blog posts and their website which not many people know about so let's say let's look at this company called SK Telecom and it wanted to build a chatbot to improve customer service interactions for Telecom related
+conversations in Korean now if it just used the gp4 it's not suited for this particular requirement right gp4 maybe is not trained on Telecom conversation in Korean so the training data did not involve this probably so what this SK Telecom will do is that it will finetune gp4 by using its own training data so that it gets a fine tune model which is specific for its purpose as you can see for SK Telecom this resulted in significant improve in per Improvement in performance 35% increase in conversation summarization quality and 33% increase in intent recognition accuracy that just one example uh the second example which you can see is the an example called Harvey so Harvey is basically an AI legal tool for attorneys so now imagine that if you have open a if you just use gp4 without fine tuning what if gp4 is not trained on legal cases what if the data is not
 14:25
 does not cover the legal cases which
 14:27
@@ -217,7 +38,7 @@ on legal case
 14:39
 history so as you have seen here while
 14:42
-foundational models so pre-train models
+foundational models (also called pre-train models)
 14:44
 are also called foundational models
 14:47
@@ -882,6 +703,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
