@@ -47,7 +47,7 @@ tasks. So, if anyone asks you what an llm is tell them that they are deep neural
 *  __LLMs__ falls under DL llms why because deep learning and they only deal with text.
 *  __GenAI__ you can think of as a mixture of LLM plus deep learning, why because GenAI also deals with other modalities like image, sound, video, etc.
 
-#### Applications of LLMs
+#### 6. Applications of LLMS?
 25:47
 come to the last part of this lecture which is applications of llms and as I speak the applications go on increasing
 25:54
@@ -196,6 +196,7 @@ definitely dive a bit deeper into coding the next lesson as I mentioned here is 
 couple of lectures about these Basics and then we'll be diving into coding so make sure you're understanding
 33:33
 make sure you make notes and ask questions in the comments
+
 
 
 
