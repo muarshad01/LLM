@@ -99,6 +99,9 @@ here they were mostly looking at English to French and English to German
 4:55
 translations and they proposed a mechanism which did huge amount of
 5:00
+
+***
+
 advancements on these tasks the Transformer mechanism they proposed led to Big advancement in these tasks later
 5:07
 it was discovered that using an architecture derived from this Transformer architecture we can do
@@ -779,3 +782,4 @@ nothing is left out and I show a lot of examples also in this process thanks a l
 40:29
 enjoying in this series I look forward to seeing you in the next lecture
 ***
+
