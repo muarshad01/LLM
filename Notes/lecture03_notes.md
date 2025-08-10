@@ -26,15 +26,13 @@
 ***
 
 #### Unlabeled versus labeled data
-* For pre-training,  we usually don't label the dataset. It's an unsupervised learning task and it's also called Autoregression (AR), because if you are considering a sentence and predicting the next word, the part of the sentence is used for training and the next word is used for forecasting or testing and then for the next set of training the earlier forecasted word is used as training.
-* Pre-training is done on unlabeled text data whereas fine-tuning is mostly done on labelled text data. 
+* Pre-training is done on unlabelled text dataset. It's an unsupervised learning task and it's also called Autoregression (AR).
+* Ffine-tuning is mostly done on labelled text dataset. 
 
-* classifies email say spam or no spam you will need to provide labels for which emails were spam which were not spam, etc. So generally for fine-tuning, we will have a labelled dataset.
+* Example: email classification.
 
-* When you interact with GPT you are essentially interacting with a pre-trained or a foundational model.
-* First step is to train on a large Corpus of Text data, which is also called raw text (without any labeling information; does not come with predefined labels).
-*
-*  second task is the first training stage of LLM and this is called as pre-training as we already saw this task involves creation of an initially pre-trained LLM, which is also called as the base or a foundational model gp4.
+* When you interact with GPT you are essentially interacting with a pre-trained (also called base or foundational model)
+
 
 * so pre-training also gives the llm a lot of other powers so that is Step number two step number three after obtaining the pre-trained llm the llm is further trained on label data and this is fine tuning so let me just mention over here this is called as fine tuning and we saw a number of applications of this in different areas we saw applications in the legal area then we saw applications in the Comm telecommunication sector this es Telecom Harvey we also saw an application related to JP Morgan Chase so fine tuning is essential as and when you go into production and if you want a really powerful model train specifically on your data set even within fine tuning there are usually two categories the first category it's called instruction fine tuning and second is called fine tuning for classification tasks so let's say you are an education company and if you want to uh if you want to or let's say if you're a company like u a text translation company which converts English into French so here you might need to give some sort of an instruction like this is the English language and you convert it into the French language so you might need to give instruction answer pairs as label data set so the label data set means showing that okay these are all the English language these are all the French language use this to further fine tune what you already know so that's called as instruction fine tuning even for Airline customer support
 
