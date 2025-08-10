@@ -30,206 +30,22 @@ word is generally not equal to one token but for understanding this class you ca
 3. Encoder this is one of the most important building blocks of the Transformer architecture and what this encoder does is that the input text which is pre-processed let's say the tokens are passed to the encoder and what actually happens in the encoder is something called as __Vector embedding__ so what what the encoder actually does is it implements a processwhich is called as Vector embedding so up till now we have seen that every sentence is broken down into individual words and uh those words uh are converted into numerical IDs right but the main problem is that we need to encode the semantic meaning between the words also right so let's say for example if you take the word dog and puppy with this method which I've shown you right now with tokenization random IDs will be assigned to dog and puppy but we need to encode the
 information somewhere that dog and puppy are actually related to each other so can we somehow represent the input data can we somehow represent the tokens in a way which captures the __semantic meaning__ between the words and that process is called as __Vector embedding__ what is done usually in Vector embeddings is that words are taken and they are converted into vectorized representations so this figure actually illustrates it very simply let's say these are the words King Man Woman apple banana orange football Golf and Tennis what is done in Vector embedding is that a so this is a two-dimensional Vector embedding I'm showing in a two-dimensional Vector embedding each of these words are converted into vectors and the way these vectors are formed is that so King man and woman they they are terms which are related to each other right apple banana and orange are related all of them are fruits football gold F tennis are related all of them are sports so when you convert these words into individual vectors if you see on the right hand side look at King man and woman they are more closer together right as vectors if you look at the green circle here which is football Golf and Tennis they are more closer together if you look at the red circle here which is apple banana and orange all of them are fruits which are closer together so converting these words into such kind of vector format is called as Vector embedding and this is a difficult task we cannot
 randomly put vectors right because there have so apple and banana have to be
-closer to each other all fruits need to be closer to each other than let's say banana and King so there is usually a detailed procedure for this and NNs are trained even for for this step that is called as Vector embedding step so that is the main purpose of the encoder. The main purpose of the encoder is actually to take in the input text from the pre-processing maybe the tokens and to convert those tokens into Vector embeddings. so if you see in Step number
-12:18
-four we have generated Vector embeddings so in the in the left hand
-12:24
-side of the Transformer architecture the final goal is to generate vector headings which means that let's say if
-12:31
-we have millions of data in English language we convert them into tokens we convert them into vectors and that is
-12:37
-done in a giant Dimension space not just in two Dimension space it is done in maybe 500,000 huge number of Dimension
-12:45
-space which we cannot even imagine but the way it is done is such that semantic
-12:50
-meaning is captured between the words that is how the embedding vectors should be
-12:56
-returned here is another uh example which visually shows you how the
-13:02
-embedding is done let's say if you have text right now from documents that text is converted into IDs and that those
-13:09
-tokenized IDs are converted into vector format like this this is a three-dimensional vectorized
-13:14
-representation so we can visualize this and another nice visualization is this
-13:19
-where we take in the where we take in the uh data put it into the embedding
-13:25
-model and then vectorized embeddings are the result of this so that's the first
-13:31
-step of the Transformer architecture so you can view it as a left side and right side in the left side in these four
-13:38
-steps we take the input sentences and the final goal is to convert them into
-13:43
-these Vector embeddings so that semantic meaning is captured between the
-13:48
-words okay now what do we do with these embeddings we feed these embeddings to
-13:53
-the right hand side so look at this Arrow here this these embeddings are fed to what is called as the decoder so
-14:01
-let's come to the right hand side of things so step number five right this is
-14:06
-the uh German translation which our model will be doing and remember the
-14:12
-model completes one word at a time right so uh this is an example is the input
-14:19
-and uh up till now let's say the model has translated this to be Das s so this
-14:25
-is not complete translation because the translation of exact example is not yet included right so this can be called as
-14:32
-the partial output text remember this is available to the model because the model
-14:38
-only generates one output word at a time so by the time we reach the fourth
-14:43
-output word which is the translation of example we would have the translated
-14:48
-words for this is and N so this is available to the model this is one of
-14:53
-the key features of Transformer and even the GPT architecture one output word is produced at one
-15:00
-time so the model has partial output text which is d s these words are
-15:06
-available to the model and even this this kind of text which is available is
-15:12
-converted into the tokenization the tokenized IDS which we saw this is the pre-processing step and then this is fed
-15:19
-to the decoder the job of the decoder is basically to do the final translation
-15:25
-now remember along with this partial input text the decoder also receives the
-15:31
-vector embeddings so the decoder has received the vector embeddings from the left hand side of things and now the
-15:38
-task of the decoder is basically it has received the vector embeddings it has received the partial
-15:45
-text and it has to predict what the next word is going to be based on this
-15:51
-information and then we go to the output layer slowly we go to the output layer
-15:56
-and then uh finally you will see that that the uh final translation for
-16:03
-example is completed over here and this is called as by spile I don't know how to pronounce it my German is uh not that
-16:11
-good and I've not even learned German in the first place but here you can see this is the German translation for
-16:18
-example which the decoder has produced so step number seven is for the decoder
-16:25
-is to generate the translated text one word at a time and then step number eight is that we
-16:31
-get the final output and this is how the decoder actually translates the input into the
-16:39
-output one word at a time that is very important now you might be thinking how does the decoder translate it into the
-16:46
-output remember it's like a neural network and we are training the neural network so initially it will make
-16:51
-mistakes of course but there will be a loss function and then we will eventually train the Transformer to be
-16:57
-better and better and better so think of the this as a neural network so let me show you the actual schematic
-17:05
-of the Transformer what we have seen right now is a simplified architecture but if you see the actual schematic of
-17:11
-the Transformer you'll see that there are feed forward layers uh which means there are weights and parameters which
-17:17
-need to be optimized so that the decoder predicts the German World
-17:22
-correctly it's very similar to training a neural network right so these are
-17:28
-actually the eight steps which are very much important in the Transformer so let
-17:35
-me actually go through these eight steps in the simplified Transformer architecture again the first step is to
-17:41
-have the input text which is to be translated this is an example the second step is to pre-process all the sentences
-17:49
-by breaking them down into tokens and then assigning a token ID to each token
-17:55
-the third step is basically to pass these token IDs into the encoder and then convert these token IDs into an
-18:02
-embedding or a vector embedding this means that words are projected into high dimensional Vector space and the way
-18:09
-these words are projected is such that the semantic relationship or the semantic meaning between the words is
-18:16
-captured very clearly now this this Vector embedding is fed as an input to
-18:22
-the decoder but along with this the decoder also receives the partial output text remember the decoder is decoding uh
-18:31
-the English to German one word at a time so for decoding this is an example it
-18:37
-already has the decoded answer for this is an th is and now it wants to
-18:42
-translate English to German for example so it receives this partial output text it receives the vector embedding and
-18:49
-then it's trained to predict the next output word which is B spite which is
-18:54
-the German for example and this is how uh English is translated into German in
-19:00
-a Transformer so this is a very very simplified explanation of how a Transformer works we have not even
-19:07
-covered attention here you might be thinking why is this paper titled attention is all you need and there is a
-19:13
-very specific reason for it I just want you to not get intimidated or afraid by the Transformer and that's why I'm
-19:20
-showing you this simplified form right now at the simplest form you can think of a transformer as a neural network and
-19:27
-you're optimizing parameters in a neural network it's as simple as that what many
-19:32
-students do is that they try to understand this architecture directly and then that leads to many issues
-19:39
-because it's actually fairly complicated and then they develop a fear for this subject I wanted to avoid that so I
-19:46
-started with this simplified Transformer architecture okay I hope you have understood until this point I encourage
-19:52
-you all to maybe pause here and think about what you have learned now let's go to the next next
-19:59
-part of the lecture uh the Transformer architecture predominantly consists of
-20:05
-two main blocks the first is the encoder block and the second is the decoder
-20:10
-block and we saw both of these here you see the encoder was over here and the decoder was over here okay the main
-20:18
-purpose of the encoder is to convert the input text into embedding vectors great
-20:23
-and the main purpose of the decoder is to generate the output text from the embedding vectors and from the partial
-20:31
-output which it has received so encoder and decoder are the two key blocks of a
-20:37
-transformer architecture remember the GPT architecture is actually different than the Transformer because that came
-20:43
-later and it does not have the decoder it does sorry it does not have the encoder it only has the decoder but
-20:50
-we'll come to that later right now remember that Transformers have both encoder and decoder
-20:56
-now one key part of of the Transformer architecture is this thing this thing called as self attention mechanism so
-A note on attention
-21:04
-let's actually Google or let's actually control F attention here and see how many times it shows up 97 times and
-21:12
-let's see how they have defined attention actually uh okay attention mechanisms
-21:20
-have become an integral part of sequence modeling allowing modeling of dependencies without regard to their
-21:26
-distance in the input or output sequences remember this so the attention
-21:33
-mechanism allows you to model the dependencies between different words without regards to how close apart or
-21:39
-how far apart the words are that is one key thing to
-21:45
-remember uh and then self attention is an attention mechanism relating
-21:51
-different positions of a single sequence in order to compute a representation of
-21:56
-the sequence this is a bit difficult to understand so let me actually explain to
-22:01
-you the way I understood it on the white board what basically self attention mechanism does is that or attention is
-22:09
-that it allows the model to weigh the importance of different words and tokens
-22:14
-relative to each other so let's say you have two sentences right and uh let's
-22:20
-say the first sentence is Harry Potter is on station or platform number something and then Harry Potter wants to
-22:26
-board the train and then third sentence for fourth sentence when you are on the fourth sentence to predict the next word
-22:33
-in the fourth sentence the context is very important right so you need to know what the text was in the sentence number
-22:40
-one sentence number two and sentence number three as well only then you will be able to really understand the fourth
+closer to each other all fruits need to be closer to each other than let's say banana and King so there is usually a detailed procedure for this and NNs are trained even for for this step that is called as Vector embedding step so that is the main purpose of the encoder. The main purpose of the encoder is actually to take in the input text from the pre-processing maybe the tokens and to convert those tokens into Vector embeddings.
+4. vectors and that is done in a giant Dimension space not just in two Dimension space it is done in maybe 500,000 huge number of Dimension space which we cannot even imagine but the way it is done is such that __semantic meaning__ is captured between the words that is how the __embedding vectors__ should be returned here is another uh example, which visually shows you how the embedding is done let's say if you have text right now from documents that text is converted into IDs and that those tokenized IDs are converted into vector format like this this is a three-dimensional vectorized representation so we can visualize this and another nice visualization is this where we take in the where we take in the uh data put it into the embedding model and then vectorized embeddings are the result of this so that's the first step of the Transformer architecture so you can view it as a left side and right side in the left side in these four steps we take the input sentences and the final goal is to convert them into these Vector embeddings so that semantic meaning is captured between the words okay. now what do we do with these embeddings we feed these embeddings to the right hand side so look at this Arrow here this these embeddings are fed to what is called as the __decoder__ so let's come to the right hand side of things so
+5. partial output text remember this is available to the model because the model only generates one output word at a time so by the time we reach the fourth output word which is the translation of example we would have the translated words for this is and N so this is available to the model this is one of the key features of Transformer and even the GPT architecture one output word is produced at onevtime so the model has partial output text which is d s these words are available to the model and even this this kind of text which is available is converted into the tokenization the tokenized IDS which we saw this is the
+6. pre-processing step and then this is fed to the
+
+7. __Decoder__ the job of the decoder is basically to do the final translation now remember along with this partial input text the decoder also receives the vector embeddings so the decoder has received the vector embeddings from the left hand side of things and now the task of the decoder is basically it has received the vector embeddings it has received the partial text and it has to predict what the next word is going to be based on this information and then we go to the output layer slowly we go to the output layer and then uh finally you will see that that the uh final translation for example is completed over here and this is called as by spile I don't know how to pronounce it my German is uh not that good and I've not even learned German in the first place but here you can see this is the German translation for example which the decoder has produced so step number seven is for the decoder is to generate the translated text one word at a time and then step number eight is that we get the final output and this is how the decoder actually translates the input into the output one word at a time that is very important now you might be thinking how does the decoder translate it into the output remember it's like a neural network and we are training the neural network so initially it will make mistakes of course but there will be a loss function and then we will eventually train the Transformer to be better and better and better so think of the this as a neural network so let me show you the actual schematic of the Transformer what we have seen right now is a simplified architecture but if you see the actual schematic of the Transformer you'll see that there are __feed-forward layers__, which means there are __weights and parameters which need to be optimized__ so that the decoder predicts the German World correctly it's very similar to training a neural network right so these are
+actually the eight steps which are very much important in the Transformer so let me actually go through these eight steps in the simplified Transformer architecture again.
+
+***
+
+
+1. the first step is to have the input text which is to be translated this is an example the 
+2. second step is to pre-process all the sentences by breaking them down into tokens and then assigning a token ID to each token the
+3. third step is basically to pass these token IDs into the encoder and then convert these token IDs into an __embedding or a vector embedding__ this means that words are projected into high dimensional Vector space and the way these words are projected is such that the __semantic relationship__ or the semantic meaning between the words is captured very clearly now this this Vector embedding is fed as an input to the decoder but along with this the decoder also receives the partial output text remember the decoder is decoding uh the English-to-German one word at a time so for decoding this is an example it already has the decoded answer for this is an th is and now it wants to translate English to German for example so it receives this partial output text it receives the vector embedding and then it's trained to predict the next output word which is B spite which is the German for example and this is how uh English is translated into German in a Transformer so this is a very very simplified explanation of how a Transformer works we have not even covered __attention__ here you might be thinking why is this paper titled attention is all you need and there is a very specific reason for it I just want you to not get intimidated or afraid by the Transformer and that's why I'm showing you this simplified form right now at the simplest form you can think of a transformer as a neural network and you're optimizing parameters in a neural network it's as simple as that what many students do is that they try to understand this architecture directly and then that leads to many issues because it's actually fairly complicated and then they develop a fear for this subject I wanted to avoid that so I started with this simplified Transformer architecture. okay I hope you have understood until this point I encourageyou all to maybe pause here and think about what you have learned now let's go to the next next part of the lecture uh the Transformer architecture predominantly consists of two main blocks the first is the encoder block and the second is the decoder block and we saw both of these here you see the encoder was over here and the decoder was over here okay the main purpose of the encoder is to convert the input text into embedding vectors great and the main purpose of the decoder is to generate the output text from the embedding vectors and from the partial output which it has received so encoder and decoder are the two key blocks of a transformer architecture remember the GPT architecture is actually different than the Transformer because that came later and it does not have the decoder it does sorry it does not have the encoder it only has the decoder but we'll come to that later right now remember that Transformers have both encoder and decoder now one key part of of the Transformer architecture is this thing this thing called as self attention mechanism so
+
+* __A note on attention__ let's actually Google or let's actually control F attention here and see how many times it shows up 97 times and let's see how they have defined attention actually uh okay attention mechanisms have become an integral part of sequence modeling allowing modeling of dependencies without regard to their distance in the input or output sequences remember this so the attention mechanism allows you to model the dependencies between different words without regards to how close apart or how far apart the words are that is one key thing to remember uh and then self attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence this is a bit difficult to understand so let me actually explain to you the way I understood it on the white board what basically self attention mechanism does is that or attention is that it allows the model to weigh the importance of different words and tokens relative to each other so let's say you have two sentences right and uh let's say the first sentence is Harry Potter is on station or platform number something and then Harry Potter wants to board the train and then third sentence for fourth sentence when you are on the fourth sentence to predict the next word in the fourth sentence the context is very important right so you need to know what the text was in the sentence number one sentence number two and sentence number three as well only then you will be able to really understand the fourth
 22:47
 sentence and predict the next word in the fourth sentence this is the meaning of long
 22:53
@@ -573,6 +389,7 @@ nothing is left out and I show a lot of examples also in this process thanks a l
 40:29
 enjoying in this series I look forward to seeing you in the next lecture
 ***
+
 
 
 
