@@ -1,6 +1,6 @@
 ## Stages of building LLMs
-1. __Pre-training__: Means training on a large and diverse dataset
-2. __Fine-tuning__: To get a more specific-answer compared to a generic-answer.
+1. __Pre-training (Unlabeled data)__: Means training on a large and diverse dataset. 
+2. __Fine-tuning (Labeled data)__: To get a more specific-answer compared to a generic-answer.
 
 * __Token__: you can think of one-token as equal to one-word. There is a bit of detailing here ...discussed later.
 
@@ -37,3 +37,4 @@
 * First category it's called instruction fine-tuning
 * Second is called fine-tuning for classification tasks.
 *** 
+
