@@ -1,17 +1,12 @@
-### Stages of building
-1. Pre-training
-2. Fine-tuning
+### Stages of building LLMs
+1. Pre-training: Means training on a large and diverse dataset
+2. Fine-tuning: To get a more specific-answer compared to a generic-answer.
 
-* What exactly is pre-training: Pre-training just means training on a large and diverse dataset
-* What exactly is finetuning
+* __Token__: you can think of one-token as equal to one-word. There is a bit of detailing here ...discussed later.
 
-* Token: you can think of one token as equal to one word there is a bit of detailing
-here but that's not the scope of today's lecture 
+* __Task__: Word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---" so this next word is not known and ChatGPT then predicts or llms then predicts this word as let's say "forest"
 
-* Task: word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---" so this next word is not known and chat GPT then predicts or llms then predict this word as let's say "forest"
-
-* if you train the llm for this simple task it turns out that it can do a wide range of other tasks as well so the underlying language model to begin to perform tasks without even training on them. for example Performance on tasks like picking the right answer to a multiple choice question steadily increases as the underlying language model improves this means that even though you just train the llm for predicting the next word like how how I mentioned to you before it turned out that the llm can also do variety of other things such as translation such as answering multiple choice question such
-as summarizing a text then sentiment detection, etc. 
+* __Observation__: If you train the LLM for this simple-task it turns out that it can do a wide range of other-tasks as well. For example, picking the right answer MCQs steadily increases as the underlying language model improves. Other examples, language translation, answering MCQs, summarizing a text, sentiment detection, etc. 
 
 ***
 
@@ -436,5 +431,6 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
