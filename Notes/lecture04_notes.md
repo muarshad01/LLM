@@ -1,10 +1,23 @@
-## Lecture 4: Building LLMs from Scratch Series
+## Lecture 4: Basic Introduction to Transformers
+* Previous Lecture: The two stages of building an LLM
+1. Pre-training: involves training on a large-diverse-dataset and
+2. Fine-tuning is basically refinement-by-training on a narrower-dataset specific to a particular task or a particular domain.
+
+* Transformers in the context text of GPT.
+* Is there any similarity or differences between LLMs and Transformers?
+* How Transformer generally work?
+* __Embedding tokenization__
+* most of the modern LLMs rely on this architecture which is called as Transformer architecture.
+*  Essentially it's a DNN architecture, which was introduced in a paper, which was released in 2017. This paper is called as "Attention is all you need".
+* GPT architecture, which is the foundational stone or foundational building block of chat GPT, originated from this paper.
+* What is attention?
+* It is actually a technical term, which is related to how attention is used in our daily life.
 *
-* in the previous lecture, we took a look at the differences between the two stages of building an llm and the two stages were pre-training and fine-tuning so pre-training involves training on a large diverse data set and fine tuning is basically refinement by training on a narrower data set specific to a particular task or a particular domain if you have not seen the previous lecture I highly encourage you to go through the previous lecture so that there will be a good flow between these different lectures if you are watching today's lecture for the first time no problem at all welcome to this series and I've have designed this lecture so that it's independently accessible and understandable so let's get started today I'm very excited because today's topic is regarding introduction or rather a basic introduction to Transformers in today's topic we are not going to go into the mathematical details or even the coding details of Transformers but we are just going to introduce the flavor of this concept what does it really mean what it did for large language models what is the history of Transformers in the context text of GPT uh is there any similarity or differences between llms and Transformers when people say llms and Transformers they usually use these terms interchangeably when should we use these terminologies interchangeably are there any similarities or differences between them we are going to learn about all of these aspects we are also going to look at the schematic of how Transformer generally work and in doing so we'll understand the basics of few terminologies like embedding tokenization Etc so let's get started with today's lecture so the secret Source behind Transformer basics large language models and the secret Source behind why llms are so popular is this world called as Transformers most of the modern large language models rely on this architecture which is called as Transformer architecture so what is a Transformer AR architecture essentially it's a deep neural network architecture which was introduced in a paper which was released in 2017 this paper is called as attention is all you need and if you go and search about this paper on Google Scholar right now so let me do that just quickly so if I go here to Google Scholar and type attention is all you need let us check the number of citations which is which it has it has more than 100,000 citations in just six to 7 years that's incredible right it's because this paper led to so many breakthroughs which happened later the GPT architecture which is the foundational stone or foundational building block of chat GPT originated from this paper the GPT architecture is not exactly the same as the Transformer architecture proposed in this paper but it is heavily based on that so it's very important for us to understand what this paper really did and what our Transformers so I've have opened this paper here so that you can see it's titled attention is all you need so you might be thinking what is attention and it is actually a technical term which is related to how attention is used in our daily life also we'll also be touching upon this briefly today and we'll be understanding uh intuition behind attention so if you look at this paper it's a 15 page paper and this is the Transformer architecture which I'm talking about essentially it's a neural network architecture and there are so many things to unpack and explain here which we won't be doing today we'll be doing at subsequent lectures because every aspect of this architecture will need a separate lecture it's that detailed today we are just going to look at an overview so it's a 15 page paper and to go through this paper and to really understand this paper it will at least need 10 to 15 lectures and this lecture can serve as an introduction so it's very important for you all to to understand this lecture clearly first thing which I want to explain is that when this paper was proposed it was actually proposed for translation tasks which means converting one language into another language text completion which is the predominant role of GPT was not even in consideration here they were mostly looking at English to French and English to German translations and they proposed a mechanism which did huge amount of
+*  Translation tasks: which means converting one language into another language, text completion, which is the predominant role of GPT was not even in consideration here. They were mostly looking at English-to-French and English-to-German translations and they proposed a mechanism which did huge amount of
+advancements on these tasks.
 
-***
-
-advancements on these tasks the Transformer mechanism they proposed led to Big advancement in these tasks later
+ ***
+ the Transformer mechanism they proposed led to Big advancement in these tasks later
 5:07
 it was discovered that using an architecture derived from this Transformer architecture we can do
 5:14
@@ -684,5 +697,6 @@ nothing is left out and I show a lot of examples also in this process thanks a l
 40:29
 enjoying in this series I look forward to seeing you in the next lecture
 ***
+
 
 
