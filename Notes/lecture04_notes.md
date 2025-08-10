@@ -1,104 +1,6 @@
-Introduction
-0:00
-[Music]
-0:05
-hello everyone welcome to the lecture 4 in this building large language models
-0:10
-from scratch Series in the previous lecture we took a look at the differences between the two stages of
-0:19
-building an llm and the two stages were pre-training and
-0:24
-fine-tuning so pre-training involves training on a large diverse data set and
-0:30
-fine tuning is basically refinement by training on a narrower data set specific
-0:35
-to a particular task or a particular domain if you have not seen the previous
-0:41
-lecture I highly encourage you to go through the previous lecture so that there will be a good flow between these
-0:47
-different lectures if you are watching today's lecture for the first time no problem at all welcome to this series
-0:55
-and I've have designed this lecture so that it's independently accessible and understandable
-1:00
-so let's get started today I'm very excited because today's topic is regarding
-1:06
-introduction or rather a basic introduction to Transformers in today's
-1:11
-topic we are not going to go into the mathematical details or even the coding details of Transformers but we are just
-1:19
-going to introduce the flavor of this concept what does it really mean what it
-1:25
-did for large language models what is the history of Transformers in the context text of
-1:31
-GPT uh is there any similarity or differences between llms and
-1:36
-Transformers when people say llms and Transformers they usually use these terms
-1:42
-interchangeably when should we use these terminologies interchangeably are there any similarities or differences between
-1:48
-them we are going to learn about all of these aspects we are also going to look at the schematic of how Transformer
-1:56
-generally work and in doing so we'll understand the basics of few terminologies like embedding
-2:02
-tokenization Etc so let's get started with today's lecture so the secret Source behind
-Transformer basics
-2:10
-large language models and the secret Source behind why llms are so popular is
-2:16
-this world called as Transformers most of the modern large
-2:21
-language models rely on this architecture which is called as Transformer
-2:27
-architecture so what is a Transformer AR architecture essentially it's a deep
-2:32
-neural network architecture which was introduced in a paper which was released in
-2:39
-2017 this paper is called as attention is all you need and if you go and search
-2:44
-about this paper on Google Scholar right now so let me do that just quickly so if
-2:49
-I go here to Google Scholar and type attention is all you need let us check the number of citations which is which
-2:55
-it has it has more than 100,000 citations in just six to 7 years that's
-3:01
-incredible right it's because this paper led to so many breakthroughs which
-3:07
-happened later the GPT architecture which is the foundational stone or foundational building block of chat GPT
-3:14
-originated from this paper the GPT architecture is not exactly the same as
-3:19
-the Transformer architecture proposed in this paper but it is heavily based on that so it's very important for us to
-3:27
-understand what this paper really did and what our Transformers so I've have opened this
-3:33
-paper here so that you can see it's titled attention is all you need so you might be thinking what is attention and
-3:39
-it is actually a technical term which is related to how attention is used in our daily life also we'll also be touching
-3:47
-upon this briefly today and we'll be understanding uh intuition behind attention so if you look at this paper
-3:54
-it's a 15 page paper and this is the Transformer architecture which I'm talking about essentially it's a neural
-4:01
-network architecture and there are so many things to unpack and explain here which we won't be doing today we'll be
-4:07
-doing at subsequent lectures because every aspect of this architecture will need a separate lecture it's that
-4:12
-detailed today we are just going to look at an overview so it's a 15 page paper and to
-4:20
-go through this paper and to really understand this paper it will at least need 10 to 15 lectures and this lecture
-4:26
-can serve as an introduction so it's very important for you all to to understand this lecture clearly first
-4:32
-thing which I want to explain is that when this paper was proposed it was actually proposed for
-4:38
-translation tasks which means converting one language into another language text
-4:44
-completion which is the predominant role of GPT was not even in consideration
-4:49
-here they were mostly looking at English to French and English to German
-4:55
-translations and they proposed a mechanism which did huge amount of
-5:00
+## Lecture 4: Building LLMs from Scratch Series
+*
+* in the previous lecture, we took a look at the differences between the two stages of building an llm and the two stages were pre-training and fine-tuning so pre-training involves training on a large diverse data set and fine tuning is basically refinement by training on a narrower data set specific to a particular task or a particular domain if you have not seen the previous lecture I highly encourage you to go through the previous lecture so that there will be a good flow between these different lectures if you are watching today's lecture for the first time no problem at all welcome to this series and I've have designed this lecture so that it's independently accessible and understandable so let's get started today I'm very excited because today's topic is regarding introduction or rather a basic introduction to Transformers in today's topic we are not going to go into the mathematical details or even the coding details of Transformers but we are just going to introduce the flavor of this concept what does it really mean what it did for large language models what is the history of Transformers in the context text of GPT uh is there any similarity or differences between llms and Transformers when people say llms and Transformers they usually use these terms interchangeably when should we use these terminologies interchangeably are there any similarities or differences between them we are going to learn about all of these aspects we are also going to look at the schematic of how Transformer generally work and in doing so we'll understand the basics of few terminologies like embedding tokenization Etc so let's get started with today's lecture so the secret Source behind Transformer basics large language models and the secret Source behind why llms are so popular is this world called as Transformers most of the modern large language models rely on this architecture which is called as Transformer architecture so what is a Transformer AR architecture essentially it's a deep neural network architecture which was introduced in a paper which was released in 2017 this paper is called as attention is all you need and if you go and search about this paper on Google Scholar right now so let me do that just quickly so if I go here to Google Scholar and type attention is all you need let us check the number of citations which is which it has it has more than 100,000 citations in just six to 7 years that's incredible right it's because this paper led to so many breakthroughs which happened later the GPT architecture which is the foundational stone or foundational building block of chat GPT originated from this paper the GPT architecture is not exactly the same as the Transformer architecture proposed in this paper but it is heavily based on that so it's very important for us to understand what this paper really did and what our Transformers so I've have opened this paper here so that you can see it's titled attention is all you need so you might be thinking what is attention and it is actually a technical term which is related to how attention is used in our daily life also we'll also be touching upon this briefly today and we'll be understanding uh intuition behind attention so if you look at this paper it's a 15 page paper and this is the Transformer architecture which I'm talking about essentially it's a neural network architecture and there are so many things to unpack and explain here which we won't be doing today we'll be doing at subsequent lectures because every aspect of this architecture will need a separate lecture it's that detailed today we are just going to look at an overview so it's a 15 page paper and to go through this paper and to really understand this paper it will at least need 10 to 15 lectures and this lecture can serve as an introduction so it's very important for you all to to understand this lecture clearly first thing which I want to explain is that when this paper was proposed it was actually proposed for translation tasks which means converting one language into another language text completion which is the predominant role of GPT was not even in consideration here they were mostly looking at English to French and English to German translations and they proposed a mechanism which did huge amount of
 
 ***
 
@@ -782,4 +684,5 @@ nothing is left out and I show a lot of examples also in this process thanks a l
 40:29
 enjoying in this series I look forward to seeing you in the next lecture
 ***
+
 
