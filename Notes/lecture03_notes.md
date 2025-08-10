@@ -1,6 +1,6 @@
-### Stages of building LLMs
-1. Pre-training: Means training on a large and diverse dataset
-2. Fine-tuning: To get a more specific-answer compared to a generic-answer.
+## Stages of building LLMs
+1. __Pre-training__: Means training on a large and diverse dataset
+2. __Fine-tuning__: To get a more specific-answer compared to a generic-answer.
 
 * __Token__: you can think of one-token as equal to one-word. There is a bit of detailing here ...discussed later.
 
@@ -10,18 +10,18 @@
 
 ***
 
-* Why fine-tuning stage is needed?
-* Answer: Generic versus Specific Answer
-* The main purposes of of fine-tuning are it is basically a refinement on the pre-training on a much narrower data set.
-* finetuning is needed if you want to build an application which is specific to a particular task or a particular domain.
+#### Why fine-tuning stage is needed?
+* Generic versus Specific Answer
+* It is basically a refinement on the pre-training on a much narrower dataset.
+* Finetuning is needed if you want to build an application, which is specific to a particular task or a particular domain.
 
-* Example Airline ChatBot: User: What's the price for the PIA Airline,  which leaves at 600 p.m.?
-* Example Bank ChatBot: JP Morgan Chase...
-* Example Legal Attorneys: AI-legal-tool for attorneys ...
+#### Examples
+* Airline ChatBot: ...
+* Bank ChatBot: ...
+* Legal Al-Tool for Attorneys: ...
 
-* While foundational models ((also called pre-train models)) were strong at reasoning they lacked the extensive knowledge of legal case history and other knowledge required for legal work.
-*  __computational cost__ 
-* fine-tune the pre-trend llm on the label dataset that's the three steps so the first step
+#### Foundational models (also called pre-train models)
+* Fine-tune the pre-trend LLM on the label dataset.
 
 ***
 
@@ -431,6 +431,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
