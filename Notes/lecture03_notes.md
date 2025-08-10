@@ -25,15 +25,7 @@
 
 ***
 
-is data second step is training the
-20:05
-foundational model and the third step is
-20:08
-fine tuning on the specific task now
-20:12
-there is also one thing between
-20:14
-unlabeled data and label data for this
+#### unlabeled data and label data for this
 20:17
 pre-training we usually don't label the
 20:19
@@ -431,6 +423,7 @@ coding so thank you everyone and I look
 forward to seeing you in the next
 28:04
 lecture
+
 
 
 
