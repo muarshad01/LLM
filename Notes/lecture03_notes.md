@@ -33,7 +33,7 @@
 
 * When you interact with GPT you are essentially interacting with a pre-trained (also called base or foundational model)
 
-
-* so pre-training also gives the llm a lot of other powers so that is Step number two step number three after obtaining the pre-trained llm the llm is further trained on label data and this is fine tuning so let me just mention over here this is called as fine tuning and we saw a number of applications of this in different areas we saw applications in the legal area then we saw applications in the Comm telecommunication sector this es Telecom Harvey we also saw an application related to JP Morgan Chase so fine tuning is essential as and when you go into production and if you want a really powerful model train specifically on your data set even within fine tuning there are usually two categories the first category it's called instruction fine tuning and second is called fine tuning for classification tasks so let's say you are an education company and if you want to uh if you want to or let's say if you're a company like u a text translation company which converts English into French so here you might need to give some sort of an instruction like this is the English language and you convert it into the French language so you might need to give instruction answer pairs as label data set so the label data set means showing that okay these are all the English language these are all the French language use this to further fine tune what you already know so that's called as instruction fine tuning even for Airline customer support
-
+### Fine-tuning Types
+* First category it's called instruction fine-tuning
+* Second is called fine-tuning for classification tasks.
 *** 
