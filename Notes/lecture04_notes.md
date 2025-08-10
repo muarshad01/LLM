@@ -17,144 +17,20 @@
 advancements on these tasks.
 
  ***
- the Transformer mechanism they proposed led to Big advancement in these tasks later
-5:07
-it was discovered that using an architecture derived from this Transformer architecture we can do
-5:14
-so many other things so that's the first thing to note uh and that is that the original
-5:21
-Transformer which was developed it was developed for machine translation tasks
-5:26
-especially it was developed to translate English text into German and
-5:32
-French okay now we are going to look at uh a schematic of the Transformer
-Simplified transformer architecture
-5:39
-architecture so this schematic is fairly detailed like you can see and we have
-5:45
-actually uh done a ton down version of this schematic and I have borrowed this
-5:51
-schematic from the book building llms from scratch by Sebastian one of the best books on large language models so
-5:59
-let us look at this schematic first of all by zooming out so this is a simplified
-6:04
-Transformer architecture first I want to show you that there are eight steps over here you can see this orange step number
-6:10
-one step number two step number three step number four five 6 7 and eight so
-6:16
-if you understand these eight steps as an intuition you would have understood the intuition of the Transformer
-6:22
-architecture so let's start going through it from step by step and as we saw one of the main purposes of the
-6:29
-original Transformer architecture was to convert English to German so this is the example which we have taken here let's
-6:36
-say the in let's look at step number one so this is the input text which is to be
-6:42
-translated and as we can all see this input text is right now in the English language right great and uh the
-6:50
-Transformer is designed so that it will at the end of eight steps it will convert it into German but there are
-6:57
-number of things which happen before that let's let's go to step number two in Step number two the input text is
-7:03
-basically taken and pre-processed what pre-processing means is that there is a tech there is a
-7:10
-process which is called as tokenization
-7:15
-tokenization and what tokenization basically means is that we have used sentences right which might be let's say
-7:23
-we have input data from billions of data sets as we saw in the previous lecture
-7:28
-such transform perers are usually trained on huge amounts of data and let's say the input data is in the form
-7:34
-of documents and documents have sentences right so the entire sentence cannot be fed into the model the
-7:41
-sentence needs to be broken down into simpler words or tokens this process is
-7:47
-called as the process of tokenization so I have a simple schematic here so for now for Simplicity
-7:54
-you can imagine that one word is one token this is not usually the case one
-8:00
-word is generally not equal to one token but for understanding this class you can think of tokenizing as breaking down the
-8:07
-sentence into individual words so let's say this is the sentence fine tuning is Fun For
-8:13
-All tokenizing basically means breaking this down into individual words like
-8:19
-fine tu tu and ing is Fun For All and then assigning an ID a unique number to
-8:26
-each of these words so basically we have taken the huge amount of data broken it down into tokens or individual words and
-8:33
-assigned an ID or a number to this to to each token this is called as the process
-8:39
-of tokenization and so let's say if you have English data from Reddit posts or from Wikipedia you break it down into
-8:46
-words and you uh collect individual subwords from each sentence in the data
-8:53
-set this is what usually happens in the pre-processing step then the next step
-8:58
-after the pr three processing step number three is encoder this is one of the most important building blocks of
-9:05
-the Transformer architecture and what this encoder does is that the input text
-9:11
-which is pre-processed let's say the tokens are passed to the encoder and what actually happens in the encoder is
-9:18
-something called as Vector
-9:27
-embedding so what what the encoder actually does is it implements a process
-9:33
-which is called as Vector embedding so up till now we have seen that every sentence is broken down into individual
-9:40
-words and uh those words uh are converted into numerical
-9:46
-IDs right but the main problem is that we need to encode the semantic meaning
-9:52
-between the words also right so let's say for example if you take the word dog and puppy with this method which I've
-9:59
-shown you right now with tokenization random IDs will be assigned to dog and puppy but we need to encode the
-10:06
-information somewhere that dog and puppy are actually related to each other so
-10:12
-can we somehow represent the input data can we somehow represent the tokens in a
-10:17
-way which captures the semantic meaning between the words and that process is
-10:23
-called as Vector embedding what is done usually in Vector embeddings is that words are taken and
-10:29
-they are converted into vectorized representations so this figure actually
-10:34
-illustrates it very simply let's say these are the words King Man Woman apple
-10:40
-banana orange football Golf and Tennis what is done in Vector embedding is that
-10:46
-a so this is a two-dimensional Vector embedding I'm showing in a two-dimensional Vector embedding each of
-10:52
-these words are converted into vectors and the way these vectors are formed is
-10:57
-that so King man and woman they they are terms which are related to each other right apple banana and orange are
-11:04
-related all of them are fruits football gold F tennis are related all of them are sports so when you convert these
-11:12
-words into individual vectors if you see on the right hand side look at King man and woman they are more closer together
-11:19
-right as vectors if you look at the green circle here which is football Golf
-11:25
-and Tennis they are more closer together if you look at the red circle here which is apple banana and orange all of them
-11:31
-are fruits which are closer together so converting these words into such kind of
-11:36
-vector format is called as Vector embedding and this is a difficult task we cannot
-11:42
+### Schematic of the Transformer
+
+Mmain purposes of the original Transformer architecture was to convert English-to-German.
+
+1. Input text, which is to be translated and as we can all see this input text is right now in the English
+2. The input text is basically taken and pre-processed. What pre-processing means is that there is a tech there is a process which is called as tokenization. Tokenization and what tokenization basically means is that we have used sentences right which might be let's say
+we have input data from billions of datasets as we saw in the previous lecture
+such transform perers are usually trained on huge amounts of data and let's say the input data is in the form of documents and documents have sentences right so the entire sentence cannot be fed into the model the sentence needs to be broken down into simpler words or tokens this process is called as the process of tokenization. so I have a simple schematic here so for now for Simplicity you can imagine that one word is one token. This is not usually the case one
+word is generally not equal to one token but for understanding this class you can think of tokenizing as breaking down the sentence into individual words. so let's say this is the sentence fine tuning is Fun For All tokenizing basically means breaking this down into individual words like fine tu tu and ing is Fun For All and then assigning an ID a unique number to each of these words so basically we have taken the huge amount of data broken it down into tokens or individual words and assigned an ID or a number to this to to each token this is called as the process of tokenization. and so let's say if you have English data from Reddit posts or from Wikipedia you break it down into words and you uh collect individual subwords from each sentence in the data set this is what usually happens in the pre-processing step then the next step after the pr three processing
+
+3. Encoder this is one of the most important building blocks of the Transformer architecture and what this encoder does is that the input text which is pre-processed let's say the tokens are passed to the encoder and what actually happens in the encoder is something called as __Vector embedding__ so what what the encoder actually does is it implements a processwhich is called as Vector embedding so up till now we have seen that every sentence is broken down into individual words and uh those words uh are converted into numerical IDs right but the main problem is that we need to encode the semantic meaning between the words also right so let's say for example if you take the word dog and puppy with this method which I've shown you right now with tokenization random IDs will be assigned to dog and puppy but we need to encode the
+information somewhere that dog and puppy are actually related to each other so can we somehow represent the input data can we somehow represent the tokens in a way which captures the __semantic meaning__ between the words and that process is called as __Vector embedding__ what is done usually in Vector embeddings is that words are taken and they are converted into vectorized representations so this figure actually illustrates it very simply let's say these are the words King Man Woman apple banana orange football Golf and Tennis what is done in Vector embedding is that a so this is a two-dimensional Vector embedding I'm showing in a two-dimensional Vector embedding each of these words are converted into vectors and the way these vectors are formed is that so King man and woman they they are terms which are related to each other right apple banana and orange are related all of them are fruits football gold F tennis are related all of them are sports so when you convert these words into individual vectors if you see on the right hand side look at King man and woman they are more closer together right as vectors if you look at the green circle here which is football Golf and Tennis they are more closer together if you look at the red circle here which is apple banana and orange all of them are fruits which are closer together so converting these words into such kind of vector format is called as Vector embedding and this is a difficult task we cannot
 randomly put vectors right because there have so apple and banana have to be
-11:48
-closer to each other all fruits need to be closer to each other than let's say banana and King so there is usually a
-11:55
-detailed procedure for this and neural networks are trained even for for this step that is called as Vector embedding
-12:02
-step so that is the main purpose of the encoder the main purpose of the encoder
-12:07
-is actually to take in the input text from the pre-processing maybe the tokens
-12:13
-and to convert those tokens into Vector embeddings so if you see in Step number
+closer to each other all fruits need to be closer to each other than let's say banana and King so there is usually a detailed procedure for this and NNs are trained even for for this step that is called as Vector embedding step so that is the main purpose of the encoder. The main purpose of the encoder is actually to take in the input text from the pre-processing maybe the tokens and to convert those tokens into Vector embeddings. so if you see in Step number
 12:18
 four we have generated Vector embeddings so in the in the left hand
 12:24
@@ -697,6 +573,7 @@ nothing is left out and I show a lot of examples also in this process thanks a l
 40:29
 enjoying in this series I look forward to seeing you in the next lecture
 ***
+
 
 
 
