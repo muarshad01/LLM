@@ -46,327 +46,168 @@ actually the eight steps which are very much important in the Transformer so let
 3. third step is basically to pass these token IDs into the encoder and then convert these token IDs into an __embedding or a vector embedding__ this means that words are projected into high dimensional Vector space and the way these words are projected is such that the __semantic relationship__ or the semantic meaning between the words is captured very clearly now this this Vector embedding is fed as an input to the decoder but along with this the decoder also receives the partial output text remember the decoder is decoding uh the English-to-German one word at a time so for decoding this is an example it already has the decoded answer for this is an th is and now it wants to translate English to German for example so it receives this partial output text it receives the vector embedding and then it's trained to predict the next output word which is B spite which is the German for example and this is how uh English is translated into German in a Transformer so this is a very very simplified explanation of how a Transformer works we have not even covered __attention__ here you might be thinking why is this paper titled attention is all you need and there is a very specific reason for it I just want you to not get intimidated or afraid by the Transformer and that's why I'm showing you this simplified form right now at the simplest form you can think of a transformer as a neural network and you're optimizing parameters in a neural network it's as simple as that what many students do is that they try to understand this architecture directly and then that leads to many issues because it's actually fairly complicated and then they develop a fear for this subject I wanted to avoid that so I started with this simplified Transformer architecture. okay I hope you have understood until this point I encourageyou all to maybe pause here and think about what you have learned now let's go to the next next part of the lecture uh the Transformer architecture predominantly consists of two main blocks the first is the encoder block and the second is the decoder block and we saw both of these here you see the encoder was over here and the decoder was over here okay the main purpose of the encoder is to convert the input text into embedding vectors great and the main purpose of the decoder is to generate the output text from the embedding vectors and from the partial output which it has received so encoder and decoder are the two key blocks of a transformer architecture remember the GPT architecture is actually different than the Transformer because that came later and it does not have the decoder it does sorry it does not have the encoder it only has the decoder but we'll come to that later right now remember that Transformers have both encoder and decoder now one key part of of the Transformer architecture is this thing this thing called as self attention mechanism so
 
 * __A note on attention__ let's actually Google or let's actually control F attention here and see how many times it shows up 97 times and let's see how they have defined attention actually uh okay attention mechanisms have become an integral part of sequence modeling allowing modeling of dependencies without regard to their distance in the input or output sequences remember this so the attention mechanism allows you to model the dependencies between different words without regards to how close apart or how far apart the words are that is one key thing to remember uh and then self attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence this is a bit difficult to understand so let me actually explain to you the way I understood it on the white board what basically self attention mechanism does is that or attention is that it allows the model to weigh the importance of different words and tokens relative to each other so let's say you have two sentences right and uh let's say the first sentence is Harry Potter is on station or platform number something and then Harry Potter wants to board the train and then third sentence for fourth sentence when you are on the fourth sentence to predict the next word in the fourth sentence the context is very important right so you need to know what the text was in the sentence number one sentence number two and sentence number three as well only then you will be able to really understand the fourth sentence and predict the next word in the fourth sentence this is the meaning of __long-range dependencies__, which means that if I'm predicting the next word in the fourth sentence I need to know the importance of previous words I need to know how much attention should I give to the previous Words which word which has come previously should receive more attention maybe Harry should receive more attention maybe platform or train should receive more attention the self attention mechanism allows you to capture long range dependencies so that the model can look even far behind and even to sentences closer to the current one to identify the next one to identify the next word so the self attention mechanism allows the model to weigh the importance of different words or tokens relative to each other that is very important so basically uh if you are to predict the next word the self attention mechanism maintains this attention score which basically tells you which word should be given more attention when you predict
-23:49
 the next word and this is a key part of the intuition for all of you to think
-23:55
 about so let us actually look at uh this architecture and look at
-24:01
 the part where attention comes in see multi-head attention mask multi-head attention there are these blocks which
-24:07
 are called as attention blocks so these attention blocks make sure you capture long range dependencies in the sentences
-24:15
 that's why this paper is actually called attention is all you need because of the self attention mechanism uh and the
-24:21
 intuition behind attention which these folks introduced so as I mentioned they
-24:26
 they calculate an attention score which basically it's a matrix and it tells you which words should be given more
-24:32
 importance in relative or in relation to other words for now just understand this
-24:40
 intuition so that later when we come to the mathematics and coding of it I just want you to be comfortable with this
-24:46
 notion and I want you to appreciate how beautiful this is because you as a human
-24:53
 we keep context into our mind pretty naturally when we are reading a story we remember what was written on the
-24:58
 previous page but for a model to do that it's very difficult and self attention
-25:04
 mechanism actually allows the model to do that it allows the model to capture long range effect dependencies so that
-25:11
 it it makes the next word prediction accurately in chat GPT when you write an
-25:16
 input GPT actually gives attention to every sentence right and then it predicts what the next word could be it
-25:23
 doesn't just look at the sentence before the current one it looks at all sent sentences because maybe previous words
-25:30
 are more important this is possible through the self attention mechanism so that's the second key
-25:37
 concept which I wanted to introduce and uh in the last part of the lecture we are going to look at the
 BERT and GPT
-25:43
 later variations of the Transformer architecture so the Transformer architecture or this paper rather came
-25:48
 out in 2017 right the GPT models came out after that and there's another set
-25:54
 of models called as Bert which also came out as l variations of the Transformer
-26:00
 architecture so there are two later variations which I want to discuss the first is called as B it's called as by
-26:08
 or its full form is B directional encoder representations from
-26:13
 Transformers no need to understand the meaning but that's just what b means maybe you would have heard this
-26:18
 terminology but did not know the full form the full form is B directional encoder representations from
-26:25
 Transformers and the second is GPT models of course all of us have heard of chat GPT but the full form of GPT is
-26:33
 generative pre-trained Transformers uh pre-trained because it's
-26:39
 a pre-trained or a foundational model which we saw in the previous lecture so now you should start understanding these
-26:45
 terminologies now you must be thinking what's the difference between Bert and GPT models there's a big difference
-26:52
 basically the way Bert operates is that it predicts hidden words in a given sentence so let's say you have a
-26:59
 sentence it will mask some words randomly and it will try to predict those mask or hidden words that's what B
-27:06
 does what does GPT do as we have all seen it generates a new word so there is
-27:11
 a pretty big difference between how B works and how GPT Works let's see a schematic so this is how bir actually
-27:18
 works let's say we have a sentence this is an Dash or question mark of how llm
-27:24
 Dash perform so let's say as input we have this a text which is
-27:30
 incomplete so Bert receives inputs where words are randomly masked during
-27:35
 training and mask means that let's say we do not know these words right and then this is the input text we do the
-27:41
 same pre-processing steps as we saw above converting them into uh token IDs
-27:46
 then we pass it to the encoder do the embedding same thing like what we saw before and then the main output is that
-27:53
 we fill the missing words so Bert model realizes that the missing words are example and can so then the final
-28:01
 sentence is this is an example of how llm can perform this is how B Works how
-28:08
 GPT actually works is something completely different so let's say the input which GPT receives is this is an
-28:14
 example of how llm can Dash so we just have to predict the next
-28:20
 World we receive incomplete text and we have to predict the next word so then the way GPT works is that it does the
-28:27
 pre-processing like we saw converts words to token IDs then there is a decoder model there is not an encoder
-28:34
 model so the decoder then predicts the last word or the word which we do not
-28:39
 know perform so then the output is this is an example of how llm can perform so
-28:45
 GPT models learn to generate one word at a time now this leads to Big differences
-28:51
 because if you see the GPT model is left to right right all the left information is there we are only predicting the
-28:58
 rightmost information what is not known whereas in bir random words can be masked so the model has to pay attention
-29:05
 to different parts of the sentence and that's why ber actually does very well in sentiment analysis so here I
-29:13
 have I have a text which actually Compares uh or answers why is Bert so
-29:20
 good when we do uh sentiment analysis so the reason Bert is called B directional
-29:26
 so you'll see that the name is by directional encoder representations right because it looks at the sentence
-29:32
 from both directions whereas in GPT we just look at the sentence from left to right but ber looks at the sentence from
-29:39
 both directions because even the first word might be missing so it has to look from the left side as well as the right
-29:46
 side and by looking at the entire sentence from both directions bir can capture the nuances and relationships
-29:53
 between words that are important for for understanding meaning and context
-29:58
 for instance Bert model can differentiate between Bank as a financial institution and bank as a
-30:04
 River Bank by looking at the surrounding words so that is why ber can actually
-30:12
 understand the nuances and relationships between different words in a sentence since it looks at the sentence from both
-30:18
 sides that's why Bert is very commonly used in sentiment analysis even GPT can
-30:23
 be used in sentiment analysis but the speciality of birth is sentiment
-30:29
 analysis okay so that's the difference between bir and GPT no one talks too much about bir these days all the hype
-30:36
 is about GPT chat GPT because it produces one word at a time it can
-30:41
 complete missing text also it can also do sentiment analysis uh but I just want to explain I
-30:48
 just wanted to explain these differences to you so that you you are aware of what BT means what GPT means one thing to not
-30:55
 is that both of these have the word transform forers in them because they have originated from the Transformer
-31:01
 architecture here uh which we just consider but as you saw the GPT model
-31:07
 does not have an encoder they only have a decoder that's one key thing which I wanted to demonstrate here whereas The
-31:14
 Bert model only has the encoder so remember these differences between Bert and GPT great and now one thing which I
 Difference between transformers and LLMs
-31:23
 would like to cover before we end the lecture is that what is the difference between Transformer and llm so are they
-31:30
 the same thing when we say llms can we also say Transformers so the key thing to note is
-31:37
 that not all Transformers are llms Transformers can also be used for other
-31:43
 tasks like computer vision so one thing which I would like to show you here is this
-31:49
 thing so Transformers are not only used for language tasks they are also used
-31:54
 for vision tasks such as image recognition image classification Etc here is a website which I have pulled
-32:01
 out the these are called as Vision Transformers vit and they can be used for various application so here see the
-32:07
 vision Transformer is being used to detect a PO hole on the road then there are a number of other important
-32:14
 application such as it can be used to classify between tumors as maligant and venine just from the images and a number
-32:21
 of people have discuss the similarities and differences between convolutional neural network and viit so viit AES
-32:28
 remarkable results compared to CNN while obtaining substantially fewer computational resources for
-32:35
 pre-training in comparison to C CNN Vision Transformers show a generally
-32:41
 weaker bias so basically you think of only convolutional neural networks when
-32:46
 you think of image classification right but Vision Transformers are a new method
-32:51
 which is also gaining a lot of popularity and they can be used for image classification tasks
-32:59
 so remember when you think of Transformers don't think of Transformers only in the context of large language
-33:05
 models or text generation Transformers can also be used for computer vision so
-33:11
 remember not all Transformers are llms so what about llms are all llms
-33:17
 Transformers so that is also not true not all llms are also Transformers llms
-33:23
 can be based on recurrent or convolutional architectures as well this is what very important point to remember
-33:29
 I had made a presentation uh some time back and this image has been taken from
-33:35
 stats Quest channel so before even Transformers came into the picture here
-33:40
 you can see 1980 recurrent neural networks were introduced in 1997 long
-33:45
 short-term memory networks were introduced both of them could do sequence modeling tasks and both of them
-33:52
 could do text completion tasks so they also can be called as language models so
-33:58
 remember that all llms are not uh Transformers right llms can also be
-34:05
 recurrent neural networks or long shortterm memory networks to give you a quick introduction what RNN actually do
-34:12
 is that RNN maintain this kind of a feedback loop so that is why we can
-34:18
 incorporate memory into account uh lstm on the other hand incorporates two separate paths One path
-34:26
 about short-term memories and one path about long-term memories that's why they are called long
-34:31
 short-term um memory networks so One path is for long-term memories and one
-34:37
 path is for short-term memories so basically we have one green line let's
-34:42
 say which is shown here that represents long-term memory one line which shows the short-term memory and then basically
-34:49
 using both we can make predictions of what comes next so even recurrent neural networks and long short-term memory
-34:56
 Networks and even some convolutional architectures can also be large language
-35:02
 models so as we end I just want you to remember that not all Transformers are llms this is very important to keep in
-35:09
 mind and not all llms are Transformers also so don't use the terms Transformers
-35:15
 and llms interchangeably they are actually very different things but not many students or not many people really
-35:22
 understand the similarities or the differences between them one purpose of these set of lectures is for you to
-35:28
 understand everything from Basics the way it is supposed to be that way you'll also be much more confident when you
-35:34
 transition your career or you're sitting for an llm interview and if you don't know the difference between Transformers
-35:40
 or llms these lectures can clarify those similarities and differences for you I'm
-35:45
 going to go into a lot of detail in lectures like what we did right now and not assume anything so I've written
-35:51
 number of things on the Whiteboard so that you can understand let's do a quick recap of what all we learned
-35:58
 first we saw that most modern llms rely on the Transformer architecture which
-36:03
 was proposed in the 2017 paper it's basically a deep neural network architecture the paper which proposed
-36:10
 the Transformer architecture is called as attention is all you need and the original Transformer was developed for
-36:17
 machine translation for translating English tasks or English texts into German and French we saw a simplified
-36:24
 Transformer architecture which had eight steps we take an input example pre-process it by converting words or
-36:31
 sentences into words and token IDs then we pass it into the encoder which converts these tokens into Vector
-36:38
 embeddings the vector embeddings are fed to the decoder along with the vector
-36:43
 embeddings the decoder also receives partial output text and it generates the
-36:48
 translated sentence one word at a time this is the simplified Transformer
-36:54
 architecture and we saw that the Transformer architecture consists of an encoder and a
-37:00
 decoder however later we saw that GPT models do not have an encoder they only have a
-37:06
 decoder in the middle we had a small discussion on self attention mechanism which is really the heart of why
-37:12
 Transformers works so well and why the paper which I showed you earlier is called attention is all you need self
-37:18
 attention allows the model to weigh the importance of different words relative to each other and it enables the model
-37:25
 to capture long range dependencies so when we are predicting the next word from a given sentence we can look at all
-37:32
 the context in the past and way the importance of which word matters more for predicting the next
-37:39
 word you can think of also self attention as parallel attention to different parts of a paragraph or
-37:45
 different sentences we will look into this later it's going to be one of the key aspects
-37:52
 uh it's going to be one of the key aspects of our course as we move forward
-37:58
 then we saw the later variations of transform Transformer architecture in particular we looked at two variations
-38:04
 first is B which is B directional encoder representations and then we saw
-38:09
 GPT so there is a difference between these right Bert predicts hidden hidden
-38:15
 words in a sentence or it predicts missing Words which are also called masked words so basically what this does
-38:21
 is that word pays attention to a sentence from left side as well as from the right side because any word can be
-38:26
 masked that's why it's called B directional encoder and it does not have the decoder architecture it just has the
-38:33
 encoder architecture since ber looks at a sentence from both the words both the
-38:38
 directions it can capture the meanings of different words and how they relate to each other very well and that's why
-38:44
 BT models are used for sentiment analysis A Lot GPT on the other hand just gets the
-38:52
 data and then it predicts the next word so it's it's a left to right model
-38:57
 basically it has data from the left hand side and then it has to predict what comes on the right or what's the next
-39:02
 work so GPT receives incomplete text and learns to generate one word at a
-39:08
 time um and main thing to remember is that GPT does not have an encoder it only has
-39:14
 decoder great and then in the last part of the lecture we saw the difference between Transformers versus llms so
-39:21
 remember not all Transformers are llms Transformers can also be used for computer vision tasks like image
-39:27
 classification image segmentation Etc similarly not all llms are Transformers
-39:33
 before Transformers came recurrent neural networks and long short-term memory networks and even convolutional
-39:39
 architectures were used for text completion so that's why llms can be
-39:45
 based on recurrent or convolutional architectures as well so do not use these terms Transformers and llms
-39:51
 interchangeably though many people do it understand the similarities and differences between the two that brings
-39:58
 us to the end of this lecture we covered a lot of we covered Five Points in today's lecture and I encourage you to
-40:04
 be proactive in the comment section ask questions ask doubts uh also make notes
-40:10
 about these architectures as you are as you are learning that's really one of the best ways to learn about this
-40:16
 material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that
-40:23
 nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are
-40:29
 enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
