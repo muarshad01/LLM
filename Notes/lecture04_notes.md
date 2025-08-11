@@ -1,6 +1,6 @@
 ## Lecture 4: Basic Introduction to Transformers
-1. Pre-training: is training on a large-diverse dataset
-2. Fine-tuning: is basically refinement-by-training on a narrower-dataset, specific to a particular task or a particular domain.
+1. __Pre-training__: Training on a large-diverse dataset
+2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain.
 
 #### Transformers in the context text of __Generative Pre-trained Transformer (GPT)__.
 * How Transformer generally work?
@@ -47,5 +47,6 @@ have I have a text which actually Compares uh or answers why is Bert so good whe
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
 
