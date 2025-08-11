@@ -27,7 +27,9 @@
 
 9.   In __Vector embeddings__ the words are taken and they are converted into vectorized representations. Tese words are converted into vectors.
 
-* so there is usually a detailed procedure for this and NNs are trained even for for this step that is called as Vector embedding step so that is the main purpose of the encoder.
+* NNs are trained for this step that is called as __Vector embedding__.
+*
+*   step so that is the main purpose of the encoder.
 *
 
 17. __Embedding__: vectors and that is done in a giant Dimension space not just in two Dimension space it is done in maybe 500,000 huge number of Dimension space which we cannot even imagine but the way it is done is such that __semantic meaning__ is captured between the words that is how the __embedding vectors__ should be returned here is another uh example, which visually shows you how the embedding is done let's say if you have text right now from documents that text is converted into IDs and that those tokenized IDs are converted into vector format like this this is a three-dimensional vectorized representation so we can visualize this and another nice visualization is this where we take in the where we take in the uh data put it into the embedding model and then vectorized embeddings are the result of this so that's the first step of the Transformer architecture so you can view it as a left side and right side in the left side in these four steps we take the input sentences and the final goal is to convert them into these Vector embeddings so that semantic meaning is captured between the words okay. now what do we do with these embeddings we feed these embeddings to the right hand side so look at this Arrow here this these embeddings are fed to what is called as the __decoder__ so let's come to the right hand side of things so
@@ -56,6 +58,7 @@ have I have a text which actually Compares uh or answers why is Bert so good whe
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
