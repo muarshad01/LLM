@@ -2,18 +2,24 @@
 1. __Pre-training__: Training on a large-diverse dataset
 2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain.
 
-#### Transformers in the context text of __Generative Pre-trained Transformer (GPT)__.
-* How Transformer generally work?
+#### Transformer Architecture
+* Most of the modern LLMs rely on this architecture, which is called as Transformer architecture.
+* Essentially it's a DNN architecture, which was introduced in 2017 paper, which was released in 2017.
+
+*  #### [Attention is all you need](https://arxiv.org/abs/1706.03762)[Transformer Architecture]
+*  Translation: English-to-French and English-to-German.
+*  Text completion, which is the pre-dominant role of GPT was not even in consideration here.
+* GPT architecture, which is the foundational stone or foundational building-block of ChatGPT, originated from this paper.
+
+
 * __Embedding tokenization__
-* most of the modern LLMs rely on this architecture, which is called as Transformer architecture.
-*  Essentially it's a DNN architecture, which was introduced in a paper, which was released in 2017. This paper is called as "Attention is all you need".
-* GPT architecture, which is the foundational stone or foundational building block of ChatGPT, originated from this paper.
+
+
+
+
 
 #### What is attention?
 * It is actually a technical term, which is related to how attention is used in our daily life.
-*  Translation tasks: which means converting one language into another language, text completion, which is the predominant role of GPT was not even in consideration here.
-*  They were mostly looking at English-to-French and English-to-German translations and they proposed a mechanism which did huge amount of advancements on these tasks.
-* Mmain purposes of the original Transformer architecture was to convert English-to-German.
 
 #### Schematic of the Transformer
 
@@ -47,6 +53,7 @@ have I have a text which actually Compares uh or answers why is Bert so good whe
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
