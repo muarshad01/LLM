@@ -41,6 +41,7 @@
 
 ***
 
+* [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)
 * [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)
 * [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)
 * [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)
