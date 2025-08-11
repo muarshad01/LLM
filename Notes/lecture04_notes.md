@@ -4,22 +4,18 @@
 
 #### Transformer Architecture
 * Most of the modern LLMs rely on this architecture, which is called as Transformer architecture.
-* Essentially it's a DNN architecture, which was introduced in 2017 paper, which was released in 2017.
+* Essentially it's a DNN architecture, which was introduced in 2017 paper.
 
-#### [Attention is all you need](https://arxiv.org/abs/1706.03762)[Transformer Architecture]
-*  Translation: English-to-French and English-to-German.
+#### [Attention is all you need](https://arxiv.org/abs/1706.03762)
+*  __Translation__: English-to-French and English-to-German.
 *  Text completion, which is the pre-dominant role of GPT was not even in consideration here.
-* GPT architecture, which is the foundational stone or foundational building-block of ChatGPT, originated from this paper.
-
-
-* __Embedding tokenization__
-
-
-
-
+*  GPT architecture, which is the foundational stone or foundational building-block of ChatGPT, originated from this paper.
 
 #### What is attention?
 * It is actually a technical term, which is related to how attention is used in our daily life.
+
+* __Embedding tokenization__
+
 
 #### Schematic of the Transformer
 
@@ -53,6 +49,7 @@ have I have a text which actually Compares uh or answers why is Bert so good whe
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
