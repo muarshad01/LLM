@@ -19,19 +19,17 @@
 
 #### Schematic of the Transformer
 
-1. __Input text__, which is to be translated and as we can all see this input text is right now in the English
+1. __Input text__, which is to be translated. "This is an example".
 
-2. __Pre-Processing__: There is process which is called as __Tokenization__, which (1) breaks-down a sentence into words or tokens and then (2) __assigns an ID a unique number__. For simplicity, you can imagine that one word is one token.
+2. __Pre-Processing__: There is process (1) breaks-down a sentence into words or tokens (called __Tokenization__) and then (2) __assigns an ID a unique number__ to each token. For simplicity, you can imagine that one-word is one-token.
 
-3. __Encoder__: Encoder performs something called as __Vector embedding__, which is the representation of tokens in a way that captures __semantic meaning__ between the words. For example, consider (Dog, Puppy). If you take the word Dog and Puppy with this method, which I've shown you right now with tokenization, random IDs will be assigned to Dog and Puppy, but we need to encode the information somewhere that Dog and Puppy are actually related to each other. In __Vector embeddings__, the words are taken and they are converted into vectorized representations. Tese words are converted into vectors. NNs are trained for this step that is called as __Vector embedding__. Giant Dimension space.
-   
-5. __Decoder__: so let's come to the right-hand side of things. so partial output text remember this is available to the model because the model only generates one output word at a time so by the time we reach the fourth output word which is the translation of. one output word is produced at onevtime. __Decoder__: The docoder receives 1) partial-input text and 2) the vector embeddings. It has to predict what the next word is going to be based on this information.
+3. __Encoder__: Encoder performs __Vector embedding__, which converts the words into vectorized representation. NNs are trained for this step. Giant dimension-space. This vectorized representation captures the __semantic meaning__ between the words. Basically, encode-the-information somewhere such that similar words are related to each other.
 
-6. __Output layer__: and then, finally you will see that that the final translation for example is completed over here and this is called as by spile.
+5. __Decoder__: The docoder receives 1) partial-input text, and 2) the vector embeddings. It has to predict what the next word is going to be based on this information. The partial output text remember this is available to the model because. The model only generates one output word at a time.
 
-7.  Generate the translated text __one word at a time__
+7. Generate the translated __text one word at a time__.
 
-8. __Final output__ and this is how the decoder actually translates the input into the output one word at a time. that is very important now you might be thinking how does the decoder translate it into the output remember it's like a NN and we are training the NN so initially it will make mistakes of course but there will be a loss function and then we will eventually train the Transformer to be better and better and better so think of the this as a NN so let me show you the actual schematic of the Transformer. __feed-forward layers__, which means there are __weights and parameters which need to be optimized__. that the decoder predicts the German World correctly it's very similar to training a NN right so these are actually the
+8. __Final output__: Complete sentence. It's like a NN and we are training the NN. Initially it will make mistakes of course but there will be a __loss-function__ and then we will eventually train the Transformer to be better-and-better. Think of the this as a NN. __Feed-forward layers__, which means there are __weights and parameters which need to be optimized__.
 
 ***
 
@@ -53,6 +51,7 @@ have I have a text which actually Compares uh or answers why is Bert so good whe
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
