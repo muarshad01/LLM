@@ -49,21 +49,20 @@
 
 ***
 
-### Later variations of the Transformer architecture.
-1. __Bi-directional Encoder Representations from Transformers (BERT)__. It predicts hidden-words in a given sentence.
-2. __Generative Pre-trained Transformers (GPT)__. Generates a new word
+## Later variations of the Transformer architecture.
+1. BERT: It predicts hidden-words in a given sentence.!
+2. GPT:  Generates a new word!
 
-#### BERT versus GPT
-* BERT fills missing word.
-* This is an ___ of how LLM perform.
-* The BERT model only has the Encoder.
-* Bert predicts hidden hidden words in a sentence or it predicts missing Words which are also called masked wordsso basically what this does is that word pays attention to a sentence from left side as well as from the right side because any word can be masked that's why it's called B directional encoder.
+#### BERT
+* BERT: fills missing word. It predicts hidden-words in a given sentence.!
+* Example: This is an ___ of how LLM perform.
+* The BERT model has only the Encoder.
+* Bert predicts hidden-words (also called masked words) in a sentence. Basically, what this does is that word pays attention to a sentence from left-side as well as from the right-side. Because any word can be masked that's why it's called Bidirectional encoder.
 
-
-1. GPT
-* This is an example of how LLM can ___.
+#### GPT
+* Example: This is an example of how LLM can ___.
 * GPT model only has Decoder.
-* GPT on the other hand just gets the data and then it predicts the next word. so it's a left to right model. basically it has data from the left hand side and then it has to predict what comes on the right or what's the next work so GPT receives incomplete text and learns to generate one word at a time.
+* GPT on the other hand just gets the data and then it predicts the next-word. So, it's a left-to-right model. Basically it has data from the left hand side and then it has to predict what comes on the right. GPT receives incomplete text and learns to generate one word at a time.
 
 ***
 
@@ -109,4 +108,5 @@
 * * __Attention__:  
 
 * GPT architecture is actually different than the Transformer because that came later and it does not have the encoder it only has the decoder.
+
 
