@@ -1,4 +1,5 @@
-## A closer look at Generative Pre-trained Transformer (GPT) 
+## A closer look at GPT 
+
 |||
 |---|---|
 | Transfomer | (encoder, decoder) |
@@ -255,6 +256,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 I I look forward to seeing you in the next video
 *** 
+
 
 
 
