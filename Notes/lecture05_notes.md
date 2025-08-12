@@ -1,106 +1,9 @@
 ## Generative Pre-trained Transformer (GPT) 
 
-we are going to see how the
-0:23
-versions of GPT evolved how the different papers on GPT evolved what's
-0:29
-the progression from Transformers to GPT to gpt2 to gpt3 and finally to GPT 4
-0:37
-where we are at right now in the previous lectures we have looked at uh
-0:43
-Transformers we looked at a simplified architecture for Transformer and we also saw the difference between BERT and GPT model. we saw what's the meaning of an encoder what's the meaning of a decoder Etc if you have not seen the previous
-0:57
-lecture I would highly encourage you to go through that if not it's totally fine the way I have designed this lecture is
-1:03
-such that it is self-contained and you will understand all the concepts which I explaining in this
-1:09
-lecture so one of the key Concepts which we are also going to look at today is zero shot versus few short learning but
-1:18
-before coming to that let me first take you through the progression of research papers from
-Transformers, GPT, GPT-2, GPT-3 and GPT-4
-1:26
-Transformers to GPT to gpt2 and and then finally to gpt3 and then GPT 4 so let's
-1:34
-deep dive a bit into history the first paper which was released which really started the work on GPT is
-1:43
-transformers this paper was released in 2017 and this paper was titled attention
-1:49
-is all you need the major breakthrough of this paper is introducing the self attention mechanism where you capture
-1:56
-the long range dependencies in a sentence allowing allowing you to do a
-2:01
-much better job at predicting the next word in a sentence it represented a significance
-2:07
-at significant advancement compared to recurrent neural networks and long short-term memory networks Transformers
-2:15
-which were introduced in this paper really changed everything the original Transformer architecture looked
-2:21
-something like this it had an encoder and it had a decoder but GPT architecture which is
-2:29
-generative pre-rain Transformer which came after this paper did not have an encoder the GPT architecture which was
-2:36
-developed only has a decoder so this was the paper which came
-2:42
-out after the Transformers paper and it introduced the concept of generative
-2:48
-pre-training we are going to look at this concept a bit more in detail today
-2:53
-but the main idea of this concept is unsupervised learning basically what
-2:58
-they basically says that natural language processing as such up till this point
-3:05
-had been mostly supervised learning so they were saying that label data for
-3:12
-learning is scarse which means it is not easily available making it challenging
-3:17
-for train models to perform adequately we demonstrate that large or we
-3:23
-demonstrate that large gains on these tasks can be realized by generative pre-training of a language model on a
-3:30
-diverse Corpus of unlabeled text so two words are important here generative pre-training and unlabeled text we
-3:37
-already saw pre-training in the previous lecture what is done here is that the text which is used is not labeled so
-3:47
-let's say You have given a sentence right and you use that sentence itself as the training data and the next word
-3:55
-prediction which is in that sentence itself as the testing data so everything is self-content and you don't need to
-4:02
-provide labels we'll see this idea more in detail but this was the paper which
-4:07
-was published in I think this paper was published in 2018 which was the first paper on generative pre-training they
-4:14
-took this Transformer architecture they modified it a bit they removed the encoder block and they said that if we
-4:21
-trained a language model on a huge amount of data set to just predict the next word in an unsupervised learning
-4:27
-manner it could really imp improve language understanding and they called the training phase as generative
-4:34
-pre-training why generative because we are generating the next World open AI also released a Blog about
-4:41
-this on June 11 2018 improving language understanding with unsupervised learning
-4:48
-so their main uh their main claim was that we have obtained state of the art
-4:54
-results on language tasks with a scalable system our approach is a combination of two ideas Transformers
-5:01
-and unsupervised pre-training just keep this in mind so they used the Transformer architecture which we saw in
-5:06
-the 2017 paper and they also used unsupervised pre trining which means labels were not uh given to the training
-5:15
-data the labels were taken from the sentences itself we do not need to pre-label the data so of course this was
-5:22
-2018 and no one in fact no one paid that much attention as it is relevant in the
-5:28
-commercial sphere today for researchers this was a big deal and this paper also has a huge number of citations today but
-5:35
-in the commercial space students teachers professors who did not work in
-5:40
-large language models had not heard uh about this because it was still at the
-5:46
-research phase it it had not entered the commercial domain then what happened is that in
-5:52
-2019 just the next year came one more paper which is called as language models
-5:57
+* we are going to see how the versions of GPT evolved how the different papers on GPT evolved what's the progression from Transformers to GPT to gpt2 to gpt3 and finally to GPT 4 where we are at right now in the previous lectures we have looked at uh Transformers we looked at a simplified architecture for Transformer and we also saw the difference between BERT and GPT model. we saw what's the meaning of an encoder what's the meaning of a decoder Etc if you have not seen the previous lecture I would highly encourage you to go through that if not it's totally fine the way I have designed this lecture is such that it is self-contained and you will understand all the concepts which I explaining in this lecture so one of the key Concepts which we are also going to look at today is zero shot versus few short learning but before coming to that let me first take you through the progression of research papers from Transformers, GPT, GPT-2, GPT-3 and GPT-4 Transformers to GPT to gpt2 and and then finally to gpt3 and then GPT 4 so let's deep dive a bit into history the first paper which was released which really started the work on GPT is transformers this paper was released in 2017 and this paper was titled attention is all you need the major breakthrough of this paper is introducing the self attention mechanism where you capture the long range dependencies in a sentence allowing allowing you to do a much better job at predicting the next word in a sentence it represented a significance at significant advancement compared to recurrent neural networks and long short-term memory networks Transformers which were introduced in this paper really changed everything the original Transformer architecture looked something like this it had an encoder and it had a decoder but GPT architecture which is generative pre-rain Transformer which came after this paper did not have an encoder the GPT architecture which was developed only has a decoder so this was the paper which came out after the Transformers paper and it introduced the concept of generative pre-training we are going to look at this concept a bit more in detail today but the main idea of this concept is unsupervised learning basically what they basically says that natural language processing as such up till this point had been mostly supervised learning so they were saying that label data for learning is scarse which means it is not easily available making it challenging for train models to perform adequately we demonstrate that large or we demonstrate that large gains on these tasks can be realized by generative pre-training of a language model on a diverse Corpus of unlabeled text so two words are important here generative pre-training and unlabeled text we already saw pre-training in the previous lecture what is done here is that the text which is used is not labeled so let's say You have given a sentence right and you use that sentence itself as the training data and the next word prediction which is in that sentence itself as the testing data so everything is self-content and you don't need to provide labels we'll see this idea more in detail but this was the paper which was published in I think this paper was published in 2018 which was the first paper on generative pre-training they took this Transformer architecture they modified it a bit they removed the encoder block and they said that if we trained a language model on a huge amount of data set to just predict the next word in an unsupervised learning manner it could really imp improve language understanding and they called the training phase as generative pre-training why generative because we are generating the next World open AI also released a Blog about this on June 11 2018 improving language understanding with unsupervised learning so their main uh their main claim was that we have obtained state of the art results on language tasks with a scalable system our approach is a combination of two ideas Transformers and unsupervised pre-training just keep this in mind so they used the Transformer architecture which we saw in the 2017 paper and they also used unsupervised pre trining which means labels were not uh given to the training data the labels were taken from the sentences itself we do not need to pre-label the data so of course this was 2018 and no one in fact no one paid that much attention as it is relevant in the commercial sphere today for researchers this was a big deal and this paper also has a huge number of citations today but in the commercial space students teachers professors who did not work in large language models had not heard uh about this because it was still at the research phase it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as language models
+
+***
+
 are unsupervised multitask learner so what they basically did is they just
 6:03
 took more amount of data than was used in the earlier paper and they also used a generative pre-train Network and you
@@ -893,4 +796,5 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
