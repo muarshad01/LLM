@@ -42,11 +42,17 @@
 
 ***
 
-## Zero-Shot vs Few-Shot Learning
+## Zero-Shot, One-Shot, and Few-Shot Learning
+
+|||
+| --- | --- |
+| Zero-Shot ||
+| One-Shot ||
+| Few-Shot ||
 
 #### Few shot
 * Ability to generalize-to-completely-unseen-tasks without any prior specific examples.
-* Learning from a minimum number of examples, which the user provides as input.
+* Learning from a minimum-number-of-examples, which the user provides as input.
 
 *  __zero-short__ learning the model-predicts-the-answer given only a description no other Assistance or no other support.
   *  Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
@@ -122,7 +128,4 @@
 *
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
-*** 
-
-
-
+***
