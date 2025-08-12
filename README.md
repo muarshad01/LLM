@@ -41,6 +41,7 @@
 
 ***
 
+* [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)
 * [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)
 * [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)
 * [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)
