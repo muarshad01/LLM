@@ -1,8 +1,9 @@
 ## A closer look at Generative Pre-trained Transformer (GPT) 
+|||
 |---|---|
-| Transfomer: (encoder, decoder) ||
-| BERT: (encoder, ---) ||
-| GPT (---, decoder) ||
+| Transfomer | (encoder, decoder) |
+| BERT | (encoder, ---) |
+| GPT | (---, decoder) |
 
 | Model | Parameters | Paper Link| 
 |---           |---    | ---|
@@ -250,6 +251,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 I I look forward to seeing you in the next video
 *** 
+
 
 
 
