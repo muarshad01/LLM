@@ -71,29 +71,30 @@
 * Not ALL LLMs are Transformers
 * Don't use the terms Transformers and LLMs interchangeably.
 
-* Transformers can also be used for computer vision
-* LLMs can be based on convolutional architecture as well.
-
-### CNN versus Vision Transformers(ViT)
-* ViT present remarkable results compared to CNN, while obtaining substantially fewer computational resources for pre-training.
-*  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
-
 ||||
 |---|---|---|---|---|
-|1980 | Bam        | RNN | sequence modeling & text completion| 
+|1980 | Bam        | RNN                                    | sequence modeling & text completion| 
 |1997 | Double Bam | Long Short-Term Memory (LSTM) Networks | sequence modeling & text completion| 
-|2017 | Tripel Bam | Transformers | ... |
+|2017 | Tripel Bam | Transformers                           | ... |
 
-* RNN and LSTM Networks can also be called as language models
-* ALL LLMs are not Transformers. LLMs can also be RNN or LSTM Networsk to give you a quick introduction.
-* similarly not all llms are Transformers before Transformers came RNN and LSTM Networks and even convolutional architectures were used for text completion.
+#### RNN & LSTM
+* RNN (1980), LSTM (1997) Networks, and and even convolutional architectures, can also be called as language models (text completion purpose).
+* LLMs can also be RNN, LSTM Networsk, or convolutional architectures, to give you a quick introduction.
+* Not ALL LLMs are Transformers (Encoders & Decoders).
 
-### RNN
-* actually do is that RNN maintain this kind of a __feedback-loop__ so that is why we can incorporate memory into account.
+#### RNN
+* RNN maintains a __feedback-loop__, so that is why, we can incorporate memory into account.
 
-### LSTM Networks
-* On the other hand incorporates two separate-paths:
+#### LSTM Networks
+* Incorporates two separate-paths:
 1. One-path about STM
 2. one-path about LTM
+
+***
+
+## Vision Transformers(ViT)
+* Transformers can also be used for Computer Vision
+* ViT present remarkable results compared to CNN, while obtaining substantially fewer computational resources for pre-training.
+*  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
