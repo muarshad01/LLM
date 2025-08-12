@@ -25,7 +25,7 @@
     * Why generative because we are generating the next word.
     * [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
-### [language models are unsupervised multitask learner]() 
+* [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) 
 so what they basically did is they just
 6:03
 took more amount of data than was used in the earlier paper and they also used a generative pre-train Network and you
@@ -818,6 +818,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
