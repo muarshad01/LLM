@@ -71,7 +71,7 @@
 * Not ALL LLMs are Transformers
 * Don't use the terms Transformers and LLMs interchangeably.
 
-||||
+||||||
 |---|---|---|---|---|
 |1980 | Bam        | RNN                                    | sequence modeling & text completion| 
 |1997 | Double Bam | Long Short-Term Memory (LSTM) Networks | sequence modeling & text completion| 
@@ -98,3 +98,4 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
