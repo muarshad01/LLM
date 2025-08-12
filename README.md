@@ -41,6 +41,7 @@
 
 ***
 
+* [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)
 * [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)
 * [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)
 * [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)
@@ -50,3 +51,5 @@
 * Autoencoders | Deep Learning Animated
 * [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)
 * [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)
+
+***
