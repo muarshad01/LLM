@@ -3,7 +3,7 @@
 * BERT: (encoder, ---)
 * GPT: (---, decoder)
 
-| Model | Parameters | | Paper Link| 
+| Model | | Parameters | Paper Link| 
 |---           |---    | ---| ---|
 | Transformer (2017)  | (encoder, decoder) | |       | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
 | GPT (2018)   |       |  |[GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
@@ -249,6 +249,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 I I look forward to seeing you in the next video
 *** 
+
 
 
 
