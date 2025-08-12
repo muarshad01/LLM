@@ -1,11 +1,10 @@
 ## A closer look at Generative Pre-trained Transformer (GPT) 
 * Transfomer: (encoder, decoder)
-
-  ||||
-  |---          |---      |---     |
-  | Transformer | Encoder | Decoder|
-  | BERT        | Endoer  | ---    |
-  |---          | ---     | Decoder|
+||
+|---|
+| Transformer (Encoder, Decoder) |
+| BERT (Encoder, ---)            |
+| GPT (---, Decoder))            |
 
 *  Transformers, GPT, GPT-2, GPT-3, GPT-3.5, and GPT-4.
 
@@ -754,6 +753,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
