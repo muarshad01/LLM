@@ -16,7 +16,6 @@
 
 * __Embedding tokenization__
 
-
 #### Schematic of the Transformer
 
 1. __Input text__, which is to be translated. "This is an example".
@@ -38,18 +37,17 @@
 * Encoder: Encodes intput text into vectors
 * Decoder: Generates out text from encoded vectors
 
-* __attention__:  
+* __Attention__:  
 
 * Main purpose of the encoder is to convert the input text into embedding vectors great and the main purpose of the decoder is to generate the output text from the embedding-vectors and from the partial-output, which it has received.
 
 * GPT architecture is actually different than the Transformer because that came later and it does not have the encoder it only has the decoder.
-*
 
 * __A note on attention__: attention mechanisms have become an integral part of sequence-modeling allowing modeling-of-dependencies without regard to their distance.
 * so the attention-mechanism allows you to model the dependencies between different words without regards to how close apart or how far apart the words are that is one key thing to remember.
 * Then self-attention is an attention-mechanism relating different positions of a single-sequence in order to compute a representation of the sequence.
 *  This is a bit difficult to understand.
-*
+
 ### Self-attention mechanism
 * Key part or transfomer
 1. Allows the model to weigh the importance of different words / tokens relative to each other.
@@ -68,18 +66,24 @@
 1. __Bi-directional Encoder Representations from Transformers (BERT)__. It predicts hidden-words in a given sentence.
 2. __Generative Pre-trained Transformers (GPT)__. Generates a new word
 
+#### BERT versus GPT
 * BERT fills missing word.
 * This is an ___ of how LLM perform.
 * Bert receives inputs where words are randomly masked during training.
 * BERT is very commonly used in __sentiment analysis__.
 * The Bert model only has the Encoder.
 
- 
 * GPT
 * This is an example of how LLM can ___.
 * GPT model does not have an encoder they only have a decoder.
 
-these differences between Bert and GPT great and now one thing which I Difference between transformers and LLMs would like to cover before we end the lecture is that what is the difference between Transformer and llm so are they the same thing when we say llms can we also say Transformers so the key thing to note is that not all Transformers are llms Transformers can also be used for other tasks like computer vision so one thing which I would like to show you here is this thing so Transformers are not only used for language tasks they are also used for vision tasks such as image recognition image classification Etc here is a website which I have pulled out the these are called as Vision Transformers vit and they can be used for various application so here see the vision Transformer is being used to detect a PO hole on the road then there are a number of other important application such as it can be used to classify between tumors as maligant and venine just from the images and a number of people have discuss the similarities and differences between convolutional neural network and viit so viit AES remarkable results compared to CNN while obtaining substantially fewer computational resources for pre-training in comparison to C CNN Vision Transformers show a generally weaker bias so basically you think of only convolutional neural networks when you think of image classification right but Vision Transformers are a new method which is also gaining a lot of popularity and they can be used for image classification tasks so remember when you think of Transformers don't think of Transformers only in the context of large language models or text generation Transformers can also be used for computer vision so remember not all Transformers are llms so what about llms are all llms Transformers so that is also not true not all llms are also Transformers llms can be based on recurrent or convolutional architectures as well this is what very important point to remember
+***
+
+### Transformers versus LLMs 
+* Not all transformers are LLM
+* Transformers can also be used for computer vision
+* 
+* would like to cover before we end the lecture is that what is the difference between Transformer and llm so are they the same thing when we say llms can we also say Transformers so the key thing to note is that not all Transformers are llms Transformers can also be used for other tasks like computer vision so one thing which I would like to show you here is this thing so Transformers are not only used for language tasks they are also used for vision tasks such as image recognition image classification Etc here is a website which I have pulled out the these are called as Vision Transformers vit and they can be used for various application so here see the vision Transformer is being used to detect a PO hole on the road then there are a number of other important application such as it can be used to classify between tumors as maligant and venine just from the images and a number of people have discuss the similarities and differences between convolutional neural network and viit so viit AES remarkable results compared to CNN while obtaining substantially fewer computational resources for pre-training in comparison to C CNN Vision Transformers show a generally weaker bias so basically you think of only convolutional neural networks when you think of image classification right but Vision Transformers are a new method which is also gaining a lot of popularity and they can be used for image classification tasks so remember when you think of Transformers don't think of Transformers only in the context of large language models or text generation Transformers can also be used for computer vision so remember not all Transformers are llms so what about llms are all llms Transformers so that is also not true not all llms are also Transformers llms can be based on recurrent or convolutional architectures as well this is what very important point to remember
 
 * I had made a presentation uh some time back and this image has been taken from stats Quest channel so before even Transformers came into the picture here you can see 1980 recurrent neural networks were introduced in 1997 long short-term memory networks were introduced both of them could do sequence modeling tasks and both of them could do text completion tasks so they also can be called as language models so remember that all llms are not uh Transformers right llms can also be recurrent neural networks or long shortterm memory networks to give you a quick introduction what RNN actually do is that RNN maintain this kind of a feedback loop so that is why we can incorporate memory into account uh lstm on the other hand incorporates two separate paths One path about short-term memories and one path about long-term memories that's why they are called long short-term um memory networks so One path is for long-term memories and one path is for short-term memories so basically we have one green line let's say which is shown here that represents long-term memory one line which shows the short-term memory and then basically using both we can make predictions of what comes next so even recurrent neural networks and long short-term memory Networks and even some convolutional architectures can also be large language models so as we end I just want you to remember that not all Transformers are llms this is very important to keep in mind and not all llms are Transformers also so don't use the terms Transformers and llms interchangeably they are actually very different things but not many students or not many people really understand the similarities or the differences between them one purpose of these set of lectures is for you to understand everything from Basics the way it is supposed to be that way you'll also be much more confident when you transition your career or you're sitting for an llm interview and if you don't know the difference between Transformers or llms these lectures can clarify those similarities and differences for you I'm going to go into a lot of detail in lectures like what we did right now and not assume anything so I've written number of things on the Whiteboard so that you can understand let's do a quick recap of what all we learned first we saw that most modern llms rely on the Transformer architecture which was proposed in the 2017 paper it's basically a deep neural network architecture the paper which proposed the Transformer architecture is called as attention is all you need and the original Transformer was developed for machine translation for translating English tasks or English texts into German and French we saw a simplified Transformer architecture which had eight steps we take an input example pre-process it by converting words or sentences into words and token IDs then we pass it into the encoder which converts these tokens into Vector embeddings the vector embeddings are fed to the decoder along with the vector embeddings the decoder also receives partial output text and it generates the translated sentence one word at a time this is the simplified Transformer architecture and we saw that the Transformer architecture consists of an encoder and a decoder however later we saw that GPT models do not have an encoder they only have a decoder in the middle we had a small discussion on self attention mechanism which is really the heart of why Transformers works so well and why the paper which I showed you earlier is called attention is all you need self attention allows the model to weigh the importance of different words relative to each other and it enables the model to capture long range dependencies so when we are predicting the next word from a given sentence we can look at all
 
@@ -88,4 +92,5 @@ these differences between Bert and GPT great and now one thing which I Differenc
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
+
 
