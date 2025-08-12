@@ -69,15 +69,16 @@
 2. __Generative Pre-trained Transformers (GPT)__. Generates a new word
 
 #### BERT versus GPT
-1. BERT fills missing word.
+* BERT fills missing word.
 * This is an ___ of how LLM perform.
-* Bert receives inputs where words are randomly masked during training.
-* BERT is very commonly used in __sentiment analysis__.
-* The Bert model only has the Encoder.
+* The BERT model only has the Encoder.
+* Bert predicts hidden hidden words in a sentence or it predicts missing Words which are also called masked wordsso basically what this does is that word pays attention to a sentence from left side as well as from the right side because any word can be masked that's why it's called B directional encoder.
+
 
 1. GPT
 * This is an example of how LLM can ___.
-* GPT model does not have an encoder they only have a decoder.
+* GPT model only has Decoder.
+* GPT on the other hand just gets the data and then it predicts the next word. so it's a left to right model. basically it has data from the left hand side and then it has to predict what comes on the right or what's the next work so GPT receives incomplete text and learns to generate one word at a time.
 
 ***
 
@@ -104,17 +105,13 @@
 
 ### RNN
 * actually do is that RNN maintain this kind of a __feedback-loop__ so that is why we can incorporate memory into account.
+
 ### LSTM Networks
 * On the other hand incorporates two separate-paths:
 1. One-path about STM
 2. one-path about LTM
 
 
-
-
-
-* the context in the past and way the importance of which word matters more for predicting the next word you can think of also self attention as parallel attention to different parts of a paragraph or different sentences we will look into this later it's going to be one of the key aspects uh it's going to be one of the key aspects of our course as we move forward then we saw the later variations of transform Transformer architecture in particular we looked at two variations first is B which is B directional encoder representations and then we saw GPT so there is a difference between these right Bert predicts hidden hidden words in a sentence or it predicts missing Words which are also called masked words so basically what this does is that word pays attention to a sentence from left side as well as from the right side because any word can be masked that's why it's called B directional encoder and it does not have the decoder architecture it just has the encoder architecture since ber looks at a sentence from both the words both the directions it can capture the meanings of different words and how they relate to each other very well and that's why BT models are used for sentiment analysis A Lot GPT on the other hand just gets the data and then it predicts the next word so it's it's a left to right model basically it has data from the left hand side and then it has to predict what comes on the right or what's the next work so GPT receives incomplete text and learns to generate one word at a time um and main thing to remember is that GPT does not have an encoder it only has decoder great and then in the last part of the lecture we saw the difference between Transformers versus llms so remember not all Transformers are llms Transformers can also be used for computer vision tasks like image classification image segmentation Etc similarly not all llms are Transformers before Transformers came recurrent neural networks and long short-term memory networks and even convolutional architectures were used for text completion so that's why llms can be based on recurrent or convolutional architectures as well so do not use these terms Transformers and llms interchangeably though many people do it understand the similarities and differences between the two that brings us to the end of this lecture we covered a lot of we covered Five Points in today's lecture and.
-
-* I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
+*     um and main thing to remember is that GPT does not have an encoder it only has decoder great and then in the last part of the lecture we saw the difference between Transformers versus llms so remember not all Transformers are llms Transformers can also be used for computer vision tasks like image classification image segmentation Etc similarly not all llms are Transformers before Transformers came recurrent neural networks and long short-term memory networks and even convolutional architectures were used for text completion so that's why llms can be based on recurrent or convolutional architectures as well so do not use these terms Transformers and llms interchangeably though many people do it understand the similarities and differences between the two that brings us to the end of this lecture we covered a lot of we covered Five Points in today's lecture and.
 
 ***
