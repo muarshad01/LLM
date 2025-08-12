@@ -23,7 +23,7 @@
     *  pre-training: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
     *  just predict the next word in an unsupervised learning manner.
     * Why generative because we are generating the next word.
-    * [OpenAI Blog]() 
+    * [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
 ### [language models are unsupervised multitask learner]() 
 so what they basically did is they just
@@ -818,6 +818,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
