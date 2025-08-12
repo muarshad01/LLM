@@ -92,5 +92,3 @@
 * I encourage you to be proactive in the comment section ask questions ask doubts uh also make notes about these architectures as you are as you are learning that's really one of the best ways to learn about this material and as always I try to show everything on a whiteboard plus try to explain as clearly as possible so that nothing is left out and I show a lot of examples also in this process thanks a lot everyone I hope you are enjoying in this series I look forward to seeing you in the next lecture
 
 ***
-
-
