@@ -10,13 +10,12 @@
 ### zero-shot versus few-short learning
 * Transformers, GPT, GPT-2, GPT-3 and GPT-4.
 *  Transformers to GPT to gpt2 and and then finally to gpt3 and then GPT 4.
-*  [Attention is all you need](https://arxiv.org/abs/1706.03762)
+*  [2017 - Attention is all you need](https://arxiv.org/abs/1706.03762)
     *  Introduced the __self-attention__ mechanism, where you capture the long-range dependencies in a sentence.
     *   A significant advancement compared to RNN and LSTM Networks.
     *   Transformers: (encoder, decoder)
     *   GPT:  Only decoder. 
-### [Improving Language Understanding
-by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+* [2018 - Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
     * __Unsupervised learning__, basically what they basically says that NLP as such up till this point had been mostly supervised-learning.
     * Label data for learning is scarse
     * generative pre-training of a language model on a diverse Corpus of unlabeled text.
@@ -819,6 +818,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
