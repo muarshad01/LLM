@@ -8,13 +8,15 @@
 *   A significant advancement compared to RNN (1980) and LSTM Networks (1997).
 
 #### [GPT-2 (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
-    * __Unsupervised learning__, basically what they basically says that NLP as such up till this point had been mostly supervised-learning.
-    * Label data for learning is scarse
-    * generative pre-training of a language model on a diverse Corpus of unlabeled text.
-    *  __generative pre-training__ and __unlabeled__ text data.
-    *  pre-training: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
-    *  just predict the next word in an unsupervised learning manner.
-    * Why generative because we are generating the next word.
+* __Unsupervised learning__
+* __generative pre-training__ and __unlabeled__ text data.
+* Label data for learning is scarse
+* NLP as such up till this point had been mostly supervised-learning.
+* Just predict-the-next-word in an unsupervised-learning manner.
+* Generative pre-training of a language model on a diverse corpus of unlabeled text.
+* __generative__ because we are generating-the-next-word.
+* __pre-training__: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
+
 #### [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
 
@@ -748,6 +750,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
