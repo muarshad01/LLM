@@ -3,11 +3,11 @@
 * BERT: (encoder, ---)
 * GPT: (---, decoder)
 
-#### [GPT (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762)
+#### [Transformer (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762)
 *  __Self-attention__ mechanism, where you capture the __long-range dependencies__ in a sentence.
 *   A significant advancement compared to RNN (1980) and LSTM Networks (1997).
 
-#### [GPT-2 (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+#### [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
 * __Unsupervised learning__
 * __generative pre-training__ and __unlabeled__ text data.
 * Label data for learning is scarse
@@ -20,14 +20,16 @@
 #### [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
 
-#### [GPT-3 (2020): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+#### [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
+#### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 
 | Model | Parameters | Paper Link| 
 |---           |---    | ---|
-| GPT (2017)   |       | [GPT (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762) |
-| GPT (2018)   |       | [GPT-2 (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
-| GPT-2 (2019) | 1.5 B | |
-| GPT-3 (2020) | 175 B | [GPT-3 (2020): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|
+| GPT (2017)   |       | [Transformer (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762) |
+| GPT (2018)   |       | [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
+| GPT-2 (2019) | 1.5 B | [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|
+| GPT-3 (2020) | 175 B | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
 | GPT-3.5      |       | |
 | GPT-4        |       | |
 
@@ -752,6 +754,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
