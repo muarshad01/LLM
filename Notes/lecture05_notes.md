@@ -37,66 +37,30 @@
 
 ## Zero-Shot vs Few-Shot Learning
 #### Few shot
-* Ability to generalize to completely unseen tasks without any prior specific examples.
-* Learning from a minimum number of examples which the user provides as input.
-* good so let me actually directly go to the gpt3 paper G this was the gpt3 paper and they have wonderful illustrations of zero-shot and few-shot learning.
-*  so in zero-short learning the model predicts the answer given only a description no other Assistance or no other support.
-*   for example The Prompt can be that hey you have to translate English to French and take the word cheese and translate it into French if the model is able to do that that's an example of a zero-shot learning because we have not provided any supporting examples.
-*    one-shot learning, which means that the model Sees In addition to the task description the model also sees a single example of the task so for example look at this I tell the model that look C otter translates like this to French use this as a supporting guide or like a hint if you may and translate cheese into French so this is one-shot learning.
-*     where the model sees a single example of the task and then is few-short learning where the model basically sees a few examples of this task so for example in few-short learning uh.
-*   difference between zero-shot one-shot and few-shot zero shot is basically you provide no supporting examples to the model you just tell it to do that particular task such as language translation and it does it for you in one-shot the model sees a single example of the task and in few-shot the model sees a few examples of this task these beautiful examples
-*    __auto regressive__ language model. we'll see in a moment what this means with 175 billion parameters 10 times more than any previous language model and test its performance in a few-short setting so let's see what the results are gpt3 provides or achieves a strong performance perance on translation question answering as well as several tasks that require on the-fly reasoning or domain adaptation such as unscrambling words using a novel word in a sentence or performing three-digit arithmetic so this paper basically implied that GPT 3 was a few-short learner, which means that if it's given certain examples it can do that task very well although it is trained only for the next word prediction what this paper claimed was that gpt3 is a few-short learner, which means that if you wanted to do a language translation task you just need to give it a few examples let's say if you want gpt3 to do a language translation task you just give it few other examples of how that example is translated into another language and then gpt3 will do that task for you.
-*     so they claimed that gpt3 is a few-short learner you will encounter zero-shot versus few-shot at a number of different in a number of different books articles and blogs so I just wanted to make sure it's clear for you so then your question would be okay if gpt3 is a few-short learner what about GPT-4, which I'm using right now is it a zero-short learner or is it a few-short learner because it seems that I don't need to give it examples right it it just does many things on its own so let me ask gp4 itself are you a zero-short learner or are you a few short learner let's see the answer so gp4 says that I a few short learner this means I can understand and perform tasks better with a few examples while I can handle many tasks with without prior examples which is zero-short learning providing examples helps me generate more accurate responses so this is a very smart answer because gp4 is saying that it does amazingly well at few shot learning which means that if you provide it with some examples it does a better job but it can even do zero shot learning so this is very important for you all of you to know when you are interacting
+* Ability to generalize-to-completely-unseen-tasks without any prior specific examples.
+* Learning from a minimum number of examples, which the user provides as input.
+
+*  __zero-short__ learning the model-predicts-the-answer given only a description no other Assistance or no other support.
+  *  Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
+
+* __one-shot__ learning, which means, in addition to the task description the model also sees a single-example of the task.
+* Example: look at this. I tell the model that look C otter translates like this to French use this as a supporting-guide or like-a-hint, if you may and translate "cheese" into French.
+
+* __few-short__ learning, where the model basically sees a-few-examples-of-this task.
+
+#### difference between zero-shot, one-shot, and few-shot.
+* zero shot is basically you provide no supporting examples to the model you just tell it to do that particular task such as language translation and it does it for you.
+*  in one-shot the model sees a single-example of the task
+* few-shot the model sees a few-examples of this task these beautiful examples.
+
+#### Auto Regressive language model
+* paper basically implied that GPT 3 was a few-short learner,
+* which means that if it's given certain examples it can do that task very well although it is trained only for the next word prediction.
 
 
-* with GPT right if you provide some examples of the output which you are looking at or how you want the output to
-be gp4 will do an amazing job of course it has zero shot capabilities also uh
-but the two short capabilities are much more than zero short capabilities let me ask
-it do you also have zero
-short capabilities so when I ask this question
-to gp4 it says that yes I also have zero shot capabilities this means that I can
-perform tasks and answer questions without needing any prior examples or specific context so this is very
-important I would say GPT 4 is both a zero shot learner as well as a few shot
-learner but to get a more accurate responses as gp4 says itself you need to
-probably provide it few examples to get better responses so in that sense it is
-a better few short learner even when the authors release this paper they say confidently that
-gpt3 is a few short learner but it can also do zero short
-learning it just that its responses may not be as accurate awesome so this is really the
-difference between zero shot learning and fot learning and you need to keep this in mind because when you think
-about large language models this distinction is generally very very important I think when we go to GPT 5 or
-GPT 6 even we might get really better at zero shot learning we are already there but it can be
-better so here I've just shown a few examples of zero short versus few short learning so that this concept becomes
-even more clear so let's say the input is translate English to French for zero
-short learning we will just give the input which you want to translate like
-breakfast and then it's translated here for few short learning as I already showed to you before we give it few
-examples like uh let's say here we want to unscramble the words or make the
-words into correct spelling let's say that's the task to do this task we can we we can give some example so let's say
-this is a wrong spelling and the correct spelling is goat this is a wrong spelling the current correct spelling
-isue so we give GPT or the llm these two examples and then we tell it that based
-on these two examples now translate this into a correct word and then it translates it correctly as F so this is
-an example of few short learning because as you see we do provide two supporting
-examples so that the llm can actually make a better
-translation okay so zero shot learning is basically completing task without any
-example and uh few short learning is completing the task with a few
-examples okay now let's go to the next section which is utilizing large data
-Datasets for GPT pre-training
-sets uh we also looked at this in the previous lecture but I just want to reiterate this based on this paper so
-let's look at the data set which gpt3 have used we already saw that they the model was 175 billion parameters right
-like see this but let's see the data on which the model is trained on let's look
-at this data so the data set is the common craw data let's go
-to uh internet and search common craw so you can see that this is the common crawl data set and let me click on this
-right now and it maintains basically a free open repository of web scrw data that can be used by anyone it has over
-250 billion Pages spanning 17 years and it is free and open Corpus since 2007
-great so gpt3 uses 410 billion tokens from the common craw data and this is
-the majority of the data it consists of 60% of the entire data set what is one
-token so one token can be basically you can think of it as a Subs subset of the
-data set so for the sake of of this lecture just assume one token is equal to one word there are more complex
-procedures for converting sentences into tokens that's called tokenization but
-just assume for now just to develop your intuition that one token is equal to one word so that will give you an idea of
-this quantity so there are 410 billion Words which have been used as a data set
-from common crawl then gpt3 also utilize data from web text to let's go and
-search a bit about web text 2 so this is also an enhanced version of the original
-web Text corpus so this covers all the Reddit submissions from 2015 to
+* so they claimed that gpt3 is a few-short learner you will encounter zero-shot versus few-shot at a number of different in a number of different books articles and blogs so I just wanted to make sure it's clear for you so then your question would be okay if gpt3 is a few-short learner what about GPT-4, which I'm using right now is it a zero-short learner or is it a few-short learner because it seems that I don't need to give it examples right it it just does many things on its own so let me ask gp4 itself are you a zero-short learner or are you a few short learner let's see the answer so gp4 says that I a few short learner this means I can understand and perform tasks better with a few examples while I can handle many tasks with without prior examples which is zero-short learning providing examples helps me generate more accurate responses so this is a very smart answer because gp4 is saying that it does amazingly well at few shot learning which means that if you provide it with some examples it does a better job but it can even do zero shot learning so this is very important for you all of you to know when you are interacting
+
+* with GPT right if you provide some examples of the output which you are looking at or how you want the output to be gp4 will do an amazing job of course it has zero shot capabilities also uh but the two short capabilities are much more than zero short capabilities let me ask it do you also have zero short capabilities so when I ask this question to gp4 it says that yes I also have zero shot capabilities this means that I can perform tasks and answer questions without needing any prior examples or specific context so this is very important I would say GPT 4 is both a zero shot learner as well as a few shot learner but to get a more accurate responses as gp4 says itself you need to probably provide it few examples to get better responses so in that sense it is a better few short learner even when the authors release this paper they say confidently that gpt3 is a few short learner but it can also do zero short learning it just that its responses may not be as accurate awesome so this is really the difference between zero shot learning and fot learning and you need to keep this in mind because when you think about large language models this distinction is generally very very important I think when we go to GPT 5 or GPT 6 even we might get really better at zero shot learning we are already there but it can be better so here I've just shown a few examples of zero short versus few short learning so that this concept becomes even more clear so let's say the input is translate English to French for zero short learning we will just give the input which you want to translate like breakfast and then it's translated here for few short learning as I already showed to you before we give it few examples like uh let's say here we want to unscramble the words or make the words into correct spelling let's say that's the task to do this task we can we we can give some example so let's say this is a wrong spelling and the correct spelling is goat this is a wrong spelling the current correct spelling isue so we give GPT or the llm these two examples and then we tell it that based on these two examples now translate this into a correct word and then it translates it correctly as F so this is an example of few short learning because as you see we do provide two supporting examples so that the llm can actually make a better translation okay so zero shot learning is basically completing task without any example and uh few short learning is completing the task with a few examples okay now let's go to the next section which is utilizing large data Datasets for GPT pre-training sets uh we also looked at this in the previous lecture but I just want to reiterate this based on this paper so let's look at the data set which gpt3 have used we already saw that they the model was 175 billion parameters right like see this but let's see the data on which the model is trained on let's look at this data so the data set is the common craw data let's go to uh internet and search common craw so you can see that this is the common crawl data set and let me click on this right now and it maintains basically a free open repository of web scrw data that can be used by anyone it has over 250 billion Pages spanning 17 years and it is free and open Corpus since 2007 great so gpt3 uses 410 billion tokens from the common craw data and this is the majority of the data it consists of 60% of the entire data set what is one token so one token can be basically you can think of it as a Subs subset of the data set so for the sake of of this lecture just assume one token is equal to one word there are more complex procedures for converting sentences into tokens that's called tokenization but just assume for now just to develop your intuition that one token is equal to one word so that will give you an idea of this quantity so there are 410 billion Words which have been used as a data set from common crawl then gpt3 also utilize data from web text to let's go and search a bit about web text 2 so this is also an enhanced version of the original web Text corpus so this covers all the Reddit submissions from 2015 to
 
 ***
 
