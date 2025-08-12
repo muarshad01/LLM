@@ -15,7 +15,8 @@
     *   A significant advancement compared to RNN and LSTM Networks.
     *   Transformers: (encoder, decoder)
     *   GPT:  Only decoder. 
-* [GPT paper]()
+### [Improving Language Understanding
+by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
     * __Unsupervised learning__, basically what they basically says that NLP as such up till this point had been mostly supervised-learning.
     * Label data for learning is scarse
     * generative pre-training of a language model on a diverse Corpus of unlabeled text.
@@ -818,6 +819,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
