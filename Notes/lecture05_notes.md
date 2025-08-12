@@ -1,12 +1,6 @@
-Introduction and recap
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series this is the lecture five and today we are going to look in detail
-0:17
-at GPT or generative pre-trained Transformer we are going to see how the
+## Generative Pre-trained Transformer (GPT) 
+
+we are going to see how the
 0:23
 versions of GPT evolved how the different papers on GPT evolved what's
 0:29
@@ -14,9 +8,7 @@ the progression from Transformers to GPT to gpt2 to gpt3 and finally to GPT 4
 0:37
 where we are at right now in the previous lectures we have looked at uh
 0:43
-Transformers we looked at a simplified architecture for Transformer and we also saw the difference between Bert and GPT
-0:50
-model we saw what's the meaning of an encoder what's the meaning of a decoder Etc if you have not seen the previous
+Transformers we looked at a simplified architecture for Transformer and we also saw the difference between BERT and GPT model. we saw what's the meaning of an encoder what's the meaning of a decoder Etc if you have not seen the previous
 0:57
 lecture I would highly encourage you to go through that if not it's totally fine the way I have designed this lecture is
 1:03
@@ -901,3 +893,4 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
