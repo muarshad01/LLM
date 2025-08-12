@@ -70,26 +70,6 @@
 
 ***
 
-20:08
-2020 and I think the minimum number of apports here should be three or something but basically open web text
-20:15
-Data consists of a huge amount of Reddit posts and how huge so basically gpt3
-20:21
-uses 19 billion words from this web text2 data set which constitutes 22% of
-20:26
-the data the remaining I would say 18 to 19% of
-20:32
-the data comes from books and it comes from Wikipedia so this is the whole data
-20:37
-set on which gpt3 is trained on the total number of tokens on which it is trained on is 310 300 billion tokens
-20:45
-although if you add up these tokens they are more than 300 billion but maybe gpt3 took a different mix of uh the data set
-20:53
-but overall they took 300 billion words as the training data uh to generate the
-20:59
-
-***
-
 gpt3 model think of that for a while 300 billion
 21:05
 tokens that's huge number of tokens and that's huge amount of data and it would
@@ -596,6 +576,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
