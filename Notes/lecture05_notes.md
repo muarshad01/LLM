@@ -25,85 +25,10 @@
     * Why generative because we are generating the next word.
     * [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
-* [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) 
-so what they basically did is they just
-6:03
-took more amount of data than was used in the earlier paper and they also used a generative pre-train Network and you
-6:11
-can see that they actually showed four types of generative pre-train networks they showed a smaller model a slightly
-6:17
-larger model and the largest model which they used had 1542 which is 1,000 or 1
-6:23
-billion parameters almost uh so here you can see I have just shown a pictorial representation
-6:30
-here this was the gp2 gpt2 architecture which was introduced in this paper gpt2
-6:37
-generative pre-train Transformer 2 and here you can see that they released four things gpt2 small gpt2
-6:45
-medium gpt2 large and gpt2 extra large this was the first time when a paper was
-6:51
-published in which a large language model was so large in fact 1 billion
-6:56
-parameters were used in gpt2 extra large and it led to very very good results at
-7:01
-that time open AI was already working on more complex and more advanced GPT models but when this paper was released
-7:09
-in fact even this has very good number of citations if you if you just go to Google Scholar and
-7:15
-search this right now you'll see that this has uh around more than 10,000 plus
-7:20
-citations so this was the gpt2 paper which had around uh the largest model in
-7:26
-gpt2 really had around 1,000 million or 1 billion parameters then in 2020 came the real
-7:34
-boss which was gpt3 uh gpt3 had 175 billion parameters
-7:41
-let me show you where they actually mention about yeah so they they also
-7:47
-released a number of versions of gpt3 small medium large extra large a version
-7:52
-with 2.7 billion parameter a version with 6.7 billion parameter but there was one specific version which was released
-7:59
-which had 175 billion parameters which was gpt3 and when people started
-8:05
-exploring this model they could really see that it's amazing it could do so many things although it was just trained
-8:11
-to predict the next word it can do number of other things like translation sentiment analysis answering questions
-8:19
-uh answering multiple choice questions emotional recognition it can do so many
-8:25
-things and this was a huge model 175 billion parameters people had not seen
-8:30
-language models of this size then two years after this came GPT 3.5 which
-8:36
-became commercially viral everyone started using it and saw how good it was
-8:41
-and right now I'm using chat GPT 4 so if you uh see here I'm using chat GPT 40 so
-8:49
-GPT 4 is where we are right now but you just see this gradual transformation
-8:55
-which has happened from 2017 to 2024 in a space of 7 years we have gone from
-9:00
-this original Transformers paper we have gone then to the GPT paper in 2018 2019
-9:07
-came gpt2 this 2019 came gpt2 then in 2020
-9:14
-came gpt3 which really changed everything then came GPT 3.5 and then finally we are at GPT 4 this is the
-9:21
-whole uh transformation from Transformers to GPT gpt2 gpt3 GPT 3.5
-9:28
-and then G G pt4 many people don't know the difference between Transformers and GPT GPT essentially borrows from the
-9:36
-Transformer architecture but it's a bit different in that it does not have really the encoder
-9:41
-block so I just wanted to start off this lecture by giving you this historical perspective of how the generative
-9:48
-pre-train Transformer has evolved the next thing which I want to cover today is the difference between zero shot and
-Zero Shot vs Few Shot learning
-9:55
-few shot learning zero shot is basically the ability to generalize to completely
-10:02
-unseen tasks without any prior specific examples and few shot is basically
+* [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)  so what they basically did is they just took more amount of data than was used in the earlier paper and they also used a generative pre-train Network and you can see that they actually showed four types of generative pre-train networks they showed a smaller model a slightly larger model and the largest model which they used had 1542 which is 1,000 or 1 billion parameters almost uh so here you can see I have just shown a pictorial representation here this was the gp2 gpt2 architecture which was introduced in this paper gpt2 generative pre-train Transformer 2 and here you can see that they released four things gpt2 small gpt2 medium gpt2 large and gpt2 extra large this was the first time when a paper was published in which a large language model was so large in fact 1 billion parameters were used in gpt2 extra large and it led to very very good results at that time open AI was already working on more complex and more advanced GPT models but when this paper was released in fact even this has very good number of citations if you if you just go to Google Scholar and search this right now you'll see that this has uh around more than 10,000 plus citations so this was the gpt2 paper which had around uh the largest model in gpt2 really had around 1,000 million or 1 billion parameters then in 2020 came the real boss which was gpt3 uh gpt3 had 175 billion parameters let me show you where they actually mention about yeah so they they also released a number of versions of gpt3 small medium large extra large a version with 2.7 billion parameter a version with 6.7 billion parameter but there was one specific version which was released which had 175 billion parameters which was gpt3 and when people started exploring this model they could really see that it's amazing it could do so many things although it was just trained to predict the next word it can do number of other things like translation sentiment analysis answering questions uh answering multiple choice questions emotional recognition it can do so many things and this was a huge model 175 billion parameters people had not seen language models of this size then two years after this came GPT 3.5 which became commercially viral everyone started using it and saw how good it was and right now I'm using chat GPT 4 so if you uh see here I'm using chat GPT 40 so GPT 4 is where we are right now but you just see this gradual transformation which has happened from 2017 to 2024 in a space of 7 years we have gone from this original Transformers paper we have gone then to the GPT paper in 2018 2019 came gpt2 this 2019 came gpt2 then in 2020 came gpt3 which really changed everything then came GPT 3.5 and then finally we are at GPT 4 this is the whole uh transformation from Transformers to GPT gpt2 gpt3 GPT 3.5 and then G G pt4 many people don't know the difference between Transformers and GPT GPT essentially borrows from the Transformer architecture but it's a bit different in that it does not have really the encoder block so I just wanted to start off this lecture by giving you this historical perspective of how the generative pre-train Transformer has evolved the next thing which I want to cover today is the difference between zero shot and Zero Shot vs Few Shot learning few shot learning zero shot is basically the ability to generalize to completely unseen tasks without any prior specific examples and few shot is basically
+
+***
+
 10:08
 learning from a minimum number of examples which the user provides as
 10:13
@@ -818,6 +743,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
