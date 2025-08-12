@@ -17,22 +17,19 @@
 *   A significant advancement compared to RNN (1980) and LSTM Networks (1997).
 
 #### [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
-* __Unsupervised learning__
-* __generative pre-training__ and __unlabeled__ text data.
-* Label data for learning is scarse
-* NLP as such up till this point had been mostly supervised-learning.
-* Just predict-the-next-word in an unsupervised-learning manner.
-* Generative pre-training of a language model on a diverse corpus of unlabeled text.
-* __generative__ because we are generating-the-next-word.
-* __pre-training__: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
+* __Generative Pre-training__ on a divrse corpus of __unlabeled__ text data.
+* __Generative__ because we are generating-/predicting-the-next-word in an __unsupervised-learning__ manner.
+* __Pre-training__: Text data, which is used here is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next-word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
 
 #### [OpenAI Blog](https://openai.com/index/language-unsupervised/)
-* Our approach is a combination of two ideas Transformers and __unsupervised pre-training__.
-* It had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
+* GPT is combination of two ideas: (Transformers, unsupervised pre-training)
 
 #### [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
-* trained to predict-the-next-word.
-* translation, sentiment analysis, answering questions, answering MCQs, emotional recognition, etc.
+* translation
+* sentiment analysis
+* answering questions
+* answering MCQs
+* emotional recognition, etc.
 
 #### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 
@@ -754,6 +751,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
