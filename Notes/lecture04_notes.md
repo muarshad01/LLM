@@ -102,6 +102,7 @@
 
 * RNN and LSTM Networks can also be called as language models
 * ALL LLMs are not Transformers. LLMs can also be RNN or LSTM Networsk to give you a quick introduction.
+* similarly not all llms are Transformers before Transformers came RNN and LSTM Networks and even convolutional architectures were used for text completion.
 
 ### RNN
 * actually do is that RNN maintain this kind of a __feedback-loop__ so that is why we can incorporate memory into account.
@@ -110,8 +111,5 @@
 * On the other hand incorporates two separate-paths:
 1. One-path about STM
 2. one-path about LTM
-
-
-*     um and main thing to remember is that GPT does not have an encoder it only has decoder great and then in the last part of the lecture we saw the difference between Transformers versus llms so remember not all Transformers are llms Transformers can also be used for computer vision tasks like image classification image segmentation Etc similarly not all llms are Transformers before Transformers came recurrent neural networks and long short-term memory networks and even convolutional architectures were used for text completion so that's why llms can be based on recurrent or convolutional architectures as well so do not use these terms Transformers and llms interchangeably though many people do it understand the similarities and differences between the two that brings us to the end of this lecture we covered a lot of we covered Five Points in today's lecture and.
 
 ***
