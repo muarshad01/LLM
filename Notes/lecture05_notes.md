@@ -5,6 +5,8 @@
 | BERT | (encoder, ---) |
 | GPT | (---, decoder) |
 
+***
+
 | Model | Parameters | Paper Link| 
 |---           |---    | ---|
 | Transformer (2017)  |  |       | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
@@ -13,6 +15,8 @@
 | GPT-3 (2020) | 175 B | | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
 | GPT-3.5      |       |  |
 | GPT-4        |       |  |
+
+***
 
 #### [Transformer (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762)
 *  __Self-attention__ mechanism, where you capture the __long-range dependencies__ in a sentence.
@@ -251,6 +255,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 I I look forward to seeing you in the next video
 *** 
+
 
 
 
