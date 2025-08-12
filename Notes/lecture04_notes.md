@@ -50,8 +50,8 @@
 ***
 
 ## Later variations of the Transformer architecture.
-1. BERT: It predicts hidden-words in a given sentence.!
-2. GPT:  Generates a new word!
+1. __BERT__: It predicts hidden-words in a given sentence.!
+2. __GPT__: Generates a new word!
 
 #### BERT
 * BERT: fills missing word. It predicts hidden-words in a given sentence.!
@@ -66,7 +66,7 @@
 
 ***
 
-### Transformers versus LLMs 
+## Transformers versus LLMs 
 * Not ALL Transformers are LLM
 * Not ALL LLMs are Transformers
 * Don't use the terms Transformers and LLMs interchangeably.
@@ -97,16 +97,3 @@
 2. one-path about LTM
 
 ***
-
-*  Text completion, which is the pre-dominant role of GPT was not even in consideration here. GPT architecture, which is the foundational stone or foundational building-block of ChatGPT, originated from this paper.
-
-* __Embedding
-
-#### What is Attention?
-* It is actually a technical term, which is related to how attention is used in our daily life.
-
-* * __Attention__:  
-
-* GPT architecture is actually different than the Transformer because that came later and it does not have the encoder it only has the decoder.
-
-
