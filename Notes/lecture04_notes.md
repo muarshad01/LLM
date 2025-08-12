@@ -29,7 +29,6 @@
 1. __Encoder__: Encodes intput text into vectors
 2. __Decoder__: Generates output text from encoded vectors and from the partial-output
 
-
 #### Attention
 * Attention-mechanisms have become an integral part of sequence-modeling allowing modeling-of-dependencies without regard-to-their-distance.
 * Attention-mechanisms allow you to model the dependencies between different words without regards to how-close-or-apart the words are.
@@ -39,14 +38,16 @@
 1. Self-attention is an attention-mechanism, which relates different-positions of a single-sequence in order to compute a representation-of-the-sequence.
 2. Allows the model to weigh the importance of different words / tokens relative to each other.
 3. Enables model to capture __long-range dependencies__.
-4. The self-attention mechanism maintains this __attention score__, which basically tells you which word should be given more attention.
+
+#### Attention Score
+1. The self-attention mechanism maintains this __attention score__, which basically tells you which word should be given more attention.
+2. Attention score, which basically it's a matrix and it tells you which words should be given more importance in relative or in relation to other words.
   
 #### Attention Blocks
 * multi-head attention
 * mask multi-head attention
-  
-### Attention Score
-* I mentioned they they calculate an attention score, which basically it's a matrix and it tells you which words should be given more importance in relative or in relation to other words.
+
+***
 
 ### Later variations of the Transformer architecture.
 1. __Bi-directional Encoder Representations from Transformers (BERT)__. It predicts hidden-words in a given sentence.
@@ -108,3 +109,4 @@
 * * __Attention__:  
 
 * GPT architecture is actually different than the Transformer because that came later and it does not have the encoder it only has the decoder.
+
