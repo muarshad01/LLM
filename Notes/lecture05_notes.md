@@ -1,21 +1,14 @@
 ## A closer look at Generative Pre-trained Transformer (GPT) 
+*  Transfomer (encoder, decoder)
+*  Transformers, GPT, GPT-2, GPT-3 and GPT-4.
+*  Transformers -> BERT -> GPT models.
 
-* we are going to see how the versions of GPT evolved?
-*  how the different papers on GPT evolved?
-*   what's the progression from Transformers to
-*   GPT to gpt2 to gpt3 and finally to GPT 4?
-*    where we are at right now?
-*     Transformers we looked at a simplified architecture for Transformer and we also saw the difference between BERT and GPT model.
-* we saw what's the meaning of an encoder what's the meaning of a decoder Etc?
-### zero-shot versus few-short learning
-* Transformers, GPT, GPT-2, GPT-3 and GPT-4.
-*  Transformers to GPT to gpt2 and and then finally to gpt3 and then GPT 4.
-*  [2017 - Attention is all you need](https://arxiv.org/abs/1706.03762)
+### [GPT (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762)
     *  Introduced the __self-attention__ mechanism, where you capture the long-range dependencies in a sentence.
     *   A significant advancement compared to RNN and LSTM Networks.
     *   Transformers: (encoder, decoder)
     *   GPT:  Only decoder. 
-* [2018 - Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+#### [GPT-2 (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
     * __Unsupervised learning__, basically what they basically says that NLP as such up till this point had been mostly supervised-learning.
     * Label data for learning is scarse
     * generative pre-training of a language model on a diverse Corpus of unlabeled text.
@@ -23,20 +16,20 @@
     *  pre-training: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
     *  just predict the next word in an unsupervised learning manner.
     * Why generative because we are generating the next word.
-* [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
+#### [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
     * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
-* [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
-* Four types of generative pre-train networks they showed a smaller model, a slightly larger model, and the largest model, which they used had 1542M. which is 1,000 or 1 billion parameters almost.
-* so here you can see I have just shown a pictorial representation here this was the GPT-2 architecture,  which was introduced in this paper.
-*
-*  2020 came the real boss which was gpt3 uh gpt3 had 175 billion parameters.
-*   although it was just trained to predict the next word it can do number of other things like translation sentiment analysis answering questions uh answering multiple choice questions emotional recognition it can do so many things.
-*    and this was a huge model 175 billion parameters people had not seen language models of this size then two years after this came GPT 3.5 ...GPT 4 so if you uh see here I'm using chat GPT 40 so GPT 4 is where we are right now.
-*     but you just see this gradual transformation which has happened from 2017 to 2024 in a space of 7 years we have gone from this original Transformers paper we have gone then to the GPT paper in
-* 2018 2019 came gpt2 this 2019 came gpt2 then in 2020 came gpt3.
-*  which really changed everything then came GPT 3.5
-*   and then finally we are at GPT 4.
-*    this is the whole uh transformation from Transformers to GPT gpt2 gpt3 GPT 3.5 and then G G pt4.
+
+#### [GPT-3 (2020): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
+* GPT (2017)
+* GPT (2018)
+* GPT-2 (2019) - 1.5 Billion parameters 
+* GPT-3 (2020) - 175 Billion parameters
+* GPT-3.5
+* GPT-4.
+
+* trained to predict-the-next-word.
+* translation, sentiment analysis, answering questions, answering MCQs, emotional recognition, etc.
 
 ***
 
@@ -756,6 +749,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
