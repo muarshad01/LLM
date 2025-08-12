@@ -26,15 +26,15 @@
 * __generative__ because we are generating-the-next-word.
 * __pre-training__: what is done here is that the text, which is used is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
 
-#### [OpenAI Blog](https://openai.com/index/language-unsupervised/) 
-    * Our approach is a combination of two ideas Transformers and __unsupervised pre-training__. it it had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
+#### [OpenAI Blog](https://openai.com/index/language-unsupervised/)
+* Our approach is a combination of two ideas Transformers and __unsupervised pre-training__.
+* It had not entered the commercial domain then what happened is that in 2019 just the next year came one more paper which is called as
 
 #### [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
-
-#### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
-
 * trained to predict-the-next-word.
 * translation, sentiment analysis, answering questions, answering MCQs, emotional recognition, etc.
+
+#### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 
 ***
 
@@ -754,6 +754,7 @@ far and in all of them I have tried to make them as detailed as possible and as 
 uh let me know in the YouTube comment section if you have any doubts or any questions thank you so much everyone and
 47:56
 I I look forward to seeing you in the next video
+
 
 
 
