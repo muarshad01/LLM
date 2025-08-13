@@ -62,19 +62,19 @@
 * learning the model-predicts-the-answer given only a description no-other-assistance or no-other-support.
 * Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
 
-#### Auto-Regressive Language Model
-* It's means, If given certain examples, it can do that task very well. Although it is trained only for the next-word prediction.
-* GPT-3 is Few-Shot learner
+#### Auto-regressive Language Model
+* An autoregressive language model is a type of model that predicts the next-word (or token) in a sequence based on the previous words. It generates text one step at a time, where each new word depends on the ones that came before it.
+* Each word is generated sequentially, and the model uses its own previous outputs to generate the next-word.
+```
+P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
+```
 
-* which I'm using right now is it a zero-short learner.
-*  or is it a few-shot learner because it seems that I don't need to give it examples right it it just does many things on its own so let me ask GPT-4 itself are you a zero-short learner or are you a few short learner.
-*  GPT-4 says that I a few short learner.
-*   this means I can understand and perform tasks better with a few examples while I can handle many tasks with without prior examples which is zero-short learning providing examples helps me generate more accurate responses .
+* GPT-3 is few-shot learner
+* GPT-4 is few-shot and also zero-shot learmer
 
-* with GPT right if you provide some examples of the output which you are looking at or how you want the output to be gp4 will do an amazing job of course it has zero-shot capabilities also uh but the two short capabilities are much more than zero-short capabilities.
-*  let me ask it do you also have zero-short capabilities so when I ask this question to gp4 it says that yes I also have zero-shot capabilities.
-*    so zero-shot learning is basically completing task without any example and uh few-short learning is completing the task with a few examples okay.
-*    let's go to the next section which is utilizing large data Datasets for GPT pre-training ...gpt3 uses 410 billion tokens from the common craw data and this is the majority of the data it consists of 60% of the entire data set what is one token so one token can be basically you can think of it as a Subs subset of the data set so for the sake of of this lecture just assume one token is equal to one word
+***
+
+let's go to the next section which is utilizing large data Datasets for GPT pre-training ...gpt3 uses 410 billion tokens from the common craw data and this is the majority of the data it consists of 60% of the entire data set what is one token so one token can be basically you can think of it as a Subs subset of the data set so for the sake of of this lecture just assume one token is equal to one word
 
 ***
 
@@ -123,6 +123,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
