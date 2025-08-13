@@ -93,7 +93,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Similar to the back-propagation done in NN, the weights of the Transformer / GPT architecture will adapt so that the next-word so that is predicted correctly.
 * We'll try to predict the next-word so then we'll have have something, which is called as the predicted-word and then we'll train the NN or train the GPT architecture to minimize the difference between these two (prdicted-word and correct output) and update the weights to get correct answer.
 
-| Architecture | | Parameters |
+| Architecture | Layers / Block| Parameters |
 |---|---|---|
 | Original Transformer | six (encoder, decoder) blocks | |
 | GPT-3 | 96 Transformer layers (---, decoder) | 175 B |
@@ -108,6 +108,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 *   __ emergent Behavior__
 
 ***
+
 
 
 
