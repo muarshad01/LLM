@@ -15,7 +15,7 @@
 | GPT-2 (2019) | 1.5 B | 300 B  | [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|
 | GPT-3 (2020) | 175 B |  | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
 | GPT-3.5      |       |  | |
-| GPT-4        |       |  | |
+| GPT-4 (2023)       |       |  | |
 
 ***
 
@@ -131,6 +131,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
