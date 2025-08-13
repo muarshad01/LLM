@@ -49,9 +49,7 @@
 
 ***
 
-## Later variations of the Transformer architecture.
-1. __BERT__: It predicts hidden-words in a given sentence.!
-2. __GPT__: Generates a new word!
+## Later Variations of the Transformer architecture.
 
 | Model | Architecture|
 |---|---|
@@ -59,17 +57,16 @@
 |BERT | (encoder, ---)|
 |GPT| (---, decoder)|
 
-
 #### BERT
-* BERT: fills missing word. It predicts hidden-words in a given sentence.!
-* Example: This is an ___ of how LLM perform.
 * The BERT model has only the Encoder.
-* Bert predicts hidden-words (also called masked words) in a sentence. Basically, what this does is that word pays attention to a sentence from left-side as well as from the right-side. Because any word can be masked that's why it's called Bidirectional encoder.
+* BERT: Fills missing word. It predicts hidden-words (also called masked words) in a given sentence.
+* Example: This is an ___ of how LLM perform.
+* Basically, what this does is that word pays attention to a sentence from left-side as well as from the right-side. Because any word can be masked that's why it's called Bidirectional encoder.
 
 #### GPT
-* Example: This is an example of how LLM can ___.
 * GPT model only has Decoder.
-* GPT on the other hand just gets the data and then it predicts the next-word. So, it's a left-to-right model. Basically it has data from the left hand side and then it has to predict what comes on the right. GPT receives incomplete text and learns to generate one word at a time.
+* Example: This is an example of how LLM can ___.
+* GPT on the other hand just gets the data and then it predicts (generates) the next-word. So, it's a left-to-right model. Basically it has data from the left-hand-side and then it has to predict what comes on the right. GPT receives incomplete text and learns to generate one-word at a time.
 
 ***
 
@@ -104,6 +101,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
