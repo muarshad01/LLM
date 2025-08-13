@@ -73,266 +73,138 @@ spam whereas hey just wanted to check if we are still on for dinner tonight let 
 ***
 
 so let's say you take two cases right in
-15:11
 one case you only have pre-trained llms
-15:13
 and in second case you have pre-trained
-15:15
 plus fine tuned llms so it turns out
-15:18
 that pre-trained plus finetune does a
-15:20
 much better job at certain specific
-15:22
 tasks than just using pre-rain for
-15:24
 students who just want to interact for
-15:26
 getting their doubts solved or for
-15:29
 getting assistance uh in summarization
-15:32
 uh helping in writing a research paper
-15:34
 Etc gp4 perplexity or such API tools or
-15:39
 such interfaces which are available work
-15:41
 perfectly fine but if you want to build
-15:43
 a specific application on your data set
-15:46
 and take it to production level you
-15:48
 definitely need fine
-15:50
 tuning okay now uh one more key thing is
-15:54
 that the secret Source behind large
-15:55
 language models is this Transformer
-15:57
 architecture
-15:59
 so uh the key idea behind Transformer
-16:02
 architecture is the attention mechanism
-16:05
 uh just to show you how the Transformer
-16:07
 architecture looks like it looks like
-16:08
 this and the main thing behind the
-16:10
 Transformer architecture which really
-16:12
 makes it so
-16:14
 powerful are these attention
-16:17
 blocks we'll see what they mean so no
-16:19
 need to worry about this right
-16:21
 now but in the nutshell attention
-16:24
 mechanism gives the llm selective access
-16:26
 to the whole input sequence when
-16:28
 generating output one word at a time
-16:31
 basically attention mechanism allows the
-16:33
 llm to understand the importance of
-16:36
 words and not just the word in the
-16:39
 current sentence but in the previous
-16:41
 sentences which have come long before
-16:42
 also because context is important in
-16:45
 predicting the next word the current
-16:47
 sentence is not the only one which
-16:48
 matters attention mechanism allows the
-16:51
 llm to give access to the entire context
-16:53
 and select or give weightage to which
-16:55
 words are important in predicting the
-16:57
 next word this is a key idea which and
-17:00
 we'll spend a lot of time on this
-17:02
 idea remember that the original
-17:04
 Transformer had only the had encoder
-17:07
 plus decoder so it had both of these
-17:10
 things it had the encoder as well as it
-17:11
 had the decoder but generative pre-train
-17:15
 Transformer only has the decoder it did
-17:17
 not it does not have the encoder so
-17:20
 Transformer and GPT is not the same
-17:22
 Transformer paper came in 2017 it had
-17:24
 encoder plus decoder generative pre-rain
-17:27
 Transformer came one year later
-17:29
 2018 and that only had the decoder
-17:32
 architecture so even gp4 right now it
-17:34
 only has decoder no encoder so 2018 came
-17:38
 GPT the first generative pre-trend
-17:40
 Transformer architecture 2019 came gpt2
-17:43
 2020 came gpt3 which had 175 billion
-17:47
 parameters and that really changed the
-17:49
 game because no one had seen a model
-17:51
 this large before and then now we are at
-17:53
 GPT 4
-17:55
 stage one last point which is very
-17:57
 important is that llms are only trained
-18:00
 for predicting the next word right but
-18:02
 very surprisingly they develop emergent
-18:04
 properties which means that although
-18:07
 they are only trained to predict the
-18:08
 next word they show some amazing
-18:11
 properties like ability to classify text
-18:14
 translate text from one language into
-18:16
 another language and even summarize
-18:17
 texts so they were not trained for these
-18:20
 tasks but they developed these
-18:22
 properties and that was an awesome thing
-18:23
 to realize the pre-training stage works
-18:26
 so well that llms develop all of these
-18:28
 wonderful other properties which makes
-18:30
 them so impactful for a wide range of
-18:33
 tasks
-18:35
 currently okay so this brings us to the
-18:37
 end of the recap which we have covered
-18:39
 up till now if you have not seen the
-18:41
 previous lectures I really encourage you
-18:43
 to go through them because these
-18:45
 lectures have really set the stage for
-18:46
 us to now dive into stage one so from
-18:49
 the next lecture we'll start going into
-18:51
 stage one and we'll start seeing the
-18:53
 first aspect which is data preparation
-18:55
 and sampling so the next lecture title
-18:58
 will be be working with Text data and
-19:00
 we'll be looking at the data sets how to
-19:03
 load a data set how to count the number
-19:05
 of characters uh how to break the data
-19:07
 into tokens and I'll I'll start sharing
-19:10
 sharing Jupiter notebooks from next time
-19:12
 onward so that we can parall begin
-19:15
 coding so thanks everyone I hope you are
-19:17
 liking these lectures so lecture 1 to
-19:20
 six we kind of like an introductory
-19:23
 lecture to give you a feel of the entire
-19:24
 series and so that you understand
-19:26
 Concepts at a fundamental level from
-19:28
 from lecture 7 we'll be diving deep into
-19:30
 code and we'll be starting into stage
-19:33
 one so I follow this approach of writing
-19:36
 on a whiteboard and also
-19:38
 coding um so that you understand the
-19:40
 details plus the code at the same time
-19:43
 because I believe Theory plus practical
-19:44
 implementation both are important and
-19:47
 that is one of the philosophies of this
-19:49
 lecture Series so do let me know in the
-19:51
 comments how you finding this teaching
-19:53
 style uh because I will take feedback
-19:56
 from that and we can build this series
-19:58
 together 3 to four months later this can
-20:00
 be an amazing and awesome series and I
-20:03
 will rely on your feedback to build this
-20:05
 thanks a lot everyone and I look forward
-20:07
 to seeing you in the next lecture
 
 ***
+
 
 
 
