@@ -80,7 +80,6 @@
 #### RNN & LSTM
 * RNN (1980), LSTM (1997) Networks, and and even convolutional architectures, can also be called as language models (text completion purpose).
 * LLMs can also be RNN, LSTM Networsk, or convolutional architectures, to give you a quick introduction.
-* Not ALL LLMs are Transformers (Encoders & Decoders).
 
 #### RNN
 * RNN maintains a __feedback-loop__, so that is why, we can incorporate memory into account.
@@ -98,4 +97,5 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
