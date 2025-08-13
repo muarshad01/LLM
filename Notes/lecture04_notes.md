@@ -53,6 +53,13 @@
 1. __BERT__: It predicts hidden-words in a given sentence.!
 2. __GPT__: Generates a new word!
 
+| Model | Architecture|
+|---|---|
+|Transformer | (encoder, decoder)|
+|BERT | (encoder, ---)|
+|GPT| (---, decoder)|
+
+
 #### BERT
 * BERT: fills missing word. It predicts hidden-words in a given sentence.!
 * Example: This is an ___ of how LLM perform.
@@ -97,5 +104,6 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
