@@ -82,7 +82,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Many pre-trained LLMs are available as open-source.
   
 |Open Source | Parameters|
-|---|---|---|
+|---|---|
 |Lama 3.1| 405 B|
 
 ***
@@ -105,6 +105,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 *   __ emergent Behavior__
 
 ***
+
 
 
 
