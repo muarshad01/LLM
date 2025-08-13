@@ -16,6 +16,7 @@
 | GPT-3 (2020) | 175 B |  | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
 | GPT-3.5      |       |  | |
 | GPT-4 (2023)       |       |  | |
+| GPT-5 (2025)       |       |  | |
 
 ***
 
@@ -131,6 +132,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
