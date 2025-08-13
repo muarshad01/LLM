@@ -55,22 +55,20 @@
 | | Supporting Example(s) for Model |
 | Zero-Shot | No  supporting example |
 | One-Shot  | One supporting example |
-| Few-Shot  | Few supporting examples|
+| Few-Shot (GPT-3)  | Few supporting examples|
 
 
 #### Zero-Shot 
 * learning the model-predicts-the-answer given only a description no-other-assistance or no-other-support.
 * Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
 
-
 #### Auto-Regressive Language Model
-* paper basically implied that GPT 3 was a few-short learner,
-* which means that if it's given certain examples it can do that task very well although it is trained only for the next word prediction.
+* It's means, If given certain examples, it can do that task very well. Although it is trained only for the next-word prediction.
+* GPT-3 is Few-Shot learner
 
-
-* gpt3 is a few-short learner what about GPT-4,
-* which I'm using right now is it a zero-short learner or is it a few-short learner because it seems that I don't need to give it examples right it it just does many things on its own so let me ask gp4 itself are you a zero-short learner or are you a few short learner.
-*  gp4 says that I a few short learner.
+* which I'm using right now is it a zero-short learner.
+*  or is it a few-shot learner because it seems that I don't need to give it examples right it it just does many things on its own so let me ask GPT-4 itself are you a zero-short learner or are you a few short learner.
+*  GPT-4 says that I a few short learner.
 *   this means I can understand and perform tasks better with a few examples while I can handle many tasks with without prior examples which is zero-short learning providing examples helps me generate more accurate responses .
 
 * with GPT right if you provide some examples of the output which you are looking at or how you want the output to be gp4 will do an amazing job of course it has zero-shot capabilities also uh but the two short capabilities are much more than zero-short capabilities.
@@ -125,6 +123,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
