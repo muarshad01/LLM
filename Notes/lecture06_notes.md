@@ -1,45 +1,4 @@
-hello everyone welcome to this lecture in the building large language models
-from scratch series we have covered five lectures up till now and in the previous
-lecture we looked at the gpt3 architecture in a lot of detail we also
-saw the progression from GPT to gpt2 to gpt3 and finally to GPT
-4 uh we saw that the total pre-training cost for gpt3 is around 4.6 million
-which is insanely high and up till now we have also looked
-at the data set which was used for pre-training gpt3 and we have seen this
-several times until now in the prev previous lecture we learned about the differences between
-zero shot versus few shot learning as well so if you have not been through the previous lectures we have already
-covered five lectures in this series and uh all of them have actually received a
-very good response from YouTube and I've received a number of comments saying that they have really helped people so I
-encourage you to go through those videos in today's lecture we are going to be discussing about what we will
-exactly cover in the playlist in these five lectures we have looked at some of
-the theory modules some of the intuition modules behind attention behind self attention prediction of next word uh
-zero short versus few short learning basics of the Transformer architecture data sets used for llm pre pre-training
-difference between pre-training and fine tuning Etc but now from the next lecture
-onwards we are going to start with the Hands-On aspects of actually building an
-llm so I wanted to utilize this particular lecture to give you a road map of what all we will be doing in this
-series and what all stages which we will be covering during this
-playlist so that is the title of today's lecture stages of building a large language model towards the end of this
-lecture we will also do a recap of what all we have learned until now so let's get started with today's
-lecture okay so we will break this playlist into three stage stages stage
-one stage two and stage three remember before we get started that this material
-which I showing is heavily borrowed from U the book building a large language model from scratch which is written by sebasian rashka so I'm very grateful to
-the author for writing this book which is allowing me to make this
-playlist okay so we'll be dividing the playlist into three stages stage one
-stage two and stage number three unfort fortunately all of the playlists
-currently which are available on YouTube only go through some of these stages and
-that two they do not cover these stages in detail my plan is to devote a number
-of lectures to each stage in this uh playlist so that you get a very detailed
-understanding of how the nuts and bolts really work so in stage one we are going to be looking at uh essentially building a
-large language model and we are going to look at the building blocks which are necessary so before we go to train the large language model we need to do the
-data pre-processing and sampling in a very specific manner we need to understand the attention mechanism and we will need to understand the llm architecture so in the stage one we are
-going to focus on these three things understanding how the data is collected from different data sets how the data is processed how the data is sampled number one then we will go to attention
-mechanism how to C out the attention mechanism completely from scratch in Python what is meant by key query value
-what is the attention score what is positional encoding what is Vector embedding all of this will be covered in
-this stage we'll also be looking at the llm architecture such as how to stack different layers on top of each other
-where should the attention head go all of these things essentially uh the
-main understanding or the main part of this stage will be to understand
-understand the basic mechanism behind the large language model so what exactly we will cover in data preparation and
-sampling first we'll see tokenization if you are given sentences how to break them down into individual tokens as we
-have seen earlier a token can be thought of as a unit of a sentence but there is a particular way of doing tokenization we'll cover that then we will cover Vector embedding essentially after we do tokenization every word needs to be transformed into a very high dimensional
+hello everyone welcome to this lecture in the building large language models from scratch series we have covered five lectures up till now and in the previous lecture we looked at the gpt3 architecture in a lot of detail we also saw the progression from GPT to gpt2 to gpt3 and finally to GPT 4 uh we saw that the total pre-training cost for gpt3 is around 4.6 million which is insanely high and up till now we have also looked at the data set which was used for pre-training gpt3 and we have seen this several times until now in the prev previous lecture we learned about the differences between zero shot versus few shot learning as well so if you have not been through the previous lectures we have already covered five lectures in this series and uh all of them have actually received a very good response from YouTube and I've received a number of comments saying that they have really helped people so I encourage you to go through those videos in today's lecture we are going to be discussing about what we will exactly cover in the playlist in these five lectures we have looked at some of the theory modules some of the intuition modules behind attention behind self attention prediction of next word uh zero short versus few short learning basics of the Transformer architecture data sets used for llm pre pre-training difference between pre-training and fine tuning Etc but now from the next lecture onwards we are going to start with the Hands-On aspects of actually building an llm so I wanted to utilize this particular lecture to give you a road map of what all we will be doing in this series and what all stages which we will be covering during this playlist so that is the title of today's lecture stages of building a large language model towards the end of this lecture we will also do a recap of what all we have learned until now so let's get started with today's lecture okay so we will break this playlist into three stage stages stage one stage two and stage three remember before we get started that this material which I showing is heavily borrowed from U the book building a large language model from scratch which is written by sebasian rashka so I'm very grateful to the author for writing this book which is allowing me to make this playlist okay so we'll be dividing the playlist into three stages stage one stage two and stage number three unfort fortunately all of the playlists currently which are available on YouTube only go through some of these stages and that two they do not cover these stages in detail my plan is to devote a number of lectures to each stage in this uh playlist so that you get a very detailed understanding of how the nuts and bolts really work so in stage one we are going to be looking at uh essentially building a large language model and we are going to look at the building blocks which are necessary so before we go to train the large language model we need to do the data pre-processing and sampling in a very specific manner we need to understand the attention mechanism and we will need to understand the llm architecture so in the stage one we are going to focus on these three things understanding how the data is collected from different data sets how the data is processed how the data is sampled number one then we will go to attention mechanism how to C out the attention mechanism completely from scratch in Python what is meant by key query value what is the attention score what is positional encoding what is Vector embedding all of this will be covered in this stage we'll also be looking at the llm architecture such as how to stack different layers on top of each other where should the attention head go all of these things essentially uh the main understanding or the main part of this stage will be to understand understand the basic mechanism behind the large language model so what exactly we will cover in data preparation and sampling first we'll see tokenization if you are given sentences how to break them down into individual tokens as we have seen earlier a token can be thought of as a unit of a sentence but there is a particular way of doing tokenization we'll cover that then we will cover Vector embedding essentially after we do tokenization every word needs to be transformed into a very high dimensional
 
 ***
 
@@ -832,3 +791,4 @@ thanks a lot everyone and I look forward
 to seeing you in the next lecture
 
 ***
+
