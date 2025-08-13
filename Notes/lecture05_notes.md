@@ -81,59 +81,27 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * The pre-trained models are also called base/foundational models, which can be used for further __fine-tuning__.
 * Many pre-trained LLMs are available as open-source.
   
-|Open Source | Parameters| Closed Source|
+|Open Source | Parameters|
 |---|---|---|
-|Lama 3.1| 405 B|GPT| 
-
-* Lama 3.1 (open-source) LLM is an open-source model but it's one of the most powerful open-source models which was released by meta it has 400 5 billion parameters
-*  
-*   GPT-3 is a scaled-up version of the original Transformer model,
-*   which was implemented on a larger data set okay so GPT-33 is also a scaled up version of the model which was implemented in the 2018 paper.
-  
-*   unsupervised learning.
-*  difference between the corrected output and then similar to The Back propagation done in neural networks the weights of the Transformer or the GPT architecture will adapt so that the next word is predicted correctly so please keep in mind that
+|Lama 3.1| 405 B|
 
 ***
 
-* that is why it is an example of __self-supervised__ learning.
-* let's say you have a sentence right what is done is that in the sentence itself we are divided we are dividing it into training and we are dividing it into testing so this is the true we know the next word this is the next word and we know its true value what we'll do is that using this as the input.
-*  we'll try to predict we'll try to predict the next-word so then we'll have have something which is called as the predicted word and then we'll train the neural network or train the GPT architecture to minimize the difference between these two and update the weights so these four these 175 billion parameters.
-*   which you see over here are just the weights of the neural network which we are training to predict the next word so that's why it's called as __unsupervised__ because the label for the next word we we do not have to externally label the data set.
-*    it already is labeled in a way because we know the true value of the next word so uh to put it in another words we don't collect labels for the training data but use the structure of the data itself to make the labels so next word in a sentence is used as the label and that's why it is called as the
-*    __auto regressive__ model why is it called Auto regressive there.
-*     is one more reason for this the prev previous output is used as the input for the future prediction.
-*  so two things are very important for you to remember here the first thing is that GPT models are the pre-training part rather I would I should say the __pre-training part of GPT models is unsupervised__ why is it unsupervised because we use the structure of the data itself to create the labels the next word in the sentence.
-*   is used as the label and the second thing which is very important is that these are Auto these are __Auto regressive models__, which means that the previous outputs are used as the inputs for future predictions.
-*    like I showed you over here so it is very important to note these key things when you pre-train the GPT so in pre-training you predict the next word you break you use the structure of the sentence itself to have training data and labels and then you do the training you train the neural network uh which is the GPT architecture and then you optimize the parameters the 175 billion parameters now can you think why it takes so much compute time for pre-training because 175 billion parameters have to be optimized so that the next word in all sentences is predicted correctly.
-*  so in a sense the GPT is a more simplified architecture that way uh but also the number of building blocks used are huge in in the GPT there is no encoder but to give you an idea in the original Transformer we had six encoder decoder blocks in the gpt3 architecture on the other hand we have 96 Transformer layers and 175 parameters keep.
-*   this in mind we have 96 Transformer layers
-* __auto regressive model__ the output from the previous iteration ...why it's __unsupervised and auto regressive__ so this schematic of the GPT architecture ...__emergent Behavior__ so what is emergent Behavior I've already touched upon ...
+## GPT-3
+* GPT-3 is a scaled-up version of the original Transformer model, which was implemented on a larger dataset. This Unsupervised learning as is done on unlabeled data.
+* Error difference is computed between the output and the corrected-output and then
+* Similar to the back-propagation done in NN, the weights of the Transformer / GPT architecture will adapt so that the next-word so that is predicted correctly.
+* We'll try to predict the next-word so then we'll have have something, which is called as the predicted-word and then we'll train the NN or train the GPT architecture to minimize the difference between these two (prdicted-word and correct output) and update the weights to get correct answer.
+
+*  Original Transformer, we had six encoder decoder blocks in the GPT-3 architecture on the other hand we have 96 Transformer layers and 175 parameters keep. is in mind we have 96 Transformer layers
+
+* ...__emergent Behavior__ so what is emergent Behavior I've already touched upon ...
 * ability of a model to perform tasks that the model wasn't explicitly trained to perform ...such as exploring emergent behavior in llms.
 *
-*  after uh generative pre-training was developed as a method it shows two main things first is that it's __unsupervised__ second it's __Auto regressive__ and unlabel data
-*
-*   and gp4 sent that I'm a few short learner it's it also said that it can also do zero short learning but it it's just more accurate uh at few short learning okay that's important to keep in mind then we saw that
-*   gpt3 utilizes a huge huge amount of data uh it it uses around 300 billion tokens in total so just writing it down __300 billion tokens__ 
-*   training data and testing data it's __Auto regressive__ so one word of the  it only has the decoder it works in each it works in iterations and the output of
-*
-*
-*  improve the performance usually needed in production level tasks we also briefly looked at the gap between the open source and the closed Source llms really closing with the introduction of __Lama 3.1 which absolutely amazing performance and it somewhat beats gp4 it has 405 billion parameters__
-*
+
+*   and GPT-4 sent that I'm a few-shot learner it's it also said that it can also do zero-shot learning but it it's just more accurate uh at few-shot learning.
+
+
 *   __ emergent Behavior__
-*
-*    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
-
-
-
-
-
-
-
-
-
-
-
-
-
