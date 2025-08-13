@@ -53,9 +53,9 @@
 |||
 | --- | --- |
 | | Supporting Example(s) for Model |
-| Zero-Shot | No  supporting example |
-| One-Shot  | One supporting example |
-| Few-Shot (GPT-3)  | Few supporting examples|
+| Zero-shot | No  supporting example |
+| One-shot  | One supporting example |
+| Few-shot (GPT-3)  | Few supporting examples|
 
 
 #### Zero-Shot 
@@ -123,6 +123,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
