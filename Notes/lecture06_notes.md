@@ -68,141 +68,7 @@
 
 ***
 
-spam whereas hey just wanted to check if
-we are still on for dinner tonight let
-me know this will be not spam so we will
-build a large language model this
-application which classifies between
-spam and no spam and we cannot just use
-the pre-trained or foundational model
-for this because we need to train with
-labeled data to the pre-train model we
-need to give some more data and tell it
-that hey this is usually spam and this
-is not spam can you use the foundational
-model plus this additional specific
-label data asset which I have given to
-build a fine-tuned llm application for
-email classification so this is what
-we'll be building as the first
-application the second application which
-we'll be building is a type of a chat
-bot which Bas basically answers queries
-so there is an instruction there is an
-input and there is an output and we'll
-be building this chatbot after fine
-tuning the large language model so if
-you want to be a very serious llm
-engineer all the stages are equally
-important many students what they are
-doing right now is that they just look
-at stage number three and they either
-use Lang chain let's
-say they use Lang chain they use tools
-like
-AMA and they directly deploy
-applications but they do not understand
-what's going on in stage one and stage
-two at all so this leaves you also a bit
-underc confident and insecure about
-whether I really know the nuts and bolts
-whether I really know the details my
-plan is to go over every single thing
-without skipping even a single Concept
-in stage one stage two and stage number
-three so this is the plan which you'll
-be following in this playlist and I hope
-you are excited for this because at the
-end of this really my vision for this
-playlist is to make it the most detailed
-llm playlist uh which many people can
-refer not just students but working
-professionals startup Founders managers
-Etc and then you can once this playlist
-is built over I think two to 3 months
-later you can uh refer to whichever part
-you are more interested in so people who
-are following this in the early stages
-of this journey it's awesome because
-I'll reply to all the comments in the um
-chat section and we'll build this
-journey
-together I want to end this a lecture by
-providing a recap of what all we have
-learned so far this is very uh this is
-going to be very important because from
-the next lecture we are going to start a
-bit of the Hands-On
-approach okay so number one large
-language models have really transformed
-uh the field of natural language
-processing they have led to advancements
-in generating understanding and
-translating human language this is very
-important uh so the field of NLP before
-you needed to train a separate algorithm
-for each specific task but large
-language models are pretty generic if
-you train an llm for predicting the next
-word it turns out that it develops
-emergent properties which means it's not
-only good at predicting the next word
-but also at things like uh multiple
-choice questions text summarization then
-emotion classification language
-translation Etc it's useful for a wide
-range of tasks and it's that has led to
-its predominance as an amazing tool in a
-variety of
-fields secondly all modern large
-language models are trained in two main
-steps first we pre-train on an unlabeled
-data this is called as a foundational
-model and for this very large data sets
-are needed typically billions of words
-and it costs a lot as we saw training
-pre-training gpt3 costs $4.6 million so
-you need access to huge amount of data
-compute power and money to pre-train
-such a foundational model now if you are
-actually going to implement an llm
-application on production level so let's
-say if you're an educational company
-building multiple choice questions and
-you think that the answers provided by
-the pre-training or foundational model
-are not very good and they are a bit
-generic
-you can provide your own specific data
-set and you can label the data set
-saying that these are the right answers
-and I want you to further train on this
-refined data set uh to build a bette
-model this is called fine tuning usually
-airline companies restaurants Banks
-educational companies when they deploy
-llms into production level they fine
-tune the pre-trained llm nobody deploys
-the pre-trend one directly you fine tune
-the element llm on your specific smaller
-label data set this is very important
-see for pre-training the data set which
-we have is unlabeled it's Auto
-regressive so the sentence structure
-itself is used for creating the labels
-as we are just predicting the next world
-but when we F tune we have a label data
-set such as remember the spam versus no
-spam example which I showed you that is
-a label data set we give labels like hey
-this is Spam this is not spam this is a
-good answer this is not a good answer
-and this finetuning step is generally
-needed for Building Product ction ready
-llm
-applications important thing to remember
-is that fine tuned llms can outperform
-only pre-trained llms on specific tasks
+spam whereas hey just wanted to check if we are still on for dinner tonight let me know this will be not spam so we will build a large language model this application which classifies between spam and no spam and we cannot just use the pre-trained or foundational model for this because we need to train with labeled data to the pre-train model we need to give some more data and tell it that hey this is usually spam and this is not spam can you use the foundational model plus this additional specific label data asset which I have given to build a fine-tuned llm application for email classification so this is what we'll be building as the first application the second application which we'll be building is a type of a chat bot which Bas basically answers queries so there is an instruction there is an input and there is an output and we'll be building this chatbot after fine tuning the large language model so if you want to be a very serious llm engineer all the stages are equally important many students what they are doing right now is that they just look at stage number three and they either use Lang chain let's say they use Lang chain they use tools like AMA and they directly deploy applications but they do not understand what's going on in stage one and stage two at all so this leaves you also a bit underc confident and insecure about whether I really know the nuts and bolts whether I really know the details my plan is to go over every single thing without skipping even a single Concept in stage one stage two and stage number three so this is the plan which you'll be following in this playlist and I hope you are excited for this because at the end of this really my vision for this playlist is to make it the most detailed llm playlist uh which many people can refer not just students but working professionals startup Founders managers Etc and then you can once this playlist is built over I think two to 3 months later you can uh refer to whichever part you are more interested in so people who are following this in the early stages of this journey it's awesome because I'll reply to all the comments in the um chat section and we'll build this journey together I want to end this a lecture by providing a recap of what all we have learned so far this is very uh this is going to be very important because from the next lecture we are going to start a bit of the Hands-On approach okay so number one large language models have really transformed uh the field of natural language processing they have led to advancements in generating understanding and translating human language this is very important uh so the field of NLP before you needed to train a separate algorith for each specific task but large language models are pretty generic if you train an llm for predicting the next word it turns out that it develops emergent properties which means it's not only good at predicting the next word but also at things like uh multiple choice questions text summarization then emotion classification language translation Etc it's useful for a wide range of tasks and it's that has led to its predominance as an amazing tool in a variety of fields secondly all modern large language models are trained in two main steps first we pre-train on an unlabeled data this is called as a foundational model and for this very large data sets are needed typically billions of words and it costs a lot as we saw training pre-training gpt3 costs $4.6 million so you need access to huge amount of data compute power and money to pre-train such a foundational model now if you are actually going to implement an llm application on production level so let's say if you're an educational company building multiple choice questions and you think that the answers provided by the pre-training or foundational model are not very good and they are a bit generic you can provide your own specific data set and you can label the data set saying that these are the right answers and I want you to further train on this refined data set uh to build a bette model this is called fine tuning usually airline companies restaurants Banks educational companies when they deploy llms into production level they fine tune the pre-trained llm nobody deploys the pre-trend one directly you fine tune the element llm on your specific smaller label data set this is very important see for pre-training the data set which we have is unlabeled it's Auto regressive so the sentence structure itself is used for creating the labels as we are just predicting the next world but when we F tune we have a label data set such as remember the spam versus no spam example which I showed you that is a label data set we give labels like hey this is Spam this is not spam this is a good answer this is not a good answer and this finetuning step is generally needed for Building Product ction ready llm applications important thing to remember is that fine tuned llms can outperform only pre-trained llms on specific tasks
 
 ***
 
@@ -467,6 +333,7 @@ thanks a lot everyone and I look forward
 to seeing you in the next lecture
 
 ***
+
 
 
 
