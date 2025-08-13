@@ -29,7 +29,41 @@
 
 ***
 
-meaning between words is captured as you can see here we want apple banana and orange to be closer together which are seen in this red circle over here we want King man and woman to be closer together which is shown in the blue circle and we want Sports such as football Golf and Tennis to be closer together as shown in the green these are just representative examples what I want to explain is that before we give the data set for training we need to encode every word so that the semantic meaning between the words are captured so Words which mean similar things lie closertogether so we will learn about Vector embeddings in a lot of detail here we'llalso learn about positional encoding the order in which the word appears in a sentence is also very important and we need to give that information to the pre-training model after learning about tokenization Vector embedding we will learn about how to construct batches of the data so if we have a huge amount of data set how to give the data in batches to uh GPT or to the large language model which we are going to build so we will be looking at the next word prediction task so you will be given a bunch of words and then predicting the next word so we'll also see the meaning of context how many words should be taken for training to predict the next output we'll see about that and how to basically Fe the data in different sets of batches so that the computation becomes much more efficient so we'll be implementing a data batching sequence before giving all of the data set into the large language model for pre-training after this the second Point as I mentioned here is the attention mechanism so here is the attention mechanism for the Transformer model we'll first understand what is meant by every single thing here what is meant by multi-ad attention what is meant by Mas multi head attention what is meant by positional encoding input embedding output embedding all of these things and then we will build our own llm architecture so uh these are the two things attention mechanism and llm architecture after we cover all of these aspects we are essentially ready with stage one of this playlist and then we can move to the stage two stage two of this series is essentially going to be pre-training which is after we have assembled all the data after we have constructed the large language model architecture which we are going to use we are going to write down a code which trains the large language model on the underlying data set that is also called as pre-training so the outcome of stage two is to build a foundational model on unlabeled data now uh I'll just show a schematic from the book which we will be following so this is how the training data set will look like we'll break it down into epox and we will compute the gradient uh of the loss in each Epoch and we'll update the parameters towards the end we'll generate sample text for visual inspection this is what will happen exactly in the training procedure of the large language model and then we'll also do model evaluation and loading pre-train weaps so let me show you the schematic for that so we'll do text generation evaluation training and validation losses then we'll write the llm training function which I showed you uh and then we'll do one more thing we will Implement function to save and lo load the large language model weights to use or continue training the llm later so there is no point in training the LM from scratch every single time right weight saving and loading essentially saves you a ton of computational cost and memory and then at the end of this we'll also load pre-trained weights from open AI into our large language model so open AI has already made some of the weights available they are pre-trained weights so we'll be loading uh pre-trained weights from open a into our llm model this is all what we'll be covering in the stage two which is essentially training Loop plus uh training Loop plus model evaluation plus loading pre-trained weights to build our foundational model so the main goal of stage two as I as I told you is pre-training and llm on unlabelled data great but we will not stop here after this we move to stage number three and the main goal of stage number three is fine tuning the large language model so if we want to build specific applications we will do fine tuning in this playlist we are going to build two applications which are mentioned in the book I showed you at the start one is building a classifier and one is building your own personal assistant so here are some schematics to show so if you want to let you have got a lot of emails right and if you want to use your llm to classify spam or no spam for example you are a winner you have been uh specially selected to receive th000 cash now this should be classified as
+* meaning between words is captured.
+*  Encode every word so that the semantic meaning between the words are captured
+*  so Words which mean similar things lie closer together
+*  so we will learn about Vector embeddings
+*  positional encoding the order in which the word appears in a sentence is also very important
+*  pre-training model after learning about tokenization
+*  Vector embedding we will learn about how to construct batches
+*  meaning of context how many words should be taken for training to predict the next output we'll see about that and how to basically Fe the data in different sets of batches
+*  so that the computation becomes much more efficient
+*  so we'll be implementing a data batching sequence
+*  before giving all of the data set into the large language model for pre-training
+#### Second Point
+* I mentioned here is the attention mechanism
+* so here is the attention mechanism for the Transformer model we'll first understand what is meant by every single thing here what is meant by multi-ad attention
+* what is meant by Mas multi head attention
+* what is meant by positional encoding
+* input embedding output embedding
+* all of these things and then we will build our own llm architecture so uh these are the two things attention mechanism
+*  outcome of stage two is to build a foundational model on unlabeled data
+* we'll break it down into epox and we will compute
+*  the gradient uh of the loss in each Epoch and we'll update the parameters towards the end
+*   we'll generate sample text for visual inspection this is what will happen exactly in the training procedure of the large language model and then
+*   we'll also do model evaluation and loading pre-train weaps
+*    evaluation training
+*    and validation losses
+*    then we'll write the llm training function
+*     Implement function to save-and-load the LLM weights
+*   load pre-trained weights from open AI into our large language model.
+*    stage-two which is essentially training Loop plus uh training Loop plus model evaluation plus loading pre-trained weights to build our foundational model.
+*     so the main goal of stage two as I as I told you is pre-training and llm on unlabelled data great
+* but we will not stop here after this we move to
+*
+#### stage-three 
+* Fine-tuning the LLM so if we want to build specific applications we will do fine tuning in this playlist
+* 
 
 ***
 
@@ -564,6 +598,7 @@ thanks a lot everyone and I look forward
 to seeing you in the next lecture
 
 ***
+
 
 
 
