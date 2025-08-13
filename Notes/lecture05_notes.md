@@ -51,7 +51,8 @@
 * Learning from a minimum-number-of-examples, which the user provides as input.
 
 |||
-| --- | Supporting Example(s) for Model |
+| --- | --- |
+| | Supporting Example(s) for Model |
 | Zero-Shot | No  supporting example |
 | One-Shot  | One supporting example |
 | Few-Shot  | Few supporting examples|
@@ -124,6 +125,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
