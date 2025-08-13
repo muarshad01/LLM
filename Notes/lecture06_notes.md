@@ -69,215 +69,110 @@
 ***
 
 spam whereas hey just wanted to check if
-10:03
 we are still on for dinner tonight let
-10:05
 me know this will be not spam so we will
-10:08
 build a large language model this
-10:10
 application which classifies between
-10:12
 spam and no spam and we cannot just use
-10:14
 the pre-trained or foundational model
-10:16
 for this because we need to train with
-10:17
 labeled data to the pre-train model we
-10:20
 need to give some more data and tell it
-10:22
 that hey this is usually spam and this
-10:24
 is not spam can you use the foundational
-10:26
 model plus this additional specific
-10:28
 label data asset which I have given to
-10:30
 build a fine-tuned llm application for
-10:34
 email classification so this is what
-10:36
 we'll be building as the first
-10:38
 application the second application which
-10:40
 we'll be building is a type of a chat
-10:42
 bot which Bas basically answers queries
-10:44
 so there is an instruction there is an
-10:46
 input and there is an output and we'll
-10:48
 be building this chatbot after fine
-10:51
 tuning the large language model so if
-10:54
 you want to be a very serious llm
-10:56
 engineer all the stages are equally
-10:58
 important many students what they are
-11:00
 doing right now is that they just look
-11:02
 at stage number three and they either
-11:04
 use Lang chain let's
-11:06
 say they use Lang chain they use tools
-11:09
 like
-11:10
 AMA and they directly deploy
-11:13
 applications but they do not understand
-11:15
 what's going on in stage one and stage
-11:17
 two at all so this leaves you also a bit
-11:19
 underc confident and insecure about
-11:21
 whether I really know the nuts and bolts
-11:23
 whether I really know the details my
-11:25
 plan is to go over every single thing
-11:27
 without skipping even a single Concept
-11:30
 in stage one stage two and stage number
-11:33
 three so this is the plan which you'll
-11:35
 be following in this playlist and I hope
-11:37
 you are excited for this because at the
-11:39
 end of this really my vision for this
-11:42
 playlist is to make it the most detailed
-11:44
 llm playlist uh which many people can
-11:46
 refer not just students but working
-11:48
 professionals startup Founders managers
-11:51
 Etc and then you can once this playlist
-11:53
 is built over I think two to 3 months
-11:56
 later you can uh refer to whichever part
-11:59
 you are more interested in so people who
-12:01
 are following this in the early stages
-12:03
 of this journey it's awesome because
-12:05
 I'll reply to all the comments in the um
-12:09
 chat section and we'll build this
-12:11
 journey
-12:13
 together I want to end this a lecture by
-12:16
 providing a recap of what all we have
-12:18
 learned so far this is very uh this is
-12:21
 going to be very important because from
-12:22
 the next lecture we are going to start a
-12:24
 bit of the Hands-On
-12:26
 approach okay so number one large
-12:29
 language models have really transformed
-12:31
 uh the field of natural language
-12:34
 processing they have led to advancements
-12:36
 in generating understanding and
-12:38
 translating human language this is very
-12:40
 important uh so the field of NLP before
-12:43
 you needed to train a separate algorithm
-12:45
 for each specific task but large
-12:47
 language models are pretty generic if
-12:49
 you train an llm for predicting the next
-12:51
 word it turns out that it develops
-12:53
 emergent properties which means it's not
-12:55
 only good at predicting the next word
-12:57
 but also at things like uh multiple
-13:00
 choice questions text summarization then
-13:03
 emotion classification language
-13:05
 translation Etc it's useful for a wide
-13:07
 range of tasks and it's that has led to
-13:10
 its predominance as an amazing tool in a
-13:13
 variety of
-13:15
 fields secondly all modern large
-13:18
 language models are trained in two main
-13:20
 steps first we pre-train on an unlabeled
-13:23
 data this is called as a foundational
-13:25
 model and for this very large data sets
-13:28
 are needed typically billions of words
-13:31
 and it costs a lot as we saw training
-13:33
 pre-training gpt3 costs $4.6 million so
-13:37
 you need access to huge amount of data
-13:39
 compute power and money to pre-train
-13:42
 such a foundational model now if you are
-13:45
 actually going to implement an llm
-13:47
 application on production level so let's
-13:49
 say if you're an educational company
-13:51
 building multiple choice questions and
-13:53
 you think that the answers provided by
-13:55
 the pre-training or foundational model
-13:57
 are not very good and they are a bit
-13:58
 generic
-13:59
 you can provide your own specific data
 set and you can label the data set
 saying that these are the right answers
@@ -572,6 +467,7 @@ thanks a lot everyone and I look forward
 to seeing you in the next lecture
 
 ***
+
 
 
 
