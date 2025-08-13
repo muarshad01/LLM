@@ -46,7 +46,7 @@
 
 ***
 
-## Zero-Shot, One-Shot, and Few-Shot Learning
+## Zero-shot, One-shot, and Few-shot Learning
 * Ability to generalize-to-completely-unseen-tasks without-any-prior specific examples.
 * Learning from a minimum-number-of-examples, which the user provides as input.
 
@@ -105,4 +105,5 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 *   __ emergent Behavior__
 
 ***
+
 
