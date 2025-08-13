@@ -96,7 +96,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 | Architecture | Layers / Block| Parameters |
 |---|---|---|
 | Original Transformer | 6 (encoder, decoder) blocks | |
-| GPT-3 | 96 (---, decoder) layers| 175 B |
+| GPT-3                | 96 (---, decoder) layers    | 175 B |
 
 * ...__emergent Behavior__ so what is emergent Behavior I've already touched upon ...
 * ability of a model to perform tasks that the model wasn't explicitly trained to perform ...such as exploring emergent behavior in llms.
@@ -108,11 +108,3 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 *   __ emergent Behavior__
 
 ***
-
-
-
-
-
-
-
-
