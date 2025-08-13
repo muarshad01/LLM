@@ -61,6 +61,7 @@
 *     so the main goal of stage two as I as I told you is pre-training and llm on unlabelled data great
 * but we will not stop here after this we move to
 *
+
 #### stage-three 
 * Fine-tuning the LLM so if we want to build specific applications we will do fine tuning in this playlist
 * 
@@ -278,65 +279,38 @@ are not very good and they are a bit
 generic
 13:59
 you can provide your own specific data
-14:02
 set and you can label the data set
-14:04
 saying that these are the right answers
-14:06
 and I want you to further train on this
-14:07
-refined data set uh to build a better
-14:10
+refined data set uh to build a bette
 model this is called fine tuning usually
-14:14
 airline companies restaurants Banks
-14:16
 educational companies when they deploy
-14:19
 llms into production level they fine
-14:21
 tune the pre-trained llm nobody deploys
-14:23
 the pre-trend one directly you fine tune
-14:26
 the element llm on your specific smaller
-14:29
 label data set this is very important
-14:31
 see for pre-training the data set which
-14:33
 we have is unlabeled it's Auto
-14:35
 regressive so the sentence structure
-14:37
 itself is used for creating the labels
-14:39
 as we are just predicting the next world
-14:42
 but when we F tune we have a label data
-14:44
 set such as remember the spam versus no
-14:47
 spam example which I showed you that is
-14:49
 a label data set we give labels like hey
-14:51
 this is Spam this is not spam this is a
-14:53
 good answer this is not a good answer
-14:55
 and this finetuning step is generally
-14:57
 needed for Building Product ction ready
-14:59
 llm
-15:01
 applications important thing to remember
-15:03
 is that fine tuned llms can outperform
-15:06
 only pre-trained llms on specific tasks
-15:09
+
+***
+
 so let's say you take two cases right in
 15:11
 one case you only have pre-trained llms
@@ -598,6 +572,7 @@ thanks a lot everyone and I look forward
 to seeing you in the next lecture
 
 ***
+
 
 
 
