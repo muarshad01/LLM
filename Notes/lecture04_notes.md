@@ -7,8 +7,8 @@
 |||
 |---|---|
 |Transformer | [2017 - Attention is all you need](https://arxiv.org/abs/1706.03762)|
+||It's basically DNN architecture|
 
-* It's basically DNN architecture.
 * The original Transformer was developed for __machine translation__, for translating English texts into German and French. 
 
 #### Stages of Transformer
@@ -105,6 +105,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
