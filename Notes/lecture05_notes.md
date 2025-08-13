@@ -8,7 +8,7 @@
 
 ***
 
-| Model | |Parameters/($) | Tokens| Paper Link| 
+| Model | Architecture |Parameters/($) | Tokens| Paper Link| 
 |---        |--- |---    | --- | ---|
 |RNN (1980)|||||
 |LSTM Network (1997)|||||
@@ -103,6 +103,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Ability of a model to perform tasks that the model wasn't explicitly trained to perform. Example: Correct answer for MCQs that Improves with training.
 
 ***
+
 
 
 
