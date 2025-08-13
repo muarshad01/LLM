@@ -1,8 +1,8 @@
 ## Lecture 4: Basic Intro to Transformers
-1. __Pre-training__: Training on a large-diverse dataset
-2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain.
+1. __Pre-training__: Training on a large-diverse dataset (Unlabeld data)
+2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain (Labeled data)
 
-#### Transformer Architecture
+## Transformer Architecture
 * Most of the modern LLMs rely on Transformer architecture, which was proposed in the 2017 paper [Attention is all you need](https://arxiv.org/abs/1706.03762).
 * It's basically DNN architecture.
 * The original Transformer was developed for __machine translation__, for translating English texts into German and French. 
@@ -101,6 +101,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
