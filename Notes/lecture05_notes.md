@@ -34,14 +34,14 @@
 * GPT is combination of two ideas: (Transformers, unsupervised pre-training)
 
 #### [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
+
+#### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 * translation
 * sentiment analysis
 * answering questions
 * answering MCQs
 * emotional recognition, etc.
-
-#### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
-
 ***
 
 ## Zero-Shot, One-Shot, and Few-Shot Learning
@@ -131,6 +131,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
