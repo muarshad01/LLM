@@ -53,9 +53,8 @@
 * Ability to generalize-to-completely-unseen-tasks without-any-prior specific examples.
 * Learning from a minimum-number-of-examples, which the user provides as input.
 
-|||
+| Learning Model | Supporting Input Example(s)|
 | --- | --- |
-| | Supporting Example(s) for Model |
 | Zero-shot | No  supporting example |
 | One-shot  | One supporting example |
 | Few-shot (GPT-3)  | Few supporting examples|
@@ -103,6 +102,7 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Ability of a model to perform tasks that the model wasn't explicitly trained to perform. Example: Correct answer for MCQs that Improves with training.
 
 ***
+
 
 
 
