@@ -43,34 +43,26 @@
 * answering questions
 * answering MCQs
 * emotional recognition, etc.
+
 ***
 
 ## Zero-Shot, One-Shot, and Few-Shot Learning
-
-|||
-| --- | --- |
-| Zero-Shot ||
-| One-Shot ||
-| Few-Shot ||
-
-#### Few shot
 * Ability to generalize-to-completely-unseen-tasks without-any-prior specific examples.
 * Learning from a minimum-number-of-examples, which the user provides as input.
 
-*  __zero-short__ learning the model-predicts-the-answer given only a description no other Assistance or no other support.
-  *  Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
+|||
+| --- | Supporting Example(s) for Model |
+| Zero-Shot | No  supporting example |
+| One-Shot  | One supporting example |
+| Few-Shot  | Few supporting examples|
 
-* __one-shot__ learning, which means, in addition to the task description the model also sees a single-example of the task.
-* Example: look at this. I tell the model that look C otter translates like this to French use this as a supporting-guide or like-a-hint, if you may and translate "cheese" into French.
 
-* __few-short__ learning, where the model basically sees a-few-examples-of-this task.
+#### Zero-Shot 
+* learning the model-predicts-the-answer given only a description no-other-assistance or no-other-support.
+* Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
 
-#### difference between zero-shot, one-shot, and few-shot.
-* zero shot is basically you provide no supporting examples to the model you just tell it to do that particular task such as language translation and it does it for you.
-*  in one-shot the model sees a single-example of the task
-* few-shot the model sees a few-examples of this task these beautiful examples.
 
-#### Auto Regressive language model
+#### Auto-Regressive Language Model
 * paper basically implied that GPT 3 was a few-short learner,
 * which means that if it's given certain examples it can do that task very well although it is trained only for the next word prediction.
 
@@ -132,6 +124,7 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
