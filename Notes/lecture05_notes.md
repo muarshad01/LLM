@@ -38,11 +38,11 @@
 
 
 #### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
-* translation
-* sentiment analysis
-* answering questions
-* answering MCQs
-* emotional recognition, etc.
+* Translation
+* Answering questions
+* Answering MCQs
+* Sentiment analysis
+* Emotional recognition, etc.
 
 ***
 
@@ -105,5 +105,6 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 *   __ emergent Behavior__
 
 ***
+
 
 
