@@ -24,7 +24,7 @@
 *   A significant advancement compared to RNN (1980) and LSTM Networks (1997).
 
 #### [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
-* __Unsupervised-learning__
+* __Unsupervised-learning (Unlabeled data)__
 * __Generative Pre-training__ on a divrse corpus of __unlabeled__ text data.
 * __Generative__ because we are generating-/predicting-the-next-word in an __unsupervised-learning__ manner.
 * __Pre-training__: Text data, which is used here is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next-word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
@@ -130,4 +130,5 @@
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
