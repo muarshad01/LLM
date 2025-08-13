@@ -8,12 +8,12 @@
 
 ***
 
-| Model | Parameters | Tokens| Paper Link| 
+| Model | Parameters/($) | Tokens| Paper Link| 
 |---           |---    | --- | ---|
 | Transformer (2017)  |       | | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
 | GPT (2018)   |         | | [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
-| GPT-2 (2019) | 1.5 B | 300 B  | [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|
-| GPT-3 (2020) | 175 B |  | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
+| GPT-2 (2019) | 1.5 B ($4.6 million) | 300 B  | [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|
+| GPT-3 (2020) | 175 B | 410 B | [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)|
 | GPT-3.5      |       |  | |
 | GPT-4 (2023)       |       |  | |
 | GPT-5 (2025)       |       |  | |
@@ -74,22 +74,23 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 
 ***
 
-let's go to the next section which is utilizing large data Datasets for GPT pre-training ...gpt3 uses 410 billion tokens from the common craw data and this is the majority of the data it consists of 60% of the entire data set what is one token so one token can be basically you can think of it as a Subs subset of the data set so for the sake of of this lecture just assume one token is equal to one word
+## Utilizing Large Datesets
+* [Common Crawl](https://commoncrawl.org/)
+* [OpenWebText2](https://openwebtext2.readthedocs.io/en/latest/)
 
-***
+* The pre-trained models are also called base/foundational models, which can be used for further __fine-tuning__.
+* Many pre-trained LLMs are available as open-source.
+  
+|Open Source | Parameters| Closed Source|
+|---|---|---|
+|Lama 3.1| 405 B|GPT| 
 
-* gpt3 model think of that for a while 300 billion tokens.
-*  that's huge number of gpt3 is $4.6 million
-*   base models or foundational models
-*    open source and closed Source language models
-*      Lama 3.1 was released recently and uh the
-*  Lama 3.1 llm is an open source model but it's one of the most powerful open source models which was released by meta it has 400 5 billion parameters
-*   gpt3 is a scaled-up version of the original Transformer model, which was implemented on a larger data set okay so gpt3 is also a scaled up version of the model which was implemented in the 2018 paper.
-*    so after the Transformers paper there was this paper as I showed which introduced generative pre-training gpt3 is a scaled up version of this paper as I already mentioned it has around uh uh 175 billion parameters.
-*     so I think we are aware of this so we can move to the next point now comes the very important task of uh Auto Next word prediction regression.
-*  why is GPT models called as Auto regressive models.
-*   and why do they come under the category of unsupervised learning.
-*    why it is called as unsupervised learning because we do not give labels.
+* Lama 3.1 (open-source) LLM is an open-source model but it's one of the most powerful open-source models which was released by meta it has 400 5 billion parameters
+*  
+*   GPT-3 is a scaled-up version of the original Transformer model,
+*   which was implemented on a larger data set okay so GPT-33 is also a scaled up version of the model which was implemented in the 2018 paper.
+  
+*   unsupervised learning.
 *  difference between the corrected output and then similar to The Back propagation done in neural networks the weights of the Transformer or the GPT architecture will adapt so that the next word is predicted correctly so please keep in mind that
 
 ***
@@ -123,6 +124,7 @@ let's go to the next section which is utilizing large data Datasets for GPT pre-
 *    in the next lecture we'll look at stages of building an llm and then we'll start coding directly from the data pre-processing
 
 ***
+
 
 
 
