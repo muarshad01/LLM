@@ -24,24 +24,24 @@
 
 ***
 
-### Transfomer
+## Transfomer
 * Transformer is basically a DNN.
 1. __Encoder__: Encodes intput text into vectors
 2. __Decoder__: Generates output text from encoded vectors and from the partial-output
 
 #### Attention
 * Attention-mechanisms have become an integral part of sequence-modeling allowing modeling-of-dependencies without regard-to-their-distance.
-* Attention-mechanisms allow you to model the dependencies between different words without regards to how-close-or-apart the words are.
+* Attention-mechanisms allow you to model-the-dependencies between different words without regards to how-close-or-apart the words are.
 
 #### Self-Attention
 * Key part or Transfomer
 1. Self-attention is an attention-mechanism, which relates different-positions of a single-sequence in order to compute a representation-of-the-sequence.
-2. Allows the model to weigh the importance of different words / tokens relative to each other.
-3. Enables model to capture __long-range dependencies__.
+2. Allows the model to weigh the importance of different words / tokens relative-to-each-other.
+4. Enables model to capture __long-range dependencies__.
 
 #### Attention Score
-1. The self-attention mechanism maintains this __attention score__, which basically tells you which word should be given more attention.
-2. Attention score, which basically it's a matrix and it tells you which words should be given more importance in relative or in relation to other words.
+1. The self-attention mechanism maintains __attention score__, which basically tells you which word should be given more attention.
+2. Attention score is basically a matrix that tells you which words should be given more importance in relative or in relation to other words.
   
 #### Attention Blocks
 * multi-head attention
@@ -101,6 +101,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
