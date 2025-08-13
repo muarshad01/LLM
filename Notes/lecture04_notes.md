@@ -12,19 +12,22 @@
 * Objective: Machine translation, for translating English texts into German and French. 
 
 #### Stages of Transformer
-1. __Input text__, which is to be translated. "This is an example".
+1. __Input text__: which is to be translated. "This is an example".
 
-2. __Pre-Processing__: This process (1) breaks-down a sentence into words or tokens (called __Tokenization__) and then (2) __assigns an ID (a unique number)__ to each token. For simplicity, you can imagine that one-word is one-token.
+2. __Pre-Processing__: This process: (1) breaks-down a sentence into words or tokens (called __Tokenization__) and then (2) __assigns an ID (a unique number)__ to each token. For simplicity, you can imagine that one-word is one-token.
 
-3. __Encoder__: Encoder performs __Vector Embedding__, which converts the words into vectorized representation. This vectorized representation captures the __semantic meaning__ between the words. Basically, encode-the-information somewhere such that similar words are related to each other. The words are projected into high-dimensional __Vector space__ and the way these words are projected is such that the __semantic relationship__ or the semantic meaning between the words is captured very clearly. NNs are trained for this step.
+3. __Encoder__: Encoder performs __Vector Embedding__, which converts the words into vectorized representation. This vectorized representation captures the __Semantic Meaning__ between the words. Basically, encode-the-information somewhere such that similar-words are related to each other. The words are projected into high-dimensional __Vector Space__ and the way these words are projected is such that the __Semantic Relationship__ or the semantic meaning between the words is captured very clearly. NNs are trained for this step.
 
-4. __Decoder__: The docoder receives (1) partial-output text, and (2) the vector embeddings. It predicts the next word based on this information. The model only generates one output word at a time.
+4. __Decoder__: The docoder receives: (1) partial-output text, and (2) the __Vector Embedding__. It predicts the next-word based on this information. The model only generates one-word at a time.
 
 6. Generate the translated text __one word at a time__.
 
 7. __Final output__ is complete sentence.
 
-* We are training the NN. Initially it will make mistakes of course, but there will be a __loss-function__ and then we will eventually train the Transformer to be better-and-better. __Feed-forward layers__, which means there are __weights and parameters which need to be optimized__.
+#### Loss Minimization (Optimization)
+* We are training the NN.
+* Initially it will make predictiuon mistakes of course, but there will be a __loss-function__ to calculate the error. We'll eventually train the Transformer to be better-and-better.
+* __Feed-forward layers__, which means there are __weights and parameters__ that need to be optimized.
 
 ***
 
@@ -105,6 +108,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
