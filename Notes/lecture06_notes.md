@@ -37,12 +37,14 @@
 ***
 
 ## Attention Mechanism
-
-#### Multi-Head Attention
+* Attention mechanism gives the LLM selective access to the whole input sequence when generating output one-word at a time.
+* Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
+* Context is important in predicting the next-word.
+* Allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
+####        Multi-Head Attention
 #### Masked Multi-Head Attention
 #### Positional Encoding
-#### input embedding 
-#### output embedding
+#### input/output embedding 
 
 ***
 
@@ -97,14 +99,8 @@
 
 ***
 
-#### Attention Mechanism
-* Attention mechanism gives the LLM selective access to the whole input sequence when generating output one-word at a time.
-* Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
-* Context is important in predicting the next-word.
-* Allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
-
-
 ## Theory plus Practical
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
