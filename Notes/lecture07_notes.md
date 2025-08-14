@@ -1,0 +1,1324 @@
+0:00
+[Music]
+0:05
+hello everyone welcome to this lecture in the build large language models from
+0:10
+scratch series my name is Dr Raj dander and I'll
+0:15
+be your instructor for this lecture today we are going to cover a
+0:21
+very important topic which is called as
+0:26
+tokenization basically when we build large language model Model S the data
+0:32
+needs to be pre-processed in a certain manner before it is used for
+0:38
+pre-training and uh in this data pre-processing pipeline the first step
+0:44
+is tokenization at its really basic form
+0:49
+tokenization is just the process of breaking down a sentence into individual
+0:55
+words but it is a bit more detailed than that the way it is used to act build
+1:00
+large language models in today's lecture we are going to understand everything
+1:05
+there is to know about tokenization and we will build a tokenizer fully from scratch we will
+1:12
+also build an encoder and decoder from scratch and we'll code it out in
+1:18
+Python so today will be a Hands-On session if you have a laptop in front of
+1:23
+you U that's great so that you can follow along in Google collab or jupyter
+1:29
+notebook or V s code to implement the code along with me so let's get started
+1:34
+with today's lecture building a large language model usually proceeds in three stages
+1:40
+especially if you want to build it from scratch in stage one we have to understand the nuances or basic
+1:47
+mechanism of building an llm and that includes data preparation attention
+1:53
+mechanism and understanding the llm architecture stage two involves
+1:58
+pre-training and building the foundational model so that involves the training Loop model evaluation and
+2:05
+loading pre-trained weights and stage three involves finetuning training on
+2:11
+smaller very specific data sets to build applications which are actually useful to you such as a classifier or a
+2:18
+personal assistant in this lecture we are going to look at the first aspect of stage one
+2:25
+which is data preparation and pre data preparation and sampling
+2:30
+so uh tokenization comes under the category of data preparation and
+2:35
+sampling and that is what we are going to cover in today's lecture you can think of this as the first building
+2:42
+block for building a large language model so let's get started with today's
+2 steps of tokenisation
+2:48
+lecture so the main question which we are going to answer today is how exactly
+2:53
+do you prepare input text for training large language models
+3:00
+at the heart of it llms are just neural networks right so you need data the
+3:05
+parameters of the llm are optimized and then we have some output the question is that this data
+3:12
+which comes in as the input what form should it take how should we prepare the input text we have a huge number of
+3:19
+documents right which the llm is trained on we have seen that in previous lectures the llm is usually trained on
+3:26
+billions of documents but do we feed the document Direct ly as the input text do
+3:32
+we feed the sentences of the document as the input text no it turns out we have
+3:37
+to tokenize the document and then feed individual tokens uh there is one more step after
+3:44
+this which is called as Vector embeding but we'll have a separate lecture for that today we are only going to look at
+3:51
+tokenization so the process of tokenization can be broadly broken down into three
+3:57
+steps this is the key takeaway which you should learn from today's lecture the first step is that you have to initially
+4:04
+split the text into individual word and subo tokens that is Step number one
+4:11
+imagine you have huge amount of text you break it down into individual words
+4:16
+that's the first step of tokenization the second step of tokenization is
+4:21
+converting these tokens into token IDs and the third step is basically
+4:28
+encode these token ID into Vector representation we are not going to look at step number three in today's lecture
+4:35
+because it comes also under Vector embedding but essentially we are going to look at step one and step number two
+4:41
+so let me repeat step one and step two step one is basically imagine you have a big document which is let's say you're
+4:48
+training on Harry Potter books you take this books you divide it into sentences
+4:54
+and then you split the text into individual word and subword tokens and then you convert these tokens into token
+5:02
+IDs that's the uh two major steps involved in tokenization which we are going to look
+5:09
+in today's lecture um so I just want to show you a visual for
+5:15
+how the input text is given to the large language model so let's say this is an
+5:20
+input text right this is an example remember the first step of tokenization
+5:26
+we break this into individual words so the first word is this the second word
+5:31
+is is the third word is an and the fourth word is example so this is the
+5:37
+tokenized text and this is my step number one right now step number two is
+5:42
+we need to convert each of these individual tokens into token IDs so this
+5:47
+is the token ID 1 4013 token ID 2 2011 token ID 3 which is 302 and token ID 4
+5:56
+which is 1134 so every word or every token rather has a token ID associated with it I have
+6:04
+currently given these numbers randomly but you need to assign a token ID for
+6:09
+each word and then the next step after getting these token IDs is to convert these token IDs into something called
+6:15
+token embeddings or vector embeddings and then these Vector embeddings are then fed as input data to
+6:22
+the GPT or the llm rather so even before coming to the
+6:29
+training stage we need to do these many steps of uh pre-processing and today we are essentially going to look at step
+6:35
+number one and step number two I hope you have understood the two main steps which we are going to look at
+6:42
+in today's lecture so let us start by looking at step number one initially which is
+6:47
+tokenizing the text or breaking down the text into individual words and you
+6:53
+definitely do need to understand the nuances which are involved in this and that's why I'm going to take you through
+6:58
+the entire course process in Python uh we could have just use a pre-built tokenizer but then you won't understand
+7:05
+the nuances involved in tokenizing and uh just to give out a a shout out or
+7:11
+rather a credits to Sebastian rashka for hosting the this code publicly and I'll
+7:18
+be heavily borrowing from this code so let's get started for the purposes of
+Importing the dataset
+7:24
+the demonstration today we are going to use a specific data set we are going to use this book book called The Verdict
+7:31
+which has been written by Edith Warton so let's look at a few screenshots or
+7:36
+let's look at a few data about this book so if you search The Verdict by edit Warton you'll get a image of this book
+7:43
+which looks like this uh year of publishing let's look at the year when
+7:49
+this book was published so this was I think published in 1908 so almost 120
+7:54
+130 years back and it's available for free uh free to download I'll give the
+8:00
+link to download this book it's also available in this repository by Sebastian you can just click on this
+8:06
+download and then download this book so we are going to look at this book and assume that this is the only uh training
+8:14
+data which we have for the purposes of today's lecture but whatever I show you today can be really applied to any book
+8:21
+or even a huge number of books I encourage you later after this lecture to try out some different book
+8:28
+which is available for free online such as the Harry Potter book or whichever one interests you and apply the same
+8:34
+code over there okay so this is the data set which we are going to look at and then what we
+8:41
+have to do is basically download and load this data set in Python so let me
+8:46
+show you how to do that so now we are moving into uh jupyter coding uh please
+8:52
+comment out in the comment section if the code is visible to you if I've zoomed in enough or if I should follow
+8:57
+some different style okay so the first step as I mentioned we are going to look at two steps today
+9:04
+creating tokens and then converting these tokens into token IDs the first step is creating tokens right so what we
+9:11
+are going to do here is that we are going to uh download the verdict. txt
+9:16
+file we are going to open it in Python and we are going to read it and we are going to print the total number of
+9:23
+characters so I'm just showing this uh when you download it it looks this much it's not that big um and in fact it's
+9:31
+even available over here so I have downloaded this book right now and uh in Python you can use
+9:39
+this open command so with open the word it DOC text and then R means we are reading this and then raw text is that
+9:47
+variable where we are storing whatever uh content python has read from this
+9:53
+book so this raw text variable is going to be very important for us because we'll also refer to it later basically
+9:59
+raw text is just the entire text which we are reading and then what we are doing here is that we are counting the
+10:05
+total number of characters in this raw text so what I'm doing in this part of the code is that I'm printing out the
+10:11
+total number of characters and then length raw text right so here you see
+10:17
+the print command towards the end raw text colon 99 what does this do this
+10:22
+print command prints the total number of characters uh so here so there are two
+10:27
+print commands right the first print command essentially prints the total number of characters and the second
+10:33
+print command essentially uh prints the first 100 characters of this file for
+10:38
+illustration purposes so uh let's run both of these
+10:43
+print commands right now I have already run this before but let me click on this run Icon again so okay the result of
+10:50
+this first print command is this the total number of characters are 20479
+10:56
+20479 and the result of the second print command is is basically we are printing the first uh 100 characters of this file
+11:04
+right so the first 100 characters are I had always thought Jack uh gisburn Etc
+11:11
+so this is the these are the first 100 characters so this indicates that python has been able to successfully read the
+11:18
+text which we have downloaded and that's an awesome sign great now let's move
+11:23
+further our goal in this lecture is to tokenize all of the characters which are
+11:28
+in this book in this text uh in this short story into individual words that we can later
+11:36
+turn into embeddings for llm training remember uh embeddings is the last step
+11:42
+so before you come to training the llm there is this thing called embedding so the goal in this lecture is to do the
+11:49
+tokenization and the token IDs for the entire text which we have read for all
+11:54
+of these characters for the 20479 characters of this short story the goal is is to convert them into tokens
+12:01
+and token IDs so one note which has been added over here is that note that it's common
+12:07
+to process millions of Articles and hundreds of thousands of books which is a huge amount of memory when actually
+12:14
+working with llms this is very important to note when you actually work with llms
+12:19
+you don't just download one book as I showed to you right now we actually work with millions and thousands of books uh
+12:27
+which are a huge amount of data uh to be stored on your computer however for
+12:32
+educational purposes it's sufficient to work with smaller text samples like a single book and that's why we are using
+12:39
+a single book in today's code to demonstrate the idea to you okay so the next question is how can
+Tokenising the text
+12:46
+we best split this text to obtain a list of tokens so I encourage you to pause
+12:51
+here right now and let's say I give you this problem that you have read this text now your goal is to split this text
+12:57
+into individual tokens right how would you do this which python Library would you
+13:04
+use uh so let me reveal the answer the python Library which we we will be using for this is called as regular expression
+13:13
+re uh so this module Pro provides regular expression matching operations and let's see how basically
+13:20
+this works we have to import re and then what we can do is that we can use this library to split uh to split any given
+13:28
+text um based on the white spaces in that text or any other characters in the text
+13:35
+and I'll explain what this actually means okay
+13:44
+so okay so let's say you have a text which looks like this hello world this
+13:49
+is a test right and you want to split and you want to split this into individual tokens what I'm going to do
+13:57
+here is that from this Library I'm going to use this function re e dos split right and then there is this R and then
+14:05
+the symbol is/ S what this basically does is that this slash s means that we
+14:11
+split wherever white spaces are encountered right so let me tell you
+14:16
+what is meant by white spaces so let's look at this word let's look at this sentence you see there is a white space
+14:22
+over here there is a white space over here there is a white space over here here and here so wherever there is
+14:31
+a white space what this command will do is that it will split the text into individual tokens and where the split
+14:38
+will be wherever the white space is there so it will scan this sentence from left to right now here it encounters the
+14:45
+white space so it will split split here then again it will move forward here it encounters the white space so it will
+14:51
+split here so let's go from left to right so until hello and comma it has not encountered a white space right so
+14:58
+hello and comma is one token and then it encounters a white space so it splits so
+15:03
+then it outputs the white space here when you print out the result then it again goes on scanning and here until
+15:10
+world and full stop there is no white space so it prints Out World and full stop then after this point there is a
+15:17
+white space right see this so then it prints this out then it again keeps on
+15:22
+scanning from left to right so till this and comma there is no white space so it prints out this and comma then it prints
+15:29
+out another white space over here so it keeps on scanning from left to right and then splits wherever white space is
+15:36
+encountered right that is the advantage of using re do split U and then this character
+15:42
+indicates where you want to split so here I have indicated that you split wherever you see a white space right so
+15:49
+the result of this is a list of individual words white spaces and punctuation characters so see white
+15:55
+spaces are also the results of this now uh what we want to do is we
+16:01
+want to also uh split commas and periods so here you see the comma is included as
+16:07
+part of the word word itself we the full stop is included as part of the world but we want to have comma and full stop
+16:13
+also as separate tokens how do we do that it's pretty simple in the re. split
+16:19
+command you also include comma and you also include the full stop along with
+16:24
+this SLS command and then when you print the result you will see that along with white spaces so white spaces are of
+16:32
+course uh printed out because we are splitting on white spaces also but comma is now a separate token full stop is now
+16:39
+a separate token which was not the case before hello and comma were one token but now you'll see hello and comma are
+16:47
+separate tokens awesome so now we have split based on comma and full stops also
+16:53
+correct now the main another remaining issue is that our list still includes
+16:59
+space characters right see these the white space characters are still counted as tokens we can even remove these red
+17:06
+redundant character safely so here what we are doing is that uh you first scan the result scan
+17:13
+each item in the result so we are looping over each item in the result so this is the result right so we are going
+17:20
+over each of the individual items in this result and if item. strip is equal
+17:25
+to true then only we return that item so if it's a y space then item. strip will
+17:30
+actually be false so white spaces will not be returned Whenever there is actually a full world full word like
+17:37
+hello or comma or world or this or full stop then only item. strip will return
+17:44
+true and those words will be returned in this result so using this statement uh
+17:49
+loop over item in result and then find out item. strip so for white spaces
+17:55
+item. strip will anyway be false so that will not be returned so in this one line
+18:00
+of command we can actually get rid of white spaces completely from the sentence and now when we print out the
+18:06
+result we'll have the tokens as hello comma world full stop this comma is a
+18:11
+test and full stop we won't have white spaces so one more consideration which I would like to mention over here is that
+18:19
+removing white spaces are not this is an important question to actually
+18:24
+discuss because uh when you develop a simple tokenizer whether we should
+18:29
+encode white spaces as or as separate characters or just remove them depends
+18:34
+on our application and its uh requirements so what are the advantages
+18:40
+of removing white spaces removing white spaces reduces the memory and Computing requirements which is great however
+18:47
+keeping white spaces can be useful if we train models that are sensitive to the exact structure of the text right for
+18:56
+example python code is sensitive to indentation and spacing so if python code is used as the data set for
+19:02
+training and a large language model it makes sense to keep the white spaces right because the white spaces have some
+19:08
+meaning in in the case of python code as the training data
+19:14
+set in this case we are going to uh until now we are going to remove the
+19:19
+white spaces just for Simplicity so that we have memory advantages but remember
+19:25
+that it's not obvious to always remove white spaces uh as has been mentioned uh
+19:31
+uh over here if you have python code AS training data white spaces are important because indentation matters so several
+19:39
+things need to be considered when you're building an actual llm whether you should remove white spaces or whether
+19:44
+you should not remove white spaces uh that's great so the
+19:50
+tokenization scheme which we deviced about works well on simple sample text so we can modify it a bit further
+19:57
+because we also want uh to have question marks quotation marks and double dashes
+20:03
+as separate characters or separate tokens currently only full stop and comma are separate tokens right but we
+20:10
+also want question marks quotation marks double dashes Etc separate tokens so let's look at this document again see
+20:16
+there are these double dashes then I'm sure there are question marks somewhere there are question marks there are
+20:21
+exclamation marks in this document we all want them as separate tokens right
+20:27
+and we need to include that in our tokenization Command and the way we do this is pretty simple again we use this
+20:34
+re. split and along with comma and along with full stop we add all of these other
+20:39
+special characters like colon semicolon question mark underscore exclamation uh quotation marks bracket
+20:46
+Etc and uh we say that whenever these characters are encountered also do a
+20:52
+split on these characters so that they are considered as individual tokens right um so so now when you take the
+20:59
+sample text hello comma world is this dash dash a text all of these will be uh
+21:05
+sample tokens this dash dash will also be a separate token the question mark will also be a separate token because we
+21:11
+have included that in our split command and again we'll strip the white
+21:17
+spaces like the same command for item for item in result if item. strip
+21:22
+remember this was the command we used to filter out the white spaces or to remove the white spaces
+21:28
+uh awesome so now these two lines of code are our tokenization scheme so this
+21:35
+is the two lines of code in which we have built the tokenizer in this first line of code we take a sentence and we
+21:41
+split the sentence wherever there is a white space wherever there is a comma full stop colon semicolon question mark
+21:48
+underscore exclamation quotation mark or bracket we split it and then in the
+21:53
+second sentence we just remove the white spaces and then we print out the result
+21:59
+it's as simple as that this is the simple tokenization scheme for building large language models a different
+22:05
+tokenization scheme is used but we'll come to that in the next lecture it's called bite pair encoding but for now I
+22:12
+just wanted to give you a sense of what all nuances need to be considered for building a tokenizer like this now you
+22:19
+see we have we have tested these two uh sentences which are our tokenizer scheme
+22:24
+for a sample sentence right now what we can do is apply the same to two statements on the entire raw text so we
+22:32
+had the raw text right defined before let me go to that U so see this was the
+22:39
+raw text which was basically the book which we had read now we'll use these two statements to essentially uh convert
+22:46
+the entire uh raw text into individual tokens so what we'll do is that we will
+22:53
+split the entire raw text based on these tokens which we had seen before and then we will store it in a variable which is
+23:00
+called as pre-processed so pre-process pre-processed is essentially a list of
+23:05
+all the tokens and then in the second statement exactly same to what we saw before we'll split or we'll get rid of
+23:12
+the white spaces awesome right so now let us print the length of the pre-processed so we have 4690 tokens in
+23:20
+the original uh book so if you go to this book the simplest way to think about this is this will be one token
+23:26
+height will be one token this inverted commas will be one token these two double dashes will be one token so this
+23:33
+entire thing is broken down into individual words or tokens which are 4690 in number and here we have just
+23:40
+printed out the first 30 of these tokens and you see I had always thought they
+23:46
+are individual tokens and dash dash comma they are also counted as tokens
+23:51
+over here because we have uh mentioned that in this split where all do we want the split to happen awesome so we have
+23:59
+now got our basic tokenizer working and we have applied it to the entire short story which we are considering
+24:05
+considering as the input data great now we have to come to the Second Step so we have now finished the we have
+24:13
+now finished the first step which is uh tokenizing the entire short story and
+Converting tokens into token IDs
+24:18
+now we will come to the next step which is converting tokens into token IDs now what is very important is that python
+24:27
+works with numbers right so even if you look at these individual tokens which you have obtained right now these are
+24:33
+not numbers they are still words we need to convert them into token IDs so that they are numerical representations so
+24:40
+let's see how to do that so we have the complete training data set here for illustration I have just taken a
+24:47
+sentence and until now we have converted this sentence into individual tokens now
+24:52
+what we will do is that we'll take the tokens and convert them into token IDs and then there is a very specific way of
+24:59
+doing this first we build something which is called as vocabulary vocabulary is just all the list of our tokens but
+25:06
+it's sorted in an alphabetical manner so if the if our data set or the tokens are
+25:12
+the quick brown fox jumps over the lazy dog if this is the training data set the
+25:20
+vocabulary is the list of tokens in alphabetical order so Brown comes first then dog then Fox then jumps then lazy
+25:28
+easy then over then quick and then the this is my vocabulary for this training
+25:33
+data set eventually we'll have billions of data sets billions of files so then the vocabulary will be huge but I'm just
+25:41
+showing a simple representation here for how vocabulary is constructed vocabulary
+25:46
+is just a list of tokens which is sorted in alphabetical Manner and then what we do is that each unique token is mapped
+25:54
+to a unique integer which is called as the token ID so it's as simple as that
+25:59
+you map these tokens in alphabetical order and then to each token you assign a number so since they are arranged in
+26:06
+alphabetical order Brown will be zero so you start from zero since it's python dog will be one fox will be two jumps
+26:14
+will be three lazy will be four over will be five quick will be six and the will be seven so the vocabulary always
+26:22
+contains unique tokens remember although the appears two times in the vocabulary it only comes once so we make a list of
+26:29
+these unique tokens and we assign token IDs to all of these and it's important
+26:34
+to arrange the vocabulary in alphabetical order so that assigning token IDs becomes very easy so the
+26:40
+process of assigning token IDs is actually very simple each unique just remember that each unique token is
+26:46
+mapped to a unique integer which is called as the token ID right so now
+26:52
+let's see how this is implemented in Python uh so in the previous section we
+26:57
+talk loaned edit worthon short story and assigned it to a python variable called pre-processed so remember pre-processed
+27:05
+is the final list which contains all the tokenized words this these
+27:10
+words uh now what we'll do is now we'll create a list of all unique tokens and
+27:15
+sort them alphabetically to determine the vocabulary size exactly what I had mentioned over here so what we are doing
+27:22
+is that we are taking pre-processed we are converting it into a set and we are going to sort it into set so this will
+27:29
+sort it in alphabetical order and then we are just going to print the vocabulary size so we can see that the
+27:35
+vocabulary size is 1 130 right remember the vocabulary only consists of unique
+27:41
+words so the vocabulary size is less than the number of tokens which are
+27:46
+there uh so now what we can do is after determining that the vocabulary size is
+27:51
+1130 via the above code we create the vocabulary itself so when I say you
+27:58
+create the vocabulary remember that a vocabulary is not just these tokens but every token needs to be assigned to a
+28:05
+token ID a vocabulary is a is like a dictionary of tokens and Associated
+28:11
+token IDs so now we have to create that dictionary right and so it's very simple
+28:16
+you just all words consists of all the unique words in the vocabulary right in alphabetical order what you do is that
+28:23
+you just uh you take all these tokens and assign an integer value to all these
+28:28
+words that's it which means the token which comes first that will be zero the token which comes second its integer
+28:35
+will be one and it will proceed like that uh let me print this out for you to show you so our tokens are also
+28:41
+exclamation marks commas Etc right so by default they are assigned the first priority so they will be 0 1 2 3 4 5 6
+28:49
+and here you see everything is arranged in alphabetical order so a will be 11 ah
+28:54
+will be 12 among will be 13 and will be 14 R will be 15 a r RT will be 16 as
+29:01
+will be 17 at will be 18 Etc now all of these exclamation all of these I would
+29:08
+say uh words are used because this was written in 1908 this a rrt is not used
+29:15
+as an exclamation typically now but this book is written in 1908 so it shows up
+29:21
+right so this is the ulary which we have and we have printed the first 50 items of this vocabulary so it looks like a
+29:26
+dictionary pretty much and remember that every element in this dictionary uh
+29:31
+which is a token has a token ID now associated with it that's it a vocabulary is as simple as that and the
+29:37
+simplified code for this is for every token assign an integer and how do you get the integer
+29:44
+and tokens you just enumerate all words so this enumerate command in Python what
+29:49
+it does is that it takes all the words and then it assigns an integer to each word in alphabetical order so that way
+29:56
+python is actually awesome and you can write very complex things in in one line of code actually so this is how you
+30:03
+create the vocabulary and this is how you assign token IDs to every individual token right so as we can see based on
+30:12
+the output above the dictionary contains individual tokens which are associated with unique in integer labels exactly
+30:19
+what what we saw here the vocabulary which is a dictionary consists of individual tokens assigned to a unique
+30:26
+integer label which are tokenized s now one more thing which I want to
+30:31
+tell you is that currently we converted the words or tokens into token IDs right
+30:38
+you can think of this process as encoding now later uh we will also need
+30:44
+a decoder which means that from the token ID you need to convert the token ID back to the word because when the llm
+30:52
+gives the output that will be in numerical form now you need to convert it in word form so you also need a
+30:58
+mapping from the token ID to the Token the vocabulary is a dictionary which gives you a mapping from the token to
+31:05
+the Token ID but we need a reverse mapping which is called as a decoder so this is what uh I have
+31:12
+mentioned here later when we want to create the output of an llm from numbers
+31:17
+back into text we also need a way to turn token IDs back into text and for
+31:24
+this we create an inverse version of the vocabulary that Maps token IDs back to the corresponding text tokens and we'll
+31:31
+see how to do that for now what we are going to do is we have understood enough about
+Simple Tokenizer class in Python
+31:37
+tokenization that we are going to implement a complete tokenizer class in Python this class will have two methods
+31:44
+it will have an encode method and it will have a decode method let me show you what it actually means so this
+31:50
+tokenizer class which we are going to implement in Python it will have two methods the first will be the encode
+31:56
+method and the second will be the decode method in the encode method what will happen is
+32:04
+that sample text will be converted into tokens and then tokens will be assigned token IDs based on the vocabulary
+32:10
+exactly what we saw like over here in the decode method exactly
+32:17
+reverse things would happen so in the decode method we start with token IDs we convert it into individual tokens and
+32:23
+then we get back the sample text so I hope you understand the difference between the encode method and the decode
+32:30
+method here because this is the exact same difference which will show up in the encoder and decoder block of the
+32:36
+Transformer architecture or rather this is the this is a good way to understand that intuition in the encode in the
+32:43
+encode block what we do is we take sample text we convert it into tokens and then we convert it into token IDs
+32:49
+that feeds as the training data to the llm but when the llm gives its output in the form of token IDs we need to convert
+32:56
+it back to tokens and and then back to the sample text so that we know what the output is in terms of
+33:03
+sentences so that's why when we implement the tokenizer class we need an encode method uh and also the decode
+33:10
+method so the encode method will take text as an input and give token IDs as output the decode method will take IDs
+33:18
+token IDs as input and will give text as an output now let's see how to actually
+33:26
+create this simple token izer class in Python first so there are if you see
+33:32
+three methods the init method which is called by default when an instance of this class is created and let us look at
+33:38
+the arguments of the init method it takes wcab so when you create an instance of the tokenizer class you have
+33:45
+to pass in the vocabulary right and remember the vocabulary is nothing but a mapping from tokens to token IDs right
+33:53
+so then after this uh instance is created St Str to in which is string to
+33:59
+integer will just be the vocabulary because the vocabulary is already a mapping from string to integer or tokens
+34:05
+to integer and then the integer to string is basically reverse so what you do is that you take the string and
+34:13
+integer in the vocabulary and then for every integer you uh mention which token
+34:19
+it is so for S you can think of as the token and for I you can think of as token ID so what we do in this int to
+34:26
+string variable variable is that uh so we take the token and we take the token
+34:33
+ID in the vocabulary and then we just flip it then we say that for this token ID this is the particular token remember
+34:40
+this into string will be needed for the decoder method when we have the token IDs and we want to convert it back to
+34:48
+tokens so uh in the encode method the exact same pre-processing steps will
+34:54
+happen as we had seen before for tokenization what we'll do if some random text is given to us we will take
+35:01
+that text we will split it we'll split it based on the comma based on the full stop based on the colon based on
+35:07
+semicolon Etc into individual tokens and then we'll get rid of the white spaces
+35:13
+what we had seen before and then these will be individual tokens right so up till now we are at this part where we
+35:20
+have converted the sample text into individual tokens and then we'll convert these into token IDs so that's the last
+35:26
+step over here after you get the individual tokens in this list called pre-processed what you have to do is
+35:33
+that you have to use this St Str to in dictionary which is basically just the vocabulary and then you have to uh
+35:40
+assign a token ID for each token so remember the Str str2 int is basically
+35:46
+just converting tokens to token IDs using the vocabulary which is passed into this tokenizer class so you will
+35:53
+just take the uh tokens you'll take the tokens which are in this pre-process list and you'll convert them into token
+35:59
+IDs that's the encoder method that's it in the decoder method what you are actually doing is that you are uh you
+36:08
+are using this reverse dictionary which is integer to string which is basically token ID to token and then you are
+36:15
+converting the token IDs into individual tokens that's the first thing so let's
+36:20
+see the decode method you first convert the token IDs into individual tokens and then what you do is you join these
+36:27
+individual tokens together so this this join is used so first you convert the
+36:32
+token IDs into tokens and then you join the individual tokens together that's it
+36:38
+and then here what we are doing is we are going to replace spaces before the punctuations so an example here would be
+36:46
+let's say if the tokens let's say in the decoder if the tokens are the fox
+36:54
+chased and question and full stop right now if these are the tokens and if we
+37:01
+convert it into sample text by using the join method the final answer will be the the the fox chased and full stop now see
+37:09
+the problem here is that there is a space between the there is a space here between the full stop and the chased so
+37:18
+we need to get rid of this space so then the final answer would be the fox
+37:24
+chased and full stop and this is the the same for question mark Etc so in this
+37:30
+second sentence here what we are actually doing is that we are getting rid of all the spaces before the
+37:37
+punctuation so that it becomes a complete sentence so this is the decoder method
+37:42
+it's actually very simple we are just going to uh use the encode method to
+37:48
+convert uh sample text into token IDs and we are going to use the decode method to convert token IDs back into
+37:55
+sample text and for that we needed to write two methods the encode method and the decode method so remember this
+38:02
+tokenizer class takes the vocabulary already as an input so that so we already have the mapping from tokens to
+38:09
+token IDs because that is inherently present in the vocabulary we just need to construct a reverse mapping from the
+38:15
+token IDs back to the tokens and then use that in the decode method that's it
+38:21
+and to convert the text into tokens we use the same re dos split and item do
+38:27
+string which we had seen earlier in today's lecture so this is essentially the
+38:33
+tokenizer class which we have created awesome now let's move to the next step
+38:39
+so what we can do is that now we can instantiate a tokenizer object from this class right and uh tokenize a passage
+38:46
+from the short story which we have downloaded to test it out in practice so here you see I'm creating an instance of
+38:53
+this class I have passed the vocabulary as an input what is this vocabulary this vocabulary is basically the uh
+39:00
+vocabulary of tokens and token IDs which we have converted our input text so this
+39:05
+is our input text and we have converted this into tokens and assigned the token ID to each this is my vocabulary now
+39:12
+what I'm doing is I'm actually uh creating an instance of the yeah I'm
+39:18
+creating an instance of the simple tokenizer version one class which we have defined over here by passing in
+39:24
+this vocabulary as an input right and this is then defined as tokenizer great
+39:30
+and uh so the text which I'm going to pass in now is this it's the last he
+39:35
+painted you know Mrs gburn said with pardonable pride this is the text and now I'm going to test out this encode so
+39:42
+remember this encode takes in the text as an input so you need a text right to convert into IDs so what the encode
+39:49
+method will do always remember this schematic always remember the schematic the encode method will convert the text
+39:56
+into token ID is so this is the text and then we apply the method tokenizer do
+40:02
+encode and text so what when you print the IDS you will see these IDs of the text which means that our encoder has
+40:10
+successfully converted this text into token IDs that is exactly what we wanted
+40:15
+right so the code above prints the token IDs next let's see if we can turn these token IDs back into text so now what
+40:22
+we'll be doing is we'll be using tokenizer do decode and use these IDs so
+40:27
+tokenizer decode and IDs uh and pass IDs as an input remember tokenizer do decode
+40:33
+takes the IDS as an input so I'll pass these IDs which we have printed over here and let's see whether it recovers
+40:40
+this text so the text which is recovered is it's the last he painted you know Mrs gburn said with pardonable pride amazing
+40:47
+right because it's exactly the same text which we had given uh to the encoder and now it has been decoded by the decoder
+40:55
+So based on this output above we can see that the decode method successfully converted the token IDs back into the
+41:01
+original text which is exactly what we wanted which means the encoder and decoder are working right so so far so
+41:09
+good we have implemented a tokenizer which is capable of tokenizing and DET tokenizing text based on a snippet from
+41:16
+the training set so this sentence which we gave to the encoder was from the training set so we knew that the words
+41:23
+will be in the vocabulary but what if the sentence which is given is not present in the vocabulary so we have a
+41:31
+vocabulary here which is 1130 the size of the vocabulary is 1130 right what if
+41:37
+I give a sentence to en code which is not present in the vocabulary so let's try this let's say the text is hello do
+41:43
+you like T now uh hello is probably not there in this hello is not there in this
+41:50
+short story so let me search hello it's not there let's see if T is there t is
+41:56
+actually T is there but hello is not there so hello will not be there in the
+42:02
+vocabulary right so now let let me see how what's my answer here because now I
+42:08
+have asked the tokenizer to encode something which is not present in the vocabulary okay so if I run this you see
+42:13
+you get an error here because hello it does not know what to do with this word hello because it is not present in the
+42:20
+vocabulary so the problem is that the word hello was not used in the verdict short story and hence it is not
+42:26
+contained in the vocabulary now this actually highlights the need to consider large and diverse
+42:32
+training data sets to extend the vocabulary when working with llms we do not want this problem right if our
+42:38
+training data set is small and if some user gives a new word to chat GPT which it does not even know we don't want our
+42:44
+we don't want an error that's why huge number of data set is used for training large language
+42:50
+models in fact llms like chat GPT use a very special thing they use something
+42:56
+which is called a special context tokens to deal with Words which might not be present in the vocabulary so that an
+43:02
+error message is not shown such as this and we will come to that in the next section but here I just want to
+43:08
+illustrate that the reason for having a a large and diverse training data set is
+43:14
+because uh we we want many words to be present in our vocabulary it does not
+43:20
+make sense to have a smaller and a shorter vocabulary because what if the user gives a new word which is not
+43:25
+present in the vocabulary we don't want that there is a way to deal with this by using something called special context
+43:31
+tokens so let's look at this in the next section now let us have a look at the
+Special Context Tokens
+43:36
+last section in today's lecture which is dealing with special context tokens these content are not usually
+43:44
+covered in other lectures but they are very important especially since we are going to be building llms from scratch
+43:51
+we also want to understand how real life llms work and special context tokens
+43:57
+play an important role so until now we have implemented a simple tokenizer right and applied it to a passage from
+44:04
+the training set but the main question we encountered before is that if there is a word in the text which is not there
+44:11
+in the vocabulary how do we encode this word um so we will be implementing some
+44:18
+uh things which are called as special context tokens what we will do is that we will modify the tokenizer to handle
+44:25
+unknown words uh and we will Implement a python class
+44:30
+which is called a simple tokenizer version two so we have already implemented uh simple tokenizer version
+44:37
+one but here it did not have the provision to handle the unknown tokens so in this version two we will also uh
+44:46
+Implement uh the simple tokenizer version two to have the provision to
+44:53
+handle the unknown tokens in particular we will be learning about two main tokens the first is this this token
+44:59
+which is unknown for an unknown word and the second token is for end of
+45:04
+text so let me again go back to this uh whiteboard over here and write a bit
+45:11
+about why we are exactly using these tokens so uh let's take a sentence which
+45:18
+is the fox chased the dog let's say this is my sentence right
+45:25
+now and I have tokenized it into the Fox Chase the dog and here's the vocabulary
+45:32
+so it's arranged in alphabetical order and there are token IDs right now to
+45:37
+this existing vocabulary we are going to add two more tokens the first is the Unk
+45:42
+which is unknown and we'll assign a token ID and then we'll also have end of
+45:47
+text and then we'll assign it a token ID these two are the last
+45:53
+two uh tokens in the vocabulary so the token is corresponding to these two will
+45:58
+be the largest so what will happen is that let's say if some new sentence or some
+46:04
+new word is given so let's say uh the fox chased the dog quickly if that is
+46:12
+the word all these other words like the Fox Chase the dog will be converted into
+46:18
+token IDs but for quickly it will have a token ID of 783 which is the token ID of
+46:24
+unknown and why because quickly was not in the vocabulary our vocabulary only consisted of chased dog fox and the so
+46:32
+quickly is an unknown word and so it will receive a token ID which we have
+46:38
+reserved for unknown words and then you might be asking what about this end of text so end of text is something which
+46:46
+is a bit different uh when we are working with multiple text sources we typically add
+46:52
+end of text token between the text so let us look at four text sources here
+46:58
+this is the text Source One let's say it comes from one book let's say this is the text Source two let's say it comes
+47:04
+from another news article text Source three which comes from an encyclopedia
+47:09
+and text Source Four let's say which comes from an interview let's say these are are our
+47:15
+training sets usually all of these are not just collected into one giant
+47:20
+document or all of these sentences are not just stacked up together we usually
+47:25
+after after this initial text is fed as an input we have this end of text token
+47:31
+which means that the first text has ended and now the second text has started after the second text ends then
+47:38
+we again have this end of text token then the third text starts and after the third text ends then we again have the
+47:45
+end of text token and then the fourth text starts so the end of text token is
+47:51
+basically added between the texts so essentially the end end of text
+47:57
+tokens act as markers signaling the start or end of a particular
+48:04
+segment this leads to more effective processing and understanding by the llm
+48:09
+it's very important to add these end of text tokens because then llm treats the initial so let's say end of text there
+48:16
+is before the end of text which is text Source One and after the end of text which is text Source two if end if end
+48:22
+of text was not there the llm would have mixed all of this together right uh but end of text tokens allows the llm to
+48:29
+process the data and understand the data in a much better Manner and in fact when GPT was trained the end of text tokens
+48:36
+were used between different text sources this is very important to note and only
+48:41
+students who try to understand tokenization in detail know about such specifics so these are the two tokens
+48:49
+which we will be considering in this section the first is the unknown token and the second is the end of text token
+48:56
+so let's read bit here we can modify the tokenizer to use an unknown token if it encounters a word that is not part of
+49:02
+the vocabulary great furthermore we also add a token between unrelated text which
+49:08
+is the end of text token so for example when training GPT
+49:13
+like llms on in multiple independent documents it is common to insert a token
+49:19
+before each document or book that follows a previous text Source basically
+49:24
+this is exactly the end of text token which has been written over here I'll be sharing this notebook with all of you so
+49:30
+no need to worry if you miss certain portion or want to revise certain portion again now what we'll be doing as
+49:37
+I mentioned over here uh is that we'll be modifying the vocabulary we'll be augmenting the
+49:43
+vocabulary and uh how will we modify or augment the vocabulary we will include
+49:48
+special tokens we will include two special Tokens The Unknown and the end of text token and we will add these to
+49:55
+the list of all the unique words that we created in the vocabulary in the previous section so let's look at this
+50:01
+pre-processed so remember pre-processed is the vocabulary uh or U so
+50:08
+preprocessed was our list and then later we converted this into vocabulary which
+50:13
+was stored in vocab right and remember the size of the vocab is 1130 and now we
+50:18
+are going to add two more tokens so the size will be 1132 so let us again start with
+50:24
+pre-processed we will sort this and then we'll add two tokens so we'll add the end of text token and then we'll
+50:31
+add the unknown token and that is done by using the python command which is called extend so what this does is that
+50:37
+it just adds two more additional entries to the list the sorted list in this case
+50:43
+and then again we'll write the same command which we did earlier right we first enumerate all the tokens in the
+50:49
+pre-processed list and then for each token we assign an integer and this enumer it will make
+50:57
+sure that the tokens are anyways arranged in alphabetical order and then for each of these token we assign an
+51:02
+integer which is the token ID that's how we create the vocabulary now if you print out the length of the vocabulary
+51:09
+you will see that the length of the vocabulary is 1132 and if you remember without adding
+51:16
+these two tokens the length of the vocabulary was 1130 so now the length has increased by
+51:21
+two that is great right uh that makes sense because two more tokens have been added so the
+51:28
+vocabulary is extended great so based on the output of the print statement above
+51:34
+the new vocabulary size is I should mention here actually 1132 uh so this should be 1132 and in
+51:41
+the previous section it was uh 1130 and let me run this yeah so based on the
+51:48
+output of the print statement about the new vocabulary size is 1132 and the vocabulary size in the previous section
+51:54
+was 1130 good so what we'll do as an additional Quick Check we'll also print the last five
+52:01
+entries of the updated vocabulary so if you print out the last five entries in the updated vocabulary you will see
+52:07
+let's look at the last two entries these are the end of text and the unknown so the end of text has a token ID of 1130
+52:15
+and the unknown has a token ID of 1131 awesome so now the vocabulary is updated
+52:21
+and now what we'll be doing is that we'll be extending the simple tokenizer class uh this is the version two
+52:28
+basically many things will remain the same this initialization will remain the same it will initialize two dictionaries
+52:33
+the string to integer dictionary which is the vocabulary itself which converts the tokens into token IDs and the
+52:40
+integer to string dictionary which has token IDs and then a string mapped to each token
+52:46
+ID this encode now let's look at this encode the first two sentences are very similar to what we saw before we split
+52:54
+on the comma full stop colon semicolon question mark underscore explanation
+52:59
+quotation and bracket and then we remove the white spaces using item. strip but
+53:05
+we add one more thing what we add is that if the item or if the particular
+53:11
+entry is not present in the vocabulary uh the token which is assigned to that entry is unknown so
+53:19
+let's say you are scanning the text right and if you come across a word in the text which is not in the vocabulary
+53:25
+so if the item is not present in this string to integer vocabulary which is the vocabulary which we have passed uh
+53:33
+then it is it should be the unknown token we replace that with the unknown
+53:38
+token and then we convert all of these tokens to token IDs so in this step what
+53:43
+will happen is that all the words in the input text which are not in the vocabulary will be replaced by the unknown token and then in this step that
+53:50
+is the main encoder step where the tokens are converted into token IDs in the decoder part part everything
+53:57
+will uh almost stay exactly the same nothing changes we first convert the
+54:03
+token IDs back into tokens and then we join them together and uh before the
+54:08
+punctuations there are spaces so we get rid of these spaces and then we return the decoded text so this is the change
+54:15
+in this tokenizer simple tokenizer version two the only change is uh adding
+54:21
+this so if some word is not known you encode it with unknown and then assign the correspond oning ID to it so if
+54:27
+something is unknown the ID will be 1131 great now let's actually try some
+54:32
+things okay let's say the first text source which we have is hello do you like T the second text source which we
+54:39
+have is in The sunl Terraces of the palace these are two text sources now what we'll be doing is we will construct
+54:47
+a text which joins these two and we will add an end of text at the end of the
+54:52
+first text Source why are we doing this because we saw that this is usually how
+54:57
+it's done in practice in GPT Etc if you provide one text source and if you have another text Source you don't just join
+55:03
+them together you split them with this end of text token so this is what we are
+55:09
+exactly doing we are now constructing a text which will feed as an input to the encoder right but we add this end of
+55:16
+text so the text Will which will essentially feed to the encoder is hello
+55:21
+do you like T end of text in The sunlit Terraces of the palet s this is the text
+55:27
+which we are feeding to the encoder and now we are asking the encoder to encode these into token IDs so let's look at
+55:35
+this sentence in detail this word hello is not present in our vocabulary so if
+55:40
+if we pass it into this tokenizer it will hit this this statement where the
+55:46
+word is not present in the vocabulary so it will replace it with the unknown token and this end of text again end of
+55:53
+text is actually present in the vocabulary because we have added it right now so the token ID corresponding
+55:58
+to end of text will be 1130 and the token ID corresponding to hello will be 1131 right so let's check if this is
+56:05
+actually true so I'll now run tokenizer encod text and see the token ID for
+56:11
+hello is 11131 this is exactly what we had expected right because uh hello is
+56:17
+not present in the main vocabulary so it's actually an unknown word so it token ID should be 1131 awesome and then
+56:24
+for end of text let's see the token ID yeah this this is the token ID for end
+56:30
+of text the token ID is 1130 so now there is no error which is coming here earlier when we passed this
+56:37
+hello do you like T there was an error which we are getting that hello is not present in the vocabulary but now this
+56:43
+error is not coming because we have taken care of it we have added the unknown token in the vocabulary and so now the tokenizer
+56:50
+encodes the text uh in a correct manner that's awesome so now what we'll be
+56:56
+doing is that we'll be actually using the decode function now and we'll pass
+57:02
+the encoded text which are the token IDs these IDs into the tokenizer do decode
+57:09
+so let's see what the tokenizer decode so when these are passed into the decoder the decoder is unknown do you
+57:15
+like T end of text in The sunlit Terraces of the unknown so actually
+57:20
+there are two unknown text here hello is an unknown and Palace is also an unknown so the token IDs for both of these are
+57:28
+1131 so when you decode these IDs you will get unknown do you like T so which
+57:33
+because hello is not known then end of text and then in The sunl Terraces of
+57:39
+the unknown so here again unknown means the palace which was not in the vocabulary so the encoder and decoder
+57:45
+are working perfectly and we are able to handle the unknown words now uh we are
+57:50
+able to handle the unknown words actually quite effectively because we replace them with the unknown token
+57:56
+and the end of text is also being captured pretty effectively so when we actually make the text itself we have to
+58:03
+add end of text before we pass it to the encoder and subsequently to the decoder
+58:08
+So based on comparing the det tokenized text with the original input text we know that the training set which is the
+58:15
+verdict book did not actually contain the words hello and the palace because
+58:20
+both of them are replaced by this unknown token here so we will not get errors this way once we take into
+58:27
+account the special uh context tokens awesome so uh let me just add a last
+Additional context tokens
+58:35
+note about the special context token so up till now we have discussed
+58:40
+tokenization as an essential step in processing text as input to the llms
+58:45
+however along with these Special tokens there are some other tokens which also researchers consider so this is the
+58:51
+beginning of a sequence so BOS token so we saw the end of text right some
+58:56
+researchers also consider BOS so this token marks the start of a
+59:02
+text it signifies to the llm where a piece of context begins or where a piece
+59:08
+of content begins right then the second token is eos which is end of sequence
+59:14
+right so this token is positioned at the end of a text and especially useful where concatenating multiple unrelated
+59:21
+text it's similar to end of text uh then the third token which is
+59:26
+important is the padding token so when training llms with batch sizes larger than one the batch might contain texts
+59:34
+of varying lengths so to ensure that all the texts in different batches have the same length the shorter texts are
+59:41
+extended or padded using the pad token up to the length of the longest text in the batch so imagine the different text
+59:48
+is being put in batches to the llm for parallel processing we'll look at this in detail so no need to worry about this
+59:55
+right now but but just remember that for efficient Computing llm parallely processes the batches so each batch
+1:00:02
+contains text which have different sizes the shortest Texs are augmented with
+1:00:08
+this pad token to match uh their length with the largest text and now we know
+1:00:14
+how to add these special tokens right we just augment the vocabulary with these tokens and whenever we pass text to the
+1:00:20
+encoder we we may add things like beginning of sequence end of text the pad token Etc
+1:00:27
+so we only saw uh the unknown and the end of text special context tokens but
+1:00:33
+there are three other BOS beginning of sequence and EOS end of sequence and Pad
+1:00:38
+which is padding now here I want you to note that the tokenizer which is used
+1:00:44
+for GPT models does not need any of these tokens mentioned above but it only
+1:00:50
+uses the end of text token for Simplicity so gpt3 gp4 when they are trained they don't use BOS uh padding
+1:00:58
+they don't even use the unknown token they only use the end of text token for
+1:01:03
+Simplicity and this I also shown over here so the end of text which is used is
+1:01:08
+exactly how it is used in GPT training as well okay and the last sentence is that
+1:01:14
+the tokenizer used for GPT models also does not use an unknown token for out of
+1:01:19
+vocabulary words then you might be thinking how does GPT deal with unknown tokens right so then there is something
+1:01:26
+called as the bite pair encoding tokenizer which GPT models actually use which breaks down words into subword
+1:01:33
+units So currently what we have done is each word is essentially one token right and each punctuation mark each colon
+1:01:40
+semicolon is one token but what actually GPT does for tokenization it it uses
+1:01:46
+something called bite pair encoding or BP tokenizer and that automatically
+1:01:52
+deals with unknown tokens because in that tokenizer one word is is not essentially one token but even the words
+1:01:58
+are broken down into subwords to generate individual tokens uh we'll come to this in the next lecture but I wanted
+1:02:05
+to show this lecture specifically for showing you how you can do your own tokenization from scratch I could have
+1:02:13
+directly showed you bite pair encoding with GPT users but then that you would not have appreciated uh if you were to
+1:02:20
+tokenize yourself how would you do it from scratch of course we'll look at the bite pair and coder tokenizer in a lot
+1:02:27
+of detail in the next lecture to understand how GPT actually tokenizes but I wanted to give you this intuitive
+1:02:33
+feel so that you don't think tokenization is a hard process I'll be sharing this code file with all of you
+Lecture recap
+1:02:40
+so that you can run this and I actually highly encourage you to run this for a different uh book or a different txt
+1:02:47
+file so that you get the hang of it and you become better and better and better at this um just before concluding the
+1:02:54
+lecture I want to go through a quick revision of what all we have learned in today's lecture so in today's lecture we
+1:03:00
+essentially looked at this data preparation and sampling stage in building large language models from
+1:03:06
+scratch in particular we took a look at tokenization and uh the question is that
+1:03:13
+how do you prepare input text for training llms and we saw that this is divided into two steps in step one we
+1:03:21
+split the text into individual words so you have a essay or a book or a huge number of books you split that text into
+1:03:28
+individual words and then you convert these tokens into token IDs now when GPT actually uses
+1:03:35
+tokenizers it doesn't use individual words as tokens it even does subwords and we'll look at that in the next
+1:03:42
+lecture so if you look at how llms are actually trained you take the input text
+1:03:48
+you tokenize it into words you convert these words into token IDs and then the later step is we have to convert these
+1:03:54
+token IDs also into to Vector representations which we will come to later but in today's lecture we mostly
+1:04:00
+looked at step one which is tokenizing and step two which is converting tokens into token IDs right so initially what
+1:04:07
+we did is we downloaded and loaded the data set in Python we tokenized the
+1:04:13
+entire data set using Python's regular expression library and we used re. spit
+1:04:19
+we first used it used it at White spaces and then we added colons semicolons question marks Dash Dash character
+1:04:26
+Etc because we wanted to split all of those punctuations and even if you
+1:04:32
+search the dash dash in this text you'll see dash dash appear so many times so even we wanted to split that into
+1:04:39
+individual tokens awesome so this is what we did and then what we did is we
+1:04:44
+maintained the vocabulary we converted these tokens into token IDs so we saw
+1:04:50
+that what a vocabulary is that is it's simply a dictionary um and it's a mapping from
+1:04:56
+the tokens into the token IDs so the tokens are arranged alphabetically and
+1:05:01
+then each token is mapped to a token ID as you can see over
+1:05:06
+here so each unique token is mapped to a unique integer called token ID and why
+1:05:12
+are these token IDs necessary because you will see that these token IDs are then converted into token embeddings
+1:05:18
+which are fed as input to the GPT um great now then after that we
+1:05:24
+implemented a tokenized class in Python so that whenever we create a vocabulary we can create an instance of this
+1:05:31
+tokenizer class uh but we did not just Define the encode method in this class
+1:05:36
+we defined one more method which is the decode method so what the encode method did is that whenever sample text is
+1:05:43
+provided it converted it into tokens and then converted these tokens into token IDs great but the decode method did
+1:05:50
+exactly opposite it took the token IDs as an input it converted the token ID
+1:05:56
+into tokenized text and then it recover the sample text from the tokenized text
+1:06:02
+why is the decoder important because the GPT output is also in token IDs so we
+1:06:08
+need to convert it back to the sample text to to make sense of what the output
+1:06:13
+is so the tokenizer class which we defined had two methods the encode method and the decode method finally we
+1:06:21
+saw a problem that if some word is passed to the encoder which is not present in the vocabulary then the
+1:06:27
+encoder throws up an error to avoid this we need to add special context or
+1:06:32
+special text tokens to the vocabulary and uh one such special text token is
+1:06:38
+unknown so if some word is encountered which is not known we add the unknown token uh the second special context text
+1:06:45
+token which is also used in GPT is end of text so whenever there are multiple
+1:06:51
+text sources when we feed the text to the encoder we can separate them with the end text tokens we later saw that
+1:06:58
+many researchers used other to other special tokens also like beginning of sequence end of sequence padding
+1:07:04
+Etc actually when GPT was trained it only used the end of text uh token to
+1:07:10
+distinguish between the different text sources awesome so then we then we saw
+1:07:17
+that with these Special tokens even if you are given a new sentence whose words are not known uh such as the quickly
+1:07:24
+year which was not known it is just replaced by the token ID for the unknown token no error is shown
+1:07:31
+up uh now we saw that uh GPT did not actually use the unknown token so let me
+1:07:38
+take you to the end of this book end of this notebook so GPT models
+1:07:44
+did not use the unknown token then you might be thinking then how did GPT models deal with Words which are not
+1:07:50
+known they deal with Words which are not known by using something called bite pair encoding in bite pair en en in bite
+1:07:57
+pair encoding every word is not a token words themselves are broken down into subwords and then these subwords are the
+1:08:04
+token so let's say you have a word which is uh which is chased
+1:08:10
+right in the vocabulary which we have developed this chased itself is one token but in bite pair encoding it might
+1:08:16
+be possible that this chased itself is broken down into three sub tokens
+1:08:22
+CH as this is just for example but the this is what I mean by subw
+1:08:28
+tokens uh so subword tokens means breaking down one word itself into subwords and then using the subwords as
+1:08:35
+the tokens uh so GPT models use a bite pair
+1:08:40
+encoding tokenizer which breaks down words into subword units and we are going to cover that in a lot of detail
+1:08:46
+in the next lecture so uh thank you so much everyone for uh sticking with me for this lecture
+1:08:53
+and it's been a long lecture I think it's more than 1 hour but uh I think it is worth it I've not seen this much of a
+1:09:00
+detailed treatment on tokenization in any of the lectures many of the lectures are toy lectures which means they just
+1:09:07
+give you the basics but then don't show you things like end of text dealing with unknown words padding then pite pair
+1:09:13
+encoding or some things which are actually used in llms and that is what I wanted to cover so my lecture style will
+1:09:21
+be a mix of whiteboard writing on whiteboard and uh also showing you code here in Jupiter notebook I'll be sharing
+1:09:29
+this code file with everyone so you can run this code and I highly encourage you to run this code on your own thank you
+1:09:35
+so much everyone and I look forward to seeing you in the next lecture
