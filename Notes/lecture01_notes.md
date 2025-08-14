@@ -4,7 +4,9 @@
 * My name is __Dr. Raj Dander__. I graduated from IIT Madras with a BTech in ME in 2017. After that, I did my PhD from the MIT. I graduated from MIT with a PhD in ML in 2022. Since then, I've come back to India and we are all on a __mission to basically make AI accessible to everyone.__
 *
 #### YouTube Channel
-* At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists now on ML on DL. The main approach or the philosophy, which we really follow, when we teach, is to __teach everything from the basics__, i.e., not to assume anything. Teach you the __nuts and bolts__ of every single concept. 
+* At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists now on ML on DL.
+* The main approach or the philosophy, which we really follow when we teach is to __teach everything from the basics__, i.e., not to assume anything.
+* Teach you the __nuts and bolts__ of every single concept. 
 
 ## LLM and GenAI
 * We all know that __LLM and GenAI__ are transforming everything around us. But many people when they are learning about this field are making __one common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/). They follow some YouTube video and directly-run a code. But very few people really know:
@@ -33,4 +35,5 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
