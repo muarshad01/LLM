@@ -1,14 +1,14 @@
 ## Stages of Building an LLM
-* 1. Data Preparation and Sampling
+* 1 - Data Preparation and Sampling
   * How the data is collected from different datasets?
   * How the data is processed?
   * How the data is sampled?
-2. Attention Mechanism
+* 2 - Attention Mechanism
   * What is the Attention Score
   * What is Positional Encoding
   * What is Vector Embedding
   * What is meant by (key, query, value)
-3. LLM architecture
+* 3 - LLM architecture
   * How to stack different-layers on top of each other?
   * Where should the attention-head go?
 
@@ -100,6 +100,7 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
 
 
