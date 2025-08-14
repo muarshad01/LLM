@@ -5,8 +5,8 @@
 | [Lecture 02: Large Language Models (LLM) Basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md) | Aug 09, 2025 |
 | [Lecture 03: Pretraining LLMs vs Finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | Aug 09, 2025 |
 | [Lecture 04: What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) |  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md) | Aug 11, 2025|
-| [Lecture 05: How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | Aug 13, 2025|
-| [Lecture 06: Stages of building an LLM from Scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | |
+| [Lecture 05: How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | Aug 13, 2025 |
+| [Lecture 06: Stages of building an LLM from Scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | Aug 14, 2025 |
 | [Lecture 07: Code an LLM Tokenizer from Scratch in Python](https://www.youtube.com/watch?v=rsy5Ragmso8) |  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md) | |
 | [Lecture 08: The GPT Tokenizer: Byte Pair Encoding](https://www.youtube.com/watch?v=fKd8s29e-l4) |  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md) | |
 | [Lecture 09: Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | |
