@@ -1,6 +1,5 @@
 ## Stages of Building an LLM
-
-1. Data Preparation and Sampling
+* 1. Data Preparation and Sampling
   * How the data is collected from different datasets?
   * How the data is processed?
   * How the data is sampled?
@@ -101,5 +100,6 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
 
