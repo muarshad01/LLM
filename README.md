@@ -56,4 +56,12 @@
 * [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)
 
 * [Visualizing transformers and attention | Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)
+
 ***
+
+## TODO
+
+1.LLM from scratch 
+2.Deepseek playlist 
+3.Now started Reinforcement learning
+
