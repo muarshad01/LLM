@@ -31,28 +31,28 @@
 ***
 
 ## Attention Mechanism
-* Attention mechanism gives the LLM selective access to the whole input sequence when generating output one-word at a time.
 * Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
-* Context is important in predicting the next-word.
 * Allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
-####        Multi-Head Attention
-#### Masked Multi-Head Attention
-#### Positional Encoding
-#### input/output embedding 
+* Gives the LLM selective-access to the whole-input-sequence when generating output one-word at a time.
+
+#### Types
+1.        Multi-Head Attention
+2. Masked Multi-Head Attention
 
 ***
 
-## Stage-2: Pre-Training
+## Pre-Training
 1. Training Loop
 2. Model Evaluation
 3. Loading pre-trained weights to build our foundational model.
 
-* We'll break it down into epox
-* Compute the __Gradient of the Loss__ in each Epoch and we'll update the parameters towards the end
-* We'll also do __model evaluation__ and loading pre-train weaps
-* evaluation training and validation losses
+* We'll break it down into epoch
+* Compute the Gradient of the Loss (loss  validation) 
+* Update the parameters towards
+* Model evaluation
+* Loading pre-trained weights
 
-## Stage-3: Fine-tuning the LLM
+## Fine-tuning the LLM
 * If we want to build specific applications, we will do fine-tuning.
 
 #### Tools
@@ -64,8 +64,8 @@
 
 ## Application
 #### Classifier: Spam versus No-Spam
-* We cannot just use the pre-trained (foundational model) for this because we need to train with labeled data to the pre-train model.
-*  We need to use the foundational-model plus the additional specific-label dataset
+* We cannot just use the pre-trained (foundational model) for this because we need to train-with-labeled-data to the pre-trained model.
+* We need to use the foundational-model plus the additional specific-label dataset
 
 #### ChatBot: Answers queries
 * there is an instruction
@@ -97,9 +97,3 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
-
-
-
-
-
-
