@@ -14,7 +14,7 @@
 
 ****
 
-## Stage-1: Data Preparation and Sampling
+## Data Preparation and Sampling
 
 #### Tokenization
 
@@ -23,7 +23,6 @@
 
 #### Positional Encoding
 * The order in which the words appears in a sentence is also very important
-
 *  How to construct batches?
 *  What is meaning of context?
 *  how many words should be taken for training to predict the next output?
@@ -100,6 +99,7 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
 
 
