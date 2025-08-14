@@ -20,11 +20,17 @@
 * You see this conversation is proceeding nowhere. It's not very good right!
 
 #### LLM: ChatGPT
-* What are LLMs?
-* [ChatGPT](https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chat%20gpt&utm_content=169187630042&utm_ad=744024536836&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UWNf0Ud4PR0_8F6Nft0JFmBR&gclid=CjwKCAjw-svEBhB6EiwAEzSdrr5KPGN3_0OKZos5P8APgBeKU3Qg-VJxLpT9gYIz4YcCMzQs-5ZSZRoCcBQQAvD_BwE).
+
+|||
+|---|---|
+|[ChatGPT](https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chat%20gpt&utm_content=169187630042&utm_ad=744024536836&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UWNf0Ud4PR0_8F6Nft0JFmBR&gclid=CjwKCAjw-svEBhB6EiwAEzSdrr5KPGN3_0OKZos5P8APgBeKU3Qg-VJxLpT9gYIz4YcCMzQs-5ZSZRoCcBQQAvD_BwE)||
+|[Facebook Llama](https://www.llama.com/)||
+
+
+* .
 * It's extremely useful, it's to the point and it gives me books, it gives me online courses, it gives me research papers, this is exactly what I need.
 
-* [Facebook Llama](https://www.llama.com/), is an open-source model.
+* , is an open-source model.
 * The models released by [Open AI](https://openai.com/), are usually closed-source, which means they don't release the the architecture, i.e., not too many things are known about the model itself.
 * Now, __TEXT__ is one thing right.
 
@@ -35,5 +41,6 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
 
