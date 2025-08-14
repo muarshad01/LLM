@@ -1,7 +1,7 @@
 ## Build an LLM from Scratch
 
 #### Instructor
-* My name is __Dr. Raj Dander__. I graduated from IIT Madras with a BTech in ME in 2017. After that, I did my PhD from the MIT. I graduated from MIT with a PhD in ML in 2022. Since then, I've come back to India and we are all on a mission to basically make AI accessible to everyone.
+* My name is __Dr. Raj Dander__. I graduated from IIT Madras with a BTech in ME in 2017. After that, I did my PhD from the MIT. I graduated from MIT with a PhD in ML in 2022. Since then, I've come back to India and we are all on a __mission to basically make AI accessible to everyone.__
 *
 #### YouTube Channel
 * At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists now on ML on DL. The main approach or the philosophy, which we really follow, when we teach, is to __teach everything from the basics__, i.e., not to assume anything. Teach you the __nuts and bolts__ of every single concept. 
@@ -33,3 +33,4 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
