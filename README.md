@@ -12,8 +12,8 @@
 | [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | |
 | [Lecture 10 -- What are token embeddings?](https://www.youtube.com/watch?v=ghCSGRgVB_o) |  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md) | |
 | [Lecture 11 -- The importance of Positional Embeddings](https://www.youtube.com/watch?v=ufrPLpKnapU) |  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md) | |
-| [Lecture 12 -- The entire Data Preprocessing Pipeline of Large Language Models (LLMs)](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
-| [Lecture 13 -- Introduction to the Attention Mechanism in Large Language Models (LLMs)](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | |
+| [Lecture 12 -- The entire Data Preprocessing Pipeline of LLMs](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
+| [Lecture 13 -- Introduction to the Attention Mechanism in LLMs](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | |
 | [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights)](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | |
 | [Lecture 15 -- Coding the self attention mechanism with key, query and value matrices](https://www.youtube.com/watch?v=UjdRN80c6p8) |  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md) | |
 | [Lecture 16 -- Causal Self Attention Mechanism - Coded from scratch in Python](https://www.youtube.com/watch?v=h94TQOK7NRA) |  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md) | |
