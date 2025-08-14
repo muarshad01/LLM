@@ -1,45 +1,36 @@
+## Stages of building a LLM
+* stage-one
+* stage-two
+* stage-three
 
-* GPT-3 architecture in a lot of detail we also saw the progression from GPT to GPT-22 to GPT-33 and finally to GPT.4 
-* Total pre-training cost for GPT-3 is around 4.6 million, which is insanely high.
-* We have also looked at the dataset, which was used for pre-training GPT-3. 
-* We learned about the differences between zero-shot versus few-shot learning.
-* Attention behind self-attention prediction of next-word.
-*  uh zero-short versus few-short learning.
-*   basics of the Transformer architecture datasets used for llm pre pre-training
-*   difference between pre-training and fine tuning.
-*    stages of building a large language model.
-* three stage stages stage-one stage-two and stage-three
-*  so in stage one we are going to be looking at uh essentially building a large language model and we are going to look at the building blocks which are necessary so before we go to train the large language model.
-*  we need to do the data pre-processing and sampling in a very specific manner
-*   we need to understand the attention-mechanism and we will need to understand the llm architecture so in the stage-one, we are going to focus on these three things understanding how the data is collected from different datasets
-*    how the data is processed
-*     how the data is sampled
-* number one then we will go to attention mechanism
-* how to C out the attention mechanism completely from scratch in Python what is meant by key-query-value
+#### Stage One: Building a LLM
+* We're going to look at the building blocks, which are necessary before we go to train the LLM.
+* Data pre-processing and sampling in a very specific manner
+* We need to understand the attention-mechanism and we will need to understand the LLM architecture so in the stage-one, we are going to focus on these three things understanding
+1. How the data is collected from different datasets?
+2. How the data is processed?
+3. How the data is sampled?
+
+#### Attention Mechanism
+* how to C out the attention mechanism completely from scratch in Python
+* what is meant by key-query-value
 * what is the attention-score
 * what is positional encoding
 * what is Vector embedding
-* all of this will be covered in this stage we'll also be looking at the llm architecture such as
-* how to stack different layers on top of each other where should the attention-head go
+
+* how to stack different-layers on top of each other?
+* where should the attention-head go?
+
 * so what exactly we will cover in data preparation and sampling
-*  first we'll see tokenization if you are given sentences how to break them down into individual tokens
-*   as we have seen earlier a token can be thought of as a unit of a sentence but there is a particular way of doing tokenization
-*   we'll cover that then we will cover
-*   Vector embedding essentially after we do tokenization every word needs to be transformed into a very high dimensional Vector space so that the semantic
-
-***
-
-* meaning between words is captured.
+*  __Tokenization__: How to break them down into individual tokens
+*  __Vector embedding__: After tokenization, every word needs to be transformed into a very high-dimensional Vector space so that the semantic  meaning between words is captured.
 *  Encode every word so that the semantic meaning between the words are captured
-*  so Words which mean similar things lie closer together
-*  so we will learn about Vector embeddings
-*  positional encoding the order in which the word appears in a sentence is also very important
-*  pre-training model after learning about tokenization
-*  Vector embedding we will learn about how to construct batches
-*  meaning of context how many words should be taken for training to predict the next output we'll see about that and how to basically Fe the data in different sets of batches
-*  so that the computation becomes much more efficient
-*  so we'll be implementing a data batching sequence
-*  before giving all of the data set into the large language model for pre-training
+*  __positional encoding__ the order in which the word appears in a sentence is also very important
+*  how to construct batches?
+*  how many words should be taken for training to predict the next output?
+*  How to basically Fe the data in different sets of batches
+*  __data batching sequence__
+
 #### Second Point
 * I mentioned here is the attention mechanism
 * so here is the attention mechanism for the Transformer model we'll first understand what is meant by every single thing here what is meant by multi-ad attention
@@ -75,3 +66,4 @@ spam whereas hey just wanted to check if we are still on for dinner tonight let 
 so let's say you take two cases right in one case you only have pre-trained llms and in second case you have pre-trained plus fine tuned llms so it turns out that pre-trained plus finetune does a much better job at certain specific tasks than just using pre-rain for students who just want to interact for getting their doubts solved or for getting assistance uh in summarization uh helping in writing a research paper Etc gp4 perplexity or such API tools or such interfaces which are available work perfectly fine but if you want to build a specific application on your data set and take it to production level you definitely need fine tuning okay now uh one more key thing is that the secret Source behind large language models is this Transformer architecture so uh the key idea behind Transformer architecture is the attention mechanism uh just to show you how the Transformer architecture looks like it looks like this and the main thing behind the Transformer architecture which really makes it so powerful are these attention blocks we'll see what they mean so no need to worry about this right now but in the nutshell attention mechanism gives the llm selective access to the whole input sequence when generating output one word at a time basically attention mechanism allows the llm to understand the importance of words and not just the word in the current sentence but in the previous sentences which have come long before also because context is important in predicting the next word the current sentence is not the only one which matters attention mechanism allows the llm to give access to the entire context and select or give weightage to which words are important in predicting the next word this is a key idea which and we'll spend a lot of time on this idea remember that the original Transformer had only the had encoder plus decoder so it had both of these things it had the encoder as well as it had the decoder but generative pre-train Transformer only has the decoder it did not it does not have the encoder so Transformer and GPT is not the same Transformer paper came in 2017 it had encoder plus decoder generative pre-rain Transformer came one year later 2018 and that only had the decoder architecture so even gp4 right now it only has decoder no encoder so 2018 came GPT the first generative pre-trend Transformer architecture 2019 came gpt2 2020 came gpt3 which had 175 billion parameters and that really changed the game because no one had seen a model this large before and then now we are at GPT 4 stage one last point which is very important is that llms are only trained for predicting the next word right but very surprisingly they develop emergent properties which means that although they are only trained to predict the next word they show some amazing properties like ability to classify text translate text from one language into another language and even summarize texts so they were not trained for these tasks but they developed these properties and that was an awesome thing to realize the pre-training stage works so well that llms develop all of these wonderful other properties which makes them so impactful for a wide range of tasks currently okay so this brings us to the end of the recap which we have covered up till now if you have not seen the previous lectures I really encourage you to go through them because these lectures have really set the stage for us to now dive into stage one so from the next lecture we'll start going into stage one and we'll start seeing the first aspect which is data preparation and sampling so the next lecture title will be be working with Text data and we'll be looking at the data sets how to load a data set how to count the number of characters uh how to break the data into tokens and I'll I'll start sharing sharing Jupiter notebooks from next time onward so that we can parall begin coding so thanks everyone I hope you are liking these lectures so lecture 1 to six we kind of like an introductory lecture to give you a feel of the entire series and so that you understand Concepts at a fundamental level from from lecture 7 we'll be diving deep into code and we'll be starting into stage one so I follow this approach of writing on a whiteboard and also coding um so that you understand the details plus the code at the same time because I believe Theory plus practical implementation both are important and that is one of the philosophies of this lecture Series so do let me know in the comments how you finding this teaching style uh because I will take feedback from that and we can build this series together 3 to four months later this can be an amazing and awesome series and I will rely on your feedback to build this thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
