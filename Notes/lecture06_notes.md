@@ -19,16 +19,14 @@
 #### Tokenization
 
 #### Vector Embedding
-* Every word needs to be encoded into a very high-dimensional Vector Space so that the semantic meaning between words is captured.
+* Encode every word into a very __high-dimensional Vector Space__, so that the __semantic meaning__ between words is captured.
 
 #### Positional Encoding
-* The order in which the words appears in a sentence is also very important
-*  How to construct batches?
-*  What is meaning of context?
-*  how many words should be taken for training to predict the next output?
-*  How to basically feed the data in different sets of batches for efficient computation.
-
-### Data Batching Sequence
+* The order of words in a sentence is also very important
+* What is meaning of context?
+* How many words should be taken for training to predict the next output?
+* How to feed-the-data in different sets of batches for efficient computation.
+* How to construct batches (data batching sequence)?
 
 ***
 
@@ -99,6 +97,7 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
 
 
