@@ -17,7 +17,7 @@
 
 ****
 
-## Data Preparation and Sampling
+## Stage-1: Data Preparation and Sampling
 
 #### Tokenization
 
@@ -44,6 +44,8 @@
 #### input embedding output embedding
 
 ***
+
+## Stage-2: Pre-Training
 
 * we'll break it down into epox and we will compute the __gradient__ of the loss in each Epoch and we'll update the parameters towards the end
 *   we'll also do __model evaluation__ and loading pre-train weaps
@@ -115,4 +117,5 @@
 *  because I believe Theory plus practical implementation both are important
 
 ***
+
 
