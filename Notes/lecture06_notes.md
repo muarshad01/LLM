@@ -41,7 +41,8 @@
 #### Multi-Head Attention
 #### Masked Multi-Head Attention
 #### Positional Encoding
-#### input embedding output embedding
+#### input embedding 
+#### output embedding
 
 ***
 
@@ -112,4 +113,5 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
