@@ -31,13 +31,13 @@
 ## Deep Learning
 |Lecture | Notes|
 |---|---|
-| [But what is a neural network? -- Deep learning chapter 1](https://www.youtube.com/watch?v=aircAruvnKk) ||
-| [Gradient descent, how neural networks learn -- Deep Learning Chapter 2](https://www.youtube.com/watch?v=IHZwWFHWa-w) ||
-| [Backpropagation, intuitively -- Deep Learning Chapter 3](https://www.youtube.com/watch?v=Ilg3gGewQ5U) ||
-| [Backpropagation calculus -- Deep Learning Chapter 4](https://www.youtube.com/watch?v=tIeHLnjs5U8) ||
-| [Transformers, the tech behind LLMs -- Deep Learning Chapter 5](https://www.youtube.com/watch?v=wjZofJX0v4M) ||
-| [Attention in transformers, step-by-step -- Deep Learning Chapter 6](https://www.youtube.com/watch?v=eMlx5fFNoYc) ||
-| [How might LLMs store facts -- Deep Learning Chapter 7](https://www.youtube.com/watch?v=9-Jl0dxWQs8) ||
+| [Deep learning chapter 1 -- But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) ||
+| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) ||
+| [Deep Learning Chapter 3 -- Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) ||
+| [Deep Learning Chapter 4 -- Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) ||
+| [Deep Learning Chapter 5 -- Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) ||
+| [Deep Learning Chapter 6 -- Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) ||
+| [Deep Learning Chapter 7 -- How might LLMs store facts ](https://www.youtube.com/watch?v=9-Jl0dxWQs8) ||
 
 ***
 
