@@ -1,44 +1,49 @@
-## Stages of building a LLM
-* stage-one
-* stage-two
-* stage-three
+## Stages of Building an LLM
 
-#### Stage One: Building a LLM
-* We're going to look at the building blocks, which are necessary before we go to train the LLM.
-* Data pre-processing and sampling in a very specific manner
-* We need to understand the attention-mechanism and we will need to understand the LLM architecture so in the stage-one, we are going to focus on these three things understanding
-1. How the data is collected from different datasets?
-2. How the data is processed?
-3. How the data is sampled?
+#### 1. Data Preparation and Sampling
+   * How the data is collected from different datasets?
+   * How the data is processed?
+   * How the data is sampled?
+#### 2. Attention Mechanism
+* How to code-out the attention mechanism completely from scratch in Python
+* What is meant by (key, query, value)
+* What is the Attention Score
+* What is Positional Encoding
+* What is Vector Embedding
 
-#### Attention Mechanism
-* how to C out the attention mechanism completely from scratch in Python
-* what is meant by key-query-value
-* what is the attention-score
-* what is positional encoding
-* what is Vector embedding
+#### 3. LLM architecture
+* How to stack different-layers on top of each other?
+* Where should the attention-head go?
 
-* how to stack different-layers on top of each other?
-* where should the attention-head go?
+****
 
-* so what exactly we will cover in data preparation and sampling
-*  __Tokenization__: How to break them down into individual tokens
-*  __Vector embedding__: After tokenization, every word needs to be transformed into a very high-dimensional Vector space so that the semantic  meaning between words is captured.
-*  Encode every word so that the semantic meaning between the words are captured
-*  __positional encoding__ the order in which the word appears in a sentence is also very important
-*  how to construct batches?
+## Data Preparation and Sampling
+
+#### Tokenization
+
+#### Vector Embedding
+* Every word needs to be encoded into a very high-dimensional Vector Space so that the semantic meaning between words is captured.
+
+#### Positional Encoding
+* The order in which the words appears in a sentence is also very important
+
+*  How to construct batches?
+*  What is meaning of context?
 *  how many words should be taken for training to predict the next output?
-*  How to basically Fe the data in different sets of batches
-*  __data batching sequence__
+*  How to basically feed the data in different sets of batches for efficient computation.
 
-#### Second Point
-* I mentioned here is the attention mechanism
-* so here is the attention mechanism for the Transformer model
-* we'll first understand what is meant by every single thing here
-* what is meant by multi-ad attention
-* what is meant by Mas __multi-head attention__
-* what is meant by __positional encoding__
-* __input embedding output embedding__
+### Data Batching Sequence
+
+***
+
+## Attention Mechanism
+
+#### Multi-Head Attention
+#### Masked Multi-Head Attention
+#### Positional Encoding
+#### input embedding output embedding
+
+***
 
 * we'll break it down into epox and we will compute the __gradient__ of the loss in each Epoch and we'll update the parameters towards the end
 *   we'll also do __model evaluation__ and loading pre-train weaps
@@ -110,3 +115,4 @@
 *  because I believe Theory plus practical implementation both are important
 
 ***
+
