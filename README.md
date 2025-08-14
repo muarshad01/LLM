@@ -60,8 +60,6 @@
 ***
 
 ## TODO
-
-1.LLM from scratch 
-2.Deepseek playlist 
-3.Now started Reinforcement learning
-
+1. LLM from scratch playlist
+2. Deepseek playlist 
+3. Reinforcement playlist
