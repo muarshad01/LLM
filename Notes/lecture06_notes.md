@@ -51,67 +51,60 @@
 2. Model Evaluation
 3. Loading pre-trained weights to build our foundational model.
 
-* we'll break it down into epox
-* Compute the __Gradient of the Loss__ in each Epoch
-* and we'll update the parameters towards the end
-* 
-*   we'll also do __model evaluation__ and loading pre-train weaps
-*    evaluation training    and validation losses
-*    then we'll write the LLM training function
-*     Implement function to save-and-load the LLM weights
-*   load pre-trained weights from open AI into our LLM.
-*
+* We'll break it down into epox
+* Compute the __Gradient of the Loss__ in each Epoch and we'll update the parameters towards the end
+* We'll also do __model evaluation__ and loading pre-train weaps
+* evaluation training and validation losses
 
-## Stage-3: 
-* Fine-tuning the LLM. If we want to build specific applications, we will do fine-tuning.
+## Stage-3: Fine-tuning the LLM
+* If we want to build specific applications, we will do fine-tuning.
 
 #### Tools
 *  [LangChain](https://www.langchain.com/)
 *  [Ollama](https://ollama.com/)  
+*  [Perplexity](https://www.perplexity.ai/)
 
 ***
 
 ## Application
-#### Spam versus No-Spam
-* Classifier
+#### Classifier: Spam versus No-Spam
 * We cannot just use the pre-trained (foundational model) for this because we need to train with labeled data to the pre-train model.
 *  We need to use the foundational-model plus the additional specific-label dataset
 
-#### ChatBot 
-* Basically answers queries:
+#### ChatBot: Answers queries
 * there is an instruction
 * there is an input
 * there is an output
 
-## Emergent Properties
+#### Emergent Properties
 * LLMs are pretty generic
-* if you train an LLM for predicting the next-word it turns out that it develops __emergent properties__, which means it's not only good at predicting the next-word but also at things like uh MCQs, text summarization, then emotion classification, language translation, etc.
+* If you train an LLM for predicting the next-word it turns out that it develops __emergent properties__, which means it's not only good at predicting the next-word, but also at things like:
+  * MCQs,
+  * text summarization,
+  * emotion classification,
+  * language translation, etc.
 
+#### Application Domains
+* Airline companies,
+* Restaurants,
+* Banks,
+* Educational companies, etc.
+* Getting assistance uh in summarization, helping in writing a research paper, etc.
 
-
-* airline companies, restaurants, Banks, educational companies,
-
-#### Auto regressive
+#### Auto Regressive
 * so the sentence structure itself is used for creating the labels ...
 * Fine-tuned LLMs can outperform only pre-trained LLMs on specific tasks
 
 ***
 
-
-* Getting assistance uh in summarization, helping in writing a research paper, etc.
-* [Perplexity](https://www.perplexity.ai/)
-
 #### Attention Mechanism
-#### Attention Blocks
 * Attention mechanism gives the LLM selective access to the whole input sequence when generating output one-word at a time.
-*  Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
+* Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
 * Context is important in predicting the next-word.
-* attention mechanism allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
+* Allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
 
 
 ## Theory plus Practical
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
-
-
