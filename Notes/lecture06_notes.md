@@ -103,13 +103,13 @@
 #### Attention Mechanism
 #### Attention Blocks
 * Attention mechanism gives the LLM selective access to the whole input sequence when generating output one-word at a time.
-*  basically attention mechanism allows the LLM to understand the importance-of-words and not just the word in the current sentence but in the previous sentences, which have come long before also.
-* __context__ is important in predicting the next-word the current sentence is not the only one which matters.
-* attention mechanism allows the llm to give access to the entire context and select or give weightage to which words are important in predicting the next word.
-
+*  Allows the LLM to understand the importance-of-words and not just the word-in-the-current-sentence but in-the-previous-sentences, which have come long before also.
+* Context is important in predicting the next-word.
+* attention mechanism allows the LLM to give access to the entire context and select or give weightage to which words are important in predicting the next-word.
 
 
 ## Theory plus Practical
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
