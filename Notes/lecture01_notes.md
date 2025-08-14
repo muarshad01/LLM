@@ -2,16 +2,14 @@
 
 #### Instructor
 * My name is __Dr. Raj Dander__. I graduated from IIT Madras with a BTech in ME in 2017. After that, I did my PhD from the MIT. I graduated from MIT with a PhD in ML in 2022. Since then, I've come back to India and we are all on a __mission to basically make AI accessible to everyone.__
-*
+
 #### YouTube Channel
 * At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists now on ML on DL.
 * The main approach or the philosophy, which we really follow when we teach is to __teach everything from the basics__, i.e., not to assume anything.
 * Teach you the __nuts and bolts__ of every single concept. 
 
 ## LLM and GenAI
-* We all know that __LLM and GenAI__ are transforming everything around us. But many people when they are learning about this field are making __one common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/). They follow some YouTube video and directly-run a code. But very few people really know:
-*  How LLM actually work?
-*  The __nuts and the bolts__, which make LLM really so powerful.
+* We all know that __LLM and GenAI__ are transforming everything around us. But many people when they are learning about this field are making __one-common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/). 
 
 #### Natural Language Processing (NLP)
 * One of the first __ChatBots__, which humans developed, is called as __ELIZA__. * It's not very good right!
@@ -30,12 +28,9 @@
 #### What is GenAI?
 * __GenAI__ is a broader subset and it includes __language, video, audio, 3D models__, all the things.
 
+***
+
 #### [Book: Build a Large Language Model (From Scratch) by Sebastian Raschka](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?crid=MXTFKXE17P52&dib=eyJ2IjoiMSJ9.3ZAePWEmeg9GoDKd0fxCOmW-QTfMlcLJs5AGdnQO_Q5UgoDerIZ3bBzLbLsCsJkkH8-aDniAtq9xSNyIetK5SGF5muZm-WC_vDxdngfHjGQ4nvxyLSzG6hpfuqpWKRjV301arX9jrq9dS_HKycSHmTfJNplH9xzdhwZIGj6u55hDc4S5nzWxt_VO11yCdXTQkdOdgW-FqmrxpUjzcgeg7ZYeosIvcTlLWOTUafjGjNI.kQ6U_FCvho2U499FQnnYUS3xc0qeZHyd9W_8M3RZrio&dib_tag=se&keywords=Build+a+Large+Language+Model+%28From+Scratch%29+by+Sebastian+Raschka&qid=1754518820&sprefix=build+a+large+language+model+from+scratch+by+sebastian+raschka%2Caps%2C64&sr=8-1)
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
-
-
-
-
-
