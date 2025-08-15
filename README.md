@@ -61,6 +61,10 @@
 
 ***
 
+* [Open Source LLM Tools - Chip Huyen](https://huyenchip.com/llama-police.html)
+
+***
+
 ## TODO
 1. LLM from scratch playlist
 2. Deepseek playlist 
