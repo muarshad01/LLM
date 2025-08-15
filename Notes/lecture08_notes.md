@@ -1,6 +1,3 @@
-0:00
-[Music]
-0:05
 hello everyone welcome to this lecture in the large language models from
 0:10
 scratch Series today we are going to learn about a very important topic which is called
@@ -1019,3 +1016,4 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
