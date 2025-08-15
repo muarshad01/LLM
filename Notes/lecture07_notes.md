@@ -1,5 +1,30 @@
 ## Tokenization 
-* basically when we build LLM Model S the data needs to be pre-processed in a certain manner before it is used for pre-training and uh in this data pre-processing pipeline the first step is tokenization at its really basic form tokenization is just the process of breaking down a sentence into individual words but it is a bit more detailed than that the way it is used to act build LLMs in today's lecture we are going to understand everything there is to know about tokenization and we will build a tokenizer fully from scratch we will also build an encoder and decoder from scratch and we'll code it out in Python so today will be a Hands-On session if you have a laptop in front of you U that's great so that you can follow along in Google collab or jupyter notebook or V s code to implement the code along with me so let's get started with today's lecture building a LLM usually proceeds in three stages especially if you want to build it from scratch in stage one we have to understand the nuances or basic mechanism of building an llm and that includes data preparation attention mechanism and understanding the llm architecture stage two involves pre-training and building the foundational model so that involves the training Loop model evaluation and loading pre-trained weights and stage three involves finetuning training on smaller very specific data sets to build applications which are actually useful to you such as a classifier or a personal assistant in this lecture we are going to look at the first aspect of stage one which is data preparation and pre data preparation and sampling so uh tokenization comes under the category of data preparation and sampling and that is what we are going to cover in today's lecture you can think of this as the first building block for building a large language model so let's get started with today's 2 steps of tokenisation lecture so the main question which we are going to answer today is how exactly do you prepare input text for training large language models at the heart of it llms are just neural networks right so you need data the parameters of the llm are optimized and then we have some output the question is that this data which comes in as the input what form should it take how should we prepare the input text we have a huge number of documents right which the llm is trained on we have seen that in previous lectures the llm is usually trained on billions of documents but do we feed the document Direct ly as the input text do we feed the sentences of the document as the input text no it turns out we have to tokenize the document and then feed individual tokens uh there is one more step after this which is called as Vector embeding but we'll have a separate lecture for that today we are only going to look at tokenization so the process of tokenization can be broadly broken down into three steps this is the key takeaway which you should learn from today's lecture the first step is that you have to initiallysplit the text into individual word and subo tokens that is Step number one imagine you have huge amount of text you break it down into individual words that's the first step of tokenization the second step of tokenization is converting these tokens into token IDs and the third step is basicallyencode these token ID into Vector representation we are not going to look at step number three in today's lecture because it comes also under Vector embedding but essentially we are going to look at step one and step number two so let me repeat step one and step two step one is basically imagine you have a big document which is let's say you're training on Harry Potter books you take this books you divide it into sentences and then you split the text into individual word and subword tokens and then you convert these tokens into token IDs that's the uh two major steps involved in tokenization which we are going to look
+* basically when we build LLM Models the data needs to be pre-processed in a certain manner before it is used for pre-training and in this data pre-processing pipeline the first-step is tokenization.
+* At its really basic form tokenization is just the process of breaking down a sentence into individual words, but it is a bit more detailed than that.
+* In today's lecture, we are going to understand everything there is to know about tokenization and we will build a tokenizer fully from scratch.
+* We will also build an encoder-and-decoder from scratch and we'll code it out in Python.
+*  So today will be a Hands-On session.
+*   if you have a laptop in front of you U that's great so that you can follow along in Google Collab or Jupyter Notebook or VSCode to implement the code along with me.
+*    three stages especially if you want to build it from scratch
+*    in stage- one we have to understand the nuances or basic mechanism of building an llm and that includes data preparation, attention mechanism and understanding the LLM architecture
+*    stage-two involves pre-training and building the foundational model so that involves the training Loop, model evaluation, and loading pre-trained weights.
+*    and stage three involves fine-tuning training on smaller very specific datasets.
+*     to build applications which are actually useful to you such as a classifier or a personal assistant.
+*  in this lecture we are going to look at the first aspect of stage one which is data preparation and sampling.
+*   so uh tokenization comes under the category of data preparation and sampling and that is what we are going to cover in today's lecture.
+*    today's 2 steps of tokenisation lecture
+*     so the main question which we are going to answer today is how exactly do you prepare input text for training LLms at the heart of it llms are just NN right so you need data the parameters of the LLM are optimized and then we have some output the question is that this data which comes in as the input what form should it take how should we prepare the input text.
+*  we have a huge number of documents right which the llm is trained on we have seen that in previous lectures the LLM is usually trained on billions of documents but do we feed the document Directly as the input text
+*   do we feed the sentences of the document as the input text.
+*    no it turns out we have to tokenize the document and then feed individual tokens uh there is one more step after this which is called as
+*    Vector embeding but we'll have a separate lecture for that today we are only going to look at tokenization so the process of
+*    tokenization can be broadly broken down into three steps this is the key takeaway, which you should learn from today's lecture.
+*     the first step is that you have to initially split the text into individual word and sub tokens that is Step number one
+* converting these tokens into token IDs
+* and the third step is basically encode these token ID into Vector representation
+*  we are not going to look at step number three in today's lecture because it comes also under Vector embedding
+*   but essentially we are going to look at step one and step number two so let me repeat step one
+*   
 5:09
 in today's lecture um so I just want to show you a visual for
 5:15
@@ -1227,3 +1252,4 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
