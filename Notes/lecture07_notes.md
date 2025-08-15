@@ -103,109 +103,17 @@ strip will return
 
 ## [25 -- 30]
 
-* vocabulary is constructed vocabulary
-25:46
-is just a list of tokens which is sorted in alphabetical Manner and then what we do is that each unique token is mapped
-25:54
-to a unique integer which is called as the token ID so it's as simple as that
-25:59
-you map these tokens in alphabetical order and then to each token you assign a number so since they are arranged in
-26:06
-alphabetical order Brown will be zero so you start from zero since it's python dog will be one fox will be two jumps
-26:14
-will be three lazy will be four over will be five quick will be six and the will be seven so the vocabulary always
-26:22
-contains unique tokens remember although the appears two times in the vocabulary it only comes once so we make a list of
-26:29
-these unique tokens and we assign token IDs to all of these and it's important
-26:34
-to arrange the vocabulary in alphabetical order so that assigning token IDs becomes very easy so the
-26:40
-process of assigning token IDs is actually very simple each unique just remember that each unique token is
-26:46
-mapped to a unique integer which is called as the token ID right so now
-26:52
-let's see how this is implemented in Python uh so in the previous section we
-26:57
-talk loaned edit worthon short story and assigned it to a python variable called pre-processed so remember pre-processed
-27:05
-is the final list which contains all the tokenized words this these
-27:10
-words uh now what we'll do is now we'll create a list of all unique tokens and
-27:15
-sort them alphabetically to determine the vocabulary size exactly what I had mentioned over here so what we are doing
-27:22
-is that we are taking pre-processed we are converting it into a set and we are going to sort it into set so this will
-27:29
-sort it in alphabetical order and then we are just going to print the vocabulary size so we can see that the
-27:35
-vocabulary size is 1 130 right remember the vocabulary only consists of unique
-27:41
-words so the vocabulary size is less than the number of tokens which are
-27:46
-there uh so now what we can do is after determining that the vocabulary size is
-27:51
-1130 via the above code we create the vocabulary itself so when I say you
-27:58
-create the vocabulary remember that a vocabulary is not just these tokens but every token needs to be assigned to a
-28:05
-token ID a vocabulary is a is like a dictionary of tokens and Associated
-28:11
-token IDs so now we have to create that dictionary right and so it's very simple
-28:16
-you just all words consists of all the unique words in the vocabulary right in alphabetical order what you do is that
-28:23
-you just uh you take all these tokens and assign an integer value to all these
-28:28
-words that's it which means the token which comes first that will be zero the token which comes second its integer
-28:35
-will be one and it will proceed like that uh let me print this out for you to show you so our tokens are also
-28:41
-exclamation marks commas Etc right so by default they are assigned the first priority so they will be 0 1 2 3 4 5 6
-28:49
-and here you see everything is arranged in alphabetical order so a will be 11 ah
-28:54
-will be 12 among will be 13 and will be 14 R will be 15 a r RT will be 16 as
-29:01
-will be 17 at will be 18 Etc now all of these exclamation all of these I would
-29:08
-say uh words are used because this was written in 1908 this a rrt is not used
-29:15
-as an exclamation typically now but this book is written in 1908 so it shows up
-29:21
-right so this is the ulary which we have and we have printed the first 50 items of this vocabulary so it looks like a
-29:26
-dictionary pretty much and remember that every element in this dictionary uh
-29:31
-which is a token has a token ID now associated with it that's it a vocabulary is as simple as that and the
-29:37
-simplified code for this is for every token assign an integer and how do you get the integer
-29:44
-and tokens you just enumerate all words so this enumerate command in Python what
-29:49
-it does is that it takes all the words and then it assigns an integer to each word in alphabetical order so that way
-29:56
-python is actually awesome and you can write very complex things in in one line of code actually so this is how you
-30:03
-create the vocabulary and this is how you assign token IDs to every individual token right so as we can see based on
-30:12
-the output above the dictionary contains individual tokens which are associated with unique in integer labels exactly
-30:19
-what what we saw here the vocabulary which is a dictionary consists of individual tokens assigned to a unique
-30:26
-integer label which are tokenized s now one more thing which I want to
-30:31
-tell you is that currently we converted the words or tokens into token IDs right
-30:38
-you can think of this process as encoding now later uh we will also need
-30:44
-a decoder which means that from the token ID you need to convert the token ID back to the word because when the llm
-30:52
-gives the output that will be in numerical form now you need to convert it in word form so you also need a
-30:58
-mapping from the token ID to the Token the vocabulary is a dictionary which gives you a mapping from the token to
-31:05
-the Token ID but we need a reverse mapping which is called as a decoder so this is what uh I have
+* vocabulary is constructed vocabulary is just a list of tokens which is sorted in alphabetical Manner and then what we do is that each unique token is mapped
+to a unique integer which is called as the token ID.
+* so it's as simple as that you map these tokens in alphabetical order and then to each token you assign a number.
+
+* talk loaned edit worthon short story and assigned it to a python variable called pre-processed so remember pre-processed
+
+***
+
+[30 --35]
+
+* reverse mapping which is called as a decoder so this is what uh I have
 31:12
 mentioned here later when we want to create the output of an llm from numbers
 31:17
@@ -937,6 +845,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
