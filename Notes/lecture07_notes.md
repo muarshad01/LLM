@@ -19,6 +19,7 @@
 
 
 ***
+## [10--15]
 
 in today's lecture um so I just want to show you a visual for how the input text is given to the LLM so let's say this is an input text right this is an example.
 
@@ -50,105 +51,45 @@ the GPT or the LLM rather so even before coming to the training stage we need to
 
 ***
 
-then it outputs the white space here when you print out the result then it again goes on scanning and here until
-15:10
-world and full stop there is no white space so it prints Out World and full stop then after this point there is a
-15:17
-white space right see this so then it prints this out then it again keeps on
-15:22
-scanning from left to right so till this and comma there is no white space so it prints out this and comma then it prints
-15:29
-out another white space over here so it keeps on scanning from left to right and then splits wherever white space is
-15:36
-encountered right that is the advantage of using re do split U and then this character
-15:42
-indicates where you want to split so here I have indicated that you split wherever you see a white space right so
-15:49
-the result of this is a list of individual words white spaces and punctuation characters so see white
-15:55
-spaces are also the results of this now uh what we want to do is we
-16:01
-want to also uh split commas and periods so here you see the comma is included as
-16:07
-part of the word word itself we the full stop is included as part of the world but we want to have comma and full stop
-16:13
-also as separate tokens how do we do that it's pretty simple in the re. split
+## [15 -- 20]
+
+* world and full stop
+* this and comma there is no white space so it prints out this and comma then it prints
+
+* individual words white spaces and punctuation characters so see white
+* split commas and periods so here you see the comma is included as
+* we want to have comma and full stop
+
+* split
 16:19
 command you also include comma and you also include the full stop along with
-16:24
-this SLS command and then when you print the result you will see that along with white spaces so white spaces are of
-16:32
-course uh printed out because we are splitting on white spaces also but comma is now a separate token full stop is now
-16:39
-a separate token which was not the case before hello and comma were one token but now you'll see hello and comma are
-16:47
-separate tokens awesome so now we have split based on comma and full stops also
-16:53
-correct now the main another remaining issue is that our list still includes
-16:59
-space characters right see these the white space characters are still counted as tokens we can even remove these red
-17:06
-redundant character safely so here what we are doing is that uh you first scan the result scan
+* white spaces so white spaces are of
+* comma is now a separate token full stop is now a separate token which was not the case before
+* hello and comma were one token but now you'll see hello and comma are separate tokens
+* awesome so now we have split based on comma and full stops also
+
+* correct now the main another remaining issue is that our list still includes
+
 17:13
 each item in the result so we are looping over each item in the result so this is the result right so we are going
-17:20
-over each of the individual items in this result and if item. strip is equal
-17:25
-to true then only we return that item so if it's a y space then item. strip will
-17:30
-actually be false so white spaces will not be returned Whenever there is actually a full world full word like
+*  strip will
+*  white spaces will not be returned Whenever there is actually a full world full word like
 17:37
-hello or comma or world or this or full stop then only item. strip will return
-17:44
-true and those words will be returned in this result so using this statement uh
-17:49
-loop over item in result and then find out item. strip so for white spaces
-17:55
-item. strip will anyway be false so that will not be returned so in this one line
-18:00
-of command we can actually get rid of white spaces completely from the sentence and now when we print out the
-18:06
-result we'll have the tokens as hello comma world full stop this comma is a
-18:11
-test and full stop we won't have white spaces so one more consideration which I would like to mention over here is that
-18:19
-removing white spaces are not this is an important question to actually
-18:24
-discuss because uh when you develop a simple tokenizer whether we should
-18:29
-encode white spaces as or as separate characters or just remove them depends
-18:34
-on our application and its uh requirements so what are the advantages
-18:40
-of removing white spaces removing white spaces reduces the memory and Computing requirements which is great however
-18:47
-keeping white spaces can be useful if we train models that are sensitive to the exact structure of the text right for
-18:56
-example python code is sensitive to indentation and spacing so if python code is used as the data set for
-19:02
-training and a large language model it makes sense to keep the white spaces right because the white spaces have some
-19:08
-meaning in in the case of python code as the training data
-19:14
-set in this case we are going to uh until now we are going to remove the
-19:19
-white spaces just for Simplicity so that we have memory advantages but remember
-19:25
-that it's not obvious to always remove white spaces uh as has been mentioned uh
-19:31
-uh over here if you have python code AS training data white spaces are important because indentation matters so several
-19:39
-things need to be considered when you're building an actual llm whether you should remove white spaces or whether
-19:44
-you should not remove white spaces uh that's great so the
-19:50
-tokenization scheme which we deviced about works well on simple sample text so we can modify it a bit further
-19:57
-because we also want uh to have question marks quotation marks and double dashes
-20:03
-as separate characters or separate tokens currently only full stop and comma are separate tokens right but we
-20:10
-also want question marks quotation marks double dashes Etc separate tokens so let's look at this document again see
+hello or comma or world or this or full stop then only item.
+strip will return
+* strip so for white spaces
+* hello comma world full stop this comma is a
+* develop a simple tokenizer whether we should
+*  which is great however
+* example python code is sensitive to indentation and spacing so if python code is used as the data set for
+* Simplicity so that we have memory advantages but remember
+* because we also want uh to have question marks quotation marks and double dashes
+* separate tokens currently only full stop and comma are separate tokens right but we
+* also want question marks quotation marks double dashes Etc separate tokens
+ so let's look at this document again see
+
+***
+
 20:16
 there are these double dashes then I'm sure there are question marks somewhere there are question marks there are
 20:21
@@ -1085,6 +1026,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
