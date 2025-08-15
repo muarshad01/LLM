@@ -1,106 +1,5 @@
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch series my name is Dr Raj dander and I'll
-0:15
-be your instructor for this lecture today we are going to cover a
-0:21
-very important topic which is called as
-0:26
-tokenization basically when we build large language model Model S the data
-0:32
-needs to be pre-processed in a certain manner before it is used for
-0:38
-pre-training and uh in this data pre-processing pipeline the first step
-0:44
-is tokenization at its really basic form
-0:49
-tokenization is just the process of breaking down a sentence into individual
-0:55
-words but it is a bit more detailed than that the way it is used to act build
-1:00
-large language models in today's lecture we are going to understand everything
-1:05
-there is to know about tokenization and we will build a tokenizer fully from scratch we will
-1:12
-also build an encoder and decoder from scratch and we'll code it out in
-1:18
-Python so today will be a Hands-On session if you have a laptop in front of
-1:23
-you U that's great so that you can follow along in Google collab or jupyter
-1:29
-notebook or V s code to implement the code along with me so let's get started
-1:34
-with today's lecture building a large language model usually proceeds in three stages
-1:40
-especially if you want to build it from scratch in stage one we have to understand the nuances or basic
-1:47
-mechanism of building an llm and that includes data preparation attention
-1:53
-mechanism and understanding the llm architecture stage two involves
-1:58
-pre-training and building the foundational model so that involves the training Loop model evaluation and
-2:05
-loading pre-trained weights and stage three involves finetuning training on
-2:11
-smaller very specific data sets to build applications which are actually useful to you such as a classifier or a
-2:18
-personal assistant in this lecture we are going to look at the first aspect of stage one
-2:25
-which is data preparation and pre data preparation and sampling
-2:30
-so uh tokenization comes under the category of data preparation and
-2:35
-sampling and that is what we are going to cover in today's lecture you can think of this as the first building
-2:42
-block for building a large language model so let's get started with today's
-2 steps of tokenisation
-2:48
-lecture so the main question which we are going to answer today is how exactly
-2:53
-do you prepare input text for training large language models
-3:00
-at the heart of it llms are just neural networks right so you need data the
-3:05
-parameters of the llm are optimized and then we have some output the question is that this data
-3:12
-which comes in as the input what form should it take how should we prepare the input text we have a huge number of
-3:19
-documents right which the llm is trained on we have seen that in previous lectures the llm is usually trained on
-3:26
-billions of documents but do we feed the document Direct ly as the input text do
-3:32
-we feed the sentences of the document as the input text no it turns out we have
-3:37
-to tokenize the document and then feed individual tokens uh there is one more step after
-3:44
-this which is called as Vector embeding but we'll have a separate lecture for that today we are only going to look at
-3:51
-tokenization so the process of tokenization can be broadly broken down into three
-3:57
-steps this is the key takeaway which you should learn from today's lecture the first step is that you have to initially
-4:04
-split the text into individual word and subo tokens that is Step number one
-4:11
-imagine you have huge amount of text you break it down into individual words
-4:16
-that's the first step of tokenization the second step of tokenization is
-4:21
-converting these tokens into token IDs and the third step is basically
-4:28
-encode these token ID into Vector representation we are not going to look at step number three in today's lecture
-4:35
-because it comes also under Vector embedding but essentially we are going to look at step one and step number two
-4:41
-so let me repeat step one and step two step one is basically imagine you have a big document which is let's say you're
-4:48
-training on Harry Potter books you take this books you divide it into sentences
-4:54
-and then you split the text into individual word and subword tokens and then you convert these tokens into token
-5:02
-IDs that's the uh two major steps involved in tokenization which we are going to look
+## Tokenization 
+* basically when we build LLM Model S the data needs to be pre-processed in a certain manner before it is used for pre-training and uh in this data pre-processing pipeline the first step is tokenization at its really basic form tokenization is just the process of breaking down a sentence into individual words but it is a bit more detailed than that the way it is used to act build LLMs in today's lecture we are going to understand everything there is to know about tokenization and we will build a tokenizer fully from scratch we will also build an encoder and decoder from scratch and we'll code it out in Python so today will be a Hands-On session if you have a laptop in front of you U that's great so that you can follow along in Google collab or jupyter notebook or V s code to implement the code along with me so let's get started with today's lecture building a LLM usually proceeds in three stages especially if you want to build it from scratch in stage one we have to understand the nuances or basic mechanism of building an llm and that includes data preparation attention mechanism and understanding the llm architecture stage two involves pre-training and building the foundational model so that involves the training Loop model evaluation and loading pre-trained weights and stage three involves finetuning training on smaller very specific data sets to build applications which are actually useful to you such as a classifier or a personal assistant in this lecture we are going to look at the first aspect of stage one which is data preparation and pre data preparation and sampling so uh tokenization comes under the category of data preparation and sampling and that is what we are going to cover in today's lecture you can think of this as the first building block for building a large language model so let's get started with today's 2 steps of tokenisation lecture so the main question which we are going to answer today is how exactly do you prepare input text for training large language models at the heart of it llms are just neural networks right so you need data the parameters of the llm are optimized and then we have some output the question is that this data which comes in as the input what form should it take how should we prepare the input text we have a huge number of documents right which the llm is trained on we have seen that in previous lectures the llm is usually trained on billions of documents but do we feed the document Direct ly as the input text do we feed the sentences of the document as the input text no it turns out we have to tokenize the document and then feed individual tokens uh there is one more step after this which is called as Vector embeding but we'll have a separate lecture for that today we are only going to look at tokenization so the process of tokenization can be broadly broken down into three steps this is the key takeaway which you should learn from today's lecture the first step is that you have to initiallysplit the text into individual word and subo tokens that is Step number one imagine you have huge amount of text you break it down into individual words that's the first step of tokenization the second step of tokenization is converting these tokens into token IDs and the third step is basicallyencode these token ID into Vector representation we are not going to look at step number three in today's lecture because it comes also under Vector embedding but essentially we are going to look at step one and step number two so let me repeat step one and step two step one is basically imagine you have a big document which is let's say you're training on Harry Potter books you take this books you divide it into sentences and then you split the text into individual word and subword tokens and then you convert these tokens into token IDs that's the uh two major steps involved in tokenization which we are going to look
 5:09
 in today's lecture um so I just want to show you a visual for
 5:15
@@ -197,6 +96,9 @@ book so this raw text variable is going to be very important for us because we'l
 9:59
 raw text is just the entire text which we are reading and then what we are doing here is that we are counting the
 10:05
+
+***
+
 total number of characters in this raw text so what I'm doing in this part of the code is that I'm printing out the
 10:11
 total number of characters and then length raw text right so here you see
@@ -1322,3 +1224,6 @@ be a mix of whiteboard writing on whiteboard and uh also showing you code here i
 this code file with everyone so you can run this code and I highly encourage you to run this code on your own thank you
 1:09:35
 so much everyone and I look forward to seeing you in the next lecture
+
+
+Show chat replay
