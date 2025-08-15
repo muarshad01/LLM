@@ -17,104 +17,24 @@
 2. Convert these tokens into token IDs
 3. Encode these token ID into Vector representation (Vector embedding)
 
+
 ***
 
-5:09
-in today's lecture um so I just want to show you a visual for
-5:15
-how the input text is given to the large language model so let's say this is an
-5:20
-input text right this is an example remember the first step of tokenization
-5:26
-we break this into individual words so the first word is this the second word
-5:31
-is is the third word is an and the fourth word is example so this is the
-5:37
-tokenized text and this is my step number one right now step number two is
-5:42
-we need to convert each of these individual tokens into token IDs so this
-5:47
-is the token ID 1 4013 token ID 2 2011 token ID 3 which is 302 and token ID 4
-5:56
-which is 1134 so every word or every token rather has a token ID associated with it I have
-6:04
-currently given these numbers randomly but you need to assign a token ID for
-6:09
-each word and then the next step after getting these token IDs is to convert these token IDs into something called
-6:15
-token embeddings or vector embeddings and then these Vector embeddings are then fed as input data to
-6:22
-the GPT or the llm rather so even before coming to the
-6:29
-training stage we need to do these many steps of uh pre-processing and today we are essentially going to look at step
-6:35
-number one and step number two I hope you have understood the two main steps which we are going to look at
-6:42
-in today's lecture so let us start by looking at step number one initially which is
-6:47
-tokenizing the text or breaking down the text into individual words and you
-6:53
-definitely do need to understand the nuances which are involved in this and that's why I'm going to take you through
-6:58
-the entire course process in Python uh we could have just use a pre-built tokenizer but then you won't understand
-7:05
-the nuances involved in tokenizing and uh just to give out a a shout out or
-7:11
-rather a credits to Sebastian rashka for hosting the this code publicly and I'll
-7:18
-be heavily borrowing from this code so let's get started for the purposes of
-Importing the dataset
-7:24
-the demonstration today we are going to use a specific data set we are going to use this book book called The Verdict
-7:31
-which has been written by Edith Warton so let's look at a few screenshots or
-7:36
-let's look at a few data about this book so if you search The Verdict by edit Warton you'll get a image of this book
-7:43
-which looks like this uh year of publishing let's look at the year when
-7:49
-this book was published so this was I think published in 1908 so almost 120
-7:54
-130 years back and it's available for free uh free to download I'll give the
-8:00
-link to download this book it's also available in this repository by Sebastian you can just click on this
-8:06
-download and then download this book so we are going to look at this book and assume that this is the only uh training
-8:14
-data which we have for the purposes of today's lecture but whatever I show you today can be really applied to any book
-8:21
-or even a huge number of books I encourage you later after this lecture to try out some different book
-8:28
-which is available for free online such as the Harry Potter book or whichever one interests you and apply the same
-8:34
-code over there okay so this is the data set which we are going to look at and then what we
-8:41
-have to do is basically download and load this data set in Python so let me
-8:46
-show you how to do that so now we are moving into uh jupyter coding uh please
-8:52
-comment out in the comment section if the code is visible to you if I've zoomed in enough or if I should follow
-8:57
-some different style okay so the first step as I mentioned we are going to look at two steps today
-9:04
-creating tokens and then converting these tokens into token IDs the first step is creating tokens right so what we
-9:11
-are going to do here is that we are going to uh download the verdict. txt
-9:16
-file we are going to open it in Python and we are going to read it and we are going to print the total number of
-9:23
-characters so I'm just showing this uh when you download it it looks this much it's not that big um and in fact it's
-9:31
-even available over here so I have downloaded this book right now and uh in Python you can use
-9:39
-this open command so with open the word it DOC text and then R means we are reading this and then raw text is that
-9:47
-variable where we are storing whatever uh content python has read from this
-9:53
-book so this raw text variable is going to be very important for us because we'll also refer to it later basically
-9:59
-raw text is just the entire text which we are reading and then what we are doing here is that we are counting the
-10:05
+in today's lecture um so I just want to show you a visual for how the input text is given to the LLM so let's say this is an input text right this is an example.
+
+remember the first step of tokenization we break this into individual words so the first word is this the second word is is the third word is an and the fourth word is example so this is the tokenized text and this is my step number one.
+
+right now step number two is we need to convert each of these individual tokens into token IDs so this is the token ID 1 4013 token ID 2 2011 token ID 3 which is 302 and token ID 4 which is 1134 so every word or every token rather has a token ID associated with it I have currently given these numbers randomly but you need to assign a token ID for each word and then.
+
+* the next step after getting these token IDs is to convert these token IDs into something called token embeddings or vector embeddings and then these Vector embeddings are then fed as input data to
+the GPT or the LLM rather so even before coming to the training stage we need to do these many steps of uh pre-processing.
+
+* nuances involved in tokenizing 
+* Importing the dataset the demonstration today we are going to use a specific data set we are going to use this book book called The Verdict
+
+* download and then download this book so we are going to look at this book and assume that this is the only uh training data 
+* file we are going to open it in Python and we are going to read it and we are going to print the
+* 8 total number of characters variable where we are storing whatever uh content python has read from this
 
 ***
 
@@ -1246,5 +1166,6 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
