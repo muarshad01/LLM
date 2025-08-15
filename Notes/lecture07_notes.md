@@ -60,9 +60,7 @@ the GPT or the LLM rather so even before coming to the training stage we need to
 * split commas and periods so here you see the comma is included as
 * we want to have comma and full stop
 
-* split
-16:19
-command you also include comma and you also include the full stop along with
+* split command you also include comma and you also include the full stop along with
 * white spaces so white spaces are of
 * comma is now a separate token full stop is now a separate token which was not the case before
 * hello and comma were one token but now you'll see hello and comma are separate tokens
@@ -70,11 +68,9 @@ command you also include comma and you also include the full stop along with
 
 * correct now the main another remaining issue is that our list still includes
 
-17:13
 each item in the result so we are looping over each item in the result so this is the result right so we are going
 *  strip will
 *  white spaces will not be returned Whenever there is actually a full world full word like
-17:37
 hello or comma or world or this or full stop then only item.
 strip will return
 * strip so for white spaces
@@ -90,109 +86,24 @@ strip will return
 
 ***
 
-20:16
-there are these double dashes then I'm sure there are question marks somewhere there are question marks there are
-20:21
-exclamation marks in this document we all want them as separate tokens right
-20:27
-and we need to include that in our tokenization Command and the way we do this is pretty simple again we use this
-20:34
-re. split and along with comma and along with full stop we add all of these other
-20:39
-special characters like colon semicolon question mark underscore exclamation uh quotation marks bracket
-20:46
-Etc and uh we say that whenever these characters are encountered also do a
-20:52
-split on these characters so that they are considered as individual tokens right um so so now when you take the
-20:59
-sample text hello comma world is this dash dash a text all of these will be uh
-21:05
-sample tokens this dash dash will also be a separate token the question mark will also be a separate token because we
-21:11
-have included that in our split command and again we'll strip the white
-21:17
-spaces like the same command for item for item in result if item. strip
-21:22
-remember this was the command we used to filter out the white spaces or to remove the white spaces
-21:28
-uh awesome so now these two lines of code are our tokenization scheme so this
-21:35
-is the two lines of code in which we have built the tokenizer in this first line of code we take a sentence and we
-21:41
-split the sentence wherever there is a white space wherever there is a comma full stop colon semicolon question mark
-21:48
-underscore exclamation quotation mark or bracket we split it and then in the
-21:53
-second sentence we just remove the white spaces and then we print out the result
-21:59
-it's as simple as that this is the simple tokenization scheme for building large language models a different
-22:05
-tokenization scheme is used but we'll come to that in the next lecture it's called bite pair encoding but for now I
-22:12
-just wanted to give you a sense of what all nuances need to be considered for building a tokenizer like this now you
-22:19
-see we have we have tested these two uh sentences which are our tokenizer scheme
-22:24
-for a sample sentence right now what we can do is apply the same to two statements on the entire raw text so we
-22:32
-had the raw text right defined before let me go to that U so see this was the
-22:39
-raw text which was basically the book which we had read now we'll use these two statements to essentially uh convert
-22:46
-the entire uh raw text into individual tokens so what we'll do is that we will
-22:53
-split the entire raw text based on these tokens which we had seen before and then we will store it in a variable which is
-23:00
-called as pre-processed so pre-process pre-processed is essentially a list of
-23:05
-all the tokens and then in the second statement exactly same to what we saw before we'll split or we'll get rid of
-23:12
-the white spaces awesome right so now let us print the length of the pre-processed so we have 4690 tokens in
-23:20
-the original uh book so if you go to this book the simplest way to think about this is this will be one token
-23:26
-height will be one token this inverted commas will be one token these two double dashes will be one token so this
-23:33
-entire thing is broken down into individual words or tokens which are 4690 in number and here we have just
-23:40
-printed out the first 30 of these tokens and you see I had always thought they
-23:46
-are individual tokens and dash dash comma they are also counted as tokens
-23:51
-over here because we have uh mentioned that in this split where all do we want the split to happen awesome so we have
-23:59
-now got our basic tokenizer working and we have applied it to the entire short story which we are considering
-24:05
-considering as the input data great now we have to come to the Second Step so we have now finished the we have
-24:13
-now finished the first step which is uh tokenizing the entire short story and
-Converting tokens into token IDs
-24:18
-now we will come to the next step which is converting tokens into token IDs now what is very important is that python
-24:27
-works with numbers right so even if you look at these individual tokens which you have obtained right now these are
-24:33
-not numbers they are still words we need to convert them into token IDs so that they are numerical representations so
-24:40
-let's see how to do that so we have the complete training data set here for illustration I have just taken a
-24:47
-sentence and until now we have converted this sentence into individual tokens now
-24:52
-what we will do is that we'll take the tokens and convert them into token IDs and then there is a very specific way of
-24:59
-doing this first we build something which is called as vocabulary vocabulary is just all the list of our tokens but
-25:06
-it's sorted in an alphabetical manner so if the if our data set or the tokens are
-25:12
-the quick brown fox jumps over the lazy dog if this is the training data set the
-25:20
-vocabulary is the list of tokens in alphabetical order so Brown comes first then dog then Fox then jumps then lazy
-25:28
-easy then over then quick and then the this is my vocabulary for this training
-25:33
-data set eventually we'll have billions of data sets billions of files so then the vocabulary will be huge but I'm just
-25:41
-showing a simple representation here for how vocabulary is constructed vocabulary
+## [20 -- 25]
+
+* double dashes then I'm sure there are question marks somewhere there are
+* question marks there are exclamation marks in this document
+*  we all want them as separate tokens right
+* like colon semicolon question mark underscore exclamation uh quotation marks bracket
+* 
+#### next lecture it's called bite pair encoding 
+* will be one token these two double dashes will be one token so this
+* 
+* vocabulary vocabulary is just all the list of our tokens but it's sorted in an alphabetical manner
+* so if the if our data set or the tokens are
+
+***
+
+## [25 -- 30]
+
+* vocabulary is constructed vocabulary
 25:46
 is just a list of tokens which is sorted in alphabetical Manner and then what we do is that each unique token is mapped
 25:54
@@ -1026,6 +937,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
