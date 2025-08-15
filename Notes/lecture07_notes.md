@@ -17,8 +17,8 @@
 2. Convert these tokens into token IDs
 3. Encode these token ID into Vector representation (Vector embedding)
 
-
 ***
+
 ## [10--15]
 
 in today's lecture um so I just want to show you a visual for how the input text is given to the LLM so let's say this is an input text right this is an example.
@@ -113,77 +113,16 @@ to a unique integer which is called as the token ID.
 
 [30 --35]
 
-* reverse mapping which is called as a decoder so this is what uh I have
-31:12
-mentioned here later when we want to create the output of an llm from numbers
-31:17
-back into text we also need a way to turn token IDs back into text and for
-31:24
-this we create an inverse version of the vocabulary that Maps token IDs back to the corresponding text tokens and we'll
-31:31
-see how to do that for now what we are going to do is we have understood enough about
-Simple Tokenizer class in Python
-31:37
-tokenization that we are going to implement a complete tokenizer class in Python this class will have two methods
-31:44
-it will have an encode method and it will have a decode method let me show you what it actually means so this
-31:50
-tokenizer class which we are going to implement in Python it will have two methods the first will be the encode
-31:56
-method and the second will be the decode method in the encode method what will happen is
-32:04
-that sample text will be converted into tokens and then tokens will be assigned token IDs based on the vocabulary
-32:10
-exactly what we saw like over here in the decode method exactly
-32:17
-reverse things would happen so in the decode method we start with token IDs we convert it into individual tokens and
-32:23
-then we get back the sample text so I hope you understand the difference between the encode method and the decode
-32:30
-method here because this is the exact same difference which will show up in the encoder and decoder block of the
-32:36
-Transformer architecture or rather this is the this is a good way to understand that intuition in the encode in the
-32:43
-encode block what we do is we take sample text we convert it into tokens and then we convert it into token IDs
-32:49
-that feeds as the training data to the llm but when the llm gives its output in the form of token IDs we need to convert
-32:56
-it back to tokens and and then back to the sample text so that we know what the output is in terms of
-33:03
-sentences so that's why when we implement the tokenizer class we need an encode method uh and also the decode
-33:10
-method so the encode method will take text as an input and give token IDs as output the decode method will take IDs
-33:18
-token IDs as input and will give text as an output now let's see how to actually
-33:26
-create this simple token izer class in Python first so there are if you see
-33:32
-three methods the init method which is called by default when an instance of this class is created and let us look at
-33:38
-the arguments of the init method it takes wcab so when you create an instance of the tokenizer class you have
-33:45
-to pass in the vocabulary right and remember the vocabulary is nothing but a mapping from tokens to token IDs right
-33:53
-so then after this uh instance is created St Str to in which is string to
-33:59
-integer will just be the vocabulary because the vocabulary is already a mapping from string to integer or tokens
-34:05
-to integer and then the integer to string is basically reverse so what you do is that you take the string and
-34:13
-integer in the vocabulary and then for every integer you uh mention which token
-34:19
-it is so for S you can think of as the token and for I you can think of as token ID so what we do in this int to
-34:26
-string variable variable is that uh so we take the token and we take the token
-34:33
-ID in the vocabulary and then we just flip it then we say that for this token ID this is the particular token remember
-34:40
-this into string will be needed for the decoder method when we have the token IDs and we want to convert it back to
-34:48
-tokens so uh in the encode method the exact same pre-processing steps will
-34:54
-happen as we had seen before for tokenization what we'll do if some random text is given to us we will take
-35:01
+* output of an llm from numbers
+* turn token IDs back into text and for
+* first will be the encode
+* second will be the decode method in the encode method what will happen is
+* we need an encode method uh and also the decode
+
+***
+
+## [35 -- 40]
+
 that text we will split it we'll split it based on the comma based on the full stop based on the colon based on
 35:07
 semicolon Etc into individual tokens and then we'll get rid of the white spaces
@@ -845,6 +784,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
