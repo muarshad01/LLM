@@ -38,99 +38,18 @@ the GPT or the LLM rather so even before coming to the training stage we need to
 
 ***
 
-total number of characters in this raw text so what I'm doing in this part of the code is that I'm printing out the
-10:11
-total number of characters and then length raw text right so here you see
-10:17
-the print command towards the end raw text colon 99 what does this do this
-10:22
-print command prints the total number of characters uh so here so there are two
-10:27
-print commands right the first print command essentially prints the total number of characters and the second
-10:33
-print command essentially uh prints the first 100 characters of this file for
-10:38
-illustration purposes so uh let's run both of these
-10:43
-print commands right now I have already run this before but let me click on this run Icon again so okay the result of
-10:50
-this first print command is this the total number of characters are 20479
-10:56
-20479 and the result of the second print command is is basically we are printing the first uh 100 characters of this file
-11:04
-right so the first 100 characters are I had always thought Jack uh gisburn Etc
-11:11
-so this is the these are the first 100 characters so this indicates that python has been able to successfully read the
-11:18
-text which we have downloaded and that's an awesome sign great now let's move
-11:23
-further our goal in this lecture is to tokenize all of the characters which are
-11:28
-in this book in this text uh in this short story into individual words that we can later
-11:36
-turn into embeddings for llm training remember uh embeddings is the last step
-11:42
-so before you come to training the llm there is this thing called embedding so the goal in this lecture is to do the
-11:49
-tokenization and the token IDs for the entire text which we have read for all
-11:54
-of these characters for the 20479 characters of this short story the goal is is to convert them into tokens
-12:01
-and token IDs so one note which has been added over here is that note that it's common
-12:07
-to process millions of Articles and hundreds of thousands of books which is a huge amount of memory when actually
-12:14
-working with llms this is very important to note when you actually work with llms
-12:19
-you don't just download one book as I showed to you right now we actually work with millions and thousands of books uh
-12:27
-which are a huge amount of data uh to be stored on your computer however for
-12:32
-educational purposes it's sufficient to work with smaller text samples like a single book and that's why we are using
-12:39
-a single book in today's code to demonstrate the idea to you okay so the next question is how can
-Tokenising the text
-12:46
-we best split this text to obtain a list of tokens so I encourage you to pause
-12:51
-here right now and let's say I give you this problem that you have read this text now your goal is to split this text
-12:57
-into individual tokens right how would you do this which python Library would you
-13:04
-use uh so let me reveal the answer the python Library which we we will be using for this is called as regular expression
-13:13
-re uh so this module Pro provides regular expression matching operations and let's see how basically
-13:20
-this works we have to import re and then what we can do is that we can use this library to split uh to split any given
-13:28
-text um based on the white spaces in that text or any other characters in the text
-13:35
-and I'll explain what this actually means okay
-13:44
-so okay so let's say you have a text which looks like this hello world this
-13:49
-is a test right and you want to split and you want to split this into individual tokens what I'm going to do
-13:57
-here is that from this Library I'm going to use this function re e dos split right and then there is this R and then
-14:05
-the symbol is/ S what this basically does is that this slash s means that we
-14:11
-split wherever white spaces are encountered right so let me tell you
-14:16
-what is meant by white spaces so let's look at this word let's look at this sentence you see there is a white space
-14:22
-over here there is a white space over here there is a white space over here here and here so wherever there is
-14:31
-a white space what this command will do is that it will split the text into individual tokens and where the split
-14:38
-will be wherever the white space is there so it will scan this sentence from left to right now here it encounters the
-14:45
-white space so it will split split here then again it will move forward here it encounters the white space so it will
-14:51
-split here so let's go from left to right so until hello and comma it has not encountered a white space right so
-14:58
-hello and comma is one token and then it encounters a white space so it splits so
-15:03
+* total number of characters are 20,479
+* we are printing the first uh 100 characters of this file
+* ion and the token IDs for the entire text which we have read for all
+* 
+* python Library which we we will be using for this is called as regular expression re
+* uh so this module Pro provides regular expression matching operations and let's see how basically
+* 
+* hello and comma is one token and then it encounters a white space so it splits so
+
+
+***
+
 then it outputs the white space here when you print out the result then it again goes on scanning and here until
 15:10
 world and full stop there is no white space so it prints Out World and full stop then after this point there is a
@@ -1166,6 +1085,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
