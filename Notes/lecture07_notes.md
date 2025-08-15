@@ -123,100 +123,15 @@ to a unique integer which is called as the token ID.
 
 ## [35 -- 40]
 
-that text we will split it we'll split it based on the comma based on the full stop based on the colon based on
-35:07
-semicolon Etc into individual tokens and then we'll get rid of the white spaces
-35:13
-what we had seen before and then these will be individual tokens right so up till now we are at this part where we
-35:20
-have converted the sample text into individual tokens and then we'll convert these into token IDs so that's the last
-35:26
-step over here after you get the individual tokens in this list called pre-processed what you have to do is
-35:33
-that you have to use this St Str to in dictionary which is basically just the vocabulary and then you have to uh
-35:40
-assign a token ID for each token so remember the Str str2 int is basically
-35:46
-just converting tokens to token IDs using the vocabulary which is passed into this tokenizer class so you will
-35:53
+* 
 just take the uh tokens you'll take the tokens which are in this pre-process list and you'll convert them into token
-35:59
-IDs that's the encoder method that's it in the decoder method what you are actually doing is that you are uh you
-36:08
-are using this reverse dictionary which is integer to string which is basically token ID to token and then you are
-36:15
-converting the token IDs into individual tokens that's the first thing so let's
-36:20
-see the decode method you first convert the token IDs into individual tokens and then what you do is you join these
-36:27
-individual tokens together so this this join is used so first you convert the
-36:32
-token IDs into tokens and then you join the individual tokens together that's it
-36:38
-and then here what we are doing is we are going to replace spaces before the punctuations so an example here would be
-36:46
-let's say if the tokens let's say in the decoder if the tokens are the fox
-36:54
-chased and question and full stop right now if these are the tokens and if we
-37:01
-convert it into sample text by using the join method the final answer will be the the the fox chased and full stop now see
-37:09
-the problem here is that there is a space between the there is a space here between the full stop and the chased so
-37:18
-we need to get rid of this space so then the final answer would be the fox
-37:24
-chased and full stop and this is the the same for question mark Etc so in this
-37:30
-second sentence here what we are actually doing is that we are getting rid of all the spaces before the
-37:37
-punctuation so that it becomes a complete sentence so this is the decoder method
-37:42
-it's actually very simple we are just going to uh use the encode method to
-37:48
-convert uh sample text into token IDs and we are going to use the decode method to convert token IDs back into
-37:55
-sample text and for that we needed to write two methods the encode method and the decode method so remember this
-38:02
-tokenizer class takes the vocabulary already as an input so that so we already have the mapping from tokens to
-38:09
-token IDs because that is inherently present in the vocabulary we just need to construct a reverse mapping from the
-38:15
-token IDs back to the tokens and then use that in the decode method that's it
-38:21
-and to convert the text into tokens we use the same re dos split and item do
-38:27
-string which we had seen earlier in today's lecture so this is essentially the
-38:33
-tokenizer class which we have created awesome now let's move to the next step
-38:39
-so what we can do is that now we can instantiate a tokenizer object from this class right and uh tokenize a passage
-38:46
-from the short story which we have downloaded to test it out in practice so here you see I'm creating an instance of
-38:53
-this class I have passed the vocabulary as an input what is this vocabulary this vocabulary is basically the uh
-39:00
-vocabulary of tokens and token IDs which we have converted our input text so this
-39:05
-is our input text and we have converted this into tokens and assigned the token ID to each this is my vocabulary now
-39:12
-what I'm doing is I'm actually uh creating an instance of the yeah I'm
-39:18
-creating an instance of the simple tokenizer version one class which we have defined over here by passing in
-39:24
-this vocabulary as an input right and this is then defined as tokenizer great
-39:30
-and uh so the text which I'm going to pass in now is this it's the last he
-39:35
-painted you know Mrs gburn said with pardonable pride this is the text and now I'm going to test out this encode so
-39:42
-remember this encode takes in the text as an input so you need a text right to convert into IDs so what the encode
-39:49
-method will do always remember this schematic always remember the schematic the encode method will convert the text
-39:56
-into token ID is so this is the text and then we apply the method tokenizer do
-40:02
-encode and text so what when you print the IDS you will see these IDs of the text which means that our encoder has
-40:10
+* convert it into sample text by using the join method the final answer will be the the the fox chased and full stop now
+*  we just need to construct a reverse mapping from the
+
+ ***
+
+## [40 --45]
+  
 successfully converted this text into token IDs that is exactly what we wanted
 40:15
 right so the code above prints the token IDs next let's see if we can turn these token IDs back into text so now what
@@ -784,6 +699,7 @@ so much everyone and I look forward to seeing you in the next lecture
 
 
 Show chat replay
+
 
 
 
