@@ -58,11 +58,13 @@
 * [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)
 * [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)
 * [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)
+* [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)
 
 ***
 
 * [Open Source LLM Tools - Chip Huyen](https://huyenchip.com/llama-police.html)
 
+*
 ***
 
 ## TODO
