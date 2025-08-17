@@ -35,119 +35,15 @@ the second rule implies that if the word is rare you can go on splitting it into
 
 ***
 
-and tokenizing all of these three words essentially have the same root word right token so subord splitting helps
-15:01
-the model understand that these different words essentially have the same root word and they are similar in
-15:07
-meaning this meaning is lost in word based tokenization and even character based tokenization that is number one
-15:14
-the second advantage of subord tokenization is that it also helps the
-15:21
-model learn that let's say tokenization and modernization are made up of different root words token tokenize and
-15:28
-modernize but have the same suffix isation and are used in same syntactic
-15:35
-situations so basically it derives these patterns like tokenization and modernization maybe zation z a t i o n
-15:43
-is a is a subword token in this tokenization and then token and then
-15:48
-modern and another tokens so then it learns that this isation is a common suffix which appears in both of these
-15:54
-words all of these are advantages of breaking down one word into subwords this is what is majorly done in subword
-16:02
-tokenization so why are we learning about subword tokenization and what's the relation between bite pair encoding
-Byte Pair Encoder (BPE) Algorithm
-16:08
-and subo tokenization well the main relation is that uh bite pair encoding
-16:15
-or bpe is a subord tokenization algorithm this is very important and
-16:20
-that's why we are learning about bpe and that's why modern llms like gpt2 and
-16:26
-gpt3 employ bite pair encoding so let us look at the bit of a history
-16:31
-of the BP algorithm and let and then we'll see how it is implemented in practice so the bite pair algorithm was
-16:39
-actually introduced in 1994 and uh it does a very simple thing
-16:45
-it is basically a data compression algorithm uh and what is done is that we
-16:50
-we scan the data and then mostov common pair of consecutive bytes so let me
-16:56
-actually use a different color here this sentence is very important most
-17:01
-common pair of consecutive bytes of data is replaced with a bite that does not
-17:07
-occur in data so we identify pair of consecutive bites which occur the most
-17:13
-so we find these pairs which occur the most frequently and then we replace them with a bite which does not exist in the
-17:19
-data and we keep on doing this iteratively I'll show an example for this so don't worry if you don't
-17:25
-understand this explanation I want to quickly show you the paper so this is the the paper which was published in
-17:30
-1994 a new algorithm for data compression which introduced bite pair tokenizer or bite pair encoder rather at
-17:37
-that time it was not known that this will be so useful for modern large language models but it is quite
-17:44
-useful okay so now let us see a practical demonstration of this algorithm so I've taken this example
-17:51
-from Wikipedia because I think it is an awesome illustration so let's say we have this original data right and the
-17:58
-original data looks like this a a a b d a a a b a c okay and now in bite pair
-18:05
-encoding we are going to compress this data right and let us see what do we do we first identify the most common pair
-18:12
-of consecutive bytes so let's see let us see the pair which occurs the most so if
-18:18
-you scan this sequence from left to right you will see that the bite pair AA occurs the most right you might say a AA
-18:25
-also occurs the most but that's not a bite pair because that three characters the bite pair AA occurs the most it
-18:32
-occurs here it occurs here it occurs here and it occurs the here so it occurs
-18:37
-four times really so what we will do next is that we have identified the bite pair which occurs the most we replace
-18:44
-this bite pair with a bite that does not exist in the data so what we'll do is
-18:49
-that we will replace it with zed and why Z because just Zed does not occur in the
-18:55
-data you can use any variable here so then we'll take these a a and wherever AA shows up we'll replace it by Zed so
-19:03
-then this first AA will be Zed so then this new sequence will be Zed a b d then
-19:08
-again Zed to replace this a a so then it will be Zed and then a b a c so then we
-19:14
-have a b a c so remember what has happened here is that this AA which I'm highlighting right now in circle that
-19:20
-has been replaced by Zed and this AA has been replaced by Zed so now we have a compressed data correct very good so now
-19:28
-now let us move next next what we do is we keep on repeating this sequentially
-19:33
-now we again look at this sequence and find the next common bite pair so we can see that a is ur occurring once and a is
-19:42
-occurring twice so it is repeating two times and which is the most frequent bite pair so we will replace AB by y so
-19:49
-this AB will be replaced by Y and this AB will be replaced by y why why because
-19:54
-it's a bite which does not occur anywhere in the U data
-20:00
-so then this AB will be replaced by y as you can see here and here also the ab will be replaced by y so then my new
-20:06
-compressed data will be z y d z y a great this is a compressed data compared
-20:13
-to the original data and this is exactly how the bite pair algorithm works now we do this recur do this again and again
-20:20
-right so now let us look at the bite pair so here AC is the only bite pair which is left all others are special
-20:26
-tokens but AC only appears once so we we don't need to encode it this process of
-20:32
-replacing common bite pairs with another variable is called encoding that's where the word encoder comes from so we will
-20:39
-not encode this further because it only appears once if a c were appearing twice then we would have encoded it with
-20:45
+* and tokenizing all of these three words essentially have the same root word right token so subord splitting helps the model understand that these different words essentially have the same root word and they are similar in meaning this meaning is lost in word based tokenization and even character based tokenization that is number one the second advantage of subord tokenization is that it also helps the model learn that let's say tokenization and modernization are made up of different root words token tokenize and modernize but have the same suffix isation and are used in same syntactic
+* common suffix which appears in both of these words all of these are advantages of breaking down one word into subwords this is what is majorly done in subword tokenization so why are we learning about subword tokenization and what's the relation between bite pair encoding Byte Pair Encoder (BPE) Algorithm
+* modern llms like gpt2 and gpt3 employ bite pair encoding so let us look at the bit of a history
+* it is basically a data compression algorithm uh and what is done is that we
+* so we find these pairs which occur the most frequently and then we replace them with a bite which does not exist in the
+* this is a compressed data compared
 
 ***
+
 another variable so this compression actually stops here you can go one more layer Deeper by further com replacing
 20:52
 the zy with another variable which is let's say w so then it will be WD w a and then you
@@ -280,6 +176,9 @@ we will merge the most fre pairing and then perform the same iteration again and
 27:32
 again so let me show you how this is done so in the iteration one as I mentioned we start with the uh finding
 27:40
+
+***
+
 the most frequent pairing right so it so you the way to do it is look at the first character which appears the most
 27:47
 so e is that character which appears 16 times right so if you want to look at the pairing which appears most it most
@@ -770,3 +669,4 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
