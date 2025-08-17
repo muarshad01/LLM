@@ -1,104 +1,16 @@
-hello everyone welcome to this lecture in the large language models from
-0:10
-scratch Series today we are going to learn about a very important topic which is called
-0:17
-as bite pair encoding in many lectures or even video content which you see on
-0:23
-large language models when tokenization is covered the concept of bite pair
-0:29
-encoding is rarely explained however behind modern algorithms such as gpt2
-0:36
+* bite pair encoding
+* behind modern algorithms such as gpt2
 gpt3 Etc the tokenizer which these modern llms use is usually bite pair
-0:45
-encoding so you really need to understand what this means and how encoding how this encoding is done for
-0:52
-modern L large language models so let's get started with today's
-0:57
-lecture first let me take you to the Google collab
-1:03
-notebook um until now if you have followed the previous lecture what we did in the previous lecture is that we
-1:10
-implemented a simple tokenization scheme if you remember what we covered in the
-1:16
-previous lecture let me just uh take you quickly through that in the previous
-1:21
-lecture what we did was we basically took sentences we converted them into tokens and then we converted this into
-1:29
-vocabul so then every word of the token was arranged in an ascending order and then
-1:35
-a ID or a numerical ID or a token ID was assigned to each token so here every word was a unique
-1:44
-token along with special characters like comma full stop exclamation mark
-1:50
-Etc um now in today's lecture we are going to cover a much more sophisticated
-1:56
-tokenizing tokenization scheme why sophistic ated I'll come to that in a moment but just remember that today we
-2:03
-are going to learn about the bite pair encoding or BP tokenizer this BP tokenizer which we are
-2:10
-going to cover today was used to train large language models such as gpt2 gpt3
-2:17
-and the original model used in Chad GPT if you have not seen the previous
-2:22
-lecture on tokenization I highly encourage you to watch that so that this lecture will become very clear to you
-2:29
-because in the previous lecture we implemented our own tokenizer completely from scratch and today we are going to
-2:36
-learn about a bit more advanced concept and this scheme this bpe scheme is used
-2:42
-in all modern llms and so it's very important for us to learn so let me take
-2:48
-you to the Whiteboard right now and explain the concept of bite pair tokenizer and why do we even need it in
-2:54
-the first place so if you look at the tokenization algorithms there are
-Word and character level tokenizers
-2:59
-essentially three types of tokenization algorithms the first is the word based
-3:05
-tokenizer U the second type is the subword based tokenizer and the third
-3:11
-type is the character based tokenizer let me walk you through these step by step in the word based tokenizer what we
-3:18
-usually do is every word in the sentence is usually one token the tokenizer which
-3:24
-we saw in the previous lecture such as for example in this example the um the
-3:30
-fox chased the dog the tokens were the fox chased the dog so every word was one
-3:37
-token right so that's why it's an example of word based
-3:42
-tokenizer uh here I'm taking one more example to illustrate this concept to
-3:48
-you if the sentence is my hobby is playing cricket and if the tokens are
-3:53
-individual words such as my then hobby then is then playing and then Cricket
-3:59
-that that is a word based tokenizer awesome now can you think of the
-4:04
-problems associated with the word based tokenizer
-4:10
-first uh the main problem is what do you do with Words which are not present in the vocabulary so let's say if you have
-4:16
-huge amount of training data and you will break it down into sentences right and then you'll break down the sentences
-4:23
-into individual words and then you will assign a token ID to each of these words
-4:28
-but when the user is interacting with the llm let's say and the user inputs a word which was not present in the
-4:34
-vocabulary these words are also called as out of vocabulary words so you can think of as preparing for an exam but in
-4:42
-the exam a question is asked which is completely different from what you have prepared for uh in word based tokenization
-4:49
-schemes it's very difficult to know what do we do with out of vocabulary words because consider this case itself my
-4:56
-hobby is playing Cricket let's say if the data set was small and only one sentence if a new word is given such as
-5:03
-football and that is not present in this data set then usually these tokenization
-5:10
-schemes run into an error this is a very simplified example I have constructed
-5:15
-but uh this problem shows up when you do word based tokenization a lot usually
-5:21
+encoding
+* 
+* Google collab
+* every word of the token was arranged in an ascending order and then
+* cover a much more sophisticated
+* used to train large language models such as gpt2 gpt3
+* essentially three types of tokenization algorithms the first is the word based tokenizer U the
+* second type is the subword based tokenizer and the third
+* type is the character based tokenize let me walk you through these step by step in the word based tokenizer what we
+* first uh the main problem is what do you do with Words which are not present in the vocabulary so let's say if you have
 
 ***
 
@@ -1016,4 +928,5 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
