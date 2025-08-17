@@ -14,96 +14,11 @@ encoding
 
 ***
 
-it's very difficult to deal with out of vocabulary or oo words if they are not
-5:26
-present in the vocabulary and what do I mean by vocabulary vocabulary is just a dictionary with a collection of tokens
+vocabulary is just a dictionary with a collection of tokens
 5:33
-arranged in ascending order and every token corresponds to a token ID great now another problem with this
-5:41
-word based tokenization scheme is that uh let's say boy and boys are two words
-5:48
-in the vocabulary each of them will have different tokens maybe the token IDs for
-5:53
-both of them will be far apart based on uh where they appear or they might be similar also but but the problem is that
-6:01
-uh these words are very similar right and when we do this tokenization this similarity is not captured so boys if
-6:10
-you think of the word boys the root word is boy so ideally both of these words
-6:15
-are very similar to each other but with this tokenization they are treated as separate words and that similarity is
-6:22
-not captured these are the main problems with word based tokenization now let's
-6:27
-look at the other end of the spectrum which is character based tokenization this is also a very popular tokenization
-6:34
-scheme where what we do is that if the sentence is again my hobby is playing Cricket instead of having individual
-6:41
-words as tokens in this kind of character based tokenization individual characters are
-6:47
-considered as tokens so for example here let's look at which characters are there m is the first character why is the
-6:54
-second character uh I'm ignoring white spaces for now so H is the third
-7:00
-character o is the fourth character Etc so then the vocabulary or the tokens would contain
-7:06
-m y h o b Etc these are the tokens instead of
-7:13
-having individual words now can you think of what will be the vocabulary size in this
-7:19
-case just think about this for a moment if you are not able to answer this just
-7:24
-pause and think okay so this will actually lead to a very small vocabulary because every
-7:32
-language has a fixed number of characters if you look at the English language it has 256 characters on the
-7:38
-other hand if you look at the total words in the English language it has about 170,000 to 200,000 words uh but
-7:47
-what is one of the advantages of the character based tokenization is that it has a very small vocabulary size which
-7:55
-means that uh either so if you look at the Engish Eng language there are fixed number of
-8:01
-characters right there are 256 characters so we will never have the out of vocabulary problem because let's say
-8:06
-any new sentence is given by the user you can always break it down into characters even if you don't know the
-8:12
-words in that sentence it's fine you break it down into characters and it will be either of the 256 characters
-8:17
-which are already present in your vocabulary or dictionary so the out of vocabulary problem will not come into
-8:23
-the picture and uh it solves one more problem if you look at the word BAS
-8:29
-tokenization right as I told you English language is about 170,000 to 200,000
-8:35
-words so if you really want to include everything in the vocabulary you need a vocabulary size which is huge and that
-8:42
-is one big problem in word based tokenization this problem is completely solved in the character based
-8:48
-tokenization because the vocabulary is based on characters and the vocabulary length is pretty
-8:54
-small but then you might think oh this sounds amazing right it literally solves all of the problem problem it solves the
-9:00
-out of vocabulary problem it's also computationally and memory efficient because the vocabulary size is very
-9:06
-small and uh then that's great then what's the issue there are some problems
-9:11
-with character based tokenization and the first major problem is that the meaning which is associated with words
-9:17
-is completely lost essentially the advantage of dealing with language models is that words have meanings right
-9:23
-so different words and different sentences might be related to each other boy and boys have a common meaning this
-9:29
-is completely lost since you're breaking it down into individual characters that's one of the first
-9:35
-biggest problem with uh character level tokenization the second problem is that
-9:41
-the tokenized sequence is much longer than the initial raw text so for example
-9:47
-if there is a word in the let's say there is a word in the
-9:52
-text which is dinosaur now in word based tokenization
-9:58
-this will be treated as one single token right but in character based tokenization what will happen is that
-10:03
+arranged in ascending order and every token corresponds to a token ID great now another problem with word based tokenization scheme is that uh 
+
+* out of vocabulary problem it's also computationally and memory efficient because the vocabulary size is 
 
 ***
 
@@ -198,6 +113,9 @@ done in a subord tokenization scheme at a very high level so let me explain some
 14:45
 subword splitting helps the model learn that different words with the same root word such as for example token tokens
 14:54
+
+***
+
 and tokenizing all of these three words essentially have the same root word right token so subord splitting helps
 15:01
 the model understand that these different words essentially have the same root word and they are similar in
@@ -931,6 +849,7 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
 
 
