@@ -22,97 +22,16 @@ arranged in ascending order and every token corresponds to a token ID great now 
 
 ***
 
-every every single character here d i n o s a UR will be treated as separate
-10:10
-token so in character based tokenization the word dinosaur will be actually broken down or split into eight
-10:17
-tokens and that is another major problem the tokenized sequence is much longer
-10:22
-than the initial raw text now uh so as we can see the word
-10:27
-based tokenization has its advantages and disadvantages the disadvantages is
-10:33
-that we don't know what to do with out of vocabulary words and the vocabulary size is pretty large the advantage is
-10:39
-that uh of course the words every word is a token
-10:45
-so the tokenized sequence length will be small like dinosaur it will be just one
-10:51
-token so when we tokenize the paragraph it's very small uh because every word
-10:57
-will be one token unlike character based tokenization where the tokenized sequence is much longer than the initial
-11:03
-text that's the disadvantage of character sequence character tokenization the advantages of character
-11:09
-tokenization is that they have very small vocabulary because every language has fixed number of characters and we
-11:16
-solve we completely solve the out of vocabulary problem and both of these approaches have a disadvantage that the
-11:22
-meaning between words is not captured boy and boys have a common root right
-11:27
-that root is cap is not captured tokenization and modernization both have the isation which is common this meaning
-11:34
-is completely lost so now so what do we do then we turn to another tokenization algorithm
-Sub-word tokenization
-11:42
-which is called as the subword based tokenization and the bite pair encoding which we are going to see is an example
-11:48
-of subword based tokenization algorithm the subword based tokenization is kind of like a Best of Both words words and
-11:56
-let's see how it uh why it is the best best of both words so the first thing to
-12:02
-remember about subword based tokenization is it does capture some root words which come in many other
-12:08
-words so boy and boys it will treat boy as a common root word uh and let's see
-12:14
-how it does that okay so in subword based tokenization there are essentially two rules the first rule of this
-12:21
-tokenization is that when you get the data set you do not do not split
-12:27
-frequently used word into smaller subwords so if there are some words which are coming frequently you should
-12:34
-retain those words as it is right so then it retains this from the word
-12:41
-tokenization then the rule two is that if there are some words which are very
-12:46
-rare which are not occurring too many times then you split these words into smaller meaningful subwords this is
-12:53
-extremely important this second part basically says that if there are some words which
+* subword based tokenization and the bite pair encoding which we are going to see is an example
+
+
+* frequently used word into smaller subwords so if there are some words which are coming frequently you should retain those words as it is right so then it retains this from the word tokenization then the rule two is that if there are some words which are very rare which are not occurring too many times then you split these words into smaller meaningful subwords this is extremely important this second part basically says that if there are some words which
 12:59
-are rare not appearing too many times you can go on splitting it further you can even go down to the Character level
-13:05
-so you can see why it is a mix between word tokenizer and character tokenizer the first rule implies that if the words
-13:12
-are occurring many times you return it as a word so this is taken this is a feature taken from the word tokenizer
-13:18
-the second rule implies that if the word is rare you can go on splitting it into further subwords and if needed you can
-13:25
-drop down to the Character level we don't always drop down to the character level we even stay in the middle but
-13:31
-this is a feature from the character level because we are breaking down the word further so to give you an example
-13:38
-if the word boy is appearing multiple times in the data set it should not be split further that's from rule number
-13:44
-one so then boy is retained as a token but boys if the word boys is encountered
-13:51
-uh that should be split into boy and it should be split into
-13:57
-s uh because boys might not be appearing too many times and again boys also derives from the word boy so we should
-14:05
-divide this word boys into smaller meaningful subwords so boys is divided
-14:10
-into boy and S and this is the main essence of subword tokenization words
-14:17
-are sometimes broken down into smaller elements and why smaller elements because those smaller elements appear
-14:24
-very frequently so for example why is boys broken down into boy and S because boy appears more frequently and S is
-14:31
-also another token which appears very frequently this is what is basically
-14:37
-done in a subord tokenization scheme at a very high level so let me explain some advantages of subord tokenization the
-14:45
-subword splitting helps the model learn that different words with the same root word such as for example token tokens
-14:54
+* see why it is a mix between word tokenizer and character tokenizer the first rule implies that if the words are occurring many times you return it as a word so this is taken this is a feature taken from the word tokenizer
+the second rule implies that if the word is rare you can go on splitting it into further subwords and if needed you can drop down to the Character level we don't always drop down to the character level we even stay in the middle but
+*  divide this word boys into smaller meaningful subwords so boys is divided
+* this is what is basically
+* subword splitting helps the model learn that different words with the same root word such as for example token tokens
 
 ***
 
@@ -227,6 +146,8 @@ replacing common bite pairs with another variable is called encoding that's wher
 20:39
 not encode this further because it only appears once if a c were appearing twice then we would have encoded it with
 20:45
+
+***
 another variable so this compression actually stops here you can go one more layer Deeper by further com replacing
 20:52
 the zy with another variable which is let's say w so then it will be WD w a and then you
@@ -849,7 +770,3 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
-
-
-
-
