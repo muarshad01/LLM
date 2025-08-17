@@ -104,6 +104,9 @@ text which is dinosaur now in word based tokenization
 9:58
 this will be treated as one single token right but in character based tokenization what will happen is that
 10:03
+
+***
+
 every every single character here d i n o s a UR will be treated as separate
 10:10
 token so in character based tokenization the word dinosaur will be actually broken down or split into eight
@@ -928,5 +931,6 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
 
