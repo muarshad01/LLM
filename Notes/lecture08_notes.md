@@ -44,98 +44,33 @@ the second rule implies that if the word is rare you can go on splitting it into
 
 ***
 
-another variable so this compression actually stops here you can go one more layer Deeper by further com replacing
-20:52
-the zy with another variable which is let's say w so then it will be WD w a and then you
-21:01
+* another variable so this compression actually stops here you can go one more layer Deeper by further com replacing the zy with another variable which is let's say w so then it will be WD w a and then you
 will stop so you will compress it further like this so you see the original data has been compressed to
-21:07
 this right uh to this compressed version U using the bite pair algorithm so the
-21:12
-algorithm itself is pretty simple you scan the data from left to right you identify the bite pairs which occur the
-21:18
-most and then you replace them with a bite which does not exist in the data and you do this iteratively until you
-21:25
-reach a stage where no bite pair occurs more than once that's it that is the simple bite pair encoding
-21:32
-algorithm now you might think okay what has that got to do with large language models right I understand this algorithm
-BPE for Large Language Models
-21:39
+algorithm itself is pretty simple you scan the data from left to right you identify the bite pairs which occur the most and then you replace them with a bite which does not exist in the data and you do this iteratively until you
+* reach a stage where no bite pair occurs more than once that's it that is the simple bite pair encoding
+algorithm now you might think okay what has that got to do with large language models right I understand this algorithm BPE for Large Language Models
 and I understand how it compresses a given data sequence but what has that
-21:44
 got to do with large language models well it turns out that the we slightly
-21:49
 tweak the bite pair encoding algorithm and use this to convert our entire
-21:55
 sentence into subwords which will be very useful for us and I'll show you exactly how I'm going to do that so the
-22:03
-bite pair encoding for llm ensures that the most common words in the vocabulary
-22:08
+* bite pair encoding for llm ensures that the most common words in the vocabulary
 are represented as a single token remember rule number one and rare words
-22:14
 are broken down into two or more subord tokens this is exactly the same rules which we had looked at the rule number
-22:20
 one and rule number two so rule number one is that most commonly used words
-22:26
 should not be split and second is that that rare words should be split into meaningful subwords now let's see how uh
-22:33
-how it's related to The Bite pair encoding algorithm which we saw and we will be looking at a practical example
-22:39
-for this uh demonstration okay I will use a color which is a bit different from the green
-BPE practical demonstration
-22:46
-one here so that uh there will be a good contrast so let me use the orange color
-22:52
-okay so for the Practical example we are going to look at a vocabulary or rather I should say we are going to look at the
-22:58
-data set of Words which is also called as Data Corpus which is this so we have
-23:03
-these words in our data set old older finest and lowest right let's say
-23:12
-we have these words in the data set right now and I'm going to show you how we are going to use the bite pair
-23:19
-encoding algorithm to break these down into tokens and you will also see why this is
-23:24
-a subword tokenization scheme so first of all if we are to use a word based
-23:30
-tokenization then this will have four tokens old older finest and lowest
-23:35
-that's it similarly if we were to use the Character level tokenization then the tokens will be individual characters
-23:42
-like o o will be one token then L will be another token then D will be another
-23:48
-token Etc so this is how the word based tokenization and the character based
-23:53
-tokenization will work but right now we are going to see the subw based tokenization using the bite pair
-24:00
-algorithm before we uh proceed further we'll need to do a pre-processing step
-24:05
-and this is actually done uh even when we train large language models and when we are using these tokenizers so
-24:12
-basically when you look at these different tokens there should be some ending right so for example when this
-24:18
-old token appears we should have another end token so that we know that this word
-24:24
-has ended over here so I'm going to augment every token here with this additional end token which is called
-24:32
-slw so whenever the algorithm or the model comes across slw we know that this
-24:37
-word ends over here so I'm going to replace the tokens in my data set with adding a w/w at the end like old becomes
-24:45
-old slw older becomes older slw finest becomes finest slw and lowest becomes
-24:53
-lowest /w now remember here that if we use the word based
-24:59
-tokenization uh there is no meaning which is captured so the fact that old
-25:04
-is the common root between old and older is not captured number one EST is the
-25:09
+* how it's related to The Bite pair encoding algorithm which we saw and we will be looking at a practical example
+* called as Data Corpus which is this so we have
+* that's it similarly if we were to use the Character level tokenization then the tokens will be individual characters
+* pre-processing step
+
+* old slw older becomes older slw finest becomes finest slw and lowest becomes lowest /w now remember here that if we use the word based24:59 tokenization uh there is no meaning which is captured so the fact that old is the common root between old and older is not captured number one EST is the
 common root between finest and lowest that's not captured so word based
-25:15
 tokenization character based tokenization have so many problems because they don't capture these meanings or root words and towards the
-25:22
 end of this section we'll see how subword based tokenization using the bite pair encoding algorithm actually
-25:27
+
+***
+
 captures these root words like old uh like EST Etc okay so
 25:35
 let's get started with the individual steps the first step is basically to split all these words into their
@@ -669,4 +604,5 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
