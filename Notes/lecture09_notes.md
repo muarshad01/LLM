@@ -14,60 +14,12 @@ learning and it's also called Auto regressive I hope you have understood these t
 concepts so in pre-training we always do unsupervised learning because the sentence structure is exploited to
 create input output pairs or
 input Target pairs so I hope you have
-7:28
-understood how the the input Target pairs look like and we are going to create this in today's lecture in Python
-7:36
-uh if you understand up till this it's actually pretty easy to code it out in Python but I have I feel that students
-7:42
-don't really understand this part intuitively and and hence they find the coding part of it a bit
-7:48
-difficult okay now I want to mention a few things uh which I've just which just
-7:53
-serve as a summary of what all I explained up till now the first thing is what we are essentially doing here is
-8:00
-that we are given a text sample and uh based on the text sample we are
-8:05
-extracting input blocks that serve as the input to the llm correct and the llm
-8:12
-prediction task during the training is to predict the next word that follows the input block so for example if you're
-8:19
-looking at this input block the llm task is to predict the output or the next
-8:24
-word based on this input uh and that's what the llm is trained for
-8:30
-and the last point to remember is that during the training process we will mask out all the words that are past the
-8:37
-target so in every iteration the target is the target word right like in this iteration time or let me take an earlier
-8:43
-iteration in this iteration two is the target so when we are doing this iteration the llm does not see anything
-8:49
-which comes after two so this part is essentially
-8:55
-masked and we'll see how to implement all of these features in code
-9:00
-Okay so until now I just wanted to explain what is the purpose and what is the aim of today's lecture and now we
-9:07
-are going to code the input Target pairs in Python so I hope you are ready for this coding so let's get started with
-9:15
-coding great so this coding section I've have titled creating input Target pairs
-9:21
-as always I'll be sharing this Jupiter notebook code also with you along with the video so that you can run the code
-9:29
-and check check whether you have understood the concept or not yourself so in this section we are going
-9:35
-to implement a data loader that fetches the input Target pairs using a sliding
-9:41
-window approach so there are two parts of this sentence which might be confusing to you what is data loader
-9:48
-that's part number one and what is the sliding window approach that's part number two don't worry I'll explain to
-9:54
-you both of these in a lot of detail uh to get started what we will initi do is that we'll take the whole
-10:01
-the verdict short story so remember our data set for this entire coding Journey
-10:07
-for this entire playlist is this short story The Verdict let me show you uh how
-10:12
-it actually looks like so this is the short story called The Verdict this is the data set which
+* so in this section we are going
+* to implement a data loader that fetches the input Target pairs using a sliding window approach so there are two parts of this sentence which might be confusing to you what is data loader
+
+***
+
+* set which
 10:19
 we have been using I think this was published in uh so let me check the verdict edit won it was published in
 10:27
@@ -928,4 +880,5 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
