@@ -80,146 +80,19 @@ end of this section we'll see how subword based tokenization using the bite pair
 
 ***
 
-the most frequent pairing right so it so you the way to do it is look at the first character which appears the most
-27:47
-so e is that character which appears 16 times right so if you want to look at the pairing which appears most it most
-27:53
-probably starts with e so it turns out if you look at these words e and s is
-27:59
-the pairing which appears the most number of times so e and s here appears nine times in finest and E and S appears
-28:06
-four times in lowest so e and s is that pairing which appears 13 number of times
-28:12
-right so uh most common bite pair starting with e is e and s so what we'll
-28:18
-now be doing is that we'll be going through the data set again uh and we'll
-28:23
-be merging these two tokens e and s so now e s will be one token and that's why it's called subword es will be one token
-28:31
-so now let me show you my token table again everything else is the same up token number 12 but look at this token
-28:38
-number 13 which has been added in token number 13 we have added one more token which is
-28:44
-es because it's the most frequent pairing and Es appears 13 times but
-28:50
-remember when we add es we have to subtract something from E and we have to subtract from s because now uh ES has
-28:58
-been included so we subtract 13 from the e count so now the the number of time only e appears is three the number of
-29:05
-time only s appears is zero this is very interesting to know so the number of time only s appears is zero so s it
-29:12
-seems always appears with e so es is a subword see this we would not have discovered if we just did character
-29:18
-level tokenization or uh Word level it seems that e and s always so s only
-29:24
-comes with e in this data set we have already obtained our first site so now this is my new uh this is my
-29:32
-new token library and this is my additional token and now we are going to actually continuously keep on doing this
-29:39
-process to find uh frequency or to find tokens which appear the most number of
-29:45
-times so in the previous iteration we saw that e and s was the bite pair right
-29:51
-which occurred most number of times ands it appeared 13 times but now es is a separate token for us so now using that
-29:58
-token we see that EST is again a bite pair because es is one token and T is
-30:04
-another token so es s and t becomes a bite pair in the second iteration and EST appears 9 + 3 which is again 13
-30:13
-times so now in the next iteration what we'll be doing essentially is that U let
-30:19
-me show you iteration number two in the iteration number two we'll merge the tokens es s and t because they have
-30:26
-appeared 13 times in the data set see we are doing the same thing what we did in the earlier bite pair encoding for that
-30:33
-character so let me just showed you show you here remember here what we did after
-30:38
-AA so AA was done right and then we merged this and then we looked at the second sequence which appeared the most
-30:45
-which is AB that is actually very similar to what we are doing here es appears the most so we created one more
-30:51
-token for ES then we looked at another bite pair which is appearing the most and that is es s and t so now what we'll
-30:58
-be doing is that we'll merge es andt into one token and uh so EST comes to be 13 times
-31:06
-and we'll then subtract 13 from the previous token es so now only es appears
-31:11
-zero times and EST appears 13 times see we have constructed a new token EST so
-31:18
-now remember what I said earlier the previous World level tokenizers and the
-31:23
-Character level tokenizers could not identify that EST is a common roote between finest and lowest but with our
-31:30
-bite pair encoding algorithm we have already created a new token for EST so this algorithm has already identified
-31:37
-that EST is a common root World great so up till now we have done
-31:43
-iteration number three and uh we see that okay I think yeah up till now we
-31:49
-have done I think two iterations and now up till now we have merged es and T into one common token
-31:55
-awesome now let us take look at this slw token now we can see that EST and /w
-32:03
-basically appears 13 times again it's the same thing over here so EST always
-32:09
-comes with slw now EST is one token so EST and slw forms a bite pair and this
-32:15
-bite pair again occurs 9 + 4 which is 13 times which is much more than any other bite pair in these words so we'll
-32:22
-combine EST and /w into one more token so in the third iteration we are going
-32:28
-to combine EST and /w into one more token so now this becomes our
-32:33
-word do you understand why we combined slw with one more token we could have
-32:39
-just left it at EST right but if we left it at EST then essentially there would have been no difference between words
-32:46
-like estimate and highest so estimate and highest both have EST but the words
-32:52
-in our data set are highest and lowest so EST is the ending sequence in all of
-32:58
-our words in our data set and we need to encode that information that it is an ending sequence so estw allows us to
-33:05
-encode this information so now the tokenizer knows that whenever EST comes
-33:10
-it's always followed by slw which means the word ends after estd so now our
-33:16
-algorithm or the tokenizer can differentiate between estimate and highest because in estimate EST does not
-33:23
-end with a /w so now if you look at the Tok which we have earlier we had all these 12
-33:30
-tokens but now we created es then we merged it to EST and finally we created this
-33:36
-estw so now these two tokens are actually not needed es and EST so now
-33:41
-let's look at another other bite pairs which occur a lot so it turns out that o and L is another bite pair which occurs
-33:47
-10 times because it's present in old and older so what we'll do is that we'll create one more we'll merge these two
-33:54
-and create one more token for o and L it appears 10 times and we'll subtract that count 10 from the O and L so o
-34:02
-individually or with some other character appears 14 times so we subtract 10 because now we have created
-34:07
-one more token for o which appears 10 times similarly L appears 14 times
-34:13
-overall and we subtract 10 from it because L comes with o 10 times right
-34:19
-and now what we do is that o l is one token so now we see that o l and D has
-34:25
-appeared 10 times so this bite pair has appear 10 times so we merge this bite pair so then o d now becomes another
-34:32
-token which appears 10 times so you see the meaning which our bite pair encoder has captured we have constructed one
-34:39
-token which is old we have another token which is estw these tokens are subwords so they
-34:47
-are neither full words nor characters they are subwords but they encode the root representation so old is one token
-34:53
-and this actually tells us that uh old is the root word which comes in
-34:59
-Old it which comes in old as well as older and our BP algorithm has actually
-35:04
-captured that perfectly that's awesome right all these root words were not captured by just the word uh word em or
-35:13
+* the most frequent pairing right so it so you the way to do it is look at the first character which appears the most so e is that character which appears 16 times right so if you want to look at the pairing which appears most it most probably starts with e so it turns out if you look at these words e and s is the pairing which appears the most number of times so e and s here appears nine times in finest and E and S appears four times in lowest so e and s is that pairing which appears 13 number of times right so uh most common bite pair starting with e is e and s so what we'll
+
+* now be doing is that we'll be going through the data set again uh and we'll be merging these two tokens e and s so now e s will be one token and that's why it's called subword es will be one token so now let me show you my token table again everything else is the same up token number 12 but look at this token number 13 which has been added in token number 13 we have added one more token which is
+es because it's the most frequent pairing and Es appears 13 times but remember when we add es we have to subtract something from E and we have to subtract from s because now uh ES has been included so we subtract 13 from the e count so now the the number of time only e appears is three the number of time only s appears is zero this is very interesting to know so the number of time only s appears is zero so s it seems always appears with e so es is a subword see this we would not have discovered if we just did character level tokenization or uh Word level it seems that e and s always so s only
+
+* comes with e in this data set we have already obtained our first site so now this is my new uh this is my new token library and this is my additional token and now we are going to actually continuously keep on doing this process to find uh frequency or to find tokens which appear the most number of times so in the previous iteration we saw that e and s was the bite pair right which occurred most number of times ands it appeared 13 times but now es is a separate token for us so now using that
+
+*  it's always followed by slw which means the word ends after estd so now our algorithm or the tokenizer can differentiate between estimate and highest because in estimate EST does not end with a /w
+
+*  so now if you look at the Tok which we have earlier we had all these 12 tokens but now we created es then we merged it to EST and finally we created this estw so now these two tokens are actually not needed es and EST so now let's look at another other bite pairs which occur a lot so it turns out that o and L is another bite pair which occurs 10 times because it's present in old and older so what we'll do is that we'll create one more we'll merge these two and create one more token for o and L it appears 10 times and we'll subtract that count 10 from the O and L so o individually or with some other character appears 14 times so we subtract 10 because now we have created one more token for o which appears 10 times similarly L appears 14 times overall and we subtract 10 from it because L comes with o 10 times right and now what we do is that o l is one token so now we see that o l and D has appeared 10 times so this bite pair has appear 10 times so we merge this bite pair so then o d now becomes another token which appears 10 times so you see the meaning which our bite pair encoder has captured we have constructed one token which is old we have another token which is estw these tokens are subwords so they are neither full words nor characters they are subwords but they encode the root representation so old is one token and this actually tells us that uh old is the root word which comes in Old it which comes in old as well as older and our BP algorithm has actually captured that perfectly that's awesome right all these root words were not captured by just the word uh word em or
+
+***
+
 the word encoder word tokenizer and the Character level tokenizer now you might be seeing here
 35:20
 that these f i and N appear nine times uh it's fine that they appear nine
@@ -570,6 +443,7 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
 
 
