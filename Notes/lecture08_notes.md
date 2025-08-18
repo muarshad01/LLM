@@ -71,46 +71,12 @@ end of this section we'll see how subword based tokenization using the bite pair
 
 ***
 
-captures these root words like old uh like EST Etc okay so
-25:35
-let's get started with the individual steps the first step is basically to split all these words into their
-25:43
-characters um and then make a frequency table so what we are going to do is that we are going to take all these words old
-25:50
-older finest and lowest so old appears seven times in the data set older
-25:55
-appears three times in the data set these are the frequencies finest appears nine times in the data set and lowest
-26:02
-essentially appears four times in the data set so what we are going to do right now is we are going to split these
-26:08
-words into individual characters so then here is the table which I have made remember slw is also there uh so old so
-26:17
-all words have/ W right and totally how many words do we have 7 + 3 10 + 9 19+ 4
-26:23
-23 and since all words have slw at the end of it slw comes 23 times similarly
-26:29
-we see that o comes 14 times L comes 14 times D comes 10 times
-26:36
-e comes 16 times Etc and we make this frequency table list so here you can see
-26:42
-that we have 12 tokens and if we did we use character level tokenization our
-26:47
-tokenization would end here because all these characters would be individual tokens now what we will do similar to if
-26:54
-you remember the bite pair encoding algorithm we looked at the most frequent pairing right uh so let me take you back
-27:02
-to this yeah we looked at AA because AA appeared the most so we looked at that
-27:07
-bite pair which occurred the most this is exactly what we'll be doing here we'll be look for the mo we'll be
-27:13
-looking for the most frequent pairing in the data set and then what we'll do is that this
-27:19
-is the modification compared to the original algorithm when we look for the most frequent pairing we will merge them
-27:26
-we will merge the most fre pairing and then perform the same iteration again and again and
-27:32
-again so let me show you how this is done so in the iteration one as I mentioned we start with the uh finding
-27:40
+* characters um and then make a frequency table so what we are going to do is that we are going to take all these words old older finest and lowest so old appears seven times in the data set older appears three times in the data set these are the frequencies finest appears nine times in the data set and lowest essentially appears four times in the data set so what we are going to do right now is we are going to split these
+* words into individual characters so then here is the table which I have made remember slw is also there uh so old so
+* all words have/ W right and totally how many words do we have 7 + 3 10 + 9 19+ 4
+* frequency table list so here you can see
+* A because AA appeared the most so we looked at that
+* most frequent pairing we will merge them
 
 ***
 
@@ -604,5 +570,6 @@ comment in the next video thank you so much everyone and I look forward to seein
 
 
 Show chat replay
+
 
 
