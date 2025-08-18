@@ -1,143 +1,19 @@
 
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series in the previous lecture we took a look at bite pair encoding and uh we saw
-0:19
-that how bite pair encoding algorithm can be used for something which is called as subword tokenization so we saw
-0:27
-the difference between word based subword based and character based tokenization and we looked in detail how
-0:33
-GPT models such as GPT 2 3 and 4 use the bite pair encoding algorithm for
-0:40
-tokenization if you have not seen the video for the previous lecture again I would highly ENC encourage you to go
-0:47
-through this so that you will follow along pretty well in this lecture if you are coming to this playlist for the
-0:52
-first time welcome and uh we follow a very specific style in this playlist where we do a mix of writing on the
-0:59
-White board plus showing you everything from scratch in the jupyter notebook
-1:04
-code editor so that the theoretical understanding is also strong and the coding background is also
-1:11
-strong up till now we have looked at tokenization which is needed for large
-1:17
-language models so if you think of the whole process we are currently at the data pre-processing stage before the
-1:23
-data is given for the llm training in the pre-processing the first step is tokenization then we come to something
-1:31
-called Vector embeddings we have not seen Vector embeddings yet uh and then after that we feed these Vector
-1:37
-embeddings to the uh training or for the training process before we come to Vector
-1:44
-embeddings there is one very important lecture which we need to cover and that is the topic of today's lecture creating
-1:51
-input Target pairs essentially input output pairs if you look at other
-1:57
-machine learning tasks such as classification ation it's usually usually very clear right what is the
-2:03
-input and what is the output if you want to distinguish between cats and dogs from images the images of cats and the
-2:10
-images of dogs will be input and whether it's a cat or whether it's a dog will be
-2:15
-the output if you consider a regression problem on the other hand let's say if you want to predict the price of a house
-2:22
-B based on its area the area of the houses is the input and the price is the
-2:28
-output so creating the input output pairs or the input Target pairs is pretty easy for large language models we
-2:35
-use a specific technique for creating these pairs and it's very important to devote a separate lecture for you to
-2:42
-understand this so let's get started with today's lecture as I mentioned before now only
-2:48
-one last step is remaining before we move to creating Vector embeddings which will then be fed to training the large
-2:55
-language model and then last and then that last step is essentially create getting the input Target pairs so first
-What are input-target pairs in LLMs?
-3:02
-when I say input Target pairs what do I mean and what do input Target pairs looks like so let's say uh this is my uh
-3:13
-sentence right which is the text sample llms learn to predict one word at a time
-3:21
-so the blocks which are marked in blue will be the input to the llm and the
-3:29
-block which are marked in red will be the Target or the output which the llms
-3:35
-have to learn and why are there these different rows so these are different iterations
-3:42
-let's look at the first iteration in the first iteration the input is llm and the
-3:48
-based on this input the out uh llm has to learn the output which is the learn so the next word is always the output
-3:55
-whatever comes after the prediction is masked or it's not shown to the llm
-4:00
-this is what happens in iteration number one now let's look at iteration number two so learn which was the output or the
-4:09
-Target in the first iteration now is a part of the input so in the second iteration llms learn that is the input
-4:17
-and two is the target that's the target pair that's the second
-4:23
-iteration in the third iteration two which was the output of the previous iteration now becomes the input so so
-4:29
-llms learn to is the input in the third iteration and predict is the output I
-4:35
-hope you have started understanding the pattern now in every iteration there is only the next word which is the output
-4:42
-and whatever comes before that is the input these are the input Target
-4:48
-pairs that's very important to remember so uh here also you'll see that llms
-4:54
-learn to predict is the input and one is the output so at every stage of the iteration process uh llms have input
-5:02
-which is the part of the sentence up till the word which needs to be predicted and the word which needs to be
-5:09
-predicted that is essentially the output this this figure which I'm saying
-5:15
-is just for illustration purposes in today's lecture we'll learn something about context length which means how
-5:22
-many words are given as the input the output length is always one one word will be predicted but we can essentially
-5:28
-choose the input context length now uh in every
-5:34
-iteration The Words which are after the target are essentially masked so the
-5:39
-llms cannot access The Words which are past the target so there are two things to remember here the first thing to
-5:46
-remember is that within the sentence itself we break down the sentence into input and a Target which is the next
-5:52
-word uh then in the second thing to remember is that in subsequent iterations whatever was the output in
-5:58
-the previous iteration then becomes the input so this is a auto regressive model
-6:04
-why Auto regressive because the output of the first iteration becomes an input of the next iteration like let's look at
-6:10
-these two iterations in in this iteration let me show it with a different color so that it becomes easy
-6:16
-in this iteration one the result one was an output right but see in this
-6:22
-iteration one is now a part of the input and then the next word is the output so it's called an auto regressive and it's
-6:28
-also called a self-supervised learning or you can think of it as unsupervised
-6:34
-learning itself because we are not labeling the input and the output the sentence structure
-6:40
-itself uh is used to predict or is used to determine what is the input and the
-6:45
-output we do not have to do any special labeling so in cats and dogs we have to manually label this is a cat this is a
-6:51
-dog right for the image classification but here to create the input Target pairs we don't have to say that look
-6:58
-this label this as the input label this as the output we'll just write a simple code which utilizes the sentence
-7:04
+* bite pair encoding and uh we saw
+* subword tokenization so we saw
+* difference between word based subword based and character based tokenization
+* and we looked in detail how GPT models such as GPT 2 3 and 4 use the bite pair encoding algorithm for
+* 
+we come to something called Vector embeddings
+* creating input Target pairs essentially input output pairs if you look at other
+*  auto regressive model
+* also called a self-supervised learning or you can think of it as unsupervised
+* code which utilizes the sentence
 structure itself and breaks down the sentence into input and the output so this is also an example of unsupervised
-7:11
 learning and it's also called Auto regressive I hope you have understood these two
-7:16
 concepts so in pre-training we always do unsupervised learning because the sentence structure is exploited to
-7:23
-create input output pairs or input Target pairs so I hope you have
+create input output pairs or
+input Target pairs so I hope you have
 7:28
 understood how the the input Target pairs look like and we are going to create this in today's lecture in Python
 7:36
@@ -1052,3 +928,4 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
