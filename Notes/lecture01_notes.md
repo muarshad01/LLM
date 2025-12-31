@@ -23,7 +23,7 @@
 
 | LLM | Open-source versus Close-source|
 |---|---|
-|[OpenAPI GPT - ChatGPT](https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chat%20gpt&utm_content=169187630042&utm_ad=744024536836&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UWNf0Ud4PR0_8F6Nft0JFmBR&gclid=CjwKCAjw-svEBhB6EiwAEzSdrr5KPGN3_0OKZos5P8APgBeKU3Qg-VJxLpT9gYIz4YcCMzQs-5ZSZRoCcBQQAvD_BwE)| Close Source|
+|[OpenAPI ChatGPT](https://chatgpt.com/?utm_source=google&utm_medium=paidsearch_brand&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_NAMER_US_EN_091724&utm_term=chat%20gpt&utm_content=169187630042&utm_ad=744024536836&utm_match=e&gad_source=1&gad_campaignid=21714513245&gbraid=0AAAAA-IW-UWNf0Ud4PR0_8F6Nft0JFmBR&gclid=CjwKCAjw-svEBhB6EiwAEzSdrr5KPGN3_0OKZos5P8APgBeKU3Qg-VJxLpT9gYIz4YcCMzQs-5ZSZRoCcBQQAvD_BwE)| Close Source|
 |[Facebook Llama](https://www.llama.com/)| Open Source|
 
 
@@ -39,6 +39,7 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
 
 
