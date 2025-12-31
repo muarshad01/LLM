@@ -22,7 +22,7 @@
 * Encode every word into a very __high-dimensional Vector Space__, so that the __semantic meaning__ between words is captured.
 
 #### Positional Encoding
-* The order of words in a sentence is also very important
+* The order-of-words in a sentence is also very important
 * What is meaning of context?
 * How many words should be taken for training to predict the next output?
 * How to feed-the-data in different sets of batches for efficient computation.
@@ -97,3 +97,4 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
