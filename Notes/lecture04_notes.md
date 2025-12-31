@@ -101,12 +101,18 @@
 |1997 | Double Bam | Long Short-Term Memory (LSTM) Networks | sequence modeling & text completion| 
 |2017 | Tripel Bam | Transformers                           | ... |
 
+***
+
 #### RNN & LSTM
 * RNN (1980), LSTM (1997) Networks, and and even convolutional architectures, can also be called as language models (text completion purpose).
-* LLMs can also be RNN, LSTM Networsk, or convolutional architectures, to give you a quick introduction.
+* LLMs can also be RNN, LSTM Networks, or convolutional architectures, to give you a quick introduction.
+
+***
 
 #### RNN
 * RNN maintains a __feedback-loop__, so that is why, we can incorporate memory into account.
+
+***
 
 #### LSTM Networks
 * Incorporates two separate-paths:
