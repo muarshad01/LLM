@@ -1,4 +1,4 @@
-## Build an LLM from Scratch
+#### Build an LLM from Scratch
 * Instructor: Dr. Raj Dander
 * Graduated from IIT Madras with a BTech in ME in 2017. After that, graduated from MIT with a PhD in ML in 2022.
 * Mission: __Make AI accessible to everyone.__
@@ -12,8 +12,9 @@
 
 ***
 
-## LLM and GenAI
-* We all know that __LLM and GenAI__ are transforming everything around us. But many people when they are learning about this field are making __one-common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/). 
+#### LLM and GenAI
+* We all know that __LLM and GenAI__ are transforming everything around us.
+* But many people when they are learning about this field are making __one-common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/) code, etc. 
 
 #### Natural Language Processing (NLP)
 * One of the first __ChatBots__, which humans developed, is called as __ELIZA__. * It's not very good right!
@@ -38,6 +39,7 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
 
 
