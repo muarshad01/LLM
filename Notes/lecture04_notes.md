@@ -15,43 +15,53 @@
 ***
 
 #### Stages of Transformer
-1. __Input text__: which is to be translated. "This is an example".
+1. __Input text__: That needs to be translated. For example, `This is an example`.
 
 2. __Pre-Processing__: This process: (1) breaks-down a sentence into words or tokens (called __Tokenization__) and then (2) __assigns an ID (a unique number)__ to each token. For simplicity, you can imagine that one-word is one-token.
 
-3. __Encoder__: Encoder performs __Vector Embedding__, which converts the words into vectorized representation. This vectorized representation captures the __Semantic Meaning__ between the words. Basically, encode-the-information somewhere such that similar-words are related to each other. The words are projected into high-dimensional __Vector Space__ and the way these words are projected is such that the __Semantic Relationship__ or the semantic meaning between the words is captured very clearly. NNs are trained for this step.
+3. __Encoder__: Encoder performs __Vector Embedding__, which converts the words into vectorized representation. This vectorized representation captures the __Semantic Meaning__ between the words. Basically, encode-the-information somewhere such that similar-words are related to each other. The words are projected into a high-dimensional __Vector Space__ and the way these words are projected is such that the __Semantic Relationship__ or the semantic meaning between the words is captured very clearly. NNs are trained for this step.
 
-4. __Decoder__: The docoder receives: (1) partial-output text, and (2) the __Vector Embedding__. It predicts the next-word based on this information. The model only generates one-word at a time.
+4. __Decoder__: The docoder receives: (1) partial-output text, and (2) the __Vector Embedding__. It predicts the next-word based on this information. 
 
-6. Generate the translated text __one word at a time__.
+5. Generate the translated text __ONE word (Token) at a time__. 
 
-7. __Final output__ is complete sentence.
-
-#### Loss Minimization (Optimization)
-* We are training the NN.
-* Initially it will make predictiuon mistakes of course, but there will be a __loss-function__ to calculate the error. We'll eventually train the Transformer to be better-and-better.
-* __Feed-forward layers__, which means there are __weights and parameters__ that need to be optimized.
+6. __Final output__ is complete sentence.
 
 ***
 
-## Transfomer
+#### Loss Minimization (Optimization)
+* We are training the NN.
+* Initially it will make prediction-mistakes of course, but there will be a __loss-function__ to calculate the error. We'll eventually train the Transformer to be better-and-better.
+* __Feed-forward layers__, which means there are __Weights and Parameters__ that need to be optimized.
+
+***
+
+#### Transfomer
 * Transformer is basically a DNN.
-1. __Encoder__: Encodes intput text into vectors
-2. __Decoder__: Generates output text from encoded vectors and from the partial-output
+1. __Encoder__: Encodes intput text into Vectors
+2. __Decoder__: Generates output text from Encoded Vectors and from the partial-output.
+
+***
 
 #### Attention
 * Attention-mechanisms have become an integral part of sequence-modeling allowing modeling-of-dependencies without regard-to-their-distance.
 * Attention-mechanisms allow you to model-the-dependencies between different words without regards to how-close-or-apart the words are.
 
+***
+
 #### Self-Attention
 * Key part or Transfomer
-1. Self-attention is an attention-mechanism, which relates different-positions of a single-sequence in order to compute a representation-of-the-sequence.
+1. Self-attention is an attention-mechanism, which relates different-positions of a single-sequence [(1,2,3),(2,3,1), (3,1,2)] in order to compute a representation-of-the-sequence.
 2. Allows the model to weigh the importance of different words / tokens relative-to-each-other.
 4. Enables model to capture __long-range dependencies__.
 
+***
+
 #### Attention Score
 1. The self-attention mechanism maintains __attention score__, which basically tells you which word should be given more attention.
-2. Attention score is basically a matrix that tells you which words should be given more importance in relative or in relation to other words.
+2. Attention score is basically a matrix that tells you, which words should be given more importancecin relation to other words.
+
+***
   
 #### Attention Blocks
 * multi-head attention
@@ -111,6 +121,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
