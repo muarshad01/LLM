@@ -6,6 +6,7 @@
 ```unix
 $ python --version
 $ python3 --version
+Python 3.11.13
 
 $ brew install python@3.x.y
 $ pip install uv
