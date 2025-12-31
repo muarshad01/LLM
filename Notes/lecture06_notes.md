@@ -4,15 +4,15 @@
   * How the data is processed?
   * How the data is sampled?
 * 2 - Attention Mechanism
-  * What is the Attention Score
-  * What is Positional Encoding
-  * What is Vector Embedding
-  * What is meant by (key, query, value)
+  * What is the __Attention Score__
+  * What is __Positional Encoding__
+  * What is __Vector Embedding__
+  * What is meant by __(key, query, value) = (K,Q,V)__
 * 3 - LLM architecture
   * How to stack different-layers on top of each other?
-  * Where should the attention-head go?
+  * Where should the __attention-head__ go?
 
-****
+***
 
 ## Data Preparation and Sampling
 
@@ -97,4 +97,5 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
 
