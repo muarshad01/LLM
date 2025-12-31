@@ -7,8 +7,10 @@
 
 #### YouTube Channel
 * At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists available on ML on DL.
-* The main approach or the philosophy, which we really follow when we teach is to __teach everything from the basics__, i.e., not to assume anything.
+* The main approach or the philosophy is to __teach everything from the basics__, i.e., not to assume anything.
 * Teach you the __nuts and bolts__ of every single concept. 
+
+***
 
 ## LLM and GenAI
 * We all know that __LLM and GenAI__ are transforming everything around us. But many people when they are learning about this field are making __one-common mistake__: they directly-switch to the applications, they directly-run some [Google Colab](https://colab.research.google.com/). 
@@ -36,6 +38,7 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
 
 
