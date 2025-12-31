@@ -1,5 +1,5 @@
 #### Lecture 4: Basic Intro to Transformers
-1. __Pre-training__: Training on a large-diverse dataset (Unlabeld data)
+1. __Pre-training__: Training on a large-diverse dataset (Unlabeled data)
 2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain (Labeled data)
 
 ***
@@ -111,6 +111,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
