@@ -95,8 +95,7 @@
 
 ***
 
-## Theory plus Practical
+## Theory plus(+) Practical
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
-
