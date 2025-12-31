@@ -24,21 +24,28 @@
 ***
 
 #### [Transformer (2017) : Attention is all you need](https://arxiv.org/abs/1706.03762)
-*  __Self-attention__ mechanism, where you capture the __long-range dependencies__ in a sentence. Allowing you to do a much better job at predicting the next-word in a sentense.
-*   A significant advancement compared to RNN (1980) and LSTM Networks (1997).
+*  __Self-attention__ mechanisms, where you capture the __long-range dependencies__ in a sentence, allow you to do a much better job at __predicting-the-next word (token) in a sentense.__
+*  A significant advancement compared to RNN (1980) and LSTM Networks (1997).
+
+***
 
 #### [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
 * __Unsupervised-learning (Unlabeled data)__
-* __Generative Pre-training__ on a divrse corpus of __unlabeled__ text data.
+* __Generative Pre-training__ on a divrse corpus of __unlabeled__ text dataset.
 * __Generative__ because we are generating-/predicting-the-next-word in an __unsupervised-learning__ manner.
 * __Pre-training__: Text data, which is used here is not labeled. Let's say you have given a sentence right and you use that sentence itself as the training data and the next-word prediction, which is in that sentence itself as the testing data. So, everything is self-content and you don't need to provide labels.
 * NLP uptill this point was supervised learning. Labeled data is scarce.
 
+***
+
 #### [OpenAI Blog](https://openai.com/index/language-unsupervised/)
-* GPT is combination of two ideas: (Transformers, unsupervised pre-training)
+* GPT is combination of two ideas: (Transformers, Unsupervised Pre-training)
+
+***
 
 #### [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
 
+***
 
 #### [GPT-3 (2020): Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 * Translation
@@ -49,22 +56,25 @@
 
 ***
 
-## Zero-shot, One-shot, and Few-shot Learning
+#### Zero-shot, One-shot, and Few-shot Learning
 * Ability to generalize-to-completely-unseen-tasks without-any-prior specific examples.
 * Learning from a minimum-number-of-examples, which the user provides as input.
 
 | Learning Model | Supporting Input Example(s)|
 | --- | --- |
-| Zero-shot | No  supporting example |
+| Zero-shot | No supporting example |
 | One-shot  | One supporting example |
 | Few-shot (GPT-3)  | Few supporting examples|
 
+***
 
 #### Zero-Shot 
-* learning the model-predicts-the-answer given only a description no-other-assistance or no-other-support.
+* The model-predicts-the-answer given only a description and no-other-assistance or no-other-support.
 * Example: The prompt can be that hey you have to translate English-to-French and take the word "cheese" and translate it into French.
 
-#### Auto-regressive Language Model
+***
+
+#### Auto-regressive (AR) Language Model
 * An autoregressive language model is a type of model that predicts the next-word (or token) in a sequence based on the previous words. It generates text one step at a time, where each new word depends on the ones that came before it.
 * Each word is generated sequentially, and the model uses its own previous outputs to generate the next-word.
 ```
@@ -80,12 +90,12 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * [Common Crawl](https://commoncrawl.org/)
 * [OpenWebText2](https://openwebtext2.readthedocs.io/en/latest/)
 
-* The pre-trained models are also called base/foundational models, which can be used for further __fine-tuning__.
+* The pre-trained models are also called Base/Foundational models, which can be used for further __fine-tuning__.
 * Many pre-trained LLMs are available as open-source.
   
 |Open Source | Parameters|
 |---|---|
-|Lama 3.1| 405 B|
+| Lama 3.1 | 405 B|
 
 ***
 
@@ -95,22 +105,13 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 
 | Architecture | Layers / Block| Parameters |
 |---|---|---|
-| Original Transformer | 6 (encoder, decoder) blocks | |
-| GPT-3                | 96 (---, decoder) layers    | 175 B |
-
-## Emergent Behavior
-* Ability of a model to perform tasks that the model wasn't explicitly trained to perform. Example: Correct answer for MCQs that Improves with training.
+| Original Transformer |  6 (encoder, decoder) blocks | |
+| GPT-3                | 96 (---,     decoder) layers | 175 B |
 
 ***
 
+#### Emergent Behavior
+* Ability of a model to perform tasks that the model wasn't explicitly trained to perform.
+* Example: Correct answer for MCQs that Improves with training.
 
-
-
-
-
-
-
-
-
-
-
+***
