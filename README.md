@@ -3,7 +3,26 @@
 
 * [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch)
 
+```linux
+$ python --version
+$ python3 --version
+Python 3.9.6
+$ brew install python@3.x.y
+$ pip install uv
+$ pip3.11 install uv
+
+$ uv venv --python=python3.11
+$ source .venv/bin/activate
+$ which python
+$ python --version
+$ uv pip install packages
+$ uv pip install torch
+$ uv run jupyter lab
+```
+
 ***
+
+
 
 #### Dr. Raj Dandekar
 | Lecture | Notes | Date|
