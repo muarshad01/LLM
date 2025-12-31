@@ -1,8 +1,8 @@
 ## Tokenization 
-* data preparation and sampling
-* pre-training 
-* We will build a tokenizer fully from scratch.
-* We will also build an encoder-and-decoder from scratch
+* Data preparation and sampling
+* Pre-training 
+* We will build a Tokenizer fully from scratch.
+* We will also build an Encoder-and-Decoder from scratch.
 
 ## Stages
 * Stage-1: data preparation, attention mechanism and understanding the LLM architecture.  
@@ -13,9 +13,9 @@
 *  right so you need data the parameters of the LLM are optimized and then we have some output.
 
 ## Tokenization Steps
-1. Split the input text into individual words and sub tokens 
+1. Split the input text into individual words and sub-tokens 
 2. Convert these tokens into token IDs
-3. Encode these token ID into Vector representation (Vector embedding)
+3. Encode these token IDs into Vector representation (Vector embedding)
 
 ***
 
@@ -160,3 +160,4 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
