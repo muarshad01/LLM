@@ -16,7 +16,7 @@
 
 * Theyare designed for text related applications, such as understanding, generating, and responding to human-like text. 
 
-* So, if anyone asks you what an LLM is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
+* So, if anyone asks you what an LLM is tell them that they are __deep neural networks (DNN) trained on massive amount of data__, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
 
 ***
 
@@ -69,6 +69,7 @@
 * What exactly is __positional encoding__?
 
 ***
+
 
 
 
