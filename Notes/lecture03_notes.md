@@ -4,8 +4,8 @@
 
 * __Token__: You can think of one-token as equal to one-word. There is a bit of detailing here ...discussed later.
 
-* __Task__: Word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---". The next word is not known and ChatGPT then predicts, or LLM then predicts, this word as let's say "forest".
-* __Next-Token-Prediction__
+* __Task (Next-Token-Prediction)__: Word-completion, which means you are given a set-of-words, let's say you are given this sentence the "lion is in the ---". The next word is not known and ChatGPT then predicts, or LLM then predicts, this word as let's say "forest".
+* 
 
 * __Observation__: If you train the LLM for this simple-task it turns out that it can do a wide range of other-tasks as well. For example, picking the right answer MCQs steadily increases as the underlying language model improves. Other examples, language translation, answering MCQs, summarizing a text, sentiment detection, etc. 
 
@@ -38,5 +38,6 @@ P(w1,w2,...,wn)=P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Second is called fine-tuning for classification tasks.
 
 ***
+
 
 
