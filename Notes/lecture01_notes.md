@@ -6,7 +6,7 @@
 ***
 
 #### YouTube Channel
-* At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists now on ML on DL.
+* At [Vizura](https://www.youtube.com/@vizuara), which is our YouTube channel, we have made several playlists available on ML on DL.
 * The main approach or the philosophy, which we really follow when we teach is to __teach everything from the basics__, i.e., not to assume anything.
 * Teach you the __nuts and bolts__ of every single concept. 
 
@@ -36,6 +36,7 @@
 *  [LangChain](https://www.langchain.com/), is a tool which helps you build LLM apps, but again it's not useful.
 
 ***
+
 
 
 
