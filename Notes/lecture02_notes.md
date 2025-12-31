@@ -1,12 +1,14 @@
 ## Building LLMs from Scratch
 
-## Six major aspects 
-1. What exactly is a LLM?
+#### Six major aspects 
+1. What exactly is an LLM?
 2. What does __Large__ mean in the LLM terminology?
 3. What is difference between modern LLMs and earlier NLP models?
-4. What's the secret-sauce behind LLMs? What's really makes them so good?
+4. What's the secret-sauce behind LLMs? What really makes them so good?
 5. LLM, GenAI, DL, ML, AI
 6. Applications of LLMs?
+
+***
 
 #### 1. What are Large Language Models (LLMs)
 * [ChatGPT](https://chatgpt.com/)
@@ -17,19 +19,27 @@
 * ChatGPT the demonstration, which I just showed you is an LLM. However, many people don't know about or they don't think about LLMs is that at the core of LLM they are just NN, which are designed to do these
 tasks. So, if anyone asks you what an LLM is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
 
+***
+
 #### 2. What does Large mean in the LLM terminology?
 * By model size, I mean the number-of-parameters in the model.
 * LLM typically have __Billions of Parameters__.
 * That's the reason why the first-part of the terminology __Large__.
 * Why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
+
+***
  
 #### 3. LLMs versus earlier NLP Models
 * NLP models were designed for very specific tasks. For example, there is one particular NLP model, which might be designed for __language translation__. There might be one specific NLP model, which might be for __sentiment analysis__. 
 * LLMs on the other hand can do a wide range of NLP tasks.
 
-#### 4. What's the Secret-Sauce behind LLMs? What's really makes them so good?
+***
+
+#### 4. What's the Secret-Sauce behind LLMs? What really makes them so good?
 * For LLMs, the Secret Sauce is __Transformer__ architecture.
 * [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762)
+
+***
 
 #### 5. LLM, GenAI, DL, ML, AI
 * AI > ML > DL > LLM 
@@ -42,6 +52,8 @@ tasks. So, if anyone asks you what an LLM is tell them that they are deep neural
   * Example, __predict handwritten-digit classification__. If you train a neural network (NN). I've given this neural network (NN) a bunch-of-digits to learn and the task of this neural network (NN) is whenever I give it a new digit it should identify what digit is it now?
 *  __LLMs__ falls under DL llms why because deep learning and they only deal with text.
 *  __GenAI = LLM + DL__ you can think of as a mixture of LLM plus deep learning, why because GenAI also deals with other modalities like image, sound, video, etc.
+
+***
 
 #### 6. Applications of LLMS?
 1. __Content Creation__: Example, write a poem about solar system
