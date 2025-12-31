@@ -1,8 +1,7 @@
-#### [Book: Build a Large Language Model (From Scratch) by Sebastian Raschka - Amazon](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?adgrpid=186568885419&dib=eyJ2IjoiMSJ9.4aksU58BPWhOPrzkY0x_-vygt-ueYbeZO3NZCcItOJhwUkUI29dKBu191StjAX_6kFIlMZDQaXqiikWYV4yCxJyCN-1fORiR8HXdYk1pnOy5pMuFLCLhD5oeLTs9Ckz_Gnoe1ZnkxkuYsSetETUZjciRj-PrGLoJVEoGdjR8eqwYDRrYz3VpxBUSY6KP-X8vtpcM45C3qypNE1aMCVFd5L0U8ZmbFp0Tl28wzFU-cxg.P3ksogW4khJ39syyd4KIpkFJva8xg6NeQUZtKnKBgbM&dib_tag=se&hvadid=779542975090&hvdev=c&hvexpln=0&hvlocphy=9008257&hvnetw=g&hvocijid=12364010510054860427--&hvqmt=b&hvrand=12364010510054860427&hvtargid=kwd-2192499717731&hydadcr=16405_13751106_11567&keywords=build+an+llm+from+scratch&mcid=c7100230a49531d7af7d4236df7c0991&qid=1767193721&sr=8-1)
+#### Book
+* [Book: Build a Large Language Model (From Scratch) by Sebastian Raschka - Amazon](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?adgrpid=186568885419&dib=eyJ2IjoiMSJ9.4aksU58BPWhOPrzkY0x_-vygt-ueYbeZO3NZCcItOJhwUkUI29dKBu191StjAX_6kFIlMZDQaXqiikWYV4yCxJyCN-1fORiR8HXdYk1pnOy5pMuFLCLhD5oeLTs9Ckz_Gnoe1ZnkxkuYsSetETUZjciRj-PrGLoJVEoGdjR8eqwYDRrYz3VpxBUSY6KP-X8vtpcM45C3qypNE1aMCVFd5L0U8ZmbFp0Tl28wzFU-cxg.P3ksogW4khJ39syyd4KIpkFJva8xg6NeQUZtKnKBgbM&dib_tag=se&hvadid=779542975090&hvdev=c&hvexpln=0&hvlocphy=9008257&hvnetw=g&hvocijid=12364010510054860427--&hvqmt=b&hvrand=12364010510054860427&hvtargid=kwd-2192499717731&hydadcr=16405_13751106_11567&keywords=build+an+llm+from+scratch&mcid=c7100230a49531d7af7d4236df7c0991&qid=1767193721&sr=8-1)
 
-***
-
-#### [GitHub Link for Book](https://github.com/rasbt/LLMs-from-scratch)
+* [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch)
 
 ***
 
