@@ -20,11 +20,11 @@
 
 ***
 
-#### 2. What does Large mean in the LLM terminology?
-* By model size, I mean the number-of-parameters in the model.
-* LLM typically have __Billions of Parameters__.
-* That's the reason why the first-part of the terminology __Large__.
-* Why are they called __language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
+#### 2. What does LARGE mean in the LLM terminology?
+* By __Model SIZE__, I mean the __Number of Parameters__ in the model.
+* LLMs typically have __Billions of Parameters__.
+* That's the reason, why the first-part of the terminology __Large__.
+* Why are they called __Language models__? That's pretty clear, if you remember the example, which I showed you over here, these models only deal with language and they do not deal with other modalities like image or video. __Question answering, translation, sentiment analysis, and so many more tasks.__
 
 ***
  
@@ -35,7 +35,7 @@
 ***
 
 #### 4. What's the Secret-Sauce behind LLMs? What really makes them so good?
-* For LLMs, the Secret Sauce is __Transformer__ architecture.
+* For LLMs, the Secret Sauce is __TRANSFORMER__ architecture.
 * [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762)
 
 ***
@@ -43,33 +43,31 @@
 #### 5. LLM, GenAI, DL, ML, AI
 * AI > ML > DL > LLM 
 
-* __AI__ is the broadest umbrella. Any machine, which is remotely behaves like humans or it has some sort of intelligence, comes under the bucket of AI.
+* __AI__ is the broadest umbrella. Any machine, which remotely behaves like humans or it has some sort of intelligence, comes under the bucket of AI.
 * What's the difference between AI and ML?
-  * Example, __rule-based ChatBot__, is an example of AI because it covers intelligence. Rule-based intelligence it's not learning-based on your responses.
-* __ML__ involves neural networks (NN) plus it involves things, which are not neural networks, like __Decision Trees (DTs)__.
+  * Example, __rule-based ChatBot__, is an example of AI because it covers intelligence.
+  * Rule-based intelligence it's not learning-based on your responses.
+* __ML__ involves neural networks (NN) plus it other involves things, which are not neural networks (NN), like __Decision Trees (DTs)__.
 * __DL__ usually ONLY involves neural networks (NN).
   * Example, __predict handwritten-digit classification__. If you train a neural network (NN). I've given this neural network (NN) a bunch-of-digits to learn and the task of this neural network (NN) is whenever I give it a new digit it should identify what digit is it now?
-*  __LLMs__ falls under DL llms why because deep learning and they only deal with text.
+*  __LLMs__ falls under DL.
+  *  LMS only deal with text.
 *  __GenAI = LLM + DL__ you can think of as a mixture of LLM plus deep learning, why because GenAI also deals with other modalities like image, sound, video, etc.
 
 ***
 
 #### 6. Applications of LLMS?
-1. __Content Creation__: Example, write a poem about solar system
-2. __AI ChatBots / Virtual Assistant__: Examples, Airlines, Banks (How to open an account), hotel/restaurant reservation desks, Customer care representative, Movies show, all of them need ChatBots.
-3. __Machine translation__: Means we can of course translate-the-text to any language.
-4. __Novel Text Generation__: writing books, writing media articles, news articles, etc.
-5. __Sentiment analysis__: you can give a big bunch of paragraph and ask the llm to identify whether what's the sentiment here this might be useful for hate speech detection.
+1. __Content Creation__: For example, write a poem about solar system.
+2. __AI ChatBots / Virtual Assistant__: Examples, Airlines, Banks (How to open an account), hotel/restaurant reservation desks, Customer Care (Cc) representatives, Movies show, all of them need ChatBots.
+3. __Machine Translation__: Means we can translate-the-text to any language.
+4. __Novel Text Generation__: Writing books, media articles, news articles, etc.
+5. __Sentiment Analysis__: You can give a big bunch-of-paragraph and ask the LLM to identify what's the sentiment here, which might be useful for hate-speech detection.
 
 ***
 
 #### In Future Lectures...
 * How to write the Transformer code?
-* How key-query-value works?
+* How key-query-value (K, Q, V) works?
 * What exactly is __positional encoding__?
 
 ***
-
-
-
-
