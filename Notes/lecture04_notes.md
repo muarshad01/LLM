@@ -1,8 +1,10 @@
-## Lecture 4: Basic Intro to Transformers
+#### Lecture 4: Basic Intro to Transformers
 1. __Pre-training__: Training on a large-diverse dataset (Unlabeld data)
 2. __Fine-tuning__: Refinement-by-training on a narrower-dataset, specific to a particular task or domain (Labeled data)
 
-## Transformer Architecture
+***
+
+#### Transformer Architecture
 
 |||
 |---|---|
@@ -10,6 +12,8 @@
 
 * It's basically DNN architecture
 * Objective: Machine translation, for translating English texts into German and French. 
+
+***
 
 #### Stages of Transformer
 1. __Input text__: which is to be translated. "This is an example".
@@ -108,6 +112,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
