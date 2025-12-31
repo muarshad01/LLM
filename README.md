@@ -39,7 +39,7 @@ $ uv run jupyter lab
 |---|---|---|
 | [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| Dec 31, 2025|
 | [Lecture 02 -- LLM Basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md) | Dec 31, 2025 |
-| [Lecture 03 -- Pretraining LLMs vs Finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | Aug 09, 2025 |
+| [Lecture 03 -- Pretraining LLMs vs Finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | Dec 31, 2025 |
 | [Lecture 04 -- What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) |  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md) | Aug 11, 2025|
 | [Lecture 05 -- How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | Aug 13, 2025 |
 | [Lecture 06 -- Stages of building an LLM from Scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | Aug 14, 2025 |
