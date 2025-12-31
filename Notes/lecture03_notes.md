@@ -17,6 +17,8 @@
 * Bank ChatBot: ...
 * Legal Al-Tool for Attorneys: ...
 
+***
+
 #### Pre-trained (also called Base/Foundational) models
 * Pre-trained models are trained on large diverse-datasets ((unlabeled dataset) using unsupervised trainging.
 * In Fine-tuning, the pre-trained LLM model, we use labeled dataset.
@@ -26,6 +28,8 @@
 #### Unlabeled dataset versus Labeled dataset
 * Pre-training is done on unlabelled text dataset. It's an unsupervised learning task and it's also called __Autoregressive (AR)__.
 * Fine-tuning is mostly done on labelled text dataset. 
+
+***
 
 #### Auto-regressive (AR) Language Model
 * An autoregressive language model is a type of model that __predicts the next-word (or token)__ in a sequence based on the previous words. It generates text one-step at a time, where each new word depends on the ones that came before it.
@@ -41,3 +45,4 @@ P(w1,w2,...,wn) = P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 * Second category is called fine-tuning for classification tasks.
 
 ***
+
