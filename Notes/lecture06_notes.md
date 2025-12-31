@@ -36,7 +36,7 @@
 * Gives the LLM selective-access to the whole-input-sequence when generating output one-word at a time.
 
 #### Types
-1.        Multi-Head Attention
+1. Multi-Head Attention
 2. Masked Multi-Head Attention
 
 ***
@@ -99,3 +99,4 @@
 * I'll start sharing sharing Jupiter notebooks from next time onward.
 
 ***
+
