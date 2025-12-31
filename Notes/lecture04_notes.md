@@ -5,13 +5,12 @@
 ***
 
 #### Transformer Architecture
-
-|| Paper|
+| Architecture | Paper|
 |---|---|
 | Transformer | [2017 - Attention is all you need](https://arxiv.org/abs/1706.03762)|
 
 * It's basically DNN architecture
-* Objective: Machine translation, for translating English texts into German and French. 
+* __Objective__: Machine translation, for translating English texts into German and French. 
 
 ***
 
@@ -112,6 +111,7 @@
 *  ViT show a generally weaker-bias. So, basically you think of only CNN when you think of image classification right
 
 ***
+
 
 
 
