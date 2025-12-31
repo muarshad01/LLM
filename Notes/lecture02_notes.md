@@ -12,12 +12,11 @@
 
 #### 1. What are Large Language Models (LLMs)
 * [ChatGPT](https://chatgpt.com/) is an LLM.
-* LLM is just a neural network (NN), which is designed to __Understand, Generate and Respond to human-like text.__
+* LLM is just a neural network (NN) at its core, which is designed to __Understand, Generate and Respond to human-like text.__
 
 * Theyare designed for text related applications, such as understanding, generating, and responding to human-like text. 
 
-* ChatGPT the demonstration, which I just showed you is an LLM. However, many people don't know about or they don't think about LLMs is that at the core of LLM they are just NN, which are designed to do these
-tasks. So, if anyone asks you what an LLM is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
+* So, if anyone asks you what an LLM is tell them that they are deep neural networks (DNN) trained on massive amount of data, which help to do specific tasks such as understanding, generating and responding to human like text, and in many cases they also respond like humans.
 
 ***
 
@@ -70,5 +69,6 @@ tasks. So, if anyone asks you what an LLM is tell them that they are deep neural
 * What exactly is __positional encoding__?
 
 ***
+
 
 
