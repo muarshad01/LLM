@@ -41,8 +41,7 @@ P(w1,w2,...,wn) = P(w1)⋅P(w2∣w1)⋅P(w3∣w1,w2)⋯P(wn∣w1,...,wn−1)
 ***
 
 #### Fine-tuning Types
-* First category, it's called __instruction fine-tuning__.
+* First category it called __instruction fine-tuning__.
 * Second category is called fine-tuning for classification tasks.
 
 ***
-
