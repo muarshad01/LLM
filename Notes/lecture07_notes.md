@@ -139,17 +139,15 @@ just take the uh tokens you'll take the tokens which are in this pre-process lis
 * 
 ***
 
-## [45--50]
+#### [45--50]
 
-* tokens act as markers signaling the start or end of a particular
+* tokens act as markers signaling the start-or-end of a particular
 
-## [50-55]
-
-* Quick Check we'll also print the last five
+#### [50-55]
 
 *** 
 
-## [55-60]
+#### [55-60]
 
 ***
 
@@ -160,4 +158,5 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
