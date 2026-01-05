@@ -109,6 +109,9 @@ by one so let me explain to you how this logic works okay so what do we exactly 
 here let's say if uh let's say if my input is 1 2 3 and 4 let's say say if my
 14:59
 input is this I want my output array let's say if this is my input array X I
+
+***
+
 15:05
 want my output array to be looking something like 2 3 4 and
 15:13
@@ -202,6 +205,9 @@ the context will be just the first token ID which is 290 and the desired will be
 the next token ID which is 4920 awesome when I is equal to 2 then
 19:55
 the context will be the first two tokens which is 290 and 4920 and the desired
+
+***
+
 20:01
 will be the next token which is 2241 if I is equal to 3 uh then the
 20:08
@@ -407,6 +413,9 @@ sliding window because uh look at this blue look at the blue window and the red 
 here so the blue is the input and then you slide it by one row slide it by one
 30:46
 world and that's the output so each input and output pair is just sliding so you slide the input and then you get the
+
+***
+
 30:53
 output pair uh and then finally what we'll be doing is that we'll return the total
 31:00
@@ -582,6 +591,9 @@ loader this is very important because this is the one this function will impleme
 parallel processing which we will need uh and that is governed by the batch size but more than that what this
 39:58
 function will do is that it will actually create uh it will help us create the input output uh data pairs
+
+***
+
 40:06
 from the data set which we defined earlier awesome so let's see the arguments which this function takes it
 40:13
@@ -771,6 +783,10 @@ Effect of larger batch size
 size uh so let's actually take a brief look at that essentially uh what happens
 49:54
 when the batch size is more than one so the batch size so here you see I'm creating a data loader with a batch size
+
+***
+
+
 50:00
 equal to 8 and then I'm running this so see the input tensor and the output tensor and here I'm also incre
 50:07
@@ -880,5 +896,6 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
 
