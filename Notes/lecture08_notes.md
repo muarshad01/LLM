@@ -55,6 +55,40 @@ ChatGPT, GPT-2, GPT-3
 
 ***
 
+* https://github.com/openai/tiktoken
+
+***
+
+#### 2.5 BytePair encoding
+
+```python
+# pip install tiktoken
+
+import importlib
+import tiktoken
+
+print("tiktoken version:", importlib.metadata.version("tiktoken"))
+```
+
+```python
+tokenizer = tiktoken.get_encoding("gpt2")
+```
+
+```python
+text = (
+    "Hello, do you like tea? <|endoftext|> In the sunlit terraces"
+     "of someunknownPlace."
+)
+
+integers = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
+
+print(integers)
+
+strings = tokenizer.decode(integers)
+
+print(strings)
+```
+
 * stopping criteria can be if the token count becomes a certain number then you stop or just the number of iterations can be the stop uh
 
 * gpt2 or gpt3 so bite pair
@@ -65,3 +99,4 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
+
