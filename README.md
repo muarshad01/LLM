@@ -48,12 +48,14 @@ $ uv run jupyter lab
 | [Lecture 04 -- What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) |  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md) | 01/01/2026 |
 | [Lecture 05 -- How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | 01/01/2026 |
 | [Lecture 06 -- Stages of building an LLM from Scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | 01/01/2026 |
+|---|---|
 | [Lecture 07 -- Code an LLM Tokenizer from Scratch in Python](https://www.youtube.com/watch?v=rsy5Ragmso8) |  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md) | 05/01/2026 |
 | [Lecture 08 -- The GPT Tokenizer: Byte Pair Encoding (BPE)](https://www.youtube.com/watch?v=fKd8s29e-l4) |  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md) | 05/01/2026 |
 | [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | |
 |---|---|
 | [Lecture 10 -- What are token embeddings?](https://www.youtube.com/watch?v=ghCSGRgVB_o) |  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md) | |
 | [Lecture 11 -- The importance of Positional Embeddings](https://www.youtube.com/watch?v=ufrPLpKnapU) |  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md) | |
+|---|---|
 | [Lecture 12 -- The entire Data Preprocessing Pipeline of LLMs](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
 | [Lecture 13 -- Introduction to the Attention Mechanism in LLMs](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | |
 | [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights)](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | |
