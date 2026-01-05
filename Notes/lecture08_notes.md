@@ -1,25 +1,21 @@
-* bite pair encoding
-* behind modern algorithms such as gpt2
-gpt3 Etc the tokenizer which these modern llms use is usually bite pair
-encoding
-* 
-* Google collab
-* every word of the token was arranged in an ascending order and then
-* cover a much more sophisticated
-* used to train large language models such as gpt2 gpt3
-* essentially three types of tokenization algorithms the first is the word based tokenizer U the
-* second type is the subword based tokenizer and the third
-* type is the character based tokenize let me walk you through these step by step in the word based tokenizer what we
-* first uh the main problem is what do you do with Words which are not present in the vocabulary so let's say if you have
+#### Algorithms
+* Word based
+* Sub-word based
+* Character based
+
+#### Bite Pair Encoding (BPE)
+ChatGPT, GPT-2, GPT-3
 
 ***
 
+#### [5 -- 10]
+
 vocabulary is just a dictionary with a collection of tokens
-5:33
+
 arranged in ascending order and every token corresponds to a token ID great now another problem with word based tokenization scheme is that uh 
 
-* out of vocabulary problem it's also computationally and memory efficient because the vocabulary size is 
-
+* out of vocabulary (OOV) problem it's also computationally and memory efficient because the vocabulary size is 
+* same meaning words [boy, boys]
 ***
 
 * subword based tokenization and the bite pair encoding which we are going to see is an example
@@ -124,3 +120,4 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
+
