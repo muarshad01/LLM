@@ -8,17 +8,20 @@ ChatGPT, GPT-2, GPT-3
 
 ***
 
-#### [5 -- 10]
+#### Word-based Tokenization
+* __Out of Vocabulary (OOV)__ problem.
+* Different meaning of similar words [boy, boys]
 
-vocabulary is just a dictionary with a collection of tokens
+#### Character-based tokenizatin
+* Character-based tokenizatin solves OOV Problem.
+* Howerever, tokenization sequence is very large.
 
-arranged in ascending order and every token corresponds to a token ID great now another problem with word based tokenization scheme is that uh 
+#### Subword-based tokenizatin
+* Subword-based tokenization and the bite pair encoding (BPE),  which we are going to see is an example
 
-* out of vocabulary (OOV) problem it's also computationally and memory efficient because the vocabulary size is 
-* same meaning words [boy, boys]
-***
 
-* subword based tokenization and the bite pair encoding which we are going to see is an example
+* it's also computationally and memory efficient because the vocabulary size is 
+
 
 
 * frequently used word into smaller subwords so if there are some words which are coming frequently you should retain those words as it is right so then it retains this from the word tokenization then the rule two is that if there are some words which are very rare which are not occurring too many times then you split these words into smaller meaningful subwords this is extremely important this second part basically says that if there are some words which
@@ -120,4 +123,5 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
+
 
