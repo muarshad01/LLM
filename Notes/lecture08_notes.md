@@ -1,6 +1,6 @@
 #### Algorithms
 * Word based
-* Sub-word based
+* Subword based
 * Character based
 
 #### Bite Pair Encoding (BPE)
@@ -32,30 +32,20 @@ ChatGPT, GPT-2, GPT-3
 ***
 
 #### Example
-aaa
+* Original data: aaabdaaabac
+* 'aa' pair
+* Compressed data: ZabdZabac
+* 'ab'
+* Compressed data: ZYdZYac
+* Compressed data: WdWac
+
+***
+
+#### How the BPE algorith is used for LLMs?
+* BPE ensures that the most common words in the vocabulary are represented as a single token, while rare words are broken down into two or more subord tokens.
+*
 
 
-****
-
-* another variable so this compression actually stops here you can go one more layer Deeper by further com replacing the zy with another variable which is let's say w so then it will be WD w a and then you
-will stop so you will compress it further like this so you see the original data has been compressed to
-this right uh to this compressed version U using the bite pair algorithm so the
-algorithm itself is pretty simple you scan the data from left to right you identify the bite pairs which occur the most and then you replace them with a bite which does not exist in the data and you do this iteratively until you
-* reach a stage where no bite pair occurs more than once that's it that is the simple bite pair encoding
-algorithm now you might think okay what has that got to do with large language models right I understand this algorithm BPE for Large Language Models
-and I understand how it compresses a given data sequence but what has that
-got to do with large language models well it turns out that the we slightly
-tweak the bite pair encoding algorithm and use this to convert our entire
-sentence into subwords which will be very useful for us and I'll show you exactly how I'm going to do that so the
-* bite pair encoding for llm ensures that the most common words in the vocabulary
-are represented as a single token remember rule number one and rare words
-are broken down into two or more subord tokens this is exactly the same rules which we had looked at the rule number
-one and rule number two so rule number one is that most commonly used words
-should not be split and second is that that rare words should be split into meaningful subwords now let's see how uh
-* how it's related to The Bite pair encoding algorithm which we saw and we will be looking at a practical example
-* called as Data Corpus which is this so we have
-* that's it similarly if we were to use the Character level tokenization then the tokens will be individual characters
-* pre-processing step
 
 * old slw older becomes older slw finest becomes finest slw and lowest becomes lowest /w now remember here that if we use the word based24:59 tokenization uh there is no meaning which is captured so the fact that old is the common root between old and older is not captured number one EST is the
 common root between finest and lowest that's not captured so word based
@@ -117,6 +107,3 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
-
-
-
