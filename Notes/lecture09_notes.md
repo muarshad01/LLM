@@ -1,23 +1,41 @@
 #### Create Input-Target Pairs
-* bite pair encoding and uh we saw
-* subword tokenization so we saw
-* difference between word based subword based and character based tokenization
-* and we looked in detail how GPT models such as GPT 2 3 and 4 use the bite pair encoding algorithm for
-* 
-we come to something called Vector embeddings
-* creating input Target pairs essentially input output pairs if you look at other
-*  auto regressive model
-* also called a self-supervised learning or you can think of it as unsupervised
-* code which utilizes the sentence
-structure itself and breaks down the sentence into input and the output so this is also an example of unsupervised
-learning and it's also called Auto regressive I hope you have understood these two
-concepts so in pre-training we always do unsupervised learning because the sentence structure is exploited to
-create input output pairs or
-input Target pairs so I hope you have
-* so in this section we are going
-* to implement a data loader that fetches the input Target pairs using a sliding window approach so there are two parts of this sentence which might be confusing to you what is data loader
+* Creating input-target pairs essentially Or input-output pairs 
+* Auto Regressive (AR) model also called self-supervised learning or unsupervised learning
 
-***
+#### Creating Input-Target Pairs
+* DataLoader fetches the input-target pairs using a sliding-window approach. 
+
+
+#### 2.6 Data sampling with a sliding window
+
+```python
+with open("the-verdict.txt", "r", encoding="utf-8") as f:
+    raw_text = f.read()
+
+enc_text = tokenizer.encode(raw_text)
+print(len(enc_text))
+```
+
+```python
+enc_sample = enc_text[50:]
+```
+
+```python
+for i in range(1, context_size+1):
+    context = enc_sample[:i]
+    desired = enc_sample[i]
+
+    print(context, "---->", desired)
+```
+
+```python
+for i in range(1, context_size+1):
+    context = enc_sample[:i]
+    desired = enc_sample[i]
+
+    print(tokenizer.decode(context), "---->", tokenizer.decode([desired]))
+```
+
 
 * set which
 10:19
@@ -896,6 +914,7 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
 
 
