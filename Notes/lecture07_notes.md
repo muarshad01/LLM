@@ -22,12 +22,14 @@
 
 ***
 
-#### Tokenization Steps
+## Tokenization Steps
 1. Split the input text into individual word and subword tokens
 2. Convert these tokens into token IDs
 3. Encode these token IDs into Vector representation
 
 ***
+
+#### 1. Split the input text into individual word and subword tokens
 
 ```python
 with open("the-verdict.txt", "r", encoding="utf-8") as f:
@@ -76,13 +78,36 @@ print(preprocessed[:30])
 
 ***
 
-## [25 -- 30]
+```python
+preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', raw_text)
+preprocessed = [item.strip() for item in preprocessed if item.strip()]
+print(preprocessed[:30])
+```
 
-* vocabulary is constructed vocabulary is just a list of tokens which is sorted in alphabetical Manner and then what we do is that each unique token is mapped
-to a unique integer which is called as the token ID.
-* so it's as simple as that you map these tokens in alphabetical order and then to each token you assign a number.
+#### 2. Convert these tokens into token IDs
 
-* talk loaned edit worthon short story and assigned it to a python variable called pre-processed so remember pre-processed
+1. Vocabulary is constructed, which is just a list-of-tokens sorted in alphabetical-order.
+2. to each token you assign a unique integer, which is called as the token ID.
+
+```python
+all_words = sorted(set(preprocessed))
+vocab_size = len(all_words)
+
+print(vocab_size)
+```
+
+```python
+vocab = {token:integer for integer,token in enumerate(all_words)}
+```
+
+```python
+for i, item in enumerate(vocab.items()):
+    print(item)
+    if i >= 50:
+        break
+```
+
+
 
 ***
 
@@ -133,6 +158,7 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
 
