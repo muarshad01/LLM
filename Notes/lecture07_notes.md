@@ -76,13 +76,13 @@ print(preprocessed[:30])
 
 * Next lecture it's called bite-pair encoding
 
-***
-
 ```python
 preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', raw_text)
 preprocessed = [item.strip() for item in preprocessed if item.strip()]
 print(preprocessed[:30])
 ```
+
+***
 
 #### 2. Convert these tokens into token IDs
 
@@ -158,6 +158,7 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
 
