@@ -30,6 +30,14 @@ $ uv pip install packages
 $ uv run jupyter lab
 ```
 
+```unix
+$ cd ~/Desktop/LLMs-from-scratch
+$ source .venv/bin/activate
+$ uv run jupyter lab
+```
+
+
+
 ***
 
 #### Dr. Raj Dandekar
