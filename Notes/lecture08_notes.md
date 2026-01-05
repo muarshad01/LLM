@@ -19,29 +19,23 @@ ChatGPT, GPT-2, GPT-3
 #### Subword-based tokenizatin
 * Subword-based tokenization and the bite pair encoding (BPE),  which we are going to see is an example
 
+* __Rule-1__: Don't split frequently used word into smaller subwords.
+* __Rule-2__: Split the rare words into smaller, meaningful subwords.
 
-* it's also computationally and memory efficient because the vocabulary size is 
+* The subword splitting helps the model learn that different words with the same root word as "token" like "tokens" and "tokenizing" are similar in meaning.
+* It also helps the model learn that `tokenization` and `modernization` are made up off different roots but have the same suffix "ization" and are used in same syntactic situations.
 
 
-
-* frequently used word into smaller subwords so if there are some words which are coming frequently you should retain those words as it is right so then it retains this from the word tokenization then the rule two is that if there are some words which are very rare which are not occurring too many times then you split these words into smaller meaningful subwords this is extremely important this second part basically says that if there are some words which
-12:59
-* see why it is a mix between word tokenizer and character tokenizer the first rule implies that if the words are occurring many times you return it as a word so this is taken this is a feature taken from the word tokenizer
-the second rule implies that if the word is rare you can go on splitting it into further subwords and if needed you can drop down to the Character level we don't always drop down to the character level we even stay in the middle but
-*  divide this word boys into smaller meaningful subwords so boys is divided
-* this is what is basically
-* subword splitting helps the model learn that different words with the same root word such as for example token tokens
-
+#### Byte Pair Encoder (BPE) Algorithm
+* Most common pair of consective byptes of data is replaced with a byte that does not occur in data.
+  
 ***
 
-* and tokenizing all of these three words essentially have the same root word right token so subord splitting helps the model understand that these different words essentially have the same root word and they are similar in meaning this meaning is lost in word based tokenization and even character based tokenization that is number one the second advantage of subord tokenization is that it also helps the model learn that let's say tokenization and modernization are made up of different root words token tokenize and modernize but have the same suffix isation and are used in same syntactic
-* common suffix which appears in both of these words all of these are advantages of breaking down one word into subwords this is what is majorly done in subword tokenization so why are we learning about subword tokenization and what's the relation between bite pair encoding Byte Pair Encoder (BPE) Algorithm
-* modern llms like gpt2 and gpt3 employ bite pair encoding so let us look at the bit of a history
-* it is basically a data compression algorithm uh and what is done is that we
-* so we find these pairs which occur the most frequently and then we replace them with a bite which does not exist in the
-* this is a compressed data compared
+#### Example
+aaa
 
-***
+
+****
 
 * another variable so this compression actually stops here you can go one more layer Deeper by further com replacing the zy with another variable which is let's say w so then it will be WD w a and then you
 will stop so you will compress it further like this so you see the original data has been compressed to
@@ -123,5 +117,6 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
+
 
 
