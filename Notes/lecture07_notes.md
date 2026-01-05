@@ -1,24 +1,14 @@
-## Tokenization 
-* Data preparation and sampling
-* Pre-training 
-* We will build a Tokenizer fully from scratch.
-* We will also build an Encoder-and-Decoder from scratch.
+#### Stages
+1. Data preparation and sampling, attention mechanism, and nderstanding the LLM architecture.
+2. Training Loop, model evaluation, and loading pre-trained weights.
+3. Fine-tuning, training on smaller very specific datasets.
 
-## Stages
+***
 
-#### Stage-1
-1. Data preparation and sampling
-2. Attention mechanism
-3. understanding the LLM architecture.  
-
-#### Stage-2
-* involves pre-training and building the foundational model so that involves the training Loop, model evaluation, and loading pre-trained weights.
-
-#### Stage-3
-* involves fine-tuning, training on smaller very specific datasets.
-
-* LLMs are just NN.
-*  right so you need data the parameters of the LLM are optimized and then we have some output.
+#### Data Preparation and Sampling
+* Pre-training
+* We'll build a Tokenizer fully from scratch.
+* We'll build an Encoder and Decoder from scratch.
 
 ***
 
