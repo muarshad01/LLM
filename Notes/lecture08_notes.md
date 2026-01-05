@@ -45,32 +45,13 @@ ChatGPT, GPT-2, GPT-3
 * BPE ensures that the most common words in the vocabulary are represented as a single token, while rare words are broken down into two or more subord tokens.
 *
 
+* `{"old":7, "older":3, "finest":9, "lowest":4}`
+* Perprocessing: We need to add end token `</w>` at the end of each word.
+* `{"old</w>":7, "older</w>":3, "finest</w>":9, "lowest</w>":4}`
+* old is the common root between old and older
+* est is the common root between finest and lowest
 
-
-* old slw older becomes older slw finest becomes finest slw and lowest becomes lowest /w now remember here that if we use the word based24:59 tokenization uh there is no meaning which is captured so the fact that old is the common root between old and older is not captured number one EST is the
-common root between finest and lowest that's not captured so word based
-tokenization character based tokenization have so many problems because they don't capture these meanings or root words and towards the
-end of this section we'll see how subword based tokenization using the bite pair encoding algorithm actually
-
-***
-
-* characters um and then make a frequency table so what we are going to do is that we are going to take all these words old older finest and lowest so old appears seven times in the data set older appears three times in the data set these are the frequencies finest appears nine times in the data set and lowest essentially appears four times in the data set so what we are going to do right now is we are going to split these
-* words into individual characters so then here is the table which I have made remember slw is also there uh so old so
-* all words have/ W right and totally how many words do we have 7 + 3 10 + 9 19+ 4
-* frequency table list so here you can see
-* A because AA appeared the most so we looked at that
-* most frequent pairing we will merge them
-
-***
-
-* the most frequent pairing right so it so you the way to do it is look at the first character which appears the most so e is that character which appears 16 times right so if you want to look at the pairing which appears most it most probably starts with e so it turns out if you look at these words e and s is the pairing which appears the most number of times so e and s here appears nine times in finest and E and S appears four times in lowest so e and s is that pairing which appears 13 number of times right so uh most common bite pair starting with e is e and s so what we'll
-
-* now be doing is that we'll be going through the data set again uh and we'll be merging these two tokens e and s so now e s will be one token and that's why it's called subword es will be one token so now let me show you my token table again everything else is the same up token number 12 but look at this token number 13 which has been added in token number 13 we have added one more token which is
-es because it's the most frequent pairing and Es appears 13 times but remember when we add es we have to subtract something from E and we have to subtract from s because now uh ES has been included so we subtract 13 from the e count so now the the number of time only e appears is three the number of time only s appears is zero this is very interesting to know so the number of time only s appears is zero so s it seems always appears with e so es is a subword see this we would not have discovered if we just did character level tokenization or uh Word level it seems that e and s always so s only
-
-* comes with e in this data set we have already obtained our first site so now this is my new uh this is my new token library and this is my additional token and now we are going to actually continuously keep on doing this process to find uh frequency or to find tokens which appear the most number of times so in the previous iteration we saw that e and s was the bite pair right which occurred most number of times ands it appeared 13 times but now es is a separate token for us so now using that
-
-*  it's always followed by slw which means the word ends after estd so now our algorithm or the tokenizer can differentiate between estimate and highest because in estimate EST does not end with a /w
+* differentiate between estimate and highest because in estimate EST does not end with a /w
 
 *  so now if you look at the Tok which we have earlier we had all these 12 tokens but now we created es then we merged it to EST and finally we created this estw so now these two tokens are actually not needed es and EST so now let's look at another other bite pairs which occur a lot so it turns out that o and L is another bite pair which occurs 10 times because it's present in old and older so what we'll do is that we'll create one more we'll merge these two and create one more token for o and L it appears 10 times and we'll subtract that count 10 from the O and L so o individually or with some other character appears 14 times so we subtract 10 because now we have created one more token for o which appears 10 times similarly L appears 14 times overall and we subtract 10 from it because L comes with o 10 times right and now what we do is that o l is one token so now we see that o l and D has appeared 10 times so this bite pair has appear 10 times so we merge this bite pair so then o d now becomes another token which appears 10 times so you see the meaning which our bite pair encoder has captured we have constructed one token which is old we have another token which is estw these tokens are subwords so they are neither full words nor characters they are subwords but they encode the root representation so old is one token and this actually tells us that uh old is the root word which comes in Old it which comes in old as well as older and our BP algorithm has actually captured that perfectly that's awesome right all these root words were not captured by just the word uh word em or
 
@@ -107,3 +88,4 @@ the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
 
 ***
+
