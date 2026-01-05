@@ -5,19 +5,37 @@
 * We will also build an Encoder-and-Decoder from scratch.
 
 ## Stages
-* Stage-1: data preparation, attention mechanism and understanding the LLM architecture.  
-* Stage-2: involves pre-training and building the foundational model so that involves the training Loop, model evaluation, and loading pre-trained weights.
-* Stage-3: involves fine-tuning, training on smaller very specific datasets.
+
+#### Stage-1
+1. Data preparation and sampling
+2. Attention mechanism
+3. understanding the LLM architecture.  
+
+#### Stage-2
+* involves pre-training and building the foundational model so that involves the training Loop, model evaluation, and loading pre-trained weights.
+
+#### Stage-3
+* involves fine-tuning, training on smaller very specific datasets.
 
 * LLMs are just NN.
 *  right so you need data the parameters of the LLM are optimized and then we have some output.
 
-## Tokenization Steps
-1. Split the input text into individual words and sub-tokens 
+***
+
+#### Tokenization Steps
+1. Split the input text into individual word and subword tokens
 2. Convert these tokens into token IDs
-3. Encode these token IDs into Vector representation (Vector embedding)
+3. Encode these token IDs into Vector representation
 
 ***
+
+```python
+with open("the-verdict.txt", "r", encoding="utf-8") as f:
+   raw_text = f.read()
+    
+print("Total number of character:", len(raw_text))
+print(raw_text[:99])
+```
 
 ## [10--15]
 
@@ -158,5 +176,6 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
