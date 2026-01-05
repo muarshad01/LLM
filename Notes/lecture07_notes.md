@@ -109,6 +109,7 @@ for i, item in enumerate(vocab.items()):
 
 * We can condiser this process as Encoder.
 
+
 ```python
 class SimpleTokenizerV1:
     def __init__(self, vocab):
@@ -130,26 +131,6 @@ class SimpleTokenizerV1:
         text = re.sub(r'\s+([,.?!"()\'])', r'\1', text)
         return text
 ```
-
-
-## [30 --35]
-
-* output of an llm from numbers
-* turn token IDs back into text and for
-* first will be the encode
-* second will be the decode method in the encode method what will happen is
-* we need an encode method uh and also the decode
-
-***
-
-## [35 -- 40]
-
-* 
-just take the uh tokens you'll take the tokens which are in this pre-process list and you'll convert them into token
-* convert it into sample text by using the join method the final answer will be the the the fox chased and full stop now
-*  we just need to construct a reverse mapping from the
-
- ***
 
 ## [40 --45]
   
@@ -179,6 +160,7 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
 
