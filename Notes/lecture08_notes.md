@@ -92,8 +92,9 @@ print(strings)
 
 ***
 
-the BP tokenizer which was used to train models like gpt2 gpt3 and the original
-* sizes context length Etc before we feed the embed or before we feed the
+#### Next
+1. Data Sampling
+2. Context Length
+3. Batch Sizes
 
 ***
-
