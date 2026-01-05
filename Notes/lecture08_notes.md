@@ -19,7 +19,7 @@ ChatGPT, GPT-2, GPT-3
 * Howerever, tokenization sequence is very large.
 
 #### Subword-based tokenizatin
-* Subword-based tokenization and the bite pair encoding (BPE),  which we are going to see is an example
+* Subword-based tokenization / Bite Pair Encoding (BPE)
 
 * __Rule-1__: Don't split frequently used word into smaller subwords.
 * __Rule-2__: Split the rare words into smaller, meaningful subwords.
@@ -44,7 +44,7 @@ ChatGPT, GPT-2, GPT-3
 ***
 
 #### How the BPE algorith is used for LLMs?
-* BPE ensures that the most common words in the vocabulary are represented as a single token, while rare words are broken down into two or more subord tokens.
+* BPE ensures that the most-common-words in the vocabulary are represented as a single-token, while rare-words are broken down into two or more subord tokens.
 *
 
 * `{"old":7, "older":3, "finest":9, "lowest":4}`
@@ -53,7 +53,7 @@ ChatGPT, GPT-2, GPT-3
 * old is the common root between old and older
 * est is the common root between finest and lowest
 
-* differentiate between estimate and highest because in estimate EST does not end with a /w
+* differentiate between estimate and highest because in estimate `est` does not end with a `/w`
 * stopping criteria can be if the token count becomes a certain number then you stop or just the number of iterations can be the stop uh
 
 ***
@@ -100,4 +100,3 @@ print(strings)
 3. Batch Sizes
 
 ***
-
