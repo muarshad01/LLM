@@ -66,85 +66,13 @@ result = [item.strip() for item in result if item.strip()]
 print(result)
 ```
 
-## [10--15]
+```python
+preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', raw_text)
+preprocessed = [item.strip() for item in preprocessed if item.strip()]
+print(preprocessed[:30])
+```
 
-in today's lecture um so I just want to show you a visual for how the input text is given to the LLM so let's say this is an input text right this is an example.
-
-remember the first step of tokenization we break this into individual words so the first word is this the second word is is the third word is an and the fourth word is example so this is the tokenized text and this is my step number one.
-
-right now step number two is we need to convert each of these individual tokens into token IDs so this is the token ID 1 4013 token ID 2 2011 token ID 3 which is 302 and token ID 4 which is 1134 so every word or every token rather has a token ID associated with it I have currently given these numbers randomly but you need to assign a token ID for each word and then.
-
-* the next step after getting these token IDs is to convert these token IDs into something called token embeddings or vector embeddings and then these Vector embeddings are then fed as input data to
-the GPT or the LLM rather so even before coming to the training stage we need to do these many steps of uh pre-processing.
-
-* nuances involved in tokenizing 
-* Importing the dataset the demonstration today we are going to use a specific data set we are going to use this book book called The Verdict
-
-* download and then download this book so we are going to look at this book and assume that this is the only uh training data 
-* file we are going to open it in Python and we are going to read it and we are going to print the
-* 8 total number of characters variable where we are storing whatever uh content python has read from this
-
-***
-
-* total number of characters are 20,479
-* we are printing the first uh 100 characters of this file
-* ion and the token IDs for the entire text which we have read for all
-* 
-* python Library which we we will be using for this is called as regular expression re
-* uh so this module Pro provides regular expression matching operations and let's see how basically
-* 
-* hello and comma is one token and then it encounters a white space so it splits so
-
-
-***
-
-## [15 -- 20]
-
-* world and full stop
-* this and comma there is no white space so it prints out this and comma then it prints
-
-* individual words white spaces and punctuation characters so see white
-* split commas and periods so here you see the comma is included as
-* we want to have comma and full stop
-
-* split command you also include comma and you also include the full stop along with
-* white spaces so white spaces are of
-* comma is now a separate token full stop is now a separate token which was not the case before
-* hello and comma were one token but now you'll see hello and comma are separate tokens
-* awesome so now we have split based on comma and full stops also
-
-* correct now the main another remaining issue is that our list still includes
-
-each item in the result so we are looping over each item in the result so this is the result right so we are going
-*  strip will
-*  white spaces will not be returned Whenever there is actually a full world full word like
-hello or comma or world or this or full stop then only item.
-strip will return
-* strip so for white spaces
-* hello comma world full stop this comma is a
-* develop a simple tokenizer whether we should
-*  which is great however
-* example python code is sensitive to indentation and spacing so if python code is used as the data set for
-* Simplicity so that we have memory advantages but remember
-* because we also want uh to have question marks quotation marks and double dashes
-* separate tokens currently only full stop and comma are separate tokens right but we
-* also want question marks quotation marks double dashes Etc separate tokens
- so let's look at this document again see
-
-***
-
-## [20 -- 25]
-
-* double dashes then I'm sure there are question marks somewhere there are
-* question marks there are exclamation marks in this document
-*  we all want them as separate tokens right
-* like colon semicolon question mark underscore exclamation uh quotation marks bracket
-* 
-#### next lecture it's called bite pair encoding 
-* will be one token these two double dashes will be one token so this
-* 
-* vocabulary vocabulary is just all the list of our tokens but it's sorted in an alphabetical manner
-* so if the if our data set or the tokens are
+* Next lecture it's called bite-pair encoding
 
 ***
 
@@ -205,6 +133,7 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
 
