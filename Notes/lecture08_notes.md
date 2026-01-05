@@ -1,10 +1,12 @@
+#### Bite Pair Encoding (BPE)
+ChatGPT, GPT-2, GPT-3
+
+***
+
 #### Algorithms
 * Word based
 * Subword based
 * Character based
-
-#### Bite Pair Encoding (BPE)
-ChatGPT, GPT-2, GPT-3
 
 ***
 
@@ -98,3 +100,4 @@ print(strings)
 3. Batch Sizes
 
 ***
+
