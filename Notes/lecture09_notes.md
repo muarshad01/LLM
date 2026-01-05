@@ -1,4 +1,4 @@
-
+#### Create Input-Target Pairs
 * bite pair encoding and uh we saw
 * subword tokenization so we saw
 * difference between word based subword based and character based tokenization
@@ -896,6 +896,7 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
 
 
