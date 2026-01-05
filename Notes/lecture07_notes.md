@@ -132,26 +132,77 @@ class SimpleTokenizerV1:
         return text
 ```
 
-## [40 --45]
-  
-* pass IDs as an input remember tokenizer do decode
+```python
+tokenizer = SimpleTokenizerV1(vocab)
 
-*  chat GPT use a very special thing they use something which is called a __special context tokens__ to deal with Words which might not be present in the vocabulary so that an __special context__
-* __special context tokens__ what we will do is that we will modify the tokenizer to handle
-* 
-***
+text = """"It's the last he painted, you know," 
+           Mrs. Gisburn said with pardonable pride."""
+ids = tokenizer.encode(text)
+print(ids)
+```
 
-#### [45--50]
+```python
+tokenizer.decode(ids)
+tokenizer.decode(tokenizer.encode(text))
+```
 
-* tokens act as markers signaling the start-or-end of a particular
+#### Adding Special Context Tokens
+* ChatGPT uses a very special thing called a __special context tokens__ to deal with words which might not be present in the vocabulary.
 
-#### [50-55]
+```python
+all_tokens = sorted(list(set(preprocessed)))
+all_tokens.extend(["<|endoftext|>", "<|unk|>"])
 
-*** 
+vocab = {token:integer for integer,token in enumerate(all_tokens)}
+```
 
-#### [55-60]
+```python
+len(vocab.items())
 
-***
+for i, item in enumerate(list(vocab.items())[-5:]):
+    print(item)
+```
+
+```python
+class SimpleTokenizerV2:
+    def __init__(self, vocab):
+        self.str_to_int = vocab
+        self.int_to_str = { i:s for s,i in vocab.items()}
+    
+    def encode(self, text):
+        preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', text)
+        preprocessed = [item.strip() for item in preprocessed if item.strip()]
+        preprocessed = [
+            item if item in self.str_to_int 
+            else "<|unk|>" for item in preprocessed
+        ]
+
+        ids = [self.str_to_int[s] for s in preprocessed]
+        return ids
+        
+    def decode(self, ids):
+        text = " ".join([self.int_to_str[i] for i in ids])
+        # Replace spaces before the specified punctuations
+        text = re.sub(r'\s+([,.:;?!"()\'])', r'\1', text)
+        return text
+```
+
+```python
+tokenizer = SimpleTokenizerV2(vocab)
+
+text1 = "Hello, do you like tea?"
+text2 = "In the sunlit terraces of the palace."
+
+text = " <|endoftext|> ".join((text1, text2))
+
+print(text)
+```
+
+```python
+tokenizer.decode(ids)
+tokenizer.decode(tokenizer.encode(text))
+```
+
 
 * token IDs also into to Vector representations which we will come to later but in today's lecture we mostly
 * called __bite pair encoding__ in bite pair en en in bite
@@ -160,12 +211,3 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
-
-
-
-
-
-
-
-
-
