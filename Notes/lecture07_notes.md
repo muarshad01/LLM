@@ -37,6 +37,35 @@ print("Total number of character:", len(raw_text))
 print(raw_text[:99])
 ```
 
+```python
+import re
+
+text = "Hello, world. This, is a test."
+result = re.split(r'(\s)', text)
+
+print(result)
+```
+
+```python
+result = re.split(r'([,.]|\s)', text)
+
+print(result)
+```
+
+```python
+# Strip whitespace from each item and then filter out any empty strings.
+result = [item for item in result if item.strip()]
+print(result)
+```
+
+```python
+text = "Hello, world. Is this-- a test?"
+
+result = re.split(r'([,.:;?_!"()\']|--|\s)', text)
+result = [item.strip() for item in result if item.strip()]
+print(result)
+```
+
 ## [10--15]
 
 in today's lecture um so I just want to show you a visual for how the input text is given to the LLM so let's say this is an input text right this is an example.
@@ -176,6 +205,7 @@ pair encoding every word is not a token words themselves are broken down into su
 *  chased itself is one token but in bite pair encoding it might
 * 
 *** 
+
 
 
 
