@@ -52,6 +52,7 @@ ChatGPT, GPT-2, GPT-3
 * est is the common root between finest and lowest
 
 * differentiate between estimate and highest because in estimate EST does not end with a /w
+* stopping criteria can be if the token count becomes a certain number then you stop or just the number of iterations can be the stop uh
 
 ***
 
@@ -89,11 +90,7 @@ strings = tokenizer.decode(integers)
 print(strings)
 ```
 
-* stopping criteria can be if the token count becomes a certain number then you stop or just the number of iterations can be the stop uh
-
-* gpt2 or gpt3 so bite pair
-*  you can see that it has about 11,000 stars and about 780 Forks so it's a pretty popular ubwords uh we are able to get the amazing performance from gpt2 gpt3 or GPT 4 I
-* 
+***
 
 the BP tokenizer which was used to train models like gpt2 gpt3 and the original
 * sizes context length Etc before we feed the embed or before we feed the
