@@ -38,38 +38,12 @@ for i in range(1, context_size+1):
 
 ***
 
-20:01
-will be the next token which is 2241 if I is equal to 3 uh then the
-20:08
-context would be the first three token IDs which are 290 4920 and 2241 and the
-20:14
-output will be or the desired will be the next token which is 287 and if I is
-20:20
-equal to 4 then the context will be the first four tokens IDs and the desired
-20:26
-will be the next which is 257 so everything on the left of the arrow here refers to the input the large
-20:33
-language model would receive uh and the token ID on the right hand side of the
-20:39
-arrow represents the target token ID which the llm is supposed to
-20:44
-predict so when we constructed these input output pairs this is what it actually means there are four prediction
-20:51
-tasks here it's not one prediction task so when I created this input output pair
-20:56
-of X and Y and even here here when I showed you the input output pair of X and Y it's not just one prediction task
-21:04
-but there are four prediction tasks which are happening here and these are the four prediction tasks because the
-21:10
-context size was four if the context size was eight there would have been eight prediction tasks in each input
-21:15
-output pair so when you look at input output pairs usually regression and
-21:20
-classification problem one input output pair corresponds to one prediction task image of a dog needs to be classified as
+f X and Y it's not just one prediction task but there are four prediction tasks which are happening here and these are the four prediction tasks because the context size was four if the context size was eight there would have been eight prediction tasks in each input output pair so when you look at input output pairs usually regression and classification problem one input output pair corresponds to one prediction task image of a dog needs to be classified as
 21:27
-whether it's a cat or a dog but in the case of llms one input output pair corresponds to the number of
-21:34
-prediction tasks as set by the context size that is very important now what I'm
+whether it's a cat or a dog but 
+* in the case of LLM one input-output pair corresponds to the number of prediction tasks as set by the context size that is very important.
+
+ now what I'm
 21:40
 going to do is that I'm going to take this simple the same code but I'm going to decode it into text so that you can
 21:47
@@ -133,6 +107,9 @@ examples which have been done for some classification data sets but essentially 
 load or process the data in a much more efficient and compact manner as we'll see right
 24:53
 now awesome so now what we are going to do in the next step is we are going to Implement a data loader and uh for the
+
+***
+
 25:02
 efficient data loader implementation we will use the pytorch inbuilt data set
 25:07
@@ -227,6 +204,10 @@ that's it it's as simple as that and that is exactly all we are actually doing i
 returning back to the code and uh This what I showed you here right now on the
 29:56
 Whiteboard uh creating such kind of input tensor and output tensor is exactly what we are
+
+
+***
+
 30:02
 going to do in the code so if you if you have understood this the code will be much easier to understand so we are
 30:08
@@ -726,6 +707,7 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
 
 
