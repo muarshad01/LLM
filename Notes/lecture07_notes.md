@@ -203,11 +203,9 @@ tokenizer.decode(ids)
 tokenizer.decode(tokenizer.encode(text))
 ```
 
+***
 
-* token IDs also into to Vector representations which we will come to later but in today's lecture we mostly
-* called __bite pair encoding__ in bite pair en en in bite
-1:07:57
-pair encoding every word is not a token words themselves are broken down into subwords and then these subwords are the token so let's say you have a word which is uh which is chased
-*  chased itself is one token but in bite pair encoding it might
-* 
+#### BytePair (BP) Encoding
+* In __BP Encoding__, every word is not a token. Words themselves are broken down into subwords and then these subwords are the tokens. 
+
 *** 
