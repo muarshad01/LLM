@@ -38,173 +38,14 @@ for i in range(1, context_size+1):
 
 ***
 
-f X and Y it's not just one prediction task but there are four prediction tasks which are happening here and these are the four prediction tasks because the context size was four if the context size was eight there would have been eight prediction tasks in each input output pair so when you look at input output pairs usually regression and classification problem one input output pair corresponds to one prediction task image of a dog needs to be classified as
-21:27
-whether it's a cat or a dog but 
-* in the case of LLM one input-output pair corresponds to the number of prediction tasks as set by the context size that is very important.
+#### Implementing a Data Loader
 
- now what I'm
-21:40
-going to do is that I'm going to take this simple the same code but I'm going to decode it into text so that you can
-21:47
-get a feel of what is exactly happening here so here you can see I've taken the same code but I'm printing the decoded
-21:54
-context and I'm printing the decoded desired value so if and is the input
-21:59
-established is the output if and established is the input himself is the output if and established himself is the
-22:06
-output the next word which is in is the output and if and established himself in is the input then the next word uh that
-22:13
-is the output now this is exactly what we started the lecture with right you remember we started the lecture with
-22:19
-this and uh now what we have done is that through code we have just created
-22:25
-very simple input output pairs X and Y and we have seen how these pairs can be used to create the input and the output
-22:33
-awesome right so this is just the first step of what we need to be doing what we
-22:39
-have done so far is we have created the input output pairs that we can turn into
-22:44
-use for the llm training so later we are going to do llm training and so we have created input output pairs now but we
-Creating a DataLoader
-22:51
-need to create them in a much more structured manner we need to create them for the entire data set not just that
-22:57
-later we will parallel processing so if we have multiple CPUs and we need to do
-23:02
-parallel Computing we need to do Computing in batches so we are going to do this in a
-23:09
-very structured Manner and for that what we are going to be doing is we are going to use something called as uh data
-23:17
-loader so now there is only one more task which is remaining before we can look at the vector embeddings in the
-23:23
-next lecture and that is implementing an efficient data loader
-23:29
-uh that iterates over the input data set and Returns the inputs and targets as P
-23:34
-torch tensors So currently we have got the input output arrays right but they are not tensors why do we need tensors
-23:42
-because all the optimization procedures which come later we we are going to use py torch and py torch works with tensors
-23:50
-so we need input tensors and we need output tensors no need to worry if you don't know what a tensor is you can just
-23:56
-think of it as a two-dimensional array for now or multi-dimensional array no need to worry about this this will not
-24:02
-stop you from understanding this lecture so our goal is this we want to
-24:07
-implement a data loader which creates two tensors an input tensor which contains the text that the llm sees and
-24:15
-the target tensor that includes the targets for the llms to predict that's it basically we have to create something
-24:21
-exactly like what I showed you in the code before but we need to create it in a tensor format and we need to do it in
-24:28
-a structured manner so that's why we are going to use something called as data
-24:33
-set and data loader so the these are data sets and data loaders which are in Python and here you can just see some
-24:40
-examples which have been done for some classification data sets but essentially data sets and data loaders enable you to
-24:47
-load or process the data in a much more efficient and compact manner as we'll see right
-24:53
-now awesome so now what we are going to do in the next step is we are going to Implement a data loader and uh for the
+* PyTorch works with Tensors
+* https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html
+* We'll implement a data loader that fetches input-out target paris using sliding-window approach.
 
-***
 
-25:02
-efficient data loader implementation we will use the pytorch inbuilt data set
-25:07
-and data loader classes so these are the data set and data loader classes link which I've shown right now I'll also
-25:14
-attach the link in the video description before going into the code
-25:19
-further I just want to show you what we expect the data loader to do so that you have a visual understanding I have seen
-25:26
-that until you get a visual understanding sending the code becomes very difficult to really Master but if
-25:31
-you know what you want to implement it's really very easy so in this section what are we doing we are implementing a data
-25:38
-loader that fetches the input output Target pairs using a sliding window approach let's see what this means so uh
-25:47
-here so what we are going to do is that let's look at this sample text in the
-25:52
-Heart of the City stood the old library A Relic from a Bagon era let's say this
-25:58
-is the kind of sentence and we want to create input output Pairs and we are going to create input output pairs with
-26:05
-a context size of four okay so let's say if the input is in the heart of let's
-26:13
-say the input is in the heart of the output tensor will be shifted by one
-26:18
-right as we already saw so the output will be the heart of the correct so the
-26:26
-first input pair is in the heart of and the first output is the heart of the now
-26:31
-in this input output pair there will be four prediction tasks the first is that
-26:36
-if the input is in the prediction should be the if the input is in the the
-26:42
-prediction should be heart uh let me switch to a different color if the input is in the heart the
-26:50
-prediction should be off and if the input is in the heart of the prediction should be the so uh first of all we have
-26:59
-an X which is the input tensor and Y which is the output tensor now let's see
-27:05
-what the row of every tensor are representing uh so we collect the inputs
-27:11
-in a tensor X so we collect the inputs in a tensor X
-27:16
-where each row represents one input context so let's look at the tensor X if you see each row each row of this is one
-27:24
-input context in the Heart of the City stood the so each row represents one uh
-27:31
-input context so the first input output pair will be in the heart of and the
-27:36
-first output will be the heart of Thee the second input will be the CT stood the and the second output will be CT
-27:44
-stood the old so basically what I earlier in this lecture I showed you one
-27:49
-input output pair when we look at tensors if you look at each row each row
-27:54
-of the X tensor is an input each row of the Y tensor is the Corr oning output so
-27:59
-the 50th row of the X X tensor and the 50th row of the Y tensor will be the 50th input output
-28:06
-pair and in each input output pair there are four prediction tasks here as I as I
-28:12
-told you because the context size is equal to four so essentially we are doing the same thing what we did in the
-28:17
-earlier part of the lecture but we just take the entire text uh we put it in tensors in the rows of the tensor so we
-28:24
-split the text into four words so the first four words are the first row the second four words are the second row and
-28:31
-if you look at the output tensor it just the input tensor shifted by one that's it if you look at each row of the output
-28:37
-tensor it's just the input tensor row shifted by one so the second tensor y uh the second
-28:44
-tensor y contains the corresponding prediction targets next Words which are created by Shifting the input by one
-28:51
-position this is very important for everyone who is watching this lecture to understand uh it all we are doing is
-29:00
-next word prediction task so let me again explain this so that I I really
-29:05
-want this concept to be understood because it's the heart of everything which we are going to do but let's look
-29:11
-at the second row in the second row there will be four prediction tasks the first prediction task is when the input
-29:17
-is the the output is City when the input is the city the output is stood when the
-29:23
-input is the city stood the output is the and when the input is the city is stood the the output is the old the
-29:31
-output is old so basically each input output pair
-29:36
-corresponds to one prediction task and corresponds to four prediction tasks and we are just predicting the next word
-29:43
-that's it it's as simple as that and that is exactly all we are actually doing in the code also so now I'm
-29:50
-returning back to the code and uh This what I showed you here right now on the
-29:56
-Whiteboard uh creating such kind of input tensor and output tensor is exactly what we are
-
+* In the case of LLM one input-output pair corresponds to the number of prediction tasks as set by the context size that is very important.
 
 ***
 
@@ -707,6 +548,7 @@ make sure I cover it in a lot of detail thank you so much everyone I hope you ar
 lectures I'm deliberately making them a bit long so that everything is covered from scratch thanks everyone and I look
 55:36
 forward to seeing you in the next lecture
+
 
 
 
