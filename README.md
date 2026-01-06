@@ -108,9 +108,12 @@ $ uv run jupyter lab
 
 ***
 
-* [Open Source LLM Tools - Chip Huyen](https://huyenchip.com/llama-police.html)
+#### [Open Source LLM Tools - Chip Huyen](https://huyenchip.com/llama-police.html)
 
-*
+***
+
+#### [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs)
+
 ***
 
 ## TODO
