@@ -1,6 +1,3 @@
-0:00
-[Music]
-0:05
 hello everyone welcome to this lecture in the build large language models from
 0:10
 scratch Series today I am going to cover a very very important topic and that
@@ -1155,4 +1152,5 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
