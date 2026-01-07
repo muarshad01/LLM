@@ -28,102 +28,7 @@
 
 ***
 
-* 20:02
-woman minus man what do you think this should be just tell me the first thing which comes to your mind uh you can
-20:09
-pause here right now and think about if words are actually if vectors are
-20:15
-actually encoding the meaning between words and if I have a vector for King let's say if I have a vector for woman
-20:21
-and if I have a vector for man and if I add the vector for King with the vector for woman and then I subtract the vector
-20:28
-for man what should I be left with okay I hope all of you have got the
-20:34
-answer so I should be left with something which resembles similar to a queen because king plus man in in
-20:42
-ideally should be equal to Queen plus woman let's say queen plus king plus
-20:47
-woman should be equal to man plus Queen so king plus woman minus man should
-20:53
-ideally be Queen why because we take a masculine aspect we subtract another
-20:58
-another masculine aspect so what should remain is only a feminine aspect and woman and a man are there so ideally the
-21:05
-answer to this should be Queen right uh then we will be satisfied that the
-21:10
-vectors are indeed encoding some meaning so let's try to do this so we are going
-21:16
-to uh what we are going to do is that we are going to add King and woman and we are going to subtract man and then we
-21:24
-are going to print out the words which are the most similar to the answer
-21:29
-and when you print this you will see that indeed Queen is the answer of this and the vector uh
-21:36
-and the probability of getting queen as the answer is around 71% which means
-21:41
-that uh here is a list of top 10 answers and out of this queen is the most
-21:47
-preferred answer so this is the first indication to all of you that if you
-21:52
-convert words to vectors and then you do addition and subtraction of these vectors essentially you are encoding
-21:58
-some meaning here so somehow the vectors have this information that the vector
-22:03
-for King encodes some masculinity the vector for woman encodes some femininity
-22:09
-the vector for man encodes some masculinity these vectors also have the
-22:15
-meaning that somehow king and queen are closer to each other somehow man and woman are closer to each other isn't
-22:21
-that amazing this really blew my mind when I knew about this for the first time and when I knew about this these
-22:27
-things such as as one hot encoding just seemed so boring because in one hot encoding no information is captured no
-22:35
-meaning is captured but if you actually convert words to vectors and preserve meaning
-22:41
-you can get some you actually get the meaning preserved I was not really sure that the meaning will be preserved as
-22:47
-vectors but it it is preserved we can also do couple of other things uh
-22:52
-ideally woman and man should be closer to each other king and queen should be closer uncle and Aunt are related
-22:59
-boy and girl are related nephew and niece are related paper and water are related what we can do is that we can
-23:06
-now check whether the vector embeddings are also related to each other so what we do is that we convert these words
-23:12
-into vectors and test the similarity between vectors the way it's done is by I think finding the distance between the
-23:19
-vectors so what I do here is World vectors. similarity woman and man and I do the
-23:25
-same for all these other words so if if you look at the answers you'll see that for the first five the similarity score
-23:33
-is pretty high because woman man king queen uncle aunt boy girl nephew niece are closer to each other awesome right
-23:40
-but if you look at the last two words paper and water they are not closer to each other they are not related at all
-23:46
-and our vectors are capturing this meaning let's say there are there is a vector for paper somewhere there's a
-23:51
-vector for water somewhere these vectors are so far apart that they are not related to each other and that's why the
-23:57
-similarities score is very low in fact if you see woman and man king and queen uncle and Aunt boy and
-24:04
-girl nephew and niece these vectors are closer to each other because they capture the meaning but paper and water are not
-24:11
-close to each other at all and that's why the similarity score between these two vectors is low we can also do some cool things like
-24:19
-we can find Words which are similar to a given word so if you look at Tower and then look at the vectors which are most
-24:25
-similar to Tower so the answers are scraper Tower Spire uh
-24:32
-Etc we can also see some other things like similarities between man woman semiconductor earthor nephew n Etc and
-24:40
-here we can see that the magnitude of the difference between the man and woman so this is a vector difference and if
-24:46
-you see np. lin. Norm so this is finding the norm of the difference in difference
-24:51
-in these two vectors so you'll see that the magnitude of the difference between the man and woman is 1.73
-24:58
-the magnitude of the vector difference between nephew and N is 1.96 but the magnitude of the vector difference
+* 20:00 
 
 ***
 
@@ -799,6 +704,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
