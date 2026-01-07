@@ -95,6 +95,9 @@ numbers to each word so let's say cat is 34 book is 2.9 tablet is minus 20 kitte
 is -13 so let's say in the llm framework which we just saw we have already
 4:54
 converted the tokens into token IDs right and we have maintained the vocabulary so let's say our vocabulary
+
+***
+
 5:00
 consists of all the tokens and a token ID corresponding to each token so then
 5:06
@@ -195,6 +198,9 @@ is going to be very important I'm going to take four words here dog cat apple
 and banana and I'm going to say why don't you encode every word as a vector
 9:56
 then you might be saying what should be the dimension of this vector Vector is it a two dimensional Vector is it a
+
+***
+
 10:01
 three dimensional Vector is it a thousand Dimension Vector then I will say well what if the
 10:08
@@ -1149,3 +1155,4 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
