@@ -51,7 +51,7 @@ $ uv run jupyter lab
 |---|---|
 | [Lecture 07 -- Code an LLM tokenizer from scratch in Python](https://www.youtube.com/watch?v=rsy5Ragmso8) |  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md) | 05/01/2026 |
 | [Lecture 08 -- The GPT tokenizer: Byte Pair Encoding (BPE)](https://www.youtube.com/watch?v=fKd8s29e-l4) |  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md) | 05/01/2026 |
-| [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | |
+| [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | 06/01/2026 |
 |---|---|
 | [Lecture 10 -- What are token embeddings?](https://www.youtube.com/watch?v=ghCSGRgVB_o) |  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md) | |
 | [Lecture 11 -- The importance of Positional Embeddings](https://www.youtube.com/watch?v=ufrPLpKnapU) |  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md) | |
