@@ -51,182 +51,24 @@
 *
 
  * embedding layer weight Matrix which has 50257 rows and which has 768 columns but
-30:48
-you you don't know what each weight value will be so then what do you do what you do is that you * *
+you you don't know what each weight value will be so then
 
 * initialize the embedding weights with random values that's the First Step
 * this initialization serves as the starting point for the llm learning
-31:10
 process then what do you do these weights are then optimized as part of
-31:15
-the llm training process this is extremely important when gpt2 was
-31:21
-trained these values were not known before what were the ideal weight values a training process was
-31:27
-implemented where we had these many parameters 5257 by 768 parameters were
-31:33
-there and each of these weight parameters were optimized during the training process and that is how vector
-31:39
-embeddings or token embeddings were created how was the optimization process done we had the training data and based
-31:46
-on the data we knew which words were closer to each other which words were farther apart from each other for
-31:51
-example when we looked at this word to the training data was Google news right and we had so the Google news of course
-31:58
-if we had 300 billion words we have the information that king and queen are similar man and woman are similar so
-32:05
-that training data is used as underlying information to modify each of these
-32:12
-parameters so if you know about neural network training similarly back propagation is implemented here to
-32:18
-optimize all of these weights of the embedding layer weight Matrix and that is how token IDs are converted into
-32:26
-vector embeddings so if you think about it at the heart of it large language models are just giant
-32:32
-neural networks right and one part of this giant neural networks is training and embedding layer weight Matrix so if
-32:39
-you look at this uh uh this graphic here so token
-32:44
-embeddings are fed as an input to to the training right that's what this graphic shows but during the training of the GPT
-32:51
-while it's training to predict the next word we also train that embedding itself so the embedding neural n network is
-32:58
-trained and then we also train the prediction for the next World so there are two trainings actually which are kind of going on
-33:04
-here for now all you need to remember is that uh words so we start with a
-33:10
-vocabulary such as for gpt2 we start with this vocabulary of 50257 tokens and
-33:16
-then we have to decide that okay when I do the vector embedding what the dimension of the vector I want and then
-33:22
-that's 768 then that decides the size of your embedding layer Matrix so we have 5
-33:27
-0257 rows and we have 768 column for each token ID we are going to have a
-33:33
-vector with 768 values how are these values decided through training through back
-33:38
-propagation we start out with initializing these values of the embedding layer in a random Manner and
-33:44
-then all of these values are optimized during the training process uh I hope you have followed
-33:51
-until this point because now I'm going to take you through code and we are actually going to learn a bit about
-Coding Embedding Weight Matrix
-33:56
-these token embeddings and we are going to learn how to essentially create um this embedding
-34:03
-layer Matrix which we just saw over here so please keep this image in mind and remember that there are two Dimensions
-34:10
-which are important the vector Dimension which is the size of the each vector and the vocabulary
-34:15
-size okay so let us illustrate how the token ID to the embedding Vector
-34:21
-conversion works with a Hands-On example so let's say we have the four input tokens which are input number or ID
-34:28
-number 2351 remember these are token IDs so every token ID is associated with a word
-34:36
-uh to give you uh like a concrete feel for this let's say the example
-34:44
-is uh so I'm going to look at 0 1 2 3 4 5 so I need six words
-34:51
-actually um so here it's going to be let's say my sentence is quick
-34:59
-uh my sentence is quick
+the llm training process
+
+* embedding layer weight Matrix so if
 
 ***
 
 * 35:00
-fox is in the
-35:14
-house let's say this is my sentence so what I will do is first convert this into tokens so let's say quick and I'm
-35:20
-just showing word tokens word based tokenizer for Simplicity let's say quick is one token Fox is one token is is is
-35:27
-one token in is one token the is one token and house is the next token then
-35:33
-we arrange these tokens in ascending order and then assign them token
-35:39
-IDs so house will probably come first with a token ID zero then uh no I think Fox
-35:46
-would come first with a token ID zero house would come second uh with the token ID one I hope
-35:53
-I'm not Mak making any mistake here then in will come two is will come three
-35:59
-quick will come four and then the will come five right and now what I want to do is I want to encode uh or I want to
-36:07
-rather convert token ID 235 and 1 into embeddings or into Vector embeddings so
-36:14
-what is ID number two is this word in 2 three is five and one so I want to
-36:21
-convert these words in is the and house I want to convert them into embedding
-36:26
-vectors 2 3 5 and 1 right so 2 3 5 and 1 correct so then my input IDs are tor.
-36:33
-tensor 2351 remember we are using tensors here because ultimately we are going to use back propagation to
-36:39
-optimize the embedding layer weights so it's much better to represent everything as
-36:45
-tensors great so these are my input IDs and now for the sake of Simplicity we
-36:50
-are going to use only small vocabulary of six words remember gpt2 had 50257
-36:57
-tokens in the vocabulary right now just for Simplicity we are just going to use a small vocabulary of only six tokens
-37:04
-instead of the 5257 words in the BP tokenizer and let's say we want to create embeddings of size three uh so
-37:12
-here see GPT to 768 right so here I told you two two
-37:18
-Dimensions were important the size of the vocabulary which now we are assuming
-37:23
-six and the vector Dimension so in this uh code file I'm assuming the vector Dimension three so what I'm going to do
-37:30
-here is that for each of the words in my vocabulary which are these words so for now I'm starting with these six words
-37:37
-for each of these six words in my vocabulary I will have a vector and that Vector will have three dimensions okay
-37:43
-this is how I'm going to construct the vector embedding so the vocabulary size will be six what are the six words quick fox is
-37:52
-in the house then output Dimension will be three which means that every token of
-37:57
-this vocabulary will be converted into a vector of three dimensions how that is done in practice is that we create an
-38:04
-embedding layer and then we use tor. nn. embedding and uh then what we do is we
-38:11
-we pass in two arguments the vocabulary size which means the number of words which need to be converted into
-38:18
-embeddings and the output Dimension which is the dimension of each Vector embedding uh awesome right so this is
-38:25
-how we use the tor. nn. embedding let me show you this in Python right now so if
-38:30
-you look at the embedding documentation you will see that it's a simple lookup table that stores
-38:36
-embedding of a fixed dictionary and size what this means is that we need to have a vocabulary and we need to give the
-38:43
-size of the embedding Vector that's it and then it creates a dictionary I'll show you why is it called a lookup table
-38:50
-and I'll tell you okay why does the word lookup table come into to the picture for now all you need to remember is that
-38:56
-the way we initialize these Vector embeddings is tor. nn. embedding and this initialize the weights of the
-39:03
-embedding Matrix in a random manner right so here I showed you that every weight in this vocab in this embedding
-39:10
-Matrix is initialized randomly so let me again show this to you here now you see
-39:15
-I have six IDs right so 0 1 2 3 4 and five and each of
-39:27
-these will have a three dimensional Vector associated with it 1 2 3 1 2 3 1
-39:34
-2 3 1 2 3 1 2 3 1 2 3 so I will have
-39:41
-essentially six rows and I will have three columns this is my embedding layer weight Matrix and all of these values
-39:47
-are initialized randomly how can you get this values you then just have to type embedding layer. weight What will what
-39:55
-this will give you is it will give you all the weights which are initialized through the embedding layer so when you
 
 ***
 
 * 40:00
-print this you'll get this and you'll see it's exactly the same size as what we had shown over here it has six rows
+
+has six rows
 40:07
 and three columns here also you see we have six rows and three columns every row here corresponds to the vector
 40:14
@@ -619,6 +461,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
