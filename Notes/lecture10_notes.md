@@ -33,98 +33,14 @@
 ***
 
 * 25:00
-between semiconductor and earthor is 5.67 this is another indication that the
-25:10
-vectors actually encode some meaning and if you find the magnitude of the difference between the vectors it's an
-25:15
-indication of how closer in meaning the words are isn't that amazing let me repeat that again if you take two
-25:22
-vectors and if you find the magnitude of the difference between the vectors that's an indication of how how close or
-25:29
-how far the words are in their meaning so when you do Vector embedding
-25:35
-or when you do token embedding the beautiful thing is that you actually retain the information or retain the
-25:42
-meaning uh of words and then you feed these embeddings into the large language
-25:48
-model and that makes a huge amount of difference instead of let's say just feeding word one hot encodings awesome I
-25:56
-hope everyone is with me until now now I could have directly started with step number three but I wanted to show you
-26:02
-this small Hands-On demo so that you get an intuitive feel that if Vector embeddings are trained nicely like they
-26:09
-done in this word twek Google News model we can actually encode meanings in these
-26:15
-vectors awesome so I hope in point number one and two I have been successful in making you understand what
-LLM Embedding Weight Matrix introduction
-26:22
-is the need for token embeddings and that if token embeddings are created successfully they can indeed encode some
-26:30
-meaning great now let's come to the third point which is how are token
-26:35
-embeddings created for large language models so the way this is done is that
-26:41
-we start with the vocabulary we start with a vocabulary for large language models and then we have tokens in that
-26:48
-vocabulary and then we have token IDs so let me show you so this is the vocabulary so the first step what is
-26:56
-done is that we take the Vo vocabulary and we have token IDs every token ID is
-27:02
-converted into embedding vectors so if you have uh if you see this is the
-27:07
-output this is also called as the embedding M embedding weight Matrix don't worry about this right now
-27:14
-uh there are two things you need before you construct this Matrix you need first
-27:19
-of all the vocabulary size and second thing you need is the vector Dimension so you need how many
-27:26
-Dimension vector uh is the embedding going to be so for example let me
-27:32
-actually ask let me go to chat GPT and let me ask chat
-27:40
-GPT what was the vector embedding
-27:47
-dimension for training gpt2
-27:54
-also what was the vocabulary
-28:01
-size vocabulary size means how many tokens were there and how many token IDs was there okay so remember this the
-28:09
-vector embedding dimension for gpt2 was 768 and uh for the smallest model and
-28:15
-for the largest model it was 160 so let's stick with 768 for now and the
-28:20
-vocabulary size for gpt2 was 50257 so I'm going to go here right now
-28:25
-and let's look at how the embedding Matrix was then constructed so the vocabulary size was 50257 right which
-28:31
-means gpt2 had these many tokens those were subwords uh made through bite pair
-28:37
-encoding so there are 50257 tokens and token IDs so token IDs
-28:42
-went from 01 2 3 up to 50257
-28:50
-50257 awesome and then what we are going to do is that for each of these token
-28:56
-IDs each of these token ID which corresponds to one token there would be a vector and the vector Dimension was
-29:02
-768 in this case so for the zero token ID there will
-29:08
-be 768 a vector of 768 dimensions for the token ID of one there will be a
-29:14
-vector of 768 Dimensions similarly for the token ID of 50257 there will be a
-29:19
-vector of 768 Dimensions so for every token ID there will be a vector of 768
-29:25
-Dimensions so think of the size of this embedding layer weight Matrix right for let's say if you look at the first token
-29:32
-ID there will be 768 weights because when you construct the vector it has 768
-29:37
-dimensions for the second token ID which is token ID 1 it also has 768 weights
-29:43
-similarly if you reach to the end 50257 this token ID and the token corresponding with it has 768 weights so
-29:51
-the number of tokens in this token in this embedding Matrix is 50257 into 76
+* embedding weight Matrix
+
+1. vocabulary-size
+2. vector Dimension
+  
+* GPT-2 was 768
+* vector dimension 768
+* matrix size = 50257 x 768
 
 ***
 
@@ -704,6 +620,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
