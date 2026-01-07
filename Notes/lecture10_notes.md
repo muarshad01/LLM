@@ -141,7 +141,10 @@ is uh so I'm going to look at 0 1 2 3 4 5 so I need six words
 actually um so here it's going to be let's say my sentence is quick
 34:59
 uh my sentence is quick
-35:05
+
+***
+
+* 35:00
 fox is in the
 35:14
 house let's say this is my sentence so what I will do is first convert this into tokens so let's say quick and I'm
@@ -229,7 +232,10 @@ essentially six rows and I will have three columns this is my embedding layer we
 are initialized randomly how can you get this values you then just have to type embedding layer. weight What will what
 39:55
 this will give you is it will give you all the weights which are initialized through the embedding layer so when you
-40:01
+
+***
+
+* 40:00
 print this you'll get this and you'll see it's exactly the same size as what we had shown over here it has six rows
 40:07
 and three columns here also you see we have six rows and three columns every row here corresponds to the vector
@@ -322,7 +328,10 @@ table awesome now let's come to the next part so previously we have seen how to
 convert a single token ID into three dimensional embedding right we just gave a single token ID and converted it into
 44:55
 an embedding vector but remember what we started from I wanted the vector representations for these four IDs so I
-45:03
+
+***
+
+* 45:03
 wanted the vector representation for ID number uh one ID number five ID number
 45:09
 two and ID number three so how can we give these four to the lookup table we
@@ -620,6 +629,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
