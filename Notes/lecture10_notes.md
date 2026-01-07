@@ -18,7 +18,7 @@
 
 ***
 
-10:01
+* 10:01
 three dimensional Vector is it a thousand Dimension Vector then I will say well what if the
 10:08
 dimension is determined by features then you might ask okay which
@@ -114,7 +114,11 @@ the vector embedding is correct where does this information come from it's from 
 textual document we know which words are closer to each other which words are similar to each other and those should
 14:58
 have similar vectors that's the training data and we train a neural network to
-15:04
+
+***
+
+
+* 15:04
 construct a vector embedding uh and I'll explain this to you in a bit more detail
 15:09
 but just know this that creating these Vector embeddings is not easy because I'm just showing four words right now
@@ -207,7 +211,10 @@ vector shape for any word you'll see that it's 300 which means that every
 word is encoded into a 300 dimensional Vector that's fine what I want to show you now is I want to prove to you that
 19:56
 well trained Vector embeddings actually the semantic meaning right so king plus
-20:02
+
+***
+
+* 20:02
 woman minus man what do you think this should be just tell me the first thing which comes to your mind uh you can
 20:09
 pause here right now and think about if words are actually if vectors are
@@ -303,7 +310,10 @@ you see np. lin. Norm so this is finding the norm of the difference in differenc
 in these two vectors so you'll see that the magnitude of the difference between the man and woman is 1.73
 24:58
 the magnitude of the vector difference between nephew and N is 1.96 but the magnitude of the vector difference
-25:04
+
+***
+
+* 25:04
 between semiconductor and earthor is 5.67 this is another indication that the
 25:10
 vectors actually encode some meaning and if you find the magnitude of the difference between the vectors it's an
@@ -972,6 +982,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
