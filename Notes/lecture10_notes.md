@@ -45,27 +45,17 @@
 ***
 
 * 30:00
-so these are the weights okay and this is called as the embedding layer weight
-30:06
-Matrix this is extremely important so once you get the token IDs so if I go to
-30:12
-this flow map right now once you get the token IDs you convert these token IDs into an embedding layer weight
-30:19
-Matrix and initially when this weight Matrix is initialized we do not know how
-30:24
-the vectors are right what I showed you over here the word model it's a pre-trained model but now I'm going to
-30:31
-tell you how is it actually trained so before so you just now know the size of
-30:36
-this Matrix that if you are the person training gpt2 you know that okay I have to ultimately create an embedding layer
-30:42
-weight Matrix which has 50257 rows and which has 768 columns but
+* embedding layer weight Matrix
+
+* initially when this weight Matrix is initialized
+*
+
+ * embedding layer weight Matrix which has 50257 rows and which has 768 columns but
 30:48
-you you don't know what each weight value will be so then what do you do what you do is that you initialize the
-30:55
-embedding weights with random values that's the First Step so all of these 50257 into 768 values will be
-31:03
-initialized randomly step number one this initialization serves as the starting point for the llm learning
+you you don't know what each weight value will be so then what do you do what you do is that you * *
+
+* initialize the embedding weights with random values that's the First Step
+* this initialization serves as the starting point for the llm learning
 31:10
 process then what do you do these weights are then optimized as part of
 31:15
@@ -629,6 +619,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
