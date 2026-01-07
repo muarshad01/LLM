@@ -10,106 +10,11 @@
 
 ***
 
-5:00
-consists of all the tokens and a token ID corresponding to each token so then
-5:06
-these token IDs itself can be the training input to the large language model so then why do we need this step
-5:12
-number three so yeah words can be represented as numbers and I have
-5:17
-already converted tokens into token IDs like this so why can't I just use token
-5:22
-IDs as the input to the model there is a reason for this we
-5:29
-cannot just use randomly assigned numbers and the main problem is
-5:34
-that the beauty of language is that some words are related to other words for
-5:39
-example cat and kitten cat and kitten they are related right um dog and puppy
-5:46
-they're related words but just assigning random numbers or token IDs to each word
-5:51
-does not really capture the semantic meaning between these individual
-5:56
-words so cat and kitten are s ically related however the associated numbers
-6:03
-34 and minus33 does not capture this relation that's one of the major problem
-6:09
-of just using token IDs and I want to explain this to you in another way uh
-6:15
-when all of us look at this image we see that it's a cat but do you know why convolutional neural networks work so
-6:21
-well because convolutional neural networks don't just use the pixel values and stretch it out as one input vector
-6:29
-they actually encode the spatial relation between the pixels so the these two eyes are close to each other right
-6:37
-uh the whiskers are closer to the eyes these two ears are close to each other that is an information which is
-6:43
-contained in the image itself and we should exploit this information when we
-6:49
-give in when we feed the input to the model if we don't exploit the information which is inherently present
-6:55
-in the image we are not doing an optimal thing I could just take these pixels
-7:00
-here convert them into numbers and feed them as input but then I won't extract the information which is already
-7:07
-available to me in this image like which parts are closer to each other the ears are closed the eyes are closed the nose
-7:13
-is closer to the eyes Etc that's why convolutional neural networks work so well because they
-7:19
-exploit the spatial relation between pixels and they exploit this information
-7:24
-inherently present in an image consider text when you look at
-7:32
-sentences we as humans are able to understand what sentences mean because words carry meanings and there are some
-7:39
-words which are closer in meaning to other words this is the inherent advantage in
-7:45
-the text which we need to exploit we need to exploit the fact that cat and kitten are closer to each
-7:51
-other dog and puppy are somehow closer to each other in meaning if we don't
-7:56
-exploit this information we will train for a huge amount of time and we won't be doing an optimal uh machine learning
-8:04
-training words are beautiful they carry meaning so then why not exploit the
-8:10
-similarities in meaning between different words so then you might be thinking okay
-8:16
-what about one hot encoding so I'll take every word so I'll first have a huge
-8:21
-vocabulary of all possible words and then I'll assign one hot encoding so dog
-8:26
-would be 0 00 0 let's say one and then rest will be zeros so to every word
-8:32
-there will be all zeros but there will be only one one so let me do one hot
-8:37
-encoding for every word so dog will be this puppy will be another one hot
-8:43
-encoding but this also leads to a similar problem with random number
-8:49
-assignment one hot encoding also fails to capture the semantic relationship
-8:55
-between words let's say for example if you see dog and puppy how do you know
-9:00
-from this one hot encoding that dog and puppy are more closer to each other there is we don't encode this
-9:06
-information at all and again it leads to the same problem words have meaning and
-9:11
-why don't we exploit this meaning when we construct uh the inputs to be given to
-9:16
-the large language model so assigning random token IDs does
-9:23
-not work one hot encoding does not work okay so then how do you encode
-9:31
-semantic relationship or how do you encode the semantic meaning when you are going to convert these words to
-9:38
-numbers then came the idea that what if every word was encoded as a vector this
-9:44
-is going to be very important I'm going to take four words here dog cat apple
-9:50
-and banana and I'm going to say why don't you encode every word as a vector
-9:56
-then you might be saying what should be the dimension of this vector Vector is it a two dimensional Vector is it a
+* semantic meaning between these individual words so cat and kitten
+
+* convolutional neural networks work so well because convolutional neural networks don't just use the pixel values and stretch it out as one input vector they actually encode the spatial relation between the pixels so the these two eyes are close to each other right.
+
+*  one hot encoding
 
 ***
 
@@ -1067,6 +972,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
