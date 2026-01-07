@@ -1,74 +1,12 @@
-hello everyone welcome to this lecture in the build large language models from
-scratch Series today I am going to cover a very very important topic and that
-topic is called token embeddings let me highlight this over here so today we are going to learn about this concept called token embeddings people also call these as vector embeddings or word embeddings calling them Vector embeddings is fine but word embeddings is not entirely accurate uh tokens Can Be words can be subwords or even can be characters and token is a more broader term and that's
-why I prefer to use the word token embeddings so what are token embeddings
-and why are they so important let's get started with today's lecture if you look
-at this workflow of how large language models actually work there is an input
-text and let's say the input text is this is an example what happens next is
-that the input text is broken down into tokens let's say this is the one token
-is is the second token as is the third token and example is the fourth token
-this is an example of a word based tokenizer so each token will be one word
-but the way tokenizers actually work in model such as GPT is that GPT uses a
-bite pair encoder as a tokenizer which is a subword tokenizer which means that
-even parts of words or even characters can be individual tokens but that's not
-the main focus of today's lecture if you want to understand about tokenizers in detail we have covered that in one of the previous lectures and we have also seen about bite pair encoding in one of the previous lectures so tokenizing the
-1:59
-word is the step number one then comes step number two which is converting these tokens into token IDs so every
-2:07
-token is converted into token IDs and then comes step number three we don't
-2:14
-just stop at these token IDs token IDs are converted into something which is
-2:19
-called as token embeddings and these token embeddings then serve as the input to training the
-2:26
-large language model such as the GPT and and then there are number of postprocessing steps and then comes the
-2:33
-final output so today we are going to look at step number three after you
-2:38
-generate the tokens after you generate the token IDs in Step number one and two
-2:43
-what are token embeddings why do you need them and why this third step is so important especially when dealing with
-2:52
-language so as I have mentioned here today we are going to learn about step number three which is creating token
-2:59
-embed ICS awesome so I have broken down today's lecture into 1 2
-3:05
-three um four to five different five to six different modules and we are going
-3:12
-through we are going to go through some Jupiter notebooks some code and Ive also constructed some presentation specially
-3:18
-for today's lecture the reason is that I want this lecture to be very comprehensive I have seen so much
-3:25
-content out there which really does not motivate the concept of token embeddings it does not show small practical
-3:32
-demonstrations all of this is going to be covered in today's lecture so we are going to start with a conceptual
-What are token embeddings?
-3:38
-understanding of why token embeddings are important then we are going to see a small Hands-On demo where we'll play
-3:44
-with token embeddings to give you an intuitive feeling and then we are going to look at how are token embeddings
-3:50
-created for large language models so let's get started with today's
-3:56
-lecture in which the first part which I'm going to cover is conceptual
-4:01
-understanding of why token embeddings are needed so as I mentioned I've created a
-4:06
-separate presentation in this build llms from scratch series and this is titled what are token embeddings and why do we
-4:13
-really need them so uh okay let's get started with this
-4:21
-problem of you have words right and you want these words to be
-4:26
-input to the machine learning model or to the large language anguage model let's say but computers can't understand
-4:33
-words right so you need to represent the words in the format of numbers so let's say we assign random
-4:41
-numbers to each word so let's say cat is 34 book is 2.9 tablet is minus 20 kitten
-4:47
-is -13 so let's say in the llm framework which we just saw we have already
-4:54
-converted the tokens into token IDs right and we have maintained the vocabulary so let's say our vocabulary
+## Token Embeddings
+* Also called Vector Embeddings / Word Embedding
+* Preferred token embeddings 
+
+* What are token embeddings?
+
+* small Hands-On demo where we'll play
+
+* Conceptual understanding of why token embeddings are needed
 
 ***
 
@@ -1129,6 +1067,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
