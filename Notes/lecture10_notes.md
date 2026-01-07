@@ -23,6 +23,7 @@
 
 ***
 
+* 15:00 
 * I want to prove to you that well trained Vector embeddings actually the semantic meaning right so king plus
 
 ***
@@ -126,7 +127,7 @@ the magnitude of the vector difference between nephew and N is 1.96 but the magn
 
 ***
 
-* 25:04
+* 25:00
 between semiconductor and earthor is 5.67 this is another indication that the
 25:10
 vectors actually encode some meaning and if you find the magnitude of the difference between the vectors it's an
@@ -219,7 +220,10 @@ dimensions for the second token ID which is token ID 1 it also has 768 weights
 similarly if you reach to the end 50257 this token ID and the token corresponding with it has 768 weights so
 29:51
 the number of tokens in this token in this embedding Matrix is 50257 into 76
-30:00
+
+***
+
+* 30:00
 so these are the weights okay and this is called as the embedding layer weight
 30:06
 Matrix this is extremely important so once you get the token IDs so if I go to
@@ -795,6 +799,7 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
 
