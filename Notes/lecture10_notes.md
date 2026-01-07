@@ -1,40 +1,17 @@
 hello everyone welcome to this lecture in the build large language models from
-0:10
 scratch Series today I am going to cover a very very important topic and that
-0:17
-topic is called token embeddings let me highlight this over here so today we are going to learn
-0:24
-about this concept called token embeddings people also call these as vector embeddings or word embeddings
-0:30
-calling them Vector embeddings is fine but word embeddings is not entirely
-0:36
-accurate uh tokens Can Be words can be
-0:41
-subwords or even can be characters and token is a more broader term and that's
-0:47
+topic is called token embeddings let me highlight this over here so today we are going to learn about this concept called token embeddings people also call these as vector embeddings or word embeddings calling them Vector embeddings is fine but word embeddings is not entirely accurate uh tokens Can Be words can be subwords or even can be characters and token is a more broader term and that's
 why I prefer to use the word token embeddings so what are token embeddings
-0:53
 and why are they so important let's get started with today's lecture if you look
-0:58
 at this workflow of how large language models actually work there is an input
-1:03
 text and let's say the input text is this is an example what happens next is
-1:09
 that the input text is broken down into tokens let's say this is the one token
-1:14
 is is the second token as is the third token and example is the fourth token
-1:20
 this is an example of a word based tokenizer so each token will be one word
-1:26
 but the way tokenizers actually work in model such as GPT is that GPT uses a
-1:32
 bite pair encoder as a tokenizer which is a subword tokenizer which means that
-1:38
 even parts of words or even characters can be individual tokens but that's not
-1:45
-the main focus of today's lecture if you want to understand about tokenizers in detail we have covered that in one of
-1:52
-the previous lectures and we have also seen about bite pair encoding in one of the previous lectures so tokenizing the
+the main focus of today's lecture if you want to understand about tokenizers in detail we have covered that in one of the previous lectures and we have also seen about bite pair encoding in one of the previous lectures so tokenizing the
 1:59
 word is the step number one then comes step number two which is converting these tokens into token IDs so every
 2:07
@@ -1152,5 +1129,6 @@ lectures because then I will modify adapt it accordingly and as I say many times
 showing up for these lectures uh don't lose interest don't lose motivation and keep on learning along with me thanks so
 1:00:43
 much everyone and I look forward to seeing you in the next lecture
+
 
 
