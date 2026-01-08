@@ -58,12 +58,12 @@ $ uv run jupyter lab
 |---|---|
 | [Lecture 12 -- The entire Data Preprocessing Pipeline of LLMs](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
 |---|---|
-| [Lecture 13 -- Introduction to the Attention Mechanism in LLMs](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | |
-| [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights)](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | |
-| [Lecture 15 -- Coding the Self Attention mechanism with key, query and value (K, Q, V) matrices](https://www.youtube.com/watch?v=UjdRN80c6p8) |  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md) | |
-| [Lecture 16 -- Causal Self Attention Mechanism - Coded from scratch in Python](https://www.youtube.com/watch?v=h94TQOK7NRA) |  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md) | |
-| [Lecture 17 -- Multi Head Attention Part 1 - Basics and Python code](https://www.youtube.com/watch?v=cPaBCoNdCtE) |  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md) | |
-| [Lecture 18 -- Multi Head Attention Part 2 - Entire mathematics explained](https://www.youtube.com/watch?v=K5u9eEaoxFg) |  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md) | |
+| [Lecture 13 -- Introduction to the Attention Mechanism in LLMs](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | xx/01/2026 |
+| [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights)](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | xx/01/2026 |
+| [Lecture 15 -- Coding the Self Attention mechanism with key, query and value (K, Q, V) matrices](https://www.youtube.com/watch?v=UjdRN80c6p8) |  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md) | xx/01/2026 |
+| [Lecture 16 -- Causal Self Attention Mechanism - Coded from scratch in Python](https://www.youtube.com/watch?v=h94TQOK7NRA) |  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md) | xx/01/2026 |
+| [Lecture 17 -- Multi Head Attention Part 1 - Basics and Python code](https://www.youtube.com/watch?v=cPaBCoNdCtE) |  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md) | xx/01/2026 |
+| [Lecture 18 -- Multi Head Attention Part 2 - Entire mathematics explained](https://www.youtube.com/watch?v=K5u9eEaoxFg) |  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md) | xx/01/2026 |
 |---|---|
 | [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) ||
