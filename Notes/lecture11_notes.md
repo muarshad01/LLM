@@ -44,96 +44,10 @@ here since our model contains no recurrence in order for the model to make use o
 
 ***
 
-35:19
-embedding layer size will have one 2 3 4 rows and the number of columns will be
-35:25
-the vector Dimension which is 256 that is fine because for every position we are going to have a 256 dimensional
-35:32
-Vector remember we have to add this Vector to the Token embedding Vector so the size should be same the size here
-35:39
-was 256 right every uh token which was embedded had a size 256 so here also for
-35:46
-every position we need a 256 dimensional Vector but there are only four positions right it can either be the first token
-35:52
-the second token third token or fourth token so the number of rows when we create the embedding layer for
-35:58
-positional encoding is going to be four which is the context length so now let us write that in the code so remember
-36:05
-when we created the token embedding the number of rows was the vocabulary size
-36:10
-but here the number of rows is going to be equal to the context length so now we
-36:16
-are creating a embedding layer for the positional embedding number of rows is equal to the context length and the
-36:22
-number of columns is output Dimension which is 256 because each Vector needs to have a size of 256 great so we have
-36:29
-created the positional embedding layer right now and now I'm going to uh visually try to explain how we are going
-36:37
-to add or how we are going to essentially create the positional embedding vectors so let's look at our
-36:43
-input Matrix again here the batch size is eight so we have eight rows and the context length is four which that's why
-36:49
-we have four columns so if you look at each input sequence let's look at the first row if you look at the first row
-36:55
-it has four token IDs let's say those token IDs are 10 8 20 and 21 each of
-37:02
-these token ID is now a 256 uh Vector length Vector because we
-37:07
-have done the embedding we have done the token embedding so each token ID is a 256 dimensional Vector so this is the
-37:14
-first batch of input you can see that there are four positions here maybe these words are the cat sat on now what
-37:21
-we need to do is that we need to add one one uh positional encoding Vector for
-37:27
-each of these to this uh to the Token embedding for the 10 for the token ID 10
-37:33
-we have to add a positional uh embedding Vector to a token ID of 8 we have to add
-37:38
-another Vector to a token ID of 20 we need to add positional Vector to a token ID of 21 we need to add another
-37:45
-positional embedding Vector so uh we need to add one position
-37:50
-Vector to each of these four token embeddings and remember that the same
-37:56
-positional embeddings are applied uh because there are only four positions
-38:01
-right so uh the positional embedding we just need to do it uh once
-38:08
-and then for every token or for every input sequence the same four positional
-38:14
-embeddings can be applied so for example this is the batch one right if you look at this
-38:19
-batch uh which is row number three let's say there are some input IDs like one um
-38:26
-two five and six let's say these are the token IDs now whatever positional
-38:33
-positional embedding we added to the first input the same positional
-38:39
-embedding can be added to this input because the positions are the same either it's position one 2 3 or four we
-38:45
-just need to encode the different positions right so that's why uh the positional encoding size or the
-38:52
-positional embedding size uh has to be 4X 250 56 we only need four positional
-38:59
-vectors four positional embedding vectors and then each Vector will of course have size
-39:05
-256 so then the positional embedding Vector Matrix which we have will be a 4X
-39:10
-256 Matrix why do we only need four why not have a separate positional uh
-39:17
-embedding for each of the inputs here because for each of these inputs we only want to encode whether the token ID is
-39:24
-in the first position second third or fourth so we only need the positional uh
-39:30
-we only need four positional embedding vectors one one for the first position
-39:36
-one for the second one for the third one for the fourth and then we can add the same four to basically all the input
-39:42
-sequences in a given batch that's what we are going to do so in the next step which is the step number 13 we are going
-39:49
-to generate the four positional embedding vectors from the positional embedding Matrix so as I told you all
-39:56
-embedding Matrix are essentially lookup tables so to generate the embedding vectors we just need to pass these
+35:00
+
+* we only need four positional vectors four positional embedding vectors and then each Vector will of course have size 256 so then the
+* positional embedding Vector Matrix which we have will be a 4 X 256 Matrix
 
 ***
 
@@ -318,7 +232,3 @@ me know if you're liking this teaching style which is a mix of the Whiteboard le
 I'll of course be sharing the code file with all of you thanks everyone and I'll see you in the next lecture
 
 ***
-
-
-
-
