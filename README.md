@@ -114,6 +114,8 @@ $ uv run jupyter lab
 
 #### [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs)
 
+#### [Visualizing transformers and attention | Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)
+
 ***
 
 ## TODO
