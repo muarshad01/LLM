@@ -13,99 +13,17 @@
 
 ***
 
-15:00
-and if longer paragraphs or longer input sequences need to be analyzed because then we need to know the relationship
-15:08
-between how different words are connected rather than the exact specific position I'll come to the uh advantages
-15:16
-and disadvantages of both of these in a moment okay so in the next uh in the
-15:23
-next section which is section number five I want to discuss about uh just these two types of of encodings and
-15:30
-which one to use in practice which one does GPT uses Etc so both of these type
-15:35
-of positional embeddings which are absolute embedding and Rel relative positional embedding are very good
-15:41
-because they enable the llms let me uh switch color they enable the large
-15:48
-language models to understand the order and relationship between the tokens and
-15:53
-this actually ensures more accurate and context aware predictions so whichever
-15:58
-position encoding you use it is actually much better than not using any positional encoding because uh it makes
-16:06
-the llm more aware of the order and relationship between tokens and that actually leads to better
-16:12
-predictions um now let's come to point number six so the choice between the two
-16:17
-types of uh positional embedding really depends on the specific application and
-16:23
-the nature of the data being processed so for example generally uh abs abolute
-16:29
-positional encoding is preferred when the fixed order of tokens is crucial such as for sequence generation so GPT
-16:37
-was trained using an absolute positional encoding and the original Transformer
-16:42
-paper was also trained using absolute positional encoding relative positional encoding on
-16:48
-the other hand is suitable for tasks like language modeling or long sequences where the same phrase can appear in
-16:55
-different parts of the sequence so generally relative positional encoding is useful if you are analyzing long
-17:02
-sequences and where the same phrase can repeat over and over again for all practical purposes I would
-17:08
-say absolute positional encoding is the one which is used more commonly in fact as I mentioned uh open a GPT models so
-17:18
-gpt3 GPT 4 Etc use absolute positional embeddings that are optimized during the
-17:24
-training process so one thing to remember here is that similar to the embedding vectors we do not know what
-17:31
-values of the positional embedding to be used so for example here I randomly showed these values 1.1 1.2 and 1.3
-17:39
-right ideally as I mentioned in the previous lecture the vector embeddings need to be optimized right we need to
-17:45
-know the weights for each Vector which what's the value for each Vector
-17:50
-similarly uh when GPT was developed even the values of the positional embedding
-17:57
-vectors need to be op optimized and these positional embedding vectors
-18:02
-Vector values are actually optimized during the training process this optimization is actually a part of the
-18:08
-training process itself so when you look at the model training for GPT we also have to optimize for the token
-18:15
-embeddings and we also have to optimize for the positional embeddings we do not know about these values
-18:22
-before uh remember I mentioned that along with GPT the original Transformer paper which is called as attention is
-18:29
-all you need so let me show you this paper yeah this paper so they also used an absolute positional encoding and in
-18:36
-this case they actually propos some formula for how to encode the different positions so they use sinusoidal and
-18:42
-cosine formula over here uh so you can read a bit about what they have written
-18:48
-here since our model contains no recurrence in order for the model to make use of the order of the sequence we
-18:55
-must inject some information about the relative or absolute position of the to tokens so they have added absolute
-19:01
-oppositional embedding and they have used some formula for how to actually calculate the positional embedding for
-19:08
-each token uh on the contrary when GPT was trained no such formula was used and uh
-19:16
-the positional embedding Vector values were actually optimized during the training process itself I hope everyone
-19:24
-is with me until this point because now we are going to jump into a handson
-19:29
-demonstration of uh looking at a very uh real life example such as gpt2 looking
-19:37
-at the vocabulary transforming that vocabulary into token embeddings adding positional embeddings to those token
-19:44
-embeddings and then generating the input embeddings which are the final input to the llm training so you might be
-19:51
-noticing that I'm using the words encoding and embedding interchangeably so sometimes positional encodings are
-19:57
-also called positional embed edings so these words are used interchangeably all you need to remember is that when
+* They enable the large language models to understand the order and relationship between the tokens and
+this actually ensures more accurate and context aware predictions.
+* The choice between the two types of uh positional embedding really depends on the specific application and the nature of the data being processed.
 
+* Absolute: Suitable when fixed order of tokens is crucial, such as for sequence generation.
+* Relative: Suitable for tasks like language modeling over long sequences, where the same phrase can appear in different parts of the sequence.
+
+* (7) OpenAI's a GPT models use absolute positional embeddings. This optimization is part of the training model itself.
+
+* sinusoidal and cosine formula over here uh so you can read a bit about what they have written
+here since our model contains no recurrence in order for the model to make use of the order of the sequence we must inject some information about the relative or absolute position of the to tokens so they have added absolute
 
 ***
 
@@ -676,4 +594,5 @@ me know if you're liking this teaching style which is a mix of the Whiteboard le
 I'll of course be sharing the code file with all of you thanks everyone and I'll see you in the next lecture
 
 ***
+
 
