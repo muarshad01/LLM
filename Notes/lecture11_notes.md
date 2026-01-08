@@ -327,6 +327,9 @@ size that is equal to four at one time in the input only four tokens are going t
 input the maximum input size is four which means the llm is going to predict the next word based on a maximum of four
 35:13
 tokens so actually we need to encode only four positions in this case so the
+
+***
+
 35:19
 embedding layer size will have one 2 3 4 rows and the number of columns will be
 35:25
@@ -538,6 +541,13 @@ leads to uh input embeddings so these input embeddings which we obtained so actu
 let me add write here positional embedding so what we actually added to the Token embeddings was positional
 45:54
 embeddings so
+
+
+
+***
+
+
+
 46:00
 uh so what we added here was yeah positional embeddings and then
 46:06
@@ -594,5 +604,6 @@ me know if you're liking this teaching style which is a mix of the Whiteboard le
 I'll of course be sharing the code file with all of you thanks everyone and I'll see you in the next lecture
 
 ***
+
 
 
