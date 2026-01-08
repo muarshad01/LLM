@@ -37,3 +37,8 @@ here since our model contains no recurrence in order for the model to make use o
 * positional embedding Vector Matrix which we have will be a 4 X 256 Matrix
 
 ***
+
+#### [Embedding](https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html)
+#### [Datasets & DataLoaders](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html)
+
+***
