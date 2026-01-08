@@ -207,6 +207,9 @@ embeddings or the token embeddings for those inputs and to create the input IDs
 Creating input batches using DataLoader
 24:55
 we are going to use something called as data loader so we looked at data loader in the in one of the previous lectures
+
+***
+
 25:02
 so what we are going to do here is that uh we are going to have a batch and that batch size will be equal to 8 and we are
 25:09
@@ -673,3 +676,4 @@ me know if you're liking this teaching style which is a mix of the Whiteboard le
 I'll of course be sharing the code file with all of you thanks everyone and I'll see you in the next lecture
 
 ***
+
