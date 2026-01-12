@@ -26,24 +26,24 @@ is when there are such complex sentences, which are also called __long-term depe
 
 Maybe if the attention mechanism was not there the LLM would have been confused and it might think the dog has jumped or it might think that the main part of this sentence is the cat is on a mat so if the attention mechanism was not there maybe the LLM would have thought that the cat is on the mat that's it would not know that. I have to give a lot of attention to jump in association with the cat this is the broad level intuition why we need to learn about the attention mechanism.
 
-* it turns out that with without attention mechanism if you used a recurrent neural network or some other neural network it does not capture
-the longterm dependencies between sentences that's the broad level intuition.
+* it turns out that with without attention mechanism if you used a recurrent neural network or some other neural network it does not capture the longterm dependencies between sentences that's the broad level intuition.
 
-#### 4 types of attention mechanism
-
-* The main attention mechanism which was which is used in GPT uh generative pre-train Transformer (GPT) and all the modern LLMS is this multi-head attention.
+#### 4 Types of Attention Mechanism
+* The main attention mechanism, which was which is used in GPT uh Generative Pre-train Transformer (GPT) and all the modern LLMS use this multi-head attention.
 
 
-1. __Simplified Self Attention__: so this is the pure EST and the most basic form of the attention technique so that you understand.
-2. __Self Attention__: so here we will also introduce train trainable weights which form the basis of the actual mechanism which is used in the LLMs until this part we are still not at the actual mechanism but we are building up slowly after I cover self attention the next thing which I'll move to is
-3. __Causal Attention__: this is when things really start to get interesting we are predicting the next World right by looking at the past world so what causal attention does is that it's a type of self attention that allows the model to consider only the previous and the current inputs in a sequence and it masks out the future inputs. No need to pay too much attention to this right now. I'm just giving you a broad overview of what all I'll cover in the
-7:52
-subsequent lectures when we look at attention today we are not going to cover all of these today we are just
+1. __Simplified Self Attention__: This is the pureest and the most basic form of the attention technique that you will understand.
+2. __Self Attention__: Here we will also introduce __trainable weights__, which form the basis of the actual mechanism that is used in the LLMs.
+3. __Causal Attention__: This is when things really start to get interesting. We are predicting the next world right by looking at the past world. So what causal attention does is that it's a type of self attention that allows the model to consider ONLY the previous and the current inputs in a sequence and it masks out the future inputs.
 
-* History of how attention came into the picture? Why it is needed why it's better than RNN,  etc., and then finally we'll move to multi-ad attention only when you have understood causal attention and self attention and simplified self attention you will be able to understand multi-head attention this is the main concept which is actually used in building GPT. so multi-head attention is just basically a bunch of causal attention heads stacked together and we'll code out this multi-head attention fully from scratch.
-*  I'll show you the dimensions how they work etc all of that is planned in the subsequent lectures so this multi-head attention is essentially an extension of self attention and causal attention that enables the model to simultaneously attend to information from different representation subspaces don't worry about this just remember that the multi-ad attention allows the llm to look at input data and and then process many parts of that input data in parallel. so for example if this is the sentence the multi-ad attention allows the LLM to have let's say one attention head looks at this part one attention head looks at this part one attention head looks at this part Etc this is just a crude description so that you get an understanding of what do you mean by multihead attention.
-*
-  
+* History of how attention came into the picture?
+* Why it is needed?
+* Why it's better than RNN,  etc., and then finally, we'll move to multi-ad attention only when you have understood causal attention and self attention and simplified self attention.
+* You will be able to understand multi-head attention this is the main concept which is actually used in building GPT.
+* So, __multi-head attention__ is just basically a bunch of causal attention heads stacked together.
+* __multi-head attention__ is essentially an extension of self attention and causal attention that enables the model to simultaneously attend to information from different representation subspaces.
+* __multi-ad attention__ allows the LLM to look at input data and and then process many parts of that input data in parallel.
+* The multi-ad attention allows the LLM to have let's say ...one attention head looks at this part... one attention head looks at this part ...one attention head looks at this part, etc. This is just a crude description so that you get an understanding of what do you mean by multi-head attention.
 
 ***
 
@@ -840,5 +840,6 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
