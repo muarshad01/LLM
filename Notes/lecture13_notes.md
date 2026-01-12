@@ -42,7 +42,7 @@ Maybe if the attention mechanism was not there the LLM would have been confused 
 * You will be able to understand multi-head attention this is the main concept which is actually used in building GPT.
 * So, __multi-head attention__ is just basically a bunch of causal attention heads stacked together.
 * __multi-head attention__ is essentially an extension of self attention and causal attention that enables the model to simultaneously attend to information from different representation subspaces.
-* __multi-ad attention__ allows the LLM to look at input data and and then process many parts of that input data in parallel.
+* __multi-head attention__ allows the LLM to look at input data and and then process many parts of that input data in parallel.
 * The multi-ad attention allows the LLM to have let's say ...one attention head looks at this part... one attention head looks at this part ...one attention head looks at this part, etc. This is just a crude description so that you get an understanding of what do you mean by multi-head attention.
 
 ***
@@ -840,6 +840,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
