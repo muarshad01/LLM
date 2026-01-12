@@ -100,101 +100,20 @@ sentence one word at a time uh.
 * __final hidden State__ essentially contains the __accumulation of all previous hidden state__ so it contains or encapsulates memory this is how memory is incorporated which was missing earlier with just a normal neural network so this is the final hidden State and then
 this final hidden State essentially memorizes the entire input and then this uh hidden state is passed to to the decoder and then the decoder produces the final output which is the translated English.
 
- 
- 
 ***
 
+20:00
 
-20:09
 
+* big problem with the RNN and that problem happens because the model the decoder has essentially no access to the previous hidden States.
+*  Why is this a big problem um the reason it's a big problem is because when we have to process long-sequences if the decoder just relies on one final hidden State that's a lot of pressure on the decoder to essentially that one final hidden State needs to have the entire information and for long sequences it usually fails because it's very hard for one final hidden state.
 
-goes into the encoder see now we have hidden so let me expand it so and play
-20:39
-from the start okay so now the first word of French which is J goes into the encoder it has went into the encoder
-20:46
-right now and the first hidden state is generated see in the orange color great now this hidden state number one and the
-20:53
-second input is used again look at this animation again the hidden state state
-20:58
-number one and the second input which is sui sis s is used U and then we have the
-21:04
-hidden state number two then the hidden state number two and the input three which is will be used to produce the
-21:10
-final hidden State great this final hidden State hidden state number three essentially contains all the information
-21:17
-in the given sequence plus it also contains some memory or some
-21:23
-context regarding uh what came in the past and now this final hidden state is
-21:29
-then passed to the decoder and the decoder produces the output in English one word at a time this is exactly how
-21:35
-the recurrent neural network works okay now you might think that awesome right this is already doing sequence to
-21:42
-sequence translations and we are translating from one language to another language so why do we need attention
-21:47
-mechanism memory is being encoded here and we are passing in the context which
-21:53
-means that we will be able to identify how different words of the sequence are related to each other so why do we need
-21:59
-attention well there is a big problem with the recurrent neural network and
-22:05
-that problem happens because um the model the decoder has
-22:11
-essentially no access to the previous hidden States so if you look at this video you'll see that uh the decoder has
-22:19
-access to only the final hidden state so hidden State one hidden State 2 hidden
-22:24
-state three and then hidden state three is passed to the decoder C the the decoder has no access to the previous
-22:30
-hidden States now why is this a big problem um
-22:37
-the reason it's a big problem is because when we have to process long
-22:43
-sequences if the decoder just relies on one final hidden State that's a lot of
-22:49
-pressure on the decoder to essentially that one final hidden State needs to
-22:54
-have the entire information and for long sequences it usually fails because it's very hard for one
-23:01
-final hidden state to have the entire information let me explain this bit more
-23:07
-so as we saw the encoder let me change my color here I think let me change it to
-23:15
-Green yeah so as we saw the encoder processes the entire input text the
-23:21
-encoder processes the entire input text into one final hidden state which is the memory cell and then decoder takes this
-23:29
-this hidden State decoder takes this hidden state to essentially produce an output
-23:34
-great now here's the biggest issue with RNN and please play pay very close
-RNN Limitations
-23:39
-attention to this point because if you understand this you will understand why attention mechanisms were needed the
-23:46
-biggest issue with the RNN is that a recurrent neural network cannot directly access earlier hidden States as we saw
-23:52
-in the video it only accesses the final hidden state so the RNN can't directly
-23:58
-access earlier hidden States from the encoder during the decoding phase it relies only on the current
-24:04
-hidden state which is the final hidden State and this leads to a loss or this leads to a loss of context especially in
-24:12
-complex sentences where dependencies might span long distances um okay so let me actually
-24:19
-explain this further what does it mean loss of context right uh so as we saw
-24:25
-the encoder compresses the entire input sequence into a single hidden State
-24:31
-Vector I hope you have understood up till this point now the problem happens let's say if the sentence if the input
-24:37
-sentence is very long if the input sentence is very long it really becomes very difficult for the recurrent neural
-24:43
-network to capture all of that information in one single final hidden state that becomes very difficult and
-24:50
-this is the main drawback of the RNN so for example let's take a practical case
-24:56
-so let's say uh we take the example which we looked at at the start of the lecture which is the cat that was
-
+* so as we saw the encoder processes the entire input text the encoder processes the entire input text into one final hidden state, which is the memory cell and then decoder takes this this hidden State. decoder takes this hidden state to essentially produce an output great now here's the biggest issue with RNN and please play pay very close
+* __RNN Limitations__: attention to this point because if you understand this you will understand why attention mechanisms were needed the biggest issue with the RNN is that a RNN cannot directly access earlier hidden States.
+*
+* so the RNN can't directly access earlier hidden States from the encoder during the decoding phase it relies only on the current hidden state which is the final hidden State and this leads to a loss or this leads to a __loss of context__especially in complex sentences where dependencies might span long distances um.
+*  okay so let me actually explain this further what does it mean loss of context right uh so as we saw the encoder compresses the entire input sequence into a single __hidden State Vector__.
+*   Let's say if the sentence if the input sentence is very long if the input sentence is very long it really becomes very difficult for the RNN to capture all of that information in __one single final hidden state__ that becomes very difficult and this is the main drawback of the RNN.
 
 ***
 
@@ -710,6 +629,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
