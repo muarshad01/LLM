@@ -141,114 +141,29 @@ dependencies with attention mechanisms and let's see how so
 
 30:00
 
-30:21
- uh let me repeat that remember in
-30:27
-the original and and the decoder only had access to the final hidden state but the bhano attention mechanism says that
-30:34
-what if the decoder now can selectively access different parts of the input
-30:40
-sequence at each decoding step and let me explain to you what this means by simple figure so let's say we are at
-30:47
-this decoding step where uh we want to so let's say the word is Mir which is
-30:52
-the uh German word and we want to decode this so we are at this hidden state
-30:59
-right now and we want to decode this okay if we use the original RNN we just had access to this final hidden state
-31:06
-but now what we say is that when you are uh decoding this uh hidden State what if
-31:13
-you have access to all of the input tokens so follow this orange curve which I'm drawing here so what if you have
-31:20
-access to this token what if you have access to this token what if you have access to this token and what if you
-31:27
-have access access to this token so let's say when you're decoding you have access to all the tokens and you can
-31:33
-decide how much attention to pay to each token so for example I think the German
-31:38
-uh translation for you is do which is do so I know that the maximum attention needs to be paid to this token so that's
-31:46
-why you I have marked this with a thick line over here for all the other tokens well we pay less amount of
-31:53
-attention what this does is that it allows the decoder to access all the to tokens so if we are dealing with long
-31:59
-sentences we can access all the tokens even in long sentences and decide which token we want to pay more attention to
-32:06
-so for example let's take this longer sentence which we have looked at a lot in today's lecture yeah so let's
-32:14
-say and we'll look at it once more again uh yeah so let's say we have look we are
-32:20
-looking at this sentence the the cat that was sitting on the mat
-32:25
-which was next to the dog jumped let's say we looking at this sentence now in the decoder so let's say you are on the
-32:32
-decoder part and you are decoding for jumped and you translating it into French what we will do is that instead
-32:38
-of just looking at the final hidden State we will have access to all of the words let's say we have access to all of
-32:44
-the input words and not just that we have access to all of the input words and we can also decide how much
-32:50
-attention to pay to each of the input word so now I will say that okay I want to
-32:56
-translate jump right so of course a lot of attention should be paid to jumped but I will also pay a lot of attention
-33:02
-to cat because the cat is the uh one who has really jumped so I can decide which
-33:09
-tokens to pay the maximum attention to so when I'm translating jumped I will pay attention to jump and I will pay
-33:15
-attention to cat also because now I can access the token for cat this access itself was not possible in RNN because
-33:22
-we could not access the previous input tokens in an RNN and this was the main problem which was solved by the
-33:27
-introduction of the attention mechanism so this figure actually explains the general idea behind the
-33:34
-bhan attention mechanism um let me Zoom onto this figure once more yeah so if you look at
-33:41
-this figure here uh when you are translating from do to English you pay
-33:46
-attention to all the input tokens and then you can have these attention weights which basically describe how
-33:51
-much you want to pay attention to each input token and that solves the problem of the loss of context which was present
-33:58
-in the RNN so essentially using an attention mechanism using an attention mechanism
-34:05
-the text generating decoder part of the network can access all the input tokens
-34:12
-selectively uh and as I mentioned we can decide how much weight to give to each input token so this means that some
-34:19
-input tokens are more important than others for generating a given output token this importance is determined by
-34:26
-the attention weights so this is where the attention weights and the attention score comes into the picture which we
-34:31
-will learn about later now uh so this paper was introduced in 2014 right this paper
-34:39
-which is which introduced the bhan attention mechanism only three years later the main Transformers paper came
-34:45
-out and that came out in 2017 so only 3 years later researchers
-34:50
-found that RNN architectures are not required for building deep neural networks for natural language processing
-34:58
-and uh this is when the researchers proposed the Transformer architecture and at the main core of the
-35:04
-Transformer architecture was the badano attention mechanism so it was called self
+* The text generating decoder part of the network can access all the input tokens selectively.
+* This means that some input tokens are more important than others for generating a given output token.
+* This importance is determined by the attention weights.
+
+* Only 3 years later researchers found that RNN architectures are not required for building DNN for NLP and uh this is when the researchers proposed the Transformer architecture and at the main core of the
+Transformer architecture was the Bahdanau attention mechanism.
+
+ 
+ so it was called self
 
 
 ***
 
-35:10
-attention mechanism but it was really inspired a lot from the bhano attention mechanism we'll come to what self
-35:17
-attention means bhano attention did not introduce the term self attention but the Transformers paper which really
-35:23
-changed everything for llms that paper came in 2017 uh it introduced the Transformer
-35:29
-architecture with a self attention mechanism that was completely based on the badano attention mechanism this is
-35:35
-that paper which came out in 2017 and here you'll see uh attention
-35:41
-attention basically the paper itself is titled attention is all you need um so
+35:00
+
+* [Attention is all you need - Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, Illia Polosukhin](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oR9sCGYAAAAJ&citation_for_view=oR9sCGYAAAAJ:zYLM7Y9cAGgC)
+
+***
+
+*
+*     um so
 35:46
-this is how attention really came to be the core building block of large language models I just want to explain
+this is how attention really came to be the core building block of LLMs I just want to explain
 35:53
 to you this once more so that I drive this concept home about what why attention mechanism helps so let's say
 36:00
@@ -554,3 +469,4 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
