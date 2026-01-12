@@ -1,100 +1,33 @@
-Why we care about “attention”
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch series up till now in this series we have looked at a number of
-0:15
-things in particular we have spent a lot of time discussing the data preparation
-0:21
-and the sampling stage of building a large language model in particular if
-0:26
-you want to build an entire large language model pipeline it has to be done in three stages in stage one you
-0:33
-have to look at the data preparation then comes attention mechanism then comes the llm architecture in stage two
-0:40
-we have the training and the model evaluation and in stage three we have the fine tuning so we have spent around
-0:48
-five to six lectures on the data preparation and sampling part where we looked at um word embedding we looked at
-0:57
-tokenization we looked at bite pair encoding we looked at positional encoding essentially we have looked at
-1:04
-the entire data pre-processing pipeline of the llm in a lot of detail now it's
-1:10
-time to move to the second building block of stage one and that is the
-1:16
-attention mechanism in one of the earlier lectures of this series I told all of you that I
-1:22
-think of Transformers as the secret Source behind the llm so if Transformers
-1:29
-is like a car then attention mechanism is essentially the engine which drives
-1:35
-the car this is the mechanism I think which gives so much power to large language
-1:41
-models and that's why chat GPT performs so well uh there are a few lectures on
-1:47
-attention mechanism on YouTube but they are not comprehensive at all it's impossible to cover everything related
-1:53
-to attention mechanism in one lecture uh it's one of the most important Concepts so I have planned a
-2:00
-series of four to five lectures on attention mechanism today's lecture will
-2:06
-be a foundational overview where we will understand the introduction to attention mechanism what it is why it is really
-2:13
-needed and the types of attention mechanism then what we'll be doing from the next lecture onwards is we'll be
-2:19
-coding out the entire attention mechanism completely from scratch we are not going to assume even a single
-2:25
-thing um okay so in this lecture we are going to look at the subsection which is
-2:31
-essentially uh the subsection on attention mechanism so let me switch my color to I think I'll
-2:38
-choose purple here and let's start looking at attention mechanism in detail
-2:44
-so first let me motivate uh so that you get an intuition of why this name
-2:50
-attention mechanism comes and uh what are we essentially trying to solve here
-2:55
-so let's look at this example let's say you are a large language model like G P PT and you have received this sentence
-3:02
-the sentence is the cat that was sitting on the mat which was next to the dog
-3:09
-jumped now as a human I can say that okay there is maybe a cat here the cat
-3:15
-uh was sitting next to a dog and the cat was also on a mat and then uh as a human
-3:21
-when I read this I know that the cat jumped okay but as a large language model if you look at the sentence you'll
-3:28
-soon realize that this sentence is a bit confusing I can very clearly see that the cat was sitting on the mat if only
-3:36
+
+* Transformers as the secret Source behind the llm so if Transformers is like a car then
+* attention mechanism is essentially the engine which drives the car
+this is the mechanism.
+
+ 
+* introduction to attention mechanism what it is why it is really needed and the types of attention mechanism
+
+* why this name attention mechanism comes and uh what are we essentially trying to solve here
+so let's look at this example
+
+```
+The cat that was sitting on the mat which was next to the dog jumped.
+```
+
+a cat here the cat was sitting next to a dog and the cat was also on a mat and then uh as a human
+when I read this I know that the cat jumped okay but as a LLM if you look at the sentence you'll
+soon realize that this sentence is a bit confusing.
+
+
+I can very clearly see that the cat was sitting on the mat if only
 this were the sentence I could easily analyze that the cat is the main subject
-3:41
 in this sentence and the cat was sitting and the object is the mat but the thing
-3:46
-is when there are such complex sentences which are also called long-term dependencies where there is this second
-3:52
-sentence which is attached so then it becomes a bit difficult for the large language model
-3:58
+is when there are such complex sentences which are also called long-term dependencies where there is this second sentence which is attached so then it becomes a bit difficult for the LLM
 because uh so after this sentence there will be a number of other sentences right but the
-4:04
-main thing which the large language model needs to really understand from this sentence is that the cat which is
-4:11
+main thing which the LLM needs to really understand from this sentence is that the cat which is
 the main subject that subject actually jumped so the main the action which the
-4:19
-subject perform is jumping so the llm should understand
-4:24
-that when it looks at cat the word which it should be paying the most attention
-4:30
-to is jumped notice how I use the word attention so when I look at the word cat
-4:39
-um of course sitting is also important because the cat was earlier sitting on the mat but now the cat has jumped so
-4:46
-there are few words in this sentence which the llm needs to pay the most
-4:52
-attention to in association with cat and if you don't introduce the
-4:59
-attention me mechanism it's very difficult for the llm to know that the cat is the one who has jumped uh maybe
+subject perform is jumping so the LLM should understand that when it looks at cat the word which it should be paying the most attention to is jumped notice how I use the word attention so when I look at the word cat
+um of course sitting is also important because the cat was earlier sitting on the mat but now the cat has jumped so there are few words in this sentence which the LLM needs to pay the most attention to in association with cat and if you don't introduce the
+attention me mechanism it's very difficult for the LLLM to know that the cat is the one who has jumped uh maybe
 
 ***
 
@@ -990,3 +923,4 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
