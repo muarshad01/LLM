@@ -55,17 +55,13 @@ Maybe if the attention mechanism was not there the LLM would have been confused 
 
 
 * you need contextual understanding and grammar alignment
-*
-*
+
 * so whenever you are developing a model let's say which translates one sequence to another sequence or tries to find the meaning of a sequence or makes the next word prediction from a sequence you need to really understand the
 * context you need to understand
 * how different words relate with each other what's the grammar of that particular language
 * and only then will you be able to uh process sequences or only then you'll be able to model long sequences of textual information that's understanding number one okay with this understanding what
 
-
-
 * We cannot just use a normal neural network because if you have a normal neural network it does not have memory so we are going to use this word memory a lot just like
-
 
 * sequence translation the models need to have a memory the models need to know what has come in the
 past why because let's say I have a sentence that
@@ -329,6 +325,9 @@ mechanism it has translate it has access to one two and three hidden state but i
 three is the most important uh Etc so this is how it actually works so at
 39:53
 every decoding step we have access to all the different uh hidden States and one more key thing to mention
+
+***
+
 40:00
 here is that the model is isn't just mindlessly aligning the first word at the output with the first word at the
 40:06
@@ -427,6 +426,11 @@ German to English right so we are looking at one sequence and we are looking at 
 instead of giving attention to another sequence all the attention is directed inwards so we we are just looking within
 44:58
 a particular sequence so we are looking at different tokens within a sequence and see how these tokens are related to
+
+
+***
+
+
 45:04
 each other that's called as self attention so self attention is a key
 45:09
@@ -550,12 +554,3 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
-
-
-
-
-
-
-
-
-
