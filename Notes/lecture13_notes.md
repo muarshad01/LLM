@@ -173,104 +173,25 @@ Transformer architecture was the Bahdanau attention mechanism.
 ***
 
 40:00
-here is that the model is isn't just mindlessly aligning the first word at the output with the first word at the
-40:06
-input it actually learns from the training phase how to align the words in the language pair so remember at the
-40:13
-start we saw that you cannot blindly do word to word translation that's not what's happening here in the training
-40:20
-phase the attention mechanism actually learns which word to align with which word so which word in the output should
-40:25
-be aligned with which word in the input so this this graph is actually presented
-40:31
-in the 2014 paper and I think this graph is very interesting so you can also take a look at this uh this is figure number
-40:38
-three in the original the badana attention mechanism paper so here you can see that let's see European economic
-40:45
-area so let's say we want to translate European economic area to French it actually translates to uh European
-40:53
-economic zone so here it says that in French the order of this word is reversed as compared to English so let's
-41:00
-see how the model actually learns so European so it learns this European happens over here then economic is here
-41:07
-and area is here so basically the point is that uh when the attention mechanism
-41:13
-learns that European maps to this European economic maps to economic and
-41:19
-area maps to Zone it does it's it's not just blindly looking at the order because if you see the order European
-41:25
-comes at 1 2 3 4 fth but European which is the French translation comes at 1 2 3
-41:32
-4 5 6 7th so order is different it's not blindly copying the order or the number
-41:39
-uh at which the word occurs it's actually learning from the training uh it's learning the dependencies between
-41:45
-different words and that's how it does does the translation um I'll be sharing the link
-41:51
-to this paper in the information section the 2014 badano attention paper and I'll
-41:57
-also be sharing the link to the 2017 attention is all you need paper before we move to self attention I actually
-History of RNNs, LSTMs, Attention and Transformers
-42:03
-want to take a bit of time to tell you about the history of the attention and
-42:09
-Transformers so that you have a timeline in mind so uh it all started in 1980 1980s
-42:16
-is when recurrent neural networks came into the picture and recurrent neural networks introduced this hidden layer
-42:23
-the hidden state that was the key Innovation here in 1997 came long short-term memory networks and they were
-42:30
-an advancements compared to lnn uh compared to RNN so recurrent neural networks had this problem which is
-42:36
-called Vanishing gradients so when you stack multiple feedback loops together it leads to the vanishing gradient
-42:42
-problem long short-term memory solved this so we had a longterm memory route
-42:48
-and a shortterm memory route and that's how the lstm actually operates but still both of these had problems with respect
-42:54
-to longer context which was solved by the B Z Now attention mechanism in 2014
-42:59
-where the decoder can can have access to each of the input State when it's performing the decoding operation and it
-43:06
-can selectively decide which input to give more attention to then came the
-43:12
-Transformers architecture in 2017 and the Transformers architecture really
-43:17
-used the attention mechanism which was proposed in 2014 in this paper badana
-43:24
-attention mechanism so this is the history we we are living in the age right now where people only know about attention and Transformers right but
-43:31
-work has been going on in this area for the past 43 to 45 years or even more uh
-43:38
-so please keep this particular uh figure in mind or historical mind map so that
-43:45
-you are aware of how lucky we are to be living in these times where all of the research work has been accumulated for
-43:51
-50 years and now we are reaping the benefits of these scientific advancements these advancements have not
-43:57
-just happened in a period of one year or two years or 3 years they have taken time they researchers have worked hard
-44:03
-over the past half a century to get us to this statee okay so I hope until now you have
-Self attention
-44:10
-all understood a flavor and an intuition behind the attention mechanism itself um
-44:16
-what the Transformers paper did is that it introduced another terminology which is actually called as self attention so
-44:22
-self attention is a bit different so self attention um is basically a
-44:28
-mechanism that allows each position of the input sequence to attend to all
-44:33
-positions in the same sequence so we are not looking at
-44:38
-different sequences now when we looked at language translation we looked at converting from English to French or
-44:44
-German to English right so we are looking at one sequence and we are looking at another sequence self attention is basically different now
-44:51
-instead of giving attention to another sequence all the attention is directed inwards so we we are just looking within
-44:58
-a particular sequence so we are looking at different tokens within a sequence and see how these tokens are related to
 
+
+|||
+|---|---|
+| RNN |1980|
+| LSTM |1997|
+| Attention |2014|
+| Transformers |2017|
+
+
+* RNNS had this problem which is called __Vanishing gradients__
+
+*  when you stack multiple feedback loops together it leads to the vanishing gradient problem LSTM solved this so we had a longterm memory route and a shortterm memory route and that's how the lstm actually operates.
+  
+* both of these had problems with respect to __longer context__,  which was solved 2014 and 2017 papers.
+
+#### __self attention__: 
+* is a bit different so self attention um is basically amechanism that allows each position of the input sequence to attend to all positions in the same sequence so we are not looking at different sequences.
+* self attention is basically different now instead of giving attention to another sequence all the attention is directed inwards so we we are just looking within a particular sequence so we are looking at different tokens within a sequence and see how these tokens are related to
 
 ***
 
@@ -398,3 +319,4 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
