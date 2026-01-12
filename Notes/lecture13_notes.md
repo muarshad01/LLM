@@ -160,86 +160,15 @@ Transformer architecture was the Bahdanau attention mechanism.
 
 ***
 
-*
-*     um so
-35:46
-this is how attention really came to be the core building block of LLMs I just want to explain
-35:53
-to you this once more so that I drive this concept home about what why attention mechanism helps so let's say
-36:00
-again the same sentence this is the sentence the cat that was sitting on the mat which was next to the dog jumped and
-36:06
-this is the French translation uh for this particular sequence so what the
-36:12
-attention mechanism does is that at each decoding step so at each decoding step
-36:18
-the model can look back at the entire input sequence and decide which parts are most
-36:25
-relevant to generate the current word so for example uh let's say we are
-36:33
-predicting this word sa which is the French translation for jumped so when the decoder is predicting this French
-36:40
-translation s the attention mechanism allows the decoder to focus on the part
-36:45
-of the input that corresponds to jump so we can selectively look at which
-36:51
-part of the input to give maximum attention to uh and this Dynamic focus on
-36:57
-different parts of the input sequence is what helps the attention mechanism to learn long range dependencies more
-37:03
-effectively so remember we looked at how RNN fail to understand or even learn
-37:08
-longrange dependencies uh one main or key thing of the attention mechanism is this word
-37:15
-which is called as Dynamic Focus so Dynamic Focus which means that
-37:20
-for every decoder for every decoding step we can selectively choose which inputs to focus on and how much
-37:26
-attention to give to it each input that's why it's called Dynamic Focus so this Dynamic focus on different parts of
-37:32
-the input sequence helps us to learn long range dependencies more effectively and that's why the attention
-37:40
-mechanism uh actually works so well there is another animation which I want to show you uh so here we saw the RNN
-37:49
-right let me show you again so this is the recurrent neural network here you will see that just the final hidden
-37:55
-state which is the hidden state number three is actually passed to the decoding stage nothing else is passed but now let
-38:02
-me show you the modification of this with with the attention mechanism so now
-38:07
-uh if we do this with attention added what happens is that you'll see that hidden state number one is generated
-38:13
-hidden state number two is generated hidden state number three is generated but all of these hidden states are
-38:18
-passed to the decoder which means that the decoder at every step has access to all of the Hidden States not just the
-38:25
-final hidden state number three but even hidden States number one and hidden States number two this is an extremely
-38:30
-important point to remember uh one more thing which I want to show you here is that uh yeah this
-38:38
-part so let's say uh uh yeah so let's say we are
-38:44
-translating from French to English over here I think let me play this
-38:56
-again yeah yeah so let's say we are translating from French to English here again let's see what is happening here
-39:02
-so if we are at the decoder stage we want to generate this word I right for Jo so this when we are at the decoder
-39:09
-State the decoder has access to all of these hidden States 1 2 and three when it's generating the English translation
-39:15
-for J but what it does is that it gives more preference to the hidden state number one because it realize that that
-39:22
-Jo is more important for translation to I similarly when we want to translate sui s u i s it actually translates to M
-39:30
-so when the decoder is translating this to English it has access to Hidden State 1 2 and three but it learns that the
-39:36
-hidden state two is most important for this translation similarly when it's translating Aon with the attention
-39:43
-mechanism it has translate it has access to one two and three hidden state but it learns that the hidden state number
-39:48
-three is the most important uh Etc so this is how it actually works so at
-39:53
-every decoding step we have access to all the different uh hidden States and one more key thing to mention
+35:00
+
+* At each decoding step so at each decoding step the model can look back at the entire input sequence and decide which parts are most relevant to generate the current word.
+
+* so for example uh let's say we are predicting this word saute which is the French translation for jumped so when the decoder is predicting this French translation s the attention mechanism allows the decoder to focus on the part of the input that corresponds to jump so we can selectively look at which part of the input to give maximum attention to uh
+
+* This __Dynamic focus__ on different parts of the input sequence allows modes to learn long range dependencies more effectively
+
+* Dynamic Focus so Dynamic Focus which means that for every decoder for every decoding step we can selectively choose which inputs to focus on and how much attention to give to it each input that's why it's called Dynamic Focus so this Dynamic focus on different parts of the input sequence helps us to learn long-range dependencies more effectively and that's why the attention mechanism uh actually works so well.
 
 ***
 
@@ -469,4 +398,3 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
-
