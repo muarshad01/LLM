@@ -54,9 +54,6 @@ Maybe if the attention mechanism was not there the LLM would have been confused 
 * Problems with modeling long sequences start where we are modeling.
 
 
-
-
-
 * you need contextual understanding and grammar alignment
 *
 *
@@ -197,7 +194,12 @@ network to capture all of that information in one single final hidden state that
 this is the main drawback of the RNN so for example let's take a practical case
 24:56
 so let's say uh we take the example which we looked at at the start of the lecture which is the cat that was
-25:01
+
+
+***
+
+* 25:00
+  
 sitting on the mat which was next to the dog jumped and let's say we want to convert this English into a French
 25:08
 translation okay so the French translation will be lat whatever I cannot spell this out fully but this
@@ -300,6 +302,9 @@ basically uh prescribed is that okay let's take
 the encoder decoder RNN and let's modify the encoder decoder RNN so that the
 30:16
 decoder can selectively access different parts of the input sequence at each
+
+***
+
 30:21
 decoding step uh let me repeat that remember in
 30:27
@@ -390,6 +395,10 @@ found that RNN architectures are not required for building deep neural networks 
 and uh this is when the researchers proposed the Transformer architecture and at the main core of the
 35:04
 Transformer architecture was the badano attention mechanism so it was called self
+
+
+***
+
 35:10
 attention mechanism but it was really inspired a lot from the bhano attention mechanism we'll come to what self
 35:17
@@ -701,6 +710,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
