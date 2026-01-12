@@ -51,217 +51,66 @@ Maybe if the attention mechanism was not there the LLM would have been confused 
 * Word-by-word transalation doesn't work.
 * The transaltion process requires  contextual understanding and grammatical alignment.
 
-10:04
-attention mechanism and uh how researchers got to discovering attention
-10:10
-so let's go back in time a bit because to always appreciate something new we need to know about the history of how of
-10:17
-how we came to this uh Innovation so let's go right at the
-Problems with modeling long sequences
-10:24
-start where we are modeling let's say long sequences so we have one sequence in English and uh let's say we want to
-10:30
-translate it to the German language so what's the problem in modeling long
-10:36
-sequences so let's look at this question what is the problem with architectures
-10:41
-without the attention mechanism which came before the llms um so for reference we'll start
-10:48
-with the language translation model so let's look at this this figure here um
-10:53
-so I have words in the English language so can you uh or let's say I have the
-10:58
-German inut sentence which I want to translate to English so this is the
-11:03
-input sentence I have the first word the second word then I have the third word Etc uh and I want to translate this into
-11:11
-English Okay so uh let's say we do a word by word translation if I translate
-11:16
-the first word to English it's can if I translate the second word to English it's you if I translate the third word
-11:22
-it's me the fourth word help so if you translate every German word word by word
-11:29
-the translation comes out to be can you me help this sentence to translate uh that's obviously not
-11:36
-correct right so the main takeaway here is that the word by word translation does not work and uh you can also see
-11:44
-this in Hindi so if the main text is in English so can you help me and if you
-11:49
-want to translate it in Hindi uh so the Hindi translation
-11:55
-is so is associated with can that's fine you is associated with tum but Mary is
-12:01
-the third word in h in the Hindi translation right but it's actually the fourth word in the English translation
-12:08
-similarly madat is the fourth word in the Hindi translation but help is
-12:14
-actually the third word in the English so the main point here is that
-12:20
-uh word by word translation does not work in this case and uh that was a
-12:25
-major realization when people started modeling long sequence es and this is a
-12:31
-general problem when you deal with sequences you cannot just do word by word translation you need contextual
-12:37
-understanding and grammar alignment so whenever you are developing a model let's say which translates one
-12:44
-sequence to another sequence or tries to find the meaning of a sequence or makes the next word prediction from a sequence
-12:51
-you need to really understand the context you need to understand how different words relate with each other
-12:57
-what's the grammar of that particular language and only then will you be able to uh process
-13:04
-sequences or only then you'll be able to model long sequences of textual
-13:10
-information that's understanding number one okay with this understanding what
-13:15
-people realized is that we cannot just use a normal neural network uh because if you have a normal neural network it
-13:22
-does not have memory so we are going to use this word memory a lot just like
-13:27
-humans have memory we store information about the past uh in order to do a good
-13:32
-job in sequence to sequence translation the models need to have a memory the models need to know what has come in the
-13:39
-past why because let's say I have a sentence that Harry Potter went to Station Number 9
-13:44
-3x4 uh he did this he did this Etc and then when I come to a for a sentence
-13:51
-which is uh three to four sentences after the first sentence which is Harry
-13:57
-Potter came to station 9 3x4 I should not forget what came before because the station number 9 3x4 is very important
-14:04
-for me to know even if I come at the end of the paragraph So if I'm making some prediction at the end of the paragraph
-14:10
-and the word station comes over there I need to go back to the start I need to have memory of what came at the start
-14:17
-that it was the station number 9 3x4 and this happens a lot with textual data if you want to have meaningful
-14:25
-outcomes in terms of text summarization next word prediction language translation you definitely need to have
-14:32
-understanding of the meaning and for that you need the model to retain the memory so uh to address this issue that
-14:40
-word by word translation does not work in this particular case of translation uh people realize that a normal neural
-14:47
-network will not work so they augmented a neural network with two subm modules the first subm module is an encoder and
-14:54
-the second sub module is a decoder so what the encoder does is that uh in in
-14:59
-the example which we saw it will receive the German text and it will read and process the
+* Problems with modeling long sequences start where we are modeling.
 
+
+
+
+
+* you need contextual understanding and grammar alignment
+*
+*
+* so whenever you are developing a model let's say which translates one sequence to another sequence or tries to find the meaning of a sequence or makes the next word prediction from a sequence you need to really understand the
+* context you need to understand
+* how different words relate with each other what's the grammar of that particular language
+* and only then will you be able to uh process sequences or only then you'll be able to model long sequences of textual information that's understanding number one okay with this understanding what
+
+
+
+* We cannot just use a normal neural network because if you have a normal neural network it does not have memory so we are going to use this word memory a lot just like
+
+
+* sequence translation the models need to have a memory the models need to know what has come in the
+past why because let's say I have a sentence that
+```
+Harry Potter went to Station Number 9 3x4 uh he did this he did this Etc.
+```
+* and then when I come to a for a sentence which is uh three to four sentences after the first sentence which is Harry Potter came to station 9 3x4 I should not forget what came before because the station number 9 3x4 is very important for me to know even if I come at the end of the paragraph.
+
+
+* so they augmented a neural network with two subm modules:
+1. the first subm module is an encoder and
+2. the second sub module is a decoder
 
 ***
 
-15:05
-German text and then it will pass it to the decoder and then the decoder will translate the German text back into
-15:12
-English this is the simplest explanation of the encoder decoder and there's a nice animation here which actually shows
-15:20
-uh how the encoder decoder works so here you can see the input sequence comes in the German language it goes to the
-15:26
-encoder uh a context is generated by the encoder it's called as a context Vector
-15:32
-the context Vector essentially captures meaning so it has memory and it captures meaning of okay instead of just word by
-15:40
-word translation what does this sentence represent and uh the encoder processes
-15:47
-the entire input sequence and sends the context over to the decoder so let me play this again the input sequence comes
-15:53
-to the encoder it generates a context Vector which basically encodes meaning
-15:58
-and then the encoder transfers the context Vector to the decoder and the decoder generates the output in this
-16:04
-case the output is the transl translated English text okay this is how the encoder decoder blocks work and uh the
-How RNNs work
-16:12
-mechanism which really employed the encoder decoder blocks successfully is called recurrent neural networks so
-16:20
-before really Transformers came into the picture recurrent neural networks were was that architecture which was
-16:27
-extremely popular for language translation and it really uh employed
-16:32
-the encoder decoder architecture uh it was implemented in
-16:37
-the 1980s so let's look a bit more at how the RNN actually works because when
-16:43
-we if we understand how RNN works that's when we'll understand the limitations of recurrent neural networks and that's
-16:49
-when we will really appreciate why the attention mechanism needed to be discovered so here's how the encoder
-16:57
-decoder in the RNN actually works what happens is that you first receive an input text okay uh and that let's say
-17:04
-is the German uh German text the input text is passed to the decod to the
-17:09
-encoder what the encoder will do is that at every step it will take the input and
-17:15
-it will maintain something which is called as the hidden State this hidden state was the biggest innovation in the
-17:21
-recurrent neural networks this hidden State essentially captures the memory so imagine the uh first input
-17:28
-which is the first German word comes the encoder augments it or the encoder
-17:34
-maintains a hidden State then you go to the next iteration then the second input world comes then the hidden State also
-17:40
-gets updated so as the hidden state gets updated it receives more and more memory of what has come
-17:47
-previously and the hidden state gets updated at each step and then there is a final hidden
-17:52
-State the final hidden state is basically the encoder output what we saw the context Vector over here so when we
-18:00
-looked at the context Vector which is passed from the encoder to the decoder let's see over here yeah so here you see
-18:05
-a context Vector is passed from the encoder to the decoder this context Vector is the final hidden State this is
-18:12
-basically the encoder telling the decoder that hey I have looked at the input text uh here's the meaning of this
-18:18
-this text here's how I encoded it here's the context Vector take this final hidden State and try to decode it and
-18:25
-then the decoder uses this final hidden state to generate the translated sentence and it generates the translated
-18:31
-sentence one word at a time uh so here's a schematic which actually explains this pretty well so I
-18:38
-have an input text here so this is the first word in German the second word in German the third word in German and the
-18:45
-fourth word in German what the encoder block will do is that it will take each
-18:50
-input sequentially and it will maintain a different hidden state so for the first input it has the first hidden
-18:56
-State then we move to the next iteration then the second hidden State then the third hidden State and then finally when
-19:02
-we have the last input we have this final hidden State the final hidden State essentially contains the
-19:07
-accumulation of all previous hidden state so it contains or encapsulates memory this is how memory is
-19:14
-incorporated which was missing earlier with just a normal neural network so this is the final hidden State and then
-19:21
-this final hidden State essentially memorizes the entire input and then this
-19:26
-uh hidden state is passed to to the decoder and then the decoder produces
-19:32
-the final output which is the translated English sentence so I want to show you another animation of this so that you
-19:38
-understand it much better um so here's how the RNN actually works right so see
-19:44
-the input Vector number one is the first word in German which needs to be translated so here you will see in this
-19:51
-animation how the hidden state gets updated so the first word of German comes then the RNN maintains the hidden
-19:58
-state zero and here you see uh the hidden state is the hidden
-20:04
-state zero and the input one is used to produce the output one and then we also
 
+* __Context Vector__ essentially captures meaning so it has memory and it captures meaning of okay instead of just word by. word translation what does this sentence represent and uh the encoder processes.
+
+* case the output is the transl translated English text okay this is how the encoder decoder blocks work and uh the
+
+* How RNNs work? mechanism which really employed the encoder decoder blocks successfully is called RNN
+* (c) - so before really Transformers came into the picture RNN were was that architecture which was extremely popular for language translation and it really uh employed
+the (encoder, decoder) architecture uh it was implemented in
+the 1980s.
+
+
+* The input text is passed to encoder what the encoder will do is that at every step it will take the input andit will maintain something which is called as the __hidden State__ this hidden state was the biggest innovation in the RNN. This hidden State essentially captures the memory so imagine the uh first input which is the first German word comes the encoder augments it or the encoder
+maintains a hidden State then you go to the next iteration then the second input world comes then the hidden State also gets updated so as the hidden state gets updated it receives more and more memory of what has come previously and the hidden state gets updated at each step and then there is a __final hidden State__ the final hidden state is basically the encoder output what we saw the __context Vector__ over here so when we looked at the context Vector which is passed from the encoder to the decoder. let's see over here yeah so here you see a context Vector is passed from the encoder to the decoder this context Vector is the final hidden State this is basically the encoder telling the decoder that hey I have looked at the input text uh here's the meaning of this this text here's how I encoded it here's the context Vector take this final hidden State and try to decode it and then the decoder uses this final hidden state to generate the translated sentence and it generates the translated
+sentence one word at a time uh.
+
+* so here's a schematic which actually explains this pretty well so I have an input text here so this is the first word in German the second word in German the third word in German and the fourth word in German what the encoder block will do is that it will take each input sequentially and it will maintain a different hidden state so for the first input it has the first hidden State then we move to the next iteration then the second hidden State then the third hidden State and then finally when we have the last input we have this final hidden State the
+* __final hidden State__ essentially contains the __accumulation of all previous hidden state__ so it contains or encapsulates memory this is how memory is incorporated which was missing earlier with just a normal neural network so this is the final hidden State and then
+this final hidden State essentially memorizes the entire input and then this uh hidden state is passed to to the decoder and then the decoder produces the final output which is the translated English.
+
+ 
+ 
 ***
 
 
 20:09
-have a hidden State one then as we move further we have the hidden state two hidden state three hidden State four and
-20:15
-final hidden State when the last word needs to be processed uh actually I can show you
-20:22
-this again here so this is from a French to English translation using the recurrent neural network look look here
-20:28
-so we have French input which is coming here justu then uh yeah so the first word
-20:34
+
+
 goes into the encoder see now we have hidden so let me expand it so and play
 20:39
 from the start okay so now the first word of French which is J goes into the encoder it has went into the encoder
@@ -852,6 +701,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
