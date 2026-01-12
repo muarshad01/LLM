@@ -47,6 +47,10 @@ Maybe if the attention mechanism was not there the LLM would have been confused 
 
 ***
 
+#### (2) - The problem with modeling long-sequences?
+* Word-by-word transalation doesn't work.
+* The transaltion process requires  contextual understanding and grammatical alignment.
+
 10:04
 attention mechanism and uh how researchers got to discovering attention
 10:10
@@ -144,6 +148,10 @@ network will not work so they augmented a neural network with two subm modules t
 the second sub module is a decoder so what the encoder does is that uh in in
 14:59
 the example which we saw it will receive the German text and it will read and process the
+
+
+***
+
 15:05
 German text and then it will pass it to the decoder and then the decoder will translate the German text back into
 15:12
@@ -241,6 +249,10 @@ animation how the hidden state gets updated so the first word of German comes th
 state zero and here you see uh the hidden state is the hidden
 20:04
 state zero and the input one is used to produce the output one and then we also
+
+***
+
+
 20:09
 have a hidden State one then as we move further we have the hidden state two hidden state three hidden State four and
 20:15
@@ -840,6 +852,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
