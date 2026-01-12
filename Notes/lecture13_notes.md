@@ -1,132 +1,49 @@
-
-* Transformers as the secret Source behind the llm so if Transformers is like a car then
-* attention mechanism is essentially the engine which drives the car
-this is the mechanism.
+#### Attention Mechanism
+* (Transformer, Attention Mechanism) = (Car, Engine)
+* __Transformers___ as the secret sayce behind the LLM.
+* So, if Transformers is like a Car then __Attention Mechanism__ is essentially the Engine, which drives the Car.
 
  
-* introduction to attention mechanism what it is why it is really needed and the types of attention mechanism
+* Why is attention mechanism needed?
+* What are different types of attention mechanisms?
+* Why this name Attention Mechanism comes?
+* What are we essentially trying to solve here?
 
-* why this name attention mechanism comes and uh what are we essentially trying to solve here
-so let's look at this example
-
+#### Example
 ```
-The cat that was sitting on the mat which was next to the dog jumped.
+The Cat that was sitting on the Mat, which was next to the Dog, jumped.
 ```
 
-a cat here the cat was sitting next to a dog and the cat was also on a mat and then uh as a human
-when I read this I know that the cat jumped okay but as a LLM if you look at the sentence you'll
-soon realize that this sentence is a bit confusing.
+* A Cat was sitting next to a dog and the Cat was also on a Mat and then as a human when I read this I know that the Cat JUMPED. Okay, but as a LLM if you look at the sentence you'll soon realize that this sentence is a bit confusing.
 
-
-I can very clearly see that the cat was sitting on the mat if only
-this were the sentence I could easily analyze that the cat is the main subject
-in this sentence and the cat was sitting and the object is the mat but the thing
-is when there are such complex sentences which are also called long-term dependencies where there is this second sentence which is attached so then it becomes a bit difficult for the LLM
-because uh so after this sentence there will be a number of other sentences right but the
-main thing which the LLM needs to really understand from this sentence is that the cat which is
-the main subject that subject actually jumped so the main the action which the
-subject perform is jumping so the LLM should understand that when it looks at cat the word which it should be paying the most attention to is jumped notice how I use the word attention so when I look at the word cat
-um of course sitting is also important because the cat was earlier sitting on the mat but now the cat has jumped so there are few words in this sentence which the LLM needs to pay the most attention to in association with cat and if you don't introduce the
-attention me mechanism it's very difficult for the LLLM to know that the cat is the one who has jumped uh maybe
+* I can very clearly see that the Cat was sitting on the Mat, if only
+this were the sentence, I could easily analyze that the Cat is the main subject
+in this sentence and the Cat was sitting and the object is the Mat, but the thing
+is when there are such complex sentences, which are also called __long-term dependencies__ where there is this second sentence, which is attached so then it becomes a bit difficult for the LLM because so after this sentence there will be a number of other sentences right but.
+* The main thing which the LLM needs to really understand from this sentence is that the cat, which is the main subject actually jumped so the main the action which thesubject perform is jumping. So the LLM should understand that when it looks at Cat the word which it should be paying the most attention to is jumped. Notice, how I use the word attention so when I look at the word Cat of course sitting is also important because the Cat was earlier sitting on the Mat but now the cat has jumped so there are few words in this sentence which the LLM needs to pay the most attention to in association with cat and if you don't introduce the attention mechanism it's very difficult for the LLLM to know that the Cat is the one who has jumped.
 
 ***
 
-5:07
-if the attention was attention mechanism was not there the llm would have been confused and it might think oh the dog
-5:13
-has jumped or it might think that the main main part of this sentence is the cat is on a mat so if the attention
-5:20
-mechanism was not there maybe the llm would have thought that the cat is on the mat that's it it would not know that
-5:27
-I have to give a lot of atten ention to jump in association with the cat this is
-5:33
-the broad level intuition why we need to learn about the attention mechanism when
-5:38
-you have sentences such as this and then there is a big story after this the LM needs to analyze this sentence and it
-5:45
-needs to process in relation to a particular word let's say in relation to cat which other word should I pay the
-5:52
-most attention to and that's where the attention mechanism comes into the picture it turns out that with without
-5:59
-attention mechanism if you used a recurrent neural network uh or some other neural network it does not capture
-6:07
-the longterm dependencies between sentences that's the broad level intuition now let's dive deeper into
-6:15
-what all we will be covering about attention in the subsequent lectures so if you look at the attention
-4 types of attention mechanism
-6:21
-mechanism itself there are essentially four types of attention mechanism uh the main attention
-6:28
-mechanism which was which is used in GPT uh generative pre-train Transformer and
-6:33
-all the modern llms is this multi-head attention and many YouTube videos and um
-6:40
-courses all many courses just directly start with multi-head attention it's a very difficult concept to understand if
-6:47
-you directly start learning this so you have to go in a sequential manner so what I'll be covering in this SE in the
-6:53
-series of lectures is first I'll start with something called simplified self attention so this is the pure EST and
-7:00
-the most basic form of the attention technique so that you understand what is attention then we will move to self
-7:07
-attention so here we will also introduce train trainable weights which form the
-7:13
-basis of the actual mechanism which is used in the llms until this part we are still not at the actual mechanism but we
-7:20
-are building up slowly after I cover self attention the next thing which I'll move to is causal
-7:26
-attention this is when things really start to get interesting we are predicting the next World right
-7:32
-by looking at the past world so what causal attention does is that it's a type of self attention uh that allows
-7:39
-the model to consider only the previous and the current inputs in a sequence and it masks out the future inputs no need
-7:46
-to uh pay too much attention to this right now I'm just giving you a broad overview of what all I'll cover in the
+Maybe if the attention mechanism was not there the LLM would have been confused and it might think the dog has jumped or it might think that the main part of this sentence is the cat is on a mat so if the attention mechanism was not there maybe the LLM would have thought that the cat is on the mat that's it would not know that. I have to give a lot of attention to jump in association with the cat this is the broad level intuition why we need to learn about the attention mechanism.
+
+* it turns out that with without attention mechanism if you used a recurrent neural network or some other neural network it does not capture
+the longterm dependencies between sentences that's the broad level intuition.
+
+#### 4 types of attention mechanism
+
+* The main attention mechanism which was which is used in GPT uh generative pre-train Transformer (GPT) and all the modern LLMS is this multi-head attention.
+
+
+1. __Simplified Self Attention__: so this is the pure EST and the most basic form of the attention technique so that you understand.
+2. __Self Attention__: so here we will also introduce train trainable weights which form the basis of the actual mechanism which is used in the LLMs until this part we are still not at the actual mechanism but we are building up slowly after I cover self attention the next thing which I'll move to is
+3. __Causal Attention__: this is when things really start to get interesting we are predicting the next World right by looking at the past world so what causal attention does is that it's a type of self attention that allows the model to consider only the previous and the current inputs in a sequence and it masks out the future inputs. No need to pay too much attention to this right now. I'm just giving you a broad overview of what all I'll cover in the
 7:52
 subsequent lectures when we look at attention today we are not going to cover all of these today we are just
-7:58
-going to look at uh more details about the history of how attention came into
-8:03
-the picture why it is needed why it's better than RNN Etc and then finally we'll move to
-8:10
-multi-ad attention only when you have understood causal attention and self attention and simplified self attention
-8:17
-you will be able to understand multi-head attention this is the main concept which is actually used in
-8:22
-building GPD so multi-head attention is just basically a bunch of causal attention
-8:28
-heads stacked together and we'll code out this multi-head attention fully from scratch I'll show
-8:34
-you the dimensions how they work etc all of that is planned in the subsequent
-8:39
-lectures so this multi-head attention is essentially an extension of self attention and causal attention that
-8:46
-enables the model to simultaneously attend to information from different
-8:51
-representation subspaces don't worry about this just remember that the multi-ad attention allows the llm to
-8:57
-look at input data and and then process many parts of that input data in parallel so for example if this is the
-9:04
-sentence the multi-ad attention allows the llm to have let's say one attention
-9:09
-head looks at this part one attention head looks at this part one attention head looks at this part Etc this is just
-9:15
-a crude description so that you get an understanding of what do you mean by multihead
-9:21
-attention so I just wanted to show you this overview so that you get an idea of how these four to five lectures are
-9:27
-actually planned um it is is impossible as I mentioned to cover all of this in one lecture and that's why I will follow
-9:33
-a very comprehensive approach I'll show everything on the Whiteboard and then I have this uh Google collab notebook
-9:40
-where everything has already been implemented and we'll go through this entire notebook see hiding future words
-9:46
-with causal attention and then I also have a section on U essentially multi-head attention yeah
-9:52
-see so at the end of these four to five lectures we'll be implementing this multi-head attention in Python and code
-9:57
-it out from scratch okay for now let's continue with today's lecture which is an introduction to the
 
+* History of how attention came into the picture? Why it is needed why it's better than RNN,  etc., and then finally we'll move to multi-ad attention only when you have understood causal attention and self attention and simplified self attention you will be able to understand multi-head attention this is the main concept which is actually used in building GPT. so multi-head attention is just basically a bunch of causal attention heads stacked together and we'll code out this multi-head attention fully from scratch.
+*  I'll show you the dimensions how they work etc all of that is planned in the subsequent lectures so this multi-head attention is essentially an extension of self attention and causal attention that enables the model to simultaneously attend to information from different representation subspaces don't worry about this just remember that the multi-ad attention allows the llm to look at input data and and then process many parts of that input data in parallel. so for example if this is the sentence the multi-ad attention allows the LLM to have let's say one attention head looks at this part one attention head looks at this part one attention head looks at this part Etc this is just a crude description so that you get an understanding of what do you mean by multihead attention.
+*
+  
 
 ***
 
@@ -923,4 +840,5 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
