@@ -81,7 +81,6 @@ Harry Potter went to Station Number 9 3x4 uh he did this he did this Etc.
 
 ***
 
-
 * __Context Vector__ essentially captures meaning so it has memory and it captures meaning of okay instead of just word by. word translation what does this sentence represent and uh the encoder processes.
 
 * case the output is the transl translated English text okay this is how the encoder decoder blocks work and uh the
@@ -91,12 +90,11 @@ Harry Potter went to Station Number 9 3x4 uh he did this he did this Etc.
 the (encoder, decoder) architecture uh it was implemented in
 the 1980s.
 
-
-* The input text is passed to encoder what the encoder will do is that at every step it will take the input andit will maintain something which is called as the __hidden State__ this hidden state was the biggest innovation in the RNN. This hidden State essentially captures the memory so imagine the uh first input which is the first German word comes the encoder augments it or the encoder
-maintains a hidden State then you go to the next iteration then the second input world comes then the hidden State also gets updated so as the hidden state gets updated it receives more and more memory of what has come previously and the hidden state gets updated at each step and then there is a __final hidden State__ the final hidden state is basically the encoder output what we saw the __context Vector__ over here so when we looked at the context Vector which is passed from the encoder to the decoder. let's see over here yeah so here you see a context Vector is passed from the encoder to the decoder this context Vector is the final hidden State this is basically the encoder telling the decoder that hey I have looked at the input text uh here's the meaning of this this text here's how I encoded it here's the context Vector take this final hidden State and try to decode it and then the decoder uses this final hidden state to generate the translated sentence and it generates the translated
+* The input text is passed to encoder what the encoder will do is that at every step it will take the input andit will maintain something which is called as the __hidden State__ this hidden state was the biggest innovation in the RNN. This hidden State essentially captures the memory so imagine the uh first input which is the first German word comes the encoder augments it or the encoder maintains a hidden State then you go to the next iteration then the second input world comes then the hidden State also gets updated so as the hidden state gets updated it receives more and more memory of what has come previously and the hidden state gets updated at each step and then there is a __final hidden State__ the final hidden state is basically the encoder output what we saw the __context Vector__ over here so when we looked at the context Vector which is passed from the encoder to the decoder. let's see over here yeah so here you see a context Vector is passed from the encoder to the decoder this context Vector is the final hidden State this is basically the encoder telling the decoder that hey I have looked at the input text uh here's the meaning of this this text here's how I encoded it here's the context Vector take this final hidden State and try to decode it and then the decoder uses this final hidden state to generate the translated sentence and it generates the translated
 sentence one word at a time uh.
 
 * so here's a schematic which actually explains this pretty well so I have an input text here so this is the first word in German the second word in German the third word in German and the fourth word in German what the encoder block will do is that it will take each input sequentially and it will maintain a different hidden state so for the first input it has the first hidden State then we move to the next iteration then the second hidden State then the third hidden State and then finally when we have the last input we have this final hidden State the
+
 * __final hidden State__ essentially contains the __accumulation of all previous hidden state__ so it contains or encapsulates memory this is how memory is incorporated which was missing earlier with just a normal neural network so this is the final hidden State and then
 this final hidden State essentially memorizes the entire input and then this uh hidden state is passed to to the decoder and then the decoder produces the final output which is the translated English.
 
@@ -104,128 +102,51 @@ this final hidden State essentially memorizes the entire input and then this uh 
 
 20:00
 
-
 * big problem with the RNN and that problem happens because the model the decoder has essentially no access to the previous hidden States.
 *  Why is this a big problem um the reason it's a big problem is because when we have to process long-sequences if the decoder just relies on one final hidden State that's a lot of pressure on the decoder to essentially that one final hidden State needs to have the entire information and for long sequences it usually fails because it's very hard for one final hidden state.
 
 * so as we saw the encoder processes the entire input text the encoder processes the entire input text into one final hidden state, which is the memory cell and then decoder takes this this hidden State. decoder takes this hidden state to essentially produce an output great now here's the biggest issue with RNN and please play pay very close
 * __RNN Limitations__: attention to this point because if you understand this you will understand why attention mechanisms were needed the biggest issue with the RNN is that a RNN cannot directly access earlier hidden States.
-*
+
 * so the RNN can't directly access earlier hidden States from the encoder during the decoding phase it relies only on the current hidden state which is the final hidden State and this leads to a loss or this leads to a __loss of context__especially in complex sentences where dependencies might span long distances um.
+
 *  okay so let me actually explain this further what does it mean loss of context right uh so as we saw the encoder compresses the entire input sequence into a single __hidden State Vector__.
+
 *   Let's say if the sentence if the input sentence is very long if the input sentence is very long it really becomes very difficult for the RNN to capture all of that information in __one single final hidden state__ that becomes very difficult and this is the main drawback of the RNN.
 
 ***
 
 * 25:00
   
-sitting on the mat which was next to the dog jumped and let's say we want to convert this English into a French
-25:08
-translation okay so the French translation will be lat whatever I cannot spell this out fully but this
-25:14
-will be the French translation for this English sequence now as I mentioned to you before this English sequence is
-25:20
-pretty long uh the RNN or the encoder
-25:25
-really needs to capture the dependencies very well so the final hidden State needs to capture that the cat is the
-25:32
-subject here and the cat is the one who has jumped and this information this
-25:37
-context needs to be captured by the final hidden State and that is very hard if you are putting all the pressure on
-25:44
-one final hidden state to capture all this context especially in Long sequences so uh the key action which is
-25:52
-jumped depends on the subject which is cat but also an understanding longer
-25:57
-depend dependencies so jumped depends on cat but we also need to understand that the cat was sitting on the mat and the
-26:04
-cat was also sitting next to the dog because the dog also might be referred somewhere else in the big text so we
-26:10
-need to understand many things from this sentence and these are also called as longer
-26:16
-dependencies so jumped the action jumped of course depends on the subject cat but we Al to
-26:24
-understand this we also need to understand longer dependencies that the cat was sitting next to the dog and the
-26:29
-cat was also sitting on the mat so to capture these longer dependencies or to capture
-26:36
-this uh longer context or difficult context the RNN decoder struggles with
-26:41
-this because it just has one final hidden State uh to get all the
-26:46
-information from this is called loss of context and loss of context was one of the biggest
-26:53
-issues because of which RNN was not as good as the GPT which exist right now
-26:59
-which is based on the attention mechanism okay so these are the issues with RNN uh the decoder cannot access
+* as I mentioned to you before this English sequence is pretty long uh the RNN or the encoder
+really needs to capture the dependencies very well so the final hidden State needs to capture that the cat is the subject here and the cat is the one who has jumped and this information this context needs to be captured by the final hidden State and that is very hard.
+
+* if you are putting all the pressure on one final hidden state to capture all this context especially in Long sequences so uh the key action which is jumped depends on the subject which is cat but also an understanding longer depend dependencies so jumped depends on cat but we also need to understand that the cat was sitting on the mat and the cat was also sitting next to the dog because the dog also might be referred somewhere else in the big text so we need to understand many things from this sentence and these are also called as longer dependencies so jumped the action jumped of course depends on the subject cat but we Al to understand this we also need to understand longer dependencies that the cat was sitting next to the dog and the cat was also sitting on the mat so to capture these longer dependencies or to capture this uh longer context or difficult context the
+* RNN decoder struggles with this because it just has one final hidden State uh to get all the information from this is called __loss of context__ and loss of context was one of the biggest issues because of which RNN was not as good as the GPT which exist right now
+which is based on the attention mechanism.
+
+* okay so these are the issues with RNN uh the decoder cannot access
 27:06
 the hidden states of the input which came in earlier so we cannot capture long range
 Bahdanau Attention Mechanism
 27:12
 dependencies this is where attention mechanism actually comes into the picture okay we will capture long range
 27:18
-dependencies with attention mechanisms and let's see how so RNN work fine for
-27:24
-translating short sentences and they did work amazingly actually for quite a while for short sentences but
-27:31
-researchers soon discovered that they don't work for long text because they don't have direct access to previous
-27:37
-words in the input so when an RNN decoder only receives the final hidden state right
-27:45
-they don't even have access to the the decoder does not have access to all the prior Words which came in the input so
-27:51
-let's say I'm decoding uh uh let's say I'm looking at this word
-27:57
-um jumped right let's say I'm looking at the word jumped cat is a word which has come way prior in the sequence so when I
-28:04
-am looking at the word jumped I need to give a lot of attention to the word cat but an RNN gets the entire encoded
-28:11
-version of this sentence so how would the RNN know that jump actually if you're looking at jumped you should pay
-28:16
-a lot of attention to the word cat it does not even have access to this input Vector for cat this is where attention
-28:23
-mechanism actually comes into the picture uh okay so as I said one of the
-28:30
-major shortcoming in the RNN is that the RNN must remember the entire encoded input in a single hidden
-28:37
-State before it passes the encoded input to the decoder the RNN has to remember
-28:44
-the entire encoded input in a single hidden state I'm repeating this again
-28:49
-because unless you understand this you won't understand why we are learning about attention and it's very hard for
-28:56
-the RNN to encode the entire or to remember the entire encoded input in a single hidden
-29:02
-State this is when the researchers started looking at other mechanisms and that's when in 2014 researchers
-29:09
-developed the so-called bhano attention mechanism for RNN so when people think of attention
-29:15
-mechanism they always think of the 2017 paper right attention is all you need
-29:20
-but actually attention was introduced in a paper in 2014 which was called neural machine translation by jointly learning
-29:28
-to align and translate um sadly many people don't remember this now everyone just
-29:34
-remembers attention is all you need but remember that this these authors badano
-29:40
-Benjo and Kung yuno they were the ones who worked on the first proposition of
-29:46
-the attention mechanism so I just want to give uh credit here and this attention mechanism
-29:53
-was called badan attention mechanism because the author of this paper was was last name was
-29:59
-Bano so what was the main idea behind this what the attention mechanism
-30:04
-basically uh prescribed is that okay let's take
-30:09
-the encoder decoder RNN and let's modify the encoder decoder RNN so that the
-30:16
-decoder can selectively access different parts of the input sequence at each
+dependencies with attention mechanisms and let's see how so
+* (a) - RNN work fine for translating short-sentences they don't work for long-text because they don't have direct access to previous words in the input.
+* (b) - One of the major shortcoming in the RNN is that: RNN must remember the entire encoded input in a single hidden State before passing it to the decoder.
+*
+* [Neural machine translation by jointly learning to align and translate -- Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=kukA0LcAAAAJ&citation_for_view=kukA0LcAAAAJ:__bU50VfleQC)
+
+*  `Bahdanau attention mechanism for RNN`
+*   difies the encoder decoder RNN such that the decoder can selectively access different parts of the input sequence at each decoding step.
 
 ***
 
+30:00
+
 30:21
-decoding step uh let me repeat that remember in
+ uh let me repeat that remember in
 30:27
 the original and and the decoder only had access to the final hidden state but the bhano attention mechanism says that
 30:34
@@ -629,6 +550,7 @@ yourself uh I hope you all are enjoying this series um thanks a lot everyone the
 which are planned ahead and I look forward to seeing you all in those lectures
 
 ***
+
 
 
 
