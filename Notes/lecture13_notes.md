@@ -95,6 +95,9 @@ there are few words in this sentence which the llm needs to pay the most
 attention to in association with cat and if you don't introduce the
 4:59
 attention me mechanism it's very difficult for the llm to know that the cat is the one who has jumped uh maybe
+
+***
+
 5:07
 if the attention was attention mechanism was not there the llm would have been confused and it might think oh the dog
 5:13
@@ -190,6 +193,10 @@ with causal attention and then I also have a section on U essentially multi-head
 see so at the end of these four to five lectures we'll be implementing this multi-head attention in Python and code
 9:57
 it out from scratch okay for now let's continue with today's lecture which is an introduction to the
+
+
+***
+
 10:04
 attention mechanism and uh how researchers got to discovering attention
 10:10
