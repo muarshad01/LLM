@@ -26,6 +26,8 @@ your journey starts with one step
 
 ```
 \{x^{1}, x^{2}, x^{3}\}
+
+z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}
 ```
 
 * [x_1, x2, x3]
@@ -1351,6 +1353,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
