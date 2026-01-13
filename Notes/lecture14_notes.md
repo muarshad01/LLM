@@ -6,7 +6,7 @@
 your journey starts with one step
 ```
 
-```
+```python
 import torch
 
 inputs = torch.tensor(
@@ -56,7 +56,7 @@ z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times 
 
 ***
 
-```
+```python
 query = inputs[1]  # 2nd input token is the query
 
 attn_scores_2 = torch.empty(inputs.shape[0])
@@ -175,7 +175,7 @@ with the lowest attention score so it seems to be the fifth element and the fift
 
 #### Normalization
 
-```
+```python
 attn_weights_2_tmp = attn_scores_2 / attn_scores_2.sum()
 
 print("Attention weights:", attn_weights_2_tmp)
@@ -1193,6 +1193,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
