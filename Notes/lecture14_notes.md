@@ -43,7 +43,8 @@ inputs = torch.tensor(
 z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}
 ```
 
-* Alphas are called "attention weights" or "attention scores"
+* Alphas are also called "attention weights""attention scores"
+
 * the goal of today's lecture or the goal of any attention mechanism is to basically calculate a context Vector for each element in the input and as I mentioned before the context Vector can be thought of as an enriched embedding Vector which also contains information about how that particular word relates to other words in the sentense
 
 ***
@@ -66,110 +67,8 @@ for i, x_i in enumerate(inputs):
 print(attn_scores_2)
 ```
 
-that's exactly what we need so the dot product between journey and starts might be more so it's because they are aligned
-20:36
-so what if I use the dot product to find the attention scores that's the first
-20:41
-key Insight which I want to deliver from this lecture what if I use the dot product to find the attention score
-20:48
-between my query vector and the input Vector this is a key step in understanding the attention mechanism
-20:54
-the dot product is that fundamental operation because it encodes the the meaning of how aligned or not how not or
-21:01
-how far apart the vectors are and this is exactly what we are going to do next so the intermediate
-21:08
-attention scores are essentially calculated between the query token and
-21:13
-each of the input token and the way the attention scores are calculated is that we take a DOT
-21:20
-product between the query token and every other input token why do we take a DOT product because the dot product
-21:26
-essentially quantifies how much two vectors are aligned if two vectors are aligned their
-21:33
-dot product is higher so more attention should be paid to this pair of vectors so their attention score will be
-21:39
-higher so in the context of self attention mechanisms dot product determines the
-21:47
-extent to which elements of a sequence attend to one
-21:52
-another this is just a fancy way of saying how different elements of the
-21:57
-sequence are more Alik with each other 
-
-
-* so higher the dot product higher the dot product higher is the similarity and the attention scores
-22:09
-between the two elements this is very important higher the dot product higher is the similarity between the two
-22:15
-elements or the two vectors and higher is the attention score a fancy way of describing two vectors which are aligned
-22:22
-to each other is saying that these two tokens attend more to each other whereas
-22:27
-if the two vectors are not not aligned we can say that these two attend less to each other for example just visually we
-22:33
-can see that journey and starts are aligned right so these two vectors attend more to each other so more
-22:39
-attention should be paid to starts when the query is Journey and if you look at
-22:44
-the vector one and the vector for Journey you'll see that they are not aligned they have a 90° angle between
-22:50
-them so they do not attend to one another this is the key idea behind
-22:55
-calculation of the attention scores and this is exactly what we are going to implement in the code right now so to
-Coding attention scores in Python
-23:02
-compute the attention score between the query vector and the input Vector we simply have to take the dot product
-23:08
-between these two vectors so let's say the query is inputs of one why inputs of one because python
-23:15
-has a zero based indexing system and since our query is the second input token uh the second input token remember
-23:23
-is for a journey it will be indexed with one because python has a zero indexing
-23:28
-system so inputs of one will be the vector for Journey so let's say the
-23:34
-query is the inputs of one and then the attention scores need to be calculated
-23:39
-so first we initialize the attention scores as an empty tensor then what we'll do is that we Loop over the inputs
-23:46
-we'll Loop over the inputs and we'll take the dot product between every input vector and the query Vector that's it
-23:54
-and then we'll populate the attention scores tensor so the first element of the attention scores tensor is the dot
-24:01
-product between the first input embedding vector and the query Vector the second element of the attention
-24:07
-scores tensor is the dot product between the second input vector and the
-24:12
-embedding Vector similarly the Sixth Element in the attention score tensor is
-24:17
-the dot product between the sixth input vector and the query Vector so each of
-24:24
-these element each of the elements of the attention score is a DOT product between the input vector and the query
-24:31
-Vector now let us actually look at these attention scores a bit and try to uh look at their magnitudes right so which
-24:40
-which of these have the largest magnitude so we can see that this second second value the third value and the
-24:48
-sixth value have the largest attention scores so second third and six so let's see the which which words they
-24:54
-correspond to so second is the word journey Third is the word starts and sixth is the word step so of course
-25:01
-Journey has the high attention score right because the query itself is Journey so if the query itself is
-25:06
-Journey it will be aligned with the vector for Journey and so it will have the highest dot product but the second
-25:13
-and the third highest dot products are for starts and step and let's see whether that follows our
-25:19
-intuition so as we had earlier seen starts is also very closely aligned with journey so it makes sense that the dot
-25:26
-product between journey and starts is higher so the attention score for starts is higher similarly when you see step
-25:33
-you'll see that step also seems to be closely aligned with journey their angles seem to be similar and so the
-25:40
-attention score between step and journey will also be higher now let's look at the elements
-25:45
-with the lowest attention score so it seems to be the fifth element and the fifth element is the word one and let's
-
+* __Dot product__ is that fundamental operation because it encodes the the meaning of __how aligned or how far apart__ the vectors are.
+* Higher the dot product higher is the __similarity__ and the attention scores between the two elements.
 
 ***
 
@@ -182,91 +81,18 @@ print("Attention weights:", attn_weights_2_tmp)
 print("Sum:", attn_weights_2_tmp.sum())
 ```
 
-25:54
-see whether that makes sense with our intuition so you can see the vector for the word one and the vector for Journey
-26:00
-almost have a 90° angle between them they are not at all aligned with each other and that is exactly captured in
-26:06
-the attention score that seems to be the least between journey and one so every
-26:12
-time you deal with attention scores try to have a mental map of why exactly is the attention score higher or why
-26:18
-exactly is the attention score lower now we'll move to the third
-Simple normalisation
-26:24
-step or the next step rather before we comp compute the context vector and that
-26:30
-step is normalization why do we really need
-26:36
-normalization the most important reason why we need normalization is because of
-26:41
-interpretability what does that mean well what it means is that when I look at the attention scores I want to be
-26:48
-able to make statements like okay give 50% attention to starts give uh 20%
-26:55
-attention to step and give only 5% ATT attention to the vector one so when the query is Journey I want to make these
-27:02
-kind of interpretable statements in terms of let's say percentages that if the query is Journey of course Journey
-27:08
-will receive 20% attention 30% attention but starts will also receive higher
-27:13
-attention maybe 30% maybe step receives 20% attention and the rest of the vectors remain receive less percent if
-27:21
-I'm conveying this to someone they will get a much better idea right if I convey in terms of these percentages so I want
-27:27
-my attention scores to be interpretable and they are not right now because if
-27:33
-you sum up the attention scores they are more than one so we cannot express these in terms of
-27:40
-percentages and that's why we are now going to normalize the attention
-27:45
-scores uh now first okay so the main goal behind the normalization is to
-27:51
-obtain attention weights that sum up to one that's the main goal and why do we do this as I mentioned it's useful for
-28:00
-interpretability um and for making statements like in terms of percentages how much attention should be given Etc
-28:07
-but the second reason why we do normalization is because generally it's good if things are between zero and one
-28:13
+
+* Why do we really need normalization the most important reason why we need normalization is because of interpretability what does that mean well what it means is that when I look at the attention scores I want to be able to make statements like okay give 50% attention to starts give uh 20% attention to step and give only 5% ATT attention to the vector one so when the query is Journey I want to make these kind of interpretable statements in terms of let's say percentages that if the query is Journey of course Journey will receive 20% attention 30% attention but starts will also receive higher attention maybe 30% maybe step receives 20% attention and the rest of the vectors remain receive less percent if
+
+* he main goal behind the normalization is to obtain attention weights that sum up to one that's the main goal and why do we do this as I mentioned it's useful for interpretability um and for making statements like in terms of percentages how much attention should be given Etc but the second reason why we do normalization is because generally it's good if things are between zero and one
 so if the summation of the attention weights is between zero and one it helps
-28:18
-in the training we are going to do back propagation later so we need stability during the training procedure and that's
-28:24
-why normalization is integrated in many machine learning framework It generally helps a lot when you are back
-28:30
-propagating and including gradient descent for example so uh what is the simplest way
-28:37
-to implement normalization can you try to think about it remember we want all
-28:44
-of these weights to sum up to one so what is the best way you can normalize this you can pause the video for a while
-28:51
-if you want okay so the simplest way to normalize this is to just sum up these
-28:57
-weights and then divide every single element by the sum so what that will do is that will
-29:04
-make sure that the summation of all the attention scores will be equal to one and this is exactly what we are going to
-29:10
-implement as the simplest way to normalize so what we'll do is that we'll maintain another tensor which is
-29:17
-attention weights to that will just be the attention scores divided by the summation so what will happen is that
-29:23
-every element of the attention score tensor will be divided by the toal total
-29:29
-summation and so the final tensor which we have which are also called as the attention weights will be this it will
-29:35
-be 0455 2278 2249 Etc and you'll see that
-29:40
-they sum up to one here I would like to mention one terminology and that is the difference between attention scores and
-29:47
-attention weights both attention scores and attention weights represent the same thing intuitively they mean the same the
-29:54
-only difference is that all the attention weights sum up to one whereas that's not the case for attention
-30:00
-scores so if you take the summation of these attention weights you'll see that it is equal to
-30:06
-one um okay this is great so you might think awesome what's the next step well it's not that great because uh there are
-30:14
-better ways to do normalization many of you might have heard about soft Max right if you have not it's fine I'm
+in the training we are going to do back propagation later so we need stability during the training procedure and that's why normalization is integrated in many machine learning framework It generally helps a lot when you are back propagating and including gradient descent for example so uh what is the simplest way to implement normalization can you try to think about it remember we want all of these weights to sum up to one so what is the best way you can normalize this you can pause the video for a while if you want okay so the simplest way to normalize this is to just sum up these weights and then divide every single element by the sum so what that will do is that will make sure that the summation of all the attention scores will be equal to one and this is exactly what we are going to
+implement as the simplest way to normalize so what we'll do is that we'll maintain another tensor which is attention weights to that will just be the attention scores divided by the summation so what will happen is that every element of the attention score tensor will be divided by the toal total summation and so the final tensor which we have which are also called as the attention weights will be this it will
+be 0455 2278 2249 Etc and you'll see that they sum up to one here I would like to mention one terminology and that is the difference between attention scores and attention weights both attention scores and attention weights represent the same thing intuitively they mean the same the only difference is that all the attention weights sum up to one whereas that's not the case for attention scores so if you take the summation of these attention weights you'll see that it is equal to one um okay this is great so you might think awesome what's the next step well it's not that great because uh there are better ways to do normalization many of you might have heard about soft Max right if you have not it's fine I'm
+
+
+***
+
 30:20
 going to explain right now but when we consider normalization especially in the
 30:26
@@ -1193,6 +1019,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
