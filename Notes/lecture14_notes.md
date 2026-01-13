@@ -102,7 +102,6 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 #### Softmax
 
-
 * $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
 
 * $$\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}$$
@@ -166,101 +165,14 @@ $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
 
 50:00
 
-context Vector for Journey and this is the final answer this is the context Vector for Journey and I've have plotted
-50:11
-this context Vector over here which has been calculated through this uh mathematical operation which I just
-50:16
-showed you on the screen and now we'll be implementing this operation in Python to calculate
-Coding context vectors in Python
-50:22
-the context vector and it's pretty simple it's only two to three lines of code first we have the query which is
-50:28
-the inputs index by one because the word which we are looking at is Journey then we initialize uh tensor context Vector
-50:36
-two why two because we are looking at the second token journey and we are finding the context Vector for that so
-50:43
-what we'll be doing is that we'll be looping through all the inputs and uh what we'll be doing is
-50:49
-that we'll scale each input with the corresponding attention weight and then we'll add all the scaled vectors
-50:56
-together to give the final context Vector that's it so let's say we are looking at the first input Vector which
-51:03
-is the first input embedding we'll multiply it with the first attention weight then we'll look at the second
-51:08
-input Vector we'll multiply it with the second attention weight then we'll look at the sixth input Vector at the end and
-51:14
-multiply it with the sixth attention weight and we'll add all of these vectors together which ultimately leads
-51:20
-to the final context vector and that's the one which I've showed here in the red arrow I've also shown the any
-51:26
-context here as a ping Dot and how it's different from the other vectors awesome so we have reached this
-51:34
-step where we have calculated the context Vector for Journey right however the task is not yet over because we have
-51:41
-to calculate a similar context Vector for all the other tokens right we have to calculate the similar context Vector
-51:48
-for your journey starts with one step all of these six
-51:53
-words and now if you have understood this computer comput which we did for Journey we can actually extend the exact
-52:00
-similar computation to compute the attention weight and context Vector for all the other
-52:07
-inputs and this is actually represented very nicely with this which is called as the attention weight Matrix so what the
-52:14
-Matrix which you're seeing on the screen right now is called as the attention weight Matrix and let me explain uh this
-52:20
-Matrix in a very simple manner so if you look at the rows each
-52:26
-row represents the attention weights for one particular word So currently we have
-52:31
-calculated the attention weights for Journey right so the first value here 13 is the
-52:39
-attention score or the attention weight between journey and your the second value here 23 is the
-52:47
-attention score or the attention weight between journey and
-52:52
-journey the second value here is the attention
-52:57
-weight between journey and starts the fourth value here is the
-53:05
-attention weight let me yeah the fourth value here is the attention weight
-53:12
-between journey and width the fifth value here is the
-53:18
-attention weight between journey and one and the sixth value here is the attention weight between journey and
-53:24
-step so these are the sixth atten ention weights which we also computed over here
-53:29
-so these are the six attention weights which have been computed here we have just rounded off the values so the values might not be exactly similar but
-53:37
-these are the uh these are the six attention weights okay now um let
-53:45
-us go next okay so similarly what we have to do is we have to find
-53:52
-essentially similar attention weights for all the other words like let's say if we look at starts we have to find six
-53:59
-attention weights for starts we have to find six attention weights for width we have to find six attention uh weights
-54:05
-for step and we have to find six attention weights for your and one so for every every query we have to
-54:13
-find six attention weights so all of these which I'm highlighting with star right now all of these are the queries
-54:20
-currently we only looked at the journey query but now we have to essentially replicate the exact same computation for
-54:27
-all the other queries as well so how will we do this let's say if the query is Step we'll find the
-54:34
-attention weight between step and all the other words and then we'll find the context vector by doing the summation
-54:41
-operation like we did at the end for the query of Journey so essentially we are going to
-54:48
-follow the exact same steps as before for all the other tokens also we are
-54:54
-first going to compute the attention scores then we are going to compute the attention weights and then we are going
+1. First going to compute the attention scores then 
+2. we are going to compute the attention weights
+3.  and then we are going to compute the context Vector
 
 ***
 
 55:00
-to compute the context Vector remember these are the exact same steps which we followed uh for uh the query of Journey
+
 55:09
 and these are the exact same steps which we will follow for other queries as well so let me take you through code right
 55:16
@@ -726,6 +638,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
