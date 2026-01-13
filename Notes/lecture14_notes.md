@@ -1,24 +1,23 @@
 #### A Simplified Self Attention Mechanism withoug Trainable Weights
 
-* In this section, we will implement a simple variant of the self-attention mechanism, free from any trainable weights
+* In this section, we will implement a simple variant of the self-attention mechanism, free from any trainable weights.
 
 ```
 your journey starts with one step
 ```
 
-1. pre-processing this sentence
-2. convert it into individual tokens GPT uses
-3. bite pair encoder which is a sub-word tokenizer
-4. token IDs for each of these tokens
-5. convert token ID into a vector representation called vector embedding
-6. so each of these word will have a vector embedding in a higher
-7. these vectors are not just normal vectors they capture the __semantic meaning__ of each word so 
+1. pre-processing 
+2. convert sentence into individual tokens GPT uses
+3. bite-pair encoder which is a (word, sub-word, character)-tokenizer
+4. convert tokens into token IDs
+5. convert token ID into a vector representation called __vector embedding__
+6. these vectors capture the __semantic meaning__ of each word 
 
-* the main problem here ...how word Journey relates to other words in the sentence...
-* we really need to know the __context__ we need to know that which word in this sentence is closely related to Journey
-* how much attention should we pay to each each of these words when we look at Journey that's where attention mechanism comes into the picture
-*  Goal of the attention mechanism is to take the __embedding Vector__ for uh take the vector embedding for Journey let's say and then transform it into another Vector which is called as the __context Vector__
-*  the context Vector can be thought of as an __enriched embedding Vector__ because it contains much more information it not only contains the semantic meaning which is the embedding Vector also contains but it also contains information about how that given word relates to other words in the sentence and uh this contextual information really helps a lot in predicting the next word in LLM
+* the main problem here ...how a particular word relates to other words in the sentence...
+* we really need to know the __context__, i.e., which word in this sentence is closely related to other words
+* how much attention should we pay to each each of these words when we look at "Journey" that's where attention mechanism comes into the picture
+*  Goal of the attention mechanism is to take the __embedding Vector__ for word "Journey" and then transform it into another Vector which is called as the __context Vector__
+*  the context Vector can be thought of as an __enriched embedding Vector__ because it contains much more information. It not only contains the __semantic meaning__, which the embedding Vector also contains but it also contains information about how that given word relates to other words in the sentence. This contextual information really helps a lot in predicting the next word in LLM.
 
 ***
 
@@ -1414,4 +1413,5 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
