@@ -107,119 +107,24 @@ in the training we are going to do __back propagation__ later so we need __stabi
 \{x_1, x_2, x_3, x_4, x_5, x_6\}
 
 \{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}
+
+\text{sum} = e^{x_2} + e^{x_2} + e^{x_3}+e^{x_4}+e^{x_5}+e^{x_6}
 ```
 
-30:00
 
-going to explain right now but when we consider normalization especially in the
-30:26
-machine learning context it's actually more common and advisable to use the softmax function for
+* __softmax__ is preferred compared to let's say the normal summation especially when you consider extreme values so let me take a simple example right now and I'm going to switch the color to Black so that you can see what I'm writing on the screen
 
 
-***
-
-30:00
-
-
-
-normalization and why is this the case um I think I need to write this down on
-30:38
-the Whiteboard to explain um why soft Max is preferred
-30:44
-compared to let's say the normal summation especially when you consider extreme values so let me take a simple
-30:50
-example right now and I'm going to switch the color to Black so that you can see what I'm writing on the screen
-30:57
-so let's say the element which we have are 1 2 3 and nine uh or let's say
-31:08
-400 let's say these are the elements
-31:13
-400 now if you do the normal summation uh and normalize it that way what will
-31:19
-what will happen is that 1 will be divided by all the entire summation right so the first element will be 1
-31:24
-divided by 1 + 2 + 3 + 400 which is
-31:30
-406 uh so the denominator here will be 4
-31:37
-0 6 then the last element similarly would be the highest element which is
-31:44
-the extreme value which we are considering here this highest element will be
-31:52
-400 divided by 406
-31:59
-so I'm just writing the denominator right now yeah so the last element which is the extreme value will be 400 divided
-32:05
-46 and this element will be 2 divided by 406 and this element will be 3 divided
-32:11
-46 so you might think that okay what is the problem here the problem here is that when we look at the inputs 400 is
-32:19
-extremely high right so the normalization should convey this information that you should completely
-32:26
-neglect these other values so ideally when such a situation occurs we want the
-32:31
-normalized values to be zero for these smaller values and we want the normalized value to be one for this
-32:38
-extremely high value and that's not the case when you use the summation operation when you do the summation this
-32:44
-normalized will be around let's say uh I not I'm not calculating this
-32:50
-exactly but let's say it's 0 point uh
-32:55
-0 0
-33:01
-25 and let's say this this calculation for the extreme value is let's say
-33:06
-around uh Point uh
-33:15
-9 let me write this again so this will be let's say around
-33:21
-0.9 9 just as an example so you might think
-33:27
-that okay this is almost close to one right but it should not be almost close to one it should almost be exactly equal
-33:33
-to one the reason why this is a problem is that when you get values like this
-33:39
-they are not exactly equal to zero so when you are doing back propagation and gradient descent it confuses the
-33:45
-optimizer and the optimizer still gives enough or weight some weightage to these values although we should not give any
-33:51
-weightage to these values so ideally the normalization scheme should be such that
-33:56
-when we normalize the small values should be close to zero in such a case and the extremely large values should be
-34:01
-close to one and that is not achieved through this summation based normalization however this exact same
-Softmax normalisation
-34:08
-thing is achieved if we do a softmax based normalization so let me explain what actually happens in the softmax
-34:15
-based normalization so we currently have the attention scores like these right we
-34:20
-have X1 X2 dot dot dot up till X6 in the softmax what happens is that we take the
-34:28
-exponent of every element and then we divide by the summation of the exponents so the denominator the summation is e to
-34:36
-X1 plus e to X2 plus e to X3 plus e to X4 plus e to X5 plus e to X6 so the
-34:44
-first element will be e to X1 divided by the summation the second element will be
-34:49
-e to X2 divided by the summation and similarly the last element will be e to X6 divided by the summation now if you
-34:57
-add add all of these elements together you'll see that they definitely sum up to one that's fine but the more
+* One the reason why this is a problem is that when you get values like this they are not exactly equal to zero so when you are doing __back-propagation__ and __gradient-descent__ it confuses the optimizer and the optimizer still gives enough or weight some weightage to these values although we should not give any weightage to these values.
+*  Softmax normalisation thing is achieved
+* if you add add all of these elements together you'll see that they definitely sum up to one that's fine but the more important thing is when you look at these extreme cases if you look at 400 that will almost be like Infinity so this value when normalized will be very close to one and the smaller values when normalized using softmax will be very close to zero.
 
 ***
 
 35:00
 
 
-important thing is when you look at these extreme cases if you in if you use soft Max 400 now when you do e to 400
-35:11
-that will almost be like Infinity so this value when normalized will be very close to one and the smaller values when
-35:19
-normalized using softmax will be very close to zero so it's much better to use softmax when dealing with such extreme
-35:26
-values which may occur when we do large scale uh models like llms that's why
-35:32
+
 it's much more preferable to be using soft Max now we can easily code such
 35:37
 kind of a soft Max in Python ourself but it's much more recommended to use the
@@ -1049,6 +954,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
