@@ -150,199 +150,17 @@ instability and leads to errors, which are called __overflow errors__.
 
 40:00
 
-implementation of soft Max so it just one line of command torch. softmax and we pass in the
-40:09
-attention score tensor and what this one line of command torge do softmax
-40:14
-actually does is that it implements um what I'm what I've shown
-40:19
-on the screen right now it implements this e to X1 minus maximum Etc this it
-40:25
-converts the input into this normalized format so this is tor. softmax and you
-40:32
-can quickly go to the documentation to see tor. softmax and you'll see the py
-40:38
-torge documentation for for softmax I'll be sharing this link also with you uh in
-40:44
-the information section of the YouTube video okay so this is basically pytorch
-40:53
-softmax and we have got these attention weights and we'll see that the attention weight up to one one thing I want to
-40:59
-show is that our knife soft Max results in this attention weight tensor and the
-41:04
-pytorch softmax also results in the exact same attention weight tensor since
-41:09
-we don't have any large values or any small values we don't have any overflow or underflow issues here and so both our
-41:15
-knife implementation and the pytorch implementation give the same results but the reason it always advisable to use py
-41:23
-torch is that later we'll be dealing with very large parameters and some of
-41:28
-those might be huge so it's better to um have numerical or better to deal with
-41:33
-numerical instability awesome so remember the one reason why we calculated the attention
-41:40
-weights is for interpretability right now let's try to interpret so the attention weight for the first Vector is
-41:48
-around .13 the attention weight for the second is 2379 attention for the third
-41:54
-is 233 Etc this means that we should pay
-41:59
-about 13% attention to the word your about 23% attention to
-42:05
-Journey about 23% attention to starts 12% attention to with uh with one 10%
-42:14
-attention to one and 15% attention to step so high attention is being paid to
-42:20
-journey and starts so as you can see here High attention is paid to journey and starts
-42:25
-and if someone asks how high we can can say that well about 20% and low attention is paid to one and
-42:31
-if someone asks how low we can say that well only 10% we are able to make this interpretable statements only because we
-42:38
-converted the attention scores into attention weights and remember that's the difference between attention scores
-42:44
-and attention weights attention weights sum up to one so it's much easier to make this kind of interpretable
-42:53
-statements so we have computed the attention weights right now and we are
-42:58
-actually ready to move to the next step which will which is actually the
-43:04
-final step of uh Computing the context Vector so let me take you to that
-43:10
-portion of the Whiteboard right now so after Computing the attention weights
-43:16
-now we have actually come to the last step of finding the context Vector so
-43:22
-let me just show you the image of what all we have covered up till now so we had this input query we computed the
-43:29
-attention scores by taking the dot product between the input query and each of the embedding vectors and from the
-43:36
-attention scores we actually got the normalized attention scores which are called as attention weights and these
-43:42
-attention weights actually sum up to one awesome so we have reached this
-Context vector calculation visualised
-43:48
-stage right now and now we are ready to get the context Vector I just want to
-43:53
-intuitively and Visually show you how we calculate the context vector before coming to the mathematical
-43:59
-implementation so let's say these are the embedding vectors for the different words in the sentence and here I've also
-44:06
-mentioned the relative importance of each so Journey carries 25% importance because that's the query
-44:14
-so it should carry the highest importance but starts carries 20% importance
-44:20
-um then step carries 15% importance and one with and your carry less importance
-44:28
-now how do we get these how do we use these attention weights to compute the
-44:34
-ultimate context Vector so the way this is done is that let's say we use starts
-44:40
-so the starts Vector is now multiplied by the attention contribution and that
-44:46
-is equal to 02 right because 20% is important so it's importance is 20% so
-44:52
-the starts Vector is multiplied by 02 which means it scaled by by the
-44:58
-corresponding attention attention weight so the starts Vector is multiplied by 02
-
 ***
 
-45:03
-so it will be scaled down like this the width vect width Vector is scaled down by 15 because it carries 15% importance
-45:11
-the step Vector carries 15% importance the journey Vector carries 25% importance so it will it will be scaled
-45:18
-down by 1/4 uh and the one vector carries only 10% importance so it will be scaled down
-45:25
-by a lot which is about 1110th now what will and similarly your carries 15%
-45:31
-importance so it will be scaled down by multiplied by5 so what we do is that we multiply
-45:39
-each of the input embedding vector by the corresponding attention weights and we scale them down that much so now we
-45:45
-have uh the multiplied weights for each of these and we take the vector summation of all of these and you add
-45:52
-the vector summation and that gives the final context Vector like this so this is now my cont context Vector for
-46:00
-Journey so this is the context
-46:07
-Vector let me write it down again okay so let me explain this again
-46:14
-so we have calculate we have multiplied each of the input embedding Vector with the corresponding attention weight and
-46:21
-we have got these six vectors right we sum up all of these six vectors and that
-46:27
-uh now describes the context vector and this I'm just writing here context this
-46:33
-is the context Vector for the embedding Vector of Journey now look at how this context
-46:40
-Vector is calculated the context Vector has some contributions from all other vectors so it's an enriched embedding
-46:47
-Vector it has 25% contribution from the embedding Vector but it has all the
-46:52
-other contribution from other vectors and those contributions symbolize something those contributions symbolize
-46:59
-how much importance is given to the other vectors for example we have about 20% contribution from starts because the
-47:06
-attention weight to starts is 0.2 we have only 10% contribution from one
-47:11
-because the attention weight for one is 0.1 and that's why context vectors are
-47:17
-so important I wanted to show this to you visually because the context Vector which will calculate for modern llms for
-47:24
-large scale models like GPT they carry the exact same meaning they are enriched embedding vectors so the context Vector
-47:32
-for Journey looks like this and we can also see this in code so I have just written a small code to find the to plot
-47:39
-the context Vector I'll show the mathematical derivation but for now just take a look at this context Vector for
-47:45
-Journey which has been shown in Red so the vector embedding for Journey has been shown in green but the context
-47:53
-Vector is shown in red which is the summation of all the other vectors which I just showed to you and this is how it
-47:58
-looks like in the three-dimensional space ultimately we are interested in these context vectors and it was only
-48:05
-possible to get this context Vector because of the attention mechanism that's why the attention mechanism is so
-48:11
-important we would have been stuck at the embedding Vector if we did not have the attention
-48:17
-mechanism now let us look at the mathematical representation um regarding how we
-48:22
-actually compute the context Vector from the attention weights and if you have
-48:29
-understood the Whiteboard description which I just showed you understanding the this mathematical operation will
-48:34
-actually be very easy okay so we have reached this stage
-48:40
-now where we have computed these attention weights and after Computing the normalized attention weights what
-48:46
-we'll do is that we'll compute the context vector and currently we're looking at the context Vector for
-48:51
-Journey so it's Z2 and to do that we'll multiply all the embedded in input
-48:57
-tokens with the corresponding attention weights this is very important and so
-49:02
-that was the scaling which I showed you in the figure and then we will sum up all of the resultant
-49:07
-vectors when we sum up all of the resultant vectors that will give us the final context Vector for the token
-49:14
-journey and this has been showed in this schematic right now let me just rub rub
-49:20
-this here so that I can explain this to you in a better manner okay so we have the attention
-49:26
-weights for every token right so we have1 2 Etc so what we'll do is that for
-49:33
-the first input embedding we'll multiply the attention weight with this Vector for the second input embedding
-49:40
-we'll multiply the attention weight for the second input embedding with the second Vector we'll multiply the third
-49:47
-attention weight with the third input embedding and similarly we'll multiply
-49:52
-the sixth attention weight with the sixth input embedding this is scaling down the vectors in the victorial
-49:57
-representation and then we'll add all of them together when we add all of them together we'll ultimately get the
+45:00
+
+```
+your journey starts with one step
+```
+
+$$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
+
+* $$z^{2} = \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3} + \alpha_{24} \times x^{4} + \alpha_{25} \times x^{5} + \alpha_{26} \times x^{6}$$
 
 ***
 
@@ -895,6 +713,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
