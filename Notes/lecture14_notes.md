@@ -121,7 +121,6 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 35:00
 
-
 ```python
 def softmax_naive(x):
     return torch.exp(x) / torch.exp(x).sum(dim=0)
@@ -150,7 +149,6 @@ instability and leads to errors, which are called __overflow errors__.
 ***
 
 40:00
-
 
 implementation of soft Max so it just one line of command torch. softmax and we pass in the
 40:09
@@ -248,6 +246,9 @@ is equal to 02 right because 20% is important so it's importance is 20% so
 the starts Vector is multiplied by 02 which means it scaled by by the
 44:58
 corresponding attention attention weight so the starts Vector is multiplied by 02
+
+***
+
 45:03
 so it will be scaled down like this the width vect width Vector is scaled down by 15 because it carries 15% importance
 45:11
@@ -342,6 +343,9 @@ attention weight with the third input embedding and similarly we'll multiply
 the sixth attention weight with the sixth input embedding this is scaling down the vectors in the victorial
 49:57
 representation and then we'll add all of them together when we add all of them together we'll ultimately get the
+
+***
+
 50:03
 context Vector for Journey and this is the final answer this is the context Vector for Journey and I've have plotted
 50:11
@@ -891,6 +895,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
