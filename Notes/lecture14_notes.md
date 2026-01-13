@@ -173,6 +173,22 @@ $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
 
 55:00
 
+```python
+attn_scores = torch.empty(6, 6)
+
+for i, x_i in enumerate(inputs):
+    for j, x_j in enumerate(inputs):
+        attn_scores[i, j] = torch.dot(x_i, x_j)
+
+print(attn_scores)
+```
+
+```python
+attn_scores = inputs @ inputs.T
+print(attn_scores)
+```
+
+
 55:09
 and these are the exact same steps which we will follow for other queries as well so let me take you through code right
 55:16
@@ -638,6 +654,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
