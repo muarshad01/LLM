@@ -81,15 +81,23 @@ print("Attention weights:", attn_weights_2_tmp)
 print("Sum:", attn_weights_2_tmp.sum())
 ```
 
+* Why do we really need normalization?
+* the most important reason why we need normalization is because of interpretability
 
-* Why do we really need normalization the most important reason why we need normalization is because of interpretability what does that mean well what it means is that when I look at the attention scores I want to be able to make statements like okay give 50% attention to starts give uh 20% attention to step and give only 5% ATT attention to the vector one so when the query is Journey I want to make these kind of interpretable statements in terms of let's say percentages that if the query is Journey of course Journey will receive 20% attention 30% attention but starts will also receive higher attention maybe 30% maybe step receives 20% attention and the rest of the vectors remain receive less percent if
+* The main goal behind the normalization is to obtain attention weights that sum up to one
 
-* he main goal behind the normalization is to obtain attention weights that sum up to one that's the main goal and why do we do this as I mentioned it's useful for interpretability um and for making statements like in terms of percentages how much attention should be given Etc but the second reason why we do normalization is because generally it's good if things are between zero and one
-so if the summation of the attention weights is between zero and one it helps
-in the training we are going to do back propagation later so we need stability during the training procedure and that's why normalization is integrated in many machine learning framework It generally helps a lot when you are back propagating and including gradient descent for example so uh what is the simplest way to implement normalization can you try to think about it remember we want all of these weights to sum up to one so what is the best way you can normalize this you can pause the video for a while if you want okay so the simplest way to normalize this is to just sum up these weights and then divide every single element by the sum so what that will do is that will make sure that the summation of all the attention scores will be equal to one and this is exactly what we are going to
-implement as the simplest way to normalize so what we'll do is that we'll maintain another tensor which is attention weights to that will just be the attention scores divided by the summation so what will happen is that every element of the attention score tensor will be divided by the toal total summation and so the final tensor which we have which are also called as the attention weights will be this it will
-be 0455 2278 2249 Etc and you'll see that they sum up to one here I would like to mention one terminology and that is the difference between attention scores and attention weights both attention scores and attention weights represent the same thing intuitively they mean the same the only difference is that all the attention weights sum up to one whereas that's not the case for attention scores so if you take the summation of these attention weights you'll see that it is equal to one um okay this is great so you might think awesome what's the next step well it's not that great because uh there are better ways to do normalization many of you might have heard about soft Max right if you have not it's fine I'm
+* The second reason why we do normalization is because generally it's good if things are between zero and one.
 
+* so if the summation of the attention weights is between zero and one it helps
+in the training we are going to do __back propagation__ later so we need __stability during the training procedure__ and that's why normalization is integrated in many machine learning framework.
+
+* It generally helps a lot when you are back propagating and including __gradient descent__.
+ 
+ 
+* Both attention scores and attention weights represent the same thing.
+* The only difference is that all the attention weights sum up to one whereas that's not the case for attention scores.
+
+* There are better ways to do normalization many of you might have heard about __soft Max__ right.
 
 ***
 
@@ -1019,6 +1027,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
