@@ -30,71 +30,15 @@ your journey starts with one step
 z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}
 ```
 
-* Alphas are called "attention weights"
+* Alphas are called "attention weights" or "attention scores"
 * the goal of today's lecture or the goal of any attention mechanism is to basically calculate a context Vector for each element in the input and as I mentioned before the context Vector can be thought of as an enriched embedding Vector which also contains information about how that particular word relates to other words in the sentense
 
 ***
 
 
-12:03
-column of this tensor actually represents so each row of this tensor represents each token so the first row
-12:10
-is the first token or the first word Etc and each column represents that particular Vector Dimension there are
-12:16
-three dimensions and hence there are three columns okay now uh we'll be moving to
-12:24
-the next aspect which is discussing a bit about query and what exactly are query
-12:32
-um so now what we'll be doing is that we'll be finding a context Vector for
-12:37
-each element so if you look at um this sentence right here we'll be finding a
-12:44
-context Vector for each of the embedding vectors but for the sake of
-12:49
-demonstration we are going to start with journey so we are going to exclusively look at Journey right now and we are
-12:55
-going to find the context Vector for Journey and then we are going to to apply the same analysis to all the other
-13:01
-words in this sentence uh so now as I mentioned we'll
-13:06
-be focusing on the second element which is X of two why two because it's the
-13:12
-second element of X so X1 is the first element X2 is the second element so we
-13:17
-are looking at X2 because we are looking at the word Journey the element or the
-13:22
-token which we are looking at right now it's also called as the query and since we are looking looking
-13:29
-at the token Journey that becomes the query this uh terminology will also show
-13:35
-up later when you look when we look at multi-head attention mechanism but for now uh just keep in mind that we are
-13:41
-looking at this uh token journey and that becomes our
-13:47
-query and the corresponding context Vector for this query which is X2 will be Z of two and that is essentially an
-13:56
-embedding which contains information about X2 and all the other input
-14:03
-elements so this context Vector not only contains information about that particular word which is Journey but it
-14:10
-also contains information about all the other input elements again I would like to emphasize
-14:17
-here that in this lecture we are not looking at trainable weights later we are going to add trainable weights which
-14:23
-is how it's actually done in llms because this helps the llms to
-14:28
-understand the context text much better and learn in a better way uh okay now we have this task that
-14:36
-we we have a query which is the word journey and the task is to convert this
-14:41
-the embedding Vector for journey into a context Vector the first task the first
-What are attention scores?
-14:48
-step of implementing this task is to compute the intermediate values W which
-14:53
-are also referred to as the attention scores so the first task is to basically
-14:59
-do the following we have a query which is the word journey and we have all these other input words
+* we'll be finding a context Vector for each element
+* query
+* What are attention scores?
 
 
 ***
@@ -1310,6 +1254,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
