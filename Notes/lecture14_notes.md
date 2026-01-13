@@ -38,7 +38,7 @@ inputs = torch.tensor(
 * The goal of all of these mechanisms is the same we need to convert the __embedding Vector__ into __context vectors__, which are then inputs to the LLMS.
 
 
-* $$\{x^{1}, x^{2}, x^{3}\}$$
+* $$\left\{x^{1}, x^{2}, x^{3}\}$$
 * $$z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}$$
 
 * Alphas are also called "attention weights""attention scores"
@@ -952,6 +952,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
