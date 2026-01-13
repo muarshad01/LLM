@@ -117,7 +117,10 @@ $ uv run jupyter lab
 
 ***
 
-## TODO
-1. LLM from scratch playlist
-2. Deepseek playlist 
-3. Reinforcement playlist
+#### TODO
+1. [Building LLMs from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
+2. [Build DeepSeek from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms) 
+3. [Reasoning LLMs from Scratch (Reinforcement Learning)](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSijcbUrRZHm6BrdinLuelPs)
+5. [Neural Networks from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
+
+***
