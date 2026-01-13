@@ -188,102 +188,6 @@ attn_scores = inputs @ inputs.T
 print(attn_scores)
 ```
 
-
-55:09
-and these are the exact same steps which we will follow for other queries as well so let me take you through code right
-55:16
-now and let us start uh implementing the attention or let us
-55:22
-start calculating the these three steps for the other queries as well so as we
-Coding attention score matrix for all queries
-55:29
-discussed we have to follow three steps the first step is to find the attention scores and remember how do we find the
-55:37
-attention score if we have a particular query we'll just take the do product of that with all the other input vectors so
-55:44
-let's say if the query is in inputs we'll take the dot product of the query
-55:50
-with all the other vectors in the input so one way to find the attention scores
-55:55
-is to just Loop through the input two times and essentially find the dot product uh I'll show you what that
-56:03
-actually means uh right so let me rub these these
-56:09
-things over here so that I can show you this one method of finding the attention scores so let's say you Loop over the
-56:16
-input Vector right so the first you'll encounter your then you will find the dot product between your and all these
-56:24
-other uh all the other inputs so that will be uh the result of
-56:31
-the first inner loop so what you do is that first you fix an i in the outer
-56:37
-loop and in the Inner Loop you go through the input entirely so when we fix an i in the outer loop it means we
-56:43
-fix this sarey then we go through the inner loop entirely and find these six
-56:49
-dot products now change the outer loop so then the outer loop changes to journey and then similarly find the dot
-56:55
-product between Journey and all the other vectors now change the outer loop once more so similarly we'll change the
-57:01
-outer loop and in each outer loop we'll go through the inner loop so that is essentially finding the dot products
-57:07
-which are the attention scores uh the problem with this approach is that this will take a lot of
-57:15
-computational time so if you look at the output tensor so this is a 6x6 and each
-57:21
-element in this tensor represents an attention score between two pairs of inputs so for example this 6x6 Matrix
-57:29
-which you just saw in the code is very similar to this here I'm showing the normalized attention scores but even the
-57:35
-attention scores look like the 6x6 so if you look at the first row all of those
-57:40
-are the dot products between the first query and all the other queries if you look at the second row all of these are
-57:46
-the dot products between the second query and uh all the other inputs so
-57:53
-this second this second row actually will be exactly same to the attention uh
-57:59
-scores which we had calculated earlier see because the second row is
-58:05
-9444 1.49 ETC so if you look at the second row here that is also 9544
-58:12
-1.49 because the second row represents the dot product between the second query
-58:17
-and all the other input vectors similarly the last row represents the dot product between the last query and
-58:24
-all the other input vectors okay now here we have used two for Loops
-58:30
-right and that's not very computationally efficient for Loops are generally quite slow and that's the
-58:35
-reason why matrix multiplication needs to be understood the reason I say that linear algebra is actually the core
-58:42
-Foundation of every machine learning concept which you want to master is this for someone who does not know about
-58:49
-linear algebra and matrix multiplication they'll just do these two rounds of four Loops but if you actually know linear
-58:55
-algebra you'll see that instead of doing this you can just take the uh multiplication of inputs and the
-59:02
-transpose of the inputs and you will actually get the exact same answer so what this does is that you
-59:08
-take the input uh input Matrix and what the input Matrix looks like is this you
-59:15
-take the input Matrix and then you multiply with the transpose of the input Matrix and you'll get the exact same
-59:21
-answer as uh you'll take you'll get the exact same answer as doing this dot product in the
-59:28
-for Loop format and you can verify this so if you just take the product between
-59:34
-inputs Matrix and the inputs transpose what we'll see is the exact same thing
-59:40
-as the previous answer why because when we multiply two matrices what it essentially does is it just computes a
-59:47
-bunch of dot products between the rows of the first Matrix and The Columns of the second Matrix which is exactly what
-59:53
-we are doing here in these two for Loops it just that this matrix multiplication operation is much more efficient than
-59:59
-using these two for Loops so Step One is completed right now we have found the
-
-
 ***
 
 1:00:05
@@ -654,6 +558,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
