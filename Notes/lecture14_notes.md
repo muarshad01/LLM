@@ -164,7 +164,8 @@ $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
 
 ***
 
-50:03
+50:00
+
 context Vector for Journey and this is the final answer this is the context Vector for Journey and I've have plotted
 50:11
 this context Vector over here which has been calculated through this uh mathematical operation which I just
@@ -255,6 +256,9 @@ operation like we did at the end for the query of Journey so essentially we are 
 follow the exact same steps as before for all the other tokens also we are
 54:54
 first going to compute the attention scores then we are going to compute the attention weights and then we are going
+
+***
+
 55:00
 to compute the context Vector remember these are the exact same steps which we followed uh for uh the query of Journey
 55:09
@@ -350,6 +354,10 @@ bunch of dot products between the rows of the first Matrix and The Columns of th
 we are doing here in these two for Loops it just that this matrix multiplication operation is much more efficient than
 59:59
 using these two for Loops so Step One is completed right now we have found the
+
+
+***
+
 1:00:05
 attention scores I hope you have understood why this is a 6x6 Matrix here and why each what each row represents
 1:00:12
@@ -464,6 +472,11 @@ because we cannot just keep on looping over and use for loops and there is a ver
 actually helps us calculate the context vectors it's just one line of matrix
 1:05:47
 product essentially we have to multiply the uh attention scores Matrix or the
+
+
+***
+
+
 1:05:56
 attention weight Matrix with the input right and we have to do some summations can you think of the matrix
 1:06:02
@@ -713,6 +726,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
