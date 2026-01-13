@@ -21,79 +21,17 @@ your journey starts with one step
 
 ***
 
-tasks one such context Vector will be generated from each of the embedding vectors so if you look at all of the
-5:53
-embedding vectors which I have shown here we'll have a corresponding context Vector for each of these embedding
-5:59
-vector and that is the main purpose or that is the main goal of attention mechanism
-6:04
-even the simplified attention mechanism which we are going to consider today and even the complex multi-head attention
-6:11
-which is used in modern large language models the goal of all of these mechanisms is the same we need to
-6:18
-convert the embedding Vector into context vectors which are then inputs to the
-6:23
-llms so let's get started with accomplishing this aim of converting the embedding vectors into context vectors
-6:30
-so here's the input Vector which we have your journey starts with one step each of this each of the tokens is converted
-6:37
-into a threedimensional vector it's called as a vector embedding and the notation which we are going to use is we
-6:43
-are going to denote X for the inputs so X1 will be the vector representation of the first token X2 will be the vector
-6:51
-representation of the second token X3 will be the vector representation of the third token and these will be
-6:57
-threedimensional tokens for the sake of Simplicity throughout this lecture when I use the word token and word I'll use
-7:05
-tokens and words interchangeably normally one token is not equal to one
-7:10
-word because GPT uses a subword tokenizer but for the sake of Simplicity
-7:16
-I'm going to use tokens and words interchangeably in today's lecture so let's say if we look at
-7:22
-Journey the input embedding Vector is X2 two because it is the second word our
-7:28
-main aim uh in this lecture is to essentially create a context Vector so
-7:34
-the context Vector for X2 will be denoted by zed2 similarly we need one such context
-7:40
-Vector for all the input vectors and to compute the context Vector from the embedding Vector we'll
-7:47
-need to have information about how much in importance needs to be given to X1
-7:52
-which is the word your how much information needs to be given to X3 and how much information needs to be given
-7:58
-to all the other word when we are looking at Journey For example and this is captured by this metric which is
-8:04
-called as attention weights so we need to decide how much attention we we need to give to each
-8:11
-input token when we are Computing the context Vector for any uh embedding
-8:16
-vector and based on these attention weights we will finally derive the context Vector which is denoted by
-8:23
-Zed so we'll see mathematically how to uh manipulate the attention weights the
-8:28
-input vector VOR we'll also see what are attention scores and how to get the context Vector for each of the given
-8:34
-embedding vectors but I hope until now you have understood the task or the aim which we
-8:40
-have in today's lecture and as I mentioned the representation or the notation which
-8:46
-will be which we will be following is that for the inputs we'll be using X so X of one will be the token embedding one
-8:52
-which is the vector representation of the first token X of two will be the token embedding two which is the vector
-8:58
-representation of of the second token Journey Etc so these are three dimensional
-9:04
-embeddings in the example which we are considering in today's lecture now uh I
-9:09
-have just written down the goal which I was talking about the goal of today's lecture or the goal of any attention
-9:16
-mechanism is to basically calculate a context Vector for each element in the
-9:22
-input and as I mentioned before the context Vector can be thought of as an enriched embedding Vector which also
-9:28
-contains information about how that particular word relates to other words in the
+* ne such context Vector will be generated from each of the embedding vectors
+* The goal of all of these mechanisms is the same we need to convert the embedding Vector into context vectors, which are then inputs to the LLMS.
+
+```
+\{x^{1}, x^{2}, x^{3}\}
+```
+
+* [x_1, x2, x3]
+* Z_2= alpha_21 x_1, x2, x3
+* 
+*  k at Journey the input embedding Vector is X2 two because it is the second word our main aim uh in this lecture is to essentially create a context Vector so the context Vector for X2 will be denoted by zed2 similarly we need one such context Vector for all the input vectors and to compute the context Vector from the embedding Vector we'll need to have information about how much in importance needs to be given to X1 which is the word your how much information needs to be given to X3 and how much information needs to be given to all the other word when we are looking at Journey For example and this is captured by this metric which is called as attention weights so we need to decide how much attention we we need to give to each input token when we are Computing the context Vector for any uh embedding vector and based on these attention weights we will finally derive the context Vector which is denoted by Zed so we'll see mathematically how to uh manipulate the attention weights the input vector VOR we'll also see what are attention scores and how to get the context Vector for each of the given embedding vectors but I hope until now you have understood the task or the aim which we have in today's lecture and as I mentioned the representation or the notation which will be which we will be following is that for the inputs we'll be using X so X of one will be the token embedding one which is the vector representation of the first token X of two will be the token embedding two which is the vector representation of of the second token Journey Etc so these are three dimensional embeddings in the example which we are considering in today's lecture now uh I have just written down the goal which I was talking about the goal of today's lecture or the goal of any attention mechanism is to basically calculate a context Vector for each element in the input and as I mentioned before the context Vector can be thought of as an enriched embedding Vector which also contains information about how that particular word relates to other words in the
 Coding embedding vectors in Python
 9:35
 sentence okay so let us get started and we'll dive into code right now so here's
@@ -1413,5 +1351,6 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
