@@ -1,119 +1,27 @@
+#### A Simplified Self Attention Mechanism withoug Trainable Weights
 
-Lecture objective
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series in the last lecture we looked at the intuition behind the
-0:16
-attention mechanism and we saw the limitations in the recurrent neural networks which
-0:22
-prompted The Invention which is at the heart of the attention mechanism in
-0:27
-today's lecture we are going to look at the the mathematical foundations behind attention and we are also going to code
-0:34
-out a very simplified version of the attention mechanism from scratch in Python so I'm calling this
-0:41
-simplified U simplified self attention mechanism without trainable
-0:47
-weights before we proceed to the content of the today's lecture here are the
-0:53
-lecture notes which we covered previously in our introductory lecture on attention so if you have not seen
-0:58
-this lecture I highly encourage you to go through the lecture to understand the
-1:04
-intuition that way you will appreciate today's lecture much more in the last lecture I also showed I also told you
-1:11
-the plan which I have to cover attention in this series of lectures I strongly believe that it is impossible to cover
-1:17
-everything related to the attention mechanism in one video or even two videos so I've planned a set of uh three
-1:24
-to four different videos to cover this entire concept the the way I'll be doing this
-1:31
-is that first in today's lecture I'll be going through the simplified self attention mechanism without any
-1:36
-trainable weights just to introduce the broad idea then in the next lecture we'll move to self attention with
-1:42
-trainable weights the way it's done in modern llms including GPT then we'll
-1:48
-move to causal attention and then finally we'll move to multi-head attention all of these will be separate
-1:54
-series of lectures and in each lecture we'll I'll show you the mathematical foundations on this white board and then
-2:00
-we'll code out the attention mechanism showed in that lecture from scratch in
-2:07
-Python so if you have got this overall workflow let me go to the lecture notes
-2:12
-of today's lecture and we'll get started awesome so the main goal which
-2:18
-we have today is to implement a simple variant of the self attention mechanism
-2:24
-which does not have any trainable weights which is free from any trainable weights so to motivate today's lecture
-Context vectors
-2:30
-let's start with a simple sentence in the whole of today's lecture we'll be dealing with this sentence which is your
-2:36
-journey starts with one step now if this sentence is given to a large language
-2:43
-model there are number of things which are done first we will be pre-processing
-2:48
-this sentence we'll take this sentence we'll convert it into individual tokens GPT uses the bite pair encoder which is
-2:56
-a subw tokenizer so it will convert these tokens and then then we'll have token IDs for each of these
-3:03
-tokens then that token ID will be converted into a vector representation
-3:08
-which is also called as a vector embedding so each of these word will have a vector embedding in a higher
-3:13
-dimensional space when we deal with llms like GPT the dimensional space can be as
-3:19
-high as 500 700 or even more than thousand dimensional Vector space but for the sake of today's demonstration
-3:27
-we'll be considering a three-dimensional Vector space so here's how these vectors can look like for each word in the input
-3:33
-sentence we have a vector in the three-dimensional space these vectors are not just normal vectors they capture
-3:39
-the semantic meaning of each word so Words which are semantically related to each other like let's say cat and puppy
-3:46
-cat and kitten dog and puppy will be closer to each other um so you might be thinking that
-3:53
-okay this is pretty cool and this can be the input to the large language model then why do we need attention the main
-3:59
-problem here is that let's say if we look at Journey what the vector embedding does is that the high
-4:06
-dimensional projection of this word does capture the meaning of this word itself
-4:13
-but it does not contain any information about how this word Journey relates to
-4:18
-other words in the sentence how much is the relative importance between your and
-4:24
-journey starts and journey with and journey one and journey and step
-4:30
-with respect to Journey the embedding Vector does not contain any of this information and this
-4:37
-information is very crucial for us to know if this sentence appears in a large body of text and we want to predict the
-4:44
-next word we really need to know the context we need to know that which word in this sentence is closely related to
-4:50
-Journey let's say that will really help us predict the next word in other words
-4:55
-we need to know how much attention should we pay to each each of these words when we look at Journey that's
-5:02
-where attention mechanism comes into the picture so the whole goal of the attention mechanism is to take the
-5:09
-embedding Vector for uh take the vector embedding for Journey let's say and then
-5:15
-transform it into another Vector which is called as the context Vector the context Vector can be thought
-5:22
-of as an enriched embedding Vector because it contains much more information it not only contains the
-5:28
-semantic meaning which is the embedding Vector also contains but it also contains information about how that
-5:34
-given word relates to other words in the sentence and uh this contextual
-5:39
-information really helps a lot in predicting the next word in large language model
-5:46
+* In this section, we will implement a simple variant of the self-attention mechanism, free from any trainable weights
+
+```
+your journey starts with one step
+```
+
+1. pre-processing this sentence
+2. convert it into individual tokens GPT uses
+3. bite pair encoder which is a sub-word tokenizer
+4. token IDs for each of these tokens
+5. convert token ID into a vector representation called vector embedding
+6. so each of these word will have a vector embedding in a higher
+7. these vectors are not just normal vectors they capture the __semantic meaning__ of each word so 
+
+* the main problem here ...how word Journey relates to other words in the sentence...
+* we really need to know the __context__ we need to know that which word in this sentence is closely related to Journey
+* how much attention should we pay to each each of these words when we look at Journey that's where attention mechanism comes into the picture
+*  Goal of the attention mechanism is to take the __embedding Vector__ for uh take the vector embedding for Journey let's say and then transform it into another Vector which is called as the __context Vector__
+*  the context Vector can be thought of as an __enriched embedding Vector__ because it contains much more information it not only contains the semantic meaning which is the embedding Vector also contains but it also contains information about how that given word relates to other words in the sentence and uh this contextual information really helps a lot in predicting the next word in LLM
+
+***
+
 tasks one such context Vector will be generated from each of the embedding vectors so if you look at all of the
 5:53
 embedding vectors which I have shown here we'll have a corresponding context Vector for each of these embedding
@@ -1506,3 +1414,4 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
