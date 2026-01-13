@@ -121,7 +121,7 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 35:00
 
-
+* $$\{\frac{e^{x_1-\text{sum}}}{\text{sum}},\frac{e^{x_2-\text{sum}}}{\text{sum}},\frac{e^{x_3-\text{sum}}}{\text{sum}},\frac{e^{x_4-\text{sum}}}{\text{sum}},\frac{e^{x_5-\text{sum}}}{\text{sum}},\frac{e^{x_6-\text{sum}}}{\text{sum}},\}$$
 
 it's much more preferable to be using soft Max now we can easily code such
 35:37
@@ -952,6 +952,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
