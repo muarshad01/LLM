@@ -83,22 +83,21 @@ the 1980s.
 * This hidden State essentially captures the __memory__ so imagine the first input, which is the first German word comes the encoder augments it or the encoder maintains a hidden State then you go to the next iteration then the second input world comes then the hidden State also gets updated so as the hidden state gets updated it receives more and more memory of what has come previously and the hidden state gets updated at each step and then there is a __final hidden State__. The final hidden state is basically the encoder output. What we saw the __context Vector__ over here. So when we looked at the context Vector, which is passed from the encoder to the decoder.
 * Here you see a context Vector that is passed from the encoder to the decoder. This context Vector is the final hidden State this is basically the encoder telling the decoder that hey I have looked at the input text ...here's the meaning of this text ...here's how I encoded it ...here's the context Vector ...take this final hidden State and try to decode it and then the decoder uses this final hidden state to generate the translated sentence and it generates the translatedsentence one word at a time .
 
-* so here's a schematic which actually explains this pretty well so I have an input text here so this is the first word in German the second word in German the third word in German and the fourth word in German what the encoder block will do is that it will take each input sequentially and it will maintain a different hidden state so for the first input it has the first hidden State then we move to the next iteration then the second hidden State then the third hidden State and then finally when we have the last input we have this final hidden State the
-
-* __final hidden State__ essentially contains the __accumulation of all previous hidden state__ so it contains or encapsulates memory this is how memory is incorporated which was missing earlier with just a normal neural network so this is the final hidden State and then
-this final hidden State essentially memorizes the entire input and then this uh hidden state is passed to to the decoder and then the decoder produces the final output which is the translated English.
+* __final hidden State__ essentially contains the __accumulation of all previous hidden state__ . It contains or encapsulates memory this is how memory is incorporated, which was missing earlier with just a normal NN. So, this is the final hidden State and then this final hidden State essentially memorizes the entire input and then this hidden state is passed to to the decoder and then the decoder produces the final output which is the translated English.
 
 ***
 
 20:00
 
-* big problem with the RNN and that problem happens because the model the decoder has essentially no access to the previous hidden States.
-*  Why is this a big problem um the reason it's a big problem is because when we have to process long-sequences if the decoder just relies on one final hidden State that's a lot of pressure on the decoder to essentially that one final hidden State needs to have the entire information and for long sequences it usually fails because it's very hard for one final hidden state.
+#### Big problem with RNN
+* The model the decoder has essentially no access to the previous hidden States.
+* The reason it's a big problem is because when we have to process long-sequences, if the decoder just relies on one final hidden State that's a lot of pressure on the decoder.
+* Essentially one final hidden State needs to have the entire information and for long-sequences it usually fails because it's very hard for one final hidden state.
+* so as we saw the encoder processes the entire input text into one final hidden state, which is the memory cell and then decoder takes this this hidden State. decoder takes this hidden state to essentially produce an output great now here's the biggest issue with RNN. 
 
-* so as we saw the encoder processes the entire input text the encoder processes the entire input text into one final hidden state, which is the memory cell and then decoder takes this this hidden State. decoder takes this hidden state to essentially produce an output great now here's the biggest issue with RNN and please play pay very close
-* __RNN Limitations__: attention to this point because if you understand this you will understand why attention mechanisms were needed the biggest issue with the RNN is that a RNN cannot directly access earlier hidden States.
+* __RNN Limitations__: The biggest issue with the RNN is that a RNN cannot directly access earlier hidden States.
 
-* so the RNN can't directly access earlier hidden States from the encoder during the decoding phase it relies only on the current hidden state which is the final hidden State and this leads to a loss or this leads to a __loss of context__especially in complex sentences where dependencies might span long distances um.
+* so the RNN can't directly access earlier hidden States from the encoder during the decoding phase it relies only on the current hidden state which is the final hidden State and this leads to a loss or this leads to a __loss of context__. Especially in complex sentences where dependencies might span long distances.
 
 *  okay so let me actually explain this further what does it mean loss of context right uh so as we saw the encoder compresses the entire input sequence into a single __hidden State Vector__.
 
@@ -108,26 +107,16 @@ this final hidden State essentially memorizes the entire input and then this uh 
 
 * 25:00
   
-* as I mentioned to you before this English sequence is pretty long uh the RNN or the encoder
-really needs to capture the dependencies very well so the final hidden State needs to capture that the cat is the subject here and the cat is the one who has jumped and this information this context needs to be captured by the final hidden State and that is very hard.
 
 * if you are putting all the pressure on one final hidden state to capture all this context especially in Long sequences so uh the key action which is jumped depends on the subject which is cat but also an understanding longer depend dependencies so jumped depends on cat but we also need to understand that the cat was sitting on the mat and the cat was also sitting next to the dog because the dog also might be referred somewhere else in the big text so we need to understand many things from this sentence and these are also called as longer dependencies so jumped the action jumped of course depends on the subject cat but we Al to understand this we also need to understand longer dependencies that the cat was sitting next to the dog and the cat was also sitting on the mat so to capture these longer dependencies or to capture this uh longer context or difficult context the
-* RNN decoder struggles with this because it just has one final hidden State uh to get all the information from this is called __loss of context__ and loss of context was one of the biggest issues because of which RNN was not as good as the GPT which exist right now
-which is based on the attention mechanism.
 
-* okay so these are the issues with RNN uh the decoder cannot access
-27:06
-the hidden states of the input which came in earlier so we cannot capture long range
-Bahdanau Attention Mechanism
-27:12
-dependencies this is where attention mechanism actually comes into the picture okay we will capture long range
-27:18
-dependencies with attention mechanisms and let's see how so
-* (a) - RNN work fine for translating short-sentences they don't work for long-text because they don't have direct access to previous words in the input.
+* RNN decoder struggles with this because it just has one final hidden State.  to get all the information from this is called __loss of context__, which was one of the biggest issues because of which RNN was not as good as the GPT which exist right now which is based on the attention mechanism.
+
+
+* Bahdanau Attention Mechanism dependencies is where attention mechanism actually comes into the picture. Okay, we will capture long range dependencies with attention mechanisms and let's see how
+* (a) - RNN work fine for translating short-sentences. They don't work for long-text because they don't have direct access to previous words in the input.
 * (b) - One of the major shortcoming in the RNN is that: RNN must remember the entire encoded input in a single hidden State before passing it to the decoder.
-*
 * [Neural machine translation by jointly learning to align and translate -- Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=kukA0LcAAAAJ&citation_for_view=kukA0LcAAAAJ:__bU50VfleQC)
-
 *  `Bahdanau attention mechanism for RNN`
 *   difies the encoder decoder RNN such that the decoder can selectively access different parts of the input sequence at each decoding step.
 
@@ -137,18 +126,10 @@ dependencies with attention mechanisms and let's see how so
 
 * The text generating decoder part of the network can access all the input tokens selectively.
 * This means that some input tokens are more important than others for generating a given output token.
-* This importance is determined by the attention weights.
+* This importance is determined by the __attention weights__.
 
-* Only 3 years later researchers found that RNN architectures are not required for building DNN for NLP and uh this is when the researchers proposed the Transformer architecture and at the main core of the
-Transformer architecture was the Bahdanau attention mechanism.
+* Only 3 years later researchers found that RNN architectures are not required for building DNN for NLP and this is when the researchers proposed the Transformer architecture. The main core of the Transformer architecture was the Bahdanau attention mechanism.
 
- 
- so it was called self
-
-
-***
-
-35:00
 
 * [Attention is all you need - Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, Illia Polosukhin](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oR9sCGYAAAAJ&citation_for_view=oR9sCGYAAAAJ:zYLM7Y9cAGgC)
 
@@ -156,65 +137,57 @@ Transformer architecture was the Bahdanau attention mechanism.
 
 35:00
 
-* At each decoding step so at each decoding step the model can look back at the entire input sequence and decide which parts are most relevant to generate the current word.
+* So at each decoding step the model can look back at the entire input sequence and decide, which parts are most relevant to generate the current word.
 
-* so for example uh let's say we are predicting this word saute which is the French translation for jumped so when the decoder is predicting this French translation s the attention mechanism allows the decoder to focus on the part of the input that corresponds to jump so we can selectively look at which part of the input to give maximum attention to uh
+* For example, let's say we are predicting this word `saute`, which is the French translation for jumped. So, when the decoder is predicting this French translation the attention mechanism allows the decoder to focus on the part of the input that corresponds to jump. So, we can selectively look at which part of the input to give maximum attention to uh
 
 * This __Dynamic focus__ on different parts of the input sequence allows modes to learn long range dependencies more effectively
 
-* Dynamic Focus so Dynamic Focus which means that for every decoder for every decoding step we can selectively choose which inputs to focus on and how much attention to give to it each input that's why it's called Dynamic Focus so this Dynamic focus on different parts of the input sequence helps us to learn long-range dependencies more effectively and that's why the attention mechanism uh actually works so well.
+* So Dynamic Focus, which means that for every decoding step, we can selectively choose which inputs to focus on and how much attention to give to it each input. That's why it's called Dynamic Focus. This Dynamic focus on different parts of the input sequence helps us to learn long-range dependencies more effectively and that's why the attention mechanism uh actually works so well.
 
 ***
 
 40:00
 
-
-|||
+| Model | Year|
 |---|---|
 | RNN |1980|
 | LSTM |1997|
 | Attention |2014|
 | Transformers |2017|
 
-
 * RNNS had this problem which is called __Vanishing gradients__
-
-*  when you stack multiple feedback loops together it leads to the vanishing gradient problem LSTM solved this so we had a longterm memory route and a shortterm memory route and that's how the lstm actually operates.
-  
+*  when you stack multiple feedback loops together it leads to the vanishing gradient problem.
+*  LSTM solved this.  So we had a long-term memory route and a short-term memory route and that's how the LSTM actually operates.
 * both of these had problems with respect to __longer context__,  which was solved 2014 and 2017 papers.
 
 #### __self attention__: 
-* is a bit different so self attention um is basically amechanism that allows each position of the input sequence to attend to all positions in the same sequence so we are not looking at different sequences.
-* self attention is basically different now instead of giving attention to another sequence all the attention is directed inwards so we we are just looking within a particular sequence so we are looking at different tokens within a sequence and see how these tokens are related to
+* So self attention is basically a mechanism that allows each position of the input sequence to attend to all positions in the same sequence. So, we are not looking at different sequences.
+* Self attention is basically different. Now instead of giving attention to another sequence all the attention is directed inwards.
+* So, we we are just looking within a particular sequence. We are looking at different tokens within a sequence and see how these tokens are related to each other.
 
 ***
 
-
 45:00
 
-* (f) - Self attention is a key component of contemporary LLMs bassed on the transformer architecture, such as GPT series.
-*
-*
-*
-* so large language models remember are predicting the next word in a given sentence right they can of course do language translation tasks as well but they were predominantly trained for predicting the next World and uh they are able to do translation tasks
+* (f) - Self attention is a key component of contemporary LLMs bassed on the Transformer architecture, such as GPT series.
+* so LLM remember are predicting the next word in a given sentence right they can of course do language translation tasks as well but they were predominantly trained for predicting the next World and they are able to do translation tasks
 which is also called as __emergent Behavior___ but they were trained to predict the next word and that's why they have to so.
 
 * self attention module is a key component of contemporary LLMs
 
-* self attention the self really refers to the attention mechanism's ability to compute attention weights by by relating different positions in a single input sequence
-*  so as I mentioned we are looking at uh just one input sequence and we are we are looking at the attention between different tokens of that sequence
-*  so it learns the relationship between various parts of the input itself
-*   so this is different than traditional attention mechanisms like the translation task which we saw where the focus is on relationships between elements of two different sequences
-*    so for example if we want to translate from English to German German to French uh English to Hindi Etc we have two sequences right so traditional attention mechanisms look at one part of the sequence and another part of the sequence and how they are related to each other
-*     in self attention we basically learn the relationship between various parts of the input itself
+* In self attention the self really refers to the attention mechanism's ability to __compute attention weights__ by relating different positions in a single input sequence
+*  so as I mentioned, we are looking at just one input sequence and we are looking at the attention between different tokens of that sequence.
+*  so it learns the __relationship between various parts of the input itself__
+* so this is different than traditional attention mechanisms like the translation task, which we saw where the focus is on __relationships between elements of two different sequences__.
+* For example, if we want to translate from English to German OR German to French OR English to Hindi, etc.. We have two sequences right ...so traditional attention mechanisms look at one part of the sequence and another part of the sequence and how they are related to each other.
+* In self attention, we basically learn the relationship between various parts of the input itself
 
-* Lecture recap this particular lecture where we have covered so many things we covered the basic intuition of attention but before that I explain to you in a lot of detail about the shortcomings in recurrent neural networks so just one thing if you take away from this lecture is that
-* __RNN have a major shortcoming__ and that shortcoming is that they have to remember the entire encoded input in a single hidden state before passing it to the decoder and that's a problem when dealing with long sentences.
-*  it leads to __context loss__ because the decoder does not have access to the previous inputs this is exactly the problem which is solved by attention mechanisms.
-*   in attention mechanisms when you are decoding a particular part like
-*
-* which parts of the output sequence are more related to which parts of the input sequence this is traditional attention
-*  in self attention you just look at one sequence and you look at different parts of that same sequence and how they are related with respect to each other.
+* 
+* __RNN have a Major Short-coming__: and that shortcoming is that they have to remember the entire encoded input in a single hidden state before passing it to the decoder and that's a problem when dealing with long sentences.
+*  This leads to __context loss__, because the decoder does not have access to the previous inputs. This is exactly the problem, which is solved by attention mechanisms.
+*  In attention mechanisms when you are decoding a particular part like
+* which parts of the output sequence are more related to which parts of the input sequence this is __traditional attention__.
+* In self attention you just look at one sequence and you look at different parts of that same sequence and how they are related with respect to each other.
 
 ***
-
