@@ -38,7 +38,8 @@ inputs = torch.tensor(
 * The goal of all of these mechanisms is the same we need to convert the __embedding Vector__ into __context vectors__, which are then inputs to the LLMS.
 
 
-* $$\left\{x^{1}, x^{2}, x^{3}\}$$
+* $$\{x^{1}, x^{2}, x^{3}\}$$
+
 * $$z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}$$
 
 * Alphas are also called "attention weights""attention scores"
@@ -101,13 +102,12 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 #### Softmax
 
-```
-\{x_1, x_2, x_3, x_4, x_5, x_6\}
 
-\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}
+* $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
 
-\text{sum} = e^{x_2} + e^{x_2} + e^{x_3}+e^{x_4}+e^{x_5}+e^{x_6}
-```
+* $$\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}$$
+
+* $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3}+e^{x_4}+e^{x_5}+e^{x_6}$$
 
 
 * __softmax__ is preferred compared to let's say the normal summation especially when you consider extreme values so let me take a simple example right now and I'm going to switch the color to Black so that you can see what I'm writing on the screen
@@ -952,6 +952,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
