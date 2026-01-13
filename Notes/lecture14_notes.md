@@ -6,6 +6,19 @@
 your journey starts with one step
 ```
 
+```
+import torch
+
+inputs = torch.tensor(
+  [[0.43, 0.15, 0.89], # Your     (x^1)
+   [0.55, 0.87, 0.66], # journey  (x^2)
+   [0.57, 0.85, 0.64], # starts   (x^3)
+   [0.22, 0.58, 0.33], # with     (x^4)
+   [0.77, 0.25, 0.10], # one      (x^5)
+   [0.05, 0.80, 0.55]] # step     (x^6)
+)
+```
+
 1. pre-processing 
 2. convert sentence into individual tokens GPT uses
 3. bite-pair encoder which is a (word, sub-word, character)-tokenizer
@@ -43,6 +56,15 @@ z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times 
 
 ***
 
+```
+query = inputs[1]  # 2nd input token is the query
+
+attn_scores_2 = torch.empty(inputs.shape[0])
+for i, x_i in enumerate(inputs):
+    attn_scores_2[i] = torch.dot(x_i, query) # dot product (transpose not necessary here since they are 1-dim vectors)
+
+print(attn_scores_2)
+```
 
 that's exactly what we need so the dot product between journey and starts might be more so it's because they are aligned
 20:36
@@ -72,9 +94,10 @@ extent to which elements of a sequence attend to one
 21:52
 another this is just a fancy way of saying how different elements of the
 21:57
-sequence are more Alik with each other so higher the dot product higher
-22:03
-the dot product higher is the similarity and the attention scores
+sequence are more Alik with each other 
+
+
+* so higher the dot product higher the dot product higher is the similarity and the attention scores
 22:09
 between the two elements this is very important higher the dot product higher is the similarity between the two
 22:15
@@ -149,6 +172,15 @@ with the lowest attention score so it seems to be the fifth element and the fift
 
 
 ***
+
+#### Normalization
+
+```
+attn_weights_2_tmp = attn_scores_2 / attn_scores_2.sum()
+
+print("Attention weights:", attn_weights_2_tmp)
+print("Sum:", attn_weights_2_tmp.sum())
+```
 
 25:54
 see whether that makes sense with our intuition so you can see the vector for the word one and the vector for Journey
@@ -1161,6 +1193,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
