@@ -109,7 +109,10 @@ machine learning context it's actually more common and advisable to use the soft
 
 ***
 
-30:33
+30:00
+
+
+
 normalization and why is this the case um I think I need to write this down on
 30:38
 the Whiteboard to explain um why soft Max is preferred
@@ -194,7 +197,12 @@ first element will be e to X1 divided by the summation the second element will b
 e to X2 divided by the summation and similarly the last element will be e to X6 divided by the summation now if you
 34:57
 add add all of these elements together you'll see that they definitely sum up to one that's fine but the more
-35:03
+
+***
+
+35:00
+
+
 important thing is when you look at these extreme cases if you in if you use soft Max 400 now when you do e to 400
 35:11
 that will almost be like Infinity so this value when normalized will be very close to one and the smaller values when
@@ -287,7 +295,12 @@ case uh now um so note that knife softmax implementation May encounter
 numerical instability problems which I mentioned to you such as overflow for very large values and underflow for very
 39:57
 small values therefore in practice it's always advisable to use the pytorch
-40:02
+
+***
+
+40:00
+
+
 implementation of soft Max so it just one line of command torch. softmax and we pass in the
 40:09
 attention score tensor and what this one line of command torge do softmax
@@ -1027,6 +1040,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
