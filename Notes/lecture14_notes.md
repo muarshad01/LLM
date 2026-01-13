@@ -190,121 +190,24 @@ print(attn_scores)
 
 ***
 
-1:00:05
-attention scores I hope you have understood why this is a 6x6 Matrix here and why each what each row represents
-1:00:12
-each row represents the dot product between that particular query and all
-1:00:18
-the other input um input embedding vectors now we'll implement the
-Coding attention weight matrix for all queries
-1:00:24
-normalization so remember how we did normalization here we did torch. soft Max right so similarly what
-1:00:32
-we are going to do here is we are going to do torge do softmax of this attention scores Matrix and what this will do is
-1:00:39
-that it will implement the soft Max operation to each row so the first row
-1:00:44
-we'll do the soft Max like we learned before then the second row we do the softmax like we learned before similarly
-1:00:51
-the last row will do the soft Max like we learned before so if you look at each individual row you'll see that entries
-1:00:57
-of each row sum up to one so you can look at the second row here1 385 2379
-1:01:04
-it's the same U attention weights which we have got for the
-1:01:10
-journey query uh one key thing to mention here
-1:01:15
-is that what is the dim parameter over here so the dim here I'm saying minus
-1:01:21
-one and the reason is explained below the dim parameter in functions like like tor. softmax specifies the dimension of
-1:01:28
-the input function input tensor along which the function will be computed so
-1:01:34
-by setting dim equal to minus1 here we are instructing the softmax function to
-1:01:40
-apply the normalization along the last dimension of the attention score tensor and what is the last dimension of
-1:01:47
-the attention score tensor it's essentially The Columns so if the attention scores is a 2d tensor it's a
-1:01:53
-2d 6x6 tensor right and it has the shape of rows and columns uh the last
-1:01:59
-Dimension is the column so Dimension equal to minus one will normalize across the
-1:02:05
-columns so what what will happen is that for the first row look at the columns so
-1:02:10
-this is the first column this is the second column actually I have to show here this is the First Column this is
-1:02:15
-the second column this is the third column so we are normalizing essentially along the columns right because we are
-1:02:21
-going to take the exponent of what all is there in the First Column second column third column Etc we are going to
-1:02:26
-sum these exponents that's why it's very important to uh write this dim equal to minus1
-1:02:34
-because we are normalizing across a column um and that's why the values in
-1:02:39
-one row sum up to one since we are normalizing in the each column that's
-1:02:45
-why the values in each row sum up to one it's very important to note that so Dimension equal to minus1 means that we
-1:02:51
-have to apply the normalization along the last Dimension and for a two dimensional t sensor like this the last
-1:02:56
-Dimension is the columns so the soft Max will be applied across the columns and
-1:03:02
-that's why for each row you will see that all the entries sum up to one so these are the attention weights
-1:03:09
-which we have calculated and the last step which is very important is calculating the context vector and uh I
-1:03:16
-want to uh show some things to you but before that let's verify that all the rows indeed sum up to one in this
-1:03:23
-attention weights so what I'm doing here is that I'm looking at the second row here and I'm just going to sum up to one
-1:03:30
-and I'm just going to sum up the entries of the second row and you will see that uh the second row sums up to one and I
-1:03:37
-have also included a print statement below which prints out the summation of all the rows and you'll see that the
-1:03:44
-first row the second row similarly the sixth row all of the rows essentially sum up to one this means that the
-1:03:50
-softmax operation has been employed in a correct manner for you to explore this
-1:03:55
-dim further you can try with dimm equal to Z dim equal to 1 also from the errors you will learn a
-1:04:02
-lot these small details are very important other students who just apply llm Lang chain and just focus on
-1:04:10
-deployment will never focus on these Minor Details like what is this dim operator over here Etc but I believe the
-1:04:17
-devil always lies in the details so the students who understand these Basics will really Master large
-1:04:24
-language models much more than other students now we come to the final step which is essentially Computing the
-Coding context vector matrix for all queries
-1:04:30
-context vectors right and I will take you to code but the final step is
-1:04:35
-actually implemented in elegant one line of code let me take you to the final
-1:04:41
-step before what we had done in the final step remember what we simply did was uh we just
-1:04:48
-uh where was that yeah in the final step what we simply did was we just
-1:04:53
-multiplied the attention weights for each Vector for each input Vector with
-1:05:01
-that corresponding Vector right I can show this to you in the Whiteboard
-1:05:06
-also okay so what we did for the final step of the context Vector was something
-1:05:12
-like this yeah so what we did was we we got the attention weights for
-1:05:18
-each input embedding vector and we multiplied those attention weights with each with the corresponding input vector
-1:05:25
-and we those up now this is exactly what we have to do for the
-1:05:30
-other uh for the other tokens also but we have to do this in a matrix manner
-1:05:35
-because we cannot just keep on looping over and use for loops and there is a very elegant Matrix operation which
-1:05:42
-actually helps us calculate the context vectors it's just one line of matrix
-1:05:47
-product essentially we have to multiply the uh attention scores Matrix or the
+1:00
 
+```python
+attn_weights = torch.softmax(attn_scores, dim=-1)
+print(attn_weights)
+```
+
+```python
+row_2_sum = sum([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])
+print("Row 2 sum:", row_2_sum)
+
+print("All row sums:", attn_weights.sum(dim=-1))
+```
+
+```python
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)
+```
 
 ***
 
@@ -558,6 +461,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
