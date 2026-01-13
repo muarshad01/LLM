@@ -43,108 +43,7 @@ z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times 
 
 ***
 
-15:06
-right now what we have to quantify basically is that how much importance
-15:11
-should be paid to each of these other words or how much attention should be paid to each of the input word for the
-15:19
-query journey and this is Quantified by a mathematical metric which is called as
-15:25
-the attention score so the attention score exist exists between the query and
-15:30
-every input Vector so there will be an attention score between the query and the first input Vector there will be an
-15:37
-attention score between the query and the second input Vector there will be an attention score between the query and
-15:44
-the third input vector and finally there will be an attention score between the query and the final input
-15:50
-Vector the first step of getting to the context Vector is to find these attention scores which will help us
-15:57
-understand how much importance should be given to each of the tokens in the input okay for a moment assume that you
-16:05
-do not know anything about large language models you do not know anything about machine learning or natural language processing just assume that you
-16:13
-are a student who is Guided by intuition and Mathematics and try to think of this
-16:19
-question you have this input query X2 and you have these other embedding input
-16:26
-embedding vectors how would you find the importance of every input Vector
-16:32
-with respect to the query that's the question so you have the query vector and you have each of
-16:39
-these embedding vectors X1 X2 dot dot dot right up till the final input Vector
-16:44
-how would you find a Score which quantifies the importance between the
-16:49
-embedding between the query vector and the input embedding Vector can you try
-16:55
-to think about this intuitively forget about everything else forget about ml forget about attention just try to think
-17:02
-from the basics what is that is that mathematical operation which you will
-17:08
-consider to find the importance between two
-17:15
-vectors let me ask you this question in another way as a hint take a look at this Vector embedding you know that
-17:21
-vectors are embedded in like this in a three-dimensional space now let me ask
-17:26
-you we have the query Vector which is and we have all these other input vectors for step your with one and
-17:34
-starts how would you find the importance of all the other vectors with respect to
-17:41
-the query Vector which is Journey you can pause the video here for
-17:48
-a while while you think about it let me give you a hint if I rephrase this question in another manner I'm sure
-17:55
-many of you will be able to answer what is that mathematical operation
-18:01
-which gives you the alignment between the two vectors which mathematical
-18:06
-operation lets you find whether two vectors are aligned with each other or whether they are not aligned with each
-18:15
-other keep that thought in your mind now let me nudge you more towards the answer
-18:22
-now we know that uh the embedding vectors encode meaning right so if two
-18:27
-vectors are align to each other which means that they are parallel to each other or if their angles are closer to
-18:33
-each other like journey and start it implies that they have some sort of similarity in their meaning so it makes
-18:41
-sense that more importance should be paid to start Vector because it seems to be more aligned with the journey Vector
-18:48
-whereas if you take the vector corresponding to one this purple Vector at the bottom you'll see that it's
-18:53
-almost perpendicular to the journey Vector right the vector one is like this the vector journey is like this so it's
-18:59
-almost perpendicular which means that they do not have that much similarity in meaning so when we assign importance
-19:06
-probably the vector corresponding to one should have less importance than the
-19:11
-vector corresponding to starts for the query Journey because starts is more aligned to
-19:17
-Journey now can you think which mathematical operation would quantify this
-Dot product and attention scores
-19:23
-alignment let me reveal the answer it's the dot product between the vectors this this is an awesome idea because Let Me
-19:31
-Now go to Google and type dot product formula if you see the dot product formula it basically the if you take the
-19:39
-dot product of the two vectors it's the product of the magnitude of the vectors multiplied by the cosine of the angle
-19:45
-between them so if the two vectors are aligned with each other that means the angle between them is zero and if the
-19:52
-angle between them is zero cost of 0 will be one so the dot product will be maximum whereas if the two vectors are
-19:58
-not all aligned with each other that means they are perpendicular to each other the angle between the two vectors
-20:03
-is now equal to 90° and COS of 90 is equal to
-20:09
-0 so there is no similarity between these vectors and the dot product is zero so higher the dot product more
-20:16
-aligned the vectors are lower the dot product the vectors are not aligned so the dot product actually encodes the
-20:23
-information about how aligned or how not aligned the vectors are and that's exactly
-20:29
+
 that's exactly what we need so the dot product between journey and starts might be more so it's because they are aligned
 20:36
 so what if I use the dot product to find the attention scores that's the first
@@ -247,6 +146,10 @@ you'll see that step also seems to be closely aligned with journey their angles 
 attention score between step and journey will also be higher now let's look at the elements
 25:45
 with the lowest attention score so it seems to be the fifth element and the fifth element is the word one and let's
+
+
+***
+
 25:54
 see whether that makes sense with our intuition so you can see the vector for the word one and the vector for Journey
 26:00
@@ -336,6 +239,10 @@ better ways to do normalization many of you might have heard about soft Max righ
 going to explain right now but when we consider normalization especially in the
 30:26
 machine learning context it's actually more common and advisable to use the softmax function for
+
+
+***
+
 30:33
 normalization and why is this the case um I think I need to write this down on
 30:38
@@ -1254,6 +1161,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
