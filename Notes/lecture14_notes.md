@@ -101,7 +101,16 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 ***
 
-30:20
+#### Softmax
+
+```
+\{x_1, x_2, x_3, x_4, x_5, x_6\}
+
+\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}
+```
+
+30:00
+
 going to explain right now but when we consider normalization especially in the
 30:26
 machine learning context it's actually more common and advisable to use the softmax function for
@@ -1040,6 +1049,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
