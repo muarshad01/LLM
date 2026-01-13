@@ -211,86 +211,13 @@ print(all_context_vecs)
 
 ***
 
+* 1:05
 
-1:05:56
-attention weight Matrix with the input right and we have to do some summations can you think of the matrix
-1:06:02
-multiplication operation which will directly give us this answer um it's fine if you don't know
-1:06:09
-the answer but the simplified matrix multiplication is just essentially
-1:06:14
-multiplying the attention weights with the inputs that's it uh this last step of finding the
-1:06:21
-context Vector is just taking this attention weight Matrix and multiplying it with the input Matrix and the claim
-1:06:27
-is that it will give us the context vectors it will give us the six context vectors which we are looking for
-1:06:33
-remember we need a context Vector for every token right and there are six tokens so here are the six context
-1:06:39
-vectors now I'm going to try to explain why this matrix multiplication operation
-1:06:44
-really works so let's go to the Whiteboard once more all right so this is the first
-1:06:51
-Matrix which we have and that's the attention weights right here
-1:06:57
-and this is the second Matrix which we have which is the inputs uh so keep in mind here that the
-1:07:04
-attention weights is a 6x6 Matrix so we have six rows and six columns and the inputs is a 6x3 matrix now we have
-1:07:13
-already looked at how to find the uh context Vector for the
-1:07:18
-second uh for the second row right which which essentially corresponds to the word journey and uh so let's see what we
-1:07:26
-exactly did here so the final attention Matrix will be a 6x3 matrix because so
-1:07:33
-sorry the final context Vector Matrix will be a 6x3 matrix because every row of this will be a context Vector so the
-1:07:41
-first row will be the context Vector for the first word the second row will be the context Vector for the second word
-1:07:48
-so let's look at the second word which is essentially the context Vector for Journey now uh if we take a product of
-1:07:57
-these two Matrix so let's say if we take the product of the attention weight Matrix and the input Matrix first let's
-1:08:02
-check the dimensions so this is a 6x6 Matrix and the inputs is a 6x3 so 6X 6
-1:08:09
-can be multiplied with 6x3 so taking the product is completely possible and it will result in a 6x3
-1:08:15
-matrix uh so let's look at the second row if you look at the second row it will be uh something like we we'll take
-1:08:22
-the second row uh so the second row First Column would be the dot product
-1:08:29
-between the second row of this and the First Column of this the second row second column will be the dot product of
-1:08:34
-this with the second column of this and the second row third column will be the dot product of this second row and the
-1:08:40
-third column here so that's what I've written here in the output Matrix so the first element of the
-1:08:47
-second row will be the dot product between the second row and the First Column the second element of the second
-1:08:54
-row will be the dot product between the uh second row and the second column and
-1:08:59
-the third element of the second row will be the dot product between the third row
-1:09:04
-of the first Matrix and the third column of the second Matrix right now when you compute these dot
-1:09:11
-products uh very surprisingly you will see that the answer is actually equal to
-1:09:17
-this the answer is 138 the answer is actually 138 which is
-1:09:24
-138 multiplied by the first row over here plus 237 multiplied by the second
-1:09:32
-row over here plus 233 which is multiplied by the third row over here
-1:09:37
-Etc uh it's just a trick of matricis but what it it turns out that this second
-1:09:45
-row second row can also be represented by this formulation where you take
-1:09:52
-the uh first element of this second row multiply it with the first
-1:09:59
-row of the input Matrix plus the second element of the second row multiply with
-1:10:04
-the second row of the input Matrix plus the third element multiply it with the
-1:10:09
+***
+
+*1:10
+
+
 third row of the input Matrix can you see what we are essentially doing here we essentially scaling every input
 1:10:15
 Vector right we take the first input Vector we take the first input Vector we scale it by 138 we take the second input
@@ -461,6 +388,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
