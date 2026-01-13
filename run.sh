@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clean
+clear
 
 git pull
 git add .
