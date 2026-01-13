@@ -121,92 +121,31 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 35:00
 
-* $$\left\{\frac{e^{x_1-\text{sum}}}{\text{sum}},\frac{e^{x_2-\text{sum}}}{\text{sum}},\frac{e^{x_3-\text{sum}}}{\text{sum}},\frac{e^{x_4-\text{sum}}}{\text{sum}},\frac{e^{x_5-\text{sum}}}{\text{sum}},\frac{e^{x_6-\text{sum}}}{\text{sum}},\}\right$$
 
-it's much more preferable to be using soft Max now we can easily code such
-35:37
-kind of a soft Max in Python ourself but it's much more recommended to use the
-35:42
-implementation provided by py torch so what py torch does is that instead of doing e to x divided by the summation it
-35:50
-actually subtracts the maximum value from each of the values before
-35:56
-doing the exponential operation so the first element will be e to X1 minus the
-36:01
-maximum value among X1 X2 X3 X4 X5 X6 divided by the summation and the
-36:08
-summation will be e to X1 - Max Plus e to X2 - Max Etc so the only difference
-36:14
-between pytorch implementation and the naive normal implementation we saw before is that pytorch includes this
-36:20
-minus maximum so it subtracts all the values by the maximum value uh before
-36:26
-doing the exponent IAL operation now mathematically you'll see that when you expand this e to X1 minus
-36:34
-the maximum it can also be written as e to X1 divided e to maximum so the E to
-36:40
-maximum in the numerator and denominator actually cancels out and the final thing what we get is actually the same thing
-36:47
-as what we had written previously so you might be thinking then why is this even implemented this subtracting by the
-36:54
-maximum the reason it's implemented is to avoid void numerical instability when dealing with very large values or very
-37:01
-small values if you have very large values as in the input or very small values It generally leads to numerical
-37:08
-instability and leads to errors which are called overflow errors this is a computational problem so theoretically
-37:15
-we can get away with this implementation which is on the screen right now but when you implement computation in Python
-37:21
-it's much better to subtract with the maximum to prevent overflow problems I have seen some companies in
-37:28
-which this is also asked as an interview question so it's better to be aware of how pytorch Implement softmax and we'll
-Coding attention weights in Python
-37:34
-be doing both of these implementations in the code right now so let me jump to the coding interface as I said the first
-37:41
-thing which we'll be implementing is naive soft Max without dealing with the Overflow issues without subtracting the
-37:46
-maximum value um so what we'll be doing is simply taking the exponent of each
-37:54
-attention score and dividing by the summation of the exponent the dimension equal to Z is used because we are taking
-38:01
-the summation for a full row so we are essentially summing all the entries in a row and that's why we have the dimension
-38:08
-equal to zero why are we summing the entries in a row because if you look at
-38:13
-these Matrix over here um yeah this X1 X2 X3 X4 X5 and X6 this is one row right
-38:22
-and when we calculate the summation we are going to do e to X1 plus e to X 2
-38:27
-Etc so we are essentially summing all the entries in a row and that's why we have to give Dimension equal to zero as
-38:34
-an exercise you can try out Dimension equal to one and see the error which you get so this is how we'll implement the
-38:41
-knive soft Max and uh which will basically take the exponent of each attention score and divide by the
-38:47
-summation so we'll print out the attention weights obtained using this method and you'll see that it's 1385 dot
-38:54
-dot do1 1581 of course these scores are different than the summation because
-38:59
-here we are using the exponent operation but if you sum up these scores you'll see that they also sum to one that's
-39:05
-awesome and now what we'll be doing is we'll be using the P torch implementation of soft
-39:11
-Max one more key point to mention is that the soft Max attention weights
-39:16
-which are obtained are always positive because we always deal with the exponent operation and that's positive the
-39:24
-positivity is important to us because it makes the output interpret so if we want to say that give 50% attention to this
-39:32
-token give 20% attention to this token we need all the outputs to be positive
-39:37
-right if it's not positive well uh it's it becomes very difficult to interpret in that
-39:45
-case uh now um so note that knife softmax implementation May encounter
-39:51
-numerical instability problems which I mentioned to you such as overflow for very large values and underflow for very
-39:57
-small values therefore in practice it's always advisable to use the pytorch
+```python
+def softmax_naive(x):
+    return torch.exp(x) / torch.exp(x).sum(dim=0)
+
+attn_weights_2_naive = softmax_naive(attn_scores_2)
+
+print("Attention weights:", attn_weights_2_naive)
+print("Sum:", attn_weights_2_naive.sum())
+```
+
+#### Softmax PyTorch
+* $$\{\frac{e^{x_1-\text{sum}}}{\text{sum}},\frac{e^{x_2-\text{sum}}}{\text{sum}},\frac{e^{x_3-\text{sum}}}{\text{sum}},\frac{e^{x_4-\text{sum}}}{\text{sum}},\frac{e^{x_5-\text{sum}}}{\text{sum}},\frac{e^{x_6-\text{sum}}}{\text{sum}},\}$$
+
+
+```python
+attn_weights_2 = torch.softmax(attn_scores_2, dim=0)
+
+print("Attention weights:", attn_weights_2)
+print("Sum:", attn_weights_2.sum())
+```
+
+* Aoid __numerical instability__ when dealing with very large values or very small values.
+* If you have very large values or very small values, it generally leads to numerical
+instability and leads to errors, which are called __overflow errors__.
 
 ***
 
@@ -952,6 +891,7 @@ reply thank you so much everyone and I really encourage you to take notes while 
 share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
