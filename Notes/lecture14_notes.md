@@ -111,7 +111,6 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 * __softmax__ is preferred compared to let's say the normal summation especially when you consider extreme values so let me take a simple example right now and I'm going to switch the color to Black so that you can see what I'm writing on the screen
 
-
 * One the reason why this is a problem is that when you get values like this they are not exactly equal to zero so when you are doing __back-propagation__ and __gradient-descent__ it confuses the optimizer and the optimizer still gives enough or weight some weightage to these values although we should not give any weightage to these values.
 *  Softmax normalisation thing is achieved
 * if you add add all of these elements together you'll see that they definitely sum up to one that's fine but the more important thing is when you look at these extreme cases if you look at 400 that will almost be like Infinity so this value when normalized will be very close to one and the smaller values when normalized using softmax will be very close to zero.
@@ -215,205 +214,23 @@ print(all_context_vecs)
 
 ***
 
-*1:10
-
-
-third row of the input Matrix can you see what we are essentially doing here we essentially scaling every input
-1:10:15
-Vector right we take the first input Vector we take the first input Vector we scale it by 138 we take the second input
-1:10:23
-Vector we scale it by 237 we take the third input Vector we scale it by 233 isn't this the exact same
-1:10:30
-scaling operation which we saw uh when we looked at the visual representation of the uh context Vector calculations
-1:10:39
-remember we have seen seen the scaling operation to calculate the context Vector here where we had taken each of
-1:10:45
-the input vectors and we had scaled it by the attention weight values and then
-1:10:50
-we summ them to find the final context Vector this is the exact same thing which I which we are doing over here so
-1:10:56
-when we take the product of the uh when we take the product of the attention weights and the inputs another way to
-1:11:03
-look at it is that if you look at the second row it's actually scaling the first input by 138 scaling the second
-1:11:11
-input by 237 dot dot dot and scaling the sixth input by 0158 so it's the exact same operation as
-1:11:18
-we performed before for finding the context vector and that's why finding the context vectors is as simple as
-1:11:25
-multiplying the attention weights with the inputs the first row of this answer will give you the context Vector for the
-1:11:32
-first uh input embedding Vector the second row will give you the context
-1:11:38
-Vector for the second token the third row of this product will give you the context Vector for the second token for
-1:11:44
-the third token and right up till the very end the sixth row will give you the context Vector for the final token and
-1:11:51
-this is how the product between the attention weights and the inputs will give give you the final context Vector
-1:11:57
-Matrix which contains the context Vector for all of the tokens which you are looking for and uh with this final calculation
-1:12:05
-we calculate the context Vector for all um of the input
-1:12:11
-tokens and this is exactly what I've have tried to do here so finally uh we
-1:12:16
-generate a tensor which is called as the all context vectors and we multiply the attention weight Matrix with the input
-1:12:22
-Matrix and then we get this all context Vector tensor and if you look at the
-1:12:28
-second row here 4419 6515 56 you'll see
-1:12:33
-that this is exactly the same value of the context Vector which we had obtained over here uh when we looked at Journey
-1:12:41
-so this again implies that whatever we are doing here uh with the matrix multiplication is leading to the correct
-1:12:48
-answer so based on this result we can see that the previously calculated context Vector 2 for journey matches the
-1:12:55
-second row in the in this tensor exactly so remember this operation to get the
-1:13:00
-final context Vector we just multiply the attention weights with the inputs if you did not understand the matrix
-1:13:06
-multiplication which I showed on the Whiteboard I encourage you to do it on a piece of paper because this last matrix
-1:13:14
-multiplication is very important to get the context Vector we just have to multiply the attention weight Matrix
-1:13:20
-with the input Matrix and what all you are learning right now will Direct L extend to the
-1:13:26
-key query and value concept which we'll cover when we when we come to causal attention and multi-head attention and
-1:13:32
-even in the next lecture in the next lecture we are going to look at this exact mechanism but with trainable
-1:13:38
-weights then we'll come to the concept of key query and value but these operations which we are looking at here
-1:13:45
-so for example uh here we are taking the matrix product between attention weights and inputs right in the key query value
-1:13:52
-this will be replaced this inputs will be replaced by value we'll also have a key and a query but
-1:13:59
-the underlying intuition and the underlying mechanism is exactly the same so if you understand what's going on
-1:14:04
-here you'll really understand key query value very easily okay one last thing which I want
-Need for trainable weights in the attention mechanism
-1:14:11
-to cover um at the end of today's lecture is that okay so you might think that we already then find the context
-1:14:19
-vectors like this right then what's the need for trainable weights
-1:14:25
-we just take the dot product and we then find these context vectors the main problem with the
-1:14:31
-current approach is that think about how we found the attention weights to find
-1:14:37
-the attention weights all we did was to just take the dot product right so currently uh in our world the reason why
-1:14:45
-we are giving more attention to starts is that the alignment between starts and journey is maximum so the only reason
-1:14:52
-why we are giving more attention to starts is because because it semantically matches with
-1:14:57
-journey because we are only getting the attention scores and attention weight from the dot product however that is not
-1:15:04
-correct right because two vectors might not be semantically aligned but maybe
-1:15:09
-they are more important in the context of the current sentence so for example journey and one are not semantically
-1:15:17
-related to each other but what if in the current context one is the is the vector
-1:15:23
-which is more important so apart from the meaning you also need to capture the information of the
-1:15:30
-context right what is happening in the current sentence and without trainable weights
-1:15:35
-it's not going to happen we are not going to capture the context effectively right now we did manage to capture the
-1:15:41
-context somewhat but we only give attention to Words which are similar in meaning to the query but even if a word
-1:15:49
-is not similar in meaning it still might deserve attention in the context of the current sentence
-1:15:55
-so let's take a simple example here okay so the example is the cat sat
-1:16:01
-on the mat because it is warm and let's say our query is warm so in the first
-1:16:07
-case let's say we do not use trainable weights like what we have done in today's lecture if we don't use
-1:16:13
-trainable weight we only take the dot product between the query warm and each words embedding and we'll find that warm
-1:16:20
-is most similar to itself and maybe somewhat related to mat words like the cat and sat might have
-1:16:27
-low similarity scores because they are not semantically related to or so with with this so if we don't consider
-1:16:34
-trainable weights we'll only look at Words which are more similar to this query which is warm now with trainable
-1:16:40
-weights the model can learn that warm should pay more attention to mat even if mat is not semantically related to warm
-1:16:47
-so what will happen without trainable weights is that mat and warm might be vectors which are like this which have a
-1:16:53
-90° angle and they might not be related because their meaning is not related but that does not mean we should not pay
-1:17:00
-attention to mat because in this context probably Matt is the most important if the query is warm because the mat is
-1:17:06
-warm but the meaning of mat and warm are not not related right that's why we need
-1:17:12
-trainable weights with trainable weights the model can learn that warm should pay
-1:17:17
-more attention to Matt even if mat isn't semantically similar to warm in traditional embedding space so this is
-1:17:24
-where important the trainable weight allows the model to learn that warm often follows mat in context like this
-1:17:31
-one and that's how it captures long range dependencies that is the reason why we need trainable weights without
-1:17:38
-trainable weights this meaning would be lost and we would only be looking at Words which are similar to The query by
-1:17:45
-trainable weights we get more more of this information that okay Matt might not be related in meaning but in the
-1:17:52
-current context mat is the word which is more important because the mat is warm
-1:17:57
-this is how trainable weights allow us to capture context and in the next lecture we'll specifically devote the
-1:18:04
-next lecture to uh the simplified self attention mechanism but with trainable weights so here is the lecture notes for
-1:18:12
-the next lecture self attention mechanism with trainable weights we'll introduce the concept of key query value
-1:18:18
-and then slowly we'll move to the concept of uh causal attention and then
-1:18:26
-we'll move to the concept of multi-head attention so up till now we have covered simplified self attention I know this
-1:18:32
-lecture became a bit long but it was very important because uh I have seen no
-1:18:37
-other lecture or no other material which covers this much detail visually theoretically and in code about the
-1:18:44
-attention mechanism I could have directly jumped to key query and value which will come later but then you would
-1:18:50
-not have understood the meaning but this lecture allowed me to build your intuition I hope you're liking these set
-1:18:57
-of lectures if you have any doubts or any questions please ask in the YouTube comment section and I'll be happy to
-1:19:03
-reply thank you so much everyone and I really encourage you to take notes while I'm making these lectures I'll also
-1:19:09
-share this code file with you um thanks everyone and I look forward to seeing you in the next lecture
+* 1:10
 
 ***
 
+* 1:15
+
+#### Need for trainable weights in the attention mechanism
+
+* __Sentence__: `The cat sat on the mat because it is warm`
+* __Query__: Suppose our query is `warm`
+
+* __Without Traninable Weights__: If we only use the dot product between the query "warm" 
+and each word's embedding, we might find that "warm" is more similar to itself, 
+and maybe somewhat similar to "mat" (if our embeddings capture that mats can be warm). 
+Words like "The", "cat", and "sat" might have low-similarity score because they are not sementacially related to "warm"
+
+* __With Traninable Weights__: With trainable weights, the model can learn that "warm" should more attention to "mat" even if "mat" is not semantically similar to "warm" in traditional embedding space. The model learns that "warm" often follows "mat" in contexts like this capturing the long-range dependencies.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+***
