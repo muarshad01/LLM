@@ -121,7 +121,7 @@ print(attn_scores_2)
 
 
 #### Attention weight Matrix
-1. we scaled by the square root of the dimension ($$\sqrt{d_{text{keys}}$$)
+1. we scaled by the square root of the dimension ($$\sqrt{d_{\text{keys}}$$)
 2. we implement __softmax__
 
 ***
@@ -879,6 +879,7 @@ that's that's what I believe so thank you so much everyone I hope you are liking
 comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
+
 
 
 
