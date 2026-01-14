@@ -1,5 +1,4 @@
-#### implementing a self attention mechanism with trainable weights 
-
+#### Implementing a Self Attention Mechanism with Trainable Weights 
 
 * (Key, Query, Value)
 
@@ -324,6 +323,9 @@ root so uh there are two reasons the first reason is of course we want the value
 helps uh if the values are not small the soft Max becomes pey and then it starts
 50:15
 giving preferential values to Keys which we don't want it can make the learning unstable but why square root the reason
+
+***
+
 50:21
 why square root is because specifically when you take the dot product between query and key to find the attention
 50:27
@@ -422,6 +424,10 @@ Vector it's pretty simple you take the your vector and you multiply it by5
 because it only contributes 15% you take the journey Vector you multiply it by 22
 55:19
 because it only contributes 22% you take the begins Vector you multiply it by
+
+
+***
+
 55:24
 2199 because that also contributes only 22% similarly you take the one vector
 55:30
@@ -515,6 +521,10 @@ Journey and it's the product between the attention Matrix attention weight for
 Journey multiplied by values let me explain this a bit so uh on the
 59:57
 Whiteboard what we saw is we just multiplied the entire attention weights with the value right but if you want
+
+***
+
+
 1:00:03
 just the uh context Vector for Journey what you can do is just take the second
 1:00:09
@@ -626,6 +636,10 @@ root of the dimension and here the DM equal to minus one just tells the soft Max
 have to sum across the columns and that's how we make sure that each row if you take each row it sums up to one so
 1:05:43
 if you look at each row of the attention weight Matrix it will sum up to one and then the context Vector is just the
+
+
+***
+
 1:05:49
 product of the attention weights and the values this is the last step which we saw the context vector
 1:05:57
@@ -725,6 +739,10 @@ because we don't need this we just need to initialize a weight Matrix with d in
 and D out weight weight Matrix for query key and value with d in as the rows and
 1:10:50
 D out as the columns but we don't need the bias Matrix so you can just use the linear lay and put the bias to
+
+
+***
+
 1:10:57
 false so it will initialize these weight Matrix weight matrices and that's
 1:11:02
@@ -806,6 +824,10 @@ Matrix so I believe this diagram illustrates what all we have learned so
 far uh okay so so self attention involves the trainable weight metrix
 1:15:13
 metries WK WK WK WQ WK and WV these
+
+***
+
+
 1:15:19
 matrices essentially transform the input data into queries keys and values which are crucial components of the attention
 1:15:27
@@ -880,8 +902,4 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
 
-
-
-
-
-
+***
