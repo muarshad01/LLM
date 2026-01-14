@@ -145,6 +145,7 @@ print(attn_weights_2)
 * it turns out that if you don't divide by anything the higher the dimensions of these vectors whose dot product you are taking the variance goes on increasing that much and dividing by the square root of Dimension keeps the variance close to one.
 
 * if the variance increases a lot it again makes the learning very unstable and we don't want that we want to keep the standard deviation of the variance closed so that the learning does not fly off in random directions and the values the variance generally should stay to one that helps in the back propagation and that's also generally better for uh avoiding any computational issues.
+
 *  so that's the reason why uh we want the variance to be close to one so this is the second reason why we especially use square root so uh there are two reasons the first reason is of course we want the values to be as small as possible this helps  if the values are not small the __softmax becomes peaky__ and then it starts giving preferential values to Keys, which we don't want it can make the learning unstable but why square root the reason
 
 ***
@@ -237,6 +238,9 @@ print(sa_v2(inputs))
 * __Value__: Value represents the actual content or representation of the input items. Once the model determines which keys (which part of the input) are most relevant to the query (current focus item), it retrieves the corresponding values.
 *
 *
-* in the next lecture we'll modify the self attention mechanism so that we prevent the model from accessing future information in the sequence and then after that we'll be looking at multi-head attention which is essentially splitting the attention mechanism into multiple heads so the next lectures are going to be interesting I know these lectures are becoming a bit long but attention is the engine of Transformers so to truly understand Transformers and to truly understand large language models we have to have these lectures uh and you need to write these things down which I'm teaching you you you need to write the codes which I will share with you definitely so that you develop an understanding for it the lectures serve as a good starting point to cover all the concepts in a clear manner I take a whiteboard approach intuition Theory and coding in a lot of detail I don't think any other videos or content explain these Concepts in the level of detail which we are covering here but I believe that once you understand the detail and the nuts and bolts that's when you will be confident to work on Research problems that's when you'll be confident to make new discoveries in the field and I think ultimately it all boils down to matrices Dimensions dot product that's it and Vector Calculus if you understand these U you'll really Master everything that's that's what I believe so thank you so much everyone I hope you are liking these lectures please put your comments in the YouTube uh comment section and I'll reply to them thanks everyone I'll see you in the next lecture
- 
+
+#### Next
+* We'll modify the self attention mechanism so that we prevent the model from accessing future information in the sequence
+* We'll be looking at multi-head attention, which is essentially splitting the attention mechanism into multiple heads.
+
 ***
