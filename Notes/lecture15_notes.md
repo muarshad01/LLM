@@ -115,13 +115,14 @@ print(attn_scores_2)
 
 * Difference between attention scores and weights ...meaning is same but attention weights sum-up to one
 
-#### Scale by $$\sqrt{d-\text{keys}}$$
+#### Scale by $$\sqrt{d_\text{keys}}$$
 * all of these values are taken and they are scaled by something which is called as __square root of the keys Dimension__
-* Scale by $$\sqrt{d-\text{keys}}$$
+* Scale by $$\sqrt{d_\text{keys}}$$
 
-*  So currently the dimension of the keys is a it's two two Dimension right because remember the keys queries and the values Matrix we uh
 
-* step remember these weights are not optimized but when they are optimized we can make interpretable statements like these all of the rows will sum up to one you can check these and this is called as the attention weight Matrix this is one of the most important step uh in getting to the context Vector please remember this step and uh we did two things here we scaled by the square root of the dimension and then we implement soft Max now let's go go to code and let's implement this in the process we'll also understand why we do the Coding attention weights
+#### Attention weight Matrix
+1. we scaled by the square root of the dimension ($$\sqrt{d_{text{keys}}$$)
+2. we implement __softmax__
 
 ***
 
@@ -878,6 +879,7 @@ that's that's what I believe so thank you so much everyone I hope you are liking
 comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
+
 
 
 
