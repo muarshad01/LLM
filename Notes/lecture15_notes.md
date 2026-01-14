@@ -192,7 +192,34 @@ print(sa_v1(inputs))
 
 ***
 
-1:05:49
+* 1:05
+
+```python
+class SelfAttention_v2(nn.Module):
+
+    def __init__(self, d_in, d_out, qkv_bias=False):
+        super().__init__()
+        self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)
+        self.W_key   = nn.Linear(d_in, d_out, bias=qkv_bias)
+        self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)
+
+    def forward(self, x):
+        keys = self.W_key(x)
+        queries = self.W_query(x)
+        values = self.W_value(x)
+        
+        attn_scores = queries @ keys.T
+        attn_weights = torch.softmax(attn_scores / keys.shape[-1]**0.5, dim=-1)
+
+        context_vec = attn_weights @ values
+        return context_vec
+
+torch.manual_seed(789)
+sa_v2 = SelfAttention_v2(d_in, d_out)
+print(sa_v2(inputs))
+```
+
+
 product of the attention weights and the values this is the last step which we saw the context vector
 1:05:57
 uh yeah so this was the last step which we saw the context Vector is just the product of the attention weights and the
@@ -455,6 +482,7 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 everyone I'll see you in the next lecture
 
 ***
+
 
 
 
