@@ -127,113 +127,13 @@ print(attn_scores_2)
 
 40:00
 
+#### Reason-1: For Stability in Learning
+
 ```python
-d_k = keys.shape[1]
+d_k = keys.shape[1]...-1???
 attn_weights_2 = torch.softmax(attn_scores_2 / d_k**0.5, dim=-1)
 print(attn_weights_2)
 ```
-
-
-scaling by square root of D
-40:10
-okay yeah so we compute the attention weights by scaling the attention scores and using the soft Max function the
-40:17
-difference to earlier when I say earlier it's the previous lectures is now we scale the attention scores by dividing
-40:23
-them by the square root of the embedding dimension of the keys and that embedding Dimensions is two so we are dividing by
-40:30
-square root of two so let's do the same thing here so we have this attention scores 2 so it's
-40:37
-a 6x6 Matrix which we have printed out here actually currently I'm just
-40:42
-employing this on the attention scores for the second query okay no problem so attention scores 2 is the attention
-40:49
-scores for the query 2 which is Journey so it's actually one row and six columns so what I'm going to do is that I'm
-40:55
-going to take this attention scores for Journey I'm going to first divide it by the square root of the keys Dimension
-41:04
-and then uh what I'm going to do is that I'm going to apply soft Max the reason we do dim equal to minus one is that
-41:11
-because we have to sum over all the columns and all the if so that's why when you look at one row you'll see that
-41:17
-it sums up to one so two things are important this D of K is the dimension it's the keys do shape minus one because
-41:24
-we are looking at the column remember keys do shape is 3x 2 so when you do
-41:30
-keys do shape and index it by minus one the result will be two so we are going to uh divide by square root of two uh
-41:37
-and in Python remember here we are exponen by 05 so into into .5 means rais
-41:44
-to.5 that is the same as dividing by the square root of two so every element will be first
-41:51
-divided by the square root of two in the attention score and then we implement the soft Max so if you look at the
-41:58
-attention weights for Journey you'll see that these are the attention weights let's actually check whether these are
-42:04
-correct to what we saw yeah so let's look at the second row here the second row is 0.15 2264 etc for Journey and
-42:13
-here you will see that the second the output is exactly the same that's a good sanity check and you'll see that all of
-42:20
-this sum up to one so this is how we calculate the attention weights for one
-42:26
-uh query and similarly we calculate the attention weights for all the queries so if I just replace this with attention
-42:32
-scores which is the 6x6 we'll get the attention weight Matrix which is a 6x6
-42:38
-Matrix okay now let's come to the question which all of you might be thinking and I don't think this is
-Scaling by square root of key dimension
-42:43
-covered enough in other lectures and other videos but it's a very fascinating thing I took some time to understand
-42:50
-this and I've come up with two reasons why we actually divide by the square root of Dimension the first reason is
-42:56
-stabil in learning and let me illustrate this with an example so let's say if you
-43:02
-have this tensor of values which is 0.1 min-2 3 -2 and .5 okay if you take the
-43:11
-soft Max of this uh versus now let's say if you multiply this with eight and then you
-43:17
-take a soft Max so you'll see that the soft Max of the first is kind of it's
-43:23
-good right it's diffused these values are diffused between 0o and one but if if you look at the soft Max of the
-43:28
-second tensor you'll see that the values are disproportionately high which means
-43:34
-that if there are some values in the original tensor if some values are very high and when you take the soft Max
-43:41
-you'll get such kind of peaks in the softmax output I've actually explained this better here so the softmax function
-43:48
-is sensitive to the magnitude of its inputs when the inputs are large the difference between the exponential value
-43:55
-of each input becomes much more pronounced this causes the softmax out output to become pey where the highest
-44:02
-value receives almost all the probability mass and we can check it here so when we multiply with uh8 you'll
-44:09
-see that this has the highest value which is four and when we take the soft Max you'll see that the value is 08 here
-44:18
-which is much higher than all the other values in fact it's around 10 to 15 times higher that's what is meant by
-44:23
-softmax becomes pey if the values inside the soft Max are very large so we don't
-44:29
-want the values inside the soft Max to be very large and that's one reason why we scale or divide by the square root to
-44:37
-reduce the values itself before taking soft Max we make sure that the values are not large and that's why we divide
-44:43
-by the square root Factor so in attention mechanisms particularly in Transformers if the dot
-44:50
-product between the query and the key Vector remember that we are ultimately applying soft Max on the dot product
-44:55
-between query and key right because attention scores are just dot product between query and key and if the dot
-45:01
-product becomes too large like multiplying by eight in the current example which we saw the
-45:07
-attention scores can become very large and we don't want that this results in a very sharp softmax distribution and uh
-45:15
-such sharp softmax distribution can become so the model can become overly confident in one particular key so in
-45:22
-this case the model has become very confident in this fourth key or rather this uh fifth key we don't want that
-
-
 
 ***
 
@@ -910,4 +810,5 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 everyone I'll see you in the next lecture
 
 ***
+
 
