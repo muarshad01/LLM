@@ -127,7 +127,8 @@ print(attn_scores_2)
 
 40:00
 
-#### Reason-1: For Stability in Learning
+#### Reason-1
+* For Stability in Learning
 
 ```python
 d_k = keys.shape[1]...-1???
@@ -137,99 +138,14 @@ print(attn_weights_2)
 
 ***
 
+#### Reason-2: 
+* For Stability in Learning
+* Do make the variance of dot product stable
+* it turns out that the dot product of Q and K increases the variance because multiplying two random numbers increase the variance. So remember that when we get to the attention scores, we are multiplying q and K right, the query and the key,
+* it turns out that if you don't divide by anything the higher the dimensions of these vectors whose dot product you are taking the variance goes on increasing that much and dividing by the square root of Dimension keeps the variance close to one.
 
-45:30
-because that can make learning very unstable that's the first reason why we
-45:35
-divide by square root to make sure that the values are not very large and to have stability in learning but still so
-45:42
-I I knew this reason but then I was thinking but why square root why are we dividing by square root why why not just
-45:49
-only the dimension what is the reason behind dividing by square root and then I came across a wonderful justification
-45:56
-for this so so the reason for square root is that it's actually related to the
-46:01
-variance uh so it turns out that the dot product of Q and K increases the
-46:06
-variance because multiplying two random numbers increase the variance so remember that when we get to the
-46:12
-attention scores we are multiplying q and K right the query and the key it
-46:17
-turns out that if you don't divide by anything the higher the dimensions of
-46:22
-these vectors whose dot product you are taking the variance goes on increasing that much and dividing by the square
-46:29
-root of Dimension keeps the variance close to one let me explain this also with an example so let's say we have a
-46:37
-query Vector which is generated randomly and a key Vector which is generated
-46:43
-randomly uh okay and currently let's say I'm doing a five dimensional Vector so
-46:48
-let's say I have a key Vector five dimensional key Vector which is sampled from a normal distribution and a five
-46:54
-dimensional query Vector sampled from a normal distribution and then I'm taking a DOT product between the query and the key
-47:01
-and then I'm also in the second case taking dividing by the square root of the dimension okay and I'm doing this
-47:08
-thousand times so that I can get a distribution over the dot product so after I do this a thousand times what I
-47:14
-do is I plot the variance before scaling and I plot the variance of the dot product after scaling so the results are
-47:21
-surprising if the dimension is equal to five the variance of the dot product before scaling is actually very close to
-47:27
-five if the dimension before scaling is 20 the variance before scaling is very
-47:32
-close to 20 this indicate that if the dimensions of the query and key vectors
-47:38
-go on increasing and if you don't scale then the variance of the resulting dot
-47:43
-product scales proportionately so if you have 100 dimensional key and query Vector the variance before scaling will
-47:50
-be close to 100 and we can actually test this out so here let me do this 100 and
-47:56
-compute variance 100 so now I'm printing this for 100 and
-48:02
-let me print this
-48:16
-out okay I think I should replace this also with 100 uh and let me print this
-48:24
-out okay so this is exactly what we are predicted right so the variance before scaling in this case is
-48:30
-107 uh see so as the dimensions increase the variance increases now look at the
-48:37
-power of scaling when you scale by the square root so see here we are scaling
-48:42
-by the square root when you scale by the square root of Dimensions no matter how much you increase the dimension if you
-48:48
-see the variance after scaling the variance is always close to one and that's the reason why square root is
-48:54
-used if you don't use a square root the variance will not be close to one so let me actually not use the square root here
-49:02
-and let me do it directly uh if you do it directly then you will see that the variance after
-49:07
-scaling are some random values they are not close to one having the square root actually
-49:13
-really uh having the square root make sure that even if the dimensions
-49:18
-increase the variance after scaling remains close to one of the dot product between the query and the key and this
-49:24
-is very important uh the reason why the variance should be close to one is that if the variance
-49:30
-increases a lot it again makes the learning very unstable and we don't want that we want to keep the standard
-49:37
-deviation of the variance closed so that the learning does not fly off in random directions and the values the variance
-49:44
-generally should stay to one that that helps in the back propagation and that's
-49:49
-also generally better for uh avoiding any computational issues so that's the
-49:55
-reason why uh we want the variance to be close to one so this is the second reason why we especially use square
-50:02
-root so uh there are two reasons the first reason is of course we want the values to be as small as possible this
-50:09
-helps uh if the values are not small the soft Max becomes pey and then it starts
-50:15
-giving preferential values to Keys which we don't want it can make the learning unstable but why square root the reason
+* if the variance increases a lot it again makes the learning very unstable and we don't want that we want to keep the standard deviation of the variance closed so that the learning does not fly off in random directions and the values the variance generally should stay to one that helps in the back propagation and that's also generally better for uh avoiding any computational issues.
+*  so that's the reason why uh we want the variance to be close to one so this is the second reason why we especially use square root so uh there are two reasons the first reason is of course we want the values to be as small as possible this helps  if the values are not small the __softmax becomes peaky__ and then it starts giving preferential values to Keys, which we don't want it can make the learning unstable but why square root the reason
 
 ***
 
@@ -810,5 +726,6 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 everyone I'll see you in the next lecture
 
 ***
+
 
 
