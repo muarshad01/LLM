@@ -87,22 +87,22 @@ $ uv run jupyter lab
 
 * [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)
 * [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)
-* [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)
 * [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)
 * [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)
 * [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)
 * [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)
-* [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)
 * [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)
+* [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)
 * [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)
+* [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)
+* [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)
+* [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)
+* [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)
 * Autoencoders | Deep Learning Animated
 * [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)
-* [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)
 * [Visualizing transformers and attention | Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)
 * [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)
 * [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)
-* [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)
-* [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)
 
 ***
 
