@@ -127,6 +127,13 @@ print(attn_scores_2)
 
 40:00
 
+```python
+d_k = keys.shape[1]
+attn_weights_2 = torch.softmax(attn_scores_2 / d_k**0.5, dim=-1)
+print(attn_weights_2)
+```
+
+
 scaling by square root of D
 40:10
 okay yeah so we compute the attention weights by scaling the attention scores and using the soft Max function the
@@ -903,3 +910,4 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 everyone I'll see you in the next lecture
 
 ***
+
