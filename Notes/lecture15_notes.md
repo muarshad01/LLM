@@ -1,288 +1,83 @@
-Lecture objective
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from scratch Series today I'm very excited
-0:13
-for this particular lecture because today we are going to look at implementing a self attention mechanism
-0:19
-with trainable weights we are going to look at Key query and value and we'll
-0:25
-also see why this self attention mechanism is also called as scaled do product
-0:31
-attention so we are now moving very closer and closer to the actual attention mechanism which is implemented
-0:37
-in LMS such as GPT today's lecture will be a great combination of
-0:43
-mathematics uh Theory intuition and also coding I really enjoyed learning so much
-0:49
-about this lecture and preparing the lecture material and I've condensed all the information in today's video so
-0:55
-let's get started before we get started I want to quickly touch upon what we covered in the previous lecture in the
-1:02
-previous lecture we implemented a self attention mechanism without trainable weights so this is the uh sentence which
-1:10
-we looked at the sentence which we looked at was your journey starts with one step and we saw how to convert the
-1:18
-embedding Vector the vector embedding for every single token into a context Vector for every single
-1:25
-token and uh let me take you through the steps we implemented to do that and I'll
-1:31
-go to the figure which really illustrates everything yeah so what we did essentially in the last lecture was
-1:36
-that we broke down the initial sentence into the embedding vectors which were
-1:42
-three-dimensional input embedding vectors and then we looked at queries so we took the example of let's say Journey
-1:49
-which is the second query your journey begins with one step and then for each
-1:54
-such query we found the attention scores with respect to the input embedding
-2:00
-Vector so for the first word there is a attention score between the first word
-2:06
-and the query for the second word there is a attention score similarly for the last word there is a attention score
-2:13
-this attention score actually quantifies how much importance should be given to
-2:19
-each word when we look at the query which is Journey and then based on these
-2:25
-attention scores we found the attention weights the difference between the attention weights is that attention
-2:31
-weights sum up to one so attention scores and attention weights intuitively mean the same thing the encode
-2:37
-information about how much the query vector and the input embedding Vector
-2:42
-are related to each other and attention weights are normalized which means they sum up to one the way we computed the
-2:50
-attention scores is by implementing a DOT product operation so what we did is we
-2:55
-implemented a DOT product between the query vector and the input Vector so let let me show this to you um in figure so
-3:04
-that you have some reference to compare yeah so what we did essentially was we
-3:09
-had this uh Journey which is the query Vector to find the attention score we
-3:15
-found the dot product of this Vector with all the other vectors and that give the attention scores then we normalize
-3:21
-the attention scores to give the to get the attention weights and then finally we use the attention weights to find the
-3:27
-context Vector so here is the context Vector for Journey and similarly we found context Vector for all the other
-3:34
-vectors for all the other input tokens so uh the steps which we implemented in
-3:39
-the last class can be summed up in three uh categories first we computed the
-3:45
-attention scores for that we computed the dot product between the inputs and the query then we computed attention
-3:51
-weights which were normalized attention scores and then we computed context vectors so context vectors are
-3:58
-essentially the weighted sum of the attention weights and the input vectors
-Context vector recap
-4:04
-so here's a figure which explains how we found the context Vector so we found the attention weights for the given query
-4:11
-and then let's say the first attention weight was multiplied by the first input Vector the second attention weight was
-4:17
-multiplied by the second input Vector similarly the last attention weight was multiplied by the last input vector and
-4:23
-we added all of these vectors to give us the context Vector for that given query
-4:30
-in a similar manner we found the context Vector for all the other queries in the given
-4:36
-sentence so this is what we implemented in the last lecture and we did not have any trainable weights we did not train
-4:43
-anything in the last lecture everything was fixed the attention scores was calculated using the dot product um the
-4:50
-attention weights was just normalization and the context Vector was just summation of the uh attention weights
-4:57
-multiplied by the corresponding input Vector today we are going to look at a more real life situation which is
-5:05
-actually implemented and we are going to consider trainable weights if you have not seen the previous lecture I highly
-5:11
-recommend you to go through the previous lecture you'll appreciate the current lecture much much more okay so in this
-5:18
-section we are going to learn about the self attention mechanism which is used in the original Transformer architecture
-5:24
-the GPT models and most other popular large language models the self attention
-5:30
-mechanism is also called as scaled do product attention and in this lecture we are going to see why this name comes
-5:36
-into the picture and where this name is derived from I'm following this particular
-5:42
-sequence in the attention Series in the last lecture we covered simplified self attention in today's lecture we are
-5:49
-going to cover self attention with trainable weights in the next lecture we'll look at causal attention and in
-5:55
-the final lecture we look at multi-head attention as I explained in the previous lecture also it's impossible to cover
-6:02
-attention in one lecture that's why I have designed these extensive lectures to teach you the concept in a very
-6:08
-proper manner it might get a bit complex at times but if you understand the concept you will Master Transformers
-6:16
-because this is the heart this is the engine of Transformers and I'll show everything from scratch right up to the
-6:23
-last dot product I'll multiply all matrices directly in front of you so that you understand matrix
-6:29
-multiplication it's very important to do things on a whiteboard because then the understanding is improved much
-6:36
-more okay so what we want to do in today's lecture is that we want to
-6:42
-compute the context Vector for every given input token so the objective of today's lecture is the same as the
-6:48
-objective was in the last lecture remember what we did previously in the previous lecture we found we took this
-6:55
-sentence your journey starts with one step we we had the input embedding Vector for each of these tokens and then
-7:02
-we found a context Vector for each of these tokens so this graph here shows the input embedding Vector for every
-7:08
-token and the red the journey context it shows the context Vector for Journey
-7:14
-similarly we found the context Vector for all the other input vectors to refresh your understanding the context
-7:21
-Vector can be thought of as an enriched input embedding Vector so if you look at the word journe here the embedding
-7:29
-Vector for Journey uh the embedding Vector for Journey Only in encapsulates
-7:34
-or encodes the semantic meaning but it really contains no information about how that word Journey relates to the other
-7:41
-words right the context Vector for Journey on the other hand has more information it not only contains the
-7:47
-meaning of Journey but it also contains how Journey relates to step your with
-7:53
-and one that's why the context Vector is thought of as an enriched embedding vector
-7:59
-awesome so today what we are going to do is we are going to introduce weight matrices which are eventually optimized
-8:07
-when the large language model is trained now these trainable weight matrices are very crucial because the
-8:14
-model then learns to produce good context vectors in the last lecture we just uh looked at context vectors by
-8:22
-essentially taking the dot product to get the attention weights that's it right we did not train anything but
-8:28
-we'll see how these train weight matrices are constructed and once these weight matrices are trained the model
-8:34
-can learn to produce good context Vector for every token so at the heart of this trainable
+#### implementing a self attention mechanism with trainable weights 
+
+
+* (Key, Query, Value)
+
+* scaled dot product
+
+* today we are going to look at a more real life situation which is mactually implemented and we are going to consider trainable weights 
+
+
+***
+
+5:00
+
+```
+your journey starts with one step
+```
+
+* we'll see how these train weight matrices are constructed and once these weight matrices are trained the model can learn to produce good context Vector for every token so at the heart of this trainable
 Key, Query and Value Weight Matrices
-8:41
-weight matrices are three terminologies query key and
-8:47
-value let me repeat that again we are going to implement the self attention mechanism step by step by introducing
-8:54
-three trainable weight matrices the first is called the weight Matrix for query the second is called weight Matrix
-9:01
-for key and the third is called the weight Matrix for Value so these three
-9:07
-terminologies will show up again and again and again query key and value and
-9:13
-let me show you a diagram which illustrates what these terminologies actually
-9:18
-mean so uh here I have mentioned here step number one step number one which we
-9:25
-are going to learn in today's lecture is how to convert in input embeddings which
-9:31
-are the input vectors into key query and value vectors remember the goal here is the same as the last lecture we want to
-9:37
-get from the input embeddings to context embeddings for every token but there are number of steps to be done and the first
-9:44
-step here is to convert the input embeddings into key query and value vectors let's see what we mean by that
-9:50
-and how to get these key query and value vectors okay so here are my
-9:56
-inputs your journey start with one step right these are my uh six inputs and
-10:04
-I've represented these six inputs as threedimensional vectors which you can also see in the graph below so if you
-10:10
-look at the input Matrix the first row of this Matrix represents the three
-10:15
-dimensional Vector for y the word Y the second row of this Matrix represents the
-10:21
-three-dimensional Vector for Journey which can also be plotted here similarly the last row represents the
-10:27
-three-dimensional Vector for the input word or the input token step right this
-10:33
-is how the input embeddings are that's given to us now the next step to
-10:38
-construct the query key and value Matrix is to look at three trainable weight
-10:44
-Matrix the first trainable weight Matrix is called as the query weight Matrix the
-10:50
-second trainable weight Matrix is called as the key weight Matrix and the third trainable weight Matrix is the value
-10:57
-weight Matrix so what we going to do is that let's look at these weight matrices
-11:02
-uh and let's also focus on the dimensions here so the input has Dimensions 6x3 because there are six
-11:09
-rows one row for each input token and why three because the dimension Vector Dimension size is three now let's look
-11:16
-at uh uh the query key and value
-11:21
-trainable weight matrices so this W key W uh WQ W K and W V these three matrices
-11:31
-which I've written over here I've initialized them with some random values but these are the ones which are actually trained we do not know these
-11:38
-parameters so we initialize them randomly and then train them so to get context vectors later which we'll see in
-11:44
-today's lecture these are the ones which are optimized now what these uh matrices do
-11:50
-is actually they project the inputs into a different dimension space let me tell
-11:55
-you what I mean by that so first let's focus on the qu query Matrix so if you look at the query Matrix and if you see
-12:02
-the dimensions it's 3x2 uh so it has three rows and two
-12:08
-columns so if you multiply the inputs if you multiply the input Matrix with the
-12:14
-query weight Matrix what you will get is the resultant Matrix which is called as the queries so this is the queries
-12:21
-Matrix and it's a 6x2 matrix so what has been done essentially is that each row
-12:26
-here still corresponds to the individual words so the first row corresponds to your the second row corresponds to
-12:33
-Journey the third row corresponds to begins with one and
-12:39
-step but you can see here that the dimension has been changed usually when we train GPT the dimension is preserved
-12:46
-but here I'm just illustrating that the dimensions can be changed when you multiply with the weight query Matrix so
-12:53
-the simplest way to think of the query Matrix and all the other weight matrices is the transformation from let's say a
-13:00
-threedimensional space into in this case a two- dimensional space uh so when we multiply the input
-13:07
-Matrix with the query weight Matrix we get the queries Matrix which is a 6x2
-13:13
-matrix okay so now you can think of each row as corresponding to the
-13:19
-corresponding input token your journey begins with one step the second weight Matrix is the key
-13:27
-weight Matrix and that's all also 3x2 Matrix and very similar to what we did for the queries we'll multiply the
-13:34
-inputs with the keys weight Matrix and then finally we'll have the keys Matrix
-13:40
-which is again a 6x2 we'll see what these different uh
-13:46
-matrices mean what's the meaning of query key and values but for now let's just look at the mathematical details of
-13:52
-the implementation right and similarly to get the values to get the values
-13:57
-Matrix we have to multiply the inputs with the weight Matrix for values and
-14:03
-the weight Matrix for values is also 3x2 Matrix and when we multiply the inputs with values we again get a 6x2 so the
-14:11
-way to interpret the uh query key and the value is that
-14:16
-every row of the query key and value essentially represents one token and a
-14:22
-representation for that token so henceforth after we get the queries key and values we are not going to look at
-14:28
-the inut embeddings again the input embeddings have been transformed into three ve into three matrices the query
-14:36
-the query Matrix the key Matrix and the value Matrix and remember this
-14:42
-transformation is not fixed the key the key to these Transformations are these three weight matrices WQ w k and WV the
-14:50
-parameters of these weight matrices are to be optimized later that's why these are called as the trainable weight
-14:57
-matrices for now just think that what we have done in this first step is we have taken the input Matrix and we have
+
+* how to convert in input embeddings, which are the input vectors into (key, query, value) vectors
+* goal here is the same as the last lecture we want to get from the input embeddings to context embeddings for every token
+
+***
+
+10:00
+
+#### Three Trainable Weight Matrices
+1. query weight Matrix W_q
+2. key weight Matrix W_k
+3. value weight Matrix Q_v
+
+* transformation is not fixed the key the key to these Transformations are these three trainable weight matrices W_q, W_k, W_v
+* parameters of these weight matrices are to be optimized
+
+***
+
+```python
+x_2 = inputs[1] # second input element
+d_in = inputs.shape[1] # the input embedding size, d=3
+d_out = 2 # the output embedding size, d=2
+```
+
+```python
+torch.manual_seed(123)
+
+W_query = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
+W_key   = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
+W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
+```
+
+```python
+query_2 = x_2 @ W_query # _2 because it's with respect to the 2nd input element
+key_2 = x_2 @ W_key 
+value_2 = x_2 @ W_value
+
+print(query_2)
+```
+
+```python
+keys = inputs @ W_key 
+values = inputs @ W_value
+
+print("keys.shape:", keys.shape)
+print("values.shape:", values.shape)
+```
+
+```python
+keys_2 = keys[1] # Python starts index at 0
+attn_score_22 = query_2.dot(keys_2)
+print(attn_score_22)
+```
+
+```python
+attn_scores_2 = query_2 @ keys.T # All attention scores for given query
+print(attn_scores_2)
+```
+
+
 15:03
 converted the input Matrix into three other Matrix matrices queries keys and
 15:09
@@ -1513,3 +1308,4 @@ that's that's what I believe so thank you so much everyone I hope you are liking
 comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
+
