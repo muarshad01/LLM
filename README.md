@@ -85,6 +85,8 @@ $ uv run jupyter lab
 
 ***
 
+
+* [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)
 * [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)
 * [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)
 * [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)
