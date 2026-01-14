@@ -149,127 +149,46 @@ print(attn_weights_2)
 
 ***
 
-50:00
+* 50:00
 
 ***
 
-55:00
+* 55:00
 
 ***
 
+* 1:00
 
-1:00:03
-just the uh context Vector for Journey what you can do is just take the second
-1:00:09
-row it will be uh 1X 6 and you multiply it with this values which is 6x2 and
-1:00:15
-then you'll get a 1x two Vector which is the second row here and that will be the context Vector for Journey so this is
-1:00:22
-what I have showed over here the context Vector 2 which is the context Vector for journey is just the product of the
-1:00:27
-attention weights for Journey multiplied by the values Matrix and the result is 3061 and
-1:00:34
-8210 and let's actually see the result here and that exactly matches the second row which we have 3061 and 8210 awesome
-1:00:44
-so our calculation seems to be correct so in the code right now we have only computed the single context Vector right
-Self Attention Python class - Basic version
-1:00:50
-now we are going to generalize the code a bit to compute all the context vectors it's going to be very simple because now
-1:00:56
-we just multiply the attention weights with the values but we'll do this in a structured manner we'll Implement a self
-1:01:03
-attention python class and what this class will do is that it will essentially have a forward method this
-1:01:09
-forward method will compute the keys queries values it will compute the attention scores attention weights and
-1:01:15
-the context vectors all in a very short piece of code so let's do that right now before that let us summarize what all we
-1:01:22
-have seen so far so that you'll understand the python class much better so let me zoom out here a
-1:01:28
-bit so remember how we started the lecture we started the lecture with uh
-1:01:33
-we started the lecture with taking the inputs and then multiplying them with query key and the value to get the
-1:01:39
-queries Matrix the key Matrix and the value Matrix okay then remember what we did next then we move to the attention
-1:01:46
-scores we multiplied the queries with the transpose of the keys to get the attention scores so we had the attention
-1:01:52
-scores Matrix then what we did is we scaled this by square root of the keys Dimension and then we took the soft Max
-1:01:59
-this gave us the attention weights then we took the attention weights and we multiplied it by the values Matrix and
-1:02:04
-that ultimately gave us the context Vector Matrix remember this flow so the flow is in four steps step number one is
-1:02:12
-at the left side of the page which is converting the input embeddings into key
-1:02:17
-query value Vector step number two is getting the attention scores step number three is getting the attention weights
-1:02:23
-step number four is getting the context vector that's it and we are done that's exactly what we are going to implement
-1:02:29
-in this python class so uh with the llm implementation which we are going to cover next in one
-1:02:36
-of the subsequent lect lectures it's very useful to organize the code in a python class so we cannot keep on
-1:02:43
-writing separate lines of codes like what we did over here right it's just better to have a class so that then we
-1:02:48
-can create an instance of this class and then always return the context Vector okay so we are going to Define in
-1:02:55
-this class called self attention version one and it will take two attributes the input Dimension and the output Dimension
-1:03:02
-the input Dimension is the input Vector embedding Dimension the output Dimension is what we want the keys query and value
-1:03:10
-dimension in GPT and other llms these these two are generally similar okay first thing what we do is
-1:03:17
-when an instance of this class is created this init Constructor is automatically called and the query key
-1:03:22
-and the value matrixes matrices are initialized randomly which means that
-1:03:27
-they have a dimension of D in and D out so D in rows in our case three rows and
-1:03:33
-D out columns two columns and then each element will be initialized in a random
-1:03:38
-manner then what we do is we do the forward pass what happens in the forward pass is that it takes an input it takes
-1:03:46
-X as the input which is the input uh input embedding Vector that needs to be
-1:03:51
-given as an input to execute the forward method and then in the forward method what we do is we first compute the keys
-1:03:57
-Matrix which is X multiplied by the uh weight trainable weight Matrix for key
-1:04:03
-then we compute the query Matrix which is X multiplied by the trainable Matrix for query then we compute the value
-1:04:09
-Matrix which is X multiplied by the trainable Matrix for value and this is uh exactly what we saw on the left side
-1:04:16
-of the board over here here so until now we are at this stage where we are taking the inputs we
-1:04:23
-are multiplying it with the m weight Matrix to get the queries keys and the values and now we'll go to the right
-1:04:29
-side of the board to compute the attention scores so to get the attention scores we'll multiply queries with keys
-1:04:36
-transpose so that's exactly what's done here to get the attention scores we multiply queries Matrix with keys
-1:04:41
-transpose then we get the attention weights to get the attention weights we'll of course apply soft Max but
-1:04:48
-before applying soft Max we'll divide the attention scores every element of the attention scores with the square
-1:04:54
-root of the Keys embedding Dimension so keys do shape minus one Returns the
-1:05:00
-columns which is the embedding dimensions in this case it's two columns of the keys Matrix so it will be square
-1:05:06
-root of two the reason we do this division as we saw is first of all to make sure the values in The Matrix in
-1:05:12
-the attention score Matrix are small second it also helps to make sure that
-1:05:18
-the dot product between the quiz keys and the queries uh does its variance
-1:05:24
-does not scale too much so we want its variance to be very close to one that's why we specifically divide by the square
-1:05:30
-root of the dimension and here the DM equal to minus one just tells the soft Max that you
-1:05:36
-have to sum across the columns and that's how we make sure that each row if you take each row it sums up to one so
-1:05:43
-if you look at each row of the attention weight Matrix it will sum up to one and then the context Vector is just the
+#### 3.4.2 Implementing a compact SelfAttention class
 
+```python
+import torch.nn as nn
+
+class SelfAttention_v1(nn.Module):
+
+    def __init__(self, d_in, d_out):
+        super().__init__()
+        self.W_query = nn.Parameter(torch.rand(d_in, d_out))
+        self.W_key   = nn.Parameter(torch.rand(d_in, d_out))
+        self.W_value = nn.Parameter(torch.rand(d_in, d_out))
+
+    def forward(self, x):
+        keys = x @ self.W_key
+        queries = x @ self.W_query
+        values = x @ self.W_value
+        
+        attn_scores = queries @ keys.T # omega
+        attn_weights = torch.softmax(
+            attn_scores / keys.shape[-1]**0.5, dim=-1
+        )
+
+        context_vec = attn_weights @ values
+        return context_vec
+
+torch.manual_seed(123)
+sa_v1 = SelfAttention_v1(d_in, d_out)
+print(sa_v1(inputs))
+```
 
 ***
 
@@ -536,6 +455,7 @@ comments in the YouTube uh comment section and I'll reply to them thanks
 everyone I'll see you in the next lecture
 
 ***
+
 
 
 
