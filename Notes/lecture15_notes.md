@@ -58,6 +58,10 @@ value_2 = x_2 @ W_value
 print(query_2)
 ```
 
+***
+
+15:00
+
 ```python
 keys = inputs @ W_key 
 values = inputs @ W_value
@@ -65,6 +69,10 @@ values = inputs @ W_value
 print("keys.shape:", keys.shape)
 print("values.shape:", values.shape)
 ```
+
+***
+
+20:00
 
 ```python
 keys_2 = keys[1] # Python starts index at 0
@@ -77,300 +85,15 @@ attn_scores_2 = query_2 @ keys.T # All attention scores for given query
 print(attn_scores_2)
 ```
 
+***
 
-15:03
-converted the input Matrix into three other Matrix matrices queries keys and
-15:09
-values and the way we have done that conversion is by multiplication of the input embedding with the trainable query
-15:16
-Matrix with the trainable key Matrix and the trainable value Matrix and so we have these three queries keys and values
-15:22
-Matrix which is constructed so you might be thinking why do we have these three and how do we get the attention scores
-15:29
-how do we get the context vectors don't worry we'll come to all of that but first let's go to code and let's try to
-Coding the Key, Query and Value Weight Matrices
-15:35
-implement uh all of these okay so I'm going to take you
-15:41
-through code right now so the first thing is to construct the inputs so we'll have as I mentioned the inputs is
-15:47
-essentially a matrix which has six rows uh it has six rows and it has three
-15:52
-columns so that's what I'm going to Define here the inputs is a tensor with six rows and three columns so each row
-15:59
-corresponds to a particular word let's say journey is a three-dimensional Vector so I'm going to run this right
-16:05
-now and you'll see that this block has been run and what we are going to do is
-16:11
-that the next thing what we are going to do is initialize the query key and the value query key and the value Matrix
-16:18
-query key and the value weight Matrix right and for that we need to define the dimensions right so uh here the
-16:26
-dimensions are 3x2 the three has to be equal to the vector dimension of the
-16:32
-input so that has to match because we are doing a matrix multiplication here so for all of these three weight query
-16:39
-key and value weight Matrix the first value of the dimension three has to match the vector Dimension but the
-16:46
-second dimension can be anything so uh if you when you initialize the query key and the value
-16:52
-we are initializing random values and the shape of the Matrix is D in comma D
-16:58
-out remember D in is just the shape of the input so we are just looking at one
-17:03
-particular Vector of the input that's the vector Dimension three so that's also the first uh argument of the shape
-17:11
-of the key query and value Matrix this exactly what we saw here this first argument has to be same as the uh Vector
-17:19
-Dimension which is three and the out Dimension we are choosing to be two in this case so note
-17:26
-that in GPT like models the input and out output dimensions are usually the same but for illustration purposes we
-17:32
-are choosing the input Dimension is three and the output Dimension is two over here so these are the query key and
-17:39
-the value weight matrices and each element in these weight matrices has been initialized in a random manner so
-17:46
-you can actually see tor. nn. parameter and you can see the documentation for this uh yeah so what so you can see what
-17:54
-it does it's uh so it's a kind of tensor that is to to be considered a module
-18:00
-parameter and inside this you can pass some things so what we are doing is that we are passing the parameters to be
-18:06
-random values with the shape of D in comma D out which means that the Matrix
-18:11
-shape for query key and value will be 3 comma 2 so you can print out the
-18:17
-trainable weight matrices so this is the trainable weight Matrix for query it's a three three row by two column tensor
-18:24
-this is the trainable weight Matrix for key it's a three row and two column tensor and this is the trainable weight Matrix
-18:31
-for Value this again is a three row and two column tensor awesome uh some minor things is that we
-18:37
-are setting this requires grad right now to false but remember that uh later we
-18:43
-are going to train the values in these matrices through back propagation so at that time we'll need to compute
-18:48
-gradients and at that time we'll set the requires grad to be equal to True great so now we have computed the key query
-18:55
-and value um key Quant value weight trainable weight Matrix right now we
-19:02
-have to do the multiplication of the inputs with these Matrix to get the
-19:07
-queries key and values uh final Matrix so to do that first what we can do is we
-19:13
-can look at an individual element so let's say we look at this second element which is Journey and let's say we want
-19:20
-to First convert this second element journey into its corresponding
-19:26
-query uh let me show you how we can do that but first let me rub um some of the
-19:32
-things here so that I can easily show you how we get the key query and value
-19:39
-Matrix for Journey okay so what we are doing here is that we are focusing our
-19:46
-attention um also let me change the
-19:52
-color yeah so we are focusing our our attention on this second um
-19:59
-input Vector which is Journey and then we want to get the query key and value
-20:05
-Vector for Journey So currently the input Vector is a three-dimensional Vector now we need to get the
-20:10
-two-dimensional Vector so the way to get that is look at these queries keys and values so the second row here will be
-20:17
-the corresponding query Vector for Journey the second row here will be the corresponding key Vector for journey and
-20:24
-the second row here will be the corresponding value Vector for journey so the way you get the this second
-20:31
-element is just you take the uh you take the journey and uh then you are going to uh
-20:39
-dot product it with this uh weight Matrix q and similarly
-20:45
-for key and similarly for Value so this is what we are going to see in code
-20:50
-right now um instead of directly showing you the matrix multiplication first I wanted
-20:56
-to show it to you for each individual element so remember this if you look at each
-21:01
-individual element this is one row and three columns so we can multiply it with the query three row two column and that
-21:06
-will give us a one row two column which is the query Vector for Journey similarly for keys and values this is
-21:13
-what I'm going to show you in code right now so uh let's look at the second
-21:19
-element X2 and X2 has been defined earlier as inputs accessed and the index
-21:24
-is one so since python has a zero indexing system inputs one will essentially be the input for Journey so
-21:32
-that is defined by xor2 so we are going to uh find the query corresponding to this xor2 by
-21:39
-multiplying it with the weight Matrix for query we are going to find the key
-21:44
-for the journey vector by multiplying it with the key Matrix and we are going to find the value for the journey vector by
-21:51
-multiplying it with the value weight Matrix and here you can see we get 4306
-21:56
-and 1.45 51 which is the query Vector for uh so I'm just printing the query
-22:03
-here so this is the query Vector for Journey and let's see whether it matches so the query Vector for Journey was
-22:10
-indeed 43 and 1.45 here if you can see uh what I'm showing in the color
-22:16
-right now and that exactly matches what we have in code awesome so we are currently moving in the right direction
-22:23
-as we can see based on the output the result is a two dimensional t two dimensional vector
-22:29
-now what we can do is that we can actually obtain the keys and values uh
-Transforming Input Embeddings to Keys, Queries and Values
-22:34
-and queries for all the different inputs this is exactly what we had written over here once we get the trainable weight
-22:40
-Matrix we can just multiply the inputs with these weight Matrix and get the get
-22:46
-the queries Matrix get the keys Matrix uh get the keys
-22:51
-Matrix and get the values Matrix so this is what I'm going to show to you in code
-22:57
-right now okay so to get the keys Matrix we just
-23:03
-multiply the inputs with the weight Matrix for keys to get the values Matrix we just multiply the inputs with the
-23:10
-weight Matrix for values and to get the queries Matrix we just multiply the inputs with the weight Matrix for query
-23:17
-and uh let me just run this right now so if you run this you can just print out the shape of the keys values and queries
-23:23
-and as expected it's 6 by two so we have six rows and two columns uh why six
-23:28
-because there are six input tokens your journey begins with one step and for each input token we have a twood
-23:35
-dimensional key Vector two dimensional value vector and two dimensional query Vector so as we can tell from the
-23:42
-outputs we have successfully projected the six input tokens from a 3D input embedding space from a 2d embedding
-23:49
-space for the keys values and queries okay so if you have understood
-23:54
-up till now you have essentially understood the first part of today's lecture and and the first part was how
-23:59
-to convert input embeddings how to convert input embeddings into key query
-24:04
-and value vectors awesome now we are ready to move to step number two and uh
-24:11
-before that let me just show you a schematic of what we have done until now so what we have done is that we have the
-24:17
-inputs right and we have converted the inputs into their embedding the threedimensional embedding
-24:23
-vectors then what we did was we had a key query and value and we multip IED
-24:28
-every input with the key query and the value so here I'm showing keys and
-24:34
-values so you can multiply every input with the keys queries and value to get
-24:39
-the uh key query and value Matrix for every single input embedding that's what we have done until
-24:46
-now essentially every input embedding Vector has been multiplied by with the key query and value trainable weight
-24:53
-Matrix to get the final key query and value matrices for all the inputs so for
-24:58
-the rest of the lecture imagine that we don't have the input embeddings at all we will only deal with the key query and
-25:05
-value matrices so now let's move to the next step in the next
-Calculating attention scores
-25:10
-step uh we have to compute the attention scores what is meant by attention scores
-25:16
-we have to essentially compute that if you are given a query U let's say if you are given a particular query uh how does
-25:24
-the other Keys attend to the that query let me explain this to you so let's say
-25:32
-uh we have the query for the second word which is Journey and this is
-25:38
-the query which is a two-dimensional Vector now we have to find out how does this query attend to the keys for the
-25:44
-different input words so you can think of the keys right now as just individual
-25:50
-tokens like what we did in the previous class remember in the previous class the query was just the just that particular
-25:57
-token we did not have a separate Vector for query we just the journey itself was the query the journey token itself was
-26:04
-the query so if ever you get confused in terms of intuition just think of the query as being the token itself although
-26:11
-it's a bit different so what we are essentially doing is finding how that particular query so now we are looking
-26:17
-at query number two which is related to journey and we want to see how the other words attend to Journey which means that
-26:25
-when I'm predicting the next word how much in importance should I give to your how much importance should I give to
-26:31
-Journey how much importance should I give to with one and step so my query is
-26:36
-Journey and I'm going to look at how much importance I need to give to the other words so that's why we need to
-26:42
-find the attention scores between the query and the
-26:47
-key remember this intuition is very very important right now what we are essentially doing is that we are finding
-26:54
-the attention score between the query and the key in the previous leure we just found the attention score between
-27:00
-the input embedding vector and the other embedding vectors by taking a DOT product but now remember we don't have
-27:07
-the input embeding space at all we are in an abstract space we are in the query key and value space so we are going to
-27:14
-find how the query number two attends to the different key vectors and we are
-27:19
-going to find it in the exact same manner as we did in the last class remember the mathematical operation
-27:25
-which helps us to find whether two vectors are aligned or not that is the dot product operation so
-27:31
-let's say if this is my query vector and if uh let me show the key Vector in some
-27:37
-other color so let's say this is my query vector and let's say this is my key
-27:44
-Vector these two vectors are very much aligned with each other right so the dot product will be maximum so it says that
-27:51
-when I look at the query I should probably pay more attention to this key Vector whereas let's look at another key
-27:58
-key Vector now which is like this so let's say there is another key Vector which is like this so now if you look at
-28:03
-the query and this second key Vector they have a 90° angle with each other they are not at all aligned which means
-28:10
-that when you look at that query you should not pay attention to this green key over here and that is encapsulated
-28:17
-by the dot product if you find the dot product between the yellow vector and the green Vector they have a 90° angles
-28:23
-the dot product will be zero that's what we are going to do now we are going to find the the attention scores between
-28:29
-the particular query and all the other Keys remember every every query will
-28:35
-have an attention score with all the other keys so for example if you look at query number two for Journey it will
-28:41
-have an attention score with key number one it will have an attention score with the key number two and similarly it will
-28:48
-have an attention score for the final key uh which is Step so this is what we
-28:53
-are going to do next and let me show this to you in a picture tutorial representation right
-29:00
-now okay so the way we are going to do this is by initially only focusing on the queries and keys okay so let's say
-29:07
-we look at so this is our queries Matrix which is a 6x2 and I'm going to now focus on the second row of this because
-29:13
-I'm going to look at Journey I'm going to look at the word Journey so the query for the word journey is the second row
-29:20
-right now what I actually want to do is I want to find the uh dot product
-29:26
-between this query and all the other key so I want to find the dot product between this query and the first row
-29:32
-with the second row with the third row with the fourth row with the fifth row
-29:38
-and with the sixth row so to essentially find the attention score for the second
-29:45
-query all we need to do is we need to take the that particular row and we need
-29:50
-to find the dot product with all the other rows of the keys so we'll have six attention
-29:55
-scores and that those attention scores contain the information that when you look at the query for Journey how much
-30:02
-importance should be given to other words like your journey begins with one step so this is what we are going to
-Coding attention scores
-30:08
+25:00
+
+#### Computing the Attention Score
+
+***
+
+30:00
 implement in code right now so I'm going to look at the keys of
 30:14
 one um so I'm going to look at this keys so Keys 2 is keys of one which means the
@@ -469,6 +192,11 @@ Vector so the first step was to convert the input embedding vectors to the key q
 35:13
 use the key and the query to get to the attention scores now the problem with
 Calculating attention weights
+
+
+****
+
+
 35:18
 these attention scores is that they are not interpretable right ideally I want to be able to let's say if I look at
 35:24
@@ -562,6 +290,11 @@ remember this step and uh we did two things here we scaled by the square root of
 39:57
 soft Max now let's go go to code and let's implement this in the process we'll also understand why we do the
 Coding attention weights
+
+
+***
+
+
 40:04
 scaling by square root of D
 40:10
@@ -661,6 +394,12 @@ attention scores can become very large and we don't want that this results in a 
 such sharp softmax distribution can become so the model can become overly confident in one particular key so in
 45:22
 this case the model has become very confident in this fourth key or rather this uh fifth key we don't want that
+
+
+
+***
+
+
 45:30
 because that can make learning very unstable that's the first reason why we
 45:35
@@ -1308,4 +1047,5 @@ that's that's what I believe so thank you so much everyone I hope you are liking
 comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
+
 
