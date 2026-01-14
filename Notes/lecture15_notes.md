@@ -231,60 +231,12 @@ print(sa_v2(inputs))
 
 * 1:15
 
+#### Why do we use the Terms: Key, Query, Value (K, Q, V)
 * __Query__: Analogous to search query in a database. It represents the current token the model focuses on.
-* __Key__: In attention mechanism, each item in input sequence has a key. keys are used to match with query.
-* __Value__: Value represents the actual content or representation of the input items themselves. Once the model determines which keys are most relevant to the
-query it retrieves the corresponding values so that's where the name comes
-1:16:47
-from so once we find the query we have to find which key or which word relates
-1:16:53
-more to the query or attends to the query that's why these are called keys like in a dictionary setting and value the
-1:17:00
-reason these are called values is because when we find the ultimate context Vector we use the attention
-1:17:06
-scores and then we use the original input embedding value so what is the representation of the input items that's
-1:17:13
-why this value term comes into the picture so that's the underlying reasoning behind the query key and the
-1:17:21
-value okay and uh in the next lecture what we'll be looking at is that we'll
-1:17:26
-be looking at causal attention so until now we have looked at self attention
-1:17:33
-right in the next lecture we'll modify the self attention mechanism so that we prevent the model from accessing future
-1:17:39
-information in the sequence and then after that we'll be looking at multi-head attention which is
-1:17:46
-essentially splitting the attention mechanism into multiple heads so the next lectures are going to be
-1:17:51
-interesting I know these lectures are becoming a bit long but attention is the engine of Transformers so to truly
-1:17:58
-understand Transformers and to truly understand large language models we have to have these lectures uh and you need
-1:18:05
-to write these things down which I'm teaching you you you need to write the codes which I will share with you definitely so that you develop an
-1:18:12
-understanding for it the lectures serve as a good starting point to cover all the concepts in a clear manner I take a
-1:18:18
-whiteboard approach intuition Theory and coding in a lot of detail I don't think any other videos or content explain
-1:18:25
-these Concepts in the level of detail which we are covering here but I believe that once you understand the detail and
-1:18:31
-the nuts and bolts that's when you will be confident to work on Research problems that's when you'll be confident
-1:18:36
-to make new discoveries in the field and I think ultimately it all boils down to matrices Dimensions dot product that's
-1:18:44
-it and Vector Calculus if you understand these U you'll really Master everything
-1:18:49
-that's that's what I believe so thank you so much everyone I hope you are liking these lectures please put your
-1:18:55
-comments in the YouTube uh comment section and I'll reply to them thanks
-1:19:00
-everyone I'll see you in the next lecture
-
+* __Key__: In attention mechanism, each item in input sequence has a key. Keys are used to match with query.
+* __Value__: Value represents the actual content or representation of the input items. Once the model determines which keys (which part of the input) are most relevant to the query (current focus item), it retrieves the corresponding values.
+*
+*
+* in the next lecture we'll modify the self attention mechanism so that we prevent the model from accessing future information in the sequence and then after that we'll be looking at multi-head attention which is essentially splitting the attention mechanism into multiple heads so the next lectures are going to be interesting I know these lectures are becoming a bit long but attention is the engine of Transformers so to truly understand Transformers and to truly understand large language models we have to have these lectures uh and you need to write these things down which I'm teaching you you you need to write the codes which I will share with you definitely so that you develop an understanding for it the lectures serve as a good starting point to cover all the concepts in a clear manner I take a whiteboard approach intuition Theory and coding in a lot of detail I don't think any other videos or content explain these Concepts in the level of detail which we are covering here but I believe that once you understand the detail and the nuts and bolts that's when you will be confident to work on Research problems that's when you'll be confident to make new discoveries in the field and I think ultimately it all boils down to matrices Dimensions dot product that's it and Vector Calculus if you understand these U you'll really Master everything that's that's what I believe so thank you so much everyone I hope you are liking these lectures please put your comments in the YouTube uh comment section and I'll reply to them thanks everyone I'll see you in the next lecture
+ 
 ***
-
-
-
-
-
-
-
