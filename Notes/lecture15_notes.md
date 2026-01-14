@@ -1,11 +1,6 @@
-#### Implementing a Self Attention Mechanism with Trainable Weights 
-
+#### Self Attention Mechanism with Trainable Weights 
 * (Key, Query, Value)
-
-* scaled dot product
-
-* today we are going to look at a more real life situation which is mactually implemented and we are going to consider trainable weights 
-
+* Scaled dot product
 
 ***
 
@@ -15,28 +10,27 @@
 your journey starts with one step
 ```
 
-* we'll see how these train weight matrices are constructed and once these weight matrices are trained the model can learn to produce good context Vector for every token so at the heart of this trainable
-Key, Query and Value Weight Matrices
-
-* how to convert in input embeddings, which are the input vectors into (key, query, value) vectors
-* goal here is the same as the last lecture we want to get from the input embeddings to context embeddings for every token
+* We'll see how these __train weight matrices are__ constructed and once these weight matrices are trained the model can learn to produce good __context Vector__ for every token.
+  
+* How to convert the input embeddings, which are the input vectors into (key, query, value) vectors?
+* Goal here is the same as the last lecture we want to get from the __input embeddings__ to __context embeddings__ for every token.
 
 ***
 
 10:00
 
 #### Three Trainable Weight Matrices
-1. query weight Matrix W_q
-2. key weight Matrix W_k
-3. value weight Matrix Q_v
+1. Query weight Matrix $$W_q$$
+2. Key weight Matrix $$W_k$$
+3. Value weight Matrix $$Q_v$$
 
-* transformation is not fixed the key the key to these Transformations are these three trainable weight matrices W_q, W_k, W_v
+* transformation is not fixed.
 * parameters of these weight matrices are to be optimized
 
 ***
 
 ```python
-x_2 = inputs[1] # second input element
+x_2 = inputs[1] # second input element (2nd row, i.e. "journey")
 d_in = inputs.shape[1] # the input embedding size, d=3
 d_out = 2 # the output embedding size, d=2
 ```
@@ -50,7 +44,7 @@ W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
 ```
 
 ```python
-query_2 = x_2 @ W_query # _2 because it's with respect to the 2nd input element
+query_2 = x_2 @ W_query # x_2 because it's with respect to the 2nd input element
 key_2 = x_2 @ W_key 
 value_2 = x_2 @ W_value
 
@@ -79,40 +73,37 @@ attn_score_22 = query_2.dot(keys_2)
 print(attn_score_22)
 ```
 
-```python
-attn_scores_2 = query_2 @ keys.T # All attention scores for given query
-print(attn_scores_2)
-```
-
 ***
 
-25:00
+* 25:00
 
 #### Computing the Attention Score
 
 ***
 
-30:00
+* 30:00
+
+****
+
+#### Attention Weights
+
+* 35:00
+
+* $$Q.K^{T}$$
 
 ```python
 attn_scores_2 = query_2 @ keys.T # All attention scores for given query
 print(attn_scores_2)
 ```
 
-****
-
-#### Attention Weights
-
-35:00
-
 * Problem with attion scores is that:
 1. They are not interpretable. So, we do normalization!
 
-* Normalization serves two purposes
+#### Normalization serves two purposes
 1. It helps make things interpretable
-2. it helps when we do back-propagation
+2. It helps when we do back-propagation
 
-* Difference between attention scores and weights ...meaning is same but attention weights sum-up to one
+* Difference between attention scores and weights ...meaning is same ...but attention weights sum-up to one
 
 #### Scale by $$\sqrt{d_\text{keys}}$$
 * all of these values are taken and they are scaled by something which is called as __square root of the keys Dimension__
@@ -120,12 +111,12 @@ print(attn_scores_2)
 
 
 #### Attention weight Matrix
-1. we scaled by the square root of the dimension ($$\sqrt{d_\text{keys}}$$)
-2. we implement __softmax__
+1. We scaled by the square root of the dimension ($$\sqrt{d_\text{keys}}$$)
+2. Then we implement __softmax__
 
 ***
 
-40:00
+* 40:00
 
 #### Reason-1
 * For Stability in Learning
@@ -140,11 +131,11 @@ print(attn_weights_2)
 
 #### Reason-2: 
 * For Stability in Learning
-* Do make the variance of dot product stable
-* it turns out that the dot product of Q and K increases the variance because multiplying two random numbers increase the variance. So remember that when we get to the attention scores, we are multiplying q and K right, the query and the key,
+* Make the variance of dot product stable
+* It turns out that the dot product of Q and K increases the variance because multiplying two random numbers increase the variance. So remember that when we get to the attention scores, we are multiplying Q and K right, the query and the key,
 * it turns out that if you don't divide by anything the higher the dimensions of these vectors whose dot product you are taking the variance goes on increasing that much and dividing by the square root of Dimension keeps the variance close to one.
 
-* if the variance increases a lot it again makes the learning very unstable and we don't want that we want to keep the standard deviation of the variance closed so that the learning does not fly off in random directions and the values the variance generally should stay to one that helps in the back propagation and that's also generally better for uh avoiding any computational issues.
+* if the variance increases a lot it again makes the learning very unstable and we don't want that we want to keep the standard deviation of the variance closed so that the learning does not fly-off in random directions and the values the variance generally should stay to one. It __helps in the back propagation__ and that's also generally better for uh avoiding any computational issues.
 
 *  so that's the reason why uh we want the variance to be close to one so this is the second reason why we especially use square root so uh there are two reasons the first reason is of course we want the values to be as small as possible this helps  if the values are not small the __softmax becomes peaky__ and then it starts giving preferential values to Keys, which we don't want it can make the learning unstable but why square root the reason
 
@@ -160,7 +151,7 @@ print(attn_weights_2)
 
 * 1:00
 
-#### 3.4.2 Implementing a compact SelfAttention class
+#### 3.4.2 Implementing a Compact Self-Attention class
 
 ```python
 import torch.nn as nn
@@ -236,11 +227,10 @@ print(sa_v2(inputs))
 * __Query__: Analogous to search query in a database. It represents the current token the model focuses on.
 * __Key__: In attention mechanism, each item in input sequence has a key. Keys are used to match with query.
 * __Value__: Value represents the actual content or representation of the input items. Once the model determines which keys (which part of the input) are most relevant to the query (current focus item), it retrieves the corresponding values.
-*
-*
 
 #### Next
-* We'll modify the self attention mechanism so that we prevent the model from accessing future information in the sequence
+* We'll modify the self attention mechanism so that we __prevent the model from accessing future information in the sequence__
 * We'll be looking at multi-head attention, which is essentially splitting the attention mechanism into multiple heads.
 
 ***
+
