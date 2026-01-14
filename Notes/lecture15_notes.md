@@ -94,208 +94,39 @@ print(attn_scores_2)
 ***
 
 30:00
-implement in code right now so I'm going to look at the keys of
-30:14
-one um so I'm going to look at this keys so Keys 2 is keys of one which means the
-30:20
-key for Journey uh which I have highlighted over here so this this is actually my key
-30:28
-Keys underscore 2 so the keys uncr 2 in the code is the
-30:36
-keys for Journey uh and then what I'm going to do is I'm going to uh take the dot product
-30:44
-between actually before that let
-30:49
-me right yeah so let me correct that a bit
-30:56
-so this actually is queries so this is actually queries unroll 2 so
-31:01
-query unroll 2 is is this query so let me reframe that
-31:07
-again uh so here what I have is
-31:14
-query query uncore 2 and to find the attention score for
-31:21
-this query I'm going to take a DOT product between the second query and the keys Matrix so this is exactly what has
-31:28
-been done in the in the code here so to find the attention score between the
-31:34
-query 2 which is the query for Journey we are going to take a DOT product between the query and the keys transpose
-31:40
-why are we taking a transpose here because look at the dimensions always look at the dimensions uh the dimensions
-31:46
-for query is that it's one row and it's uh it's one row and it's two columns so
-31:51
-we cannot directly multiply it with the keys because the keys has six rows and two columns whereas keys transpose we
-31:58
-have two rows and six columns and that can be multiplied so then Keys transpose
-32:04
-will be 2x 6 so let me write that Dimension down so Keys transpose will be 2x 6 and if you multiply 1X two Matrix
-32:11
-with 2x 6 you'll get 1X 6 so you'll get six attention scores for all the different uh for the six input tokens
-32:19
-your journey begins with one step so that sounds correct so this is what we are going to do over here so the
-32:25
-attention scores two which is the attention score for Journey is just a matrix product between the query for
-32:31
-Journey multiplied with the keys transpose so you get the six attention scores here so as you can see the first
-32:38
-attention score is the encodes information about how much Journey
-32:43
-attends to your the second attention score encodes information about how much
-32:48
-Journey attends to Journey the third attention score encodes information about how much Journey attends with
-32:54
-width similarly the last attention score encodes information about how Journey attends with step so the second score is
-33:01
-the highest because of course journey and journey will be intuitively more aligned to each other but remember these
-33:07
-scores don't mean anything right now because we have not trained any of the weight matrices these scores will only mean
-33:13
-something when you train the weight matrices so ideally if you have a long paragraph and and if journey and step
-33:19
-are more related to each other in that paragraph after the matrices are trained this last value which is the attention
-33:26
-score between journey and step has to be the highest so up till now what I showed you
-33:31
-is how to find the attention score the six values of the attention score for one query but now what if you want to
-33:38
-find the attention score for all the other queries for the first query second third fourth fifth sixth the simplest
-33:44
-way to do that is just for the second query you just multiplied it with the keys transpose right and similarly
-33:50
-you'll do for all queries so why don't you just do a matrix multiplication so you multiply the queries Matrix with
-33:56
-keys transpose and I've shown this over here for your reference so this is the query's Matrix
-34:03
-which is 6x2 and the keys transpose is 2x6 so of course 6x2 can be multiplied
-34:08
-with the 2x6 Matrix and ultimately you'll get a matrix like this which is a 6x6 Matrix and that is our attention
-34:16
-score Matrix now what does this attention score Matrix symbolize so the
-34:21
-first row is contains the attention scores between the first query and all
-34:27
-all the other Keys the second row contains the attention scores between the second query and all the other Keys
-34:34
-similarly the last row contains the attention score between the last query and all the other
-34:39
-Keys that's the simple meaning of the attention scores and I'm again going to do this in code right now to get the
-34:46
-attention scores I just take the matrix multiplication of queries with keys transpose and then you get the 6x6 uh
-34:54
-attention scores Matrix that's it so we have calculated the attention score between every query with respect to all
-35:00
-the other Keys awesome uh this is the second step and we have still not yet got to the context
-35:07
-Vector so the first step was to convert the input embedding vectors to the key query and value the Second Step was to
-35:13
-use the key and the query to get to the attention scores now the problem with
-Calculating attention weights
 
+```python
+attn_scores_2 = query_2 @ keys.T # All attention scores for given query
+print(attn_scores_2)
+```
 
 ****
 
+#### Attention Weights
 
-35:18
-these attention scores is that they are not interpretable right ideally I want to be able to let's say if I look at
-35:24
-this second uh this second row which are the attention scores for the query
-35:30
-journey I want to be able to make the statements like okay pay 10% attention to your pay 20% attention to Journey pay
-35:38
-30% attention to step pay 40% attention to width but I'm not able to make these
-35:43
-interpretable statements because if you look at all these attention scores they do not sum up to one these look like random values that
-35:50
-they are not summing up to one so we have to do the next step of normalization so normalization serves
-35:56
-two purposes first it will help make things interpretable so I can make statements like okay when the query is
-36:02
-Journey the you pay 20% attention to the first token 30% attention to the final
-36:08
-token Etc and the second advantage of normalization is that it helps when we do back propagation generally in many
-36:14
-machine learning Frameworks it's better to normalize things so that the scale stay consistent between zero and one so
-36:22
-the third step what we are going to do is that we are going to compute uh the
-36:27
-is terminology which is called as attention weights so up till now we have calculated attention scores that's fine
-36:34
-now we are going to just normalize the attention weights uh so that the attention scores in each row sum up to
-36:41
-one so there is a difference between attention scores and weights the meaning is the same but attention weights sum up
-36:47
-to one they are normalized in the previous lecture what we did for normalization is that we
-36:52
-looked at each row and we simply took the soft Max right uh and the soft Max
-36:57
-function actually ensures that all the elements sum up to one I'm not going to cover the soft Max implementation in
-37:03
-today's lecture because we have already seen it in the last lecture in a lot of detail but remember that softmax just
-37:09
-make sure that all of the these quantities sum up to one and they lie between zero and one and they are
-37:16
-positive but actually in today's lecture before we Implement soft Max there is
-37:21
-one more very important step which is actually done and I'll come to why this step is done but remember that
-37:28
-before implementing soft Max what is done is that all of these values are taken and they are scaled by something
-37:34
-which is called as square root of the keys Dimension So currently the
-37:39
-dimension of the keys is a it's two two Dimension right because remember the keys queries and the values Matrix we uh
-37:48
-we took the three-dimensional input embedding and we transformed it into two dimensional so the dimension of the keys
-37:54
-in this case is two uh so we are going to to scale everything by square root of
-37:59
-two why two because if you look at the um let's look at the key Matrix again
-38:06
-yeah this is my key Matrix right now and if you look at every uh if you look at
-38:12
-every token here it has two Dimensions right so that's why we are going to uh
-38:17
-we are going to scale by square root of two and you might be thinking okay this looks like magic who thought about the
-38:23
-square root why do we do the scaling there is a very nice reason for that and I'm going to come to it for now just
-38:29
-remember that after getting the attention score we are going to scale it by square root of D and that's why it's
-38:36
-also called as scaled dot product attention remember we saw at the start the scaled we are going to scale by
-38:42
-square root of D that that is one of the reasons why it's called scaled dot product
-38:47
-attention so we are going to scale it and then we are going to apply soft Max
-38:52
-so when we scale by square root of two it leads to this Matrix over here and then we have apply soft Max so you'll
-38:59
-see that when soft Max activation is applied and if you look at each row right now you'll see that they sum up to
-39:05
-one so if I look at the second row right now uh it corresponds to again um
-39:13
-Journey so I can now confidently make statements like when the query is Journey pay 15% attention to your pay
-39:20
-22% attention to Journey itself pay 22% attention to with to begins pay 30 15%
-39:28
-attention to width pay only 9% attention to one and pay around 18% attention to
-39:34
-step remember these weights are not optimized but when they are optimized we can make interpretable statements like
-39:40
-these all of the rows will sum up to one you can check these and this is called as the attention weight Matrix this is
-39:46
-one of the most important step uh in getting to the context Vector please
-39:51
-remember this step and uh we did two things here we scaled by the square root of the dimension and then we implement
-39:57
-soft Max now let's go go to code and let's implement this in the process we'll also understand why we do the
-Coding attention weights
+35:00
 
+* Problem with attion scores is that:
+1. They are not interpretable. So, we do normalization!
+
+* Normalization serves two purposes
+1. It helps make things interpretable
+2. it helps when we do back-propagation
+
+* Difference between attention scores and weights ...meaning is same but attention weights sum-up to one
+
+#### Scale by $$\sqrt{d-\text{keys}}$$
+* all of these values are taken and they are scaled by something which is called as __square root of the keys Dimension__
+* Scale by $$\sqrt{d-\text{keys}}$$
+
+*  So currently the dimension of the keys is a it's two two Dimension right because remember the keys queries and the values Matrix we uh
+
+* step remember these weights are not optimized but when they are optimized we can make interpretable statements like these all of the rows will sum up to one you can check these and this is called as the attention weight Matrix this is one of the most important step uh in getting to the context Vector please remember this step and uh we did two things here we scaled by the square root of the dimension and then we implement soft Max now let's go go to code and let's implement this in the process we'll also understand why we do the Coding attention weights
 
 ***
 
+40:00
 
-40:04
 scaling by square root of D
 40:10
 okay yeah so we compute the attention weights by scaling the attention scores and using the soft Max function the
@@ -1047,5 +878,6 @@ that's that's what I believe so thank you so much everyone I hope you are liking
 comments in the YouTube uh comment section and I'll reply to them thanks
 1:19:00
 everyone I'll see you in the next lecture
+
 
 
