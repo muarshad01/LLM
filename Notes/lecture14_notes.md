@@ -100,13 +100,13 @@ in the training we are going to do __back propagation__ later so we need __stabi
 
 ***
 
-#### Softmax
+#### softmax
 
-* $$\{x_1, x_2, x_3, x_4, x_5, x_6\}$$
+* $$`\{x_1, x_2, x_3, x_4, x_5, x_6\`}$$
 
 * $$\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\}$$
 
-* $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3}+e^{x_4}+e^{x_5}+e^{x_6}$$
+* $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 
 * __softmax__ is preferred compared to let's say the normal summation especially when you consider extreme values so let me take a simple example right now and I'm going to switch the color to Black so that you can see what I'm writing on the screen
@@ -234,4 +234,5 @@ Words like "The", "cat", and "sat" might have low-similarity score because they 
 
 
 ***
+
 
