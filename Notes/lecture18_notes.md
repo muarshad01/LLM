@@ -7,115 +7,19 @@ $$ Head ~dimension = \frac{d_{out}}{n_{heads}}$$
 * 5:00
 
 #### Example
-* __Step-1__: $$b, num_tokens, d_in = (1, 3, 6)$$
-
-
-can see where we split the queries Matrix into two q1 and Q2 because there are two heads so ultimately the rest of
-5:07
-the procedure will remain the same but we are just reducing the number of Matrix multiplications so if you look at this
-5:14
-weight Matrix right now the number of attention head is specified right uh so how is it specified so D out
-5:21
-is equal to 4 and D out is equal to head Dimension multiplied by the number of heads so the head Dimension is equal to
-5:29
-2 because each head has a dimension of two this is what we had done here each head
-5:34
-had a dimension of two each attention head here you see D out equal to two which was implemented in the previous
-5:40
-case so each head had a dimension of Two And there are two heads so the D out in this larger trainable Q Matrix already
-5:48
-includes number of heads I'll explain to you in detail what this means right now if you just get an
-5:55
-intuitive idea of what we are trying to do that will be very helpful
-6:00
-okay so now uh let us get started with the code so we are going to implement multi-head attention with weight splits
-6:07
-right so instead of maintaining two separate classes so here you can see earlier in our code we had the we had a
-6:15
-causal attention class which did all the computations of attention scores attention weights Etc and then we
-6:21
-integrated this causal attention class with the multi-head attention rapper so we had a multi-head attention rapper and
-6:27
-we created multiple instances or multiple causal attention objects within this
-6:33
-rapper now the idea is instead of maintaining two separate classes why don't we combine both of these Concepts
-6:39
-into a single multi-head attention class also in addition to just merging
-6:45
-the multi-head attention rapper with the causal attention code let's make some other modifications to implement
-6:51
-multi-head attention more effectively so as I told you earlier in the multi-ad attention rapper which we
-6:57
-had earlier multiple heads are implemented by creating causal attention objects and uh the causal attention
-7:04
-class independently performed the attention mechanism earlier and then the results from each attention head were
-7:10
-effectively concatenated now we are going to implement a class which is called as multi-head attention class and
-7:16
-we are going to integrate the multi-head functionality as well as the causal attention functionality everything
-7:22
-within a single class the way we are going to do do this is that the this class splits the input
-7:29
-into multiple heads by reshaping the query key and value tensors let's see what this means don't worry about this
-7:36
-sentence in this lecture I have constructed a Hands-On example so that you understand the code which we are
-7:42
-about to write so first let's look at the multi-ad attention class and how we are going to Define it this code right
-7:48
-here which I'm showing on the screen is at the heart of the Transformer mechanism so you see we have the in init
-7:54
-Constructor which is invoked by default and then there is the forward method at the end of the forward Method All We are
-8:01
-going to do is calc calculate the context Vector for each of the input embedding vectors but what happens in
-8:07
-the middle that is the main key which you really need to understand okay so I
-8:13
-could have just taken you through this code but I have seen that if I take students through this code it becomes
-8:19
-very difficult for them to wrap their heads around what exactly is going on especially because if you see the
-8:24
-dimensions there are four dimensional tensors which are involved in this code and there is a very good reason for why
-8:30
-we need four dimensional tensors so if you if you just go through the code you will you will think that you have
-8:36
-understood it but you would not have because there are lot of subtleties with respect to the dimensions so what we are
-8:42
-going to do is that we are going to go to the Whiteboard and I constructed this example completely from
-8:48
-scratch so we are going to take a simple example we are directly going to start from the input and we are going to do
-8:54
-all the steps on the Whiteboard which are implemented in this code then you
-8:59
-will find that understanding the code is extremely easy at every step of the code I'm going to take you to the Whiteboard
-9:06
-and I'm going to explain to you what exactly is going on okay so let's get started I've tried to distill this down
-9:12
-to 11 steps and uh I I will explain everything related to matrices
-9:18
-Dimensions extremely clearly I will not assume anything everything is written down on the Whiteboard so that you will
-9:24
-not be afraid of this code I have seen several other YouTube videos and even lectures where uh people just
-9:33
-explain this as if it's very easy to understand but you need to decompose it into individual layers and explain every
-9:39
-single one of them okay so I'm going to start with the forward method and I will
-Defining inputs
-9:44
-explain every single line here step by step so first the forward method takes the input X right let's see what that
-9:51
-input looks like and what it means so the first step to the attention make the
-9:57
-multi-ad attention with weight splits that code or the multihead attention class is that we have to start with the
-
+* __Step-1__: b, num_tokens, d_in = (1, 3, 6)
+* context_vector = 3 x d_out
 
 ***
 
+* 10:00
 
+* __Step-2__: decide d_out, num_heads = (6, 2)
+* Usually d_out = d_in
+* $$ head_{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
 
-
-
-
-
+* __Step-3__: Initialize trainable weight matrices for
+* key, query, and value $$(W_k, W_q, W_v)$$
 
 
 
@@ -1092,6 +996,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
