@@ -1,207 +1,24 @@
-Self attention recap
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch series we have been covering attention and the attention mechanism in a lot of
-0:16
-detail for the past two or three lectures the lectures were long they were more than 1 hour each but I think
-0:24
-it's extremely important for you to understand the attention mechanism and uh that's why I'm devoting so much time
-0:31
-to these set of lectures just to give you a quick recap of what all we have covered so far in this in the first
-0:38
-lecture on attention we started with a simplified self attention mechanism without trainable weights in the
-0:44
-previous lecture we added trainable weights and we discussed the self attention mechanism with trainable
-0:50
-weights here we also looked at the concept of key query and values which we'll revise just in a moment and then
-0:58
-today our main aim is to learn about something which is called as causal attention after learning about causal
-1:05
-attention in the next lecture we'll move to multi-head attention which is the actual attention mechanism which is used
-1:12
-in GPT and other modern large language models I believe this sequential flow is
-1:18
-extremely important because if you start understanding multi-head attention directly you will not understand the
-1:24
-basics you will not understand the nuts and bolts of what exactly is attention how did we we get to multihead attention
-1:32
-so let's get started with today's lecture on causal attention Okay first let us revise
-1:38
-everything we know about self attention what we have learned in the previous lectures so the example which we have
-1:44
-started looking is this one sentence which is your journey starts with one
-1:50
-step so you'll see that there are six words in this sentence the first step of
-1:57
-any um data processing pipeline for a large language model is to convert these
-2:02
-words into tokens to convert these tokens into token IDs and to convert the
-2:08
-token IDs into Vector embeddings so here you can see that for each token we have
-2:13
-threedimensional Vector embeddings so for the token y we have a three-dimensional Vector embedding for
-2:19
-the token Journey we have a three-dimensional Vector embedding and for the token step we have a
-2:25
-three-dimensional Vector embedding remember generally one word is not equal to to one token because uh GPT and other
-2:33
-modern llms use a bite pair encoder which are sub tokenizers but for the purposes of this lecture I'm going to
-2:39
-use word and token interchangeably okay so the first step is to convert all of the tokens into
-2:46
-Vector embeddings I'm choosing a three-dimensional Vector embedding here just for the sake of demonstration
-2:53
-remember that in models like GPT it's common to have Vector dimensions of 500,000 or even more Ive just plotted
-3:01
-these vectors and how they look like over here in the three-dimensional space these are the input embeddings the goal
-3:07
-of any attention mechanism is to take these input embeddings for every vector and convert them into context embeddings
-3:14
-or context vectors for every token now what's the difference between uh input
-3:19
-embedding and context embedding or a context Vector so let's say if you look at the
-3:25
-journey this is an input embedding for Journey this green Vector which you see over here which contains which encodes
-3:32
-some semantic meaning about Journey but it does not carry any information about
-3:38
-how the other words in the sentence such as your step with one how all these
-3:44
-words relate to Journey how much attention should you pay to each of these words when you are
-3:50
-looking at Journey the embedding vector or the input Vector for Journey contains
-3:55
-no such information whereas the context Vector contains this information the context Vector not only contains
-4:02
-semantic meaning about Journey but it also encodes meaning about how Journey relates with all these other words so
-4:10
-that's the main aim of the attention mechanism to get context vectors for
-4:15
-each of our input embedding vectors why do we need context vectors because it makes the task of the next word
-4:21
-predictions much more better much more reliable because now we are encoding
-4:27
-information of how much attention needs to be paid at different words in a sequence of
-4:33
-sentences so that's the whole aim of attention mechanisms as we saw in the previous lecture the first step is to
-4:40
-multiply the inputs with the query Matrix the key Matrix and the value
-4:46
-Matrix when you multi when you do this multiplication you get the query query Matrix so there's a difference so this
-4:53
-WQ w k and WV are weight matrices so these are the trainable weight Matrix
-4:59
-this is the trainable query Matrix this is the trainable key Matrix and this is the trainable value Matrix you multiply
+#### Causal Self Attention
 
 
 ***
 
-5:06
-the inputs Matrix with these trainable weight matrices and then you get the final queries Matrix the keys Matrix and
-5:14
-the values Matrix that's the first step now remember that this WQ w k and WV these
-5:24
-training weight matrices are not fixed their parameters need to be trained
-5:29
-based on input data and this training is a part of the llm currently when we are learning attention mechanisms we are not
-5:36
-learning about this training procedure we are only learning about the uh forward pass procedure how to take input
-5:43
-embeddings and how to convert them into context vectors we'll come to training and back propagation later in this
-5:50
-course okay so once you obtain the queries keys and the values Matrix the
-5:55
-next step is to compute the attention scores to compute the attention scores what we do is we multiply the queries
-6:02
-Matrix with the transpose of the keys Matrix so these are the attention scores
-6:07
-and each row represents the attention corresponding to to that particular
-6:13
-query with all the other keys so let's say if you look at the second row it corresponds to let's say the query for
-6:20
-Journey because the first row corresponds to your the second row corresponds to Journey the third row
-6:25
-corresponds to begins Etc so if you look at the second row the
-6:31
-first the first value in the second row is basically when you are looking at the query Journey how much attention should
-6:38
-you pay to the first input embedding Vector which is your when you're looking at Journey how
-6:45
-much attention should you pay to the second input embedding Vector similarly when you look at the last entry of the
-6:51
-second row this encodes information of how much attention should you be paying to the sixth input embedding which is
-6:59
-Step so your journey begins with one step so basically every row contains
-7:04
-information that when you're looking at a particular query how much uh attention
-7:09
-should be given to all the other keys in the sentence if you are unclear about this please go through the previous
-7:15
-lecture where I've covered this in an extensive amount of detail here I'm just providing a recap so that you you
-7:23
-understand or you revise what we have learned so far these are the attention scores the next step is to convert these
-7:29
-attention scores into attention weights and the way we do that is first we divide by square root of the key
-7:35
-Dimension and then we apply the soft Max activation function again in the previous lecture I have explained why we
-7:41
-divide by the square root of the keys Dimension and how do we apply the soft Max but basically these are the
-7:48
-attention these are the attention weights which we compute from the attention scores the difference between
-7:54
-attention scores and weights is that they intuitively mean the same thing but if you look at each row of the tension
-7:59
-weight Matrix you'll see that each row essentially sums up to one so there is a probabilistic meaning Associated now
-8:06
-when you look at Journey you have to pay 15% attention to the first input embedding 22% attention to the second
-8:13
-input embedding and finally we can say 18% attention to the last input embeding these are the attention weights
-8:20
-and the last step is that you take the attention weight Matrix and you multiply it by the values Matrix remember the
-8:26
-keys query and the value Matrix have been computed over here so you take the attention weight Matrix
-8:32
-you multiply it by the values Matrix and ultimately you get this context Vector Matrix this is the final Vector which we
-8:38
-are looking for so here you can see there are six six rows right each row corresponds to the context Vector for
-8:45
-that particular token so the first row is the context Vector for your the second row is the context Vector for
-8:50
-Journey similarly the last row is the context Vector for step okay and in this plot I have shown
-8:57
-the so if you look at the journey Vector you'll see that this is just the embedding Vector the green but if you
-9:03
-look at the journey context Vector now you'll see that it's different than the journey because it also contains how
-9:09
-much attention should be paid to all the other words so the journey context Vector is much more richer than journey
-9:16
-and the context vectors are what we'll be using as inputs for the llm training so we'll get such context vectors for
-9:23
-all the input embeddings which we have this is the recap of what all we have covered so far I hope you are with me
-What is causal attention?
-9:30
-until this stage now what is causal attention and why do we need it so first
-9:36
-of all causal attention is also called as mask attention so when you read some research papers and when you see some
-9:43
-tutorials you'll see that this term is also called as masked attention it is a special form of self attention so what
-9:50
-this causal attention does is that it restricts the model to only consider the
-9:56
-previous and the current inputs in a sequence when processing any given token so let me explain to you further
+* 5:00
 
+#### What is causal attention?
 
+* Causal attention also known as mask attention is a special form of attention.
+
+* It restricts the model to only consider the previous and the current inputs in a sequence, when processing any given token.
 
 ***
 
+10:00
 
-10:04
-what this means this is in contrast to the self attention mechanism which allows access to the entire input
-10:10
-sequence at once so remember what we did here when I explained this attention metrix to you this attention score
+* This is in contrast to the self attention mechanism, which allows access to the entire input sequence.
+
+
+*    at once so remember what we did here when I explained this attention metrix to you this attention score
 10:16
 Matrix when we look at a particular query such as Journey we look at its attention with all the other uh tokens
 10:23
@@ -1079,3 +896,4 @@ going on here I'm deliberately trying to have a mix of the Whiteboard notes and 
 you understand the basics the theory as well as you implement the code thank you so much everyone I'll see you in the
 55:44
 next lecture where we'll cover multi-head attention in a lot of detail thanks everyone
+
