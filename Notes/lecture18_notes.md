@@ -33,112 +33,19 @@
 
 ***
 
+* 30:00
+
 * __Step-6__: Group matrices by number of heads
   * (b, num_tokens, num_head, head_dim) -> (b, num_head, num_tokens, head_dim)
   * (1,3,2,3) = (1,2,3,3)
 
 
 * __Step-7__: Find Attention Scores
+  * Queries X Keys.Transpose (2, 3)
 
 ***
 
-* 30:00
 
-
-
-4143 -1. 423 and - 2.71 31 right so when we do
-30:47
-Keys transpose Keys transpose 2 comma 3 it will transpose along the last two Dimensions so now that that row which we
-30:53
-saw has now become a column over here so this is the keys transposed
-30:59
-and here is the queries Matrix and I've shown the keys transpose over here so the queries matrix dimensions is 1A 2A 3
-31:06
-comma 3 the keys transpose Dimension is 1A 2 comma 3 comma 3 so they they they
-31:11
-are compatible for multiplication and the way the multiplication will now proceed is that the head one will only
-31:18
-be multiplied by the head one of the keys transposed the head two here will only be multiplied with the head two of
-31:24
-the keys transposed and ultimately when we do this multiplication we we will get the attention scores Matrix so this is
-31:31
-the attention score Matrix which we have and the dimensions of this are B number
-31:37
-of heads number of tokens and number of tokens let me show you why
-31:43
-um okay so if you look at what we are multiplying here the query's dimensions
-31:48
-are B comma number of heads comma number of tokens comma head Dimension right and when we do Keys
-31:54
-transpose uh 2 comma 3 the dimensions here are B number of heads head
-32:00
-Dimensions comma number of tokens so essentially you can think about it like we are multiplying two matrices with the
-32:05
-dimensions number of tokens comma head Dimension multiplied by head Dimension number of tokens so what will the
-32:12
-resulted Matrix will have number of tokens rows and number of tokens columns and the first two Dimensions here will
-32:18
-stay the same because they are the same in both of these matrices we are multiplying so the resultant attention
-32:24
-scores will have the dimensions of B number of heads number of tokens and number of tokens it's fine if you forget
-32:31
-these Dimensions but you should be able to interpret what is going on here so let's see what is going on here remember
-32:38
-we have we are grouping with respect to head so that stays the same this first uh this first block which I've
-32:44
-highlighted right now that is head number one and the second block which which I've highlighted right now that is
-32:50
-essentially head number two this is the first thing to understand okay then what we are doing
-32:56
-when you look at the let's look at head number one for now if you look at the first row the first row essentially
-33:03
-consists of the attention score between of the first word with all the other words right so remember our sentence was
-33:12
-the actually let me write it over here that will be much better so our sentence
-33:19
-was the the cat
-33:28
-the cat and here it was sleeps
-33:35
-right the cat let me just write it over here yeah
-33:43
-the cat sleeps and the same words I'm also going to write over here so the first row
-33:49
-is let me write it over here actually the first row is
-33:56
-the the second row is
-34:02
-cat and the third row is
-34:08
-sleeps so that's why the final two dimensions are number of tokens comma number of tokens because if you look at
-34:15
-the second row now if you look at the second row now the first element of the second row tells us information about
-34:22
-the attention between cat and the the second element of the the second
-34:28
-row tells us the information between cat and cat so if the query is cat how much
-34:33
-attention should you pay to cat the third element here tells us the information between cat and sleep which
-34:39
-means if the qu if the query is cat how much attention should you pay to sleep so that's why the shape of the attention
-34:45
-Matrix for every head is number of token rows and the number of token columns because an attention score exists
-34:51
-between each token for every other token so whenever you see these Dimensions right don't get confused by it try to
-34:57
-always understand the meaning behind it that's why we had so many lectures on the attention mechanism before just so
-35:03
-that when we reach this stage understanding all of this becomes easy so remember until this stage we have
-35:09
-computed the attention score so this is exactly what is done here remember what we saw on the Whiteboard to compute the
-35:16
-attention scores we'll take the queries and we'll multiply with the keys. transpose 2 comma 3 because uh in
-35:24
-transposing 2 comma 3 we'll make sure that the correct queries and the attent
-35:29
-and the KE transpose product is taken to calculate the attention
-35:35
-scores and uh this is also implemented in the code so if you see in the code the attention score is the product is
 35:41
 the scaled product between queries and the keys great so here it shown dot product
 35:48
@@ -629,19 +536,3 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
