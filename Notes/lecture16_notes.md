@@ -1,11 +1,10 @@
 #### Causal Self Attention
 
-
 ***
 
-* 5:00
+* 05:00
 
-#### What is causal attention?
+#### What is Causal Attention?
 
 * Causal attention also known as mask attention is a special form of attention.
 
@@ -13,110 +12,21 @@
 
 ***
 
-10:00
+* 10:00
 
 * This is in contrast to the self attention mechanism, which allows access to the entire input sequence.
 
+* When Computing attention scores the causal attention mechanism ensures that the model only factors in tokens that occur at or before the current token in the sequence.
 
-*    at once so remember what we did here when I explained this attention metrix to you this attention score
-10:16
-Matrix when we look at a particular query such as Journey we look at its attention with all the other uh tokens
-10:23
-right your begins one step we do not look at whether these tokens come before Journey or whether they come after after
-10:29
-Journey that's what changed in the causal attention in causal attention when we look at any particular query we
-10:36
-only consider the attention of that query with respect to tokens which come before that
-10:42
-query let me show you how what that means in a moment so when Computing
-10:47
-attention scores the causal attention mechanism ensures that the model only
-10:52
-factors in tokens that occur at or before the current token in the sequence
-10:59
-to achieve this in GPT like large language models for each token processed we mask out the future tokens which come
-11:06
-after the current token let me show you visually what all of this really means
-11:12
-so until now the attention weight Matrix which we have seen looks something like this so if you look at the row for
-11:17
-Journey you can get the attention weight of Journey with all the other tokens
-11:22
-right of your journey starts with one step
-11:29
-so this row con consist of six values but the main main U goal of the causal
-11:38
-attention mechanism is that when you look at a particular token such as Journey you should only consider the
-11:44
-attention scores of Journey with the words which come before Journey such as your and journey so there are only two
-11:51
-attention scores which are relevant here all the attention scores which come after this point are masked
-11:57
-out which means that they no longer exist they are set to zero similarly when you look at width let's say you
-12:04
-look at width so before width we have your journey starts with there are four tokens so we have the attention scores
-12:11
-for those four tokens but the attention scores for all of the future tokens will be masked out or will be set to zero
-12:19
-will be converted to zero whereas if you look at the last word step your journey
-12:24
-starts with one step all of these come before step right so we have all the atten scores which are considered
-12:30
-nothing will be masked out in the first token your there is nothing which comes before your so then every single thing
-12:36
-after your will essentially be masked out when we look at masking the context
-12:44
-size is also important because remember the context size specifies how many words the llm can look at before
-12:50
-predicting the next word so when I show this Matrix I'm assuming that this much is the context size so context size is
-12:57
-six uh so this is the the main purpose of the causal attention mechanism so we
-13:02
-mask out out the attention weights above the diagonal this is very important if you look out if you look at this second
-13:09
-Matrix there is a key pattern which You observe over here and that is what we'll exploit when we code if you take this
-13:16
-diagonal and if you look at everything which occurs Above This diagonal it is essentially zero right which means that
-13:23
-it is essentially mased out students who know about the Triangular Matrix the the
-13:28
-lower triangular Matrix and the upper triangular Matrix will really relate to this and understand this much better uh
-13:35
-we'll come to that in a moment in code but for now just remember that we mask out the attention weights above the
-13:41
-diagonal like this we set those attention weights to be equal to zero and then we normalize the nonmass
-13:48
-attention weights such that the attention weights sum up to one in each row so your question would be that okay
-13:55
-if everything else is set to zero then these weight will no longer sum up to one right we'll ensure that the
-14:01
-normalization is done once more so that whatever attention weights are remaining they indeed sum up to one so this is the
-14:08
-main idea behind uh the causal attention mechanism
-14:15
-so this this thing here what I'm coloring in red right now which is above the diagonal it's called as the causal
-14:21
-attention mask because we are masking out all of those attention weights so now let us see how to apply a causal
-Coding the casual attention mask in Python
-14:28
-attention mask so the strategy which we'll follow is that exactly what we have done over
-14:35
-here in the flow map which earlier showed you here what we'll do is that we get the attention weights in a similar
-14:42
-manner to what we have obtained and then we just set the elements above the diagonal we set the elements above the
-14:47
-diagonal to be zero and then we renormalize the attention weights that is the strategy which we are going to
-14:53
-follow that is also mentioned over here so we'll first get the attention scores like what we had previously then we get
-15:00
-the attention weights this is what we did previously then we will add this one step we'll mask the elements above the
+* To achieve this in GPT like LLM, for each token processed, we mask out the future tokens which come after the current token in the input text.
 
+* we mask out the attention weights above the diagonal and set those attention weights to be equal to zero and then we normalize the nonmass attention weights such that the attention weights sum up to one in each row.
 
 ***
 
+* 15:00
 
-15:07
-diagonal to be zero then we'll get M attention scores and then we'll again normalize them to get M attention
+* diagonal to be zero then we'll get M attention scores and then we'll again normalize them to get M attention
 15:14
 weights so that we ensure that each row again sums up to one so now let us
 15:19
@@ -896,4 +806,5 @@ going on here I'm deliberately trying to have a mix of the Whiteboard notes and 
 you understand the basics the theory as well as you implement the code thank you so much everyone I'll see you in the
 55:44
 next lecture where we'll cover multi-head attention in a lot of detail thanks everyone
+
 
