@@ -1,99 +1,6 @@
 #### Implementing Multi-head Attention With Splits
 
-
 $$ Head ~dimension = \frac{d_{out}}{n_{heads}}$$
-
-in the following
-0:22
-way what we did is that we had the input tokens so let me show you this figure
-0:30
-which summarizes everything yeah so this was the input
-0:37
-Matrix which we had essentially the number of rows here represent the number of tokens which we have and each token
-0:44
-was encoded as a three-dimensional input embedding Vector right in the first part of the
-0:51
-multi-ad attention what we essentially did was we created multiple weight matrices for the query key and the value
-0:59
-so if we have two attention heads we'll create two weight matrices for the query
-1:04
-two weight matrices for the keys and two weight matrices for the values and then
-1:10
-we will multiply the inputs with these weight matrices to get two queries two
-1:16
-keys and two values so the main problem with this
-1:21
-approach is that here you can see that there are two Matrix multiplications which are needed as we saw earlier gpt3
-1:28
-used 996 attention attention heads so if you have 96 attention heads you'll need
-1:33
-96 multiplications to get the queries Matrix 96 multiplications to get the
-1:39
-keys Matrix and 96 multiplications to get the values Matrix that's not very
-1:44
-efficient right so today what we are going to see is that how can we make
-1:49
-sure that the number of multiplications are reduced in particular what if we just need to do one multiplication for
-1:57
-quick Keys one one multiplication for queries and one multiplication for values and then once we do one
-2:04
-multiplication then we can split the queries again into two parts we can split the keys into two parts and we can
-2:10
-split the values also into two parts for two heads and then we can perform the rest so once we get the copies or the
-2:17
-multiple matrices for queries keys and values what we can do is multiply queries with keys transposed to get the
-2:24
-attention scores then we can get the attention weights and we can multiply them with the values to get the context
-2:31
-vectors so the rest of the procedure can be bit similar but what if we can reduce
-2:37
-the number of Matrix multiplications at the start this is what we are going to look at in today's lecture so let's get
-2:43
-started this procedure is called implementing multi-head attention with weight splits and it's definitely much
-2:49
-more efficient than the multi-head attention which we saw previously so in the previous lecture the way we
-2:56
-implemented multi-head attention was something like this we had the the causal attention module and we
-3:02
-calculated the causal attention module result which is the context Vector the context Vector for every single
-3:07
-attention head and then we concatenated the results from the different uh
-3:13
-context vectors together and that led to a large Matrix this was the process now what we are going to do is we are going
-Multi-head attention with weight splits introduction
-3:20
-to follow a slightly different procedure and that's called multihead attention with weight splits and it's much more
-3:26
-computationally efficient so the main idea is that in the previous code we had maintained two separate classes we had
-3:33
-maintained a class for the multi-head attention rapper and we had maintained a class for the causal attention and then
-3:39
-we combine both of them into a single multi-head attention class so here in
-3:44
-the in the top what you can see over here is what we did previously We performed two Matrix multiplications to
-3:52
-obtain the two query matrices q1 and Q2 Q2 what we are going to do right now is
-3:57
-what if the weight Matrix which we start start out initially itself was a larger weight
-4:03
-Matrix and then uh we multiply the inputs x with the query Matrix to get
-4:09
-the queries and then after that we split the queries into two components so here you see the
-4:16
-difference in the previous case we multiplied x with wq1 and we multiplied x with
-4:22
-wq2 but what if we multiply x with a WQ which is already a large Matrix which
-4:27
-consists of D out so here you see the dimensions of this initial weight Matrix are larger and that these Dimensions
-4:36
-already include the number of heads so this Dimension 4 is the D out which is
-4:41
-two multiplied by the number of heads so this D out is already specified before
-4:47
-so the weight Matrix for the queries keys and the values which we specify already will kind of include the head
-4:53
-Dimension and then we when we get the queries keys and values we'll split them based on the number of heads so here we
-
 
 ***
 
@@ -1170,6 +1077,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
