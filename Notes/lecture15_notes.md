@@ -225,7 +225,7 @@ print(sa_v2(inputs))
 
 * 1:15
 
-* \text{Attention}(Q,K,V)=Y=\bigg(\frac{QK^T}{\sqrt{d}}\bigg)V
+* $$\text{Attention}(Q,K,V)=Y=\bigg(\frac{QK^T}{\sqrt{d}}\bigg)V$$
 
 #### Why do we use the Terms: Key, Query, Value (K, Q, V)
 * __Query__: Analogous to search query in a database. It represents the current token the model focuses on.
@@ -237,8 +237,3 @@ print(sa_v2(inputs))
 * We'll be looking at multi-head attention, which is essentially splitting the attention mechanism into multiple heads.
 
 ***
-
-
-
-
-
