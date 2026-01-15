@@ -22,11 +22,9 @@
 * 15:00
 
 * __Step-4__: Calculate Keys, Queries, Values Matrices $$(W_k, W_q, W_v)$$ = (d_in, d_out) = 6 x 6
-* Input X $$W_k$$, Input X $$W_q$$, Input X $$W_v)$$ = (1, 3 , 6)
-* (1, 3, 6) = (b, num_tokens, d_out)
-
-
-
+* Input X $$W_k$$, Input X $$W_q$$, Input X $$W_v$$
+* Input = (1, 3, 6) = (b, num_tokens, d_out)
+* $$W_k = W_q = W_v = (6, 6)$$
 
 values for these why do we use a neural network linear layer because it's optimized for initializing the weights
 15:43
@@ -897,6 +895,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
