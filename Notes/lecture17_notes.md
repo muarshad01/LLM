@@ -13,10 +13,13 @@
 * What is multi-head attention?
 
 * The term multi-head essentially refers to dividing the attention mechanism itself into multiple heads. Each head will be operating independently to give you a understanding related to code. When we get the attention scores here right now or the attention weights from one set of query key and value, we say that this is one head this is one attention head right. We are not decomposing into multiple query keys and values.
+
 * There is only one query Matrix.
 * There is only one Keys Matrix and one values Matrix.
 * What multi-head attention does is that it extends the causal attention mechanism so that we have multiple heads and each of these heads will be operating independently.
+
 * Then what we do in multi-head attention is we basically stack multiple single attention head layers together so what we'll simply do is that we will create multiple instances of the causal self attention mechanism each with its own weights and then combine their outputs.
+
 *  It's actually very simple what the output which we had obtained before for one attention head we'll just combine them together and I'll show you how it can be done so as you might have expected this can be a bit computationally intensive but it makes llms powerful at complex pattern recognition tasks so researchers have found out that although when you stack multiple heads the computations which need to be made increase it really helps
 
 ***
@@ -358,5 +361,7 @@ lecture which we have planned because I I take a Hands-On example um with actual
 values in matrices and I show you how to actually compute exactly the multi-ad attention from start to finish thank you
 32:12
 so much everyone I hope you enjoying these lectures I look forward to seeing you in the next lecture
+
+***
 
 
