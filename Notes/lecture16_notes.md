@@ -26,219 +26,75 @@
 
 * 15:00
 
-* diagonal to be zero then we'll get M attention scores and then we'll again normalize them to get M attention
-15:14
-weights so that we ensure that each row again sums up to one so now let us
-15:19
-encode this logic in code but just remember that all we are doing is we are
-15:25
-getting the attention weights and we are zeroing out the elements above the diagonal that's it okay so let us go to code right now
-15:33
-and the goal which we have is hiding future words with causal attention now for this remember that we
-15:40
-have worked previously in the previous lecture we have written this self attention version two what the self
-15:46
-attention class does is that it uh it basically takes us through this entire
-15:51
-flowchart pipeline which I've mentioned over here let me show that yeah this pipeline so what
-15:58
-that self attention class in Python which I showed you does is that first it initializes these query key and value M
-16:05
-weight matrices to random values then it multiplies the inputs with these to get the queries keys and the value Matrix
-16:12
-then it multiplies queries with key keys transpose to get the attention scores then it scales by square root of
-16:18
-Dimension does soft Max to get the attention weights and then it multiplies attention weights with values to get the
-16:24
-context Vector Matrix so if you see uh if you take the forward method me thir in this self attention class we
-16:31
-basically get the keys queries and the values uh so the these are the W key W
-16:36
-query and the W value are the trainable key query and value weight matrices which are initialized randomly and then
-16:43
-we multiply them with the uh with the inputs basically to get
-16:48
-the keys queries and the values Matrix so remember here the way we actually get
-16:55
-these Keys query and value Matrix is that we pass in the input X here and
-17:00
-then we multiply that input to the trainable key query and value weight Matrix to get the keys the queries and
-17:06
-the values so these Keys queries and the values which are highlighted in the code
-17:11
-are these yeah these queries keys and values Matrix here this is the queries
-17:16
-this is the keys and this is the values which have been obtained after multiplication of the inputs with the
-17:22
-weight matrices okay then what we do is we multiply the queries with the keys transpose to get the attention scores we
-17:29
-do a soft then we divide the attention scores with square root of the keys Dimension we apply soft Max to get the
-17:36
-attention weights and then we multiply the attention weights with the values to get the context Vector this is what is
-17:42
-happening in the self attention class self attention version two so we'll start out with the self attention
-17:47
-version two we'll uh first get the queries and the keys Matrix we'll get the attention scores by multiplication
-17:54
-of the queries with the keys transpose and then uh the attention weight will be
-18:00
-uh we'll divide the attention scores with square root of keys we'll take the soft
-18:05
-Max so these are the attention weights we which we have obtained until now we have not implemented the causal
-18:11
-attention the inputs over here so let me copy paste the inputs which we had defined those are the six words your
-18:18
-journey begins with one step these are the inputs so let me copy paste the inputs here so that you can look at the
-18:24
-entire code at one glance okay so before this I'm copy pasting the inputs right
-18:32
-now great so these are my inputs these are the six words your journey begins with one step and from these input
-18:39
-embedding vectors we have uh got the attention weights so I printed them out right now when we get the attention
-18:46
-weights this is where the real implementation of the causal attention mechanism starts out so what we are
-18:51
-going to do now is that first we are going to generate a mask we are going to generate a mask which looks something
-18:57
-like this now this is a mask where you will see that all the elements above the diagonal are equal to zero so ideally
-19:05
-that is what we want to do with this attention weight Matrix right remember what we saw over
-19:12
-here let me take you to that that the visual representation yeah remember what we saw over here we take the attention
-19:19
-weight Matrix and all the elements above the diagonal will be set to zero so essentially if we have a mask like this
-19:25
-and if we multiply the attention weights with this mask ideally all the elements above the diagonal will be set to zero
-19:32
-so now we are going to construct this mask using the Python's Trill function so what is Trill so there are two types
-19:39
-of uh matrices so upper triangular so let us see so there is an
-19:47
-upper triangular Matrix and a lower triangular Matrix which I'll just show over here the upper triangular Matrix
-19:53
-essentially looks something like this where all the elements below the diagonal are zero so this is tryu in
+#### 3.5 Hiding future words with causal attention
+
+```python
+class SelfAttention_v2(nn.Module):
+
+    def __init__(self, d_in, d_out, qkv_bias=False):
+        super().__init__()
+        self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)
+        self.W_key   = nn.Linear(d_in, d_out, bias=qkv_bias)
+        self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)
+
+    def forward(self, x):
+        keys = self.W_key(x)
+        queries = self.W_query(x)
+        values = self.W_value(x)
+        
+        attn_scores = queries @ keys.T
+        attn_weights = torch.softmax(attn_scores / keys.shape[-1]**0.5, dim=-1)
+
+        context_vec = attn_weights @ values
+        return context_vec
+
+torch.manual_seed(789)
+sa_v2 = SelfAttention_v2(d_in, d_out)
+print(sa_v2(inputs))
+```
+
+```python
+# Reuse the query and key weight matrices of the
+# SelfAttention_v2 object from the previous section for convenience
+queries = sa_v2.W_query(inputs)
+keys = sa_v2.W_key(inputs) 
+attn_scores = queries @ keys.T
+
+attn_weights = torch.softmax(attn_scores / keys.shape[-1]**0.5, dim=-1)
+print(attn_weights)
+```
+
+***
+
 20:00
-Python tryu in Python yeah this is the upper
 
+```python
+context_length = attn_scores.shape[0]
+mask_simple = torch.tril(torch.ones(context_length, context_length))
+print(mask_simple)
+```
 
-***
+```python
+masked_simple = attn_weights*mask_simple
+print(masked_simple)
+```
 
-20:06
-triangular Matrix in Python and this is the lower triangular Matrix which is try
-20:11
-and lower so Tri L what this lower triangular Matrix does is that all the elements above the diagonal will be
-20:17
-equal to zero so if you search but I should not search numai so we are looking at torch. Trill so first let us
-20:25
-look at torch do Tru so this is torch. Tru so if we use Tru it results in an
-20:33
-upper triangular Matrix what shown on the left but if we use torch.
-20:38
-Trill if you use tor. Trill what it will result is it will result in a lower triangular Matrix which means that all
-20:46
-the elements above the diagonal will be set to zero so to construct a mask which
-20:52
-looks something like this can you think about whether we'll need an upper triangular Matrix or a lower triangular
-20:57
-Matrix okay so since all the elements above the diagonal are set to zero we'll need a
-21:03
-lower triangular Matrix so that's why we use the torch. trill and uh the reason
-21:10
-so in torch. Trill what we have to do we have to pass in um what that Matrix is
-21:15
-going to look like So currently I'm just going to create a matrix of ones and zeros right so what I'll do is that the
-21:21
-Matrix which I'm going to pass in this torch. one's context length comma context length so if you print out this
-21:26
-let me show you what this Matrix actually looks like if you print
-21:32
-out this Matrix it looks like this and then what I'm going to do I'm going to apply the the lower triangular Matrix
-21:39
-function on this Matrix so what will it will do is that it will set all the elements above the diagonal to be equal
-21:45
-to zero so that's exactly what's happened here so mask simple will be
-21:51
-applying the torch. trill function to this tor. one's Matrix and so when I print out mask simple I'll get this mask
-21:58
-where all the elements above the diagonal are equal to zero and remember the length of this mass is specified by
-22:04
-the context length why because the context length is how many words the llm
-22:10
-can look at before predicting the next word so if you look at this visual representation here the context length
-22:15
-is equal to six because the llm can look at six words before predicting the next so in the example which I have shown the
-22:22
-context length is just uh you can just look at the number of rows of the attention scores Matrix or the attention
-22:28
-weight Matrix matx so here there are six rows right because we have six tokens and the context length which I'm using
-22:33
-in this case is six so that that is how we create the mask simple and we print it out over here great now if you
-22:41
-multiply the attention weights with this mask what you should if you multiply
-22:46
-this attention weight Matrix with this uh mask simple this mask what you should
-22:51
-get is that all the elements above the diagonal will be set to zero that's exactly what we are doing so now what
-22:58
-we'll do is that we'll Define another variable which is called Mass underscore simple which is the final attention
-23:05
-weight Matrix after multiplication of the attention weights with the mask which we have obtained earlier and when
-23:12
-we print this out we'll get this type of attention weight Matrix where you will see that all the elements above the
-23:19
-diagonal are equal to zero so that's awesome right this is exactly what we wanted but the next step is that you
-23:26
-will see that these cannot be are attention weights because each row does not sum up to one so then the next step
-23:33
-is to normalize the attention weight so that each row sums up to one so what we'll be doing is that we'll be taking
-23:40
-the sum of each row and then dividing all the elements in that row with the sum so for example if you look at the
-23:46
-second row we'll take the sum of the second row and we'll divide all the elements of the second row with that sum
-23:52
-that way we'll ensure that all the elements in a row sum up to one so this this is what we are going to
-23:59
-do next so we'll take we'll calculate the sum of each row and then we'll divide each row with the sum so then we
-24:05
-get the mass simple normalized so here you'll see that we get an attention weight Matrix where each uh each row
-24:13
-effectively sums up to one this is amazing this is exactly what we need this is the main U modification
-24:20
-introduced by the caal tension mechanism it's as simple as this and now we'll multiply this with the values Matrix to
-24:26
-get the context Vector Matrix that's it this is the if you understand this much
-24:32
-from this lecture you would have understood 80% what of what I wanted to convey now let's go next so you might be
-24:40
-thinking okay we have already done out done most of the things right so what do we need to do after this well there are
-Data leakage
-24:46
-some issues so if you look at the causal attention the main purpose of causal attention essentially is to not have any
-24:54
-influence of the future tokens right but if you carefully see what we have done here we have essentially uh applied soft
-25:02
-Max to the attention scores which we had obtained earlier right so this this
-25:07
-attention weight Matrix even if you look let's say if you look at the second row and if you look at the first two entries
-25:14
-of the second row these two entries are already influenced by all the other entries why because when you take the
-25:20
-soft Max in the denominator you have the exponential sum of all the weights so even if you zero out all the
-25:27
-future tokens it's not essentially cancelling the influence of the future
-25:32
-tokens because the future tokens have already influenced the initial two values when we take the soft
-25:38
-Max that is what disadvantage of this approach we are we are employing soft Max here and then again what we are
-25:45
-doing is we are doing this kind of renormalization by U dividing with the
-
+```python
+row_sums = masked_simple.sum(dim=-1, keepdim=True)
+masked_simple_norm = masked_simple / row_sums
+print(masked_simple_norm)
+```
 
 ***
 
+* 20:00
+
+***
+
+* 25:00
 
 
-25:52
+
 sum so this leads to a data leakage problem why data leakage because the
 25:58
 although we zero out the elements above the diagonal since we are taking soft
@@ -850,3 +706,4 @@ you understand the basics the theory as well as you implement the code thank you
 next lecture where we'll cover multi-head attention in a lot of detail thanks everyone
 
 ***
+
