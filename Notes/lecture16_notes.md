@@ -1,14 +1,10 @@
 #### Causal Self Attention
 
-***
-
-* 05:00
-
 #### What is Causal Attention?
 
-* Causal attention also known as mask attention is a special form of attention.
+* Causal attention also known as __mask attention__ is a special form of attention.
 
-* It restricts the model to only consider the previous and the current inputs in a sequence, when processing any given token.
+* It restricts the model to __only consider the previous and the current inputs in a sequence__, when processing any given token.
 
 ***
 
@@ -16,11 +12,11 @@
 
 * This is in contrast to the self attention mechanism, which allows access to the entire input sequence.
 
-* When Computing attention scores the causal attention mechanism ensures that the model only factors in tokens that occur at or before the current token in the sequence.
+* When computing attention scores the causal attention mechanism ensures that the model only factors in tokens that occur at or before the current token in the sequence.
 
-* To achieve this in GPT like LLM, for each token processed, we mask out the future tokens which come after the current token in the input text.
-
-* we mask out the attention weights above the diagonal and set those attention weights to be equal to zero and then we normalize the nonmass attention weights such that the attention weights sum up to one in each row.
+* To achieve this in GPT like LLM, for each token processed, __we mask out the future tokens which come after the current token in the input text.__
+1. We mask out the attention weights above the diagonal and set those attention weights to be equal to zero
+2. and then we normalize the non-zero attention weights such that the sum(attention weights)=1
 
 ***
 
@@ -55,6 +51,7 @@ print(sa_v2(inputs))
 
 ```python
 # Reuse the query and key weight matrices of the
+
 # SelfAttention_v2 object from the previous section for convenience
 queries = sa_v2.W_query(inputs)
 keys = sa_v2.W_key(inputs) 
@@ -70,12 +67,14 @@ print(attn_weights)
 
 ```python
 context_length = attn_scores.shape[0]
+
 mask_simple = torch.tril(torch.ones(context_length, context_length))
 print(mask_simple)
 ```
 
 ```python
 masked_simple = attn_weights*mask_simple
+
 print(masked_simple)
 ```
 
@@ -86,14 +85,9 @@ print(masked_simple_norm)
 ```
 
 ***
-
-* 20:00
-
-***
-
 * 25:00
 
-#### Data Leakage Problem
+#### Data-Leakage Problem
 
 ```python
 mask = torch.triu(torch.ones(context_length, context_length), diagonal=1)
@@ -105,10 +99,6 @@ print(masked)
 attn_weights = torch.softmax(masked / keys.shape[-1]**0.5, dim=-1)
 print(attn_weights)
 ```
-
-***
-
-* 30:00 
 
 ***
 
@@ -141,8 +131,7 @@ print(batch.shape) # 2 inputs with 6 tokens each, and each token has embedding d
 ```python
 class CausalAttention(nn.Module):
 
-    def __init__(self, d_in, d_out, context_length,
-                 dropout, qkv_bias=False):
+    def __init__(self, d_in, d_out, context_length, dropout, qkv_bias=False):
         super().__init__()
         self.d_out = d_out
         self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)
@@ -185,14 +174,3 @@ print("context_vecs.shape:", context_vecs.shape)
 
 ***
 
-* 45:00
-
-***
-
-* 50:00
-
-***
-
-* 50:00
-
-***
