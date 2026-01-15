@@ -1,6 +1,6 @@
 #### Implementing Multi-head Attention With Splits
 
-* $$head_{dim} = \frac{d_{out}}{n_{heads}}$$
+* $$head-{dim} = \frac{d_{out}}{n_{heads}}$$
 
 ***
 
@@ -10,118 +10,16 @@
 * __Step-1__: b, num_tokens, d_in = (1, 3, 6)
   * context_vector = 3 x d_out
 
-* __Step-2__: decide d_out, num_heads = (6, 2)
+* __Step-2__: Decide d_out, num_heads = (6, 2)
   * Usually d_out = d_in
-  * $$head_{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
+  * $$head-{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
 
-* __Step-3__: Initialize trainable weight matrices for
-  * key, query, and value $$(W_k, W_q, W_v)$$
-
+* __Step-3__: Initialize trainable weight matrices for key, query, and value $$(W_k, W_q, W_v)$$ = (d_in, d_out) = 6 x 6
 
 
+***
 
-10:04
-input the way we will specify the input is that the input has three dimensions the First Dimension is the batch the
-10:11
-second is the number of tokens and the third is the input Dimension right what is this D in the D in is basically every
-10:19
-token is represented by a vector embedding so this D in is the dimension
-10:25
-of that Vector embedding so 1A 3 comma 6 means that I have three tokens you can
-10:31
-think of one token as one word for Simplicity so let's say the three tokens are
-10:38
-the cat sleeps let's say these are my let's say
-10:45
-these are my three words then what we are essentially doing here is that we
-10:51
-are converting each of these words we are converting each of these words into six dimensional vectors so the will be a
-10:57
-six dimensional Vector which is the first row so which is the first row over
-11:02
-here so look at the first row over here this is the six dimensional Vector for the this is the six dimensional Vector
-11:09
-for cat and this is the six dimensional Vector for sleep so you'll see that this is a 1x 3x 6 for Simplicity I have taken
-11:17
-the batch size equal to 1 okay so this is a 1x 3x 6 tensor why
-11:23
-3x 6 because we have three rows here and we have six columns uh each row consists of six six
-11:30
-dimensional vectors so I hope you have understood how the input has been defined so here you can see the input
-11:36
-shape is B comma number of tokens comma input Dimensions so I hope you you have understood this okay now let's come to
-11:43
-the next step the next step is what we have to do is we have to essentially decide two things we have to decide what
-Decide output dimension, number of heads
-11:49
-our output Dimension is going to be and we have to determine the number of
-11:55
-Heads This output Dimension is basically we have the input input embedding Vector
-12:01
-for each token right ultimately we will get a context Vector for every token so
-12:06
-ultimately similar to this input embedding Matrix which is 3x which is 3x 6 we will have a context embedding
-12:13
-Vector which is three because we have three tokens multiplied by D
-12:21
-out so now we have to also decide what is D out which is the so each each token
-12:28
-will have a context vector what is the dimension of that Vector we have to decide so now I am deciding that D out
-12:34
-will be equal to 6 which is same as D in this is typically done in GPT based models the D in and the D out are the
-12:40
-same second thing we also have to decide is how many attention heads do we want to have so I have decided that we are
-12:48
-having two attention heads right now in GPT the number of attention heads are 96 and the D out is also pretty large but
-12:55
-exactly what we are doing right now can be scaled to a larger D out and larger number of heads okay so I'm using D out
-13:03
-is equal to 6 and number of heads equal to three so then each head will have a dimension which is called as head dim
-13:10
-and we'll look at that also later each each head will have a dimension of head dim which is equal
-13:19
-to head dim which is equal to essentially the D
-13:25
-out divided by the number of heads which is equal to 6 / 2 and that will be equal
-13:33
-to three so then the dimension of each head is equal to three and since there
-13:38
-are two heads the total D out will be equal to six okay so this is the second decision point the third decision point
-Initialize trainable key, query, value weight matrices
-13:45
-which I have to make is that I have to initialize or it's not a decision Point rather but it's the third step so the
-13:51
-third step which we have to do is initialize trainable weight matrices for the key query and the value so we have
-13:58
-to initi w k WQ and WV okay so remember that the
-14:06
-input which we have which for now can be thought to be six rows and three columns has to be multiplied sorry three rows
-14:13
-and six columns so the input is three rows and six columns so when you construct these trainable weight
-14:18
-matrices for the keys query and value their first Dimension has to be equal to D in because if you look at the input
-14:25
-Dimension the input the number of the last dimension of of the input is D in
-14:31
-and for these for d for this input to be compatible with this WK WQ and WV in
-14:37
-multiplication you need the first argument here to be equal to D in so actually the dimensions of the
-14:44
-trainable key query and value matrices are D in multiplied by D out which is 6
-14:50
-by 6 because D in is equal to 6 and D out is equal to 6 so we have to initialize the these three vectors these
-14:57
-three matrices rather and I have shown these random initializations here so you can see that WQ is a six diens or a 6x6
-15:05
-tensor WK is a 6x6 tensor and WV is a 6x6 tensor let us let me show you in
-15:13
-code where these matrices are actually initialized so if you look at the code these matrices are actually initialized
-15:19
-in the init Constructor so w query W Key and W value these are trainable weight
-15:26
-matrices as you can see the dimensions are D in D out and we are using the
-15:31
-linear layer of neural networks with the bias equal to zero to set the uh initial
+
 15:37
 values for these why do we use a neural network linear layer because it's optimized for initializing the weights
 15:43
@@ -992,6 +890,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
