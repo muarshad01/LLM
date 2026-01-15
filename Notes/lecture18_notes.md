@@ -45,8 +45,16 @@
 
 ***
 
+* 35:00
 
-35:41
+* __Step-8__: Find Attention Weights
+* Mask attention scores to implement Causal Attention
+* Divide by * $$\sqrt{\text{head-dim}} = \sqrt{\frac{d_{out}}{n_{heads}}} = \sqrt{\frac{6}{2}} = \sqrt{3}$$
+
+
+
+
+
 the scaled product between queries and the keys great so here it shown dot product
 35:48
 for each head now you'll understand why I'm saying each head because as I showed you before each head has number of
@@ -536,3 +544,4 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
