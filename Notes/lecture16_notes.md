@@ -119,6 +119,10 @@ upper triangular Matrix and a lower triangular Matrix which I'll just show over 
 essentially looks something like this where all the elements below the diagonal are zero so this is tryu in
 20:00
 Python tryu in Python yeah this is the upper
+
+
+***
+
 20:06
 triangular Matrix in Python and this is the lower triangular Matrix which is try
 20:11
@@ -228,6 +232,12 @@ tokens because the future tokens have already influenced the initial two values 
 Max that is what disadvantage of this approach we are we are employing soft Max here and then again what we are
 25:45
 doing is we are doing this kind of renormalization by U dividing with the
+
+
+***
+
+
+
 25:52
 sum so this leads to a data leakage problem why data leakage because the
 25:58
@@ -317,6 +327,12 @@ tensor I'll share this link with you what this uh function does is that uh it
 looks at the argument first so what's there inside is that we take this mask we take this mask Matrix and we find out
 30:31
 all of the places where the uh Matrix returns a positive or True Value and
+
+
+***
+
+
+
 30:36
 those are all the places which are above the diagonal right and we'll replace this so what this Mas field does is that
 30:44
@@ -422,6 +438,13 @@ will be masked it will be removed the fourth entry will be masked so only two en
 24 so here you can see over here 24 and point 24 are the only two entries
 35:59
 surviving in this row so essentially what the Dropout uh does in very simple terms is that it looks at rows and then
+
+
+***
+
+
+
+
 36:06
 it randomly switches switches off attention weights with a particular given
 36:12
@@ -520,6 +543,14 @@ Coding the Causal Attention Class in Python
 are going to see is uh implementing a causal attention class which incorporates causal attention and
 40:52
 Dropout into the self attention class which we have implemented earlier so to do this first I want you to have a
+
+
+***
+
+
+
+
+
 40:59
 visual understanding of what we are going to implement that will make understanding the code so much easier so
 41:05
@@ -610,6 +641,11 @@ you get the attention scores you multiply you take the queries and you multiply 
 2 uh let me explain this to you right now yeah so let me explain how this uh
 45:43
 queries and key transpose actually works so now the queries which I have will be
+
+
+***
+
+
 45:48
 in batches right so if you look at the first batch uh let's say these are the
 45:54
@@ -702,6 +738,12 @@ input in the batch we'll get a context Vector Matrix of size again we'll get a c
 there will be two context vectors of size 6x2 so the resultant answer should be 2x 6x2 it will be a 3D
 50:33
 threedimensional tensor let's see if that's indeed the case um so now here
+
+
+***
+
+
+
 50:38
 you can see that I've have passed in my batch of inputs and here are the context
 50:44
@@ -807,4 +849,4 @@ you understand the basics the theory as well as you implement the code thank you
 55:44
 next lecture where we'll cover multi-head attention in a lot of detail thanks everyone
 
-
+***
