@@ -1,7 +1,7 @@
 #### Implementing Multi-head Attention With Splits
 
 
-$$ Head dimension = \frac{d_out}{n_{heads}}$$
+$$ Head ~dimension = \frac{d_out}{n_{heads}}$$
 
 in the following
 0:22
@@ -1170,5 +1170,6 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
