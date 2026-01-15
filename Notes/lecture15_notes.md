@@ -2,6 +2,9 @@
 * (Key, Query, Value)
 * Scaled dot product
 
+* $$Y=\bigg(\frac{QK^T}{\sqrt{d}}\bigg)V$$
+
+
 ***
 
 5:00
@@ -233,4 +236,5 @@ print(sa_v2(inputs))
 * We'll be looking at multi-head attention, which is essentially splitting the attention mechanism into multiple heads.
 
 ***
+
 
