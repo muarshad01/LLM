@@ -1,10 +1,7 @@
 #### Multi-head Attention
-
-* We are going to study two types of multi-head attention mechanisms the first type is basically by just concatenating the context Vector matrices, which is obtained from different query key and value matrices and the second approach is a more unified approach, which is more commonly implemented in modern LLMs and modern code bases. 
-
-***
-
-* 5:00
+* We are going to study two types of multi-head attention mechanisms:
+1. The first type is basically by just concatenating the context Vector matrices, which is obtained from different $$W_q, W_k, W_v$$ matrices
+2. The second approach is a more unified approach, which is more commonly implemented in modern LLMs and modern code bases. 
 
 ***
 
@@ -99,4 +96,5 @@ print("context_vecs.shape:", context_vecs.shape)
 ```
 
 ***
+
 
