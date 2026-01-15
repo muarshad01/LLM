@@ -79,6 +79,11 @@
 
 * 55:00
 
+| LLM | Parameters | Attention heads | Embedding Size| 
+| ---| --- | --  | ---|
+| GPT-2| 117 million parameters | 12  | 768|
+
+
 understand all the details so congratulations if you have reached this lecture you have successfully understood
 55:11
 how the multi-head attention works and I think there are very few people who really understand this entire piece of
@@ -199,7 +204,3 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
-
-
-
-
