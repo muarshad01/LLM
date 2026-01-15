@@ -50,112 +50,14 @@
 * __Step-8__: Find Attention Weights
 * Mask attention scores to implement Causal Attention
 * Divide by $$\sqrt{\text{head-dim}} = \sqrt{\frac{d_{out}}{n_{heads}}} = \sqrt{\frac{6}{2}} = \sqrt{3}$$
+* Attention weights (1, 2, 3, 3) = (b, num_head, num_tokens, num_tokens)
 
 
+***
+
+* 40:00
 
 
-
-the scaled product between queries and the keys great so here it shown dot product
-35:48
-for each head now you'll understand why I'm saying each head because as I showed you before each head has number of
-35:54
-tokens comma number of tokens attention scores and for for one head it's here and for the second head it's below okay
-Finding attention weights
-36:01
-now we come to the next step the next step is to essentially find the attention attention weights okay so uh
-36:09
-if you look at this attention score over here right now you'll see that for every token there is an attention score with
-36:15
-respect to every other token right but that's not what's the mechanism in causal attention what causal attention
-36:21
-says is that when you look at the you should only look at the attention score between the and what comes before it so
-36:28
-the and the all the other elements here so let me show them with a different let
-36:33
-me first rub this uh so
-36:39
-that yeah so what causal attention mechanism dictates is that when you look
-36:44
-at the first word which is the only the attention score between the and what
-36:49
-comes before it should survive so all of this should go to zero if you look at
-36:55
-cat only the attention score of the Words which come before so the and Cat should survive this should go to zero
-37:01
-and when you look at sleeps attention scores of all Will Survive because all the words come before it this is what we
-37:07
-are actually going to implement next so to do that first what we are going to do is we are going to take the
-37:13
-attention scores which we have and replace all of the elements above the diagonal with negative
-37:19
-Infinity the reason we uh replace this with negative Infinity is because after
-37:24
-this point we are going to implement the soft Max function so that each row sums up to one and when we Implement soft Max
-37:31
-whatever is there in the infinity will automatically go to zero so it will kill it will kill two birds in the same Stone
-37:37
-we will implement the causal attention mechanism and we'll also make sure that all the rows sum up to one but before we
-37:44
-Implement soft Max we do one more thing we divide every single element here with the square root of the head Dimension
-37:51
-and this when we looked at the lecture for uh self attention we saw why this is done this is essenti to make sure that
-37:59
-the variance between the when we take the dot product between the queries and the keys the variance scales up with the
-38:06
-number of dimensions and to prevent the variance from blowing up we have to divide by the square root of the head
-38:12
-Dimension this also makes sure that the values in
-38:17
-the values before we compute the soft Max are not very high and that's generally useful for back propagation
-38:24
-and leads to stable gradients so what we'll be doing is that the head Dimension as we saw is three right
-38:31
-because the D out is equal to 6 and the number of heads is equal to 2 so each head Dimension is equal to three so
-38:38
-we'll divide this after replacing the elements above the diagonal with
-38:43
-negative Infinity we'll divide this with square root of 3 which is square root of head Dimension and that leads to this
-38:50
-Matrix over here or this tensor I should say and then we apply soft Max to this
-38:55
-tensor so we make sure that every row here sums up to essentially so if you
-39:00
-look at each row in this you'll see that it it's summing up to one and the reason it sums up to one is we are applying
-39:07
-soft Max so now I can make claims interpretable claims so when I say that when I look at the second token cat I
-39:13
-should pay 96% attention to the and I should pay 4% attention to cat when I
-39:19
-look at sleeps I should pay 4% attention to the I should pay 26% attention to cat
-39:26
-and I should pay pay 69% attention to sleeps remember these values are not optimized but when they are optimized uh
-39:34
-when we look at back propagation later uh the fact that these values sum up to one will carry meaning because we
-39:41
-can make interpretable statements such as what I was making right now remember that after we are going to apply soft
-39:47
-Max uh the attention weights have exactly the same dimensions as the attention scores which is going to be
-39:54
-the batch size number of heads number of token tokens and number of
-39:59
-tokens so this is the dimension of the attention weights which is 1A 2A 3A
-40:06
-3 uh so if you look closely to go from attention scores to attention weights we
-40:11
-actually M we actually have very we have a rich number of steps and it's
-40:17
-important for you to understand all of these first what we did is we applied a mask so that all elements above the
-40:23
-diagonal are negative Infinity then we divided by the square root of the the head Dimension then we applied soft Max
-40:30
-this is how we got the attention weights now let's see how that is done in the code H before that one thing usually we
-40:37
-can also Implement Dropout after this so you can mention a dropout rate which is actually one of the arguments in the
-40:44
-multi-ad attention class but here I'm not implementing Dropout for the sake of simplicity so if you look at the code
-40:51
-here we have got the attention scores the first step as I said is to create this mask and and then apply this mask
-40:58
 to the attention score so that all the elements above the diagonal are negative Infinity that's what this step is doing
 41:05
 uh here the mask actually has also been defined over here see this is the upper
@@ -544,5 +446,6 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
