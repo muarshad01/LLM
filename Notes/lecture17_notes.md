@@ -1,315 +1,28 @@
-Causal attention: concept recap
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch series up till now in the attention mechanism part we have covered the
-0:17
-following lectures first we covered the simplified self attention mechanism that was the first lecture in
-0:24
-this series on attention mechanisms then we looked at self attention with training enable weights and in the last
-0:31
-lecture we looked at causal attention now we have enough ammunition and and
-0:37
-enough training to finally start understanding about the multi-head attention
-0:42
-mechanism as I've mentioned previously if you directly start understanding the multi-head attention
-0:48
-it will be very difficult to understand because it is fairly detailed mathematically as well as coding wise
-0:56
-but now I believe that we have developed a strong Foundation if you watched the previous lectures I believe that with
-1:03
-the understanding of simplified self attention self attention and causal attention we can use these as building
-1:09
-blocks to truly understand multi-head attention in this series we are going to
-1:15
-study two types of multi-head attention mechanisms the first type is basically
-1:20
-by just concatenating the context Vector matrices which is obtained from
-1:26
-different query key and value matrices and the second approach is a more
-1:31
-unified approach which is more commonly implemented in modern llms and modern code bases so I'll be dividing this
-1:39
-lecture into two parts in the first part we'll be looking at the first type of multi-head attention mechanism so let's
-1:46
-get started before diving into multi-head attention I just want to briefly cover um what all we looked at
-1:53
-in the causal attention mechanism if you have not seen the causal attention mechanism video I highly encourage you
-2:00
-to go through that because multi-head attention is just an extension of the causal attention
-2:06
-mechanism awesome so the way causal attention works is as follows we have
-2:11
-inputs which basically are input embedding vectors corresponding to every single token which we have so if the
-2:18
-tokens are your journey starts with one step we have threedimensional Vector embeddings for each of these tokens
-2:25
-these Vector embeddings can be represented in a three-dimensional Vector space as can be shown here the
-2:31
-goal of causal attention multi-head attention and any type of attention mechanism is to start with these input
-2:37
-embedding vectors and convert them into context vectors context vectors are a more
-2:43
-enriched form of input embedding vectors the input embedding vectors contain semantic meaning of the particular word
-2:50
-but do not carry any information about how that word is related to the other words in the sequence so for example if
-2:57
-you look at the input embedding for journey it does capture some semantic meaning of Journey but it does not
-3:03
-really encode any information about when you look at Journey how much attention should be paid to the other words such
-3:10
-as step such as your um such as with and such as one the context Vector encodes
-3:18
-this information also and that's why it's an enriched representation as
-3:23
-compared to the input embedding Vector okay so the first step is to
-3:28
-basically take the inputs and multiply them with trainable weight matrices we have three trainable weight matrices one
-3:35
-for the queries one for the key and one for the
-3:41
-values so the if you look at the input Matrix and its Dimensions we have six tokens here and then the vector
-3:48
-embedding size so 6x3 the trainable weight matrices have the First Dimension is fixed the First
-3:54
-Dimension has to be equal to the vector embedding size but their second dimension is what will refer to in
-3:59
-today's lecture also as the output Dimension and then when you multiply the inputs with these three trainable weight
-4:06
-matrices for query key and value you get the queries the keys and the values
-4:12
-Matrix so the dimensions of the queries key and the value Matrix will be the number of tokens multiplied by the
-4:19
-output Dimension and the output Dimension is determined by this trainable weight matrices now note that
-4:26
-when you initialize these trainable weight matrices their parameters are Rand om uh we will train these
-4:32
-parameters and optimize them through back propagation in these attention series these four to five lectures we
-4:38
-are not looking at back propagation we'll cover that later right now the whole goal is to understand different
-4:44
-attention mechanisms like causal attention multi-head attention Etc the next step in the causal
-4:50
-attention mechanism after getting the queries keys and values is to essentially compute the attention scores
-4:56
-so the attention scores are computed by the multiplication of queries multiplied by the keys
+#### Multi-head Attention
 
-
+* We are going to study two types of multi-head attention mechanisms the first type is basically by just concatenating the context Vector matrices, which is obtained from different query key and value matrices and the second approach is a more unified approach, which is more commonly implemented in modern LLMs and modern code bases. 
 
 ***
 
-
-
-
-
-
-
-
-
-5:02
-transpose so uh the way to interpret the attention score Matrix is you look at
-5:08
-each individual row so you'll see that there are six rows and six columns right so if you look at the second row the
-5:15
-second row corresponds to the second token which is Journey so your your journey begins with one step so the
-5:21
-second row corresponds to journey and each element in the second row basically
-5:27
-encodes information about how much that particular token relates to Journey or
-5:33
-how much importance should we pay to that particular token or input embedding when we are looking at Journey so for
-5:40
-example this third token this third value encodes the attention between journey and the third third token which
-5:47
-is your Journey Begins so this is begins and journey this is Journey and with
-5:52
-this is Journey and one and this is Journey and step so basically uh here you can see
-5:59
-that uh the attention scores are essentially uh there for every query and
-6:07
-then you multiply queries with the keys transpose and this value encodes information about when you're looking at
-6:14
-a query how much information should be paid to a particular key right this is
-6:20
-the meaning of the attention scores in the causal attention mechanism we do what we do is that we take these
-6:26
-attention scores and we look at all the attention scores above the diagonal and
-6:32
-we make these attention scores above the diagonal to be equal to zero so let me just show you how that looks
-6:39
-like so let's say uh we have got the attention scores and let me show it here
-6:45
-so let's say we have got the attention scores and they look something like something like this um actually let me
-6:52
-show it here itself the attention scores which we have obtained looks something like this
-6:58
-right but you can see that if you look at the second uh if you look at the
-7:04
-second row which is the second row for Journey you will see that Journey has an
-7:09
-attention score with all the other words now in causal attention what we say is that we should only look at Words which
-7:15
-come before Journey so finally when we compute the attention weights when we compute the attention
-7:22
-weights uh all the elements above the diagonal should be equal to zero let me
-7:27
-show you what that means so so here is how the attention weights for a causal attention mechanism actually look like
-7:33
-yeah like these and uh if you if you don't implement the causal attention mechanism
-7:40
-then the attention scores look like something on the left attention weights look like something on the left which I'm showing here but when you implement
-7:47
-the causal attention mechanism all the attention weights Above This diagonal will be essentially Switched Off why
-7:53
-because if you're looking at Journey you should only pay attention to what comes before Journey your and journey if you
-7:58
-look at starts you should pay attention to your journey and starts remember since we are predicting the next word
-8:05
-Only The Words which come before a particular would really matter and that's what's implemented in the causal
-8:11
-attention mechanism so we implement this and we get the attention weights like what I
-8:16
-showed you below which are zeroed out above the diagonal and then we multiply the attention weights with the
-8:22
-values uh when we multiply the attention weights with the values we get the context Vector Matrix which looks
-8:28
-something like this so now this context Vector Matrix has six rows because one for every token and it has two columns
-8:35
-which are dictated by the output Dimension which we have two in this case so the input embedding Vector for
-8:43
-every token here which was mentioned over here is ultimately converted into a
-8:49
-context Vector Matrix which looks like this that's the whole idea behind causal
-8:55
-attention so the only difference between causal attention and normal self attention is that in causal attention
-9:00
-these attention weights right all the elements above the diagonal of these attention weights will be set to zero
-9:06
-and the rows of the attention weight Matrix will anyway sum up to one we will ensure that and these attention weights
-9:12
-will then be multiplied with the values Matrix to get the context Vector Matrix that's essentially what is happening in
-9:18
-the causal attention now there is a provision in the causal attention mechanism where we
-9:23
-can do batch where we can process batches so when we input the first batch the first batch has six words your
-9:30
-journey starts with one step right this is the inputs but the causal attention class which we developed in the previous
-9:36
-lecture also can handle the second batch which also let's say has six tokens so
-9:41
-for the first batch the output is the context Vector Matrix which is a 6 by2 Matrix as you can see here and for the
-9:48
-second batch there is another context Vector Matrix which is 6x2 let me show you the the the causal
-9:57
-attention class which we developed in the prev previous lecture so this was the causal attention class which we have
-Causal attention class: code recap
-
+* 5:00
 
 ***
 
-10:03
-let me quickly revise it right now the input X which is the input to the causal
-10:08
-attention class has the shape of batch size comma number of tokens comma the input Dimensions so batch size because
-10:16
-we can have two batches so if you look at these two batches which I have shown here right now
-10:23
-um yeah so I've shown batch one and batch two over here and now let's look
-10:28
-at the input if you look at the input for the first batch it's 6x2 right it's
-10:33
-6x3 whereas if you look at the input for the second batch that is also 6x3 so
-10:39
-when you aggregate these batches together the input Dimensions will be
-10:44
-um the input Dimensions will actually be 2 2 multiplied
-10:52
-by 2 * by 6 * 3
-11:00
-2 * 6 * 3 that is actually the input Dimension which is also being mentioned
-11:06
-over here so the input. shape is the number of batches which is if it's two number of tokens which is six and the
-11:12
-input Dimension which is three then what we do is we multiply the input with the trainable key query and value Matrix and
-11:20
-finally we get the keys queries and values so remember W key W query and W
-11:25
-value are the weight matrices for the key query and value which we have to optimize and then after multiplication
-11:31
-of the inputs with these weight matrices we get the keys queries and the value what we do then later is we get the
-11:38
-attention scores by multiplying the queries with the keys transposed then we apply a mask so that we implement the
-11:46
-causal attention remember we need to make sure that when we get the attention WS all the elements above the diagonal
-11:52
-are zero I explained all of this in the previous lecture so I'm not going through the details right now and then
-11:58
-finally we apply soft Max to the attention scores and get the attention weights we can also add another layer
-12:04
-which is the Dropout layer towards the end but that's not strictly necessary and the last step is then multiplying
-12:10
-the attention weights with the values to get the context Vector now uh remember
-12:15
-the we had two batches right and the input size was 2A 6A 3 and ultimately
-12:21
-when you let's say Implement when you create an instance of this class let's say I'm creating an instance of this class and storing it in C A so I have to
-12:30
-specify D in which is three D out which is two the context length which is my number of tokens in this case that's six
-12:38
-and the dropout rate that's zero and then we can get the context vectors
-12:43
-remember we have two batches so we have two sets of context vectors the first set will be a tensor which is 6x2 why
-12:50
-will it be 6x2 because that's exactly what we had seen on this white board also um you can take a look at this
-12:56
-context Vector which we had obtained ultimately yeah the final context Vector which we obtained is 6x2 and there are two such
-13:03
-context vectors right so ultimately the context Vector shape which we get out is 2 comma 6 comma 2 so that makes sense
-13:10
-with what we had seen on the white board this is the causal attention class which we had implemented in the last lecture
-13:15
-and a quick summary of how it works now what we are going to do is we are going to extend this causal
-What is multi-head attention?
-13:21
-attention class a bit into something which is called as the multi-head attention mechanism so the term multi-head
-13:29
-essentially refers to dividing the attention mechanism itself into multiple
-13:34
-heads um and each head will be operating independently to give you a
-13:41
-understanding related to code when we get the attention scores here right now or the attention weights from one set of
-13:48
-query key and value we say that this is one head this is one attention head right we are not decomposing into
-13:56
-multiple query keys and values there is only one query Matrix one there is only
-14:01
-one Keys Matrix one queries Matrix and one values Matrix so we have one attention head what multiple what multi-head
-14:08
-attention does is that it extends the causal attention mechanism so that we have multiple heads and each of these
-14:15
-heads will be operating independently um and then what we do in
-14:21
-multi-head attention is we basically stack multiple single attention head layers
-14:26
-together so what we'll simply do is that we will create multiple instances of the
-14:32
-causal self attention mechanism each with its own weights and then combine their outputs it's actually very simple
-14:39
-what the output which we had obtained before for one attention head we'll just combine them together and I'll show you
-14:45
-how it can be done so as you might have expected this can be a bit computationally intensive but it makes
-14:51
-llms powerful at complex pattern recognition tasks so researchers have
-14:57
-found out that although when you stack multiple heads the computations which need to be made increase it really helps
+* 10:00
 
+* What is multi-head attention?
+
+* The term multi-head essentially refers to dividing the attention mechanism itself into multiple heads. Each head will be operating independently to give you a understanding related to code. When we get the attention scores here right now or the attention weights from one set of query key and value, we say that this is one head this is one attention head right. We are not decomposing into multiple query keys and values.
+* There is only one query Matrix.
+* There is only one Keys Matrix and one values Matrix.
+* What multi-head attention does is that it extends the causal attention mechanism so that we have multiple heads and each of these heads will be operating independently.
+* Then what we do in multi-head attention is we basically stack multiple single attention head layers together so what we'll simply do is that we will create multiple instances of the causal self attention mechanism each with its own weights and then combine their outputs.
+*  It's actually very simple what the output which we had obtained before for one attention head we'll just combine them together and I'll show you how it can be done so as you might have expected this can be a bit computationally intensive but it makes llms powerful at complex pattern recognition tasks so researchers have found out that although when you stack multiple heads the computations which need to be made increase it really helps
 
 ***
 
+* 15:00
 
-15:05
 llm perform much better and when you look at Chad GPT right now it does have multiple attention heads it none of the
 15:12
 modern llms work with a single attention head so let me show you what it means by stacking multiple attention heads
@@ -645,4 +358,5 @@ lecture which we have planned because I I take a Hands-On example um with actual
 values in matrices and I show you how to actually compute exactly the multi-ad attention from start to finish thank you
 32:12
 so much everyone I hope you enjoying these lectures I look forward to seeing you in the next lecture
+
 
