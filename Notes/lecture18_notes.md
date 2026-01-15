@@ -12,7 +12,7 @@
 
 * __Step-2__: Decide d_out, num_heads = (6, 2)
   * Usually d_out = d_in
-  * $$head-{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
+  * $$\text{head-dim} = \frac{d_{out}{num_{heads}$$ = 6/2 = 3
 
 * __Step-3__: Initialize trainable weight matrices for key, query, and value $$(W_k, W_q, W_v)$$ = (d_in, d_out) = 6 x 6
 
@@ -890,6 +890,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
