@@ -8,18 +8,14 @@
 
 #### Example
 * __Step-1__: b, num_tokens, d_in = (1, 3, 6)
-* context_vector = 3 x d_out
-
-***
-
-* 10:00
+  * context_vector = 3 x d_out
 
 * __Step-2__: decide d_out, num_heads = (6, 2)
-* Usually d_out = d_in
-* $$ head_{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
+  * Usually d_out = d_in
+  * $$head_{dim} = \frac{d_{out}}{num_{heads}}$$ = 6/2 = 3
 
 * __Step-3__: Initialize trainable weight matrices for
-* key, query, and value $$(W_k, W_q, W_v)$$
+  * key, query, and value $$(W_k, W_q, W_v)$$
 
 
 
@@ -996,6 +992,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
