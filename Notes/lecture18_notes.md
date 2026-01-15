@@ -96,6 +96,10 @@ two multiplied by the number of heads so this D out is already specified before
 so the weight Matrix for the queries keys and the values which we specify already will kind of include the head
 4:53
 Dimension and then we when we get the queries keys and values we'll split them based on the number of heads so here we
+
+
+***
+
 5:00
 can see where we split the queries Matrix into two q1 and Q2 because there are two heads so ultimately the rest of
 5:07
@@ -193,6 +197,10 @@ explain every single line here step by step so first the forward method takes th
 input looks like and what it means so the first step to the attention make the
 9:57
 multi-ad attention with weight splits that code or the multihead attention class is that we have to start with the
+
+
+***
+
 10:04
 input the way we will specify the input is that the input has three dimensions the First Dimension is the batch the
 10:11
@@ -1165,3 +1173,4 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
