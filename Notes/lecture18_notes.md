@@ -4,7 +4,12 @@ $$ Head ~dimension = \frac{d_{out}}{n_{heads}}$$
 
 ***
 
-5:00
+* 5:00
+
+#### Example
+* __Step-1__: $$b, num_tokens, d_in = (1, 3, 6)$$
+
+
 can see where we split the queries Matrix into two q1 and Q2 because there are two heads so ultimately the rest of
 5:07
 the procedure will remain the same but we are just reducing the number of Matrix multiplications so if you look at this
@@ -104,6 +109,16 @@ multi-ad attention with weight splits that code or the multihead attention class
 
 
 ***
+
+
+
+
+
+
+
+
+
+
 
 10:04
 input the way we will specify the input is that the input has three dimensions the First Dimension is the batch the
@@ -1077,6 +1092,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
