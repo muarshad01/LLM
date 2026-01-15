@@ -22,110 +22,17 @@
 * 15:00
 
 * __Step-4__: Calculate Keys, Queries, Values Matrices $$(W_k, W_q, W_v)$$ = (d_in, d_out) = 6 x 6
-* Input X $$W_k$$, Input X $$W_q$$, Input X $$W_v$$
-* Input = (1, 3, 6) = (b, num_tokens, d_out)
-* $$W_k = W_q = W_v = (6, 6)$$
+  * Input X $$W_k$$, Input X $$W_q$$, Input X $$W_v$$
+  * Input = (1, 3, 6) = (b, num_tokens, d_out)
+  * $$W_k = W_q = W_v = (6, 6)$$
 
-values for these why do we use a neural network linear layer because it's optimized for initializing the weights
-15:43
-so it's much better when we do the back propagation later so this is where the
-15:49
-the trainable weight matrices for query key and value are initialized in the init Constructor so it's called by
-15:55
-default when we create or it's these Matrix are created by default when we create an instance of the multihead
-16:02
-attention class all right so up till now we have essentially initialize these trainable
-16:08
-weight matrices w k WQ and WV Now we move to step number four step number
-Calculate the key, query and value matrices
-16:14
-four is the step from which computations actually start so we have the input now right and uh we have the these matrices
-16:23
-we have trainable Keys the trainable queries and the trainable values what
-16:28
-we'll now be doing doing is that we will multiply the input with these matrices to ultimately get the keys the queries
-16:35
-and the values so what are the dimensions of the input the dimensions of the input are
-16:42
-one one M uh me just write this again the
-16:48
-dimensions of the input are 1 multiplied by 3 because we have three rows
-16:53
-multiplied by six columns correct and the dimensions of each of
-17:00
-these qu key query and value trainable weight matrices are six which is D in
-17:06
-multiplied by 6 which is D out so when you multiply the input with
-17:12
-these weight matrices the result which you'll get is 1x 3x 6 so you'll get the
-17:18
-keys you'll get the keys Matrix which is 1x 3x 6 you'll get the queries Matrix
-17:23
-which is 1x 3x 6 and you will also get the values Matrix here which is 1x 3x
-17:28
-six let's try to understand what this 1 3 and six is so I as I've written over
-17:34
-here one is the batch size which we are taken to be one three is the number of
-17:40
-tokens because we have three tokens and D out is basically the output Dimension
-17:46
-so the way to interpret these keys saries and value Matrix is that each row
-17:51
-basically corresponds to one token so the first row corresponds to the first token the second row corresponds to the
-17:57
-second token and the third row corresponds to the third token and there are six dimensions in each row because
-18:04
-each token is a six dimensional representation because D out is equal to
-18:09
-6 now let me show you in the code where this is calculated so if you go down below here
-18:16
-you see the keys queries and values what we have done is that we have passed in the input to this neural network linear
-18:23
-layer so what this does is that the trainable weight mates for the key query and value are applied on this input and
-18:29
-we get the keys queries and the value Matrix as we saw on the Whiteboard the shape of this is B which is the batch
-18:35
-size the number of rows is equal to the number of tokens and the number of columns is equal to the D out which is
-18:42
-equal to six okay now we move to the next step
-18:47
-and this is the step where four dimensional tensor start to come into the picture right so until now we have
-18:53
-three dimensional tensors for the keys queries and values right why the fourth dimension needs to
-19:00
-come into the picture is that until now these three dimensions are for batch size number of tokens and D out but
-19:06
-there is no dimension for the number of heads uh or the head Dimension rather so
-19:12
-this is where we come to next so what we are now going to do is that we are going to unroll the last dimension of the keys
-Unroll key, query, value dimensions to include num_heads
-19:20
-queries and values to include the number of heads and the head Dimension what
-19:25
-this means is that if you look at this last dimension of the keys here in fact even for queries and values this is D
-19:31
-out right and D out is essentially number of heads into head Dimension as we have seen earlier so let me take you
-19:38
-yeah so here remember what we saw head Dimension is equal to D out divided by
-19:44
-number of heads so D out is equal to head Dimension multiplied by the number of
-19:50
-heads so that's what we are actually going to do we are going to unroll the last dimension of the keys saries and
-19:56
-values to include number of heads and head Dimension right so we have D out which is equal to 6 which is a decision
-20:02
-which we have made and we have also made a decision with respect to the number of attention heads which is equal to two So
-20:08
-based on these two decision points the head Dimension is fixed and the head Dimension will be
-20:14
-equal to 6 / 2 which is equal to 3 so what we are going to do next is that we
-20:19
-had this 1X 3x 6 matrices right for the key SAR and value now we are going to
-20:24
-roll them into 1 by 3 by 2 by 3 so now instead of D out we will have
-20:31
-number of heads which is equal to two and head Dimension which is equal to
-20:40
+* __Step-5__: Unroll last dimension of Keys, Queries, and Values to include num_heads and head_dim
+  * $$\text{head-dim} = \frac{d_{out}}{num_{heads}} =\frac{6}/{2} = 3$$
+  * (b, num_tokens, d_out) = (b, num_tokens, num_head, head_dim)
+  * (1, 3, 6) = (1, 3, 2, 3)
+
+***
+
 three so let's see what the reshaped keys queries and values Matrix actually look like uh so when you reshape the
 20:48
 keys queries and value Matrix they start looking like this and I'll tell you how to interpret four dimensional tensors
@@ -895,6 +802,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
