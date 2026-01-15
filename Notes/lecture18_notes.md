@@ -1,12 +1,9 @@
-ulti-head attention recap
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:11
-scratch Series this is the second part of the multihead attention lectures in
-0:17
-the previous part we looked at implementing multi-head attention in the following
+#### Implementing Multi-head Attention With Splits
+
+
+$$ Head dimension = \frac{d_out}{n_{heads}}$$
+
+in the following
 0:22
 way what we did is that we had the input tokens so let me show you this figure
 0:30
@@ -1173,4 +1170,5 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
