@@ -100,6 +100,14 @@ so the attention scores are computed by the multiplication of queries multiplied
 
 ***
 
+
+
+
+
+
+
+
+
 5:02
 transpose so uh the way to interpret the attention score Matrix is you look at
 5:08
@@ -637,3 +645,4 @@ lecture which we have planned because I I take a Hands-On example um with actual
 values in matrices and I show you how to actually compute exactly the multi-ad attention from start to finish thank you
 32:12
 so much everyone I hope you enjoying these lectures I look forward to seeing you in the next lecture
+
