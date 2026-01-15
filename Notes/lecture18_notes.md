@@ -33,192 +33,19 @@
 
 ***
 
-three so let's see what the reshaped keys queries and values Matrix actually look like uh so when you reshape the
-20:48
-keys queries and value Matrix they start looking like this and I'll tell you how to interpret four dimensional tensors
-20:54
-also so for the sake of Simplicity uh let's first analyze the queries Matrix
-20:59
-so this Matrix is 1x 3x 2x 3 how do you Analyze This four dimensional tensor for
-21:06
-now forget about the first which is the number of batches okay so next look at
-21:11
-three so this three is the number of rows so this is my first row and uh this is my first token also
-21:18
-right this is my second token and this is my third token correct that's why
-21:25
-there there is this three now let's look at this two what is this two this two is the number
-21:31
-of heads so if I go in each token right now let's see if I go in first if I go in the first token the first row
-21:37
-corresponds to the first head and the second row corresponds to the second head that's why there is this two and if
-21:43
-I go within each head I'll see that there is there are three dimension the First Dimension the second dimension and
-21:50
-the third dimension so remember the head Dimension is equal to three so the way to interpret this Matrix is start from
-21:57
-the outermost value so three why three because there are three tokens then go to each token why two because there are
-22:04
-two heads in each token then go within each head why three because the dimension of each head is three each
-22:10
-head is a three dimensional Vector so in this same way we can analyze the queries the keys and the
-22:16
-value Matrix also so the keys Matrix will also be uh 1X 3x 2x3 and the values
-22:24
-Matrix will also be 1X 3x 2x 3 as I mentioned before let me repeat it again
-22:29
-each row over here is a token so if you look at the value Matrix let's look at the second row the second row
-22:35
-corresponds to the second token if you now look at the first row of the second
-22:41
-row this that is the threedimensional head Vector for the first head if you
-22:48
-look at the second row that's the three-dimensional head Vector for the second head remember every token has two
-22:54
-attention heads so you can think of as two people paying attention to each token token because we have two
-22:59
-attention heads that's why there are two rows corresponding to every token now if we come to the code this
-23:06
-line has been mentioned over here so see we have to unroll the last Dimension so now the D out will be replaced with the
-23:14
-number of heads and head Dimension so this is exactly what has been done over here keys. view so now keys will be
-23:21
-replaced with keys do view B common number of tokens common number of heads and head Dimension this is exactly
-23:29
-uh what we we just saw on the Whiteboard so in this step the three dimensional tensors have been converted into four
-23:35
-dimensional tensors to include the number of heads and the head Dimension great now we move to the next step so if
-23:43
-you see uh if you see this let's look at this argument which is
-23:48
-three um so the shape of this is 1A 3A 2 comma 3 right now let's look at this
-23:55
-first this this entry this is three now this three is the number of tokens
-24:02
-which means that currently these matrices are grouped according to number of tokens right so I'm saying that this
-24:08
-is the first token this is the second token and this is the third token and then I further dive into
-24:15
-number of heads and the dimensions in each head but it turns out that later when we want to compute the attention
-24:21
-scores the only way the computation can proceed ahead is if we Group by the number of heads so instead of grouping
-24:27
-by the number number of tokens I actually want to group by the number of heads and we have two heads here right
-24:34
-so I want to flip these Dimensions I want to flip these Dimensions here so that the first row
-24:41
-represents the first head the second will represent the second head and each will have a 3X3 let me show you what I
-24:47
-mean so now what we are going to do is we are going to group The matrices by the number of heads okay so currently
-Group matrices by number of heads
-24:54
-the keys queries and the values Matrix have the dimensions of one which is the batch three which is the number of
-25:00
-tokens two which is the number of heads and three which is the head Dimension so
-25:06
-we are grouping with respect to the number of tokens but now I want to group with respect to number of heads so again
-25:13
-I want to switch the dimensions to be I want to switch this this
-25:18
-to uh let me write it again yeah I want to switch this two
-25:24
-with three and this three should come over here so I want the the matri to have the dimensions of B comma number of
-25:31
-heads comma number of tokens and head Dimension so I want the dimensions to be 1 comma 2 comma 3 comma 3 so what I'm
-25:38
-going to do in the code also you'll see we are going to transpose keys quaries and value and we are going to transpose
-25:44
-one comma 2 now why do we do one comma 2 over here because python has zero indexing so index zero is this since we
-25:51
-want to Interchange the number of tokens and the number of heads the indexes which we need to transpose are index
-25:57
-number one and index number two that's why we are doing Keys queries and value and transpose 1A 2 so let's see what the
-26:05
-result actually looks like so when you when you make the 1A 3A 2A 3 to 1A 2
-26:11
-comma 3A 3 now the transposed queries keys and Valu start looking like this
-26:16
-and now you will see that they are grouped by head so the first thing what we can do is that let's look at this
-26:21
-block in the queries so we are analyzing the queries Matrix now the shape of the queries Matrix is what
-26:29
-1 comma let me write it here again 1 comma
-26:35
-2 comma 3 comma 3 right that is the essentially
-26:45
-the shape of the queries Matrix and we are going to analyze this so let's start with this two which is the number of
-26:52
-heads so if you look at the first block here uh let me erase this right now now
-26:58
-and then draw it again yeah so if you look at the first block over here which are marking with these curly braces
-27:04
-that's the first head if you look at the second block here that's the second head so see now this two because this two
-27:11
-comes over here now we can group with respect to number of heads so the first block shows everything with respect to
-27:17
-head one and the first row over here is the first token the second row over here is the second token and the third row
-27:23
-over here is the third token similarly if you look at head number two the first row is the first token the second row is
-27:30
-the second token and the third row is the third token so now we have the dimensions as
-27:37
-number of tokens and head Dimensions come last so each token if you see each
-27:42
-token has a three dimensional Vector because the head Dimension is equal to three so the the reason this helps is
-27:49
-because since we can now group with respect to heads we can compute the attention score for each head separately
-27:56
-so remember there is one attention score there are there is an attention score Matrix for the head one and there is an
-28:02
-attention score Matrix for the head two and then we we are going to U concatenate them together right so it
-28:08
-makes sense to group with respect to the head and that's why this step exist this keys. transpose it's very difficult for
-28:16
-students to understand this unless you see this visual example of why we are essentially doing this transpose the
-28:22
-main reason we do do this transpose is that here you see we are grouping with respect to uh
-28:29
-we are grouping with respect to number of tokens here but that's not good if you want to compute the attention scores
-28:35
-for each head parall so we group with respect to number of heads so that's why it's important to flip number of tokens
-28:41
-and number of head Dimension and that's exactly what we have done okay now let's
-Finding attention scores
-28:46
-go to the next step the next step is to find the attention scores so remember now we have the uh we have the queries
-28:54
-Matrix we have the keys Matrix and we have the values Matrix in exactly the shape which we want so now we can do uh
-29:01
-we can go ahead and find the key queries and the keys transpose to get the
-29:06
-attention score so let me show you how this is done first let me rub all of
-29:13
-this
-29:20
-okay okay so now I have rubbed all of this so what we are now essentially going to do is that um this is the
-29:28
-head number one right this is the head number one of the queries and this is the head number one of the keys so what
-29:35
-this this shape will help us do is that when we do queries multiplied by Keys transpose it will
-29:41
-directly uh take the equivalent product of head one of the queries with head one
-29:46
-of the keys and then head two of the queries and head two of the keys but remember when we take the keys
-29:53
-transpose what's really important to us is that now the shape of the keys is B B common number of head is common number
-29:59
-of tokens and head Dimension so what it's really important to us is number of tokens and head
-30:05
-Dimension so remember the formula for calculating the attention score is
-30:11
-queries multiplied by Keys transpose right so here also we are going to do queries with respect to Keys transpose
-30:17
-but what exactly do we have to transpose we have to transpose uh we have to transpose this
-30:24
-so we have to transpose the last two dimensions and let me show you what that transposed key Matrix looks like yeah so
-30:31
-this is the transposed key Matrix now here you can see the key Matrix uh if you see the first row it's
-30:39
+* __Step-6__: Group matrices by number of heads
+  * (b, num_tokens, num_head, head_dim) -> (b, num_head, num_tokens, head_dim)
+  * (1,3,2,3) = (1,2,3,3)
+
+
+* __Step-7__: Find Attention Scores
+
+***
+
+* 30:00
+
+
+
 4143 -1. 423 and - 2.71 31 right so when we do
 30:47
 Keys transpose Keys transpose 2 comma 3 it will transpose along the last two Dimensions so now that that row which we
@@ -802,6 +629,7 @@ them for a longer period of time I hope you all are enjoying these lectures than
 forward to seeing you in the next next lecture where we'll actually start building the llm model thanks a lot
 
 ***
+
 
 
 
