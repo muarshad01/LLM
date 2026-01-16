@@ -10,7 +10,7 @@
 
 | Model| Parameters | Model Dimension | Layers (Transformer Blocks)| Weights| Vocab Size| Context Length| 
 |---|---|---|---|---|---|---|
-| GPT-2 | 124 Million | 768 | 12 | public | 50,257| 2,024|
+| GPT-2 (Small) | 124 Million | 768 | 12 | public | 50,257| 2,024|
 | GPT-3 |  |  |  | NOT public ||
 | GPT-4 |  |  |  | NOT public ||
 
@@ -18,98 +18,6 @@
 
 * 15:00
   
-the bite pair encoder toker to tokenizer which is subword tokenization scheme but
-15:51
-for the sake of this lecture if I use word and token interchangeably it's because it's good for intuition the
-15:58
-second thing is the embedding Dimension now every token in this vocabulary which we have will be projected into a vector
-16:04
-space such as this so for example the tokens are your journey starts with one step here is a three-dimensional Vector
-16:12
-representation of every single token right um and the embedding should be
-16:18
-such that the meaning is captured so for example if journey and starts are more similar in meaning they would be closer
-16:25
-together in this embedding space so this is a three-dimensional embedding embedding space in gpt2 we are using a
-16:31
-768 dimensional embedding space it's very difficult to show this over here but you can imagine a 768 dimensional
-16:38
-embedding space in which the words are projected now if you are thinking how do we learn about these projections how do
-16:44
-we know which Vector Journey corresponds to now that's also trained in gpt2 when
-16:50
-we look at the Transformer block you'll see that the embedding itself is not fixed we are going to train the
-16:56
-embedding layer so that uh every word is embedded correctly so that semantic
-17:02
-meaning is captured the next thing is the number of heads and these are the number of attention heads which are
-17:08
-equal to 12 so if you look at this diagram over here I told you that multiple queries keys and values Matrix
-17:15
-matrices are created right so the more the number of attention heads the more the number of these matrices are created
-17:22
-so if we have 12 attention heads it means there will be 12 such queries keys and value matrices so here the number of heads is
-17:30
-12 number of layers is the number of Transformer blocks remember this is different than the number of attention
-17:35
-heads number of layers is how many such layers are we going to have so this is one one Transformer block layer and it
-17:43
-includes multi-ad attention so within this one layer there will be 12 attention heads but in terms of these
-17:50
-Transformer blocks itself there can be 12 blocks so it's not necessary that the
-17:55
-number of layers and number of heads are similar here we are using 12 Transformer blocks
-18:02
-U which will which will see later how they are stacked up together okay so number of layers is 12
-18:08
-then drop rate is basically the dropout rate and uh query key value bias is or Q
-18:15
-KV bias is the bias term when we initialize the query key and the value matrix by default this is always set to
-18:23
-false okay so the number of Transformer blocks one more thing which I want to mention here is is that we are looking
-18:29
-at the gpt2 small model which use 12 transform which uses 12 Transformer blocks right but as we saw over here
-18:36
-they had four models of gpt2 so if you go from left to right here you'll see small the medium has 24 transformer
-18:43
-blocks the large has 36 Transformer blocks and the largest which is extra
-18:49
-large that has 48 Transformer blocks and you'll see that the dimensionality also increases from left to right we are
-18:56
-using 768 Dimension gp22 small but if you go from left to right you'll see that 10241 1280 and finally the gpt2
-19:03
-extra large has a dimensionality of 1600 okay so I hope you have understood
-19:10
-this this configuration and what we are now going to do is that now I'm going to take you
-19:15
-to code and I'm going to build a GPT placeholder architecture what does this mean this
-19:22
-basically means that whatever I showed you over here right this thing this
-19:27
-thing whatever I showed you I know that you have not yet understood the layer normalization the shortcut connection
-19:34
-even the Transformer block what it exactly has has what the speed forward neural network is what the JLo
-19:39
-activation is right now what I want to do is I just want to create a skeleton for our code where these different
-19:45
-blocks will come in together we'll code them later in subsequent parts and we'll have a separate lecture for each of them
-19:51
-but right now we'll build a GPT placeholder architecture which will also called as the dummy GPT model
-19:59
-this will actually give a bird's eyee view of how everything fits together so here I have shown a bird's eye and this
-20:05
-is a bird's eye view so the reason this Birds Eye is again very important is that you'll see what we are planning to
-20:11
-do in the subsequent lectures and that's why the skeleton is very important especially for a complicated topic like
-20:17
-the llm architecture where multiple things have to fit in together first let's zoom out and see what all has to
-20:23
-fit in together and then in subsequent lectures we'll start coding it out so I'm going to take you to code right now
-Begin coding the GPT-2 architecture
-20:29
-this is the GPT configuration 124 million parameters which we are going to use so let's jump right into
-
-
 ***
 
 * 20:00
@@ -653,6 +561,7 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
 
 
