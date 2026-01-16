@@ -98,6 +98,11 @@ for every token were then converted into context vectors through M MK multi-head
 attention so the main aim of attention or rather the multi-ad attention was to
 4:59
 take the input embedding vectors and convert them into context vectors context vectors are a much richer form
+
+
+***
+
+
 5:05
 of representation than embedding vectors because they not only contain semantic meaning of the token but they also
 5:12
@@ -192,6 +197,12 @@ matrices which are multiplied with the inputs to give the queries the keys and
 the values the queries are multiplied with the keys transposed to give us attention
 9:57
 scores which are then converted into attention weights attention weights are then
+
+
+***
+
+
+
 10:02
 multiplied with the values Matrix to give us the context vector and since we have multiple attention heads the
 10:08
@@ -301,6 +312,13 @@ which was actually used in gpt2 we are going to look at one24 words and we are g
 there will be no case when we are looking at 2,000 words let's say and predicting the next word when I say word
 15:40
 I'm actually meaning token here which is not exactly correct because gpt2 uses
+
+
+
+***
+
+
+
 15:45
 the bite pair encoder toker to tokenizer which is subword tokenization scheme but
 15:51
@@ -392,6 +410,13 @@ fit in together and then in subsequent lectures we'll start coding it out so I'm
 Begin coding the GPT-2 architecture
 20:29
 this is the GPT configuration 124 million parameters which we are going to use so let's jump right into
+
+
+
+***
+
+
+
 20:36
 it okay so now what we are going to do is we are going to implement a GPT model
 20:42
@@ -930,4 +955,5 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
