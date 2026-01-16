@@ -64,7 +64,7 @@ $ uv run jupyter lab
 | [Lecture 17 -- Multi Head Attention Part 1 - Basics and Python code](https://www.youtube.com/watch?v=cPaBCoNdCtE) |  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md) | 15/01/2026 |
 | [Lecture 18 -- Multi Head Attention Part 2 - Entire mathematics explained](https://www.youtube.com/watch?v=K5u9eEaoxFg) |  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md) | 15/01/2026 |
 |---|---|
-| [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | |
+| [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | 16/01/2026 |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) ||
 
 ***
