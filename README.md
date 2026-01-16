@@ -66,6 +66,26 @@ $ uv run jupyter lab
 |---|---|
 | [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | 16/01/2026 |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) ||
+| [Lecture 21 -- ) |  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md) ||
+| [Lecture 22 -- ) |  [Notes22](https://github.com/muarshad01/LLM/blob/main/Notes/lecture22_notes.md) ||
+| [Lecture 23 -- ) |  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md) ||
+| [Lecture 24 -- ) |  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md) ||
+| [Lecture 25 -- ) |  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md) ||
+| [Lecture 26 -- ) |  [Notes26](https://github.com/muarshad01/LLM/blob/main/Notes/lecture26_notes.md) ||
+| [Lecture 27 -- ) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) ||
+| [Lecture 28 -- ) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) ||
+| [Lecture 29 -- ) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
+| [Lecture 30 -- ) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) ||
+| [Lecture 31 -- ) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) ||
+| [Lecture 32 -- ) |  [Notes32](https://github.com/muarshad01/LLM/blob/main/Notes/lecture32_notes.md) ||
+| [Lecture 33 -- ) |  [Notes33](https://github.com/muarshad01/LLM/blob/main/Notes/lecture33_notes.md) ||
+| [Lecture 34 -- ) |  [Notes34](https://github.com/muarshad01/LLM/blob/main/Notes/lecture34_notes.md) ||
+| [Lecture 35 -- ) |  [Notes35](https://github.com/muarshad01/LLM/blob/main/Notes/lecture35_notes.md) ||
+| [Lecture 36 -- ) |  [Notes36](https://github.com/muarshad01/LLM/blob/main/Notes/lecture36_notes.md) ||
+| [Lecture 37 -- ) |  [Notes37](https://github.com/muarshad01/LLM/blob/main/Notes/lecture37_notes.md) ||
+| [Lecture 38 -- ) |  [Notes38](https://github.com/muarshad01/LLM/blob/main/Notes/lecture38_notes.md) ||
+| [Lecture 39 -- ) |  [Notes39](https://github.com/muarshad01/LLM/blob/main/Notes/lecture39_notes.md) ||
+| [Lecture 40 -- ) |  [Notes40](https://github.com/muarshad01/LLM/blob/main/Notes/lecture40_notes.md) ||
 
 ***
 
