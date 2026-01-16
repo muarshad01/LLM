@@ -22,8 +22,6 @@
 
 * 20:00
 
-
-20:36
 it okay so now what we are going to do is we are going to implement a GPT model
 20:42
 from scratch to generate text and I'll show you exactly how the code is executed but at every single step of the
@@ -112,7 +110,11 @@ Vector embeddings
 which we saw over here every token here see every token is essentially converted
 24:59
 into token IDs and then everything later after this point happens within the GPT
-25:05
+
+***
+
+* 25:00
+
 model class but till this stage we have to do it outside and then pass the token
 25:10
 IDs to the GPT model class so now we have this every effort moves you right
@@ -206,7 +208,11 @@ vocabulary size and the number of columns of this token embedding Matrix is the 
 every token or every token ID has a 768 dimensional Vector associated with it so
 29:58
 the number of uh columns which are there is equal to the 768 so for every token
-30:04
+
+***
+
+* 30:00
+
 ID essentially there will be 768 columns uh so this is the embedding uh token
 30:11
 embedding weight Matrix which has been created using this pytorch embedding class and what we are doing here
@@ -561,6 +567,7 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
 
 
