@@ -9,7 +9,7 @@
 * 10:00
 
 | Model| Parameters | Model Dimension | Layers (Transformer Blocks)| Weights| Vocab Size| Context Length| 
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | GPT-2 | 124 Million | 768 | 12 | public | 50,257| 2,024|
 | GPT-3 |  |  |  | NOT public ||
 | GPT-4 |  |  |  | NOT public ||
@@ -765,6 +765,7 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
 
 
