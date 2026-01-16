@@ -76,215 +76,14 @@ class DummyLayerNorm(nn.Module):
         return x
 ```
 
-it okay so now what we are going to do is we are going to implement a GPT model
-20:42
-from scratch to generate text and I'll show you exactly how the code is executed but at every single step of the
-20:48
-code I'll again take you to the Whiteboard so that you can visualize what every parameter means it's very
-20:54
-important for you to read a sentence of the code and to visualize how it how how it looks like only then you'll really
-21:01
-understand the code so this is the GPT configuration which we covered on the Whiteboard I hope you have understood
-21:06
-the meaning of every single terminology here if not just look up the meaning once more or go through our previous
-21:12
-lectures but it's very important that you don't just skim through it without understanding the
-21:17
-meaning okay now as I told you we are going to build the GPT architecture so this is a dummy GPT model class we'll
-Dummy GPT model class
-21:25
-use a placeholder for the Transformer block we'll use a placeholder for the layer normalization okay so first let me
-21:32
-give you a broad overview of what all do we have here so we have a Dy GPT model over here and it has the forward pass
-21:40
-what this forward or rather I should call it the forward method what this forward method does is that it takes an
-21:46
-input and at the end of this forward method we are going to uh print out the output this is what we are aiming to do
-21:54
-so if you look at the figure which um Let me show this figure to you
-21:59
-here this is the main thing right so what that forward method does is that it takes an input which basically can just
-22:06
-be these words and then the aim of this is to the aim of the forward pass is to
-22:11
-give you the next word in this case the next word is forward so that's the output so all of what we want to
-22:17
-implement somewhere lies in the middle right um so there are two main blocks
-22:24
-which will be very important to us so there is first the Transformer block we we are going to create a class for the
-22:29
-Transformer block not in this lecture but in later lectures and we are going to create a class for the layer
-22:35
-normalization let me show you where these come into the picture so if you look at the Transformer block over here
-22:42
-the Transformer block consists of all of these things right and layer normalization is a very important part
-22:47
-of it layer normalization will also be implemented before the Transformer and after the Transformer but it is also
-22:54
-present within the Transformer itself so we'll have a Transformer block we'll in which we'll put all of these things what
-23:00
-I'm showing here and we'll have a separate layer normalization block the reason we are having a separate layer
-23:06
-normalization block is that it comes in the Transformer block that's fine but it also comes at other places so it's
-23:13
-better to define a separate class of it so this is the class which will Define later not now this is the class will
-23:19
-which will Define later not now now let us see what what this forward method is
-Passing the input
-23:24
-actually doing okay so the forward method first takes in an input
-23:30
-and uh let me show you what that input actually looks like
-23:35
-um okay so I have just made some visualizations
-23:42
-over here so that you understand what's going on yeah okay so the forward method
-23:47
-is going to take an input right and the input let's say is this same thing let me write it over here what's that input
-23:55
-the input is every effort moves you let's say this is the input which is
-24:00
-which is passed to the forward method let me write over here right and I'm going to write this with a different
-24:06
-color so let's say the input is
-24:14
-every every effort
-24:21
-moves you okay great so this is my input right
-24:27
-now the way this will be fed to the forward method is that uh let me actually show you
-24:34
-that so we are going to feed this input to the forward method doing something
-24:39
-like this so let's say every effort moves you is the input right we are first going to use the tick token
-24:46
-tokenizer which is the bite pair encoder and we are going to convert these tokens into token IDs so remember the workflow
-Vector embeddings
-24:53
-which we saw over here every token here see every token is essentially converted
-24:59
-into token IDs and then everything later after this point happens within the GPT
-
 ***
 
 * 25:00
-
-model class but till this stage we have to do it outside and then pass the token
-25:10
-IDs to the GPT model class so now we have this every effort moves you right
-25:16
-this will be converted into a token ID this will be converted into a token ID this will be converted into a token ID
-25:22
-and this will be converted into a token ID right the first step is that every token ID will be converted into token
-25:30
-embedding uh and so what that means is every token ID so let's say this is ID
-25:37
-1 let's say this is ID 1 this is id2 this is ID3 and this is ID 4 right each
-25:45
-of these token IDs will need to be converted into a 768 a 768
-25:53
-Vector 768 Vector embedding essentially that is going to be the input embedding
-25:58
-and the way we are going to do that is that we are going to first create a token embedding
-26:04
-layer and for that we will use the nn. embedding in pytorch what this layer
-26:10
-actually does is that uh it creates this Matrix which is called as the token embedding Matrix it has rows which is
-26:18
-equal to the model vocabulary size and every row basically corresponds to one token ID and every Row the length of
-26:25
-every row is essentially 768 so now if you want to uh find the vector embedding
-26:31
-for ID number one let's say ID number one is 44 you just look at the 44 throw
-26:36
-over here and you get the 768 dimensional Vector if you want to look at the let's say for effort the ID is 64
-26:44
-you look at ID number 64 for effort you get the 768 dimensional Vector similarly
-26:50
-U let's say the ID for U is 85 or or rather 40,000 you go downward and you
-26:56
-get you go to the 40,000 row and you get the 768 Vector 768 dimensional input
-27:02
-embedding Vector now that's why this token embedding Matrix is also called as the
-27:08
-lookup Matrix you just pass in the token IDs and it gives you the vector embeddings remember that all of the
-27:14
-parameters here here everywhere in this token embedding Matrix they will be initialized randomly for now and we will
-27:20
-train these parameters so when we initialize this token embedding layer it initializes the parameters from a goian
-27:27
-distribution and then they are initialized randomly later when we do back propagation we'll train these for
-27:33
-now when when you look at all these embedding matrices just just know that their values are random for now okay so
-27:40
-the first step is to convert all of these tokens into um token embeddings which are 768
-27:46
-embedding uh vectors and you'll see that that has been done over here so when you
-27:52
-go to the forward method first what you do is you look at the input shape right the input shape is basic basically batch
-27:58
-size which are the number of rows and the sequence length which is essentially
-28:05
-uh the length of the number of tokens which we are considering so for example let us look at
-28:12
-this this is for example one such batch right so I have in this batch two the
-28:18
-batch length the batch size is two so there are two rows in this tensor and the number of columns are the number of
-28:23
-tokens which I'm going to use for now let's just look at one batch so I'm I'm feeding reading in four tokens and which
-28:30
-are my input inputs and then I want to get the next word so every effort moves you forward which will be the next to it
-28:36
-right so that's why the shape is batch size and sequence length so batch size is in the example which I showed you
-28:42
-there are two batches so two rows and sequence length is the number of tokens basically great so the first thing what
-28:48
-we are going to do is that we are going to create the token embeddings out of
-28:54
-the input um input index which is the inputs which we have given now take a
-29:00
-look at these inputs and just look at the first batch the first batch is a list of token IDs which you which uh
-29:06
-have been mentioned over here what we'll do with these token IDs is we will then query or look up the token embedding
-29:13
-Matrix and then retrieve those input embedding vectors so for this token ID there will be a 768 dimensional Vector
-29:20
-for this token ID there will be a 768 dimensional Vector Etc so you might be thinking where is that embedding Matrix
-29:27
-so that has been created in the init Constructor which is invoked by default so see first we have a token embedding
-29:33
-Matrix which has been created uh the number of rows of this Matrix are equal to the vocabulary size exactly what we
-29:40
-have written over here the number of rows of this token embedding Matrix is equal to the
-29:45
-vocabulary size and the number of columns of this token embedding Matrix is the embedding Dimension why because
-29:52
-every token or every token ID has a 768 dimensional Vector associated with it so
-29:58
-the number of uh columns which are there is equal to the 768 so for every token
 
 ***
 
 * 30:00
 
-ID essentially there will be 768 columns uh so this is the embedding uh token
-30:11
-embedding weight Matrix which has been created using this pytorch embedding class and what we are doing here
-30:18
-essentially in the forward method is that we are looking at the input token IDs which have been mentioned in our
-30:24
-batch and we are going to look up that token embedding Matrix and we'll get the
-30:29
-token embeddings for the inputs so we'll essentially have four four 768
-30:34
-dimensional vectors for the first batch and we'll have four 768 dimensional vectors for the second
-30:40
-batch great The Next Step which we are going to do after getting the token IDs is we have to get the positional
-30:47
-embedding right so remember up till now we have uh we have a 768 dimensional
-30:52
-Vector for id1 a 768 dimensional Vector for id2 a 768 dimensional VOR VOR for ID
-30:58
 3 and a 768 dimensional Vector for ID number four now what we are essentially going
 Positional embeddings
 31:05
@@ -375,6 +174,10 @@ all the tokens and it will randomly turn off some weight values this generally h
 prev overfitting we'll look at this in detail in one of the next classes after
 35:32
 we get these uh embedding vectors let me show you the figure what happens next so
+
+
+***
+
 35:39
 once we get these embedding vectors as I showed you over here
 35:45
@@ -457,6 +260,12 @@ here so then we look at the vocabulary we'll look at the 40,000 token in the
 vocabulary which and that seems to have the highest prior probability we'll choose only that token which has the
 39:53
 highest probability so that's the 40,000 column and then that 40,000 column will be effort now similarly when you look at
+
+
+
+***
+
+
 40:00
 token two so the input will be every effort right and then you'll again look at the row and you'll see uh that column
 40:09
@@ -562,6 +371,13 @@ one okay so here you can see that the output tensor has two rows corresponding t
 corresponds to the first text sample the second row corresponds to the second text sample each Tex sample consist of
 45:37
 four tokens so first token first row correspond to First token second to the
+
+
+
+***
+
+
+
 45:42
 second token Etc and each token is a 50257 dimensional Vector which matches
 45:47
@@ -623,10 +439,4 @@ complicated but now it's getting a bit easier so you have been through the hard 
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
 
 
-
-
-
-
-
-
-
+***
