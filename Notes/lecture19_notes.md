@@ -14,122 +14,10 @@
 | GPT-3 |  |  |  | NOT public ||
 | GPT-4 |  |  |  | NOT public ||
 
-multiplied with the values Matrix to give us the context vector and since we have multiple attention heads the
-10:08
-context vectors are stacked together to give us a combined context Vector this is what is happening in the multi-ad
-10:14
-attention block now uh this whole process of what all we have learned so far can be visualized like this also if
-10:21
-you have the input text which is every effort moves you it's first tokenized and GPT uses a bite pair tokenizer which
-10:28
-we learned about before every single token is converted into a token ID every
-10:33
-single token ID is converted into a vector embedding which is a vectorized representation these Vector embeddings
-10:39
-are passed into the GPT model which consist of the Transformer block which I showed you before then there is an
-10:45
-output that output is further decoded and that gives us the output text for gpt2 the token embeddings which
-10:53
-were used had a embedding Vector size of 768 Dimensions which means each token ID
-10:58
-was converted into a vector of 768 Dimension and the output is generated such that the dimensions are matched so
-11:05
-the output is a 768 dimensional Vector for each 768 dimensional input token
-11:11
-embedding and then we do some postprocessing with the output so that we generate the next word which is
-11:16
-forward so every effort moves you forward great so what we are yet to
-11:23
-learn is the Transformer block and we'll start learning about this in today in today's lecture we'll dive slowly deeper
-11:30
-and deeper into every single layer of this block in subsequent lectures so for this set of four to five lectures we
-GPT-2 model architecture overview
-11:36
-will not use a toy problem we will not use a toy model we are directly going to use
-11:42
-gpt2 so we will use the same architecture which was used to build the gpt2 model so if you look at this
-11:49
-paper this was the paper which introduced gpt2 and if you look at the models which
-11:55
-they had they had uh they had a small model model and they had a large model which has 1542 million
-12:02
-parameters if you look at the small model it had 117 million parameters this was revised later to be 124 million
-12:10
-parameters which is what we are going to use for these set of lectures and for the rest of these video series as well
-12:16
-so we are going to construct an llm with 124 million parameters which has 12 layers what are these layers which means
-12:23
-we'll have 12 Transformer blocks and uh D model which is the vector embedding
-12:28
-size is 76 these are the parameters which we are going to use in today's lecture and also in the rest of the
-12:35
-lectures um so why are we using gpt2 and not gpt3
-12:40
-or GPT 4 one reason is that gpt2 is smaller so it's better to run it locally
-12:46
-on our local machine uh and second reason is that open AI has made only gpt2 weights public opena has really not
-12:54
-made the weights of gpt3 and gp4 public yet uh so that's the thing with open
-13:00
-source right open a is closed Source right now whereas meta's Lama models are open source so all weights have been
-13:06
-released so that's why we are sticking with gpt2 because its weights have been made public we'll we'll load these
-13:12
-weights later in one of the subsequent videos so here is the configuration which we are going to use and uh to all
-13:20
-those who are watching the video you can pause here and try to understand whether you understand every single terminology
-13:25
-here we have covered all of these in the previous lecture so I'm I'm going to pause here and ask you to also pause on
-13:32
-your end and try to think about these terminologies I'll anyway explain each of these terminologies but I want you to
-13:39
-just give it a shot and try to understand okay so so let's go step by
-13:44
-step the first is the vocabulary size this means that uh every we start with a
-13:49
-vocabulary so um the gpt2 uses a bite pair encoder right so it's a subword
-13:56
-tokenizer so the vocabulary is how many subwords are basically there uh this
-14:01
-will be used for tokenization so if the vocabulary is a word level tokenization so if the sentence is every step moves
-14:09
-you forward then the vocabulary will have every step moves you forward so that way the tokenization will happen
-14:16
-but if you use a bite pair encoder with gpt2 uses it's a subword tokenizer so
-14:21
-the vocabulary size is 50257 and it may contain of characters
-14:26
-it may contain subwords it may contain full words also but this is the vocabulary size which we deal with when
-14:33
-we consider uh gpt2 this will be very useful for tokenization so when we do
-14:41
-tokenization what happens is we have a vocabulary and there are tokens in the vocabulary and there's a token ID with
-14:48
-respect to every single token and whenever whenever a new text is given to us using that vocabulary
-14:54
-that text is converted into tokens and then those tokens are converted into to token IDs if some text does not belong
-15:02
-to the vocabulary that's called as the out of vocabulary problem the bite pair encoder does not face this issue because
-15:08
-it's a subw tokenizer we have covered about vocabulary size in our lecture on
-15:14
-embedding so if you are unclear about this please refer to that the second is the context length the context length
-15:20
-basically refers to how many maximum words are used to predict the next word so if there is context length is 1024
-15:28
-which was actually used in gpt2 we are going to look at one24 words and we are going to predict the next word maximum
-15:35
-there will be no case when we are looking at 2,000 words let's say and predicting the next word when I say word
-15:40
-I'm actually meaning token here which is not exactly correct because gpt2 uses
-
-
-
 ***
 
-
-
-15:45
+* 15:00
+  
 the bite pair encoder toker to tokenizer which is subword tokenization scheme but
 15:51
 for the sake of this lecture if I use word and token interchangeably it's because it's good for intuition the
@@ -222,9 +110,9 @@ Begin coding the GPT-2 architecture
 this is the GPT configuration 124 million parameters which we are going to use so let's jump right into
 
 
-
 ***
 
+* 20:00
 
 
 20:36
@@ -765,6 +653,7 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
 
 
