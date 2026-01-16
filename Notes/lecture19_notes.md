@@ -1,209 +1,19 @@
-ecture
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch series first let me take you through what all we have learned so far in this
-0:17
-lecture series through this diagram so in this lecture series we are going to
-0:22
-build a large language model completely from scratch and we are going to do that in three stages in the stage one we will
-0:31
-uh lay the foundations for building an llm in the stage two we will pre-train
-0:37
-the llm and in stage three we are going to fine tune the llm we are still at stage one and until
-0:44
-now we have covered two aspects of stage one we have looked at the data preparation and sampling which included
-0:52
-tokenization vector embeddings and positional embeddings and very recently we have looked at the attention
-0:58
-mechanism in a lot of detail DET in particular those of you who have followed the attention mechanism we had
-1:05
-a very detailed uh four to five lectures which started from simplified self attention self attention causal
-1:12
-attention and multi-head attention if you have not been through these lectures I highly encourage you to
-1:18
-go through them because attention really serves as the fundamental building block
-1:23
-to understand everything which follows if you have watched all the previous
-1:28
-lectures and if you have run the code which I have been providing it's amazing and I would like
-1:34
-to congratulate you that you have reached this part understanding attention is one of the most difficult
-1:41
-aspects of understanding large language models and if you have reached up till here the rest of this will be easier for
-1:48
-you so let's get started in these subsequent lecture videos which are to
-1:53
-follow we are going to learn about this part number three which is the large language model architecture as I always
-2:00
-do I'm going to break this into multiple videos I will not cover everything in one video um we will cover every single
-2:08
-video in a lot of detail and completely from scratch today right now it's the first
-2:14
-video in the large language model architecture module so let's get started
-2:19
-I think this will be a very interesting module for all of you especially to those of you who have followed until now
-2:25
-we have learned about the attention mechanism we learned about input embeddings we learned about position
-2:30
-embeddings but all of you must be thinking how does all of this really come together to give me something like
-2:36
-a GPT where does the training happen where does back propagation happen where
-2:41
-are the neural networks here if you remember at the start I told you that large language models are just deep
-2:48
-neural networks where are neural networks and what exactly is the Transformer we learned about the
-2:54
-attention mechanism and uh you must have heard about this that um attention
-3:00
-mechanism is at the heart of Transformers but what really is Transformers when do we do the training
-3:06
-and where do we generate the next word as the output all of that will become
-3:11
-pretty clear to you as we slowly start unraveling this box of the llm
-3:16
-architecture I really had a lot of fun learning about this and uh let's get
-3:22
-started as I told you llm architecture I'm planning to cover in four to five videos and today is the first video
-3:30
-so after learning about the attention mechanism in the previous lectures let us learn about the llm architecture now
-Overview of the LLM architecture
-3:38
-I want to give you initially a view of what the llm architecture really looks
-3:44
-like this is the birds ey View and we are going to cover every single aspect of this in detail but right now I want
-3:50
-to show you what all you have learned and how does that fit in the context of
-3:55
-what's to come next this always helps in the learning process imagine if you are getting
-4:02
-walking through a forest right and if you want to get to the other side it's always good to know to track your path
-4:09
-to have some kind of feedback like okay this is what you have covered right right now and this is what's next to
-4:16
-come so that you can relate what you're learning next with the learnings from the past and that helps you reach the
-4:22
-end of the forest in our case learning about how the previous
-4:27
-knowledge fits into what we are are going to learn about next will really help you learn about llms in a much
-4:33
-better manner so initially we started with tokenizing then we looked at Vector
-4:40
-embedding and positional embedding the final embedding lay vectors which we had
-4:46
-for every token were then converted into context vectors through M MK multi-head
-4:53
-attention so the main aim of attention or rather the multi-ad attention was to
-4:59
-take the input embedding vectors and convert them into context vectors context vectors are a much richer form
-
+* 00:00
 
 ***
 
-
-5:05
-of representation than embedding vectors because they not only contain semantic meaning of the token but they also
-5:12
-contain information about how the token relates to all the other tokens in the sentence
-5:18
-now uh mask multi-head attention forms a very important part of something which
-5:24
-is called as the Transformer block Transformer block is the most important part of the large language model
-5:32
-architecture and it's a block which actually consists of many different aspects which are linked together so let
-5:38
-us zoom into this Transformer block a bit unravel it open this block and see
-5:43
-what it contains if you zoom into the Transformer block you'll see that it contains a number of things and mask
-5:49
-multi-head attention forms a part of this so whatever you have learned in the multihead attention comes over here so
-5:55
-imagine you have a sentence such as every effort moves you and you want to
-6:00
-predict the next word right the first step is to convert each of these into input embeddings or vector embedding so
-6:07
-these are these and let's say we also add a positional embedding right these embedding vectors are then passed onto
-6:14
-the Transformer block the first part of the Transformer block is a layer normal normalization the second is M multihead
-6:22
-attention which converts the input embedding tokens into context vectors these are then passed into a Dropout
-6:29
-layer you can notice this plus signs so these arrows which run from here to this
-6:35
-plus sign they are called as shortcut connections the output of the shortcut connection goes to another layer
-6:41
-normalization then we have a feed forward neural network here then another Dropout layer is connected and there's
-6:47
-one more shortcut uh connection here and if you zoom into the feed forward neural
-6:53
-network further you will see that it has something which is called as the JLo activation if you look at all these
-7:00
-terminologies and you you think what does it mean what is layer normalization what is Dropout what is the JLo
-7:06
-activation why do we have a feed forward neural network here and why are all these things stacked together like this
-7:13
-that's all what we are going to cover in this video and the four to five videos which are going to follow forward but
-7:19
-remember this entire architecture has a large number of trainable parameters and trainable weights when the llm is
-7:26
-pre-trained these weights and these parameters are optimized and ultimately we get the output the outputs are such
-7:33
-that they have the same form and dimensions as the inputs and the outputs are then processed further which gives
-7:40
-the final text so once we get the output from the Transformer block it goes to these output layers and then the which
-7:47
-decodes the output from the Transformer block and we get the next word so every effort moves you was the input if you
-7:54
-remember and the next word is forward I just wanted to give you this bird eye view of what exactly is going on and
-8:02
-what we are building what you have learned so far and how it fits into what we are planning to learn next in these
-8:08
-set of lectures which we which are going to follow we are going to zoom into this Transformer block and we are going to
-8:14
-understand every single thing which has been mentioned here we will learn about first of all we'll learn about how to
-8:20
-stack these different layers together which will be in today's lecture then we will dive into each individual layer and
-8:26
-learn about them we'll have a separate lecture on layer normaliz ation a separate lecture on the shortcut
-8:31
-connections a separate lecture on feed forward neural network with J activation we'll stack all of these together and
-8:38
-then finally we'll have a separate lecture on how this output from the Transformer is decoded to produce the
-8:44
-next World okay so I hope you have understood why we learned about the mask
-8:49
-multihead attention because if we had not learned about this see this forms such a critical part of this Transformer
-8:55
-block right to learn about this one small block is it took us five lectures spanning over 7 hours but that's the
-9:02
-importance of the attention mechanism if this block is removed uh if this Mass multi-head block
-9:08
-is removed it's like the large language models would lose all their power and
-9:13
-then we are back to the age of recurrent neural networks and long short-term memory networks okay so let's see what we have
-9:21
-learned so far we have learned about input tokenization we have learned about embedding token plus positional and we
-9:27
-have learned about mask multi head attention Okay so uh let me first give
-9:33
-you a brief overview of the Mask multihead attention in which you have if in case you have forgotten so we have
-9:39
-the input embedding vectors which are stacked together like this we have a bunch of keys queries and the value
-9:46
-matrices which are multiplied with the inputs to give the queries the keys and
-9:51
-the values the queries are multiplied with the keys transposed to give us attention
-9:57
-scores which are then converted into attention weights attention weights are then
-
+* 5:00
 
 ***
 
+* 10:00
+
+| Model| Parameters | Model Dimension | Layers (Transformer Blocks)| Weights|
+|---|---|---|---|---|
+| GPT-2 | 124 Million | 768 | 12 | public |
 
 
-10:02
+
 multiplied with the values Matrix to give us the context vector and since we have multiple attention heads the
 10:08
 context vectors are stacked together to give us a combined context Vector this is what is happening in the multi-ad
@@ -955,5 +765,6 @@ coding assignments as well as through this coding part the Transformers lectures
 complicated but now it's getting a bit easier so you have been through the hard part of the course so congrats for that
 48:39
 and now comes the very interesting part later thanks everyone I'll look forward to seeing you in the next lecture
+
 
 
