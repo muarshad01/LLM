@@ -114,8 +114,6 @@ $ uv run jupyter lab
 
 ***
 
-#### [Gradient descent, how neural networks learn | Deep Learning Chapter 2](https://www.youtube.com/watch?v=IHZwWFHWa-w)
-
 #### [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs)
 
 #### [Visualizing transformers and attention | Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)
