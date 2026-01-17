@@ -51,7 +51,6 @@ $ uv run jupyter lab
 |||
 |---|---|
 | [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch) ||
-| [Building LLMs from Scratch Series](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)|||
 | [ALL Video Lectures](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu) ||
 
 ***
