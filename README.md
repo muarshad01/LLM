@@ -6,6 +6,8 @@
 #### Installation
 * [Installation on MacOS](https://github.com/muarshad01/LLM/blob/main/Installation.md)
 
+***
+
 #### Quick Steps to Run NoteBook
 ```unix
 $ cd ~/Desktop/LLMs-from-scratch
