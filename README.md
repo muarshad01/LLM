@@ -87,6 +87,10 @@ $ uv run jupyter lab
 | [Lecture 39 -- Dataloaders in Instruction Fine-tuning](https://www.youtube.com/watch?v=egFqsJQ9kuY&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=39) |  [Notes39](https://github.com/muarshad01/LLM/blob/main/Notes/lecture39_notes.md) ||
 | [Lecture 40 -- Instruction fine-tuning: Loading pre-trained LLM weights](https://www.youtube.com/watch?v=__OiQznq4ao&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=40) |  [Notes40](https://github.com/muarshad01/LLM/blob/main/Notes/lecture40_notes.md) ||
 | [Lecture 41 -- LLM fine-tuning training loop - Coded from scratch](https://www.youtube.com/watch?v=r7unILsP0Es&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=41) |  [Notes41](https://github.com/muarshad01/LLM/blob/main/Notes/lecture41_notes.md) ||
+| [Lecture 42 -- Evaluating fine-tuned LLM using Ollama](https://www.youtube.com/watch?v=7m2jV7BOFkA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=42) |  [Notes42](https://github.com/muarshad01/LLM/blob/main/Notes/lecture42_notes.md) ||
+| [Lecture 43 -- Build LLMs from scratch 20 minutes summary](https://www.youtube.com/watch?v=_xH-jXNFRjA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=43) |  [Notes43](https://github.com/muarshad01/LLM/blob/main/Notes/lecture43_notes.md) ||
+
+
 ***
 
 #### [Transformers (how LLMs work) explained visually | DL5](https://www.youtube.com/watch?v=wjZofJX0v4M)
