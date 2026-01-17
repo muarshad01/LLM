@@ -45,13 +45,9 @@ $ uv run jupyter lab
 
 ***
 
-#### Building LLM From Scratch
-* Instructor: Dr. Raj Dandekar
-
-|||
-|---|---|
-| [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch) ||
-| [ALL Video Lectures](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu) ||
+#### Building LLMs From Scratch
+* [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch)
+* [ALL Video Lectures](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
 
 ***
 
