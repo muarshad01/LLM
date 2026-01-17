@@ -1,4 +1,4 @@
-#### Layer normalization 
+## Layer Normalization 
 
 
 * before that let me quickly recap what we covered in the last lecture in the last lecture we
@@ -766,4 +766,5 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
