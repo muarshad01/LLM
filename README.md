@@ -1,10 +1,10 @@
 #### Books
-* [Book Links](/Users/marshad/Desktop/LLM/books.md)
+* [Book Links](https://github.com/muarshad01/LLM/blob/main/Users/marshad/Desktop/LLM/books.md)
 
 *** 
 
 #### Installation
-* [Installation on MacOS](/Users/marshad/Desktop/LLM/Installation.md)
+* [Installation on MacOS](https://github.com/muarshad01/LLM/blob/main/Users/marshad/Desktop/LLM/books.md)
 
 #### Quick Steps to Run NoteBook
 ```unix
