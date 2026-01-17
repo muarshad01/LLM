@@ -49,6 +49,8 @@ $ uv run jupyter lab
 | Lecture | Notes | Date Updated |
 |---|---|---|
 |[GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch) | [Code](https://github.com/rasbt/LLMs-from-scratch) | |
+|[Building LLMs from Scratch Series](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
+|||
 | [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| 01/01/2026 |
 | [Lecture 02 -- LLM basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md) | 01/01/2026 |
 | [Lecture 03 -- Pretraining LLMs vs finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | 01/01/2026 |
@@ -147,7 +149,6 @@ $ uv run jupyter lab
 ***
 
 #### TODO
-1. [Building LLMs from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
 2. [Build DeepSeek from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms) 
 3. [Reasoning LLMs from Scratch (Reinforcement Learning)](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSijcbUrRZHm6BrdinLuelPs)
 5. [Neural Networks from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
