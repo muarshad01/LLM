@@ -66,27 +66,27 @@ $ uv run jupyter lab
 |---|---|
 | [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | 16/01/2026 |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) ||
-| [Lecture 21 -- ]( ) |  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md) ||
-| [Lecture 22 -- ]( ) |  [Notes22](https://github.com/muarshad01/LLM/blob/main/Notes/lecture22_notes.md) ||
-| [Lecture 23 -- ]( ) |  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md) ||
-| [Lecture 24 -- ]( ) |  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md) ||
-| [Lecture 25 -- ]( ) |  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md) ||
-| [Lecture 26 -- ]( ) |  [Notes26](https://github.com/muarshad01/LLM/blob/main/Notes/lecture26_notes.md) ||
-| [Lecture 27 -- ]( ) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) ||
-| [Lecture 28 -- ]( ) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) ||
-| [Lecture 29 -- ]( ) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
-| [Lecture 30 -- ]( ) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) ||
-| [Lecture 31 -- ]( ) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) ||
-| [Lecture 32 -- ]( ) |  [Notes32](https://github.com/muarshad01/LLM/blob/main/Notes/lecture32_notes.md) ||
-| [Lecture 33 -- ]( ) |  [Notes33](https://github.com/muarshad01/LLM/blob/main/Notes/lecture33_notes.md) ||
-| [Lecture 34 -- ]( ) |  [Notes34](https://github.com/muarshad01/LLM/blob/main/Notes/lecture34_notes.md) ||
-| [Lecture 35 -- ]( ) |  [Notes35](https://github.com/muarshad01/LLM/blob/main/Notes/lecture35_notes.md) ||
-| [Lecture 36 -- ]( ) |  [Notes36](https://github.com/muarshad01/LLM/blob/main/Notes/lecture36_notes.md) ||
-| [Lecture 37 -- ]( ) |  [Notes37](https://github.com/muarshad01/LLM/blob/main/Notes/lecture37_notes.md) ||
-| [Lecture 38 -- ]( ) |  [Notes38](https://github.com/muarshad01/LLM/blob/main/Notes/lecture38_notes.md) ||
-| [Lecture 39 -- ]( ) |  [Notes39](https://github.com/muarshad01/LLM/blob/main/Notes/lecture39_notes.md) ||
-| [Lecture 40 -- ]( ) |  [Notes40](https://github.com/muarshad01/LLM/blob/main/Notes/lecture40_notes.md) ||
-
+| [Lecture 21 --GELU Activation Function in the LLM Architecture](https://www.youtube.com/watch?v=d_PiwZe8UF4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=21) |  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md) ||
+| [Lecture 22 -- Shortcut connections in the LLM Architecture](https://www.youtube.com/watch?v=2r0QahNdwMw&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=22) |  [Notes22](https://github.com/muarshad01/LLM/blob/main/Notes/lecture22_notes.md) ||
+| [Lecture 23 -- Coding the entire LLM Transformer Block](https://www.youtube.com/watch?v=dvH6lFGhFrs&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=23) |  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md) ||
+| [Lecture 24 -- Coding the 124 million parameter GPT-2 model](https://www.youtube.com/watch?v=G3-JgHckzjw&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=24) |  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md) ||
+| [Lecture 25 -- Coding GPT-2 to predict the next token](https://www.youtube.com/watch?v=F1Sm7z2R96w&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=25) |  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md) ||
+| [Lecture 26 -- Measuring the LLM loss function](https://www.youtube.com/watch?v=7TKCrt--bWI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=26) |  [Notes26](https://github.com/muarshad01/LLM/blob/main/Notes/lecture26_notes.md) ||
+| [Lecture 27 -- Evaluating LLM performance on real dataset | Hands on project | Book data](https://www.youtube.com/watch?v=zuj_NJNouAA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=27) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) ||
+| [Lecture 28 -- Coding the entire LLM Pre-training Loop](https://www.youtube.com/watch?v=Zxf-34voZss&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=28) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) ||
+| [Lecture 29 --Temperature Scaling in Large Language Models (LLMs)](https://www.youtube.com/watch?v=oG1FPVnY0pI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=29) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
+| [Lecture 30 -- Top-k sampling in Large Language Models](https://www.youtube.com/watch?v=EhU32O7DkA4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=30) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) ||
+| [Lecture 31 -- Saving and loading LLM model weights using PyTorch](https://www.youtube.com/watch?v=Bc-9sf0VihQ&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=31) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) ||
+| [Lecture 32 -- Loading pre-trained weights from OpenAI GPT-2](https://www.youtube.com/watch?v=yXrGeDNuymY&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=32) |  [Notes32](https://github.com/muarshad01/LLM/blob/main/Notes/lecture32_notes.md) ||
+| [Lecture 33 -- Introduction to LLM Finetuning | Python Coding with hands-on-example](https://www.youtube.com/watch?v=yZpy_hsC1bE&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=33) |  [Notes33](https://github.com/muarshad01/LLM/blob/main/Notes/lecture33_notes.md) ||
+| [Lecture 34 -- Dataloaders in LLM Classification Finetuning | Python Coding | Hands on LLM project](https://www.youtube.com/watch?v=f6zqClXOh7Y&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=34) |  [Notes34](https://github.com/muarshad01/LLM/blob/main/Notes/lecture34_notes.md) ||
+| [Lecture 35 -- Coding the model architecture for LLM classification fine-tuning](https://www.youtube.com/watch?v=izyxvl-2JlM&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=35) |  [Notes35](https://github.com/muarshad01/LLM/blob/main/Notes/lecture35_notes.md) ||
+| [Lecture 36 -- Coding a fine-tuned LLM spam classification model | From Scratch](https://www.youtube.com/watch?v=0PpxZ3kNPWo&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=36) |  [Notes36](https://github.com/muarshad01/LLM/blob/main/Notes/lecture36_notes.md) ||
+| [Lecture 37 -- Introduction to LLM Instruction Fine-tuning | Loading Dataset | Alpaca Prompt format](https://www.youtube.com/watch?v=1bLhvqZzdaQ&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=37) |  [Notes37](https://github.com/muarshad01/LLM/blob/main/Notes/lecture37_notes.md) ||
+| [Lecture 38 -- Data Batching in LLM instruction fine-tuning | Hands on project | Live Python coding](https://www.youtube.com/watch?v=bkUkcyL_Xxc&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=38) |  [Notes38](https://github.com/muarshad01/LLM/blob/main/Notes/lecture38_notes.md) ||
+| [Lecture 39 -- Dataloaders in Instruction Fine-tuning](https://www.youtube.com/watch?v=egFqsJQ9kuY&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=39) |  [Notes39](https://github.com/muarshad01/LLM/blob/main/Notes/lecture39_notes.md) ||
+| [Lecture 40 -- Instruction fine-tuning: Loading pre-trained LLM weights](https://www.youtube.com/watch?v=__OiQznq4ao&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=40) |  [Notes40](https://github.com/muarshad01/LLM/blob/main/Notes/lecture40_notes.md) ||
+| [Lecture 41 -- LLM fine-tuning training loop | Coded from scratch](https://www.youtube.com/watch?v=r7unILsP0Es&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=41) |  [Notes41](https://github.com/muarshad01/LLM/blob/main/Notes/lecture41_notes.md) ||
 ***
 
 #### [Transformers (how LLMs work) explained visually | DL5](https://www.youtube.com/watch?v=wjZofJX0v4M)
