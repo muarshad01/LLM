@@ -32,7 +32,9 @@ $ uv pip install packages
 $ uv run jupyter lab
 ```
 
-#### Steps to Run NoteBook
+****
+
+#### Quick Steps to Run NoteBook
 ```unix
 $ cd ~/Desktop/LLMs-from-scratch
 $ source .venv/bin/activate
