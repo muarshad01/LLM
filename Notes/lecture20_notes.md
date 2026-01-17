@@ -1,12 +1,7 @@
-ntroduction
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from scratch Series in today's lecture we are
-0:13
-going to look at one specific component of the large language model architecture and that is layer
-0:20
-normalization before that let me quickly recap what we covered in the last lecture in the last lecture we
+#### Layer normalization 
+
+
+* before that let me quickly recap what we covered in the last lecture in the last lecture we
 0:26
 essentially had a bird ey view of how the llm architecture looks like so what
 0:32
@@ -771,3 +766,4 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
