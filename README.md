@@ -47,7 +47,7 @@ $ uv run jupyter lab
 |---|---|
 | [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | 16/01/2026 |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) | 17/01/2026 |
-| [Lecture 21 --GELU Activation Function in the LLM Architecture](https://www.youtube.com/watch?v=d_PiwZe8UF4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=21) |  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md) | 18/01/2026 |
+| [Lecture 21 -- GELU Activation Function in the LLM Architecture](https://www.youtube.com/watch?v=d_PiwZe8UF4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=21) |  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md) | 18/01/2026 |
 | [Lecture 22 -- Shortcut connections in the LLM Architecture](https://www.youtube.com/watch?v=2r0QahNdwMw&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=22) |  [Notes22](https://github.com/muarshad01/LLM/blob/main/Notes/lecture22_notes.md) ||
 | [Lecture 23 -- Coding the entire LLM Transformer Block](https://www.youtube.com/watch?v=dvH6lFGhFrs&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=23) |  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md) ||
 | [Lecture 24 -- Coding the 124 million parameter GPT-2 model](https://www.youtube.com/watch?v=G3-JgHckzjw&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=24) |  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md) ||
