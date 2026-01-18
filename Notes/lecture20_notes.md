@@ -5,24 +5,20 @@
 1. Vanishing gradient problem or it can lead to vanishing/exploding gradient problem or
 2. unstable training dynamics
 3. Layer normalization improves the stability and efficiency of NN training.
-4. __Main idea__: Adjuct outputs of NN to have mean=0 and variance=1.
+4. __Main idea__: Adjuct outputs of NN to have mean=0 and variance=1. This speeds up convergence.
 ***
 
 * 5:00 
 
-* Gradient depends on layer output
-* If the layer output is too large or small, gradient magnitudes can become too large or small.
-* This affects training
-* __Layer normalization__ keeps gradients stable.
-
-
-* As training proceeds, the inputs to each layer can change __(internal covariate change)__
-* This delays convergence.
-* Layer normalization prevents this.
+#### Gradient depends on layer output
+1. If the layer output is too large-or-small, gradient magnitudes can become too large-or-small. This affects training. __Layer normalization__ keeps gradients stable.
+2. As training proceeds, the inputs to each layer can change __(internal covariate change)__. This delays convergence. __Layer normalization__ prevents this.
 
 ***
 
 * 10:00
+
+* $$\\{x_1, x_2, x_3, x_4\\}$$
 
 normalization really helps to prevent this layer normalization make sure that um since we
 10:17
@@ -595,6 +591,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
