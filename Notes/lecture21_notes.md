@@ -22,40 +22,16 @@
 
 * 10:00
 
+* First Advantage: ReLU discontinuity at x=0, which makes it not differentiable. JELU activation on the other hand is smooth throughout so it's differentiable across all X.
+* Second Advantage is that it's not zero for Negative X so that solves the dead neuron problem even if the output of a neuron after is negative even if it goes through JELU it will not become zero so the neuron won't become dead it will still keep on contributing to the learning process that's the second reason.
 
-discontinuity at x equal to zero which
-10:06
-makes it not differentiable J activation
-10:09
-on the other hand is smooth throughout
-10:11
-so it's differentiable across all X
-10:13
-that's the first Advantage the second
-10:15
-Advantage is that it's not zero for
-10:17
-Negative X so that solves the dead
-10:20
-neuron problem even if the output of a
-10:22
-neuron after is negative even if it goes
-10:25
-through J it will not become zero so the
-10:28
-neuron won't become dead it will still
-10:30
-keep on contributing to the learning
-10:31
-process that's the second reason so
-10:33
-first reason is differentiability second
-10:36
-reason is it prevents the dead neuron
-10:38
-problem and third reason is that it just
-10:40
-seems to work better than Ru when we do
+
+1. first reason is differentiability 
+2. second reason is it prevents the dead neuron problem
+3. third reason is that it just seems to work better than ReLU
+
+
+4.  when we do
 10:43
 experiments with
 10:44
@@ -977,6 +953,7 @@ everyone and I look forward to seeing
 you in the next lecture
 
 ***
+
 
 
 
