@@ -31,500 +31,53 @@
 3. third reason is that it just seems to work better than ReLU
 
 
-4.  when we do
-10:43
-experiments with
-10:44
-llms so as always activation functions
-10:47
-are hyperparameters right so we need to
-10:49
-test out multiple activation functions
-10:51
-to see which one performs better and we
-10:53
-have generally seen that JLo performs
-10:55
-much better in the context of large
-10:57
-language models compared to Ray so now
-Coding the GELU activation class
-10:59
-what I want to do is that first I want
-11:01
-to go to code uh and I want to uh write
-11:05
-a class for the JLo activation function
-11:07
-write a create a class for the J which
-11:09
-implements the uh forward pass which is
-11:12
-that it essentially implements the this
-11:15
-function which I showed over here so if
-11:17
-you look at this
-11:18
-function whenever J receives an input X
-11:22
-it it transforms it into this through
-11:24
-this function and then we get this
-11:26
-output as shown in this JLo activation
-11:28
-function so what I'm doing here is that
-11:30
-I'm creating a class called J Loop and
-11:33
-what I'm doing here is that I'm defining
-11:35
-a forward method which takes in an input
-11:37
-X and it returns this value it returns.
-11:40
-5 into X into 1 + tan H square root of 2
-11:44
-by pi into x +
-11:46
-0.044 into x 3 this is exactly what has
-11:50
-been um written over here in this black
-11:54
-box over here the reason we are using
-11:56
-this is because the same activation
-11:57
-function was used for training G
-11:59
-gpt2 and remember when we are
-12:01
-constructing the llm architecture here
-12:03
-we are mimicking the parameters used in
-12:06
-the smallest model of
-12:08
-gpt2 so now we have created a class for
-12:10
-the Jou activation awesome so here I've
-12:13
-written a simple plot function we just
-12:15
-plots the JLo and the railu activation
-12:17
-function and it Compares them side by
-12:20
-side we already looked at these two
-12:21
-plots on the Whiteboard and we saw the
-12:23
-similarities and differences between
-12:25
-them so here I have just summed up the
-12:27
-points because of which the J activation
-12:29
-function is used in llms so as we saw
-12:32
-the smoothness of the JLo can lead to
-12:34
-better optimization properties during
-12:36
-training as it allows for more nuanced
-12:39
-adjustments to the model parameters so
-12:42
-it's fully differentiable railu has a
-12:44
-sharp corner at zero which can sometimes
-12:47
-make optimization harder especially in
-12:49
-networks that are very
-12:51
-deep um especially in networks that are
-12:54
-very deep or have complex
-12:57
-architectures unlike ra which output
-12:59
-zero for any negative input J allows for
-13:02
-small nonzero output values so it
-13:05
-prevents the dead neuron problem so this
-13:07
-means that during the training process
-13:09
-neurons that receive negative input can
-13:11
-still contribute to the learning process
-13:14
-in reu neurons which receive negative
-13:16
-input just get an output of zero so they
-13:18
-become dead they don't contribute to the
-13:20
-learning process this problem is avoided
-13:22
-in Rao in Jou sorry Jou avoids this dead
-13:26
-neuron problem and that's why it's used
-13:28
-in the case of of large language models
-13:30
-now what we are going to see next is
-13:32
-that okay now that we understand about
-13:34
-the Jou activation function we are going
-13:36
-to actually look at the architecture of
-13:39
-this uh feed forward neural network so
-13:42
-you see when you zoom into the neural
-13:44
-network you'll see that there is a
-13:45
-linear layer here there is a JLo
-13:47
-activation here and there is another
-13:49
-linear layer here so up till now we
-13:51
-understood about the J activation right
-Feed forward neural network architecture
-13:54
-but now I want to tell you a bit about
-13:55
-what the linear layer actually looks
-13:57
-like
-13:59
-so let let's go to that part of the
-14:01
-Whiteboard and let me show you how the
-14:03
-linear layer looks like okay so this is
-14:06
-how the feed forward neural network
-14:08
-actually looks like uh don't worry if it
-14:10
-looks a bit complicated it's actually
-14:12
-quite simple so let's say we receive a
-14:14
-token uh so let's say the feed forward
-14:17
-neural network receives a token and the
-14:20
-number of uh the dimensions of the token
-14:23
-is equal to the embedding Dimension and
-14:25
-for gpt2 the smallest size that is equal
-14:27
-to 768 so let's say this is the
-14:30
-embedding dimension of the token which
-14:31
-means that every token is projected into
-14:33
-a 7 768 dimensional space so as this
-14:37
-token passes through the different
-14:39
-layers of the Transformer block which we
-14:41
-saw over here the good thing about this
-14:44
-Transformer block is that the
-14:45
-dimensionality of the the token is
-14:47
-preserved so even if we pass from here
-14:50
-to here to here to here and finally we
-14:52
-go to the input of the feed forward the
-14:55
-dimensionality of the token remains 768
-14:58
-throughout this entire procedure and
-15:00
-that's one of the big advantages of the
-15:02
-way the Transformer block is constructed
-15:05
-so keep this embedding dimension in mind
-15:07
-as you try to understand the neural
+* when we do experiments with LLMs so as always activation functions are hyperparameters right so we need to test out multiple activation functions to see which one performs better and we have generally seen that JELU performs much better in the context of LLM compared to ReLU.
 
 
+```python
+class GELU(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, x):
+        return 0.5 * x * (1 + torch.tanh(
+            torch.sqrt(torch.tensor(2.0 / torch.pi)) * 
+            (x + 0.044715 * torch.pow(x, 3))
+        ))
+```
+
+```python
+import matplotlib.pyplot as plt
+
+gelu, relu = GELU(), nn.ReLU()
+
+# Some sample data
+x = torch.linspace(-3, 3, 100)
+y_gelu, y_relu = gelu(x), relu(x)
+
+plt.figure(figsize=(8, 3))
+for i, (y, label) in enumerate(zip([y_gelu, y_relu], ["GELU", "ReLU"]), 1):
+    plt.subplot(1, 2, i)
+    plt.plot(x, y)
+    plt.title(f"{label} activation function")
+    plt.xlabel("x")
+    plt.ylabel(f"{label}(x)")
+    plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+```
 
 ***
 
+* 15:00 
 
-
-15:09
-network architecture right so here we
-15:12
-can see that these are the inputs to the
-15:13
-neural network it's a 768 dimensional
-15:16
-input vector and this is the first
-15:18
-linear layer over here all of these
-15:22
-weights which you can see connected to
-15:23
-the neurons and then here you can see
-15:26
-here is the second linear layer so you
-15:28
-might be thinking what is the number of
-15:30
-neurons which is used so the number of
-15:32
-neurons which is used over here is four
-15:35
-* the number of uh inputs here so the
-15:38
-number of neurons here will be four
-15:40
-multiplied
-15:44
-by so let me write this so the number of
-15:47
-neurons here will be 4 multiplied by
-15:49
-768 so this will be um close to 3,00
-15:54
-3,200 neurons over here so in the first
-15:57
-layer what happens is that the inputs
-15:59
-are projected into a larger dimensional
-16:01
-space just so that we make the neural
-16:03
-network more expressive and capture the
-16:05
-properties between the inputs and in the
-16:07
-second layer the inputs are compressed
-16:09
-back to the original embedding size so
-16:11
-the output which is received from this
-16:13
-neural network has the same dimensions
-16:16
-as the input it matches the original
-16:18
-input Dimensions so the output
-16:20
-Dimensions will also be equal to
-16:22
-768 so the dimensionality of the input
-16:25
-is preserved through this neural network
-16:27
-as well the expansion so you can think
-16:30
-of this neural network as an expansion
-16:32
-contraction neural network and remember
-16:35
-that expansion contraction neural
-16:36
-networks are very powerful because they
-16:38
-preserve the size of the input but at
-16:40
-the same time uh they allow to explore a
-16:43
-re they allow for a richer exploration
-16:46
-space so what happens is that when we
-16:48
-expand this when we uh in the first
-16:51
-linear layer we do an expansion right
-16:53
-projecting into a dimension which is
-16:55
-four times larger we can capture more
-16:57
-properties between the inputs and that's
-17:00
-what essentially makes Transformers so
-17:01
-powerful due to layers like these if
-17:04
-this layer was not there probably we
-17:06
-would have missed out the capturing the
-17:08
-meaning between some sentences when we
-17:09
-predict the next word so that's why this
-17:12
-layer is very important so you can think
-17:14
-of the neural network essentially as uh
-17:18
-taking one token and then modifying each
-17:20
-dimension of this token place by place
-17:24
-because the input is 768 Dimension the
-17:26
-output is also 768 Dimension and we are
-17:28
-looking at one token at a time so this
-17:30
-is very different than the attention
-17:32
-mechanism right in the attention
-17:33
-mechanism we look at one token and we
-17:35
-look at the relationship of that token
-17:37
-with other tokens in the neural network
-17:40
-that's not in this feed forward neural
-17:41
-network we don't consider other tokens
-17:44
-at all we just look at one token and
-17:46
-then we pass the
-17:48
-input and then each dimension of the
-17:52
-input is modified and then we get the
-17:55
-output so that's the difference between
-17:57
-the feed forward neural network and the
-18:00
-essentially this multi-ad attention
-18:02
-module which we saw let me yeah so let
-18:05
-me zoom in
-18:08
-here yeah that's the difference between
-18:10
-the feed forward module this feed
-18:12
-forward module it only focuses on the
-18:15
-specific token and the multi-ad
-18:17
-attention which we saw earlier and
-18:18
-because that looks at the relationship
-18:20
-of one token with other tokens as
-18:24
-well uh awesome now what we can actually
-18:27
-do is that let us go to python code and
-18:29
-implement this speed forward neural
-18:32
-network U with the expansion and
-18:34
-contraction it's again shown over here
-18:37
-what we are going to consider in Python
-18:39
-so what we are going to do is that we
-18:40
-are going to look at an input which
-18:43
-essentially has three tokens and each
-18:46
-token has the size of
-18:49
-768 and that to we are going to look at
-18:51
-two such batches so in batch number one
-18:54
-we'll have three tokens in batch number
-18:56
-two we'll have three tokens and each
-18:58
-token we have a size of 768 now remember
-19:01
-what happens in the first linear layer
-19:03
-just look at one token at once uh the
-19:05
-768 is projected into a 3072 dimensional
-19:08
-space then we have the J activation
-19:11
-function after this linear layer so
-19:13
-after this first layer there is a JLo
-19:15
-activation function which we learned
-19:17
-about earlier remember the JLo
-19:19
-activation preserves the dimension so
-19:22
-the input to the JLo is 3072 Dimension
-19:24
-the output is 3072 now the final layer
-19:28
-compress so the input Dimension to the
-19:30
-final layer is 3072 and the output
-19:33
-Dimension is 768 so if you see the
-19:35
-output tensor Dimension it's exactly the
-19:37
-same as the input tensor two batches
-19:40
-three tokens in each batch and 768 the
-19:43
-embedding dimension of each token so I
-19:46
-hope you have understood the visual
-19:48
-nature of the neural network which we
-19:50
-are about to construct because if that's
-19:52
-the case you'll really understand what's
-19:53
-going on in the code very deeply so we
-Coding the feedforward neural network class
-19:56
-are going to construct this class which
-19:58
-is called feed forward and uh when an
-
-
-
+* __Expansion and contraction allows__ for a rich exploration space.
 
 ***
 
+* 20:00
 
-
-20:01
 instance of this class is created this
 20:02
 init Constructor is called by default
@@ -953,6 +506,7 @@ everyone and I look forward to seeing
 you in the next lecture
 
 ***
+
 
 
 
