@@ -6,22 +6,9 @@
 
 ***
 
+* 5:00
 
-5:02
-becomes extremely small because a product of small quantities becomes even more smaller so by the time the training
-5:09
-is finished and by the time we get the gradients of the loss with respect to all the weights of this layer we find
-5:15
-that this gradient becomes very small and then it even starts approaching zero do you see the problem which happens
-5:21
-when the gradient start approaching zero so let's say if you have a particular weight uh the gradient update or the
-5:27
-weight update rule looks something like the the weight in the new iteration is the weight in the old iteration minus
-5:33
-Alpha which is the step size multiplied by partial derivative of loss with
-5:39
-respect to the weights right um so partial derivative of L with respect to
-5:46
+* becomes extremely small because a product of small quantities becomes even more smaller so by the time the training is finished and by the time we get the gradients of the loss with respect to all the weights of this layer we find that this gradient becomes very small and then it even starts approaching zero do you see the problem which happens when the gradient start approaching zero so let's say if you have a particular weight uh the gradient update or the weight update rule looks something like the the weight in the new iteration is the weight in the old iteration minus Alpha which is the step size multiplied by partial derivative of loss with respect to the weights right um so partial derivative of L with respect to
 
 ***
 
@@ -557,4 +544,5 @@ you have some doubts or questions please put it in the YouTube comments and I'll
 thanks a lot everyone and I look forward to seeing you in the next video
 
 ***
+
 
