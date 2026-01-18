@@ -75,6 +75,11 @@ print("Variance:\n", var)
 
 * 35:00
 
+* Available hardware dictates batch size.
+
+#### Layer versus Batch Normalization
+* Normalize along feature dimension, independent of batch size.
+* Leads to more flexibility and stability for distributed training / environments which lack resources.
 
 the second batch and then when you get the mean and the variance of the resulting
 35:18
@@ -146,6 +151,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
