@@ -1,100 +1,12 @@
-p
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from scratch Series today we are going to
-0:13
-learn about another very important component of the large language model architecture and that is called as
-0:19
-shortcut connections so first let's see what all we have covered until now so the GPT
-0:26
-architecture consists of multiple building blocks it consists of layer normalization the JLo activation with
-0:32
-feed forward neural network and one more building block is this shortcut Connections in the previous lectures we
-0:39
-have looked at layer normalization the Jou and the feed forward neural network today we are going to look at shortcut
-0:45
-connections and then in the next lecture you'll see that all these four building blocks essentially come together to form
-0:51
-the Transformer block which is the beating heart or the main component of the final GPT
-0:58
-architecture so we we are slowly but steadily making progress towards the
-1:04
-entire GPT architecture and we are making our our way towards the top like this so today's lecture is going to be
-1:10
-very important and also very interesting because shortcut connections really make our life very easy when training the
-1:17
-large language model and today I'm going to demonstrate why we need shortcut connections how they are integrated
-1:25
-within the Transformer block and how do they exactly work so first first thing first let me
-1:31
-show you where the trans shortcut connections actually come in the Transformer block itself so here's the
-1:38
-zoomed in view of the Transformer block you'll see that first we have the layer normalization then we have the mask
-1:45
-multi- attention then the Dropout layers layer normalization to feed forward neural network and Dropout so you might
-1:52
-be thinking that okay where exactly is the shortcut connection on over here so these plus symbols which you see both of
-2:00
-these are shortcut connections and wherever you see the plus symbol you'll see that there is an arrow which is
-2:06
-associated with the plus symbol U with this symbol there is this arrow and with this symbol there is this arrow that is
-2:12
-essentially the shortcut connection so you might be thinking that what exactly are these connections what
-2:18
-are these arrows because things are not flowing exactly linearly here right I mean they are flowing linearly but there
-2:24
-are these two arrows which are shortcut connections and today we are going to learn about them
-Introduction to shortcut connections
-2:30
-so let's get started you may have if you have studied machine learning or deep learning before you may have come across
-2:37
-this term as skip connections or residual connections essentially it means the same thing so shortcut
-2:42
-connections are also known as skip connections or residual connections um initially when shortcut
-2:49
-connections were first discovered they were proposed in the field of computer vision to solve the problem of Vanishing
-2:58
-gradients now this this is the main problem which shortcut connections solve
-3:04
-so if you understand the vanishing gradient problem you will really understand why we need shortcut
-3:09
-connections so let me try to explain this problem of Vanishing gradient first
-The vanishing gradient problem
-3:14
-so this main problem is that the gradients become progressively smaller as we propagate backwards through a
-3:20
-neural network and when gradients become very small then weight updates are not made learning becomes
-3:27
-stagnant and so convergence is delayed and the llm does not learn very
-3:32
-well we can even visualize this further so let's say if you have a deep neural network like this which has three hidden
-3:38
-layers so we have the hidden layer one we have the hidden Layer Two and we have
-3:44
-the hidden layer three when we do the backward pass we find the gradients with
-3:50
-respect to all the weights in that particular layer so when I say gradient 4 it's a matrix of all the gradients in
-3:56
-the output layer when I say gradient three it's a Matrix of all the gradients in the hidden layer three when I say
-4:03
-gradient 2 it's with respect to Hidden Layer Two And when I say gradient one it's the Matrix of gradients in the
-4:09
-hidden layer one now it's very important to understand the gradient flow Direction the gradient flow direction is
-4:16
-always from the output of the neural network to the input of the neural network so from right to
-4:22
-left this means that first we find the gradient number four that is then used to find gradient number three that is is
-4:29
-then used to find gradient number two and that is then used to find gradient number one and there are multiplication
-4:35
-operations involved so imagine that let's say if gradient four becomes suddenly very small and if we multiply
-4:42
-it with uh the back propagated values we get gradient three which is even smaller
-4:48
-gradient two which will be even more smaller and then gradient one will be further small so that's why it's called
-4:55
-Vanishing gradient because if the gradients suddenly become small then as we multiply these gradients gradient one
+## Shortcut Connections
+* Also know as skip connections or residual connections
+* They were first proposed in the field of computer vision to solve the __problem of vanishing gradients.__
+* gradients become progressively smaller as we propagate backwards through a neural network and when gradients become very small -> making it difficutl to train earlier laryers.
+* The weight updates are not made learning becomes stagnant and so convergence is delayed.
+
+***
+
+
 5:02
 becomes extremely small because a product of small quantities becomes even more smaller so by the time the training
 5:09
@@ -645,3 +557,4 @@ you have some doubts or questions please put it in the YouTube comments and I'll
 thanks a lot everyone and I look forward to seeing you in the next video
 
 ***
+
