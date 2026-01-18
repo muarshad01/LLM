@@ -5,98 +5,25 @@
 1. Vanishing gradient problem or it can lead to vanishing/exploding gradient problem or
 2. unstable training dynamics
 3. Layer normalization improves the stability and efficiency of NN training.
+4. __Main idea__: Adjuct outputs of NN to have mean=0 and variance=1.
+***
+
+* 5:00 
+
+* Gradient depends on layer output
+* If the layer output is too large or small, gradient magnitudes can become too large or small.
+* This affects training
+* __Layer normalization__ keeps gradients stable.
+
+
+* As training proceeds, the inputs to each layer can change __(internal covariate change)__
+* This delays convergence.
+* Layer normalization prevents this.
 
 ***
 
-4.   so the first advantage of layer
-5:52
-normalization is that it improves really the stability and the efficiency of
-5:58
-neural network training so let me zoom into this further and explain this if you consider a deep
-6:05
-neural network like this you have an input layer and then you have multiple hidden layers which are stacked together
-6:11
-after the input layer right and you have the output layer so what happens is that
-6:16
-when you do a forward pass so initially when the weights are initialized randomly you do a forward pass and you
-6:22
-get the outputs and then what you do is that based on the gradients you do a backward pass and you try to update
-6:29
-these parameters So eventually for every of these hidden layers you will have gradients of the loss with respect to
-6:36
-the parameters so when you look at every layer think of layers as accumulating gradients every layer will have a
-6:42
-certain set of gradient values which will get updated after every iteration right now since we are doing the
-6:49
-backward pass let's say if we want to find the gradients of this layer um the
-6:54
-gradients of this layer will depend a lot on the output of this layer because we are doing backward pass let me show
-7:01
-it with a different color uh yeah so the output of this layers I'm showing with the red color and if you want to find
-7:07
-the gradients of the first layer it depends on this red colored outputs since we are doing the backward pass now
-7:13
-it turns out that if the layer output if this layer output which which I'm showing by red right now if this is too
-7:19
-large or this is too small that affects the gradients so if the layer output is too
-7:25
-large or too small then gradient magnitudes can become too large or too small now think about what will happen if
-7:31
-gradient magnitudes become too large let's say so if we are back propagating and the gradient magnitude in this layer
-7:37
-becomes too large what will happen when you back propagate essentially you are multiplying different gradients together
-7:44
-right so if the gradient here becomes too large by the time we reach the first layer the gradient would have exploded
-7:50
-to a very large value that's called as the gradient explosion on the other hand if the
-7:55
-gradient of the last layer or one of the intermediate layers is very small when you're propagating backwards till the
-8:02
-time you reach the first layer or the second layer the gradient will become very small what will happen when the
-8:07
-gradient becomes very small we will not update the parameters because the parameter updates depend on the gradient
-8:14
-magnitude if the gradient is too small learning will stagnate if the gradient is too large will lead to that will lead
-8:21
-to an unstable learning procedure so both small gradients and large gradients lead to unstable training Dynamics we do
-8:28
-not want unstable training Dynamics and one reason for the unstable training Dynamics is that if layer outputs
-8:35
-themselves are very large or small as I mentioned layer outputs affect the gradient values so if we control the
-8:41
-magnitude of the layer outputs we can ensure that the gradient magnitudes themselves do not become too large or
-8:47
-too small batch normalization helps this batch normalization helps uh keep the
-8:53
-outputs of the layers to certain specific values and prevents the magnitude of the output from being too
-8:58
-large or too small and that's what keeps the gradient stable which leads to stable training
-9:04
-Dynamics that's one of the first reasons why batch normalization or I should call it layer normalization there is a
-9:10
-difference right so I should actually call this layer normalization batch normalization is something different and
-9:17
-we'll come to that later today we are only going to look at layer normalization in which the outputs
-9:23
-coming from every layer are normalized the second advantage of layer normalization is that it prevents this
-9:29
-problem which is called as internal coate shift so what happens is that as training proceeds the inputs to every
-9:35
-layer can change let's say we look at the second layer right in in first training iteration the inputs can have a
-9:42
-distribution like this in the second training iteration maybe the inputs are skewed so the input distribution which
-9:48
-every layer receives can change according to the iterations and what that leads to is that it makes training
-9:54
-very difficult so if the input distribution to every layer is changing the weights the updating the weights
-10:00
-becomes very hard and that delays the convergence of the parameters and that
-10:05
-delays the overall solution reaching an optimal value we don't want that layer
+* 10:00
 
-***
-
-10:11
 normalization really helps to prevent this layer normalization make sure that um since we
 10:17
 are normalizing which means that as we'll see the variance of the standard deviation is kept to one we'll make sure
@@ -189,6 +116,9 @@ appears two times here and then it appears once more again outside the
 Transformer uh so in GPT and modern Transformer architecture layer normalization is typically applied
 15:00
 before and after the multi-head attention module like what we have seen over here and it also appears once
+
+***
+
 15:07
 before the final output layer and we saw this when we coded in the last lecture here if you see within the Transformer
 15:14
@@ -665,6 +595,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
