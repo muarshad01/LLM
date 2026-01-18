@@ -28,105 +28,9 @@
 
 * 20:00
 
-dimensions of that layer or the previous layer previous layer output and then to
-20:17
-get the output size of the current um layer we look at the next layer Dimension size so that's how these layer
-20:26
-sizes are constructed and we access the particular index to get the input
-20:31
-Dimension and we access another index to get the output dimension of a layer also keep in mind that we are using the JLo
-20:38
-activation function which we learned about in the previous lecture so this is where we create uh we initialize the
-20:43
-layers now this forward method is where all the magic actually happens so let's try to understand this forward method in
-20:50
-detail if shortcut is not applied then what we'll do is that we'll just take
-20:55
-the output of every layer and then uh we will we will first take the output of
-21:01
-the first layer then we will again go to this for Loop the output of the first layer will then serve as the input to
-21:07
-the second layer and this process will continue until we get the output of the final layer but now let's see what what
-21:14
-happens when we use the shortcut so at the first layer let's say what will happen at the first layer is that we'll
-21:20
-take the input and then we'll add with the first layer output so this is exactly what has been shown over here at
-21:26
-the first layer We'll add the in put with the first layer output correct and
-21:32
-then what we'll do is that so then X will be X Plus layer output and then we'll go to the loop again in the second
-21:38
-pass of the loop what will happen is that um the output which we had computed
-21:44
-previously which was this X Plus input that will be added with the second layer
-21:50
-output so we will perform this operation then when we go to the next iteration of
-21:57
-the loop this out output which was computed previously will be added to the next layer's output so then this
-22:03
-operation will be performed similarly when we reach the end we'll apply all of the shortcut connections and then we'll
-22:09
-get the final output variable so at every step of the process we take the output of that layer and we take and we
-22:15
-add the output from the previous layers so it's an accumulation of all shortcut connection so when we reach this final
-22:21
-shortcut connection it's the accumulation of all the four shortcut connections which have come before
-22:26
-it so that's how the short shortcut connection is applied it just one simple line of code xal to X Plus layer output
-22:34
-so here you can see this code implements a deep neural network with five layers and each consisting of a linear
-22:40
-layer and JLo activation in the forward pass we iteratively pass the input through the layers and optionally add
-22:46
-the shortcut connections uh if self. use shortcut attribute is set to
-22:52
-true so now what we can do is let us use this code to First initialize a neural network without the shortcut connections
-Gradient flow without shortcut connections
-23:00
-and later we'll initialize the neural network with shortcut connection so the neural network is
-23:05
-initialized like this so three 3 3 3 and one so we have five layers of three neurons and one output neuron and the
-23:13
-input is a three-dimensional input which is if you look at this figure here so we
-23:19
-are now looking at this neural network this neural network which does not have
-23:24
-let me show the arrow here this neural network which does not have shortcut connection and you'll see that this neural network takes in three inputs it
-23:32
-goes through this five layers and then we compute the output right so let if you get the layer sizes as 3 3 3 3 3 1
-23:41
-this is the sample input which has three input values one 0 and minus one and then we are going to set use shortcut
-23:48
-equal to false and create an instance of the example deep neural network and then we get this output which is model
-23:54
-without shortcut now what I also want to do which is the main thing here is that I want to print out the gradients at every
-24:01
-single layer so let me first show you how that is going to work so if you look
-24:06
-at each layer so if you look at the first layer uh or rather this is the first
-24:12
-layer right if you let me show this with a different color just for Simplicity so if you look at the first layer here
-24:18
-there are three neurons and each neuron will have three weights so the weight Matrix will be a 3X3 Matrix in fact for
-24:27
-every every layer since the input is three and the output Dimension is three for every layer we'll have a 3X3 weight
-24:34
-Matrix for this layer we'll have a 3X3 for this layer we'll have a 3X3 weight Matrix for this layer we'll have 3x3 for
-24:40
-the final layer we'll have a 3x1 weight Matrix right and when you do the backward pass you first find partial
-24:47
-derivative of loss with respect to all of the values in this weight Matrix and you update them so when I what I'm going
-24:54
-to do is that I'm going to do an iteration of the backward pass in which all these weight values will be updated
-
 ***
 
 * 25:00
-
-
-
-
-
 
 and then I'm going to find the mean of these nine values and that I'm going to call as the
 25:06
@@ -198,7 +102,7 @@ path for the gradients to flow and as shown sh in the Whiteboard what that that 
 skip connection between every layer so see these green colored skip
 
 
-*
+
 *     and now let's see what the mean gradient value is in every layer so now I have put use
 28:44
 shortcut equal to true and I going to print the gradients at every layer so you'll see that layer four which is the
@@ -226,6 +130,12 @@ ensuring consistent gradient flow across layers when we train the GPT model so a
 we can see in this lecture we learned about the conceptual understanding of um
 30:02
 shortcut connections on the Whiteboard and we also looked at the from scratch coding implementation
+
+
+***
+
+
+
 30:09
 of shortcut connection so we connected two we constructed two deep neural networks one without shortcut
 30:15
@@ -279,7 +189,3 @@ you have some doubts or questions please put it in the YouTube comments and I'll
 thanks a lot everyone and I look forward to seeing you in the next video
 
 ***
-
-
-
-
