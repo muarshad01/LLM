@@ -3,7 +3,7 @@
 #### Vanishing gradient problem
 * Training DNN with many layers can be challenging due to two things as it can either lead to:
 1. Vanishing gradient problem or it can lead to vanishing/exploding gradient problem or
-2. unstable training Dynamics
+2. unstable training dynamics
 3. Layer normalization improves the stability and efficiency of NN training.
 
 ***
@@ -665,6 +665,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
