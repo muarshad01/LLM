@@ -22,6 +22,9 @@
 
 * $$\text{Var} = \frac{1}{4}\[(x_1-\mu)^2 + (x_2-\mu)^2 + (x_3-\mu)^2 + (x_4-\mu)^2\]$$
 
+* $$\text{Var_{Normalized}} = \[\frac{(x_1-\mu)}{\sqrt{var}}, \frac{}{(x_2-\mu)}{\sqrt{var}}, \frac{(x_3-\mu)}{\sqrt{var}}, \frac{(x_4-\mu)}{\sqrt{var}}\]$$
+
+
 normalization really helps to prevent this layer normalization make sure that um since we
 10:17
 are normalizing which means that as we'll see the variance of the standard deviation is kept to one we'll make sure
@@ -593,6 +596,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
