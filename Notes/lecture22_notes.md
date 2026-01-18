@@ -10,199 +10,20 @@
 
 * becomes extremely small because a product of small quantities becomes even more smaller so by the time the training is finished and by the time we get the gradients of the loss with respect to all the weights of this layer we find that this gradient becomes very small and then it even starts approaching zero do you see the problem which happens when the gradient start approaching zero so let's say if you have a particular weight uh the gradient update or the weight update rule looks something like the the weight in the new iteration is the weight in the old iteration minus Alpha which is the step size multiplied by partial derivative of loss with respect to the weights right um so partial derivative of L with respect to
 
-***
-
-W now do you see what will happen if the gradient itself become small so if this
-5:51
-partial derivative of loss with respect to W which is the gradient of loss with respect to W if it becomes very small so
-5:57
-let's say if this approach is zero the weight will not be updated at all
-6:04
-what the new value of the weight which is W star will be same as the old value of the weight so w star will be equal to
-6:10
-W old because this quantity will be zero so if the weights are not updating that's equivalent to saying that the
-6:16
-neural network is not learning essentially this leads to a stagnancy problem where we have reached a local
-6:22
-Minima let's say nothing is proceeding further this is called as the vanishing
-6:28
-gradient problem and and implementation of shortcut connections really solves
-6:33
-this problem so first let's see what shortcut connections actually are uh essentially shortcut connection create
-Shortcut connections mechanism
-6:41
-an alternative path for the gradient to Flow by skipping one or more
-6:47
-layers what do we mean by creating an alternative path let's see so this is
-6:52
-achieved by adding the output of one layer to the output of a later layer let
-6:58
-me show this to you visually so if you look at the diagram on the left hand
-7:05
-side this is a deep neural network without shortcut connections so here you can see that there are no arrows which
-7:11
-connects two layers right uh these are just normal all the arrows are flowing
-7:16
-forward and let's take a look at the magnitude of the gradients so we start from the outermost gradient remember the
-7:23
-gradient flow is from the last layer to the first layer the magnitude is 0.5
-7:28
-here let's see what happens to the magnitude as we come to the inner layers so the magnitude decreases to
-7:34
-0.0013 here the magnitude of the gradient decreases even further to
-7:39
-0.007 when I'm seeing the magnitude here I'm essentially taking the mean of all
-7:45
-the gradient values in that layer and if you look at the layer number one you can see how small the gradient has become
-7:52
-when we reach layer number one this perfectly illustrates The Vanishing gradient problem what shortcut
-7:57
-connections do is that they connect the output of one layer to the output of
-8:02
-another layer so let's say there is this is the input layer right we connect the output of the input layer to the output
-8:08
-of the first layer with this second shortcut connection we connect the output of the first layer to the output
-8:15
-of the second layer with this shortcut connection we connect the output of the second layer
-8:21
-to the output of the third layer with this shortcut connection we connect the output of the third layer with the
-8:26
-fourth layer what does it mean connecting the output of one layer with another layer what that means is
-8:32
-basically we just add the output of one layer to the output of another layer and
-8:37
-let me show you how that how that is done so this plus symbol indicates that we are adding the output of this input
-8:44
-layer with this output similarly this plus symbol here means that we are adding the output of the earlier layer
-8:50
-with the output of the present layer now I'll show you how this works but just take a look at the gradient magnitudes
-8:57
-now 1.3 to 26 32 um 2 in layer 2 and for layer 1 it's
-9:05
-22 so compare this 22 value now with the value which we had obtained without
-9:10
-shortcut connection so without shortcut connections the value which was obtained was 0.02 and now the value has increased by
-9:18
-more than thousand times that's awesome right this is a clear indication that we don't have the vanishing gradient
-9:23
-problem when we uh use shortcut connections now let me prove to you
-9:31
-mathematically how the short how addition of shortcut connections really helps and why does it really help solve
-9:37
-the vanishing gradient problem some student just look at this and they feel that okay I understood vaguely that it
-9:44
-will solve the vanishing gradient problem but remember that you should always ask why go deeper dive deeper try
-9:50
-to take some mathematical formulations and try to prove and try to see for yourself why this shortcut gradient
-9:56
-shortcut connections help so let's take a simple uh connection of two layers so
-Mathematical understanding
-10:02
-here's the first layer the output of the first layer is y l which passes through the second layer here f is the neural
-
-
+* Shortcut connections create alternative an path for gradient to flow, by skipping one or more layers.
+* This is achieved by adding output of one layer to output of a later layer.
+* They are also called skip connections.
+* Play a crucial role in preserving flow of gradients during training backwards pass
+* [Visualizing the Loss Landscape of Neural Nets - 2028](https://arxiv.org/abs/1712.09913)
 
 ***
 
+* 10:00
 
-10:08
-network in the second layer and the output of the second layer is f of y l right if shortcut connections were not
-10:15
-implemented then the output of the second layer will just be F of yl but now with shortcut connections being
-10:22
-implemented we add the output of the first layer which is y l to the output of the second layer which is f of y l so
-10:29
-so now the output which is coming from the second layer is f of y l + y l this
-10:34
-so when I said adding the output of one layer to another layer you might have been confused what do we do exactly
-10:39
-right we actually perform this mathematical operation that when we uh
-10:44
-when this neural network takes the input and computes the output um we add the
-10:50
-input or we add the output of the previous layer to this output and then we proceed ahead now I'm going to
-10:56
-demonstrate to you why this helps solve the vanish gradient problem so y l + 1
-11:02
-is the output of the second layer l + 1 and the earlier layer output is y
-11:07
-l okay so if shortcut connection was not there we would not have taken this term into account we would just say that y l
-11:13
-+ 1 is equal to F of Y but now since shortcut connection is there the output
-11:19
-of the second layer will be F of y + yl now when we do the back propagation what
-11:25
-we are really interested in is the partial derivative of the loss with respect respect to uh the output of the
-11:31
-first layer right so the partial derivative of all the weights in this layer will depend on the partial derivative of the loss which we which we
-11:38
-calculate in the forward pass partial derivative of loss with respect to the output of the first layer so to prevent
-11:45
-the vanishing gradient problem we really want the partial derivative of loss with respect to the first layer output to be
-11:51
-as large as possible so that the partial derivative of the loss with respect to the weights in the first layer will be
-11:57
-large and they won't go to zero so let's see how adding the shortcut connection makes this possible so using
-12:04
-the chain rule we can write partial derivative of loss with respect to y l as partial derivative of loss with
-12:09
-respect to y l + 1 multiplied by partial derivative of y l + 1 with respect to y
-12:14
-l and y l + 1 depends on y l like this so partial derivative of y l + 1 with
-12:21
-respect to y l will be partial derivative of f of y l with y l plus
-12:26
-partial derivative of y with Y which is equal to to just one so if you now write
-12:32
-this quantity further you'll see that partial derivative of loss with respect to y l is equal to partial derivative of
-12:38
-loss with respect to y + 1 multiplied by partial derivative of f with respect to y + 1 now when we are doing the back
-12:47
-propagation uh partial derivative of f of yl with respect to Y can become small
-12:53
-because we are accumulating different gradients and when we reach the first layer this first term over here which
-12:58
-I'm now highlighting in the bracket that might go to zero because of the vanishing radiant problem right
-13:05
-but that won't affect us because now we have this addition of this plus one term
-13:10
-here this is the main contribution of the shortcut connection if we did not have the shortcut connection this plus
-13:16
-one would not have been there but now because we have the shortcut connection this plus one term is there which will
-13:22
-make sure that the partial derivative of loss with respect to y l will not go to zero will not vanish so this plus one
-13:29
-term actually keeps the gradient flowing through the network and it makes sure that the partial derivative of loss with
-13:35
-respect to y l is a significant amount and this will further make sure that the
-13:40
-partial derivative of the loss uh which is partial derivative of loss with respect to the weights of the first
-13:46
-layer these are the final weights which won't this partial derivative won't ultimately vanish and that's why when we
-13:52
-update the weight parameters we won't get stagnation because this value will not be equal to zero why will this not
-13:59
-be equal to zero because partial derivative of loss with respect to first layer output will not be zero because of
-14:05
-the addition of this one term which will keep the gradient flowing through the network this is the mathematical and
-14:12
-also the intuitive explanation for why adding shortcut connection really helps if you keep this small demonstration in
-14:18
-mind you'll never forget why we add shortcut Connections in deep learning awesome so now we have
-14:25
-understood why shortcut connections are implemented right it this is because they create an alternative path for the
-14:31
-gradient to flow they keep the gradient flowing because of the addition of the plus one term which we saw earlier and
-14:38
-these shortcut connections are also called as skip connections they really play a crucial role in preserving flow
-14:44
-of gradients during uh the backward pass or while training the neural
-14:49
-network so what I now want to show to you is this paper which was actually published um I think it was published in
-Shortcut connections visual effect on loss landscape
-14:57
-um 2018 in New yor urps and this is called visualizing the Lost landscape of
-15:02
+***
+
+* 15:00
+
 neural Nets so just look at this left figure which is without using skip connections the Lost landscape look like
 15:08
 this we have several local Minima and there are several Peaks and valleys whereas if you include skip connections
@@ -462,9 +283,11 @@ we'll follow the exact same procedure we'll do this loss dot backward but now wh
 28:25
 path for the gradients to flow and as shown sh in the Whiteboard what that that will do is that that will add a
 28:31
-skip connection between every layer so see these green colored skip connections which have added these are alternative
-28:38
-paths for the gradient to flow and now let's see what the mean gradient value is in every layer so now I have put use
+skip connection between every layer so see these green colored skip
+
+
+*
+*     and now let's see what the mean gradient value is in every layer so now I have put use
 28:44
 shortcut equal to true and I going to print the gradients at every layer so you'll see that layer four which is the
 28:50
@@ -544,5 +367,6 @@ you have some doubts or questions please put it in the YouTube comments and I'll
 thanks a lot everyone and I look forward to seeing you in the next video
 
 ***
+
 
 
