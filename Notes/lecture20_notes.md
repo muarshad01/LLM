@@ -25,215 +25,17 @@
 
 * $$Normalized = \[\frac{(x_1-\mu)}{\sqrt{\sigma}}, \frac{(x_2-\mu)}{\sqrt{\sigma}}, \frac{(x_3-\mu)}{\sqrt{\sigma}}, \frac{(x_4-\mu)}{\sqrt{\sigma}}\]$$
 
+***
 
-normalization really helps to prevent this layer normalization make sure that um since we
-10:17
-are normalizing which means that as we'll see the variance of the standard deviation is kept to one we'll make sure
-10:23
-that the mean and standard deviation of the output from every layer is fixed and
-10:29
-this reduces the problem of internal coari shift which accelerates convergence so there are two main
-10:35
-reasons why layer normalization is employed the first reason is that it keeps the training procedure stable by
-10:42
-preventing the vanishing gradient or the exploding gradient problem and the second uh the second major reason for
-10:49
-using layer normalization is that it prevents or reduces the problem of internal covariate shift and that
-10:56
-accelerates convergence and we get to a result for faster so that's why layer normalization is employed not just in
-11:03
-the GPT or the llm architecture which we are going to see right now but in fact in many deep learning architectures
-11:09
-layer normalization is very frequently used okay uh so what exactly is the main
-What is layer normalization ?
-11:16
-idea of layer normalization it's very simple so we look at a specific layer
-11:23
-and we'll look at the outputs of that specific layer and what we'll do is that we'll adjust those outputs so that they
-11:29
-have a mean of zero and they have a variance of one let me illustrate this through a simple example let's say you
-11:35
-are looking at a neural network and these four are the outputs from one specific layer of the neural network
-11:41
-right uh so the four outputs are X1 X2 X3 and X4 and X1 is equal to 1.1 X2 is8
-11:51
-X3 is 2.3 and X4 is 4.4 in layer normalization what you do is you find
-11:57
-two quantities first you find find mean of this so the mean will just be X1 + X2
-12:02
-+ X3 + X4 / 4 so in this case it will be 2.15 and the second thing which you do
-12:08
-is you find the variance so the variance will be 1X 4 because there are four um
-12:14
-quantities here and then we'll sum up X1 minus the mean whole square + X2 - the
-12:20
-mean square + x3 - the mean whole square + X4 minus the mean whole Square so that
-12:26
-gives us the variance value now what we do is we perform the normalization procedure which means that for every
-12:33
-variable we subtract the mean and we divide by the square root of the variance which is the stand standard
-12:38
-deviation so X1 will be replaced by X1 minus mu / square root of variance X2
-12:45
-will be replaced by X2 - mu / square root of variance X3 will be replaced by
-12:50
-x3 - mu / square root of variance and X4 will be replaced by X4 minus mu / square
-12:57
-root of variance so when you do this normalization it leads to these four values do you notice something about
-13:04
-these four normalized values if you add these together in the numerator you will
-13:09
-have X1 + X2 + X3 + X4 - 4 * mu so that will be zero which means that the mean
-13:17
-of this these normalized values is equal to zero and if you compute the variance of these normalized values through this
-13:23
-formula you'll see that the variance of these normalized values is is
-13:29
-actually equal to 1 that's the most important thing which uh which is which
-13:35
-you should realize or you you should understand is that after performing the normalization procedure uh the values
-13:42
-which you get these four values their mean is equal to zero and their variance is equal to one that's the whole idea
-13:49
-behind normalization the in normalization we adjust the outputs of every layer of
-13:54
-neural network to have mean of zero and variance of one and it turns out that this simple procedure helps us in the
-14:02
-stability neural network training and it also helps us reduce the problem of the internal coari
-14:08
-shift um so let us actually uh see this in code but before that I want to tell
-14:14
-you where the layer normalization is used and uh we discussed this at the start of the lecture but um the input is
-14:22
-converted into an input embedding then we add the token embeddings and then here right we feed it before going into
-14:28
-the multi head attention we have a layer normalization layer so that the inputs to the multi-ad attention are normalized
-14:35
-even after the multi attention there is a layer normalization layer before feeding into the neural network module
-14:42
-within the Transformer block remember this Blue Block here is the Transformer block so the layer normalization layer
-14:48
-appears two times here and then it appears once more again outside the
-14:54
-Transformer uh so in GPT and modern Transformer architecture layer normalization is typically applied
-15:00
-before and after the multi-head attention module like what we have seen over here and it also appears once
+* 15:00
+
+5. In GPT-2 and modern Transformer architectures, layer normalization is typically applied before and after the multi-head attention module and before the final output layer.
 
 ***
 
-15:07
-before the final output layer and we saw this when we coded in the last lecture here if you see within the Transformer
-15:14
-block layer normalization appears two times before and after the multi-ad attention but even before the output it
-15:20
-we employ it once so overall it appears three times that's why we need to define a separate class of the layer
-15:27
-normalization this one figure which I'm which I've shown over here actually illustrates the procedure of layer
-15:34
-normalization um let's say we have a neural network layer these are the five inputs uh to the neural network right
-15:41
-and these are the six outputs of the neural network without the normalization you'll see that their mean is not equal
-15:47
-to zero and their variance is not equal to one but after we perform normalization on these layer outputs
-15:54
-which means that for from every output here we are going to subtract the mean and divide by the square root of the
-16:00
-variance so you'll get these as the resultant values after applying layer normalization and if you take a mean of
+* 20:00
 
 
-
-***
-
-
-16:07
-these values you'll get that mean is equal to zero and the variance of these values is equal to one this is the simple
-16:14
-illustration which describes uh what happens underneath the hood for layer
-16:21
-normalization now what we are going to do is that I'm going to take you through code and we are going to implement layer
-16:26
-normalization first on a neural network which looks like this and then we are going to create a separate class of
-16:32
-layer normalization which we can integrate within our GPT architecture so let's jump into code right now all right
-Layer normalization basics in Python
-16:40
-so here's the code file for layer normalization the first thing which we
-16:46
-are going to do is start out with a simple example to illustrate how layer
-16:51
-normalization is implemented in practice and then we will actually fill out this
-16:56
-layer normalization class which we had created in the previous lecture so let's
-17:02
-get started what we are doing here is that we are essentially let me take you to the white board to demonstrate what
-17:08
-we are doing here we'll have a simple neural network layer and the neural network is
-17:15
-constructed such that we have two batches of inputs so here is batch
-17:20
-number one and here is batch number two and each batch has five inputs so batch
-17:26
-number one has X1 X2 X3 X for X5 and batch number two has X1 X2 X3 X4 H5
-17:34
-X5 now here we are looking at one layer of neurons and there are six neurons
-17:39
-here so when these inputs essentially pass through this first layer of neurons
-17:45
-we have the output which is produced and uh there will be six outputs for batch
-17:50
-number one which is y1 Y2 Y3 y4 y5 Y6 and there will be six outputs for batch
-17:56
-number two y1 Y2 Y3 y4 y5 Y6 so if you look at the
-18:02
-inputs the shape of the inputs will be two rows and five columns because we have two batches and each batch will
-18:09
-have five inputs right then we have a sequential layer which essentially takes in five inputs and it has six outputs
-18:17
-this sequential layer is this uh the second layer which I've shown you over here this layer of six neurons and after
-18:25
-every neuron here we essentially have The Rao activation function so which has been mentioned over here if
-18:31
-you don't know what Rao activation function is it's fine for this lecture we don't need to understand
-18:38
-this uh the output of the layer is that the layer is then applied on this input
-18:43
-batch and we get the output can you try to understand why the shape of the output is like this so here you can see
-18:50
-that we have two rows and we have six columns if you look at the first row
-18:56
-this represents the six outputs from the first um batch and if you look at the second
-19:02
-row this represents the six outputs from the uh second batch and that's what
-19:09
-exactly being shown here y1 Y2 Y6 and batch two has y1 Y2 up till Y6 so this
-19:15
-can be y1 this is Y2 this is Y3 this is Y6 for batch one and this is y1 this is
-19:22
-Y2 and this is Y6 for batch number two okay so this is the layer which we have
-19:28
-and now what we are we are going to do is that after this layer we are going to uh apply the batch normalization uh
-19:34
-sorry we are going to apply the layer normalization so uh here I have simply
-19:42
-explained that we have a neural network which consists of a linear layer followed by The Rao activation layer to
-19:48
-quickly illustrate what The Rao activation function actually looks like take a look at this this image over here
-19:56
-so if x is positive The Rao is just y = to X but if x is equal to negative The
-20:01
-Rao is zero so there is a nonlinearity here that's The Rao activation
-20:07
-function now what we are going to do as I mentioned is we are going to apply layer normalization so the way it is
-20:13
-applied is very similar to the Hands-On example which we saw on the white board over here this
-20:18
-example uh the same thing will be applying to the first batch and the same thing will be
-20:25
-applying to the second batch so what we'll be doing is that when you look at the first batch we will do y1
-
-***
-
-20:33
 minus so y1 will be replaced by y1 - mu divided by uh square root of we write
 20:41
 this again divided by square root of variance Y2 will be replaced by Y2 minus
@@ -597,6 +399,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
