@@ -1,28 +1,20 @@
 ## Shortcut Connections
 * Also know as skip connections or residual connections
 * They were first proposed in the field of computer vision to solve the __problem of vanishing gradients.__
-* gradients become progressively smaller as we propagate backwards through a neural network and when gradients become very small -> making it difficutl to train earlier laryers.
-* The weight updates are not made learning becomes stagnant and so convergence is delayed.
+* gradients become progressively smaller as we propagate backwards through a NN and when gradients become very small -> making it difficutl to train earlier laryers.
+* The weight updates are not made and the learning becomes stagnant. So convergence is delayed.
 
 ***
 
 * 5:00
 
-* becomes extremely small because a product of small quantities becomes even more smaller so by the time the training is finished and by the time we get the gradients of the loss with respect to all the weights of this layer we find that this gradient becomes very small and then it even starts approaching zero do you see the problem which happens when the gradient start approaching zero so let's say if you have a particular weight uh the gradient update or the weight update rule looks something like the the weight in the new iteration is the weight in the old iteration minus Alpha which is the step size multiplied by partial derivative of loss with respect to the weights right um so partial derivative of L with respect to
+* $$W^{*}=W^{old} - \alpha\frac{\partial L}{\partial W}$$
 
 * Shortcut connections create alternative an path for gradient to flow, by skipping one or more layers.
-* This is achieved by adding output of one layer to output of a later layer.
+* This is achieved by adding output of one layer to the output of a later layer.
 * They are also called skip connections.
 * Play a crucial role in preserving flow of gradients during training backwards pass
 * [Visualizing the Loss Landscape of Neural Nets - 2028](https://arxiv.org/abs/1712.09913)
-
-***
-
-* 10:00
-
-***
-
-* 15:00
 
 ***
 
@@ -74,9 +66,6 @@ def print_gradients(model, x):
 
 ***
 
-* 25:00
-
-
 ```python
 layer_sizes = [3, 3, 3, 3, 3, 1]  
 
@@ -88,9 +77,5 @@ model_without_shortcut = ExampleDeepNeuralNetwork(
 )
 print_gradients(model_without_shortcut, sample_input)
 ```
-
-***
-
-30:00
 
 ***
