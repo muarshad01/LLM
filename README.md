@@ -86,6 +86,7 @@ $ uv run jupyter lab
 
 ***
 
+* [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)
 * [Understanding Large Language Model - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)
 * [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)
 * [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)
