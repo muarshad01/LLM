@@ -24,107 +24,10 @@
 
 * 15:00
 
-neural Nets so just look at this left figure which is without using skip connections the Lost landscape look like
-15:08
-this we have several local Minima and there are several Peaks and valleys whereas if you include skip connections
-15:15
-you will see that the number of local Minima are not that much there is just seems to be a very smooth landscape with
-15:22
-one single local Minima that's what skip connection does since the Lost function landscape becomes so smooth the grade
-15:28
-Med flow also become smooth and that's the advantage of having skipped connection so if you forget the
-15:34
-mathematical deriv derivations and if you are a person who is good at visual learning just keep this loss function
-15:40
-landscape in mind and remember that adding skip connections will help us go from the left which has a number of
-15:46
-oscillations the loss function is not smooth to the right where the loss function as you can see is pretty
-15:52
-smooth now that we have learned about the mathematical intuition and visual
-15:57
-understanding of the skip connections or shortcut connections let's go to code right now and uh let's actually
-16:04
-Implement shortcut connection so what we are going to do in code is that we are going to look at a neural network like
-16:09
-this which will take in the inputs of a certain size let me Mark it with
-16:15
-different color the neural network will take in the inputs of a certain size and we will stack multiple layers
-16:21
-together and we will give a provision to add the shortcut connection so the output of any layer we can add to the
-16:27
-input of the previous layer this is what we are going to implement right now and we are also going to check
-16:33
-the similarities or we are going to compare the gradient flow magnitudes
-16:38
-without shortcut connections and with shortcut connections so let's get to code right
-Coding shortcut connections in Python
-16:44
-now so here we are going to implement this class example deep neural network
-16:49
-and uh when an instance of this class is created by default this init Constructor is called and this takes in some
-16:56
-arguments first it takes in the layer sizes which are basically uh how many neurons you want in each layer so the
-17:03
-layer sizes can be three three 3 3 and one which means that there are five
-17:09
-layers with three neurons and the final layer has one neuron so if the layer size is 3 3 3 3 one it looks something
-17:16
-like this so here you can see that there are five layers with three neurons and there is one layer with one neuron
-17:23
-that's the first argument which is the layer size which this function will take the second argument is use shortcut so
-17:29
-if this can be true or false if it's false we'll not use the shortcut connections if it's true we'll use the
-17:35
-shortcut connections so let's see how this is constructed first we construct a neural network by using this nn.
-17:41
-sequential as I also showed you in the last lecture nn. sequential is a very
-17:46
-important module provided by pytorch where we can connect different neural network layers together I'll also share
-17:53
-this link when I upload the YouTube video so you can find this in the description okay so here as you can see
-18:00
-we are we are chaining different layers together so if you look at the first layer the input is layer size is zero
-18:07
-the output Dimension is layer size is one and then we have a j activation function similarly for every layer the
-18:14
-input Dimension is described by the layer size the output Dimension is described by the layer size and we have
-18:19
-a j activation function for all of these layers um which have been constructed
-18:26
-right uh so here if you can can see maximum provision which I have allocated
-18:31
-over here is for layer sizes bracket five which means the layer sizes can at
-18:37
-Max uh have let's say uh 0 to five so if you see over here this is 0o this is one
-18:44
-this is two this is three this is four and with this five so there are six uh
-18:49
-there are six elements here so uh this is how the different
-18:54
-neural this is how the neural network is connect is created by chaining the different layers together now what does
-19:00
-this layer sizes zero and one mean it means that let's say for the first layer the it takes this as the input so the
-19:06
-input Dimension is three the output Dimension is three for the second layer the input Dimension is three the output
-19:12
-Dimension is three so just just like what has been shown over here the layer sizes is constructed so
-19:19
-let me explain this to you intuitively just so that you get a sense of Dimension right so for this layer over
-19:25
-here for the first layer over here uh let me zoom into this further to just
-19:30
-show you the first layer and how it essentially the input and the output dimensions of that layer are
-19:42
-constructed yeah so if you zoom into this first layer here it has three inputs so the input Dimension will be
-19:48
-three and it has three outputs because it's going to the next layer which has three outputs now if you look at this
-19:54
-next layer here um its inputs are equal to three because it it takes in the
-20:00
-output of the previous layer which has three neurons so it has three inputs and the outputs are also equal to three
-20:06
-because the next layer size is equal to three so to get the input size of a of a current layer we look at the input
-20:12
+***
+
+* 20:00
+
 dimensions of that layer or the previous layer previous layer output and then to
 20:17
 get the output size of the current um layer we look at the next layer Dimension size so that's how these layer
@@ -215,7 +118,16 @@ the final layer we'll have a 3x1 weight Matrix right and when you do the backwar
 derivative of loss with respect to all of the values in this weight Matrix and you update them so when I what I'm going
 24:54
 to do is that I'm going to do an iteration of the backward pass in which all these weight values will be updated
-25:00
+
+***
+
+* 25:00
+
+
+
+
+
+
 and then I'm going to find the mean of these nine values and that I'm going to call as the
 25:06
 mean gradient in that particular layer so if I look at this layer I have this 3x3 Matrix I'll find the mean of the
@@ -367,6 +279,7 @@ you have some doubts or questions please put it in the YouTube comments and I'll
 thanks a lot everyone and I look forward to seeing you in the next video
 
 ***
+
 
 
 
