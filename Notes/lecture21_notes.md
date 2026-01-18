@@ -1,19 +1,22 @@
 #### GELU Activation Function & Feed Forward Neural Network
 * We'll implement a small NN sub-module that is a part of LLM transformer block.
-* Two activation functions commonly implemented in LLMs
+
+### Two activation functions commonly implemented in LLMs:
 1. GELU -> $$x^{*}\phi(x)$$ --> CDF of standard Gussian distribution
-2. Swi GLU
+2. Swi GLU??
 
 
 #### Dead Neuron Problem
-* __Dead neuron problem__, which means that if the output from one layer is negative and if RuLU activation function is applied to it the output becomes zero and then it stays zero because uh because we cannot do any learning of after that so the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called asthe dead neuron problem so learning essentially stagnates of course. RuLU has a huge number of other advantages this nonlinearity which is introduced over here makes neural networks expressive it gives the power to neural networks but the reason we we are looking at the disadvantages of ReLU is that understanding the disadvantages of RuLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
+* __Dead neuron problem__, which means that if the output from one layer is negative and if RuLU activation function is applied to it then the output becomes zero and stays at zero because because we cannot do any learning of after that. So the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called as the dead neuron problem. So learning essentially stagnates of course.
+* RuLU has a huge number of other advantages this non-linearity, which is introduced over here makes NN expressive.
+* It gives the power to NN but the reason we we are looking at the disadvantages of ReLU is that understanding the disadvantages of ReLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
 
 ***
 
 * 5:00 
 
 #### Approximation for the GELU activation 
-* The approximation which was actually used for training GPT-2 looks something like this"
+* The following approximation is used for training GPT-2:
 
 * $$\text{GELU(x)}\approx 0.5.x.(1+tanh[\sqrt{\frac{2}{\pi}}.(x+.055715.x^3)])$$
 
@@ -21,16 +24,16 @@
 
 * 10:00
 
-* First Advantage: ReLU discontinuity at x=0, which makes it not differentiable. JELU activation on the other hand is smooth throughout so it's differentiable across all X.
-* Second Advantage is that it's not zero for Negative X so that solves the dead neuron problem even if the output of a neuron after is negative even if it goes through JELU it will not become zero so the neuron won't become dead it will still keep on contributing to the learning process that's the second reason.
+* __First Advantage__: ReLU discontinuity at $$x=0$$, which makes it not differentiable. JELU activation on the other hand is smooth throughout so it's differentiable across all X.
+* __Second Advantage__ :is that it's not zero for Negative X so that SOLVES the dead neuron problem. Even if the output of a neuron is negative once it goes through JELU it will not become zero. So the neuron won't become dead, it will still keep on contributing to the learning process that's the second reason.
 
 
-1. first reason is differentiability 
-2. second reason is it prevents the dead neuron problem
-3. third reason is that it just seems to work better than ReLU
+1. First reason is differentiability.
+2. Second reason is it prevents the dead neuron problem
+3. Third reason is that it just seems to work better than ReLU
 
 
-* when we do experiments with LLMs so as always activation functions are hyperparameters right so we need to test out multiple activation functions to see which one performs better and we have generally seen that JELU performs much better in the context of LLM compared to ReLU.
+* When we do experiments with LLMs so as always __activation functions are hyperparameters__ right. So we need to test out multiple activation functions to see which one performs better. We have generally seen that JELU performs much better in the context of LLM compared to ReLU.
 
 
 ```python
