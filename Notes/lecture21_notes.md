@@ -7,216 +7,22 @@
 
 
 #### Dead Neuron Problem
-* __Dead neuron problem__, which means that if the output from one layer is negative
-and if RuLU activation function is applied to it the output becomes zero and then
-it stays zero because uh because we cannot do any learning of after that so the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called asthe dead neuron problem so learning essentially stagnates of course. RuLU has a huge number of other advantages this nonlinearity which is introduced over here makes neural networks expressive it gives the power to neural networks but the reason we we are looking at the disadvantages of ReLU is that understanding the disadvantages of RuLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
-
-* 5:00 
-
-
-so first let's start understanding about
-6:09
-the mathematical representation of the
-6:12
-uh JLo activation function so
-6:14
-mathematically the J activation function
-6:17
-is the product of X which is essentially
-6:20
-just the identity variable so J of x
-6:23
-equal to X into this 5 of X and
-6:26
-essentially f of x is the cumulative
-6:29
-distribution function of the standard
-6:30
-goian
-6:32
-distribution so I just have this opened
-6:34
-door here so a standard goian uh
-6:38
-cumulative distribution function looks
-6:40
-like this as a function of X so the G is
-6:43
-a product of X multiplied by this and
-6:46
-then uh if you
-6:49
-actually uh try to understand what is
-6:51
-happening so let's look at this five of
-6:55
-X for X greater than zero so if x is
-6:58
-very high you see that it's almost equal
-7:00
-to one so which means that for positive
-7:02
-values of X we are slowly tending to one
-7:05
-which means that the for very positive
-7:08
-values of X the G of X will tend to X
-7:10
-into one which is X so for very high
-7:13
-values of X this will almost tend to the
-7:15
-linear function which is quite similar
-7:18
-to the positive branch of Ru but what
-7:20
-happens to the negative values of this
-7:23
-is pretty interesting the negative
-7:24
-values here you can see that they are
-7:26
-not equal to zero so X will be
-7:28
-multiplied with these negative values
-7:30
-and that's why for negative values of x
-7:32
-g will not be zero like it is in The Rao
-7:35
-activation
-7:36
-function so now what we can do is that
-7:39
-instead of using this complicated
-7:41
-cumulative distribution function what uh
-7:44
-people generally do is that they use an
-7:47
-
-
-* approximation for the GELU activation and the approximation which was actually used for training GPT-2 looks something like this so here you can see that guu
-
- * $$\text{GELU(x)}\approx 0.5.x.(1+tanh[\sqrt{\frac{2}{\pi}}.(x+.055715.x^3)])$$
-
-
-7:56
-of X is equal to5 * x * 1 + tan hunk of
-8:02
-2 byk into x + this cubic term no need
-8:07
-to worry about this term but just know
-8:09
-that instead of worrying about this 5 of
-8:11
-X which is the cumulative distribution
-8:13
-function and there is also goian
-8:17
-involved and it's a bit difficult to
-8:18
-compute f of x it's better to use
-8:21
-numerical approximations right so when
-8:23
-gpt2 was trained the J function which
-8:25
-they actually used was was this
-8:27
-approximation which is very close to the
-8:29
-actual J function right now if you want
-8:32
-to compare this with the ru function
-8:34
-here I have shown the plots of the J
-8:37
-activation function along with the Rao
-8:39
-activation function I want you to pause
-8:41
-the video for a while here and try to
-8:43
-look at the similarities and differences
-8:45
-between these
-8:48
-two okay so the first thing which should
-Why do we use GELU?
-8:51
-immediately be clear to all of you is
-8:53
-there are lot of differences for
-8:54
-negative values of X so for X less than
-8:57
-Z you can see that the Galu activ
-8:59
-function is not really zero so if you
-9:01
-zoom into this further you'll see that
-9:03
-for most of the values of X it's not
-9:05
-zero it tends to zero but it is not zero
-9:08
-whereas The Rao activation function for
-9:10
-X less than 0 was Zero
-9:13
-throughout also if you look at the
-9:15
-positive values of X you'll see that
-9:17
-this is kind of not exactly linear here
-9:20
-for short values of X but for large
-9:22
-values of X it's fully
-9:24
-linear uh which is exactly what's
-9:27
-happening for The Rao activation
-9:28
-function so although this positive side
-9:30
-of the jilu looks like yal to X it's not
-9:33
-exactly y equal to X there are some
-9:36
-minor
-9:37
-differences but you can say that for X
-9:39
-greater than Z it's almost similar to
-9:41
-the ru for X greater than 0 but for X
-9:44
-less than 0 there are big differences
-9:46
-which start to emerge which actually
-9:47
-make Jou much better than the
-9:50
-ru uh so what are the advantages of the
-9:53
-Jou or the ru activation function well
-9:55
-the first Advantage which you
-9:57
-immediately see from this graph over
-9:58
-here is you can see that J activation is
-10:01
-smooth throughout right here there is a
-10:03
-discontinuity in Ru there is a
-
+* __Dead neuron problem__, which means that if the output from one layer is negative and if RuLU activation function is applied to it the output becomes zero and then it stays zero because uh because we cannot do any learning of after that so the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called asthe dead neuron problem so learning essentially stagnates of course. RuLU has a huge number of other advantages this nonlinearity which is introduced over here makes neural networks expressive it gives the power to neural networks but the reason we we are looking at the disadvantages of ReLU is that understanding the disadvantages of RuLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
 
 ***
 
-10:05
+* 5:00 
+
+#### Approximation for the GELU activation 
+* The approximation which was actually used for training GPT-2 looks something like this"
+
+* $$\text{GELU(x)}\approx 0.5.x.(1+tanh[\sqrt{\frac{2}{\pi}}.(x+.055715.x^3)])$$
+
+***
+
+* 10:00
+
+
 discontinuity at x equal to zero which
 10:06
 makes it not differentiable J activation
@@ -1171,5 +977,6 @@ everyone and I look forward to seeing
 you in the next lecture
 
 ***
+
 
 
