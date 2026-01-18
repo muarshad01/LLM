@@ -1,115 +1,14 @@
 ## Layer Normalization 
 
-
-* before that let me quickly recap what we covered in the last lecture in the last lecture we
-0:26
-essentially had a bird ey view of how the llm architecture looks like so what
-0:32
-we are going to do is that the llm architecture consists of several components which are arranged together
-0:38
-uh yes uh in the previous lecture we constructed this GPT backbone which is like a dummy class which will hold all
-0:44
-these components the first component is the layer normalization Jou activation
-0:50
-then the feed forward neural network and then shortcut connections these four components make up the Transformer block
-0:57
-which is one of the key components of the entire GPT architecture so let me show you how this
-1:03
-looks like so if you zoom into the Transformer block you'll see that the Transformer block has a number of layers
-1:10
-which are stacked together you have a layer normalization followed by The Mask
-1:15
-multi-head attention layer followed by the Dropout layer you have the shortcut connections then another layer
-1:21
-normalization a feed forward neural network Dropout layer and then another shortcut connections Etc if you zoom
-1:28
-into the feed for neural network you'll see that it it consists of linear neural
-1:33
-network layers along with the Jou activation function uh all of these are stacked
-1:40
-together in a format which looks something like this so let me take you to the broadest level view looks
-1:46
-something like this so you have the input text which you tokenize then you pass it into the GPT model in the GPT
-1:54
-model we first do the token embedding then add the positional embedding vectors pass these input embeddings to
-2:01
-the Transformer block within the Transformer block it goes through all the layers which I just showed you and
-2:06
-then we have the output layers which essentially decode the output from the Transformer block and we predict the
-2:13
-next word from the input this is what happens inside the GPT architecture and
-2:19
-uh we are going to start looking at every single component of this GPT architecture today we are going to look
-2:25
-at this component which is called as layer normalization so if you look at layer
-2:30
-normalization it actually comes up at multiple places within the Transformer block itself if you see before the
-2:37
-multi-head attention we have a layer normalization after the multi-head attention also we have a layer
-2:43
-normalization so the layer normalization comes within the Transformer block at multiple places and actually it also
-2:50
-comes outside of the Transformer block um that's why it's important to define a
-2:56
-separate class for the layer normalization when we code the GPT architecture lecture in the last lecture
-3:02
-we looked at this dummy GPT model class and the goal here was to put all of the
-3:09
-different components together so that you get a bird's eye view Without Really coding too many of these components so
-3:15
-what happens in this GPT model class is that there is this forward method which takes in the input and then we uh
-3:23
-convert the input into token embeddings we add the positional embeddings to the Token embeddings the resulting embedding
-3:30
-Vector we add the Dropout layer to it we pass it through the Transformer blocks then even after it comes out from the
-3:37
-Transformer we have a normalization layer as I showed you within the Transformer block itself there is a
-3:42
-normalization layer before the attention head and after the attention head and after we come out of the Transformer
-3:48
-block there is another normalization layer and then there are output processing steps and the output is
-3:54
-returned right so to execute this forward method we need to Define several things
-4:00
-so when an instance of the dummy GPT model class is created we uh we Define
-4:06
-these Transformer blocks and for that we'll need to create a separate class called Demi Transformer block which will
-4:12
-ultimately become just Transformer block when we learn about what happens in the Transformer and then we also create a
-4:18
-separate class for layer normalization why do we create a separate class because layer normalization not just
-4:25
-happens in the Transformer otherwise we would have just written this procedure here but as you can see even after the
-4:31
-input comes from the Transformer we pass it through another layer of normalization so that's why it makes
-4:37
-sense to define a separate class of layer normalization in today's lecture we are going to dive deep into this
-4:43
-class how to create this class what exactly does layer normalization do and why do we need it in the first
-Why do we need layer normalization ?
-4:50
-place so let's get started diving deep into layer
-4:56
-normalization okay so the reason layer normalization comes into to the picture is that when we look at the Transformer
-5:03
-block as you can see number of these layers are stacked on top of each other right so there are huge number of
-5:09
-parameters coming from each of these layers and we have to train these parameters initially we'll train these
+#### Vanishing gradient problem
+* Training DNN with many layers can be challenging due to two things as it can either lead to:
+1. Vanishing gradient problem or it can lead to vanishing/exploding gradient problem or
+2. unstable training Dynamics
+3. Layer normalization improves the stability and efficiency of NN training.
 
 ***
 
-5:15
-initialize these parameters to random values but through back propagation we'll train these parameters so that the
-5:22
-next word is predicted correctly so we need to make the training process more efficient and
-5:28
-that's where layer normaliz ation becomes very important it turns out that training deep neural networks with many
-5:35
-layers can be challenging predominant due to two things it can either lead to
-5:40
-a Vanishing gradient problem or it can lead to an exploding gradient problem
-5:45
-and this leads to unstable training Dynamics so the first advantage of layer
+4.   so the first advantage of layer
 5:52
 normalization is that it improves really the stability and the efficiency of
 5:58
@@ -766,5 +665,6 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
