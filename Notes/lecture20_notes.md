@@ -35,101 +35,11 @@
 
 * 20:00
 
-
-minus so y1 will be replaced by y1 - mu divided by uh square root of we write
-20:41
-this again divided by square root of variance Y2 will be replaced by Y2 minus
-20:50
-mu uh divided square root of variance
-21:00
-and like this similarly the last output which is Y6 here Y6 will also be
-21:06
-replaced with Y6
-21:12
-minus mu divided by square root of
-21:19
-variance and first we process the first batch and then we process the second batch in a very similar manner so now
-21:26
-let's go to code to see how this is done so now what we are going to do is that
-21:32
-we we have the output which is this tensor right and then we are doing output do mean Dimension equal to minus1
-21:39
-why Dimension equal to minus1 because we have to take the mean along the columns so first we look at the first batch
-21:46
-outputs and we want to take the mean of this so we do output do mean Dimension equal to minus1 and this keep Dimension
-21:53
-equal to true that is very important because if we don't include keep Dimension equal to true The Returned
-21:59
-mean would be a two dimensional Vector instead of a two into one dimensional
-22:04
-Matrix so essentially uh if you use keep dim equal to true the output which you
-22:11
-get for the mean is this so the first value here corresponds to the mean of
-22:17
-the first batch the second value here corresponds to the mean of the second batch since we used keyd equal to true
-22:23
-the shape of this output is that it's a matrix uh or rather uh yeah it's a a two
-22:28
-into one dimensional Matrix over here right now if we did not use keep dim equal to true this would not be a matrix
-22:35
-in fact it would just be a two- dimensional vector and that's generally not good because it's good for the
-22:42
-dimensions to be preserved as we are doing all of these calculations similarly for the variance
-22:48
-what we are doing is that we are taking the variance across the column for both the batches and we use keep them equal
-22:54
-to true and then you print out the mean and then you print out the variance for every batch
-22:59
-so for the first batch of data the mean is. 1324 for the second for the first
-23:04
-batch of data the variance is 0.02 31 for the second batch of data the mean is
-23:10
-216 2170 and for the second batch of data the variance is
-23:15
-0.398 so remember the two uh uh two commands which we have used
-23:21
-here dim equal to minus1 because we have to perform that operation along the columns and keep dim equal to true
-23:28
-because we have to retain um the dimension of the final mean and the
-23:34
-variance Matrix which we have if we did not use keep D equal to True later when we subtract this mean from every
-23:40
-individual element it will lead to some problems so we want to avoid that so in
-23:45
-this text over here I have just explained why we used keep dim equal to true and why we used Dimension equal to
-23:51
-minus1 so if you have some confusion along those lines please read this text when I share this Google or when I share
-23:58
-this Jupiter notebook with you great and now what we are going to do is that we are going to uh
-24:05
-subtract the mean so like over here we are going to subtract the mean and divide by the square root of variance so
-24:13
-we have the output Matrix which is there we are going to subtract the mean which is now again you can see the mean is
-24:19
-also a tensor which has two rows and one column and we are going to subtract the
-24:25
-mean from the output and we are going to divide by the square root of variable this is the main normalization
-24:31
-step so this is my output now and the normalized layer outputs are given like
-24:37
-this uh the first row again corresponds to the normalized outputs of batch one the second row corresponds to the
-24:44
-normalized outputs of batch number two so here I'm just printing out the mean and variance of the batch one and batch
-24:51
-two so if you look batch one and batch two so if you look at the mean you'll see that the mean of the first batch is
-24:56
-almost close to zero this is is 10us 8 which is really very close to zero we
-25:02
-can approximate it to zero for the second batch the mean is again very close to 10us 8 again that's almost
-25:09
-equal to zero and if you look at the variance for both the batches you'll see that the variance is equal to one
-25:15
-awesome this is exactly what we wanted right which means that the layers have been normalized now so note that the
-
-
 ***
 
-25:21
+* 25:00
+
+
 value 2.9 into 10- 8 is the scientific notation for 2.9 * 10us 8 this value is
 25:28
 very close to zero but not exactly zero due to small numerical errors in Python
@@ -399,6 +309,7 @@ and we'll also talk about shortcut connections and then later we'll see how all 
 architecture thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
