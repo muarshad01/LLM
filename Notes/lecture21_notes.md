@@ -7,11 +7,9 @@
 
 
 #### Dead Neuron Problem
-* dead neuron problem which means that if the output from one layer is negative
+* __Dead neuron problem__, which means that if the output from one layer is negative
 and if RuLU activation function is applied to it the output becomes zero and then
-it stays zero because uh because we cannot do any learning of after that so the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called as
-the dead neuron problem so learning essentially stagnates of course. RuLU has a huge number of other advantages this nonlinearity which is introduced over here makes neural networks expressive it gives the power to neural networks but the reason we we are looking at the
-disadvantages of ReLU is that understanding the disadvantages of RuLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
+it stays zero because uh because we cannot do any learning of after that so the neurons which are associated with that particular output they don't contribute anything to the learning process once the output of the neuron becomes negative and that's called asthe dead neuron problem so learning essentially stagnates of course. RuLU has a huge number of other advantages this nonlinearity which is introduced over here makes neural networks expressive it gives the power to neural networks but the reason we we are looking at the disadvantages of ReLU is that understanding the disadvantages of RuLU will open an opportunity for us to learn about the GELU activation function and why it is used in LLMs?
 
 * 5:00 
 
@@ -96,13 +94,13 @@ cumulative distribution function what uh
 7:44
 people generally do is that they use an
 7:47
-approximation for the JLo activation and
-7:50
-the approximation which was actually
-7:51
-used for training gpt2 looks something
-7:54
-like this so here you can see that guu
+
+
+* approximation for the GELU activation and the approximation which was actually used for training GPT-2 looks something like this so here you can see that guu
+
+ * $$\text{GELU(x)}\approx 0.5.x.(1+tanh[\sqrt{\frac{2}{\pi}}.(x+.055715.x^3)])$$
+
+
 7:56
 of X is equal to5 * x * 1 + tan hunk of
 8:02
@@ -1173,4 +1171,5 @@ everyone and I look forward to seeing
 you in the next lecture
 
 ***
+
 
