@@ -1,102 +1,19 @@
-ormer block visualised
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series today we are going to finally code out the entire Transformer
-0:16
-block for the previous 3 to four lectures we have been laying the groundwork for this lecture let me first
-0:24
-recap what all we have covered in the previous three lectures when we started this series of
-0:30
-GPT architecture we first covered layer normalization and why we need layer
-0:35
-normalization we coded out a class for the layer normalization then we looked at feed
-0:42
-forward neural network with the jalu activation and then we looked at shortcut connections why we need them
-0:49
-and we coded out all of these components together today is that lecture when all
-0:54
-these four components the layer normalization J activation feed forward neural Network and shortcut connections
-1:02
-are all going to come together into what is called as the Transformer block
-1:08
-Transformers are the beating heart or the engine behind large language models
-1:13
-and today you are going to see how we code out the entire Transformer block so let's get started with today's
-1:21
-lecture first I want to show you a bird's eye view of where the Transformer
-1:26
-block exactly fits in the whole llm St stack um as we have seen in the previous
-1:33
-lectures first you get the input sentence that is tokenized then that is converted into
-1:40
-Vector embeddings we add positional embeddings on that um then a Dropout layer is applied and then we finally
-1:47
-enter the Transformer block itself within the Transformer block we I'm showing the Transformer Block in blue
-1:53
-color right now we have several layers we have a layer normalization followed by mask multi-ad attention followed by
-2:00
-Dropout then we have this shortcut connection over here then we have another layer normalization layer a feed
-2:07
-forward neural network with Jou activation another layer of Dropout and then a shortcut connection when we move
-2:14
-out of the Transformer block there are several steps which are called post-processing output steps and then
-2:22
-finally we get the output tensor and this tensor is used to predict the next
-2:27
-word in the input sequence so if the input sequence is every effort moves you and if the next word is forward when the
-2:35
-output processing is completed the next word is predicted here today we are
-2:41
-going to code this blue structure which I have shown over here then that is the Transformer
-2:46
-block so uh as I've have discussed earlier Transformer block is the
-2:52
-fundamental building block of GPT and other llm architectures as well so
-2:58
-please pay careful attention to today's lecture one thing which I would like to mention here is that and which also I've
-3:05
-shown here so you must be looking at this 12 here and must be thinking what is this 12 so in the gpt2 architecture
-3:13
-the Transformer block was actually repeated 12 times in this series of G uh
-3:18
-in this series of llm architecture lectures we are looking at gpt2 the smallest version which has 124 million
-3:25
-parameters in that version the Transformer block is actually repeated 12 times so the code which we are going
-3:32
-to see right now is actually replicated 12 times in the final GPT
-3:37
-architecture and uh as I told you the Transformer block has several components
-3:43
-which we have looked at before the layer normalization let me just Mark with a tick here layer normalization mask
-3:50
-multi-head attention Dropout the feed forward neural network and the shortcut
-3:55
-connections so I have just mentioned here what are these five components the first is the mask multi-ad attention
-5 components of the transformer block
-4:02
-the second is the layer normalization third is the Dropout fourth is the feed
-4:07
-forward neural network and fifth is the jalu activation function now what I'm
-4:13
-going to do is before we jump into code I'm going to give you a quick recap of
-4:19
-these five subcomponents so that your memory is refreshed about what all we have learned so far and so that your
-4:25
-intuition is developed in a strong manner before we are going to move to the code first I want to start with
-4:32
-multi-head attention in case you have forgotten it we had very comprehensive series of four lectures on the attention
-4:38
-mechanism what happens in multihead attention is that we look at the input let's say the input input is labeled as
-4:44
-the Matrix X then we multiply the input with trainable queries Matrix trainable Keys
-4:52
-Matrix and the trainable values Matrix and in the case of multi-head attention we have multiple copies so we have
-4:59
-multiple MP trainable queries Matrix multiple trainable Keys Matrix and multiple trainable values Matrix so the
-5:06
+#### Transformer
+* Transformer block is the fundamental building block of GPT and other llm architectures.
+* The transformer block is repeated 12 times in GPT-2 small (124M parameters)
+
+#### Trransformer Block
+1. Multi-ad attention
+2. Layer normalization
+3. Dropout
+4. Feed forward layers
+5. GELU activation.
+
+***
+
+* 5:00
+
+
 inputs are multiplied by these weight matrices and then we get the queries Matrix we get the keys Matrix and we get
 5:14
 the values Matrix right and again in the case of multi-head attention we get
@@ -865,3 +782,4 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
