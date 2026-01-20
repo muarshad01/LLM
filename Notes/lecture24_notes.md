@@ -13,199 +13,23 @@ Every effort moves you
 3. Input Embedding = Token Embedding + Positioal Embedding
 4. Droupout (We randomly turn off some elements of every uh every input embedding to zero. Benefits: a) Prevent overfitting; b) Improve generalization)
 5. Transformer
-6. Layer Normaliztion
-7. Masked Multi-head Attention
-8. Dropout layer
-9. Layer Norm
-10. Feed forward neural network
-11. Dropout layer
-12. Shortcut connections
-
-*** 
-
-* 30:00
+  6. Layer Normaliztion
+  7. Masked Multi-head Attention
+  8. Dropout layer
+  9. Layer Norm
+  10. Feed forward neural network
+  11. Dropout layer
+  12. Shortcut connections
+  13. Layer Normalization
 
 ***
 
+* 35:00
 
-screen U let me minimize this
-30:47
-color yeah I hope uh you can see the entire Transformer workf flow on the screen right now we have we start with
-30:55
-the layer normalization so I'll show show this with a different color probably yeah we start with the layer
-31:01
-normalization then we move to the uh mask multihead attention then we then we
-31:07
-have a Dropout layer uh then we have a shortcut connection over
-31:13
-here let me Mark this
-31:21
-line yeah we have a shortcut connection over here then we have another layer
-31:26
-normalization layer we we have a feed forward neural network we have a Dropout layer then we again have a final
-31:32
-shortcut layer which actually takes us to the Transformer block output um now let us actually go to
-31:40
-the uh visual diagram again to see whether we indeed have implemented all the steps which were mentioned in the
-31:47
-Transformer block so I'm zooming in over here right now and if you see there are actually 1 2 3 4 5 6 7even eight
-31:54
-different steps right we start out with the again let me switch to a different color
-32:00
-here
-32:07
-yeah yeah we start out with the layer Norm we go to the multi-ad attention we go to the Dropout we have the shortcut
-32:13
-connection that's the first block then we have again the layer normalization the feed forward neural network the
-32:19
-Dropout and then the last shortcut so there are eight different steps here which were the same eight different steps we implemented in the uh visual
-32:27
-flow map and now there are the final two steps which are remaining so let's look at the last two steps of the GPT model
-32:34
-in the visual flow map so the fifth step was the Transformer step which we implemented
-Post transformer layer normalisation
-32:40
-within the Transformer also there were eight different steps now we go to the next block which is
-32:48
-uh uh the next block is another layer of normalization so the Transformer block
-32:53
-itself has two normalization layers but we have another normalization layer after the Transformer block output so
-33:00
-here we have the Transformer block output and here you can focus on the dimensions again every vector or every
-33:06
-token has an embedding size of 768 right again the dimensionality is preserved
-33:12
-and then we apply the layer normalization so same thing as what the near layer normalization does is done
-33:18
-here also in every token we normalize the embedding values so that the mean of
-33:25
-the resultant embedding values is zero and the variance is equal to one and this is done for all the four
-33:32
-tokens so again the layer normalization does not change the dimensions and then the last layer which we have is the
-Output layer
-33:38
-output head so the output head is a neural network at the final stage of the GPT model so the input to the output
-33:46
-head is this input which has four tokens and each token has a dimension of 768
-33:51
-then what we do is that we pass this through a neural network whose size is the embedding dimension multiplied by
-33:58
-the vocabulary Dimension and I'll tell you why just in a moment but if you take this input input tensor and if you pass
-34:06
-in through the neural network which has uh which takes in inputs of 768 dimensions and the output is
-34:13
-50257 the resultant uh output which you get it's called as the logits Matrix and
-34:20
-this logits Matrix actually has four rows because we have four tokens every
-34:26
-so every f effort moves you and the number of columns here is not equal to 768 the number of columns is equal to
-34:33
-the vocabulary size because we are passing in passing the input through a neural network whose final output size
-34:41
-is 50257 so for every token we have this logits which is a
-34:46
-50257 dimensional Vector so for every there is a 50257 dimensional Vector for
-34:53
-effort there is a 50257 dimensional Vector similarly for move and U there
-34:58
-are 5 257 dimensional vectors and the reason here is because we want to predict the next word right
-35:06
-based on the input so when every is the input we want to predict what's the next word and that should be effort so we
-35:12
-look at the vocabulary and we look at that that token or that column which has
-35:18
-the highest value and that column should ideally correspond to effort when every is the input similarly when every effort
-35:26
-is the input we we will look at the column which has the maximum value and that column corresponds to certain word
-35:32
-in the vocabulary and that word should be moves because when every and effort are the input moves is the output
-35:39
-similarly when we look at every effort moves as the input we will predict the next word and that should be U so we
-35:45
-look at that column which has the highest value and that should hopefully be U and finally we look at every effort
-35:51
-moves you that's the final prediction task and then uh when every effort moves
-35:56
-you is the input we look at the final output and that should hopefully be the
-36:02
-token which corresponds to the next word which is forward every effort moves you forward we'll see how to make the next
-36:09
-word prediction in the next class but for now I just want you to appreciate that this last step is the only step
-36:15
-where the dimensions of the input change the dimensions of the input all along where four which were the number of
-36:21
-tokens multiplied by 768 which was the embedding Dimension but now the final
-36:26
-output size four which were the number of tokens multiplied by 50257 and based on this final output
-36:34
-we'll get the next word prediction now when you look at every effort moves you the context size is
-36:40
-four whenever we have a context size we have that many prediction tasks so
-36:45
-remember here there are four tokens right so we don't only have one prediction task you might think that the
-36:51
-only prediction task is every effort moves you is the input and we have to predict the next word no there are four
-36:56
-prediction tasks the first prediction task is every is the input then effort should be the output every effort is the
-37:02
-input movees should be the output every effort moves should be the input U should be the output and only the fourth
-37:08
-prediction task is every effort moves you what's the output so that's why we have this four rows here because there
-37:15
-are four prediction tasks we'll see in the next uh next class how to predict
-37:20
-the next word from this output tensor which we have obtained now one thing to mention is that uh so here if you you
-37:27
-see the output tensor value will actually be four so let me write this
-37:32
-down over here the output tensor value will be four multiplied
-37:40
-by uh the vocabulary size which is uh
-37:48
-five so it's 5 0
-37:54
-2 5 and 7 so that is the fin final tensor value uh remember one thing which
-38:00
-I have considered here is only one batch if you have two batches this will be the final tensor generated for both those
-38:07
-batches so similar similar to every effort moves you if you have another sentence of four words such as I like uh
-38:15
-movies and and you have to predict the next word that's the second batch so then the output tensor will also include
-38:20
-the batch size so then it will be 2 multiplied by uh 4 by 5 2 57 why this
-38:29
-initial two because the batch size is equal to two so the First Dimension is always the batch size the second
-38:35
-dimension is the number of tokens which we have or the context size uh and the third dimension is the
-38:43
-50257 which is the vocabulary size so this is the output tensor Dimension
-38:49
-format which we have now let me zoom out here and show you the entire flow map which we have
-38:54
-seen it was a pretty long flow map but I I hope you all have understood what we
-38:59
-are trying to do over here the reason I went through this entire flow map starting from token embedding positional
-39:05
-embedding to input embedding to drop out to the Transformer block uh then we went
-39:10
-to layer normalization then finally we went to Output head the reason I showed you all these things is just so that you
-39:16
-understand dimensions and what's going on with Dimensions I did not just want to show you the code because when you
-39:21
-see the code you cannot visualize the dimensions but now once you have seen this lecture and when whenever you let's
-39:28
-say you're looking at the layer normalization part of the Transformer right you can just visualize what's
-39:34
-happening uh what are the dimensions of the input to a particular block what are the dimensions of the output and so so
-39:42
-that will make your learning process much easier so now actually uh on the
-39:47
-Whiteboard we have seen how the building block stack up for the entire GPT model
-39:52
-we started with tokenization input embedding positional we went to Transformers and then we saw the final
-39:58
-layer nor norm and then we also saw the final linear output layer okay so now once your intuition is
-40:06
+* Fixal Step = Number of Tokens X 50,257
+
+***
+
 clear once your visual understanding is clear we are pretty much ready to move into code so now let us dive into code
 40:13
 and uh see how these different blocks can be arranged together to code the entire GPT model
@@ -302,6 +126,11 @@ layer normalization class the j class and the feed forward class and then in
 the last lecture we coded the entire Transformer block class itself so here we had the so the eight steps in the
 45:06
 Transformer if you remember take a look at these eight steps which we saw um let
+
+
+***
+
+
 45:12
 me zoom out here further so these are the eight steps which we saw in the Transformer we start with input
 45:18
@@ -416,6 +245,12 @@ understood the Transformer block if you have understood the layer normalization 
 dimensions with respect to the Token embeddings positional embeddings that's all what
 50:58
 the um Transformer or what the GPT model
+
+
+
+***
+
+
 51:03
 class is actually doing it takes in the input and then the outputs are the logits which we saw on the Whiteboard so
 51:11
@@ -619,6 +454,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
