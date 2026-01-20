@@ -3,11 +3,11 @@
 * The transformer block is repeated 12 times in GPT-2 small (124M parameters)
 
 #### Trransformer Block
-1. Multi-ad attention
+1. Multi-ead attention
 2. Layer normalization
 3. Dropout
-4. Feed forward layers
-5. GELU activation.
+4. Feed forward layer
+5. GELU activation
 
 ***
 
@@ -782,4 +782,5 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
 
