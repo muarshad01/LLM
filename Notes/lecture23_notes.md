@@ -13,119 +13,12 @@
 
 * 15:00
 
+***
 
-the gradient has not become vanishingly small we have solved the vanishing gradient problem in fact the gradient
-15:24
-magnitude looks to be pretty stable over here that's why shortcut connections are such an important part of the
-15:29
-Transformer block so now let's zoom out and take a look at these five components
-15:34
-together we learned about layer normalization we learned about Dropout we learned about feed forward neural
-15:40
-network we learned about how it is linked with Jou and finally we learned about shortcut connections now all of
-15:47
-this have to be stacked together when we create the Transformer block and we'll follow the specific order as which is
-15:54
-mentioned in the schematic what is this order exactly first we'll start with the layer
-16:00
-normalization then we will stack the multi-ad attention on top of it let me show with the different
-16:06
-color uh then we will add the Dropout layer this plus with this Arrow this
-16:12
-thing here this is the shortcut connection right then we'll add the layer normalization two then we'll add
-16:17
-the feed forward neural network with J activation then we'll add another Dropout and then we'll add another
-16:23
-shortcut connection this is exactly what we'll be doing in code now uh before going to code I just want
-Transformer block shape preservation
-16:30
-to explain some conceptual details so when a Transformer block processes an
-16:35
-input sequence each element is represented by a fixed size Vector let's
-16:40
-say the size is the embedding dimension for each element one point which is extremely important to note is that the
-16:47
-operations within the Transformer block such as the multi-head attention and the feed forward layers you remember the
-16:54
-expansion contraction layer are designed to transform the input vectors such that
-17:00
-the dimensionality is preserved that's extremely important to note so when you
-17:05
-look at this Transformer block and when you look at an input which is coming into the Transformer and if you look at
-17:11
-the output which is going out of the Transformer the outputs have the same
-17:17
-exact same form and the dimension as the input this is an extremely important
-17:23
-point which I want to bring to your attention that's why it becomes so easy to stack multiple Transformer blocks
-17:28
-together we saw that gpt2 has 12 Transformer blocks right the reason it becomes so easy to stack them together
-17:34
-is that Transformer blocks preserve the dimensionality the dimensionality of the input the dimensionality of the input to
-17:42
-the Transformer is the same as that of the output from the Transformer so if you look at the input every input is
-17:49
-basically tokens and the token is converted into these embedding uh
-17:54
-embedding vectors right that's the input let's say to the Transformer
-18:00
-um now if you see the output the output has exactly the same size so every token
-18:05
-will have a corresponding output and it will have exactly the same Dimension as what was there in the
-18:12
-input uh many students don't U register this importance of the Transformer that
-18:18
-the dimensionality is preserved but it's one of the most important features of the way the Transformer block has been
-18:24
-created we could have easily created the Transformer block so that the output Dimension is different
-18:29
-but that would not help us scale the Transformer blocks now we can just tack different Transformer blocks together
-18:34
-without worrying about Dimensions just uh for revision the self
-18:40
-attention block is different than the feed forward block the self attention block analyzes the relationship between
-18:46
-input elements so it analyzes the relationship between how one input element is related to other input
-18:52
-elements and it assigns an attention score right but the feed forward neural network just just looks at each
-18:59
-element separately so when you looked at the neural network here let me take you to the yeah so this
-19:06
-is the neural network component right and we are looking at one input token at a time one input token with 768
-19:12
-dimensions and the output is also 768 Dimensions which means we are only looking at one input at a time and not
-19:18
-its relation with the other inputs that's one difference between the multi-ad attention mechanism and the
-19:24
-feed forward neural network okay so now uh if you all have
-19:30
-understood the theory and the intuition behind the Transformer block now it's time to jump into code so I'll be taking
-Let us jump into code!
-19:37
-you to python code right now and let's code out the different aspects of the Transformer block together so here as
-19:45
-you can see yeah so GPT architecture part five coding attention and linear
-19:51
-layers in a Transformer block before we proceed I just want to discuss a bit about the configuration which we are
-19:57
-going to use here we are going to use the configuration which was used in gpt2 the smallest size where they had 124
-20:04
-million parameters so here the vocabulary size was 50257 the context length was 1024
-20:11
-remember the context length is the maximum number of input tokens which are allowed to predict the next
-20:17
-token this is needed when we uh represent the positional embeddings then we have the embedding Dimension so
-20:23
-remember every token is converted into uh Vector embedding the dimension is 68
-20:29
-here n heads is the number of attention heads that's 12 n layers is 12 that is
-20:35
-actually the number of Transformers so remember the number of attention heads and the number of Transformers are
-20:40
-different within each Transformer there is a multi-ad attention block that can have multiple attention
-20:47
-heads and then when we have the Dropout layer we just have the dropout rate so this specifies that on an average 10% of
-20:54
+* 20:00
+
+***
+
 the neurons or the elements of the layer will be set to to zero that's why it's 0
 21:00
 one right now and then the query key value bias is set to false because we don't need this bias term right now we
@@ -217,6 +110,11 @@ size okay so now we have coded out different classes so we have a layer normaliz
 25:36
 activation class and we have a feed forward neural network class now we are ready to code the entire Transformer
 Coding the transformer block class in Python
+
+
+***
+
+
 25:43
 block using these building blocks which we learned about before okay so this is the class for the
 25:50
@@ -586,6 +484,7 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
 
 
 
