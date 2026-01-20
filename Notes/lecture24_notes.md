@@ -16,97 +16,17 @@ Every effort moves you
 
 * 15:00
 
-thing to note is the embedding size the embedding size for every Vector in the positional embedding is 768 and this is
-15:15
-the same size as the uh token embedding and the reason for this is in the third
-15:22
-step what we are going to do is that we are going to add the token embedding for each token along with the positional
-15:28
-embedding so if you go to step number three which is seen on the screen right now let me zoom in further for the first
-15:36
-word which is every it's in position one so we are going to take the token embedding for every and we are going to
-15:42
-add it uh with the positional embedding for the first position and the result is
-15:48
-the input embedding for the first token so since the token embedding and positional embedding have the same
-15:54
-dimensions the input embedding also has the dimension of 768 so this is the input embedding for position then effort
-16:03
-so when you come to effort which is the second word it's in second position so we take the token embedding uh for the
-16:09
-second word and we add it with the second positional embedding for the second position and we get the input
-16:15
-embedding for the second token which is effort and here again the embedding size is equal to
-16:22
-768 you can see over here which I'm marking right now in purple color the
-16:27
-embedding size for the uh second position or the second the
-16:33
-input embedding size for the second token is 768 Now we move to the third token which is moves this is in position
-16:40
-three so we'll take the token and add the positional embedding Vector for position three and that leads to input
-16:47
-embedding Vector for moves which has an embedding size 768 similarly for the
-16:52
-fourth position which is U we take the token embedding and add the positional embedding and we get the input embedding
-16:58
-which has the size of 768 this is Step number three remember this is a very important step token
-17:05
-embeddings plus positional embeddings leads to the input embeddings which this formula I have also written over here
-17:11
-input embedding equal to token embedding uh yeah input embedding equal
-17:18
-to token embedding plus the positional embedding okay so that's the step number
-17:25
-three and after these steps are completed we move to step number four step number four introduces Dropout so
-Dropout layer
-17:31
-what happens in Dropout is that until now we have input embeddings for every word right we have input embeddings for
-17:38
-every effort uh moves and U and the embedding size is a
-17:45
-vector so which means that for every token we have uh the input embedding of 768 sized Vector in Dropout what happens
-17:53
-is that we randomly turn off some elements of every uh every input embedding to zero and that's specified
-18:00
-by the dropout rate so if the dropout rate is 50% from every embedding
-18:05
-randomly 50% of the elements are turned off to zero so let's say this might be turned off this might be turned off so
-18:13
-50% of 768 is around 384 right so around 384 elements of each input embedding are
-18:21
-turned off to zero and this is done for every token so here I'm just showing the random Elements which are turned off to
-18:27
-zero remember this is probabilistic so when I say 50% not exactly half of the
-18:33
-embeddings will be turned off to zero on an average 50% of the input embeddings will be turned to zero okay so why is
-18:41
-Dropout implemented the main reason why Dropout is implemented is to prevent overfitting improve
-18:48
-generalization uh and this generally helps a lot the main Dropout technique was initially implemented in neural
-18:54
-networks to prevent some neurons from being lazy so during training sometimes what happens is that some neurons don't
-19:01
-learn anything and they depend on other neurons and that leads to problems in generalization so what people do is that
-19:08
-they Implement Dropout layers where neurons are turned off randomly so the neurons which were lazy earlier have no
-19:15
-choice but to learn something and that improves the generalization performance because every neuron is generally trying
-19:21
-to learn something and that's the similar case for year also wherever Dropout is implemented the main reason
-19:27
-for implementing Dropout is to prevent overfitting or to improve generalization
-19:32
-performance okay so we have seen four steps up till now let's recap them the first step is uh token embedding uh
-19:41
-which we saw the second step is positional embedding which we again saw the third step is uh input embedding
-19:49
-which is essentially adding the token embedding plus the positional embedding and the fourth step is implementing
-19:55
-Dropout now remember up till here the Transformer block has not been introduced at all we have still we are
-20:01
-still outside the Transformer block so let's go to this overall structure of this Transformer block again to see what
-20:07
+* Embedding Size = 768
+
+1. Token Embedding 
+2. Positional Emdedding
+3. Input Embedding = Token Embedding + Positioal Embedding
+4. Droupout (We randomly turn off some elements of every uh every input embedding to zero. Benefits: a) Prevent overfitting; b) Improve generalization)
+
+*** 
+
+* 20:00
+
 all we have seen up till now so if you look at this structure until now um let
 20:13
 me zoom in further yeah if you look at the structure until now we have seen the four steps which come before here so we
@@ -895,6 +815,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
