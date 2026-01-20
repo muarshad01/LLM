@@ -10,8 +10,8 @@ Every effort moves you
 
 ***
 
-
-10:27
+* 10:00
+  
 as well uh so I'm going I'm getting rid of one dimension which is the batch dimension for now for the sake of
 10:33
 simplicity so we are going to focus only on these four words every effort moves you and prediction of the next World the
@@ -101,6 +101,12 @@ embedding we actually do not know the embedding values in each of these uh um
 in each of these positional embedding vectors these embedding values are initialized randomly initially we do not know what
 15:02
 these embedding values represent these will be trained as the during the training procedure but the important
+
+
+
+***
+
+
 15:08
 thing to note is the embedding size the embedding size for every Vector in the positional embedding is 768 and this is
 15:15
@@ -981,5 +987,6 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
