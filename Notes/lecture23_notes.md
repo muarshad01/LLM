@@ -122,104 +122,13 @@ print("Output shape:", output.shape)
 
 ***
 
-35:01
-see this shortcut connection adds the input of this whole block to the output this shortcut connection over here adds
-35:08
-the input of this whole block to the output now what we can do is that we can
-Testing the transformer class using simple example
-35:14
-initiate a Transformer block object and let's feed it some data and let's see what's the output so here what I'm
-35:21
-defining is that I'm defining X which is my input it has two batches each batch has four tokens and the embedding
-35:28
-dimension of each token is 768 now I'm passing this this through the Transformer model let's first visualize
-35:35
-what will happen once this x passes through this Transformer model or Transformer class rather when X first
-35:41
-passes through the Transformer class uh normalization layer is applied so now try to visualize this try to visualize
-35:48
-every token as a row of 768 columns so every row is normalized which
-35:55
-means that the mean of every row and the standard deviation of every row will be one that will be done for all the four
-36:01
-tokens of one batch and then the same thing will be done for all the four tokens of the second batch so then the
-36:07
-normalization layer is applied to X and then all of the four tokens of one batch will be transformed so that the mean of
-36:15
-every row and the standard deviation or the variance of every row will be equal to one mean will be zero sorry the mean
-36:22
-of every row will be zero and the standard deviation will be equal to one after that that we pass every token of
-36:29
-both the batches to the self attention mechanism or the multi-head attention rather and the output of this is that
-36:36
-every token embedding Dimension is converted into a context Vector of the same size so if you look at the first
-36:43
-token of the first batch that has 768 dimensions that's a embedding Vector which does not encode the attention of
-36:49
-how that should relate to the other input vectors when we implement this the
-36:55
-resultant is the embedding Vector which essentially has four tokens and each
-37:01
-token has 768 Dimensions but now the resultant will be context vectors main
-37:06
-aim after this attention mechanism or after this attention block is to convert the embedding vectors into context
-37:12
-vectors of the same size then we apply a Dropout layer which randomly drops off
-37:17
-some U uh some parameter values to zero and then we add a shortcut layer this is
-37:24
-the first block you can see in the second block the output of the previous block passes through a second
-37:30
-normalization layer then through a feed forward neural network where the dimensions are preserved so after coming
-37:36
-out from the feed forward neural network the dimensions would again be uh two batches multiplied by four
-37:44
-tokens multiplied by 768 which is the dimension of each token and then we again have a Dropout
-37:51
-layer and then we again add the shortcut mechanism to prevent the vanishing gradient so when we return the X we
-37:57
-expect the output to be 2x 4X 768 which is the same size as the input now let's
-38:04
-check whether that's the case so this is my X and now I'm creating an instance of the Transformer block but remember I
-38:10
-need to pass in this configuration so when I create when you create an instance of the Transformer block you
-38:15
-have to pass in the configuration and remember again this is the configuration which I'm using over here which defines
-38:21
-the context length embedding Dimension number of attention heads number of Transformer blocks and the dropout rate
-38:29
-okay so now we pass in this configuration and then we just print out the output um and the input shape is 2x 4X
-38:37
-768 and you'll see that the output shape is exactly the same 2x 4X 768 what I
-38:43
-really encourage all of you to do is uh when you watch this lecture try to understand the dimensions try to write
-38:50
-down the 2x 4X 768 on the Whiteboard apply the layer normalization try to see
-38:55
-how the dimensions work out through all of these different building blocks and try to see that when you
-39:01
-reach the end the dimension is exactly preserved which is 2x 4X
-39:06
-768 okay so I have just added some notes here so that we can conclude this
-39:11
-lecture so as we can see from the code output the Transformer block maintains the input
-39:17
-Dimensions indicating that the Transformer architecture processes sequences of data without altering their
-39:23
-shape throughout the network this is very important the Transformer block processes the data without altering the
-39:30
-shape of the data the preservation of shape throughout the Transformer block
-39:35
-architecture is not incidental but it is a crucial aspect of the design of Transformer block itself this design
-39:42
-enables its effective application across a wide range of sequence to sequence tasks where each output Vector directly
-39:49
-corresponds to an input Vector maintaining a on toone relationship however the output is a
-39:55
-context Vector that encapsulates in information from the entire input sequence remember that the output
-40:01
-contains so much information it's very rich output Vector because it contains information about how the uh in the
-40:08
+* 35:00
+
+***
+
+
+* 40:00
+
 input sequence how every token relates to the other tokens of the input sequence that's the whole idea of the
 40:14
 attention mechanism which we looked about before or which you understood before so the GPT architecture is the
@@ -316,6 +225,7 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
 
 
 
