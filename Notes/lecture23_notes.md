@@ -109,88 +109,19 @@ class TransformerBlock(nn.Module):
 
 * 30:00
 
-will take you to this documentation I'll also share the link to this in the YouTube description
-30:49
-section okay so now when you look at the forward method I have explained to you the norm one uh which is the object Norm
-30:58
-normalization first normalization layer object then at drop shortcut shortcut
-31:03
-which is the Dropout layer we do not need to create a separate class for the shortcut connection because what we do
-31:09
-is that we just add the output of this back to the original input so when you
-31:14
-look at the shortcut mechanism look at where the arrows are there so if you look at this
-31:21
-Arrow if you look at this Arrow over here what we are doing is we are adding the this input over here
-31:28
-uh this input over here to the output from the Dropout right so the output
-31:34
-from the Dropout is added to this input which is over here let me actually mark
-31:39
-this with yellow so that you can get a clear understanding so the input is being marked with an yellow star here
-31:45
-and the output from the Dropout is marked with another yellow star and we are adding these two yellow stars
-31:50
-together that's what this first shortcut connections ISS so what we are doing is
-31:56
-that um shortcut is initially in initialized to X which is the input and
-32:02
-then X gets modified to the output of the Dropout so we are essentially adding the Dropout output to the input which is
-32:09
-exactly what we saw on the white board in the second shortcut layer let's see what happens in the second shortcut
-32:16
-Connection in the second shortcut connection what is actually happening is that uh here you see there is an input
-32:23
-to the second normalization layer and there's an output from the second dropout so we are adding the input to
-32:29
-the second normalization layer with the output from the second Dropout and you will see in the code what we are doing
-32:36
-so shortcut equal to X where X right now is the input to the second normalization layer and uh when we reach this step X
-32:44
-is equal to the output so here we are actually adding the output to the input of the second normalization layer which
-32:51
-is exactly what we saw on the Whiteboard so after all these operations are performed in the forward method the
-32:58
-Transformer block Returns the modified input which is the same dimensions as the input Vector remember that if
-33:05
-you keep in mind or visualize this Blue Block which I'm showing on the screen
-33:10
-right now you will easily understand what is happening in the code because in the code we have just followed a
-33:16
-sequential workflow of all of these different modules together okay so the Transformer block
-33:23
-is as simple as this once we have understood about the previous modules we just stack them together to build the
-33:29
-Transformer block now I think hopefully you would have understood why I have spent so many lectures on the feed
-33:35
-forward neural network we had one full lecture on the feed forward neural network and and Jou we had one full
-33:41
-lecture on layer normalization and we had one full lecture on shortcut connections as well the reason I spent
-33:47
-so much time separately on those lectures is that all of those different aspects come together beautifully when
-33:53
-you try to code out the Transformer block from scratch okay so here I have just written
-Transformer block code summary
-33:59
-an explanation of what we have done in the code so the given code defines a Transformer block class in py torch that
-34:06
-includes a multi-head attention mechanism and a feed forward neural network so this is the multi-head
-34:11
-attention mechanism and this is the feed forward neural network layer normalization is applied before each of
-34:17
-these two components so before the multi-ad attention mechanism and once which is before the feed forward neural
-34:24
-network that's why it's called as pre-layer Norm older architecture such as the original
-34:30
-Transformer model applied layer normalization after the self attention and feed forward neural network that was
-34:36
-called as post layer Norm post layer Norm so researchers later discovered
-34:43
-that post layer layer Norm sometimes leads to worse or many times leads to worse training Dynamics that's why
-34:50
-nowadays pre-layer Norm is used so we also implement the forward
-34:55
-path where each component is followed by shortcut connection that adds the input of the block to its output so here you
+```python
+torch.manual_seed(123)
+
+x = torch.rand(2, 4, 768)  # Shape: [batch_size, num_tokens, emb_dim]
+block = TransformerBlock(GPT_CONFIG_124M)
+output = block(x)
+
+print("Input shape:", x.shape)
+print("Output shape:", output.shape)
+```
+
+***
+
 35:01
 see this shortcut connection adds the input of this whole block to the output this shortcut connection over here adds
 35:08
@@ -385,6 +316,7 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
 
 
 
