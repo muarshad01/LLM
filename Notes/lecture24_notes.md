@@ -4,111 +4,13 @@
 
 * 5:00
 
-5:04
-blank we had coded out some aspects of the forward method but most of this
-5:09
-these classes were blank um but that's fine now we are ready to fill up these different aspects so that we can return
-5:17
-the output so ultimately we are going to see
-5:22
-this entire workflow to today we are going to have the input IDs which will be converted into token embeddings then
-5:29
-we'll add positional embeddings We'll add the Dropout layer we'll pass the output of the Dropout through the
-5:34
-Transformer block then the output from the Transformer block will be passed through another layer normalization
-5:40
-layer and then we'll finally have an output head layer and we'll return the Logics don't worry about understanding
-5:48
-all of this right now I'm going to sequentially take you through each of this step by step uh and explain to you
-5:54
-what exactly happens in each of these uh these code lines okay okay so what we are
-6:00
-essentially going to do is that since we coded this Transformer block last time we can replace this with the actual
-6:05
-Transformer code we are also coded this layer normalization Block in one of the previous lectures so we'll replace this
-6:12
-with the layer normalization code okay so the goal now we are ready
-6:17
-to achieve the goal of today's lecture which is to assemble a fully working
-6:23
-version of the original uh 124 million parameter version of gpt2
-6:31
-so we are going to do a pretty awesome thing today we are going to take input texts and then we are going to pass them
-6:38
-through this entire gpt2 architecture which by the way has 124 million parameters and then we'll get the output
-6:45
-answer and all of this we'll be doing on our local computer I'll be sharing the code with you so you'll be able to
-6:51
-execute it on your own end that's pretty awesome right you'll be probably running
-6:56
-a large scale large language model for the first time on your local machine so you at this moment if you have followed
-7:03
-the previous lectures we are going to assemble several components here so people who have followed the previous
-7:10
-lectures this lecture is going to be very enriching for you if you have come to this lecture for the first time I've
-7:16
-designed it so that you can follow it along but please understand that the value which you will derive from this
-7:22
-lecture will be significantly higher once you have also gone through the previous
-7:28
-lectures okay uh I hope all of you have this visual map in
-7:33
-mind we are going to do all of these steps which are shown in this visual map today and with actual parameters from
-7:40
-gpt2 we are going to use around 124 million parameters today before I dive
-Token, positional and input embeddings
-7:46
-into code I want to first show you everything on this whiteboard especially in terms of Dimensions so that you get a
-7:53
-clear understanding of what is exactly happening when we are going to move to code I have seen that many students who
-7:59
-learn about large language models they are very unclear about how the dimensions work out so what I've
-8:05
-actually done is that I've have made this uh flow map over here so I'm just zooming out here right now we are going
-8:11
-to going to go through all of this in just a moment but this is the flow map which I'm going to teach you right now
-8:18
-and the blocks which you see on the screen they are mostly there to represent the dimensions of the input
-8:23
-the dimensions of the output so my goal here is to visually convince you of what
-8:28
-exactly is happening in the GPT model so that the code becomes significantly easier the code for this GPT model is
-8:36
-actually pretty simple and straightforward the only difficulty which students face is that many tensors
-8:41
-come into the picture many dimensions come into the picture and students get confused as to they cannot visualize
-8:47
-what's going on and I've have not found too many too much good material out there which takes students through every
-8:53
-single step in the GPT model like this uh even in the previous lecture we went
-8:58
-through the entire code but we did not see this Hands-On example of let's say if you take a specific input sequence
-9:04
-how does that input sequence flow through the different blocks of the GPT model and how do we get the output let's
-9:11
-dive into every single detail remember the name of this whole playlist is building llms from scratch we are not
-9:19
-going to assume anything I want to teach you the nuts and bolts of how every single line of code works and that's why
-9:25
-I have made this effort to construct this visual flowchart okay so let's say
-9:30
-the input is every effort moves you right and then we have to make the output prediction which is the
-9:37
-prediction of the next word and the next word is forward every effort moves you forward so let's go through a sequence
-9:44
-of steps of what exactly happens in the GPT model when this input is given I'm going to switch color right now to a
-9:50
-darker color so that you all will see what I'm writing on the board okay so ideally inputs come in batches so what
-9:58
-we are going to do is is that let's say when we go to code we'll see that we have two batches and in each batch there
-10:04
-are four tokens so the first batch has every effort moves you and the four
-10:10
-token IDs corresponding to that and the second batch has token IDs corresponding
-10:15
-to the second sentence for the sake of Simplicity right now I'm just going to
-10:21
-analyze the first batch and then the same learnings which I'm going to show you can be applied to the second batch
+```
+Every effort moves you
+```
+
+***
+
+
 10:27
 as well uh so I'm going I'm getting rid of one dimension which is the batch dimension for now for the sake of
 10:33
@@ -1079,4 +981,5 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
