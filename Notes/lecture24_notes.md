@@ -12,102 +12,10 @@ Every effort moves you
 
 * 10:00
   
-as well uh so I'm going I'm getting rid of one dimension which is the batch dimension for now for the sake of
-10:33
-simplicity so we are going to focus only on these four words every effort moves you and prediction of the next World the
-10:40
-first step is that remember that we have a vocabulary right even when gp22 model
-10:45
-was constructed we have vocabulary and the vocabulary size is five U
-10:52
-5 I think it is 50257 so 50257 is the vocabulary size
-10:58
-for GP 2 so the first step is you take every word and you map it to a token ID
-11:04
-in the vocabulary every token is mapped to a token ID so these are the four
-11:09
-tokens for the sake of Simplicity think of every one token equal to one word that's not at all what's happening in
-11:15
-the gpt2 because gpt2 uses bite pair encoding which is a subword tokenizer we
-11:21
-have a separate lecture for that uh where you can see that even characters and small subwords can be tokens but
-11:29
-just for the sake of Simplicity I'm going to use one token equal to one word interchangeably in today's
-11:35
-lecture okay so we are looking at this first batch which has four tokens or four words that's the first step to
-11:42
-convert these tokens into these four token IDs awesome the next step is actually to take these token IDs and to
-11:48
-convert them into token embedding vectors so this is a key Point here computers can't understand words right
-11:55
-and it does not make sense to just have token IDs because because we need to capture the meaning between words dog
-12:02
-and puppy are close to each other cat and kitten are closer to each other it turns out that representing words in a
-12:09
-vectorial format can help preserve the semantic meaning between words so the
-12:14
-first step is to convert every input token into this token embedding vector and to decide an embedding size so we
-12:22
-are using an embedding size of 768 because that was the embedding size which was used for the smallest gpt2
-12:29
-model when it came out so if you see every which is the first token is now
-12:34
-encoded as a 768 Dimension Vector over here effort which is the second token is
-12:40
-also encoded as a 768 dimensional Vector moves which is the third token is
-12:45
-encoded as a 768 dimensional vector and U which is the fourth token is also
-12:50
-encoded as a 768 dimensional Vector one point which I want to mention here is that this encoding we do not know what's
-12:57
-the best encoding from the start we are initially going to project these vectors randomly in the 768 dimensional space
-13:05
-and then we are also going to learn the token embedding parameters in GPT models
-13:10
-along with everything else the token embedding all the embedding parameters are learned so right now let's say I
-13:16
-told you about cat and kitten right when we start out the vector for cat and the vector for kitten is initialized in
-13:22
-random directions but when the model is trained when the embedding vectors are trained they will be closer together
-13:27
-they'll be more aligned so right now for every U for the token every for the
-13:34
-token effort for the token moves and for the token U we randomly initialize
-13:39
-vectors in the 768 dimensional space that's the first step token embedding
-13:44
-the second step is that remember along with the semantic meaning of words what's also important to capture is
-13:51
-where the word comes in the particular sentence so every comes so every effort moves you and every comes in position
-13:57
-one effort comes in position two moves comes in position three and U comes in
-14:02
-position number four so along with representing the words themselves as an embedding Vector we also represent every
-14:09
-position as an embedding Vector so we are considering four positions here right which also becomes the context
-14:15
-size remember the context size is the maximum number of words which can be used to predict the next word in our
-14:22
-case the context size is equal to four which means only four positions matter so that's why in the positional
-14:28
-embedding we we are going to look at the embedding vectors for four positions position number one has again a 768
-14:35
-dimensional Vector position number two has a 768 dimensional Vector position number three
-14:42
-has a 768 dimensional vector and position number four has a 768 dimensional Vector similar to token
-14:49
-embedding we actually do not know the embedding values in each of these uh um
-14:55
-in each of these positional embedding vectors these embedding values are initialized randomly initially we do not know what
-15:02
-these embedding values represent these will be trained as the during the training procedure but the important
-
-
-
 ***
 
+* 15:00
 
-15:08
 thing to note is the embedding size the embedding size for every Vector in the positional embedding is 768 and this is
 15:15
 the same size as the uh token embedding and the reason for this is in the third
@@ -987,6 +895,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
