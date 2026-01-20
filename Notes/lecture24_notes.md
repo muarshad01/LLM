@@ -1,17 +1,7 @@
-* 00:00
-
-***
-
-* 5:00
-
 ```
 Every effort moves you
 ```
 
-***
-
-* 10:00
-  
 ***
 
 * 15:00
@@ -22,217 +12,22 @@ Every effort moves you
 2. Positional Emdedding
 3. Input Embedding = Token Embedding + Positioal Embedding
 4. Droupout (We randomly turn off some elements of every uh every input embedding to zero. Benefits: a) Prevent overfitting; b) Improve generalization)
+5. Transformer
+6. Layer Normaliztion
+7. Masked Multi-head Attention
+8. Dropout layer
+9. Layer Norm
+10. Feed forward neural network
+11. Dropout layer
+12. Shortcut connections
 
 *** 
 
-* 20:00
-
-all we have seen up till now so if you look at this structure until now um let
-20:13
-me zoom in further yeah if you look at the structure until now we have seen the four steps which come before here so we
-20:19
-tokenize the text into input IDs then we add the to then we have the token embeddings which was the first step then
-20:26
-we add the positional embeddings which was the second and third steps we get the input embedding and then we apply
-20:31
-the Dropout so we have seen these four steps until now we are at this point and
-20:36
-after the Dropout now we will enter the Transformer Block in which all of these steps will be performed so let's go to
-20:42
-step number five right now where we'll be looking at the Transformer block okay so when we reach the
-The 8 steps of the transformer block
-20:49
-Transformer this these are the input embeddings which we have so these are
-20:54
-the input embeddings with Dropout one thing which I would like you to see is that the dimensions are being preserved
-21:00
-so when we started this at the first step these were the same dimensions right every token had the dimen
-21:05
-embedding dimension of 768 and when we enter the enter the Transformer block every is still a 768
-21:13
-dimensional Vector effort is still a 7608 dimensional Vector moves is still a
-21:18
-7608 dimensional vector and U is still a 7608 dimensional Vector the one thing
-21:24
-which has not happened is that until now every Vector only contains meaning about itself but we do not know let's say when we are
-21:30
-looking at every how much information how much attention should be we give to effort moves and you to predict the next
-21:37
-world that's very important right along with capturing the semantic meaning which Vector embedding does it does not
-21:44
-capture the meaning of how every how let's say each word is related to other words so let's say when we look at
-21:51
-effort and we want to see when we are looking at effort how much attention should we pay to every moves and you
-21:58
-when predicting the next word that information is not captured and that will be done through the attention Block
-22:04
-in the Transformer module let's see when we get to that so now we are at the stage where we have the input embeddings
-22:11
-with Dropout then we apply the first layer in the Transformer block which is the layer normalization so this is also
-22:17
-called as the layer Norm what this layer normalization will do is that it will look at every uh every token so let's
-22:23
-say I'm looking at this token every uh and then U it will look at all
-22:29
-of these values here and it will normalize the values so that the mean of these values is equal to zero and the
-22:36
-variance of these values is equal to one and this will be done for every single token so after we do it for the token
-22:42
-every we then move to effort so we'll take the take all of these embedding values and we will normalize them so
-22:49
-we'll subtract the mean from every value and divide by uh the square root of variance and this same procedure
-22:56
-normalization procedure will be done to move and to you so after the layer normalization is done when we look at
-23:02
-every token and when we look at the values present in the embedding we'll see that the mean of those embedding
-23:08
-values is equal to zero and the variance of those embedding values is equal to one for every single token layer
-23:14
-normalization is performed to improve the stability during the training procedure okay after layer normalization
-23:21
-is performed the most important step which is actually the engine of the Transformer block which is why llms work
-23:27
-so well is this Mass multi-ad attention what is done in this mod in this step is
-23:33
-that we conver we take the embedding vectors and we convert them into context vectors so if you look at the output of
-23:40
-the M multi attention the size of the output is same so for the word effort let's say it we still have an embedding
-23:47
-of 768 Dimensions but now this is called as the context Vector embedding the reason is called context Vector is that
-23:54
-along with capturing the semantic meaning of effort which the Vector embedding already did this context
-24:00
-Vector which exists for effort also captures the meaning of how much attention should we give to every how
-24:07
-much attention should we give to moves and how much attention should we give to you when we are looking at effort so the
-24:15
-context Vector for every token captures the meaning of how much attention should be given to all the other tokens in the
-24:22
-sentence that's why it's called attention this is by far the most
-24:27
-important step in the entire GPT model without this part it would llms would not perform as well this part really
-24:34
-tells us that when we want to predict the next word which are the important words to look at what is the meaning
-24:40
-between different words how do different words attend to each other so the context Vector which I have written here
-24:47
-it looks very simple right now but we have devoted five lectures of 1 Hour 1 and a half hour each to understand this
-24:53
-one step uh which appears in the whole GPT model because here is where the
-24:58
-magic happens here is where we transfer U Vector embeddings into
-25:04
-context Vector embeddings so we we contain we capture meaning we capture context as to how different tokens or
-25:11
-different words are related with each other awesome so until this step here
-25:17
-again you can see the dimensionality is mentioned is preserved throughout that's what I like about the GPT model so for
-25:25
-throughout every step you'll see that we still have four tokens and the dimension of each is 768 this really makes the GPT
-25:32
-model scalable it's much easier to add multiple modules together because addition of modules does not change the
-
-
-
-
+* 30:00
 
 ***
 
 
-
-25:39
-dimensionality then after multi-head attention we again have a Dropout layer which randomly uh turns off
-25:47
-certain um certain context Vector values to zero so here I have shown the color
-25:53
-red where the values of every we look at every token and weite randomly switch
-25:58
-off certain values to zero it's the same Dropout layer which we had seen earlier then we actually have a shortcut
-26:04
-connection so wherever shortcut connections are mentioned it means that the output of this the output of this
-26:12
-layer the output of um the Dropout layer is added back to the input which we
-26:18
-started with to the Transformer uh this input the output is added back and the reason it's done is
-26:25
-because it provides another route for the gradient to flow and it prevents The Vanishing gradient problem which means
-26:32
-that the training proceeds in a much smoother manner so after the shortcut connection is applied that does not
-26:38
-change the dimension at all we again apply one more round of layer normalization so again we look at every
-26:45
-Row the mean is the mean is uh changed to zero the variance is changed to one
-26:52
-so that's how every values is normalized we subtract the mean from every value divide by the standard divide by the
-26:58
-square root of the variance so that finally when we look at the values together their mean will be zero and
-27:03
-their variance will be one this is done for every single token and then after the layer normalization layer we have a
-27:09
-feed forward neural network so when you zoom into this network you will see that this is kind of like an expansion
-27:16
-contraction uh Network where let's say you have the inputs right so we process every input step by step here if you
-27:23
-first look at the first token which is every it's a four dimension it's a 768 dimens token right um if you see the
-27:32
-input which enters the speed forward neural network is that every token has a dimension or an embedding size of
-27:39
-768 so what happens in this neural network is that we look at each token sequentially so let's say we are looking
-27:45
-at the first token which is every let me zoom into this neural network a bit uh yeah so first we project this
-27:53
-input into a higher dimensional space in fact uh this neural network has one hidden layer and the number of neurons
-27:59
-in this hidden layer is 4 * 768 which is four * the embedding Dimension and then
-28:06
-we contract back to the original Dimension so the output from this neural network is the same Dimension as the
-28:13
-input but there is this expansion and contraction which is happening and that allows a much richer exploration of
-28:19
-parameters that makes our llm much better at prediction of the next word
-28:24
-since it captures the meaning in a much better manner so if you look at the output from this neural network the
-28:29
-output from this neural network is the same size as the input which entered it we have four tokens and the embedding
-28:35
-size is equal to 768 uh but this expansion contraction
-28:40
-which you see over here the arrow which I'm showing here is the expansion the arrow which I'm showing now is the
-28:47
-contraction that is the key because since the middle layer has huge number of neurons it is four times the
-28:52
-embedding Dimension neurons which is 4 * 768 the number of parameters are huge in this feed forward neural network that
-28:59
-allows for a richer exploration space after this feed forward neural network
-29:05
-we have another Dropout layer which randomly uh switches off certain values to be equal to zero which I have just
-29:11
-shown here again by the red um by the red color so in every token random
-29:18
-values are set to zero typically one dropout rate is mentioned at the start and that's applied everywhere where
-29:23
-these Dropout layers are implemented then we have another shortcut connection where we basically add the output
-29:31
-uh after this Dropout to the input when we entered here so the this is the input
-29:38
-in this second row so this so the input which was there here is
-29:44
-added uh to the output of the Dropout layer which we are seeing over here and that's why it's a shortcut connection
-29:51
-and then the output from the shortcut connection is our Transformer block output over here so right now the
-29:58
-Transformer block output which I'm highlighting is the output after so many steps in the Transformer block so if you
-30:05
-look at the dimensions of this output you'll see that every token is again a 768 dimensional Vector over here so the
-30:11
-dimensions are exactly the same as the input to the Transformer block so let me
-30:16
-zoom out a bit here and you can now try to appreciate the number of steps which are involved in the Transformer so if I
-30:22
-zoom out here and if you look at the right side of the screen along with me uh let me actually move it to the
-30:29
-center yeah so these are all the steps which are involved in the Transformer right now whatever you are seeing on the
-30:36
 screen U let me minimize this
 30:47
 color yeah I hope uh you can see the entire Transformer workf flow on the screen right now we have we start with
@@ -824,6 +619,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
