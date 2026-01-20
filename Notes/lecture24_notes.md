@@ -131,6 +131,15 @@ again you can see the dimensionality is mentioned is preserved throughout that's
 throughout every step you'll see that we still have four tokens and the dimension of each is 768 this really makes the GPT
 25:32
 model scalable it's much easier to add multiple modules together because addition of modules does not change the
+
+
+
+
+
+***
+
+
+
 25:39
 dimensionality then after multi-head attention we again have a Dropout layer which randomly uh turns off
 25:47
@@ -815,6 +824,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
