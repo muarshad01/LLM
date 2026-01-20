@@ -3,7 +3,7 @@
 * The transformer block is repeated 12 times in GPT-2 small (124M parameters)
 
 #### Trransformer Block
-1. Multi-ead attention
+1. Multi-head attention
 2. Layer normalization
 3. Dropout
 4. Feed forward layer
@@ -121,3 +121,4 @@ print("Output shape:", output.shape)
 ```
 
 ***
+
