@@ -1,102 +1,9 @@
- view of GPT-2 architecture
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series today what we are going to do is we are going to construct the
-0:16
-entire GPT architecture or put in other words we are going to code the entire
-0:21
-GPT model we have been building up to this lecture for a pretty long time now
-0:26
-so let me just quickly recap what all we'll be covering in today today's lecture and what we have completed
-0:32
-previously so in the previous set of lectures which started around four to five lectures back in this GPT
-0:40
-architecture or llm architecture lecture series we started out with a dummy GPT
-0:45
-model class so when we started around four to five lectures back we did not
-0:50
-have H an understanding of the building blocks of the llm architecture or the
-0:56
-GPT architecture slowly we worked our way towards it initially we learned
-1:02
-about layer normalization we wrote code for it then we wrote a code for the feed
-1:07
-forward neural network along with the J activation then we learned about shortcut connections and wrote code for
-1:14
-that and in the previous lecture we also wrote the code for the entire Transformer Block in which the layer
-1:20
-normalization the J activation the feed forward neural network and the shortcut connections all come together today what
-1:27
-we are going to do is we are going to write code for this final piece of the puzzle which is how Point number one
-1:34
-point number two 3 4 5 and six essentially come together to form the
-1:39
-entire GPT architecture throughout this these four to five lectures on the GPT architecture
-1:46
-we have this or we should have this visual figure in our mind so here is
-1:51
-what happens in the GPT architecture we have text which gets tokenized we have
-1:59
-the dropout layer over here and then the input embeddings are essentially passed
-2:05
-to this blue colored block which is called as the Transformer Block in the previous lecture we coded out all of
-2:12
-these individual Elements which I'm marking in yellow right now in the Transformer block and we saw that when
-2:18
-you give an input to the Transformer how to code out all of these blocks and how to stack them all together so that we
-2:24
-get the output today we are also going to learn about these final two steps which is
-2:30
-another layer normalization layer and another linear output layer towards the end and we are going to see how do we
-2:38
-postprocess the output from the Transformer to get an output from the entire GPT model that's the main goal
-2:46
-today so if you if you look at the overall picture the mass multihead
-2:51
-attention is the key component of the Transformer block and the Transformer
-2:57
-block is the key component of the entire GPT model we have coded out the Transformer block
-3:02
-right that's fine but now we have to code out the entire GPT model so we'll start from the we'll start from the
-3:09
-bottom we'll start from uh uh this input
-3:14
-IDs or rather input text we'll tokenize it then we will uh integrate the Dropout
-3:22
-and then we'll integrate the Transformer building block and then we'll also integrate these final two building
-3:27
-blocks so you can think of this Le as an assembly lecture where different moving pieces of the GPT architecture will all
-3:34
-come together and ultimately you will have a system in which or ultimately you'll develop a model which receives an
-3:41
-input so the input is in the form of text tokens and the output from the model looks something like this right
-3:47
-now in the next lecture we are going to see how to decode this output to predict the next word so the main goal of the
-3:54
-GPT model is to take an input text such as every effort moves you and to predict
-3:59
-the next word so we are training the model for the next word prediction task today we are going to take today I'm
-4:06
-going to take you all to this stage where we get this final output and in the next lecture we are going to see how
-4:13
-to get the next word from this final tensor I'll assure you that the final tensor which we will obtain today can be
-4:20
-easily used to decode the next word so the main task today is how to go from
-4:26
-the Transformer output to this final output tensor from the GP G PT model and we are also going to take an Hands-On
-4:33
-example and show you how the operations Stack Up throughout this entire GPT
-4:38
-model okay so when we started this lecture series we actually started with
-4:43
-this dummy GPT model which I'm going to show you right now so we started this lecture series with this dummy GPT model
-4:51
-class right over here and at that time we had left several aspects blank so we
-4:57
-had left the Transformer Transformer block blank we had also left the layer normalization class
+* 00:00
+
+***
+
+* 5:00
+
 5:04
 blank we had coded out some aspects of the forward method but most of this
 5:09
@@ -1172,3 +1079,4 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
