@@ -62,195 +62,53 @@ class FeedForward(nn.Module):
 
 * 25:00
 
-the neurons or the elements of the layer will be set to to zero that's why it's 0
-21:00
-one right now and then the query key value bias is set to false because we don't need this bias term right now we
-21:07
-are going to initialize the weights of the query key and value Matrix randomly without the bias
-Coding LayerNorm and FeedForward Neural Network class
-21:14
-C okay before going to the Transformer block we need to revise what all we have
-21:19
-coded for the other blocks before so we saw the layer normalization right and we
-21:25
-had defined a class for the layer normalization before what this class does is that it simply takes an input it
-21:31
-subtracts the mean from the input and it divides by the square root of variance that make sure that the elements are
-21:38
-normalized to keep their mean equal to zero and standard deviation or variance equal to 1 remember in the denominator
-21:45
-we also add a very small value to prevent division by zero you may be wondering what the scale and shift is
-21:52
-these are trainable parameters which are added so you can think of them as uh parameters which are learned
-21:59
-during the training process so this is the layer normalization here the embedding Dimension is the input and the
-22:06
-normalization is performed along the embedding Dimension so let's say every step moves you forward right every is a
-22:14
-token so actually let me go to the Whiteboard to show you how the normalization is actually
-22:20
-done just so that you get a visual representation yeah so now uh if you
-22:26
-see um let's look at the these tokens and every token let's say has an embedding Dimension here of
-22:32
-768 in normalization what is done is that we look at individual rows and then
-22:38
-we normalize across the columns so we make sure that let's say the mean is zero and the standard deviation is one
-22:45
-now these values can be the output from any layers so let's say there is a layer normalization here right so what this
-22:52
-does is that it receives inputs from here and the input will have the dimension of 768
-22:59
-because the dimension is preserved so we'll take the mean along the 768
-23:04
-Dimension we'll make sure the normalization is such that the mean along the columns which is the embedding
-23:09
-Dimension is zero and the standard deviation is one that that will be the output from the layer normalization so
-23:16
-the size will be the same as the input but just what will change is that every row will have mean of zero and standard
-23:23
-deviation of one then we have the J activation function and as we saw it's defined by
-23:30
-this approximation which is used in gpt2 once we use this approximation the JLo
-23:35
-starts looking like what we had seen um in the building block so if I
-23:42
-just go to that particular graph so when I zoom in over here see this is the JLo
-23:48
-activation function and how it looks like the approximation used when gpt2 model was developed was this kind of an
-23:56
-approximation and uh actually in one of the previous lectures we saw the
-24:02
-function which was actually used so let me scroll up towards that to show you
-24:07
-that function yeah I think it is over here so if you see this this function
-24:15
-this is the function approximation which was actually used by researchers for training uh gpt2 this is the J
-24:22
-activation function approximation this is exactly what we have written over here and then we have the forward neural
-24:29
-network which takes in the input um which has the dimensions embedding
-24:34
-Dimension it expands it to four times the embedding Dimension then we have the
-24:39
-J activation and then we have the contraction layer so it takes the input which is four times the embedding
-24:45
-Dimension and brings it back to the original embedding Dimension so here you can see that the feed forward neural
-24:51
-network consists of an expansion and activation and a
-24:56
-contraction uh this is exactly what we have seen on the white board over here so let me just go to that portion of the
-25:03
-Whiteboard where we saw the feed forward neural network just to REM just to give you a
-25:10
-refresher um so here is yeah so this is that expansion
-25:16
-contraction neural network which we have just coded out in Python so the input is expanded to four times the dimension
-25:22
-size then we have the J activation function and then we have the contraction to the original embedding
-25:30
-size okay so now we have coded out different classes so we have a layer normalization class we have a j
-25:36
-activation class and we have a feed forward neural network class now we are ready to code the entire Transformer
-Coding the transformer block class in Python
+```python
+# If the `previous_chapters.py` file is not available locally,
+# you can import it from the `llms-from-scratch` PyPI package.
+# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg
+# E.g.,
+# from llms_from_scratch.ch03 import MultiHeadAttention
 
+from previous_chapters import MultiHeadAttention
+
+
+class TransformerBlock(nn.Module):
+    def __init__(self, cfg):
+        super().__init__()
+        self.att = MultiHeadAttention(
+            d_in=cfg["emb_dim"],
+            d_out=cfg["emb_dim"],
+            context_length=cfg["context_length"],
+            num_heads=cfg["n_heads"], 
+            dropout=cfg["drop_rate"],
+            qkv_bias=cfg["qkv_bias"])
+        self.ff = FeedForward(cfg)
+        self.norm1 = LayerNorm(cfg["emb_dim"])
+        self.norm2 = LayerNorm(cfg["emb_dim"])
+        self.drop_shortcut = nn.Dropout(cfg["drop_rate"])
+
+    def forward(self, x):
+        # Shortcut connection for attention block
+        shortcut = x
+        x = self.norm1(x)
+        x = self.att(x)  # Shape [batch_size, num_tokens, emb_size]
+        x = self.drop_shortcut(x)
+        x = x + shortcut  # Add the original input back
+
+        # Shortcut connection for feed forward block
+        shortcut = x
+        x = self.norm2(x)
+        x = self.ff(x)
+        x = self.drop_shortcut(x)
+        x = x + shortcut  # Add the original input back
+
+        return x
+```
 
 ***
 
+* 30:00
 
-25:43
-block using these building blocks which we learned about before okay so this is the class for the
-25:50
-Transformer block first let me go to the forward method and tell you a bit about
-25:56
-what we are doing here to understand this this sequence you just need to keep
-26:02
-in mind this sequence which we have in this figure so let me take you to that figure
-26:10
-right now yeah this sequence right over
-26:15
-here I'll just rub everything which is there on the screen so that you get a better look at this sequence there are
-26:22
-two many colors and too many symbols on the screen right now so I'm just getting
-26:27
-rid of I'm just getting rid of all of
-26:34
-these okay so I hope you are able to see the sequence now so this is the exact
-26:40
-same sequence which we are going to follow uh and keep this in mind right now it's fine you can even take a look
-26:46
-at this whiteboard later and revise when the video is when you look at the video so first we have the layer normalization
-26:52
-followed by attention followed by Dropout followed by shortcut layer so let's see these four steps initially so
-26:59
-see we have a layer normalization followed by the attention followed by the uh Dropout followed by the shortcut
-27:06
-Okay so until this point we have reached this stage this stage and then we have the
-27:13
-next steps which is another layer normalization uh so another layer
-27:20
-normalization yeah in the next four steps we have another layer normalization then feed forward Network
-27:27
-then Dropout and short cut so four steps and here you can see another layer normalization feed forward uh feed
-27:35
-forward neural network then drop out and then shortcut so this is what is happening in
-27:40
-the forward method if you understand the diagram which was shown on the Whiteboard this is pretty simple but
-27:45
-let's see when we create an instance of this Transformer block class what are the different objects which are created
-27:51
-so at is the multi-head attention object this is an instance of the multi-head attention class which we had defined in
-27:58
-one of the previous lectures what this class does is that it takes the embedding vectors and converts
-28:04
-them into context vectors and uh the input Dimension is the embedding Dimension the output is the same as the
-28:10
-embedding Dimension we have to specify context length over here which is 1024 let's revise this again context
-28:18
-length is 1024 and uh yeah then number of heads is the
-28:25
-number of attention heads which is I think 12 over here Dropout is the dropout rate 10% which we have used
-28:30
-before and this query key value bias is set to false if you want to revise multi-ad attention please go to one of
-28:37
-the previous lectures where we have covered this so whenever this uh at
-28:43
-atten uh an instance of this multi-ad attention class is created it takes in the input embedding and converts it into
-28:50
-context vectors the size here is batch size number of tokens and embedding size so
-28:57
-if the number of tokens are let's say four or five here there will be four and each will have the embedding size which
-29:03
-is let's say 768 in our case that's the embedding Dimension and the batch size can be uh any batch size which we have
-29:11
-defined so this is the at object which is the multi an instance of the multi-ad attention class then we have another
-29:18
-object called FF which is an instance of the feed forward class and we saw that feed forward class over here we just
-29:24
-have to specify the configuration here so that from the configur we can get the embedding dimmension and this class what
-29:31
-it does is that it creates uh these layers um and with the J activation
-29:37
-function and initialize the weights randomly so this is the um FF object
-29:45
-which is an instance of the feed forward class so wherever FF is used here we the input is passed in and it goes through
-29:52
-the expansion the J and the contraction and the output is the same dimensions as the input
-29:58
-then we have Norm one and Norm two so Norm one is the first normalization
-30:03
-layer and Norm two is the second normalization layer so you see the first normalization layer we are using before
-30:10
-the multi-ad attention the second normalization layer we are using before the feed forward neural network that's
-30:16
-why sometimes these are also called pre-normalization layers why pre because they are used before the multi-ad
-30:22
-attention and before the feed forward neural network and the last object is the drop shortcut which is basically a
-30:29
-Dropout uh which is basically an a Dropout layer so nn. Dropout is already
-30:36
-predefined from pytorch so you can actually search Dropout pytorch and it
-30:42
 will take you to this documentation I'll also share the link to this in the YouTube description
 30:49
 section okay so now when you look at the forward method I have explained to you the norm one uh which is the object Norm
@@ -527,6 +385,7 @@ understanding will help you as you transition in your career as well thanks than
 seeing you in the next lecture
 
 ***
+
 
 
 
