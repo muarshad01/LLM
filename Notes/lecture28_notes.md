@@ -12,91 +12,6 @@
 
 * 10:00
 
-close as possible to the uh Target to the Target value tensor and for that
-10:50
-we'll be doing back propagation so here's the pre-training loop schematic if you have worked with neural networks
-10:56
-before if you have done machine learning or deep learning it's extremely simple to understand
-11:02
-because once we have written down the entire loss function all we need to do is just do the backward pass and I I'll
-11:09
-explain to you what this means so what we are going to do is that uh we are going to do multiple epochs so let's
-11:16
-start understanding this step by step we are going to do multiple epochs one Epoch is going through the entire
-11:22
-training set once now in each Epoch we have multiple batches right uh because
-11:28
-the training set is divided into batches as I showed you we are going to uh look at one batch in one Loop and then in
-11:36
-that batch what we are going to do is we are going to find the loss function in the same way which I have described to
-11:42
-you right now and we even wrote a code for this in the last lecture I'm going to find the cross entropy loss function
-11:48
-for the entire batch and then I'm going to do this step which is the backward path to calculate the loss gradients in
-11:55
-this entire schematic this is the most important step the backward pass allows us to calculate the gradients of the
-12:01
-loss and what the gradients of the loss will enable us to do is to update the model weights and parameters so let's
-12:07
-say one particular parameter has a value of P old in one iteration in the in the
-12:13
-next iteration its value will be something like this its value will change uh sorry this
-12:22
-should be the other way around so this should be P new the new value is equal
-12:28
-to the value minus the step size into the loss gradient so the loss gradient
-12:34
-once we get these loss gradients they will enable us to Value all the parameters in our GPT architecture and
-12:40
-if your question is what are these parameters I'm going to come to that in just a moment and then after we update
-12:47
-the parameters we are going to print the training and validation losses we are going to see what the llm output is
-12:52
-there just for visual inspection and then we are going to go to the next next batch when we go to the next batch we
-12:59
-are going to reset the loss gradients from the previous batch to zero and then do the same process all over again for
-13:05
-all the batches and we'll do this until we finish one training EPO Epoch and
-13:10
-then we'll do this entire procedure for multiple training epochs just so that the training uh
-13:16
-proceeds as many time as possible and the parameter values are updated as much as possible this is the main algorithm
-13:23
-for pre-training the large language model and it looks pretty simplified right now but what we have done so far
-13:29
-in all of the lectures we have conducted is that unless we had a way to calculate
-13:34
-the loss function getting to this step getting the backward pass would have been impossible and to get this loss
-13:40
-function right now to get this loss function we first needed to understand how this logic sensors are obtained how
-13:46
-the llm output is obtained to get to how the llm output is obtained we need to understand this entire GPT architecture
-13:53
-itself to understand this GPT architecture we need to understand tokenization positional embedding multi-ad attention Dropout layer feed
-14:00
-forward networks Etc so without doing all of this it would have been impossible to calculate the loss
-14:06
-function which I explained to you today in 5 minutes so these 5 minutes have required a hard work of 20 to 25
-14:14
-lectures which have been covered previously so this is the training Loop schematic in in short we are we are
-14:20
-finding the loss we are doing the backward pass to get the loss gradient in every iteration and we are updating
-14:26
-the parameters based on these loss gradient values and our hope is that as we do the
-14:32
-updating let's say the loss function landscape is this it will not be this at all because it's a huge multi-dimensional landscape uh if this
-14:39
-is the loss function landscape and if we start from somewhere here our goal is to make the optimization so that at the end
-14:46
-we reach this Minima where the loss function is minimized great so in this entire code
-14:52
-the main step is finding the loss gradients and we are going to do that in Python through this method called loss.
-14:58
-backward I'm going to show you how elegant this pre-training code is in just one line python essentially
-15:04
-computes U or tensor flow pytorch essentially computes the entire backward
-
-
 ***
 
 * 15:00
@@ -554,6 +469,7 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
 
 
 
