@@ -184,6 +184,12 @@ text is not as great as what I had written on the Whiteboard over here uh
 35:48
 on the Whiteboard the next text was hello I am model ready to help but here the next text is something completely
 35:54
+
+
+***
+
+* 36:00
+
 random right now why is this completely random the reason this text is completely random is that because we
 36:00
 have not trained the model yet the model has 124 million parameters and all of those parameters are completely random
@@ -282,9 +288,4 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
-
-
-
-
-
 
