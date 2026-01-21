@@ -1,107 +1,8 @@
-nction recap
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from scratch Series today what we are going
-0:12
-to do is we are going to train our large language model until this point in
-0:19
-the uh llm pre-training stage what we have actually done is that we have uh
-0:27
-found out or rather we have understood the method which which is used to calculate the training and the
-0:32
-validation losses for a large language model and we covered that extensively in the last lecture where we saw that let's
-0:39
-say if you have an llm model and if you feed an input to the model you get an output how can you compare the output
-0:46
-with the target value and how can you get the loss function now that we have
-0:51
-calculated the loss function in the previous lecture the door is open for us to implement back propagation and to try
-0:58
-to minimize this loss as much as possible before we start learning about the llm training function in today's
-1:05
-lecture let me quickly recap how we calculate the loss between the llm
-1:11
-output and the target values so in last lecture and as is the case with today's
-1:16
-lecture the data set which we are going to use is the book which is called the verdict it's a book which is written in
-1:24
-196 and you can download this data set completely uh it's an open source dat
-1:29
-data set and uh it's not too big I think it has around 5,000 or 5,500 tokens so
-1:37
-it has around 20,000 characters and it has 5,000 tokens that's the data set we are going to use the first step we do is
-1:44
-that divide this data set into training and validation we use a training ratio of 0.9 which means that we use the
-1:50
-initial 90% of this data set as training and we use the remaining 10% of the data
-1:56
-set as the validation data great now once we have the training data there is uh we first need to divide
-2:04
-the training data itself into input and Target pairs remember we have not even come to the llm output for now since
-2:11
-llms are Auto regressive models we don't have labels so there is a special way in which the training data and the
-2:17
-validation data itself needs to be divided into input and targets within the data itself and we do that using
-2:24
-something which is called as the data loader so what the data loader does is that it looks at a data set and it
-2:30
-creates these input and Target pairs so let me give you an example of how these input and Target pairs actually look
-2:36
-like so here's one batch of input and Target pairs so this is one batch and
-2:42
-here you can see that the input consists of two samples and the output consists of two and the target consists of two
-2:48
-samples this is from our data set itself and in each sample here you can
-2:54
-see that there are four tokens but actually when we code the number of tokens is pretty big I think it's around
-2:59
-250 phic that's the context size or how many tokens you are going to see before
-3:04
-predicting the next token right so this is the first sample of the input and
-3:09
-here you can see this is the first sample of the output now the output or I should call
-3:16
-this the target rather I shouldn't call it the output because the target is the true value the actual value which we
-3:21
-want our llm to approximate so if you look at the first row of the input and the first row of
-3:27
-the target you'll see that the target Target is just the first row shifted to the right by one and similarly for the
-3:33
-second row of the input and the second row of the target that's how the input Target pairs are constructed so we we go
-3:41
-we first take this data set and uh what we do is that based on the context size let's say the context size is four so
-3:48
-the first input is these four tokens that is X1 here I'm assuming one token is equal to one word but that's not the
-3:54
-case because we use a bite pair encoder so I'm just showing this for illustration purposes here so this is
-4:00
-the first input that's X1 the first four tokens then the next four tokens that's the second input X2 and here there is
-4:07
-one more important variable which is called as stride so if you see between the input one and input two there is no
-4:13
-overlap right because the stride is equal to four so the stride is usually
-4:19
-equal to the context size so X1 X2 and similarly we go through the entire data set like this and we get the input and
-4:26
-similarly corresponding with each input we shift the input to the right right and we get the target so throughout this
-4:32
-entire lecture when we are going to refer to input and Target pairs we keep this visual in mind so this is a batch
-4:40
-each batch has here two samples so here's the input batch and here's one
-4:45
-output batch similarly sorry one input batch and one target batch similarly there will be huge number of input and
-4:52
-Target batches once we split all of the data set into input and Target pairs
-4:58
-right so that's the the first step and if you want to understand the details about how this input and Target pairs
-5:03
-are created we have done that in a lot of detail in the previous lecture so I'm not going to cover that right now so
-5:10
-these are the input and the target pairs right that's the first step then we need to get the llm output so what we do is
-5:17
-that we take the input value so we take the first batch take the second batch take the third batch Etc and pass all of
-
+#### 
+1. Text Generation
+2. Text Evaluation
+3. Training & Validation Losses
+4. LLM Training Function
 
 
 ***
@@ -847,4 +748,5 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
 
