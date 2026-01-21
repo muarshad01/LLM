@@ -4,121 +4,14 @@
 3. Training & Validation Losses
 4. LLM Training Function
 
+***
+
+* 5:00
 
 ***
 
+* 10:00
 
-
-5:24
-these batches into this llm architecture which we have built this is a pretty big architecture
-5:30
-where we first do the tokenization then uh do the embedding then add the positional embedding add the Dropout
-5:37
-layer and the output from this Dropout layer passes through the Transformer block so this blue color this blue color
-5:43
-block here which I'm highlighting right now that's the Transformer block here where all the magic happens the
-5:49
-Transformer has multiple layers such as normalization multi-ad attention Dropout shortcut connection feed forward Network
-5:55
-Dropout another shortcut connection Etc then we come out of the transform former block there is another normalization
-6:01
-layer followed by a output head or output neural network and then we get
-6:07
-this output tensor which is called as the logit tensor so the shape of the logit tensor
-6:13
-is pretty interesting to note over here let's say we are looking at the first batch right now and the first batch uh
-6:20
-has two samples right this is the first sample I had always thought which I mentioned here and this is the second
-6:25
-sample this is how the logic sensor looks like each of the now in each sample every token let's say I has the
-6:33
-number of columns which is equal to the vocabulary size that is 50257 uh so the size of this logic
-6:39
-tensor is 2 into 4 into 50257 in this case because there are two batches four
-6:45
-tokens in each batch and 50257 columns then we flatten this logic stenor which means we merge the first uh sample in
-6:54
-this batch and the second sample in this batch and we create this unified tensor which is eight and 50257
-7:01
-columns now when we get the logit sensor as the llm output every entry in the
-7:07
-logic stenor does not correspond to probabilities all the entries corresponding corresponding to one token
-7:12
-do not even add up to one so we need to implement the soft Max and convert this into Vector of probabilities so what
-7:19
-this means is that when you look at the first row I each value here corresponds to how much probability is there for
-7:25
-that token to be the next token so if the input is I uh every value here corresponds to
-7:32
-what's the probability for that token to be after I so if the llm is trained the
-7:38
-token index which has the maximum probability should correspond correspond to had because when I is the input had
-7:43
-is the output similarly when you look at the second row I had is the input if the llm is trained the token which has the
-7:50
-maximum probability should correspond to always because when I had is the input always is the output similarly when I
-7:57
-had always thought is the input uh the token I the token here which
-8:04
-corresponds or the index rather which corresponds to the maximum probability should correspond to uh the next word
-8:10
-which is I had always uh thought or I had always thought Jack
-8:18
-so let's see yeah I had always thought Jack so here the token ID which
-8:23
-corresponds to the maximum value in this case this index should correspond to the
-8:28
-token for Jack when the llm is actually trained now initially when we get this
-8:34
-tensor of probabilities uh the llm is not trained right so what we will do is
-8:39
-that we know the target we know the target values right we know the target which we want and we know the token in
-8:45
-indexes of this target so for example for I is the input had is the output and that has a certain token Index right so
-8:52
-let's say if I is the input and had is the output I want this token index to have the maximum value of the probab
-8:59
-ility when I had is the input always is the output so let's say I want this token index so what we do here is that
-9:05
-we just collect this list of targets and their token token IDs and we find the
-9:10
-probabilities on in each row corresponding to these token IDs now the whole aim of this uh exercise of
-9:19
-training llms is to make sure that these probabilities are as close to one as possible because then we'll make sure
-9:24
-that the llm outputs are matching the target values which means that the next token which our llm is predicting uh is
-9:32
-similar to the Target values Target value tokens but initially when the llm is not trained these probabilities will
-9:38
-be not close to one at all so we employ the cross entropy loss and we find this
-9:43
-negative log likelihood and the whole aim uh when we train the llm today is to
-9:49
-make sure that this loss function decreases and it becomes close as close to zero as
-9:54
-possible where the uh loss function is minimized so today what we are going to
-10:00
-do is that all the parameters in the GPT architecture here all of the parameters we'll take a look at them shortly we are
-10:07
-going to optimize them so that when the input inputs are fed into this model and when we take the loss function in the
-10:13
-way I have outlined today the loss function is minimized uh I went through this in a fast manner because we had one hour
-10:20
-lecture previously detailing this entire process okay now I hope you have
-LLM Pretraining loop
-10:26
-solidified your understanding of how the loss function is calculated now that we have the loss function we are ready to
-10:32
-do the llm pre-training so here what it means is that we are going to try to minimize the
-10:38
-loss function as much as possible so we want the output the llm outputs to be as
-
-
-
-***
-
-
-10:44
 close as possible to the uh Target to the Target value tensor and for that
 10:50
 we'll be doing back propagation so here's the pre-training loop schematic if you have worked with neural networks
@@ -202,6 +95,15 @@ the main step is finding the loss gradients and we are going to do that in Pytho
 backward I'm going to show you how elegant this pre-training code is in just one line python essentially
 15:04
 computes U or tensor flow pytorch essentially computes the entire backward
+
+
+
+***
+
+* 15:00
+
+
+
 15:10
 pass in just one line of command that's pretty awesome but you need to understand why it is so awesome the
 15:16
@@ -305,6 +207,15 @@ number of parameters in gpt2 smallest model comes out to be 124 million in any w
 of this operation and I want you to understand how the number of parameters comes to be of the order of 100 million
 20:33
 so when we do back propagation what we are doing is that for each of these parameters we'll first get this gradient
+
+
+
+
+***
+
+* 20:00
+
+
 20:40
 and that's obtained in this step you see uh backward pass to calculate gradients and once we get the gradients we are
 20:46
@@ -748,5 +659,6 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
 
 
