@@ -134,6 +134,7 @@ $ uv run jupyter lab
 #### AI/ML Companies
 * [ai71 - UAE](https://ai71.ai/careers)
 * [HUMAIN - Saudi Arabia](https://www.humain.com/)
+  * Phase-1: 25,000 NVIDIA H100 GPUS (world's most advanced)
 * [QAI - Qatar](https://www.qailab.qa/)
 
 ***
