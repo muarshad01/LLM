@@ -4,96 +4,31 @@
 
 * 5:00
 
-batch had four tokens we focused on the first batch which has four tokens and that's every moves you we converted
-5:32
-every token ID there are four token IDs here 6 6109 3626 610 and 345 we converted every
-5:42
-token ID into a token embedding so the embedding size was 768 over here and
-5:48
-then what we did was we added positional embedding to these token embeddings since the context size is four over here
-5:54
-we have four positions and there is a 768 dimensional embedding for the positional
-6:00
-uh embedding so we add the token embedding to the positional embedding and that
-6:05
-gives us the input embedding for every token for every effort moves and U so we
-6:10
-have these four input embeddings for these four tokens then what we do is we pass these input embeddings through a
-6:17
-Dropout layer which randomly turns off certain elements to zero this output which I'm highlighting in the yellow
-6:23
-color right now that is passed as an input to the Transformer this is where all the magic happens in the trans
-6:29
-former we first start with a normalization layer which makes sure that the mean and variance across so
-6:35
-mean is zero across every row and the variance is one across every single row then we apply the multi-head attention
-6:42
-which converts these embedding vectors into context vectors which carry richer meaning they also carry meaning about
-6:48
-how the particular token attends to all the other tokens uh or how one token
-6:54
-relates to all the other tokens in the sentence this mask multi-ad attention is
-6:59
-the key evolution in the llm architecture and that's why modern GPT
-7:04
-architecture such as the GPT 4 which we all have been using perform so brilliantly if multi-ad attention was
-7:10
-not there the llm outputs would not be so coherent and so meaningful after this
-7:15
-we have a Dropout layer then we have a shortcut connection followed by a layer
-7:21
-normalization followed by a feed forward neural network followed by another Dropout
-7:28
-layer followed by a short shortcut connection and then we get the Transformer block output remember here
-7:34
-the dimensions up till this stage are exactly preserved so we still have four tokens here and every token is still an
-7:40
-embedding size of 768 but now the embeddings are much more richer because they also contain uh
-7:47
-context about how one token relates to other tokens then we have after coming out of the Transformer we have a layer
-7:55
-normalization and then we have the final output layer which is this fin neural network now after this stage is where
-Converting output logins into next word prediction
-8:03
-today's lecture begins so first I want you to look at the output which we have received when we come out of the entire
-8:10
-GPT model so the number of rows are still the same we have four rows every
-8:15
-effort is the second row moves is the third row and U is the fourth row but
-8:20
-the number of columns are now 50257 which is the vocabulary size and
-8:26
-uh why do we have those many number of columns the the reason is because every
-8:31
-effort moves you these are four tokens right which is also the context size when the context size is equal to four
-8:37
-there are actually Four input output prediction tasks which are happening there is not just one input output
-8:44
-prediction task so you might be thinking how come there are four input output prediction task well the first
-8:49
-prediction task is when every is an input you have to predict what's the output and that should be effort right
-8:55
-so you look at these output Logics so these are called logics you look at the 50257 output logits for every and then
-9:04
-you find that index which has the highest value so let's say this index has the highest value right remember
-9:11
-this index also correspond to probabilities so this index will give us
-9:17
-which word in the entire vocabulary should come after every and then
-9:22
-hopefully this token ID here or this index corresponds to effort so then if when every is the input effort is the
-9:29
-output similarly when every effort is the input we look at the row for effort
-9:36
-and we try to look at that index which has the maximum value let's say this is that Index this is that token ID then we
-9:43
-go to our vocabulary and look for the word which corresponds to this token ID and that will be moves after all the
-9:49
-weights and parameters have been optimized when every effort moves is the input then we look at again the row
-9:56
-corresponding to moves and we try to look at that token ID or that index
-10:02
-which gives us the maximum value and then we look at the vocabulary and we
+
+#### Output logits 
+* Number of Tokens (4) X Vocubalry Size (50,257)
+* 1-batch = 1 X 4 x 50,257
+* 2-batch = 2 X 4 x 50,257
+
+* __Step-1__:
+  * Number of Tokens (4) X Vocubalry Size (50,257)
+  * 1-batch = 1 X 4 x 50,257
+    * Every [...|...|...]
+    * Effort [...|...|...]
+    * Moves [...|...|...]
+    * You [...|...|...]
+* __Step-2__:
+  * Extract the last Tensor
+    * You [...|...|...] -- Logits Vector
+* __Step-3__:
+  * Convert logits into probabilities by applying softmax
+* __Step-4__:
+  * Identity the index position (token ID of the largest value)
+* __Step-5__:
+  * Apply token ID to previous inputs for the next round
+
+***
+
 10:07
 try to find out what that ID corresponds to and that will be you only after these three prediction tasks are done then we
 10:14
@@ -114,101 +49,10 @@ batch over here the number of rows in the output are equal to four and the numbe
 
 * 10:00
 
-vocabulary size which is 50257 uh when the number of batches are equal to two the output tensor size will
-10:57
-be 2 into 4 into 50257 what we have to do is that from this tensor we have to extract that word
-11:04
-which comes after every effort moves you so let's see how the first step is to
-11:10
-take a look at this output tensor and make sense of it that we have four tokens and the number of columns is
-11:16
-equal to the vocabulary size awesome as I told you every row corresponds to something specific so the first row
-11:22
-corresponds to what token should come after every the second row corresponds to what token should come after every
-11:28
-effort the third row corresponds to what token should come after every effort moves you and only the fourth row
-11:34
-corresponds to what token should come after every effort moves you so we are going to extract the last Vector from
-11:41
-this tensor that's step number two so we will look at the vector which is corresponding to um U which I'm marking
-11:50
-right now and we'll extract this Vector after this Vector is extracted this is
-11:55
-called as the logits vector we look at the logits which are present and you'll see that these logits don't add up to
-12:01
-one which means that the logits currently don't represent the probabilities then what we do from Step
-12:07
-number two to step number three is that we are going to apply soft Max so we are going to apply soft Max function here so
-12:14
-that we are going to convert these logits into a set of probabilities so now when you look at the last Vector for
-12:20
-you you'll see that all of the values add up to one so this gives us probabilities that the probability of
-12:25
-the next token being the first element in the vocabulary is let say 0.1% the
-12:30
-probability of the uh second token being the uh the probability of the next word
-12:37
-being the second token is let's say uh 02 Etc so you can do this for all the
-12:42
-tokens and then you in the next step which is Step number four you identify the index position or token ID of the
-12:49
-largest value so you find the index which corresponds to the largest probability so here clearly it looks
-12:56
-like 02 uh is the probability which seems to be the largest and then I find the index
-13:02
-for this particular element and it turns out that in this case let's say the token ID is equal to 57 which means that
-13:09
-the highest probability for the next word after every effort moves you is the word or the token with the token ID
-13:16
-equal to 57 and then all we do is that we go to we go to our vocabulary and we
-13:22
-decode the word which corresponds to the Token ID of 57 and we hope that it's equal to forward up till now we have not
-13:28
-trained the llm architecture so the next word will not be what we expect because the training has not been done at all it
-13:34
-will be a random word but after all the training is done which will be the subject of our next module the next word
-13:41
-should be what we actually expect so this is the exact procedure which we are going to follow and remember there's one
-13:48
-last step after this token ID is obtained we'll have to append this token ID to the previous inputs for the next
-13:54
-round why this step number five exist is I hope you remember this diagram which we saw at the start of this lecture the
-14:01
-step number five exists because after you predict the next token after you predict the Next Generation token the
-14:08
-task does not stop here we have to append this token to the input in the second iteration and then we have to
-14:13
-repeat this process until we reach the last iteration which corresponds to the maximum number of new tokens okay so I
-Next word prediction visualised
-14:20
-hope you have understood the process I've just uh written a section where I explain this process again so that you
-14:27
-can revise and reinforce your Concepts so in the previous section we have seen that the GPT model out outputs the
-14:34
-tensors with this shape batch size number of tokens and the vocabulary size
-14:40
-remember this is exactly what we saw over here uh the shape is equal to the
-14:45
-batch size multiplied by number of tokens multiplied by the vocabulary size okay so uh this is the output tensor and
-14:55
-now the question is that how do we go from this output tensor to the generated text and as I explained to you in the
-15:02
-visual map there will be different steps so first what we'll do is that we'll get this output tensor and then what we'll
-15:08
-do is that we'll extract the last row from this output tensor after extracting
-15:14
-the last row these are the Logics we'll convert it into a set of probabilities by applying the soft Max and we'll
-15:20
-extract that token ID with the highest probability and then we'll find the word which cor or find the token which
-15:26
-corresponds to that token ID and then we'll append that token to the previous
-15:31
-inputs and then we'll do the next round of iterations this is exactly what we'll be
-15:37
-doing so basically we'll take the index of the highest value we'll get the token ID we'll decode it back to text that
-15:44
-produces the next token and will append to the previous input so I've written the same thing here so that you can you
-15:50
+***
+
+* 15:00
+
 know reinforce and uh master your understanding of these Concepts so this
 15:55
 stepbystep process enables the model to generate text sequence ially building coherent phrases from the initial input
@@ -295,6 +139,12 @@ need is that uh we need the inputs uh we need the inputs to be
 provided and the inputs are usually provided in the format which looks like
 20:17
 this um yeah this is the input batch so in the input what we'll be doing is that
+
+
+
+
+***
+
 20:22
 let's say this is a batch with two inputs the first uh batch has four tokens and the second batch has four
 20:29
@@ -695,5 +545,6 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
 
