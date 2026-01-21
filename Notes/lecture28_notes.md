@@ -101,6 +101,13 @@ are created we have done that in a lot of detail in the previous lecture so I'm 
 these are the input and the target pairs right that's the first step then we need to get the llm output so what we do is
 5:17
 that we take the input value so we take the first batch take the second batch take the third batch Etc and pass all of
+
+
+
+***
+
+
+
 5:24
 these batches into this llm architecture which we have built this is a pretty big architecture
 5:30
@@ -204,6 +211,12 @@ solidified your understanding of how the loss function is calculated now that we
 do the llm pre-training so here what it means is that we are going to try to minimize the
 10:38
 loss function as much as possible so we want the output the llm outputs to be as
+
+
+
+***
+
+
 10:44
 close as possible to the uh Target to the Target value tensor and for that
 10:50
@@ -834,3 +847,4 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
