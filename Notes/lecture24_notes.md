@@ -36,133 +36,10 @@ Every effort moves you
 
 * 45:00
 
-me zoom out here further so these are the eight steps which we saw in the Transformer we start with input
-45:18
-embeddings add a Dropout layer normalization then uh we go to the mass
-45:24
-multi attention then drop out and then the shortcut connections that's the first of these eight steps in the that's
-45:30
-the first four of these eight steps in the Transformer block then what we do is that then we again have a layer
-45:37
-normalization feed forward neural network with J then Dropout and then
-45:42
-another set of shortcut connections these are the last four steps so overall there are these eight steps which are
-45:47
-happening in the Transformer block architecture and it's the same eight steps which we wrote down when we wrote
-45:53
-the code for the Transformer block class these are the first four steps and it
-45:59
-ends with the shortcut connection and these are the last four steps and here again it ends with the shortcut
-46:05
-connection the main point which we also recognized when we implemented the Transformer block class is that the
-46:11
-dimensions are preserved the dimensions of the input to the Transformer are the same as the dimensions of the output
-46:18
-from the Transformer block awesome now we have all the knowledge and now we are
-46:23
-ready to code the entire GPT architecture so first first let's look at the forward method um which takes in
-46:30
-the input and remember the input looks something like this let me show you how the input actually looks like the input
-46:37
-might look something like this where here we are showing two batches and each batch has let's say four token IDs uh so
-46:44
-the number of rows here in this tensor are equal to the number of batches and the number of columns are the sequence
-46:50
-length or the number of tokens which we are considering that's why if you see the number of rows here in the input
-46:56
-shape are size number of columns are essentially the sequence length or the number of
-47:02
-tokens whenever now I'm explaining this next whole part you can keep that flow
-47:07
-map in mind which I showed you on the Whiteboard and think about the flow which we had for every effort moves you
-47:13
-so first we convert the tokens into token IDs and then we convert the token
-47:19
-IDs into embedding vectors that's what's done in this token embedding uh so we initialize an
-47:26
-embedding layer from the pytorch module and then from this embedding layer we
-47:33
-get the embedding token embedding vectors for the input IDs and then similarly we get the positional
-47:39
-embedding vectors for the four positions so see sequence length is equal to four so we get the positional embedding
-47:45
-vectors for the four positions and we add the token embedding to the positional embeddings so whenever you
-47:51
-try to make sense of Dimensions here always think of one batch at a time when you think of one batch things will be
-47:57
-simplified because one batch only has four tokens let's say so when you look at this step the output of this step uh
-48:04
-you can visualize the output exactly from the flow map which we had seen so let me take you to that yeah look at the
-48:12
-first step over here which was titled as positional embedding when you look at this code the token embeddings these are
-48:20
-essentially uh these are essentially this kind of a
-48:26
-tensor where for every token you have the 768 dimensional Vector similarly you
-48:31
-can think of the same visualization for positional embeddings and when you look at this x equal to token embeddings plus
-48:38
-positional embeddings you can uh you can try to visualize this this part which we
-48:43
-saw we added the token embeddings to the positional embeddings right over
-48:48
-here so for every token we added the token embeddings and the positional embeddings to get the input embeddings
-48:55
-that's exactly what I'm I've written in the code over here and then after this part we go to the next steps which were
-49:02
-which were the same in the visual flow so the next step Next Step
-49:08
-was addition of the Dropout which was step number four over here I'm showing that with a star right now that was the
-49:15
-step number four so Dropout layer followed by the Transformer followed by
-49:22
-the Transformer block and then the last two layers were another layer normalization layer which which was step
-49:28
-number six here this was the second last layer which was another layer of
-49:33
-normalization and then the final layer was output head so after you get the input
-49:39
-embeddings there are four things you apply Dropout layer you apply the Transformer blocks you have the another
-49:46
-layer of normalization and then you apply the output head that's it now if you see the Transformer blocks
-49:54
-we are chaining different Transformer blocks together together based on the number of layers so in the configuration
-50:00
-we have seen that the number of layers is equal to 12 right in this configuration we have seen that the
-
-
-
-
-
 ***
 
-50:05
-number of layers is equal to 12 so uh we are actually chaining 12 Transformer
-50:11
-blocks together using NN do sequential this NN do sequential is a tensor flow or pytorch module which allows us to
-50:18
-chain um different neural network blocks together so we have chained 12
-50:23
-Transformer blocks so when you see the cell trf blocks it just looks like one line
-50:29
-of code right but there are actually 12 Transformer blocks chain together here and in each Transformer block there are
-50:36
-eight different steps which are being performed so it's a huge number of operations being performed in this one
-50:41
-simple line of code that's it actually if you think of the building blocks if you have
-50:47
-understood the Transformer block if you have understood the layer normalization class uh if you have understood the
-50:53
-dimensions with respect to the Token embeddings positional embeddings that's all what
-50:58
-the um Transformer or what the GPT model
-
-
-
-***
-
-
-51:03
+* 51:00
+  
 class is actually doing it takes in the input and then the outputs are the logits which we saw on the Whiteboard so
 51:11
 the dimensions of the logits if you remember let me take you to the Whiteboard once more so if you go to the
@@ -244,6 +121,13 @@ constructed the parameters which were used for the token embedding layer were th
 the linear output layer and that's why uh the total number
 55:16
 of parameters was less in our case right now we did not reuse the parameters so when we print out the parameters they
+
+
+***
+
+* 55:00
+
+
 55:22
 say 163 million uh but in gpt2 architecture they are reusing the weight
 55:27
@@ -365,6 +249,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
