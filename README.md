@@ -130,3 +130,10 @@ $ uv run jupyter lab
 3. [Neural Networks from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
 
 ***
+
+#### AI/ML Companies
+* [ai71 - UAE](https://ai71.ai/careers)
+* [HUMAIN - Saudi Arabia](https://www.humain.com/)
+* [QAI - Qatar](https://www.qailab.qa/)
+
+***
