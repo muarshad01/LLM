@@ -52,6 +52,7 @@ $ uv run jupyter lab
 | [Lecture 23 -- Coding the entire LLM Transformer Block](https://www.youtube.com/watch?v=dvH6lFGhFrs&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=23) |  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md) | 19/01/2026 |
 | [Lecture 24 -- Coding the 124 million parameter GPT-2 model](https://www.youtube.com/watch?v=G3-JgHckzjw&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=24) |  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md) | 20/01/2026 |
 | [Lecture 25 -- Coding GPT-2 to predict the next token](https://www.youtube.com/watch?v=F1Sm7z2R96w&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=25) |  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md) ||
+|---|---|---|
 | [Lecture 26 -- Measuring the LLM loss function](https://www.youtube.com/watch?v=7TKCrt--bWI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=26) |  [Notes26](https://github.com/muarshad01/LLM/blob/main/Notes/lecture26_notes.md) ||
 | [Lecture 27 -- Evaluating LLM performance on real dataset - Hands on project - Book data](https://www.youtube.com/watch?v=zuj_NJNouAA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=27) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) ||
 | [Lecture 28 -- Coding the entire LLM Pre-training Loop](https://www.youtube.com/watch?v=Zxf-34voZss&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=28) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) ||
