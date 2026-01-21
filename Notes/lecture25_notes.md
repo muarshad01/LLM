@@ -29,24 +29,6 @@
 
 ***
 
-10:07
-try to find out what that ID corresponds to and that will be you only after these three prediction tasks are done then we
-10:14
-come to the fourth prediction task which is the main prediction task when the input is every effort moves you you have
-10:21
-to predict the output right so you look at the fourth row which is the final row and you try to find that ID which gives
-10:28
-you the maximum value and then you find the word corresponding to that and that
-10:33
-word will hopefully be forward so then the next word which will be predicted by this LM is every effort knows you
-10:39
-forward and remember the size of the output over here since we have only one
-10:45
-batch over here the number of rows in the output are equal to four and the number of columns are equal to the
-
-
-***
-
 * 10:00
 
 ***
@@ -57,102 +39,42 @@ batch over here the number of rows in the output are equal to four and the numbe
 
 * 20:00
 
+#### 4.7 Generating text
 
-20:22
-let's say this is a batch with two inputs the first uh batch has four tokens and the second batch has four
-20:29
-tokens so the inputs will be provided like this and that's called as the idx
-20:34
-so the shape of idx is batch which are the number of uh batches which we have
-20:40
-uh and that's the number of rows and the number of columns is equal to uh end tokens so so that you visualize what the
-20:47
-inputs will look like I'll just copy paste the inputs which I showed to you before so I'll just copy paste this over
-20:54
-here so that this is a visual reference for you so this is the
-21:00
-this is the input this is the format of the input batch which is passed into this generate
-21:06
-text simple so we are defining a function which is generate text simple
-21:11
-and what it will do is that it will take model and what is model model has
-21:18
-been defined before model is actually let me go back yeah model is an instance
-21:25
-of the GPT model class so see this is the GP model class which we had coded in
-21:30
-the last lecture which takes the inputs and then outputs the logits
-21:35
-tensor um so that's the second input to the function which we are going to Define today and that function is
-21:42
-generate text simple so model sorry model is the first input so we have to pass in an instance of the GPT model
-21:47
-class we have to pass in the inputs and remember I told you about the maximum number of new tokens so we have to pass
-21:53
-in that as an argument and we also have to pass in the context size because the
-21:59
-context size specifies how many words we have to look at before predicting the next World great now let's start the
-22:05
-coding the first thing what we have to do is that we have to make sure that the number of tokens which the llm is
-22:12
-looking at at any given point is determined by the context size so let me show you what that actually means um
-22:19
-here I'm just taking a random example to demonstrate this to you so take a look at this example over here let's say
-22:26
-these are the inputs uh let's say these are the um this is the input tensor which is
-22:31
-given to the llm and here you will see that this input tensor actually has two rows which means there are two batches
-22:37
-but I want you to look at so two rows because there are two batches but look at the number of tokens so number of
-22:43
-tokens here are actually equal to eight so there are eight tokens here now what
-22:49
-if the context size is equal to five so if the context size is equal to five we
-22:54
-cannot look at eight tokens before predicting the next word we only can look at five tokens so this command which is it takes in the
-23:01
-input and then it only looks at the number of elements specific to the context size so in the code we are going
-23:08
-to write this Command right now so what this command will do is that it will look at the input if the input token
-23:14
-size which is the number of columns is equal to the context size then it's fine but if it's not it will take the last
-23:20
-Elements which are equal to the context size so now the context size is equal to five so it will look at the last five
-23:26
-tokens as an input from the first batch and it will look at the last five tokens as an input from the second badge this
-23:32
-is what this idx colon minus context size colon is going to do it will restrict the input so that we only look
-23:39
-at the number of tokens equal to context size so that's the first uh command which we have written that's idx c n d
-23:47
-which is condition idx condition great now what we are going to do is that we are going to pass this
-23:54
-input to the model so the model is the GPT class this is where all all the main functions are happening what this model
-24:01
-will do is that it will take the input and then it will pass the input through token embeddings positional embeddings
-24:07
-Dropout layer Transformer blocks another normalization layer and the final output layer and it will return this logic
-24:14
-tensor and remember that this logic sensor which is which is received what are the dimensions for it the dimensions
-24:21
-are batch comma number of tokens comma the vocabulary size this is the
-24:27
-dimensions of this logic sensor and then what we have to now do is that we have to extract the last row from this logic
-24:33
-tensor remember what we did um on the white Bard when we looked at the logic
-24:38
-tensor which was this tensor that is in Step One in Step number two what we have to do is that we have to extract the
-24:44
-last Vector from this logit tensor so now what we are going to do in the second step is that let's say if the
-24:50
-logit tensor looks something like this so if I have two batches this is my first batch and this is my second batch
-24:58
-and then then in each batch I have four tokens and then here I'm taking a vector
-25:03
-embedding Dimension equal to five so what we have to do is that from each of these batches we have to take the last
-25:10
-we have to take the last row so from the first batch we have to take the last row from the second batch we have to take
-25:15
+```python
+def generate_text_simple(model, idx, max_new_tokens, context_size):
+    # idx is (batch, n_tokens) array of indices in the current context
+    for _ in range(max_new_tokens):
+        
+        # Crop current context if it exceeds the supported context size
+        # E.g., if LLM supports only 5 tokens, and the context size is 10
+        # then only the last 5 tokens are used as context
+        idx_cond = idx[:, -context_size:]
+        
+        # Get the predictions
+        with torch.no_grad():
+            logits = model(idx_cond)
+        
+        # Focus only on the last time step
+        # (batch, n_tokens, vocab_size) becomes (batch, vocab_size)
+        logits = logits[:, -1, :]  
+
+        # Apply softmax to get probabilities
+        probas = torch.softmax(logits, dim=-1)  # (batch, vocab_size)
+
+        # Get the idx of the vocab entry with the highest probability value
+        idx_next = torch.argmax(probas, dim=-1, keepdim=True)  # (batch, 1)
+
+        # Append sampled index to the running sequence
+        idx = torch.cat((idx, idx_next), dim=1)  # (batch, n_tokens+1)
+
+    return idx
+```
+
+***
+
+* 25:00
+
 the last row and the way this will happen is through this command Logics colon minus one and colon so what this
 25:22
 first colon is that which means you do nothing to the batch argument but the second is minus one which means that you
@@ -458,6 +380,7 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
 
 
