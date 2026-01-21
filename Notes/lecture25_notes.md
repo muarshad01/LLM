@@ -1,110 +1,9 @@
 #### Generating Text from output Tensors
-text?
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from
-0:10
-scratch Series today is the last lecture in the GPT architecture module which we
-0:16
-have been covering and in today's lecture what we are going to do is that we are going to generate text from the
-0:23
-output tensor which we have reached at in the last lecture so first let me give you a
-0:30
-review of how an llm generates text because this figure right here is what will guide us throughout this entire
-0:37
-lecture and then I'll quickly take you through the recap of what all we have completed so far and what's the main
-0:44
-objective of today's lecture so let's get started everyone what a large language model
-0:51
-does is essentially the following it generates tokens given a certain
-0:57
-sequence of input tokens it generates the output token and uh to generate the output
-1:04
-token the model is given a context size that's the maximum number of tokens which the model looks at before
-1:11
-predicting the next token so uh let's say when we are
-1:16
-looking at the first iteration this is the input tokens hello I am and the
-1:22
-model has to predict the next token and then the next token is
-1:28
-actually appended to the input tokens so in the second iterations now the inputs are hello I am
-1:36
-a uh so the token which has been generated in the previous round is appended to the input for the next
-1:44
-iteration and in the next iteration the input tokens are hello I am a and then
-1:49
-the output is model great then in the third iteration
-1:55
-we have hello I am a model which are the input tokens and then the output tokens
-2:00
-are ready similarly we continue doing iterations until there is a specific
-2:06
-number of Max maximum number of new tokens which can be generated so let's say we have reached the six iteration
-2:13
-and hello I am ready to help so the new tokens which have been generated are model ready to and help and Dot so five
-2:21
-new tokens so if the maximum number of new tokens is five then the output from
-2:27
-the model is hello I am a model ready to help this is the main uh mechanism through
-2:33
-which the next token is generated from a given list of tokens what's very important in this process is also the
-2:40
-context size that's the maximum number of previous tokens the llm is going to look at before predicting the next token
-2:47
-in gpt2 architecture the context size was 1,24 so just keep this in mind keep this
-2:54
-iterative procedure in mind where the output from the earlier iteration is appended to the next iteration and the
-3:00
-next word is predicted and this keeps on happening until we have reached the maximum number of new tokens this is the
-3:07
-exact mechanism which we are going to implement in today's lecture first let's recap what all we
-GPT Model recap
-3:13
-have learned so far in this series we started out with getting an input such as every effort moves you that's the
-3:19
-input sentence we converted it into token IDs we converted it into input embeddings sorry we converted it into
-3:26
-token embeddings we added positional embeddings to this token embeddings which led to input embeddings then we
-3:32
-added a Dropout layer the output from this Dropout layer was passed into the Transformer block the Transformer block
-3:39
-which is shown in blue color is where all the magic really happens and the core engine of the Transformer block is
-3:44
-multi-head attention before the multi-ad attention there is a normalization layer after the multi-ad attention we have a
-3:51
-Dropout and a shortcut connection then after the shortcut connection we have another layer of normalization we have a
-3:57
-feed forward neural network we have another Dropout layer then we have one more shortcut connection over here and
-4:03
-then we get the output from the Transformer after the output is obtained
-4:09
-from the Transformer we have one more layer normalization layer and then we have a final neural network which is
-4:16
-also called as the output head which gives us this output tensor all of this has been covered in
-4:21
-the previous two lectures where we coded out the entire Transformer block and in the last lecture we coded out the entire
-4:27
-GPT model so if you have not seen seen the previous lectures I highly recommend you to do that so that you can follow
-4:33
-along in this lecture as well so uh let us see the exact flow which we have
-4:39
-implemented so far and what we need to do next so the output or the main goal of the today's lecture is that look at
-4:46
-this output tensor which we have obtained this output tensor looks pretty big right so your question would be how
-4:52
-do I go from this output tensor to prediction of the next word which I have shown in this visual representation in
-4:58
-today's lecture first we are going to understand that on a whiteboard and then we are going to go to code to predict
-5:06
-the next word so at the end of today's lecture we will actually take an input and get words as the next
-GPT Model visual flow
-5:12
-predictions okay so here's the entire pipeline which we saw remember the format in which we have received the
-5:17
-input batches uh here there were two batches and each batch has certain number of tokens so in this case each
-5:24
+
+***
+
+* 5:00
+
 batch had four tokens we focused on the first batch which has four tokens and that's every moves you we converted
 5:32
 every token ID there are four token IDs here 6 6109 3626 610 and 345 we converted every
@@ -209,7 +108,12 @@ word will hopefully be forward so then the next word which will be predicted by 
 forward and remember the size of the output over here since we have only one
 10:45
 batch over here the number of rows in the output are equal to four and the number of columns are equal to the
-10:50
+
+
+***
+
+* 10:00
+
 vocabulary size which is 50257 uh when the number of batches are equal to two the output tensor size will
 10:57
 be 2 into 4 into 50257 what we have to do is that from this tensor we have to extract that word
@@ -791,4 +695,5 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
