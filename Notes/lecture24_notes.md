@@ -30,108 +30,12 @@ Every effort moves you
 
 ***
 
-clear once your visual understanding is clear we are pretty much ready to move into code so now let us dive into code
-40:13
-and uh see how these different blocks can be arranged together to code the entire GPT model
-Coding the entire GPT-2 architecture in Python
-40:20
-all right so let's jump into code right now here's the GPT configuration it's
-40:26
-the same configuration is gpt2 which we are going to uh use when we are going to
-40:32
-look at this entire coding module so here you will see that the vocabulary size is equal to
-40:38
-50257 this was actually the vocabulary size which was implemented when gpt2 was
-40:44
-trained the context length is equal to 1024 the vector embedding Dimension
-40:50
-which we also saw on the Whiteboard that is equal to 768 the number of attention heads is equal to 12 the number of
-40:58
-Transformers U which are there which we are going to implement are equal to 12 the drop rate or the dropout rate is
-41:05
-equal to 0.1 and the query key value bias is false this is for setting or
-41:11
-initializing the weight metrices for the queries the keys and the values we don't need the bias term in that for now you
-41:19
-can focus on a couple of things the first is the embedding Dimension uh which is going to stay 7608 throughout
-41:25
-the second is the 502 spice and vocabulary size these are the same dimensions which we just saw on the
-41:31
-Whiteboard so you might be able to relate to them uh 12 is the number of Dropout uh 12 is the number of
-41:38
-Transformer blocks so in gpt2 when it was trained they had 12 Transformer blocks we are also going to use a
-41:45
-similar number of Transformer blocks then the number of attention heads so every Transformer block has a multi-ad
-41:51
-attention module right and that module has a certain number of attention heads we are going to use that equal to 12
-41:57
-dropout rate is 0.1 I think this much should be enough to understand the entire code now as we
-42:04
-are going through this code I want you to just keep this diagram in mind and the dimensions which we just saw in the
-42:11
-visual flow map everything will follow from this particular diagram since we are exactly going to uh code it in a
-42:18
-similar manner okay so we started out this
-42:23
-lecture series four to five lectures back with this GPT model class where we
-42:29
-had the forward method but the Transformer block was not implemented so this was a dummy Transformer block the
-42:36
-layer normalization was not implemented this was a dummy layer normalization
-42:42
-what we did over the last three to four lectures is that we coded the layer normalization class feed forward neural
-42:47
-network class and also the Transformer class so here's the layer normalization class which we had coded given a
-42:55
-particular uh layer now you can think of when whenever you see layer normalization remember we have seen the
-43:02
-visual visual flow map now right so you can uh try to visualize what happens in
-43:08
-the layer normalization layer we have seen that already so see this is exactly what happens in a layer normalization
-43:14
-layer we look at every token that has 768 Dimensions right then what we are
-43:19
-doing is that we are going to subtract the mean and divide by the square root of the variance so that the resulting
-43:26
-values have a mean of zero and standard deviation or variance of one we also have a scale and a shift here which are
-43:32
-trainable parameters then we have the feed forward block and remember where the feed forward block comes in the
-43:39
-Transformer architecture it's this uh it's this feed forward block um let
-43:46
-me actually change my pen color to it's this feed forward neural network which I have shown you over here the expansion
-43:52
-contraction feed forward neural network this is that feed forward block so you'll see that the input is the
-43:58
-embedding Dimension the layer is four times the embedding Dimension size and the output is the embedding Dimension
-44:04
-once you are able to visualize this you'll be able to easily understand this code the input is the embedding
-44:09
-Dimension the hidden layer is four times the embedding Dimension that's the expansion layer then there is a
-44:15
-contraction layer from the four times embedding Dimension to the embedding Dimension and there is a Jou activation
-44:22
-function we spent a whole lecture on the J activation because it's a bit different than the
-44:27
-it's smoother on the negative side I think I also have a plot for the J activation over here so let me quickly
-44:33
-show you that um if I can find it yeah so on the right hand side you can see
-44:40
-railu it's zero for negative inputs for the J it's not zero and also it's
-44:45
-differentiable at x equal to Z that's why in llm training generally the J activation uh is used so we coded the
-44:53
-layer normalization class the j class and the feed forward class and then in
-44:58
-the last lecture we coded the entire Transformer block class itself so here we had the so the eight steps in the
-45:06
-Transformer if you remember take a look at these eight steps which we saw um let
-
-
+* 40:00
+  
 ***
 
+* 45:00
 
-45:12
 me zoom out here further so these are the eight steps which we saw in the Transformer we start with input
 45:18
 embeddings add a Dropout layer normalization then uh we go to the mass
@@ -225,6 +129,13 @@ layer of normalization and then you apply the output head that's it now if you s
 we are chaining different Transformer blocks together together based on the number of layers so in the configuration
 50:00
 we have seen that the number of layers is equal to 12 right in this configuration we have seen that the
+
+
+
+
+
+***
+
 50:05
 number of layers is equal to 12 so uh we are actually chaining 12 Transformer
 50:11
@@ -454,6 +365,7 @@ generate text from the final output tensor which we have obtained today thanks a
 uh to seeing you in the next lecture
 
 ***
+
 
 
 
