@@ -1,3 +1,4 @@
+#### Generating Text from output Tensors
 text?
 0:00
 [Music]
@@ -790,3 +791,4 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
