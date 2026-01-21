@@ -1,9 +1,4 @@
-#### Generating Text from output Tensors
-
-***
-
-* 5:00
-
+## Generating Text from output Tensors
 
 #### Output logits 
 * Number of Tokens (4) X Vocubalry Size (50,257)
@@ -65,15 +60,7 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
 ***
 
-* 25:00
-
-***
-
-* 30:00
-
-***
-
-* 36:00
+* 35:00
 
 ```python
 start_context = "Hello, I am"
