@@ -71,121 +71,6 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
 * 30:00
 
-
-we need the soft Max why can't we just find the index from the logits that index which gives the highest value soft
-30:16
-Max is monotonic so that index is going to remain same whether we apply soft Max or
-30:21
-not um so in practice the soft Max step is redundant which means it's not really needed to find the position with the
-30:28
-highest uh highest score because the position with the highest score in the softmax output is the same position in
-30:35
-the logic sensor so in other words we could apply the torch. AR Max here we have applied
-30:41
-it to the soft Max torch. AR Max we have applied to soft Max generated output
-30:46
-right we could have applied this to the logic sensor directly and get identical results so here I could have just
-30:52
-replace this with logits and the results would have been the same so then your question would be
-30:58
-then why are we using the softmax in the first place uh what the importance of softmax
-31:05
-is that we wanted to show you the full process of transforming Logics to
-31:10
-probabilities which can give additional intuition the probabilities give us some intuition of how much percentage
-31:15
-contribution does each token have in the next word prediction task and this will
-31:21
-also help us because uh in the next module where we'll do the GP training we
-31:27
-will introduce additional sampling techniques where we will modify the softmax output such that the model does
-31:32
-not always select the most likely token and will introduce some variability and creativity in the generated text this is
-31:39
-the important part the model does not always take the U output with the maximum
-31:46
-probability to make sure that the generated text has some variability some creativity we will explore some other
-31:53
-options where the softmax select some other tokens and for that definitely we need to apply the soft Max because we
-31:58
-need the outputs to be in some format of probabilities so although soft Max was not needed in the current code it will
-32:04
-be useful later when we look at things such as temperature variability in selecting the outputs Etc don't worry
-32:11
-about these terminologies right now I'll cover that in detail when we come to the next module now what we can do is that we
-Testing the next token generator function
-32:18
-have written this whole function right why don't we test it on some sample text so let me take the model input as hello
-32:25
-I am um these this is is my model input and the reason I'm taking this input is
-32:30
-that this is the same input which I have used on the mirror whiteboard over here so I take this model input and uh then
-32:38
-what I'll first do is that I'll first encode it into token IDs so I first use my encoder to encode this model input
-32:44
-and convert it into a tensor so remember the shape of the input should be batch size here I have only one batch and the
-32:51
-number of tokens so it should be a tensor and it should be a tensor of token IDs so I have my encoder which has
-32:57
-been defined through tick token so if you have been following these lectures you will know that we have been
-33:03
-generating our encodings through tick token which is the tokenizer used for open AI models it's a bite pair encoder
-33:10
-so we are using that to encode this sentence and now I have generated my input sample now what we'll do is that
-33:16
-before passing in the model we'll first put the model in evaluation mode this bypasses some layers such as
-33:22
-normalization layer Dropout layer because we are not training the model here we are just evaluating so it just
-33:27
-just makes the model a bit more efficient and then we will just call this generate text sample
-33:33
-function we'll call this generate text sample function and we'll put model equal to model we have already defined
-33:40
-the model before and let me again take this over here so that you you have full
-33:45
-grasp and the GPT model configuration which we are using has been defined over here this is the configuration we are
-33:51
-using a vocabulary size of 50257 context length of 1024 768
-33:57
-embedding dimension 12 attention heads 12 Transformer blocks and dropout rate of
-34:02
-0.1 so this is the model which has been defined um because that's needed to be
-34:08
-passed into our function so I'm just writing it over here for your reference I'll code it out I'll comment it out I
-34:15
-will share the code so that you can run it on your own laptop okay so then we'll
-34:20
-run this generate text simple function we'll pass in the model we'll pass in the inputs this these are my inputs
-34:26
-right now remember the input is the second argument over here then we have to pass Max new tokens and context size
-34:32
-so let me pass in that so my Max new tokens is six and the context size which I'm I'm passing is GPT configuration
-34:38
-context length which is 1024 and then I'll just print out the output so I have six new tokens right
-34:46
-and the input was these tokens 1 5496 11 314 and 716 so now these are the inputs
-34:54
-and if you look at the output tensor you'll see that six new tokens have been appended over here 27018 2486 474 843
-35:04
-30961 42 3 48 7267 these are the six new tokens which
-35:09
-have been appended uh through because of our generate text simple function so these are the next Words which our GPT
-35:16
-model has predicted and here you can see that the output length is 10 why 10 because four were the number of input
-35:23
-tokens and Max new tokens were six so six additional words or tokens have been generated now we can use the decode
-Analysing the next token predictions
-35:30
-method and based on our vocabulary and the bite pair encoder which we have used we can convert these new tokens back
-35:36
-into text so it seems that the next text is now some random text and the next
-35:42
-text is not as great as what I had written on the Whiteboard over here uh
-35:48
-on the Whiteboard the next text was hello I am model ready to help but here the next text is something completely
-35:54
-
-
 ***
 
 * 36:00
@@ -288,4 +173,5 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
