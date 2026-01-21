@@ -29,14 +29,6 @@
 
 ***
 
-* 10:00
-
-***
-
-* 15:00
-
-***
-
 * 20:00
 
 #### 4.7 Generating text
@@ -75,101 +67,11 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
 * 25:00
 
-the last row and the way this will happen is through this command Logics colon minus one and colon so what this
-25:22
-first colon is that which means you do nothing to the batch argument but the second is minus one which means that you
-25:30
-look at the first batch and then you look at the last you take the last row you look at the second batch and you
-25:36
-just take the last row this is what we are going to do so now we are going to apply this function which will just take
-25:41
-the last row out of every batch in the logic stenor so logits colon minus one
-25:46
-colon is going to result in this where we just take the we just take this
-25:53
-Row from the first batch and we take the last row from the second batch and we just uh stack them
-25:59
-together so this is the second command here where we only focused on the last time step or the last row okay and now
-26:07
-when we execute this command the dimensions become the batch which are the number of rows and the vocabulary
-26:13
-size so one thing which I would like to clarify here is that here I mentioned this five as the
-26:20
-embedding Dimension right but this is actually the vocabulary size the number of columns here are equal to the
-26:26
-vocabulary size and what this what this function this is
-26:32
-equal to the vocabulary size and what this function does is that it just takes the last row so when we get this final
-26:39
-output the number of rows are still equal to the number of batches and the number of columns are equal to the
-26:44
-vocabulary size we get rid of the second dimension which was equal to the number of tokens all right so now we have this uh
-26:52
-these two we have the rows which correspond to the last row in every batch and the next
-26:59
-step is applying soft Max and converting these Logics into a set of probabilities
-27:04
-this is exactly what we are going to do we are going to apply soft Max and dimension equal to minus one uh which
-27:11
-will ensure that for every row which we have extracted soft Max will be applied Along The Columns of those rows so when
-27:17
-we look at each of the tokens so let's say you when we look at this batch so when you look at each batch um when when
-27:25
-you sum up the probabilities for each batch they will sum up to one so remember that now that the size here
-27:31
-is just batch size number of rows and number of columns equal to the vocabulary size so now all of these will
-27:38
-be transformed into values such as these and if you add up these values so for
-27:44
-the first batch you'll just add up these values and that will sum up to one for the second batch you'll add up these
-27:49
-values and that will sum up to one remember the goal is to predict a new token for every batch we have
-27:55
-inputed so this is the next step and then the final step is we are going to look at that index with the highest
-28:01
-probability value and uh this is exactly the step which we had mentioned here
-28:07
-also yeah so after converting the Logics into probabilities we look at that index
-28:13
-which has the highest value so this is exactly what we are doing in this step we look at that index with the highest
-28:18
-value uh that token ID and then in the last step we append that token ID idx
-28:24
-next to the initial uh token IDs which were stored in idx so in this last step we do the appending
-28:31
-part which has been mentioned over here so look at step number five over here you have to append the token ID
-28:38
-generated to the previous inputs for the next round and this is what is shown in this torch. cat which is concatenation
-28:45
-and idx next is the input is the ID which corresponds to the highest probability and that is appended to the
-28:52
-current Uh current indices and we you see we are in a Loop
-28:58
-here so the number of times we are going to do this appending operation is by the time we reach the maximum number of new
-29:05
-tokens these are the number of iterations remember on the Whiteboard what we saw uh on the Whiteboard we had clearly
-29:12
-seen that uh the number of iterations over here the number of iterations which were six iterations over here are equal
-29:19
-to the number of Maximum maximum number of new tokens so that's what's been written in
-29:24
-the code we are doing the number of iterations equal to the maximum number of new tokens and then we are going to
-29:30
-keep on adding these new tokens to the input tokens and that's it this is how we are
-29:36
-going to predict the new tokens corresponding to the next words and that's exactly what's happening in the
-29:41
-GPT model this is how you go from all of the complicated GPT model architecture
-29:47
-to predicting the next World I have just written some text over here in the
-Role of softmax in next token prediction
-29:52
-preceding code the generate Tex simple function we use a soft Max to convert the Logics into probability distrib R
-29:58
-bution from which we identify the position with the highest value uh now
-30:03
-you might think that since we are only looking at the index with the highest value and soft Max is monotonic why do
-30:09
+***
+
+* 30:00
+
+
 we need the soft Max why can't we just find the index from the logits that index which gives the highest value soft
 30:16
 Max is monotonic so that index is going to remain same whether we apply soft Max or
@@ -380,6 +282,7 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
 
 
