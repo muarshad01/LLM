@@ -53,97 +53,10 @@ batch over here the number of rows in the output are equal to four and the numbe
 
 * 15:00
 
-know reinforce and uh master your understanding of these Concepts so this
-15:55
-stepbystep process enables the model to generate text sequence ially building coherent phrases from the initial input
-16:02
-context so as I showed to you over here we are going to over here we are going
-16:08
-to repeat this process over multiple iterations right and that's also what I've written over here yeah in practice
-16:16
-what we do is that we repeat this process or multiple iterations until we reach a user specified number of
-16:22
-generated tokens so we have to specify how many new tokens you need and only when we reach that reach that me many
-16:29
-number of new tokens we stop so the figure below illustrates the process of generating one token ID at a time so
-16:35
-let's zoom into this figure further so let's say the initial input tokens which are provided as the input to the llm are
-16:41
-hello I am with these token IDs what the llm will do in iteration number one is
-16:47
-that it will predict the next token ID using the procedure we saw before and let's say the token ID is 257 which
-16:53
-corresponds to the Token o this token is then appended in the second iteration so
-16:58
-now we are we have come to the second iteration the inputs are hello I am a and then we make the output which is the
-17:05
-next uh given given these inputs what is the next token which comes out and then
-17:11
-the token word which or the actual token is model and then this token is now appended to the input of the previous
-17:17
-iteration now we are at iteration number three similarly we get an output at iteration number three and this proceed
-17:24
-proceeds till the end why do we do only six tokens because there is a provision
-17:29
-for Max new tokens and that has been set to six that's why we only do six iterations remember the number of
-17:36
-iterations which we do will be determined by the maximum number of new tokens which have been
-17:43
-specified so then when the input is hello I am since the maximum number of
-17:48
-new tokens is six the output will be hello I am a model ready to help dot
-17:55
-this this is the output which the GPT has has generated that's why generative AI we have generated something like this
-18:03
-completely from scratch now that was not present as an input or a training data this is generated as a
-18:10
-new text um and this is the process underneath all of it so now when you use
-18:15
-GPT today or tomorrow or any time uh hopefully this lecture Series has kind of shined a torch to this black box for
-18:23
-all the other students who don't know how this next work next word prediction task Works GPT operates like a black box
-18:29
-but not for all of you who have been watching this video series because I'm trying trying to deconstruct how the
-18:35
-next word is actually predicted given the input tokens awesome so uh in iteration number
-18:44
-one the model is provided with tokens corresponding to hello I am and then it
-18:49
-predicts the next token with ID 257 great and then that is again appended to
-18:55
-the input and this process is repeated till the model produ produces the complete sentence hello I am a model
-19:02
-ready to help after six iterations why only six iterations because the maximum number of new tokens was set to six okay
-19:10
-so I hope everyone has followed with me until this part and I want you to recap
-19:15
-these steps the step number one is to look at the output tensor step number
-19:21
-two is to extract the last Vector step number three is to convert logits into probabilities step number four is to
-19:27
-identify the index position position of the largest value and step number five is to append token ID to the previous
-19:33
-inputs and we are going to keep on doing this until maximum number of new tokens has been reached this is the exact same
-19:40
-thing which we are going to implement in code right now so the next part of this lecture is diving into code so uh let's
-19:48
-jump into code right now okay so here what we are going to do
-Coding the next token generator function
-19:53
-is we are going to generate text from output tokens and uh we are going to implement the same process what we had
-19:59
-seen in the uh on the Whiteboard okay great so the first thing what we
-20:05
-need is that uh we need the inputs uh we need the inputs to be
-20:12
-provided and the inputs are usually provided in the format which looks like
-20:17
-this um yeah this is the input batch so in the input what we'll be doing is that
-
-
-
-
 ***
+
+* 20:00
+
 
 20:22
 let's say this is a batch with two inputs the first uh batch has four tokens and the second batch has four
@@ -545,6 +458,7 @@ file with you and I encourage you to play with this code ask doubts on YouTube u
 much as possible thanks a lot everyone I look forward to seeing you in the next video
 
 ***
+
 
 
 
