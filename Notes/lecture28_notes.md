@@ -97,118 +97,13 @@ backward I'm going to show you how elegant this pre-training code is in just one
 computes U or tensor flow pytorch essentially computes the entire backward
 
 
-
 ***
 
 * 15:00
 
+* __Main step__: Find loss gradients using loss backward
 
-
-15:10
-pass in just one line of command that's pretty awesome but you need to understand why it is so awesome the
-15:16
-reason it's so cool is because the sheer scale of the number of parameters we are dealing with so what we are essentially
-15:23
-doing is that we have the inputs we pass them through the GPT model we get the logits we apply soft Max then we get the
-15:30
-cross entropy loss between the output and the target this whole operation is differentiable which means that this
-15:36
-gives us so once the loss is obtained we can do the back propagation and find the partial derivative of the loss with
-15:42
-respect to all the parameters which come in in the model and mostly the parameters come in this step in fact I
-15:48
-think all of the parameters come in this step in the GPT model itself so the back propagation needs us to understand what
-15:55
-makes the GPT model differentiable so if you look at the GP model you will see that this is the workflow and
-16:03
-differentiability is ensured and maintained at every single step of this workflow so if you have the loss
-16:08
-function over here you can back propagate it and find the partial derivative of the loss with respect to
-16:13
-all of the parameters which come within this within all of these layers and if you add all of these parameters together
-16:20
-the number of parameters will be around 161 million parameters I'm going to show
-16:25
-show you how it comes to 161 million but through this one line of code through loss. backwards we are essentially
-16:32
-finding the gradient of the loss with respect to all of these parameter values and then updating all of these parameter
-16:38
-values isn't that pretty awesome the sheer scale of these operations would have been impossible to do 50 years back
-16:44
-when compute resources were not available but now I can do this backward pass and this optimization on my laptop
-16:52
-and uh I did this training in 6 minutes uh which I think even on your laptop you
-16:57
-can do it in five to 6 minutes we optimized 161 million parameters in this much amount of time and I'll show you
-17:04
-how we can do that first let me uh draw your attention to what makes the number of parameters to be this high so uh if
-Measuring LLM parameters (~160 M)
-17:12
-you have followed the GPT model the GPT model consists of the embedding parameters the token embeddings
-17:18
-positional embeddings it consists of the Transformer block parameters and it also consists of the final layer before we
-17:24
-get the logits so the embedding parameters have the token embeddings whose size is equal to uh the vocabulary
-17:31
-size multiplied by the embedding Dimension and the positional embedding which is defined by the context size
-17:38
-multiplied by the embedding Dimension if you add the these two parameters this is 38.4 million these parameters are not
-17:46
-known to us we are even optimizing for the token and positional embedding parameters now if you look at the
-17:52
-multi-ad attention we have the query key and value trainable weights so there are three matrices here and each M each each
-17:58
-matrice has dimension of 768 which is the input embedding and the output embed embedding which are generally same in
-18:05
-this multi- tension and multiplied by three because we have query key and value three matrices so this is 1.77
-18:12
-million parameters and then there is also an output head um whose number of parameters are equal to 59 million the
-18:20
-total number of parameters in the multi-ad attention block that itself is equal to uh 2.36 million so 2. 36
-18:29
-million parameters here and then we have a feed forward neural network in the Transformer block and the feed forward
-18:35
-neural network is like this expansion contraction type of a setting where we have the input equal to the embedding
-18:41
-Dimension that's projected into an hidden layer which whose dimensions are four times the embedding Dimension and
-18:48
-then we compress it back to the original Dimension so uh the number of parameters
-18:54
-here are 768 which is the embedding Dimension then 4 into 7 68 which are the
-18:59
-number of parameters here so these are the parameters in this expansion layer and these are the number of parameters
-19:05
-in the contraction layer both are the same and they add up to 4.72 million now if you add up the parameters in the
-19:12
-multi-ad attention the feed forward neural network and the output head it comes out to be 2.36 + 4.72 million this
-19:20
-these are the number of parameters in one Transformer block and we have 12 Transformer blocks so the total number
-19:26
-of parameters which are coming from the Transformer block itself is 85.2 million
-19:31
-parameters and then there is a final layer which is a soft Max uh which gets us the logic tensor
-19:38
-and the number of parameters here are the embedding Dimension multiplied by the vocabulary size and that's 38.4
-19:43
-million parameters so if you add up this number of parameters together the embedding has 38.4 million Transformer
-19:50
-has 85.2 million and then the final layer is 38.4 million so the total
-19:55
-number of parameters if you add up are 162 million gpt2 on the other hand the smallest
-20:01
-model is 124 million right so the reason between this discrepancy is that they use something called weight time so in
-20:07
-the output projection layer they recycle the uh same number of parameters in the
-20:13
-embedding layer so hence we we reduce those many number of parameters and that's why the
-20:21
-number of parameters in gpt2 smallest model comes out to be 124 million in any ways I want to illustrate here the scale
-20:27
-of this operation and I want you to understand how the number of parameters comes to be of the order of 100 million
-20:33
-so when we do back propagation what we are doing is that for each of these parameters we'll first get this gradient
-
-
+* Input --> GPT model --> Logits --> Softmax --> Cross Entropy Loss (Output, Target)
 
 
 ***
@@ -659,6 +554,7 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
 
 
 
