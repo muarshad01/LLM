@@ -141,6 +141,10 @@ the inputs and shift it or just take the last two values here and add a new valu
 that's the targets this is because there are three input output pairs okay now now once we get the
 25:29
 inputs what we are going to do is that we have the inputs and we have the targets but we have not yet generated
+
+***
+
+
 25:34
 the outputs to generate the outputs what we'll do now is that we'll pass in the input through this GPT model we'll pass
 25:41
@@ -232,6 +236,13 @@ the target text and the output text will be as close as possible to each
 30:16
 other great now that actually motivates us to go to our next section in today's
 Cross entropy loss in LLMs
+
+
+
+
+***
+
+
 30:22
 lecture which is actually defining the loss between the targets and the output so now let let's see what's going on
 30:29
@@ -713,6 +724,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
