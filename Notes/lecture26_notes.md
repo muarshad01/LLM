@@ -34,126 +34,70 @@
 
 * 20:00
 
+#### Finding the loss between targets and outputs
 
-really like so I really like and for these outputs we
-20:13
-have to compare these outputs to these True Values for the second batch I hope you have you have
-20:20
-understood the goal of today's lecture um up till now we have understood what
-20:25
-are the inputs the shape in which inputs will be given to the model what are the
-20:30
-True Values which I'm also calling as targets and we understood that what are the output uh output token IDs for batch
-20:39
-number one and batch number two and to get these output token IDs the inputs have to go through a huge Transformer
-20:46
-block and it has to go through this whole GPT architecture then we get the output Logics we apply soft Max and we
-20:52
-get this tensor like this this one tensor essentially contains all the information you take a look at at this
-20:58
-tensor and then you extract the indexes with the highest probability in each row
-21:04
-that is essentially your output okay and now what we are going to
-21:10
-do next is that we are going to then find the loss between the targets and the output before coming to the next
-Coding the LLM Model Outputs
-21:15
-step I want to go to code and really code everything what we have learned so far so that the understanding is clear
-21:22
-and so that you also understand uh what is really going on in the
-21:27
-code I already explained to you the configuration which we are going to be using right vocabulary size 50257 the
-21:34
-context length of 256 uh embedding dimension of
-21:40
-768 number of attention heads 12 number of Transformer blocks equal to 12
-21:45
-dropout rate 0.1 and the query key value bias equal to false awesome now the next thing what we
-21:53
-are going to do is that we are going to uh construct our model what this model
-21:58
-is basically it's an instance of the GPT model class and this is the GPT model class which we have defined previously
-22:05
-uh to get a visual representation of what this class does is that it takes in the input and then it converts the
-22:11
-inputs into this logic sensor that's so all of these steps
-22:16
-which have been written here are actually encoded visually in this Transformer block or in this GPT model
-22:22
-architecture which I've seen the blue color which I'm highlighting right now with the orange pen that's the transform
-22:28
-for block and it's the heart of the entire GPT architecture so here we are creating an instance of this model so
-22:35
-that when we pass an input to this model we get the logic sensor as the output one note is that we reduce the
-22:43
-context length of only 256 tokens here although we know that the gpt2 model
-22:48
-uses 1024 tokens the reason is because you all will be able to follow and execute the code on your laptop computer
-22:56
-and we reduce the computational resource requirements that way okay there are two more functions which I want to define
-23:03
-the first is text to token IDs what this will do is that whenever we get any text
-23:08
-which is the input we'll just convert it into token IDs and this uses this tick
-23:13
-token tokenizer to convert the text into token IDs and there is also token IDs to
-23:19
-text which is the reverse function so basically when we get any token ID we'll convert it back into
-23:25
-text so uh if every effort moves you is the text and when you pass it through
-23:30
-the tokenizer you'll get the token ID is corresponding to this and then you can even decode the token IDs and it will
-23:37
-get you back the same text just as a proof that our model is working what I've done over here is that uh I have
-23:44
-use this generate text simple which is another function we have defined in the previous lecture no need to worry about
-23:49
-this right now but what this function does is that it takes in our model and we predict the maximum number of new
-23:55
-tokens the number of input tokens is four every effort moves you and then it generates 10 new
-24:03
-tokens um so here you can see the we have printed the output text and this shows that the output text consists of
-24:09
-four input tokens and 10 output tokens remember one word is not necessarily equal to one token because we are using
-24:16
-the bite pair encoder where we even have subwords and characters which can be individual tokens so up till now as we
-24:23
-see the model does not produce good text because it has not been trained yet and
-24:28
-uh so what we'll be doing is that how to measure what what good text is so that's
-24:33
-why we have to define the loss function right now let's start with the main implementation in today's lecture and
-24:40
-these are the inputs so the first input as as I told you on the Whiteboard is every effort moves these are the token
-24:46
-IDs corresponding to the input text and the second input is I really like and
-24:51
-the token IDs which are corresponding to the second input text are 40 1107 and
-24:57
-588 great and the targets are essentially 3626 610 345 these are the True Values
-25:05
-for the this for the first batch for the second batch the targets are 1107 588
-25:10
-and 11311 take a note that the targets are the input shifted by one so if you take
-25:17
-the inputs and shift it or just take the last two values here and add a new value
-25:22
-that's the targets this is because there are three input output pairs okay now now once we get the
-25:29
-inputs what we are going to do is that we have the inputs and we have the targets but we have not yet generated
+```python
+import torch
+from previous_chapters import GPTModel
+# If the `previous_chapters.py` file is not available locally,
+# you can import it from the `llms-from-scratch` PyPI package.
+# For details, see: https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg
+# E.g.,
+# from llms_from_scratch.ch04 import GPTModel
+
+GPT_CONFIG_124M = {
+    "vocab_size": 50257,   # Vocabulary size
+    "context_length": 256, # Shortened context length (orig: 1024)
+    "emb_dim": 768,        # Embedding dimension
+    "n_heads": 12,         # Number of attention heads
+    "n_layers": 12,        # Number of layers
+    "drop_rate": 0.1,      # Dropout rate
+    "qkv_bias": False      # Query-key-value bias
+}
+
+torch.manual_seed(123)
+model = GPTModel(GPT_CONFIG_124M)
+model.eval();  # Disable dropout during inference
+```
+
+
+
+```python
+import tiktoken
+from previous_chapters import generate_text_simple
+
+# Alternatively:
+# from llms_from_scratch.ch04 import generate_text_simple
+
+def text_to_token_ids(text, tokenizer):
+    encoded = tokenizer.encode(text, allowed_special={'<|endoftext|>'})
+    encoded_tensor = torch.tensor(encoded).unsqueeze(0) # add batch dimension
+    return encoded_tensor
+
+def token_ids_to_text(token_ids, tokenizer):
+    flat = token_ids.squeeze(0) # remove batch dimension
+    return tokenizer.decode(flat.tolist())
+
+start_context = "Every effort moves you"
+tokenizer = tiktoken.get_encoding("gpt2")
+
+token_ids = generate_text_simple(
+    model=model,
+    idx=text_to_token_ids(start_context, tokenizer),
+    max_new_tokens=10,
+    context_size=GPT_CONFIG_124M["context_length"]
+)
+
+print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
+```
+
+
 
 ***
 
+* 25:00
 
-25:34
-the outputs to generate the outputs what we'll do now is that we'll pass in the input through this GPT model we'll pass
-25:41
-the input through this GPT model block and generate the output token IDs in this in this kind of a format which I've
-25:47
-shown you okay so the first step is that remember that when you pass the input
-25:52
-through the GPT block it returns this logits and which are not converted into
-25:58
+
 normalized 0 to one format we have not applied soft Max so the first St step is
 26:03
 that to get these Logics and pass them through a soft Max uh always keep an eye out for Dimensions why is it 2A 3A
@@ -724,6 +668,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
