@@ -116,103 +116,18 @@ print(f"Outputs batch 1: {token_ids_to_text(token_ids[0].flatten(), tokenizer)}"
 
 * 30:00
 
-lecture which is actually defining the loss between the targets and the output so now let let's see what's going on
-30:29
-here so we have the inputs and this is the probability tensor which indicates
-30:35
-what's the probability of the next token for every input token what I've marked in blue over here
-30:41
-is the target indexes so if we want the actual answer to be that for every it
-30:47
-should be effort for every effort it should be moves and for every effort moves it should be U the the correct
-30:53
-answer of the indices which we want is 1 four and five these are the true values uh so the token IDs here are 3626
-31:04
-610 and 345 but uh in the sample code which I've shown over here we just has
-31:11
-seven uh we just has seven vocabulary size the token IDs which are 1 four and five those are the correct ones so now
-31:18
-one thing which I would like to mention is that let's say these indexes which are marked with the star right now these
-31:24
-are the actual indexes which we want right but if you see the values corresponding
-31:30
-to those those values are not the highest because our llm is not trained yet so what I'm going to do now is that
-31:37
-I'm going to collect the probabilities at these indexes so I'm going to take this index I'm going to take this index
-31:43
-and I'm going to take this index and I'm going to find the probabilities at these these indexes or these indices rather
-31:50
-and I'm going to collect these together so for example for the first batch what I collect can be 144
-31:58
-and3 these are the set of probabilities and for the second batch I'll collect another set of three probabilities like
-32:04
-this this is exactly what we are doing in the actual problem in the actual problem we know that the target indexes
-32:11
-are these so what I'll do is that I look at my probability tensor and I'll get
-32:16
-the probability which is corresponding to these indexes I know it will not be maximum because my llm is not optimized
-32:23
-but I'll just write down these probabilities for now so uh I I have these Target indices and let me call
-32:29
-them i11 i12 I13 for the first batch and i21 i22 and i23 for the second
-32:37
-batch so what I'm uh so what I'll be doing now is that I'll be uh looking at
-32:43
-batch one and I'll be looking at badge two and I'll find the value corresponding to these indices in the
-32:48
-probabilities tensor so in this in in the probability tensor which look which
-32:54
-will look something like this for the 50257 vocabulary size also I'll find the
-32:59
-probabilities corresponding to i11 i12 and I13 for batch number one and I'll find the probabilities corresponding to
-33:07
-i21 i22 and i23 for batch number two so for batch number one I'll aggregate
-33:12
-these probabilities together and they look like this P11 p12 p13 for batch two I'll aggregate these probabilities and
-33:19
-they look like p21 P22 and p23 remember these are the probabilities which are
-33:24
-not maximum right now the goal of training is that to get all of these
-33:29
-values as close to one as possible and why do we want all these values close to one as possible because then we'll make
-33:36
-sure that the output indexes which have the maximum probabilities will be closer
-33:41
-to i11 i12 I13 i21 i22 and i23 which are
-33:46
-my targets so the goal of the llm Performing better now is reduced to this
-33:53
-problem that I want these probabilities to be as close to one as possible I want all six probabilities to be as close to
-33:59
-one why are there six probabilities because there are two batches each batch has three tokens so there are three
-34:05
-prediction tasks so that's why there are three probabilities for the first batch three probabilities for the second
-34:11
-batch so let me merge these probabilities together and then this will be P11 p12
-34:18
-p13 and this will be p21 P22 and p23 now what I want is I want all of
-34:25
-these P11 p12 p13 p21 P22 and p23 I want all of these to be as close to one as
-34:32
-possible how do I enforce this mathematically first let's see the workflow so we had the logit tensor we
-34:39
-converted it into probabilities through soft Max and then we had the target probabilities tensor what this target
-34:47
-probabilities means is that we have the IND indices corresponding to the Target values so we have these indexes i11 i12
-34:55
-I13 i21 i22 i23 these Target probabilities are just the merge merge
-35:01
-Target probabilities which is P11 p12 dot dot dot up to p23 these are
-35:07
-the six probabilities and we want all of these to be as close to one as possible
-35:13
-to all of you students who have studied uh classification and the loss this problem would be familiar since we are
-
-
 ***
 
-
 * 35:00
+
+1. Logits
+2. Probabilities
+3. Target probabilities
+4. Log probabilities
+5. Average log probabilities
+6. Nagative average log probabilities
+
+* $$L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))$$
 
 
 dealing with probabilities it's natural that logarithms and cross entropy will come into the picture so instead of
@@ -611,6 +526,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
