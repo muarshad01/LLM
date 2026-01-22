@@ -1,6 +1,6 @@
 
 
-L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))
+$$L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))$$
 
 s of lecture
 0:00
@@ -1082,6 +1082,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
