@@ -19,104 +19,18 @@
 
 * 10:00
 
-10:20
-is the input which means that 16833 and 3626 are input 61 0 is the output which
-10:27
-is moves and and then finally when every effort moves is an input the output
-10:32
-should be U so the correct answer which we want is U over here similarly for I
-10:39
-really like there are three prediction tasks when I is the input uh really is
-10:44
-the output when I really is the input like is the output and when I really
-10:50
-like is the input chocolate is the output so we want the output to be chocolate in this case but then there
-10:56
-are three prediction tasks here and that's why the target tensor consist of two rows first row corresponds to the
-11:01
-first batch second row corresponds to the second batch and then we have three values I hope you have understood why
-11:07
-there are three values in the Target tensor because that will be very important to keep in mind as we move
-11:13
-forward ultimately we are just concerned about the last word right which is this 345 that is the token ID corresponding
-11:20
-to U uh token ID corresponding to U and
-11:25
-11311 that's the token ID essentially corresponding to Chocolate but but the first two are also important for the
-11:31
-initial prediction tasks in this input okay so the these are the True Values which we want so this tensor are the
-11:38
-True Values true prediction values if our large language model is doing an amazing job for these two inputs the
-11:46
-prediction should be the first tensor of the output should look like this the second of the out the second row of the
-11:52
-output should look like this but of course initially when the large language model is initialized randomly it won't
-12:00
-produce these outputs which we want we'll need to train it okay so we have
-12:05
-looked at the input and we have looked at the Target now let's see the outputs which are the predicted values of our
-LLM Model Outputs
-12:13
-llm so this is the input which we saw over here right uh 16833 3626
-12:20
-610 then that's the first batch the second batch is 40 1107 and
-12:26
-588 so the this input will go to GPT model and what is the GPT model the GPT
-12:32
-model looks something like this so the input which I told you goes over here and then it passes through all of
-12:39
-these steps and then we have an output tensor which is also called as the logit
-12:45
-tensor okay so the first step as to what happens in the GPT model is that the tokenizer is converts the tokens into
-12:52
-token IDs then the token IDs pass through all of these steps and we get the logic sensor and finally the logits
-13:00
-are converted back into token IDs which are the next predictions uh of our large language
-13:06
-model this entire sequence is encoded in this figure here which I want to explain thoroughly first we start with a
-13:12
-vocabulary and for the sake of Simplicity let's assume that the vocabulary just has seven elements
-13:18
-remember in the actual example which we are going to consider the vocabulary actually has 50257
-13:25
-elements but I'm just illustrating this diagram for the sake of Simplicity where there are seven elements in the
-13:31
-vocabulary right and the input text let's say is just one batch for now and every effort moves that's the input
-13:38
-right the first step is to use our vocabulary to map the input text to token IDs so every is token ID number
-13:46
-two effort is token ID number one and moves is token ID number four so First
-13:52
-We Take These tokens and map them into token IDs 2 1 and four the second step
-13:58
-is that we'll pass all of this through the GPT model and the GPT model will give uh a
-14:07
-logit sensor and to the logit sensor we apply the soft Max distribution and
-14:13
-we'll get this output Matrix look at this output Matrix here I'll just write it Dimensions here so this output Matrix
-14:21
-essentially uh it has uh let me use a different color it has
-14:27
-three rows the first row corresponds to every the second row corresponds to effort and the third row corresponds to
-14:33
-moves now you'll see that the number of columns are equal to 7 1 2 3 4 5 6 and
-14:39
-7even and we have some values see every row has some values and there are seven
-14:45
-columns corresponding to every row basically the values in each row corresponds to the probability of what
-14:51
-the next token will be so let's look at the first row values and I'll just write them over here for your reference 0.1 6
-14:59
-2 0.05 0 0.02 and 0.01 these are the values corresponding
-15:06
-to every now what these values means is that when every is the input what is the probability for the
-15:13
-next token being the output and 1 2 3 4 5 6 7 corresponds to a effort every
-15:19
-forward move Z and Zoo so let me write the a
-15:26
-effort every
-15:32
+#### Outputs -> Predicted (Logits Tensors)
+* Inputs - GPT model - Output token IDs
+
+1. Tokenizer convers tokens into token IDs
+2. GPT model converts token IDs into logits
+3. Logits are converted back to into token IDs
+
+***
+
+* 15:00
+
+* 
 forward moves U and Zoo this is the vocabulary
 15:37
 right now every value here in this row corresponds to the probability of what
@@ -883,6 +797,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
