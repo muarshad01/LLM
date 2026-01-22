@@ -28,10 +28,6 @@
 
 ***
 
-* 15:00
-
-***
-
 * 20:00
 
 #### Finding the loss between targets and outputs
@@ -90,104 +86,36 @@ token_ids = generate_text_simple(
 
 print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
 ```
-
-
-
 ***
 
 * 25:00
 
+```python
+inputs = torch.tensor([[16833, 3626, 6100],   # ["every effort moves",
+                       [40,    1107, 588]])   #  "I really like"]
 
-normalized 0 to one format we have not applied soft Max so the first St step is
-26:03
-that to get these Logics and pass them through a soft Max uh always keep an eye out for Dimensions why is it 2A 3A
-26:12
-5257 the reason is because everything can be explained through this
-26:18
-diagram look when the vocabulary is so let me first rub many things here just
-26:23
-so that Things become a bit easier to understand
-26:30
-okay so look when the vocabulary size was equal to 7 over here take a look at the form of this logic sensor so if the
-26:37
-vocabulary size was equal to seven for one batch the logic sensor size was three rows and seven columns right now
-26:45
-if there were two batches the size would have been 2 comma 3 comma 7 that's the
-26:51
-general size of this logic sensor so it's batch size batch size the second is the number
-26:58
-of tokens and the third is the vocabulary Dimension so in this case the
-27:06
-vocabulary Dimension was seven so there are seven columns in our case there are 50257 columns so this third dimension
-27:13
-will be 5257 so here we see that the probab the
-27:18
-logic tensor is converted into a tensor of probabilities whose shape is batch size number of tokens and vocabulary
-27:25
-size so that will be 2 comma 3A 50257 great and now what we'll do as I
-27:32
-mentioned to you the next step is that we extract from each row the index which
-27:38
-has the maximum value and that will be done using the AR Max function and these
-27:43
-indexes with the maximum value that's our output from each given batch so what
-27:49
-we are now going to do is that we are going to do torch. AR Max you can even go to the P Tor documentation and see
-27:56
-what argmax does Arc Max basically Returns the indexes of the maximum value
-28:02
-so we are doing tor. AR Max Dimension equal to minus one which is along the column so what this will do is that it
-28:08
-will look at all the values in the columns and give the index of the value which is the give the index which has
-28:14
-the maximum value and so here we see for the first batch there are this is the
-28:20
-first tokens output second tokens output third tokens output index remember these
-28:25
-are token IDs for the second batch this is the first tokens token ID output this
-28:32
-is the second output token ID this is the third output token ID and these output token IDs are the ones which we
-28:38
-want as close as possible to these Target token IDs that's the main goal and for this we are going to construct a
-28:45
-loss function so now actually let's decode these tokens remember we have
-28:50
-already written a function which decodes uh um here we have written a function
-28:55
-which converts token IDs into text right let's decode these tokens in the output and let's see what they mean so we have
-29:02
-passed our input into a GPT model and we have got these outputs and let's decode these now so if you decode for the first batch
-29:12
-the output the input is effort moves you and uh the output is armed H Netflix
-29:19
-completely random output which does not make sense we want this output to be every effort moves
-29:26
-you uh every effort moves you yeah so input so the target is every effort
-29:32
-moves you sorry effort moves you correct this is the true value so we want the target to be effort moves you but the
-29:38
-actual output which we have got is armed H Netflix so if you look at the first
-29:44
-batch you can see that there's a huge difference between the targets and the outputs right which makes sense
-29:51
-because well uh we have not yet optimized we have not even defined the
-29:57
-loss function we have not try to minimize the loss function so ideally now what we'll do is that we'll Define a
-30:02
-loss function between the targets and the outputs from both the batches so that the target output and the so that
-30:10
-the target text and the output text will be as close as possible to each
-30:16
-other great now that actually motivates us to go to our next section in today's
-Cross entropy loss in LLMs
+targets = torch.tensor([[3626, 6100, 345  ],  # [" effort moves you",
+                        [1107,  588, 11311]]) #  " really like chocolate"]
+```
+
+```python
+with torch.no_grad():
+    logits = model(inputs)
+
+probas = torch.softmax(logits, dim=-1) # Probability of each token in vocabulary
+print(probas.shape) # Shape: (batch_size, num_tokens, vocab_size)
+```
 
 
-
+```python
+print(f"Targets batch 1: {token_ids_to_text(targets[0], tokenizer)}")
+print(f"Outputs batch 1: {token_ids_to_text(token_ids[0].flatten(), tokenizer)}")
+```
 
 ***
 
+* 30:00
 
-30:22
 lecture which is actually defining the loss between the targets and the output so now let let's see what's going on
 30:29
 here so we have the inputs and this is the probability tensor which indicates
@@ -279,7 +207,14 @@ Target probabilities which is P11 p12 dot dot dot up to p23 these are
 the six probabilities and we want all of these to be as close to one as possible
 35:13
 to all of you students who have studied uh classification and the loss this problem would be familiar since we are
-35:20
+
+
+***
+
+
+* 35:00
+
+
 dealing with probabilities it's natural that logarithms and cross entropy will come into the picture so instead of
 35:26
 directly dealing with this number numbers it's much better mathematically and from an optimization P perspective
@@ -363,7 +298,15 @@ we have 50257 uh so this is the first batch and
 this is the second batch what we are going to do is that we are going to flatten this so that these two first
 40:10
 batch and second batch are merged together right so these are so this is
-40:17
+
+
+
+***
+
+* 40:00
+
+
+
 my output tensor right now every effort moves you I really like it's a merging of these two batches and my target so my
 40:24
 target is 2x3 why is it 2 by three because for the first batch this is the
@@ -668,6 +611,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
