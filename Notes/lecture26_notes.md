@@ -241,6 +241,11 @@ are uh the indexes corresponding to the True Values and what we are going to do
 is that we are going to uh take the probas so let me see what the probab probas is so this probas is the
 45:38
 output uh this probas is the output probability tensor and what we are going to do is that we are going to find the
+
+
+***
+
+
 45:45
 token probabilities corresponding to the Target indexes and to do that what we are going to do is that we are going to
 45:51
@@ -339,6 +344,12 @@ one line of code this one line of code will first convert these Logics into a so
 values corresponding to the Target indexes then it will take the log of these the mean and then the negative log
 50:51
 likelihood all of this will be done and I will get my categorical cross entropy loss of 10 remember I want to take this
+
+
+***
+
+
+
 50:57
 loss as close to zero as possible that's the goal so when we train the large language models later the goal is to
 51:03
@@ -431,6 +442,11 @@ looked at uh in the code we just looked at two sample inputs right we looked at
 um let me yeah we looked at these two inputs in the next lecture we'll be scaling this up and look at an entire
 55:29
 text data set so next lecture will be a lot of fun and uh we'll run the entire
+
+
+***
+
+
 55:34
 architecture on this um Hands-On example you can replace this example with any
 55:40
@@ -445,16 +461,3 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
-
-
-
-
-
-
-
-
-
-
-
-
-
