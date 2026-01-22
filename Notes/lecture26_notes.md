@@ -130,96 +130,15 @@ print(f"Outputs batch 1: {token_ids_to_text(token_ids[0].flatten(), tokenizer)}"
 * $$L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))$$
 
 
-dealing with probabilities it's natural that logarithms and cross entropy will come into the picture so instead of
-35:26
-directly dealing with this number numbers it's much better mathematically and from an optimization P perspective
-35:31
-to just take the logarithm of these values and it comes out to be this and then we take the average of all of these
-35:38
-logarithm values and it comes out to be this and then we take the negative of this average so that's 10.77%
-35:58
-Target probabilities and we find the mean of so we take the then the log of this so we take log P11 log p12 and the
-36:07
-last is Log p23 and then what we do is that we find the mean of this
-36:14
-mean and uh so then that will be Sigma which will be the summation of log 1 one
-36:21
-summation of log P11 DOT log p23 divided 6 and then I'll just
-36:30
-take the negative of this and that's called the negative log
-36:38
-likelihood so then that will be negative of summation of log of P11 dot dot dot up till log of
-36:47
-p23 divided 6 so now see we want uh we want P11 to be close to uh one we
-36:56
-want p all the probabilities to be close to one so we essentially want this negative log likelihood to be as less as
-37:03
-possible so this cross entropy loss we want to be as low as possible and as close to zero as possible so uh why are
-37:12
-we taking the negative log likelihood the reason we take the negative log likelihood is
-37:19
-because it just makes more sense if you if you don't take the negative value then uh the loss function would look
-37:27
-reverse of this the loss function would look reverse of this and then we'll have to reframe the problem as trying to
-37:33
-maximize the loss instead it just makes more intuitive sense if the negative
-37:40
-looks like this and now the whole
-37:45
-goal instead it makes more physical and intuitive sense if the log likelihood
-37:50
-looks like this and now our whole goal is to bring down this loss as low as
-37:56
-possible what will happen if this loss is brought down to let's say zero if the loss is brought down to zero which means
-38:02
-that the mean which means this value is Clos to one which means that there is a higher chance that P11 p12 p13 up till
-38:10
-p23 are equal to one that is exactly what we want the goal of training is to get these values as close to one as
-38:18
-possible so that is the main uh main hope now so initially let's say when we
-38:24
-start the training procedure our value uh the x value whose log we are going to
-38:30
-take that will not be close to one it will be somewhere maybe here it will be somewhere 0 to one and somewhere here
-38:36
-the goal is to go here slowly so that the mean of the probabilities will be equal to
-38:44
-1 okay so this is the negative log likelihood and it's also called as
-38:51
-the uh it's also called as the cross entropy loss and uh we want to minimize
-38:57
-this cross cross entropy loss as much as possible that will ensure that the indexes at which our
-39:03
-tokens uh indexes at which we predict the next token that matches with the target indexes so then the output and
-39:10
-the target indexes will match closely to each other and then we know that the
-39:16
-large language model is actually doing a very good job so this is exactly what we are going to do right now in the code
-39:22
-one thing which I would like to mention about the cross entropy loss is that the cross entropy loss essentially measures
-39:29
-the difference between two probability distributions so here what we are actually doing is that we are just
-39:34
-adding discrete probabilities but in a sense this can also be called as the categorical or I should call it the
-39:40
-cross entropy loss so now let's see the sequence of steps which we are going to implement
-39:46
-the logit tensor which is a tensor of probabilities uh has the shape of 2 into 3x
-39:53
-50257 why because it looks something like this so every effort moves and then
-39:58
-we have 50257 uh so this is the first batch and
-40:03
-this is the second batch what we are going to do is that we are going to flatten this so that these two first
-40:10
-batch and second batch are merged together right so these are so this is
-
-
+```
+[\log(p_{11}),\log(p_{12}),\log(p_{13}),\log(p_{21}),\log(p_{22}),\log(p_{23}),)]\\
+Mean = \frac{\log(p_{11}) + \log(p_{12}) + \log(p_{13})+ \log(p_{21})+\log(p_{22})+\log(p_{23})}{6}\\
+-Mean = -\frac{\log(p_{11}) - \log(p_{12}) - \log(p_{13})- \log(p_{21})-\log(p_{22})-\log(p_{23})}{6}\\
+```
 
 ***
 
 * 40:00
-
 
 
 my output tensor right now every effort moves you I really like it's a merging of these two batches and my target so my
@@ -526,6 +445,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
