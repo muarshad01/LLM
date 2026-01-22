@@ -1,222 +1,23 @@
+#### Stage_2: Foundational Model
+1. Training Loop
+2. Model Evaluation
+3. Load Pretrained Weights
 
+* Gradient descent back-propogation algorithms
 
 * $$L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))$$
 
-s of lecture
-0:00
-[Music]
-0:07
-hello everyone and uh welcome to this lecture in the build large language models from scratch Series today we are
-0:15
-going to look at a very important topic and that is regarding loss functions
-0:20
-when you look at machine learning and traditional machine learning models such as regression and classification the
-0:27
-loss function for these type of models are pretty well defined for regression you generally use the least Square type
-0:34
-of a loss mean square error for classification you use cross entropy cross entropy loss hinge loss
-0:42
-Etc however the question is that when we come to large language models how do we Define the loss function how do we
-0:49
-measure whe whether the large language model is doing a good job or whether it's not performing well let's find out
-0:56
-in today's lecture so up till now in this series we have covered stage one of building a
-1:03
-large language model from scratch in stage one we essentially covered three subm modules data preparation and
-1:10
-sampling attention mechanism and llm architecture in each of these
-1:15
-subcomponents we divide we devoted a huge number of lectures and whiteboard
-1:21
-notes and also coding so that by the time you have reached this stage I hope the building blocks of how to construct
-1:29
-a large language models are clear to you in particular till the last lecture we
-1:34
-have seen this GPT or the llm architecture which we have built from
-1:39
-scratch and up till now we we are at a stage where the GPT architecture which
-1:45
-we have built and whose code we have written takes an input it takes an input text and it returns an output we also
-1:53
-saw how this output is converted into the next word prediction task so our GPT
-1:59
-model up till this stage or our large language model we which we have set out to build is at a level where it takes an
-2:07
-input as a text and it can predict next tokens or it can predict next words
-2:12
-that's awesome right but now we want to make it better and better and better in
-2:17
-particular if you remember uh where we ended the previous lecture on llm architecture we got this kind of the so
-2:25
-we gave the input as hello I am and the next tokens which we got are or something completely
-2:31
-random so now from this lecture onwards what we'll be doing is that we'll be
-2:36
-looking at stage two stage two of building a large language model just centers around one
-2:43
-word and I'm just going to write that one word here and that is called as
-2:49
-training we need to train our large language model so that the next token which it predicts makes
-2:56
-sense the first step of the training procedure is that you you need to ask yourself okay let's say my large
-3:03
-language model is has is giving me an output and I know it does not look good
-3:10
-how do I capture this qualitative intuition of not of knowing that it does not look good into a quantitative matric
-3:18
-and that quantitative matric is generally the loss
-3:24
-function so if we can define a loss function which quantifies how good or
-3:29
-how bad our llm performance is we can aim to minimize the loss so that the llm
-3:35
-can do better and better and better and once we construct a loss function it opens the door for integrating gradient
-3:43
-descent based back propagation algorithms which we have already learned in neural networks so then we convert
-3:50
-the problem of training a large language model into a problem which we have previously solved
-3:55
-before so what we are going to do in these set of lectures we are going to look at this entire pipeline of seven
-4:02
-steps which I have shown over here in today's lecture we are going to look at the first two steps here we are going to
-4:08
-look at how text is generated which we have already seen before but I want to quickly recap it in case some of you
-4:16
-have come to this lecture directly and then we are also going to look at text evaluation which means we are going to
-4:22
-define a loss function in this lecture itself and we are going to see how that loss function quantifies the loss L
-4:30
-between what our llm has generated and the good output which we actually want
-4:36
-in the subsequent lectures we'll be looking at taking an entire data set
-4:41
-feeding it into the llm getting the output and finding the training and the validation losses will then generate the
-4:48
-llm training function that's the back propagation I was talking about and then towards the end of this series on
-4:54
-training llms we'll also load pre-trained weights from open AI all that will come next for now let's just
-5:01
-start with these initial two goals for today's lecture and that is text generation using llms and text
+***
 
+* 5:00
+
+#### Using GPT to generate text
+
+* Input - predicted - trarget values
 
 ***
 
-
-
-5:09
-evaluation first I want to quickly recap how can we use the llm or the gpt2
-5:15
-architecture which we have trained so far to generate text okay so the way it
-
-
-***
-
-5:20
-works is that we have to specify a GPT configuration uh and this GPT
-5:26
-configuration or the llm configuration contains many parameters first is our vocabulary size this is the length of
-5:33
-the number of tokens we have in our vocabulary so we are using the same tokenizer which gpt2 and in fact all
-5:41
-open AI models used and that's called as tick token so this is thck token and what it
-5:47
-does is that it uses a bite pair encoder and it creates a vocabulary of tokens like this the vocabulary size which gpt2
-5:55
-had is 50257 and that's the same size which we have when we conr constructed our large
-6:00
-language model we have to specify a context length gpt2 used a context
-6:05
-length of 1024 but for the purposes of easy calculation which you can train on your
-6:12
-own local machine in less than 2 to 3 minutes we are using a context length of 256 keep in mind that you can just use
-6:20
-the same code for a longer context length as well but just make sure that you have enough compute power and memory
-6:27
-to execute the code then we have the embedding Dimension which is which basically means that the token
-6:33
-embeddings need to be projected into higher dimensional space to capture the semantic
-6:38
-meaning then we have the number of attention heads so these are the number of self attention mechanism blocks we
-6:44
-have within one Transformer why do I say within one Transformer because there is not one Transformer there are many
-6:51
-Transformers and the end layer specifies how many Transformer blocks we have
-6:56
-dropout rate is can be set to zero also this is the Dropout layer parameter and
-7:01
-query key value bias is basically uh when we initialize the weight metries for the query key and value we don't
-7:08
-want the bias term if any of these terms are looking unfamiliar to you right now
-7:14
-please revise the previous lectures we have had on uh llm Basics attention
-7:21
-mechanism and GPT architecture awesome so the GPT model which we built earlier looks something
-7:28
-like this what this model model does is that it takes in the input tokens it converts them into token embeddings adds
-7:34
-positional embeddings to it then we have a Dropout layer this output upti layer
-7:40
-passes through the Transformer block after we come out of the Transformer block we have a final normalization
-7:45
-layer and then we return the logits now these logits which are returned consists
-7:52
-of the tokens and for each token we have uh the number of tokens equal to vocabulary size sorry for each token we
-7:59
-have the number of columns equal to the vocabulary size I'll come to this part later and I'll explain to you again what
-8:06
-we have done in this part of the code uh so that it's revised for you okay great
-Inputs and targets
-8:12
-now let's start looking at the first section of today's lecture okay so let's start with the first part of today's
-8:18
-lecture remember that to to get the loss function we need the input from the input we'll get the
-8:26
-predicted values and we should already know the True Values which I'm going to call as Target values in today's lecture
-8:33
-whenever I use the word Target remember that it stands for the True Values and ultimately the loss function will be
-8:39
-determined by the predicted and the target values and how close they are so in the first section let's look at the
-8:46
-inputs and let's look at the targets which are the True Values okay so the input to the large language model which
-8:53
-we are building comes in a format like this the input is a tensor and uh the
-8:58
-number of Ro rows here correspond to the number of batches so I have two batches over here and that's why there are two
-9:04
-rows uh so two batches corresponding to the two rows I'm writing two over
-9:10
-here the first row corresponds to the first batch the second row corresponds to the second batch now you'll see that
-9:16
-every row has three tokens here which is usually set by our context size and I'm just assuming context size equal to
-9:22
-three for this example so for the first batch the input tokens are every effort
-9:28
-moves for the second badge the input tokens are I really like now the thing
-9:33
-is based on these inputs our task is to predict the next next word right and uh
-9:40
-so for targets you must be thinking that the target should only be two token IDs
-9:45
-for the first batch we need a token ID for the second batch we need a token ID but now look at this target tensor over
-9:52
-here it has two rows corresponding to the two batches that's fine but why does the first row have three values and why
-9:59
-does the second row have three values the reason is because whenever you look at the input like this there
-10:05
-are actually three there are actually three uh prediction tasks which are happening here when every is the input
-
-
-***
-
-
-10:13
-effort should be the output that's why the first Target is 3626 which corresponds to effort when every effort
-
-
-
-
-***
-
+* 10:00
 
 10:20
 is the input which means that 16833 and 3626 are input 61 0 is the output which
@@ -1082,6 +883,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
