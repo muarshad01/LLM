@@ -29,120 +29,19 @@
 ***
 
 * 25:00
+
 * ADAM
 
 ***
 
 * 30:00
+  
+* AdamW Optimizer
 
 ***
 
+* 35:00
 
-30:11
-see all of this in action by training a GPT model instance for 10 EPO using an
-30:17
-admw Optimizer now two things I would like to clarify here when I say we are
-30:22
-training a GPT model instance the model which we are defining is an instance of the GPT model class which we have
-
-
-***
-
-
-30:28
-already defined before so this is the GPT model class what this class does is that it essentially performs all the
-30:35
-operations which we saw in the uh GPT model architecture schematic yeah all of
-30:41
-these operations so it will con it will create create or it will give us the llm output at the
-30:47
-end uh okay so that's what uh that's what this GPT model class
-30:53
-is actually doing great now what we are what I also want to show you is the model
-30:59
-configuration which we are using for this particular code so this is the model configuration we are using vocabulary size of
-31:05
-50257 a context length of 256 remember gpt2 smallest model originally used a
-31:11
-context size of 1024 but I'm showing 256 here because I want the code to run on
-31:17
-your machine in small amount of time and using small amount of resources you can change it to one24 and the code will not
-31:23
-change significantly the vector embedding Dimension which we we are using is 768
-31:29
-because the inputs will be projected into that much Dimension space the number of attention heads is 12 the
-31:35
-number of Transformers we are using is 12 and the dropout rate is 0.1 and the key query value query key value bias uh
-31:44
-term bias is false because when we initialize the weight matrices for query key and values we don't need the bias
-31:50
-term so this is the GPT configuration which I'm using and I thought it's important for you to know that when we
-31:57
-uh create an instance of the GPT model class using this configuration right so we create an instance of the GPT model
-32:04
-class and uh the second thing I want to mention is the optimizer so we are using
-32:10
-this Optimizer called adamw uh adamw is a variation of Adam which uses weight
-32:15
-Decay if you are not familiar with Adam or adamw that's totally fine just know
-32:20
-for right now that for all modern machine learning algorithms for classification regression Adam has now
-32:26
-become the go-to optimizer of choice for all of these algorithms because it works very well it avoids local Minima and it
-32:33
-leads to faster convergence as well Adam W is another version of Adam where we
-32:39
-specify the learning rate and we specify the weight Decay now these are the parameters which you can play around
-32:44
-with these are generally called hyper parameters because we need to tune them there are some other variables which we
-32:51
-are going to Define before we run the pre-training code we Define the number of epoch to be equal to 10 so here I
-32:58
-told you right we are going to go through the entire data set uh based on
-33:04
-what we set in the number of epoch so if we set the number of epo equal to 10 we are going to repeat this entire process
-33:09
-10 times which means we are going to print the generated sample after every one Epoch for 10
-33:16
-times okay now uh one more thing is that evaluation frequency and evaluation
-33:21
-iteration is five which means that after every five batches I'm going to print the training and the validation LW and
-33:27
-and the initial text which I have given is every effort moves you because the generate and the print sample requires
-33:33
-us to give an initial text then it will print out what the llm is predicting for this initial
-33:39
-text awesome so what I've done here is that I've also uh recorded the start time at at which I start running this
-33:45
-code and the end time because remember the number of parameters which we are using here are huge they are of the
-33:51
-order of more than 100 million parameters and I just want to record the time it takes so I'm running my code on
-33:56
-a MacBook Air right now I think it takes similar time on I5 or i7 um computers as
-34:02
-well as MacBook even the smallest or the earliest MacBook model should run this
-34:09
-code in in a short amount of time so now uh here you can see that I've already run the training process before looking
-Analyzing pretraining results
-34:16
-at the output the first thing which I want to show you is training completed in 6.6 minutes and I continue to be
-34:22
-amazed by this because I ran a llm architecture code on on my laptop which
-34:29
-had this code was optimizing 160 million parameters and it was doing it 10 times
-34:36
-or 10 EPO and the compute power which my laptop had made it so that in 6.6 minutes this entire code was run and uh
-34:44
-that's pretty awesome you can run it on your own machine and then when you see this you'll feel a lot of satisfaction because to get to this point we needed
-34:51
-to understand so many things we needed to understand about the llm data set how
-34:56
-the data set is pre process the data pre-processing pipeline then the llm architecture itself multi-ad attention
-35:03
-Dropout layers M multi-ad attention causal attention then we needed to understand how to define the loss
-35:08
-function after all of this effort we have reached the stage where we are able to train our own llm from scratch so
-35:15
 let's look at the training and validation losses which have been which are being printed after every five batches so here you can see that the
 35:22
 training loss if I if I see towards the end the training loss started from 9.78 one
@@ -300,4 +199,5 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
 
