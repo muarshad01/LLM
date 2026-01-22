@@ -29,197 +29,15 @@
 ***
 
 * 25:00
+* ADAM
 
-and that's obtained in this step you see uh backward pass to calculate gradients and once we get the gradients we are
-20:46
-going to update all of the model weights uh so the way to update the model weights so this is just a simple
-20:52
-gradient descent which I have shown in the actual code we'll use a version which is called Adam which is a bit more
-20:57
-complex but at the underlying core the operation is similar we get the
-21:02
-gradients which is the partial derivative of loss with respect to the weights and then we update all the parameter values based on this gradient
-21:09
-in the backward pass awesome right so this is how the parameters are going to be updated in
-21:16
-each uh in each iteration and we hope that as the parameters are updated the loss function value goes on decreasing
-21:23
-like I have shown over here and it reaches some sort of a Minima that is what the go is so let's see whether this
-21:30
-goal is satisfied now what I'm going to do is I'm going to take you through code and we are going to implement the
-21:35
-pre-training loop for the large language model so the loop looks like this I I
-Coding the LLM Pretraining loop
-21:40
-want to draw your attention to uh something like so I want to draw your attention first to the most important
-21:46
-part what we are going to do is that remember I mentioned that we have a loader a data loader for the training
-21:52
-and the validation set correct so first what we are going to do is that we are going to look at the training loader
-21:58
-first and we are going to divide it into the input batch and the target batch this is similar to what I explained to
-22:04
-you right now over here see when I say input batch and Target batch always keep this this in
-22:10
-mind so the data set is divided into input batch and Target batches so there are multiple batches like this and at
-22:16
-one time I'm processing one such batch so at one time I'll look at one input and one target batch and I'll find the
-22:22
-loss between the input and the target batch how do I find the loss using this same workflow using the category cross
-22:29
-entropy towards the end I find the loss that is this step and then this this
-22:35
-step right here is the most important step in this whole code we are doing loss do backward what the loss. backward
-22:41
-does is that it calculates the backward pass which means that it will calculate the gradient of the loss with respect to
-22:47
-all of the parameters all of the 160 million parameters this one step is going to find the gradient of the loss
-22:54
-then we are going to do Optimizer dot step what this Optimizer do step does is that it essentially looks at
-23:00
-uh it essentially looks at this update Rule and it will update the parameter values based on the gradient values
-23:07
-which are obtained so this is the update model weights part and what I'm doing is that I'm just
-23:15
-uh mentioning how many tokens the model has seen and I'll show you where this
-23:20
-number comes into the picture but let's say we are looking at the input and Target batch and the cont context size
-23:27
-is uh 256 so we are looking at 256 tokens in one sample 256 in the second sample so we
-23:33
-are looking at 512 tokens in one batch in the one input batch at a time so the tokens seen will just return the number
-23:40
-of tokens which we are seeing at a particular time and you see we are doing so it will get added up as the as we
-23:47
-Loop through different number of batches so this Loop is for going through each batch in the training data set and this
-23:54
-Loop is for the number of epoch so after we go through all of the batches we we
-23:59
-will do the same thing again uh so the number of epo is specified by numor EPO
-24:05
-right now what we are doing is that this step is actually an evaluation step so you can even get rid of this but it's
-24:11
-important for us to see the validation loss so in this step what we are doing is that we are going to define a
-24:18
-function called evaluate model and we are going to get the training loss and the validation loss and we are going to
-24:24
-print these out as the training proceeds so let me show you what the evaluate model function looks like the evaluate
-24:30
-model function is actually pretty simple we calculate the loss U the Cal loss
-24:36
-loader is we calculate the loss for the training loader and we calculate the loss for the validation loader for the
-24:41
-entire data set and we have defined these functions before see in the previous lecture we used the same two
-24:47
-functions Cal Closs loader for the training and the validation and it Returns the training and the validation lots for the entire data set at that
-24:55
-particular uh at when that particular batch is being processed so what we'll
-25:00
-do is that after the first batch is processed we will run this part which means that after the first batch is
-25:06
-processed we will evaluate the model and we will get the training and the validation loss correct but we are going
-25:13
-to show it we are going to show it only uh only at a particular evaluation
-25:19
-frequency so what I'm showing is that here I'm set I will set the evaluation iteration and the evaluation frequency
-25:26
-to be equal to five which means means that after every five batches are processed only then I will show the
-25:33
-training and the validation loss so remember what is happening here when one batch is processed Global step will be
+***
 
+* 30:00
 
 ***
 
 
-25:38
-one when the second batch is processed Global step will be two now if the evaluation frequency is five this will
-25:44
-be zero only when Global step is equal to five right uh that is when the remainder will
-25:51
-be zero and only at that step only at that when I reach batch number five I am going to calculate the training and the
-25:57
-validation loss and I'm going to print it out that's it when I come to batch number 10 I'll do the same I'll
-26:02
-calculate the training and validation loss I'll print it out and I'll do this for every single Epoch so in this step
-26:09
-what I'm doing is when I reach at a particular batch number when the llm has processed that particular batch I will
-26:15
-print out the training and validation loss that's all we are doing up till now and then just for the sake of uh
-26:21
-visualization and understanding after one batch is processed so after uh one
-26:28
-batch is processed what I'm going to do is that I'm also going to print out a sample text or here I should say that
-26:34
-after each Epoch is processed sorry not after each batch is processed we'll first make sure we go through all of the
-26:40
-batches for one Epoch so after each Epoch is processed what I'm going to print is okay here's what the next
-26:46
-tokens my llm is generating right now so uh this generate and print sample is
-26:52
-another function which we have defined over here and what this will do is that it will print out the next 50 tokens
-26:58
-which our large language model is predicting we have already seen this generate Tex simple function before what
-27:03
-this function does is that it takes the model at its current stage so if we are at Epoch number five the parameters are
-27:09
-optimized maybe they are not very correctly optimized but we are at certain stage and we want to see what
-27:14
-the output the llm is predicting for the input right so this function is
-27:20
-essentially going to generate the tokens for us and it will generate 50 new topens for us to visualize and we can
-27:25
-see right whether the output is correct or not whether the output of the llm is making sense or
-27:30
-not so this will be a lot of fun we are going to print this out at every single Epoch so the main step in this code is
-27:38
-this loss. backward what we are doing after this point is just printing the training and the validation loss after
-27:43
-every five batches and we are going to print the Tex sample after each epox and
-27:49
-we are returning the training losses validation losses and we are also tracking the token scene see we are
-27:54
-tracking this token scene which is the number of tokens the input batch is using uh that will give us a sense of
-28:01
-how many tokens the um so it Returns the elements how many tokens have been
-28:07
-consumed until that particular point in the model and we'll also plot the number of tokens in the output so remember one
-28:14
-one Epoch will go through the entire data set once right and if we look at our data set again um the data set which
-28:21
-we are considering I think it has around 5,000 tokens so if we go through the if
-28:27
-the the number of epo are 10 so which means that if you go through the entire data set 10 times it actually means that
-28:34
-the number of tokens seen should be 5,000 multiplied by 10 so it should be of the order of magnitude of 50,000 just
-28:41
-keep this in mind so yeah this is the code and it's pretty simple it just I think around 15
-28:47
-to 20 lines of code and the reason it's made so simple in Python is because of this loss. backward method it's pretty
-28:54
-awesome and it does the gradient updates uh sorry it calculates the loss gradients and then we just do the
-28:59
-optimizer do step we have not yet defined the optimizer but we'll be doing it
-29:04
-shortly okay now what we are going to do is that uh I'm just going to explain the evaluate model function and the generate
-29:11
-and print sample so that it's more clear for you so the evaluate model function calculates the loss over the training
-29:18
-and the validation set and we ensure that the mod model is in evaluation mode uh with gradient tracking and
-29:25
-Dropout disabled remember that when the model when we evaluating the model when we are printing the training and
-29:30
-validation loss we don't need to keep track of the gradient updates and we can even disable the Dropout because we are
-29:37
-just calculating the loss we are just doing the forward pass and then this generate and print sample right what we
-29:42
-are doing here is that it's a convenience function that we use to track whether the model improves during training because we will be able to see
-29:50
-what text is being generated the generate and print sample function takes a text snippet which is
-29:55
-called start context as an input and converts it into token IDs feeds it to the llm to generate a text sample at
-30:04
-that particular point in the training and we are going to print the text sample after every Epoch right now let's
-Pretraining the LLM on our dataset
 30:11
 see all of this in action by training a GPT model instance for 10 EPO using an
 30:17
@@ -482,3 +300,4 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
+
