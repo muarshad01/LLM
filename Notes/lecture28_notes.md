@@ -20,13 +20,16 @@
 
 * Input --> GPT model --> Logits --> Softmax --> Cross Entropy Loss (Output, Target)
 
-
+* 161M parameters
+  
 ***
 
 * 20:00
 
+***
 
-20:40
+* 25:00
+
 and that's obtained in this step you see uh backward pass to calculate gradients and once we get the gradients we are
 20:46
 going to update all of the model weights uh so the way to update the model weights so this is just a simple
@@ -123,6 +126,11 @@ frequency so what I'm showing is that here I'm set I will set the evaluation ite
 to be equal to five which means means that after every five batches are processed only then I will show the
 25:33
 training and the validation loss so remember what is happening here when one batch is processed Global step will be
+
+
+***
+
+
 25:38
 one when the second batch is processed Global step will be two now if the evaluation frequency is five this will
 25:44
@@ -218,6 +226,11 @@ see all of this in action by training a GPT model instance for 10 EPO using an
 admw Optimizer now two things I would like to clarify here when I say we are
 30:22
 training a GPT model instance the model which we are defining is an instance of the GPT model class which we have
+
+
+***
+
+
 30:28
 already defined before so this is the GPT model class what this class does is that it essentially performs all the
 30:35
@@ -469,8 +482,3 @@ the next lecture where we will be covering decoding strategies to make sure that
 coherent and more robust thanks so much and I'll see you in the next lecture
 
 ***
-
-
-
-
-
