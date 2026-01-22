@@ -30,95 +30,11 @@
 
 * 15:00
 
-* 
-forward moves U and Zoo this is the vocabulary
-15:37
-right now every value here in this row corresponds to the probability of what
-15:43
-the next token will be if every is an input so let's Analyze This probability if every is an input the probability
-15:50
-that the next token is a is just 10% or 0.1 there is 60% chance of the next
-15:56
-token being effort 20% chance of the next token me every Etc so then what we
-16:01
-do is that we look at the index with the highest probability which is this 6 over here and so we know that the next token
-16:08
-is equal to effort now when every effort is the input we again look at the second row so
-16:14
-we again look at the second row and find the index which has the highest probability and that corresponds to
-16:20
-moves so this is index number four and that corresponds to moves over here then
-16:25
-we look at the third row so every effort moves when that's the input what's the output and this is the main prediction
-16:32
-task because it actually predicts the next token and if you look at the third row you look at the index which has the
-16:38
-maximum probability and that's index number five which is here and we know that index number five corresponds to
-16:44
-you so we know that the next uh token is you so remember when I told you that
-16:50
-when the input has three tokens like this there are three prediction tasks for the first prediction task the output
-16:56
-is index number one because that corresponds to the highest probability and the token which it corresponds to is
-17:03
-effort for index number two or sorry for the prediction task number two the input
-17:08
-is every effort and the output is index four which corresponds to moves and for
-17:13
-the third prediction tasks the input is every effort moves and the output is five which corresponds to U so when you
-17:21
-give this input every effort moves to the uh large language model the output
-17:29
-is a sequence of indexes 1 4 and five what this output means is that one so if
-17:35
-you look at one over here it means that when every is an input effort is the output when every effort is the input
-17:43
-moves is the output and when every effort moves is the input U is the output so this is what is actually
-17:49
-happening within the GPT model itself I just gave you a five minute crash course of what we learned in four to five hours
-17:56
-in the previous set of videos so if any any of this you're finding hard I would
-18:01
-again highly encourage you to go through all the previous videos so that you understand this better for now even if
-18:08
-you get an intuition of what's going on here it's fine and you can follow along till the next part right so here what I
-18:15
-want to illustrate to you is that this process which I've shown here we have the input when it goes to a GPT model we
-18:21
-have the output token IDs and uh I've told you how we get the output token
-18:26
-IDs so if you have understood the process let's say these are the output token IDs which we have obtained
-18:33
-remember for actually gpt2 the vocabulary size is 5257 right so the
-18:38
-range of the output token ID is is 0 to 50257 here the vocabulary size was 7 so
-18:45
-the range was 0 to 7 so if you look at batch number one uh the output tokens
-18:50
-are 16657 339 and 42826 U and let's look at the inputs
-18:56
-right every effort moves so
-19:02
-every effort and moves what this output essentially conveys is that if every is an input the
-19:09
-token corresponding to the Token ID of 16657 is the output when every effort is
-19:15
-the input the token corresponding to token ID 339 is the output and when every effort moves is the input the
-19:21
-token corresponding to the Token ID 42826 is the output and what do we want these token IDs to be we want these
-19:28
-token IDs to be as close to the Target token IDs which we saw look at these Target token
-19:34
-IDs the token IDs which we have obtained right now are not the actual token IDs because the training has not yet
-19:41
-happened so these are the output token IDs and we want these output token IDs to be as close to the Target token IDs
-19:48
-as possible that's the whole goal of today's lecture and so we are going to then Define the loss function between
-19:53
-the outputs and the targets so these are the output token IDs for batch number number one and here you can see that
-20:00
-these are the three output token IDs for batch number two where the input is uh I
-20:06
+***
+
+* 20:00
+
+
 really like so I really like and for these outputs we
 20:13
 have to compare these outputs to these True Values for the second batch I hope you have you have
@@ -797,6 +713,7 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
