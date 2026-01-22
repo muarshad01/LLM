@@ -103,6 +103,10 @@ start with these initial two goals for today's lecture and that is text generati
 evaluation first I want to quickly recap how can we use the llm or the gpt2
 5:15
 architecture which we have trained so far to generate text okay so the way it
+
+
+***
+
 5:20
 works is that we have to specify a GPT configuration uh and this GPT
 5:26
@@ -203,6 +207,13 @@ are actually three there are actually three uh prediction tasks which are happen
 
 10:13
 effort should be the output that's why the first Target is 3626 which corresponds to effort when every effort
+
+
+
+
+***
+
+
 10:20
 is the input which means that 16833 and 3626 are input 61 0 is the output which
 10:27
@@ -1067,3 +1078,4 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
