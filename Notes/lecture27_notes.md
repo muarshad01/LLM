@@ -4,6 +4,16 @@
 * 5,000 tokens
 
 * [OpenAI - tiktoken](https://github.com/openai/tiktoken)
+
+
+```python
+train_ratio = 0.90
+split_idx = int(train_ratio * len(text_data))
+train_data = text_data[:split_idx]
+val_data = text_data[split_idx:]
+```
+
+
 Lecture Objectives
 0:00
 [Music]
@@ -1157,4 +1167,5 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
