@@ -130,11 +130,9 @@ print(f"Outputs batch 1: {token_ids_to_text(token_ids[0].flatten(), tokenizer)}"
 * $$L_{BCE}=\frac{1}{N}\sum_{i=1}^{N}y_i.\log(p(x_i))))+(1-y_i).\log(1-p(x_i))$$
 
 
-```
-[\log(p_{11}),\log(p_{12}),\log(p_{13}),\log(p_{21}),\log(p_{22}),\log(p_{23}),)]\\
-Mean = \frac{\log(p_{11}) + \log(p_{12}) + \log(p_{13})+ \log(p_{21})+\log(p_{22})+\log(p_{23})}{6}\\
--Mean = -\frac{\log(p_{11}) - \log(p_{12}) - \log(p_{13})- \log(p_{21})-\log(p_{22})-\log(p_{23})}{6}\\
-```
+* $$[\log(p_{11}),\log(p_{12}),\log(p_{13}),\log(p_{21}),\log(p_{22}),\log(p_{23}),)]$$
+* $$Mean = \frac{\log(p_{11}) + \log(p_{12}) + \log(p_{13})+ \log(p_{21})+\log(p_{22})+\log(p_{23})}{6}$$
+* $$-Mean = -\frac{\log(p_{11}) - \log(p_{12}) - \log(p_{13})- \log(p_{21})-\log(p_{22})-\log(p_{23})}{6}$$
 
 ***
 
@@ -461,3 +459,4 @@ have already finished stage one now we are on stage two and rapidly moving towar
 and I look forward to seeing you in the next lecture
 
 ***
+
