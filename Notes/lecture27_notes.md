@@ -31,213 +31,24 @@ val_data = text_data[split_idx:]
 
 * 15:00
 
-
-loss the input and Target pairs will give us the train loss for the training
-15:37
-data and the similar tensors will give us the validation loss for the validation data now let me explain to
-15:44
-you the rest of the process and then we'll I'll take you through code but first I want you to understand how
-15:50
-exactly is the loss function calculated so that uh the code becomes so much more
-
-
+#### Training
+* For Training (Input, Target) pairs give training loss
+#### Validation
+* For Validation (Input, Target) paris give validation loss
 
 ***
 
-
-
-
-15:56
-easier to understand now let's say you create the input and Target pairs like this which is the first step first you
-16:02
-look at the first row of the input and the first row of the target uh and then
-16:08
-let's see how do we get the loss so let's say let's look at the first input so I'm going to look at the first input
-16:14
-now which is I had always thought which is the first row over here U and
-How to get the LLM output?
-16:19
-remember that based on the input we have to get the llm model output right what is our model predicting we need to know
-16:25
-that because I I have the actual output corresponding to this input so if the input is this I know that the output is
-16:32
-had always thought Jack that is my output so let me even write that here the output or rather the target I should
-16:38
-call it the target value for this input is had had
-16:45
-always thought Jack right that's the target output which I need but of course
-16:50
-my llm is not going to uh give me this at the first uh first shot because we have not trained it yet so I need to
-16:56
-first know what my llm is predicting and for that we are going to go through the entire uh not right now but uh I'm just
-17:04
-going to show you the schematic of what we are going to put the input through so the input which we have that will go
-17:10
-through this entire GPT architecture or the entire llm architecture which we have trained in stage number one uh so
-17:17
-in the previous lectures we have actually built this entire architecture from scratch and you can see that there
-17:23
-are so many different modules in this architecture and let me quickly explain to you what we are actually doing so we
-17:29
-take in the input imagine those four tokens I had always thought we tokenize them using the tick token or the bite
-17:36
-pair encoder then we convert them into token embeddings which are vector representations in higher dimensional
-17:42
-spaces we add positional embeddings to it we add the Dropout layer at this
-17:48
-stage uh our input passes through the Transformer block so the Blue Block which I've shown over here this is the
-17:54
-Transformer block and this is the main engine of the GPT architecture Ure the
-17:59
-main thing which happens in the Transformer block is that the input embedding vectors are transformed into
-18:05
-something which is called as context vectors now what are context vectors and
-18:10
-how do they differ from input embedding vectors context vectors are more richer
-18:15
-so if you look at one word let's say if you look at effort here if you look at the input embedding Vector for effort it
-18:21
-just encodes santic meaning about effort it does not contain any information about how effort relates to the other to
-18:28
-tokens but the context Vector is much richer because the context Vector for effort not only contains semantic
-18:35
-meaning about effort but it also contains information about when effort when we are looking at effort how much
-18:42
-information should we pay to every moves and youu so in other in other words it pays attention the context Vector
-18:49
-includes attention which is given to the other tokens when we look at a particular token and that's what gives
-18:55
-all the power to the large language model so this multi-ad attention is the
-19:01
-main driver behind the Transformer block so if you look at the whole GPT architecture the Transformer block is
-19:07
-the engine of the uh GPT architecture and within the Transformer block the
-19:13
-multi-head attention is what allows us to convert these input embedding vectors into context vectors which encodes
-19:19
-information about how tokens relate to other tokens that's how the llms capture meaning and that's how they do so well
-19:26
-so GPT does so well because it has this multi-ad attention mechanism so you can see that the
-19:32
-Transformer has a number of building blocks we have the layer normalization multi-ad attention Drop Out shortcut
-19:37
-connection feed forward neural network Etc and then finally when the input
-19:43
-comes out of the uh out of the GPT model architecture we get something which is
-19:49
-called as the logits uh we get something which is called as the logit sensor and it's very important to understand what
-19:56
-the logit sensor is and what's the dimensions of this logic sensor so let's say the input is I had always thought
-20:02
-and when we pass it through the GPT model which is when it passes through the entire architecture which I just showed you we get this logic sensor now
-20:11
-I had always thought uh those are the tokens and when you look at the logits tensor corresponding to every token
-20:18
-there are these logits there is a logits vector who whose dimensions are equal to
-20:23
-the vocabulary size so if you look at I the Logics for I are 0257 because that's
-20:30
-our vocabulary size if you look at had the logits for had are 50257 because
-20:35
-that's the vocabulary if you look at always the logits for always are 50257 because that's the vocabulary size and
-20:41
-similarly for thought now when the logits tensor come out of the GPT architecture they are not
-20:47
-normalized so if you look at the logits for I they don't add up to one so the next step is to convert this logic
-20:53
-tensor into a probability tensor and that makes sure that when you look at every token the logits or the
-
-
-
+* 15:00
 
 ***
 
+* 20:00
+
+***
+
+* 25:00
 
 
-21:00
-probabilities add up to one so now you can see that every logic essentially has a meaning because it adds up to one the
-21:07
-way to predict the output now is that you look at I and you look at that logic which has the highest value okay and
-21:14
-let's say it corresponds to index number 50 in this vocabulary of 50257 or maybe
-21:19
-5,000 and then you look at the token corresponding to that index and maybe it's something random like a c h now you
-21:28
-look at had and you look at the logic which has the highest value you get the index corresponding to this maybe it is
-21:34
-31 1 01 and then you find the token corresponding to this index maybe it's
-21:39
-something completely random similarly for always you get the index which has the highest probability and you get the
-21:48
-outputs like a am m m o let's say uh am
-21:54
-and then you look at thought and you find the index corresponding to the highest probability and let's say this
-21:59
-is 611 6111 and then you get the uh
-22:05
-outputs so these are the output tokens now which are llm is predicting and these are the output tokens which we
-22:11
-need to make sure that uh they need to be as close to our Target as possible
-Finding the loss between the target and LLM output
-22:17
-okay I hope you have understood the workflow which we are trying to follow here we first have a logic sensor we
-22:22
-convert it into a soft Max sensor uh which which is a probability sensor and
-22:27
-I just gave you the intuition that based on this tensor how do you make the output for this input right so what's
-22:35
-done now is that after this point let's say we have this probability tensor right then what we actually do is that
-22:42
-we look at the targets uh this is the actual value which we want and we look
-22:47
-at the index which each token in the Target corresponds to so had has index
-22:53
-23 in the vocabulary always has index 3881 in our vocabulary thought has IND
-22:58
-index 1 1 2 2 3 in our vocabulary Jack has index 15 in the vocabulary I'm
-23:03
-assigning these random values for now just for demonstration purposes now let me show you one thing here so first let
-23:09
-me rub these uh rub these colors Okay now what's done next is that based on these
-23:16
-based on these IND indexes uh let's say we look at I and we look at index number
-23:22
-23 let's say this is index number 23 and we take its uh value that will be P1
-23:29
-then we look at had and then we uh that so the target for had is always and its
-23:36
-index is 3881 let's say we look at that index and find the probability corresponding to that index that's P2
-23:42
-then we look at the third row and find index number 1 1 22 3 and find the probability corresponding to that that's
-23:48
-P3 and then we uh find uh the index
-23:54
-number 15 in the last row and then we find the probability corresponding to to that so then that will be P4 ideally if
-24:01
-in an Ideal World if the llm is trained perfectly these probabilities will be close to
-24:07
-one and if these probabilities are close to one It means that our llm is also predicting these values right um as the
-24:15
-output but when the llm is not trained at all these probabilities will not be close to one at all they might be very
-24:21
-low which means that our llm does not think that this target needs to be the output because it has not been trained
-24:28
-so the whole goal is that to make sure that these probabilities get as close to one as possible and that's why we uh
-24:35
-employ the categorical or I should call it the cross entropy loss so at first take the logarithm of all these values I
-24:42
-add up these log values then I take the mean and then I take the negative this is also called as the negative log
-24:50
-likelihood uh this is called as the negative log likelihood and the whole goal of training the llm is to make sure
-24:57
-that this this negative log likelihood which I'm calling n LL and if you plot
-25:02
-nnl of X as a function of X so it's negative of logarithm right so it will
-25:07
-look something like uh it will look something like this since it's the negative it will it will look something
-25:14
-like this and uh our whole goal is to make sure that the loss comes down and
-25:20
 it comes down to zero as much as possible so now today what we are going to do is that today we are not going to
 25:26
 train the llm we are just going to see this starting point of this loss uh which which will be very high value but
@@ -869,6 +680,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
