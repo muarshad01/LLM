@@ -19,97 +19,19 @@ val_data = text_data[split_idx:]
 
 * 10:00
 
-rub this output pair right now uh okay so we have the first input now we have
-10:51
-an option of how we are going to actually construct the second input and let me show you uh how we are going to
-10:58
-do that okay so the first option is that you just move it to the right so then X1 is
-11:05
-I had always thought right X2 will be had always thought Jack now this movement which we are
-11:11
-going to do is also called as stride and that's the second parameter
-11:17
-which you have to decide along with the context size so if you put stride equal to one like I have done in this case the
-11:23
-second input will have will be X2 and that has lot of overlap with the first input right had always thought is
-11:28
-overlap um so you can also do this but usually What's Done in models such as GPT is
-11:36
-that the stride which uh we are going to Define right now is is fixed to be equal to the
-11:43
-context size and that is equal to four so we are going to use a stride of four
-11:49
-what this will do is that when X1 if X1 is this input we are going to have 1 2 3
-11:55
-and four so then X2 will start from here so then X2 will will be Jack gisburn
-12:00
-rather a this will be X2 you see what stride equal to 4 does it it makes sure
-12:06
-that we don't have any overlap but it will make sure that we also don't skip any token as the input when you look at
-12:12
-X3 this will be the um this will be X3 which will be the third input when you look at
-12:19
-X4 uh this will be X4 which is the fourth input right uh this is how the
-12:26
-inputs are created and you don't skip anything but also you make sure there are no
-12:31
-overlaps between inputs so now if you look at the input tensor the first is I had always thought right the second will
-12:38
-be Jack gizan rather a jack
-12:45
-gisburn rather o that's the second input which is X2 the third input would be
-12:51
-cheap genius dash dash do so the third will be cheap genius dash dash do
-12:59
-so that's how this entire input tensor Matrix will be created sorry this input tensor will be created like this we'll
-13:06
-stride through the entire data set and we'll collect these pairs so then the first row will be X1 the second row will
-13:12
-be X2 the third row will be X3 and we'll keep on accumulating these rows until we reach the end and how are the outputs
-13:19
-created once the inputs are created the output is just the input shifted by one
-13:24
-so for the first input I had always thought the output was had always thought Jack right now Jack gisburn rather a if this
-13:32
-is the input the output would be gisburn gisburn rather a
-13:40
-cheap so this will be Y2 the first row will be y1 and similarly we'll construct
-13:47
-all the other outputs output pairs till we reach the end of the data set so that is how input output pairs
-13:54
-are created in the case of a uh large language model so if you have a data set
-13:59
-like this what's very important is this X and this y so the x is the input and
-14:05
-the Y is the target which is the actual value so let me write this here x is the
-14:10
-input and Y is the Target now the loss will be between the llm output which we
-How to get the LLM loss?
-14:16
-have not seen yet but we'll also get llm output so this input will be passed into
-14:22
-this input will be passed into our llm model and then we'll get the output from
-14:29
-the llm right and that will also be a tensor with the same format as this target tensor and then what we are going
-14:37
-to do is that we are going to then find the loss between the we are going to
-14:42
-find the loss between the llm output and the Target and this is the loss which we are going to find in today's lecture and
-14:49
-this is the loss which we eventually want to minimize okay I hope you have
-14:54
-understood this this part and I deliberately wanted to show you visually because students are generally quite
-14:59
-unclear regarding how input output pairs are created in the context of large language models now here I showed you
-15:07
-the input input Target pairs I should call them here I showed you the input Target pairs for the training data right
-15:13
-these are the input and let me call them targets because outputs will be what I refer to as the llm
-15:20
-predictions so I created the input and the target pairs for the training data
-15:25
-similarly we'll have the input and the target pairs for the validation dat data and that will give us the validation
-15:31
+* stride = context_size
+
+1. Input
+2. LLM Output
+3. Target
+
+* Loss is computed b/2 LLM output and target
+
+***
+
+* 15:00
+
+
 loss the input and Target pairs will give us the train loss for the training
 15:37
 data and the similar tensors will give us the validation loss for the validation data now let me explain to
@@ -947,6 +869,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
