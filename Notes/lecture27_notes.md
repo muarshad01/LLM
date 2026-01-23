@@ -1,3 +1,9 @@
+
+
+* 20,000 characters
+* 5,000 tokens
+
+* [OpenAI - tiktoken](https://github.com/openai/tiktoken)
 Lecture Objectives
 0:00
 [Music]
@@ -1151,3 +1157,4 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
