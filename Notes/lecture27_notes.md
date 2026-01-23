@@ -1,11 +1,11 @@
 
-
 * 20,000 characters
 * 5,000 tokens
 
 * [OpenAI - tiktoken](https://github.com/openai/tiktoken)
 
 
+#### Divide the dataset into training and validation
 ```python
 train_ratio = 0.90
 split_idx = int(train_ratio * len(text_data))
@@ -13,232 +13,12 @@ train_data = text_data[:split_idx]
 val_data = text_data[split_idx:]
 ```
 
-
-Lecture Objectives
-0:00
-[Music]
-0:05
-hello everyone and welcome to this lecture in the build large language models from scratch
-0:11
-series let me recap the stage of building the llm in which we are at
-0:18
-currently in terms of a diagram okay so we are in stage number two right now
-0:24
-based on the schematic which is mentioned in front of you and in the stage number two we are essentially
-0:29
-learning how to build this foundational model or rather we are going to learn
-0:34
-how to train or pre-train a large language model in this stage in the previous stage in the all the previous
-0:41
-set of lectures we have looked at data preparation attention mechanism and llm architecture in fact in this stage we
-0:49
-even looked at um how to calculate the loss in terms of a large language model
-0:56
-we looked at how to define the cross entropy loss based on the input and
-1:02
-targets of a large language model and that was the previous lecture which we had now we will be looking at a much
-1:10
-larger data set in fact this is going to be a very interesting Hands-On lecture in which we are going to collect data
-1:16
-from a story book and we are going toh make predictions using the large
-1:22
-language model which we have built in the first stage and then we are going to
-1:27
-measure the loss of our large language model model based on the actual data which we
-1:33
-need so in the previous lecture what we did is we looked at some simple examples we looked at just two inputs the first
-1:40
-input which we looked at was every effort moves and the second input was I really like we looked at these two
-1:47
-inputs and we predicted outputs from our large language model and then we calculated the loss between those
-1:53
-outputs and the target values which we need now what we are going to do is we
-1:58
-are going to look at an actual data set and on that data set we are going to find the training loss and we are going
-2:04
-to find the validation loss so if you zoom into stage two of building an llm further in the previous
-2:11
-lecture we have looked at text generation and text evaluation so we saw the cross entropy loss in the previous
-2:18
-lecture and how to calculate it for just two simple input text today we are going
-2:23
-to calculate the training and validation losses on the entire data set we'll also
-2:29
-split the data set into training set and validation set so let's get started it
-2:34
-will be a completely Hands-On lecture and after this lecture actually you will be equipped to take any story book of
-2:41
-your choice or for that matter any data set and uh train the large language
-2:48
-model not really train it because we are not training the parameters in this lecture do a forward pass of the large
-2:54
-language model get the outputs and then get the loss based on
-3:00
-the True Values which you need and you will get this loss for any data set which you use you'll just have to follow
-3:06
-the same code which I'll provide you at the end of this lecture we have not yet started doing the training procedure but
-3:13
-once you get this loss for the data set in the next lecture we are going to look at the llm training function where we'll
-3:20
-also dive dive deep into back propagation so at the end of today's
-3:25
-lecture you will have a very cool result which is applicable to a wide range of data sets
-3:30
-so let's get started the data set which I'm going to consider is called the verdict it's a book written by an author
-Understanding the dataset
-3:37
-named edit Warton and this book was published in 1906 I think here's how the
-3:43
-book looks like and uh the book is publicly available to download I'll
-3:48
-share the link you can download the book from this link and it's not a very long
-3:53
-book it's a pretty short book in fact but we are using this just because I want to demonstrate uh an example which
-4:00
-runs very fast on my laptop and it will run very fast on your laptop also in
-4:06
-fact if you take a look at this data set and if you count the number of characters you'll see that the number of
-4:13
-characters in this data set is 20,000 characters what we'll do uh on the data
-4:21
-set first is that we'll first convert this data set into tokens so we'll use a
-4:26
-tokenization scheme for that which is called as bite pair en code B B pair
-4:31
-encoding so bite pair encoding is the tokenization scheme which we are going to use and what this will do is that in
-4:39
-bite pair encoding one word is not one token it's a subword based tokenization
-4:44
-scheme where even characters can be tokens just uh pairs of letters such as
-4:51
-T and H this can be one token just T can be one token Etc so if you use bite pair
-4:58
-encoding you'll find that this data asset has 5,000 tokens don't worry I'm going to show all of this in the code
-5:04
-but just if you search tick token you'll see that uh this is the bite pair
-
-
+#### Use DataLoader to chunk training and validation data into input and output datasets
 
 ***
 
+* 10:00
 
-5:10
-encoder which we are using and it's the same encoder which open AI actually used
-5:16
-and using this encoder we can encode our data uh data set into
-5:22
-tokens great so this is the data set which I'm considering and remember you can use any data set which you want on
-5:28
-publicly available books now the next step what we are going to do is that uh we are going to
-5:35
-divide the data set into training and validation remember this is the same thing what we do for all machine
-5:40
-learning problems because the training loss is not the one which really matters what matters is how our large language
-5:47
-model is doing on text which it has not seen before so we'll do a simple thing over here let's say this is the entire
-5:54
-data set we are going to use a train test ratio of90 and we we are just going
-6:00
-to do a simple split the training data will be the first 90% of the input and
-6:05
-the validation data will be the latter half so the remaining 10%
-6:12
-right um and that's how we are going to split the training and the validation set so if you imagine the entire data to
-6:18
-be like this what I'm going to do is that I'm going to reserve the first 90%
-6:25
-so this is 90% And this is 10% so I'm going to reserve this for training
-6:30
-purposes and I'm going to reserve the 10% for validation or testing
-6:36
-purpose now what I'm going to do after this is pretty interesting usually in
-6:41
-other machine learning problems getting the inputs and the outputs is pretty easy right you just have images of cats
-6:47
-and dogs and the output is whether it's a cat or whether it's a dog so it's pretty simple you have inputs which are
-6:53
-images and you have outputs which are the labels you don't have to do anything special to create these input output
-6:58
-pairs but it's not as simple in the case of a large language model because large language models are Auto regressive
-7:05
-models we don't uh label anything beforehand but from the text itself we construct the inputs and the output and
-7:13
-so we'll need to understand the process through which we conu construct these input output
-How to construct LLM input-target pairs?
-7:19
-pairs so in the code we are going to use the data loader to chunk the training
-7:24
-and the validation data into input and output data sets or input and output pairs and let me show you how I'm going
-7:31
-to do that if you understand this part it will be much easier for you to visualize what comes next right so the
-7:37
-first thing which we have to decide is what is the context size which I'm going to use in other words what is the
-7:43
-maximum number of tokens the llm can see before it predicts the next token so I'm
-7:48
-going to show you how to construct the input output data pairs on this data set using a context size of four so that's
-7:55
-the first thing which I need to decide context size equal to four
-8:01
-okay great so now let me look at this data set and here's how I create the input output pairs my first input is
-8:08
-this I had always thought and since the context size is
-8:14
-four I'm looking at four tokens at a time and although one word is not one token I'm just assuming it here for the
-8:20
-sake of demonstration so this is my first input and I'm going to label it let me use the same color here and I'm
-8:26
-going to label this as X1 right this is my first input now what's the first
-8:32
-output the first output is just this input shifted by one so then it will be
-8:37
-this had always thought Jack this is y1 let me write this down
-8:44
-over here so uh ultimately the input will be a tensor X and I'm currently I'm
-8:50
-just writing the first row of this so this will be I had always thought that's my first input
-9:00
-put and let me also collect the output tensor over here with a different color
-9:05
-of course and uh this will be had
-9:11
-always thought Jack right now let us
-9:17
-focus on this first input output pair for just a moment the first thing to notice is that of course the output is
-9:23
-just the input shifted to the right by one but another thing to notice is that this one input output pair essentially
-9:29
-has four prediction tasks what are the four prediction tasks the first is that when I is the input had is the output so
-9:38
-the index corresponds that way when I had is the input always is the output
-9:43
-when I had always is the input so when these three are the input thought is the output and when I had always thought is
-9:51
-the input then Jack is the output right so essentially when X is given an input
-9:58
-when we pass it through an llm it will produce these four tokens as the output uh and then the output produced
-10:06
-by llm will be compared to this which is the actual output which we want for this input let me repeat that again if this
-10:14
-is an input I had always thought the actual output which we want is had always thought Jack but you'll see that
-10:20
-when you pass these four tokens through the large language model it's not trained currently right so it will
-10:25
-predict some random words over here and then we have to find the loss between those random tokens and what we want
-10:32
-that's how you get the loss between the first input pair and the second first input and the first output right now
-10:39
-let's move ahead a bit and let let us see how to construct the second uh second input so I'm going to
-
-
-
-
-
-***
-
-
-
-10:46
 rub this output pair right now uh okay so we have the first input now we have
 10:51
 an option of how we are going to actually construct the second input and let me show you uh how we are going to
@@ -1167,5 +947,6 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
