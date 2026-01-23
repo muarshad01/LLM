@@ -32,9 +32,9 @@ val_data = text_data[split_idx:]
 * 15:00
 
 #### Training
-* For Training (Input, Target) pairs give training loss
+* For Training -  (Input, Target) pairs give training loss
 #### Validation
-* For Validation (Input, Target) paris give validation loss
+* For Validation - (Input, Target) paris give validation loss
 
 ***
 
@@ -141,6 +141,12 @@ the first batch and the size here was 2A 4 because there were two uh there were
 two inputs and each input had four tokens and here also it was 2A 4 because
 30:12
 there are two outputs and four tokens similarly what I want you to note over here is that when you look at this
+
+
+***
+
+
+
 30:18
 training data loader it's exactly similar to the example which we saw so let's look at the first row over
 30:25
@@ -247,6 +253,12 @@ we are going to divide the data set into training and validation data and we are
 what I told you over here right so we have loaded the data set now and we have to div divide it into training and
 35:48
 validation okay let's do that before that what I'm going to show you is that remember I told you what our data loader
+
+
+
+***
+
+
 35:55
 does our data loader we have to specify this uh context size and we have to
 36:01
@@ -330,6 +342,14 @@ Coding: Creating training and validation dataloaders
 data set uh so we are going to use a train test split of 90% the first 90% of
 40:07
 the data is a training data the remaining 10% is the validation data and here's the main part where magic happens
+
+
+
+
+***
+
+
+
 40:15
 so we are going to create a data loader based on the training data what this does is that it uh it splits the
 40:21
@@ -435,6 +455,13 @@ not got the output predictions right we have still not um got the GPT model
 predictions so that's what we are going to do next uh one more thing before going next
 45:46
 is that we can print out the training tokens and validation tokens uh uh just for the sake of Sanity so
+
+
+
+
+***
+
+
 45:54
 this makes sure that the data is now loaded correctly now we can actually go to the next part which is getting the
 46:00
@@ -680,6 +707,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
