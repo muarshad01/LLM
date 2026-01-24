@@ -52,118 +52,27 @@ val_data = text_data[split_idx:]
 
 * 30:00
 
-training data loader it's exactly similar to the example which we saw so let's look at the first row over
-30:25
-here let's look at the first row over here uh it has two inputs but it has 256
-30:31
-tokens because that's the context size we are going to use when we go to code so that's X the first input and it has
-30:39
-two uh it has two inputs so it's X1 comma X2 um and that's exactly what we
-30:46
-saw right why there is two here because there is X1 uh so if you zoom this in
-30:51
-further let me show you how it looks like it will be um
-30:56
-I uh I had always this will be 256 now
-31:03
-not four like what I had shown you because the context size is 256 this will be X1 and then X2 will be another
-31:09
-input batch this will be X1 X2 and then similarly we have y1 Y2 which are
-31:14
-shifted by one I already told you right how to construct the y1 and Y2 they are the inputs just shifted by one so these
-31:21
-are y1 and Y2 and they will also have the size of 256 this is just the first badge the
-31:28
-first row is just the first batch uh where each batch had two inputs of 256
-31:34
-tokens each similarly here we can see that there are nine batches so there are nine training set batches each batch has
-31:41
-two samples and each sample has 256 tokens each so I don't want you to be scared when you see this in the code
-31:48
-similarly in the validation we just have one batch because only 10% is used each batch has h two samples and each sample
-31:56
-has 256 tokens each okay I hope you have understood this visual workflow which I have constructed
-32:02
-over here I could have directly taken you through the code but then it would have been very difficult to understand the different steps in the code right
-32:10
-now I'm going to take you through the code and we are going to see how to calculate the loss for this verdict
-32:15
-short story step by step but please keep this intuition of this workflow in mind then everything will be very clear for
-32:22
-you okay so now we are at the code before we get started I want to clarify that we are actually using a relatively
-32:29
-small data set and that is because we want to run the code in a few minutes on our laptop computer I could have used a
-32:36
-larger data set but it would have taken a huge amount of time uh just to give you a sense of how
-32:42
-much time it takes to run big data sets Lama 7 billion the that model required
-32:49
-84320 GPU hours um and was trained on two trillion tokens and training this llm would cost
-32:56
-about $700,000 that's why I cannot show it to you on the full scale data set but I'm showing
-33:02
-it to you on a smaller data set and the whole logic is completely scalable for larger data as well okay so here's the
-Coding: Loading the dataset
-33:09
-code the first thing what we are doing is that we are getting this data set link from here uh and I'll share this
-33:16
-link with you in the YouTube description and I'm importing this data set over here so here you can see that uh um I'm
-33:24
-reading I'm reading the data set and I'm storing the all the information all the
-33:30
-text in this variable called Text data and let's check whether the text is loaded fine by printing out the first
-33:37
-100 words so here I'm printing the first 100 characters uh and here you can see
-33:42
-that the first 100 characters have been printed and they look very closely matching with what was actually there in
-33:48
-my text I had always thought Jack gispan rather a cheap genius and here also I
-33:54
-had always thought Jack is rather a cheap genius awesome let let's print the last 100 characters it for me the stoud
-34:01
-Strand alone and let's see whether that also
-34:08
-matches okay I think this also matches the whole data set is not being displayed over here but now we are
-34:14
-pretty sure that the data has been loaded fine let's move to the next step in the next step what I want to show is
-34:19
-that we can print out the total number of characters in this data and it's 20479 that's fine but remember I told
-34:26
-you about the bite pair encode encoder what we are going to do is that we are going to use the bite pair encoder tokenizer to encode this text data and
-34:34
-we had already defined the tokenizer in the previous lecture but I'm going to do it once more here so that
-34:41
-uh um yeah so that everything is from scratch so what we are actually going to
-34:47
-do is that we are going to import tick token uh and we we are going to Define this tokenizer from The Tick token
-34:54
-Library so let me write it down here
-35:00
-okay yeah so we are importing this tick token Library which is the same Library
-35:06
-open AI uses for their tokenization and we are going to get the encoding from tick token which is a bite pair encoder
-35:13
-character and subord level encoder basically and we are going to encode the
-35:18
-entire text data using this encoder and we are going to print out the number of tokens right so the number of tokens are
-35:26
-5145 so with 5145 tokens the text is very short for training and llm but
-35:31
-again it's for educational purposes uh okay the next step is that
-Coding: Implementing the dataloader class
-35:36
-we are going to divide the data set into training and validation data and we are going to use the data loader exactly
-35:42
-what I told you over here right so we have loaded the data set now and we have to div divide it into training and
-35:48
-validation okay let's do that before that what I'm going to show you is that remember I told you what our data loader
+```python
+import os
+import urllib.request
 
+file_path = "the-verdict.txt"
+url = "https://raw.githubusercontent.com/rasbt/LLMs-from-scratch/main/ch02/01_main-chapter-code/the-verdict.txt"
 
+if not os.path.exists(file_path):
+    with urllib.request.urlopen(url) as response:
+        text_data = response.read().decode('utf-8')
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(text_data)
+else:
+    with open(file_path, "r", encoding="utf-8") as file:
+        text_data = file.read()
+```
 
 ***
 
+* 35:00
 
-35:55
 does our data loader we have to specify this uh context size and we have to
 36:01
 specify the stride our data loader Loops over this entire data set and creates this input output pairs that's what I've
@@ -611,6 +520,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
