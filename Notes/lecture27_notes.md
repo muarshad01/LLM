@@ -73,97 +73,48 @@ else:
 
 * 35:00
 
-does our data loader we have to specify this uh context size and we have to
-36:01
-specify the stride our data loader Loops over this entire data set and creates this input output pairs that's what I've
-36:08
-implemented in the code right now uh so here you can see that max length is the
-36:13
-context size and stride is the uh how many steps we want to leave before creating the next input so first so we
-36:21
-create two tensors input and the target so these are the X and Y tensors which I showed and then we Loop over the entire
-36:28
-we Loop over the entire data set we create the input Chunk we create the target chunk which is based on the
-36:34
-context length and we append it to the tensor so uh the first row here will be
-36:40
-the first input chunk the first row in the Target will be the first Target chunk then we move over in the second
-36:45
-Loop then we fill the second row of the input and the target similarly we Loop over the entire data set and fill the
-36:51
-input tensor and the target tensor uh that's what this GPT d data
-36:57
-set version one creates and then we use the create data loader function it takes
-37:03
-the input output data sets which which have been created in the GPT data set V1 class and then U we create this data
-37:11
-loader instance so data loader is already um provided by pytor so let me
-37:17
-show you this I'll also add the link to this so data sets and data loaders right they are very useful for processing data
-37:24
-also in batches remember we want to use batches over here so using a data loader like this just makes uh processing the
-37:31
-batches much more convenient so we we create an instance of this data loader and we feed in the data set which we
-37:38
-created the input output data set which I mentioned over here input and targets and then here we specify the batch size
-37:45
-uh we specify Shuffle uh these uh arguments are not useful in the current context right now
-37:52
-but I'll also explain them to you later when we are going to train the llm uh see the output EX ET but remember that
-37:59
-for now the only important aspect here is that we are going to create an instance of this data loader feed in
-38:05
-this data set and Define the batch size if you want to do parallel processing you can also set the number of workers
-38:11
-Etc okay so now an instance of the data loader is created and let me actually
-38:16
-take some time to explain the shuffle and the drop last so what this suff
-38:21
-Shuffle essentially does is that it shuffles the data set order when batches are created that's sometimes useful for
-38:27
-generalization what this drop last actually does is that uh if the last batch size is very small and uh some
-38:35
-very small data is left at the last batch and it's not equal to the full batch size then it just drops that last
-38:42
-last batch so here we are setting the drop last equal to true and see the thing which I want to
-38:48
-mention here is that max length equal to 256 which means that the context size which we are going to use is 256 and
-38:55
-we'll also see that later uh we are going to use a context size of 256 over
-39:02
-here and that set by the GPT the GPT configuration which we are
-39:08
-going to provide so I'll also mention it over here okay so for now I hope you have
-39:15
-understood the GPT data set version one class and this create data loader function which basically creates the
-39:21
-input and the output data Pairs and then it also specifies the batch size one
-39:27
-more thing I want to mention before we create the training and the validation data set is that this is the configuration which we are going to use
-39:33
-so look at the context length that's 256 which means that uh we are going to look
-39:39
-at 256 tokens at one time whenever I showed you this example here I showed
-39:44
-four tokens I showed the context length of four because that's easier to demonstrate so when you try to
-39:50
-understand the code always try to think of four as being replaced with 256 rest all the workflow remains exactly the
-39:57
-same okay the next thing what we are going to do is that we are going to split the
-Coding: Creating training and validation dataloaders
-40:02
-data set uh so we are going to use a train test split of 90% the first 90% of
-40:07
-the data is a training data the remaining 10% is the validation data and here's the main part where magic happens
+* stride = context_size = 4
+
+```python
+from previous_chapters import create_dataloader_v1
+# Alternatively:
+# from llms_from_scratch.ch02 import create_dataloader_v1
+
+# Train/validation ratio
+train_ratio = 0.90
+split_idx = int(train_ratio * len(text_data))
+train_data = text_data[:split_idx]
+val_data = text_data[split_idx:]
 
 
+torch.manual_seed(123)
 
+train_loader = create_dataloader_v1(
+    train_data,
+    batch_size=2,
+    max_length=GPT_CONFIG_124M["context_length"],
+    stride=GPT_CONFIG_124M["context_length"],
+    drop_last=True,
+    shuffle=True,
+    num_workers=0
+)
+
+val_loader = create_dataloader_v1(
+    val_data,
+    batch_size=2,
+    max_length=GPT_CONFIG_124M["context_length"],
+    stride=GPT_CONFIG_124M["context_length"],
+    drop_last=False,
+    shuffle=False,
+    num_workers=0
+)
+```
 
 ***
 
+* 40:00
 
 
-40:15
 so we are going to create a data loader based on the training data what this does is that it uh it splits the
 40:21
 training data into the input and the target tensor pairs which we had seen uh over here
@@ -520,6 +471,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
