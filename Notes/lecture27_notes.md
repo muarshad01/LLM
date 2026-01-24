@@ -48,106 +48,10 @@ val_data = text_data[split_idx:]
 
 * 25:00
 
-
-it comes down to zero as much as possible so now today what we are going to do is that today we are not going to
-25:26
-train the llm we are just going to see this starting point of this loss uh which which will be very high value but
-25:33
-then in the subsequent lecture we are going to train the large language model so that this loss comes as down as
-25:38
-possible so this is the workflow which I showed you for one input right I had always thought uh and then how do we get
-25:45
-the loss now remember that we don't just have one input we have all these inputs
-25:52
-uh which are stacked together in a batch so remember that this data loader processes inputs in a batch
-25:58
-so each batch has an accumulation of inputs right based on the size of the batch so now let me show you how
-Finding loss for multiple batches
-26:05
-multiple inputs in a batch are processed so let's say we have a batch which has two inputs together so let's say this is
-26:11
-a batch whose batch size is equal to two which means that there are two inputs
-26:17
-together uh in a batch at a time right so this is one batch and this has two
-26:23
-inputs I had always thought Jack gpan rather so this is X1 and this is X2 and
-26:29
-this is y1 and these are this is Y2 these are the target outputs so for the first input X1 my output should be had
-26:35
-always thought Jack which we also saw in the previous example where just one input was there and my second input is
-26:42
-Jack gpan rather a the output should be gizan rather or cheap that's what I want these are the targets right now similar
-26:49
-to the similar to what we saw for one input the steps are pretty similar for the case of batches as well I'm trying
-26:56
-to see a color which would work the best here yeah so what we'll do is that we'll first take the input and we'll pass it
-27:01
-through the entire GPT architecture in this case what we'll get is that we'll get two logic sensors the first logic
-27:08
-sensor is for the first bat first input the second logic sensor is for the second input so if you look at the size
-27:15
-of this tensor now we have two batches here and in each batch there are four rows and in each row there are 5 to 57
-27:22
-columns in the previous case where there was just one input the size was just 4 into 50257 but now we have two such
-27:29
-batches right two such input so this is input number one and here is input number two right so in the code what
-27:37
-we'll do is that when we get this logic sensor we'll flatten this out we'll flatten the batch Dimension out which
-27:42
-means we'll merge both of these together uh we'll merge both of these together so that now the my cumulative logic sensor
-27:50
-looks something like this this is my first input this is my second input all merged together the size of this now
-27:56
-will be eight rows multiplied by 50257 that will be the size of this okay
-28:02
-and the next steps are pretty similar we add we apply soft Max we convert this into a tensor of probabilities and then
-28:09
-we look at the Target we look at the Target tokens and we stack this target tokens also so for the first input these
-28:16
-four are the target outputs for the first for the second input these four are the target outputs and we get the
-28:22
-token IDs corresponding to these Target outputs we stack them together and then we find for each row we find the value
-28:30
-corresponding to these token IDs and then these values are noted down as P11
-28:35
-p12 p13 p14 this for input 1 p21 P22 p23 p24 that's for input number two and then
-28:42
-similarly we get the cross entropy loss so this is the loss for the first input
-28:47
-this is the loss for the second input and then we add add it together and ultimately it will also look something
-28:53
-like this uh and the whole goal is that in this case also we want to minimize
-28:58
-this loss and bring it as close to zero as possible so now I hope you see that even for a batch of two inputs the
-29:05
-process of getting the loss is pretty similar as what the process was for just one input right uh and I want you to
-29:13
-keep this visual workflow in mind so that when we come to the code you will really understand what is happening over
-29:18
-here so in the code there is going to come a time when uh we are going to apply the data loader to the training
-29:24
-and validation set and the training data set is going to look like this after it passes the data loader and I want you to
-29:32
-analyze this right I told you that the input is processed into batches right so here you can see that uh let's look at
-29:41
-first the each row for now right each row corresponds to one batch so this is
-29:46
-X and this is y so what this 2 comma 256 means is that the so let's look at our
-29:53
-case right now let's look at the case which we took for the batch uh we looked at X1 we looked at X and Y right this is
-30:01
-the first batch and the size here was 2A 4 because there were two uh there were
-30:07
-two inputs and each input had four tokens and here also it was 2A 4 because
-30:12
-there are two outputs and four tokens similarly what I want you to note over here is that when you look at this
-
-
 ***
 
+* 30:00
 
-
-30:18
 training data loader it's exactly similar to the example which we saw so let's look at the first row over
 30:25
 here let's look at the first row over here uh it has two inputs but it has 256
@@ -707,6 +611,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
