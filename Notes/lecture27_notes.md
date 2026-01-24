@@ -305,6 +305,13 @@ here this is the flatten targets batch so what the nn. functional doc cross
 entropy does is that it first applies soft Max to the logic
 50:00
 uh tensor because that's the first argument it first applies softmax to this first argument uh which is also
+
+
+
+
+***
+
+
 50:07
 shown in this white board and then it takes the uh values corresponding to the
 50:12
@@ -418,6 +425,16 @@ architecture block so we have passed the data set into this llm architecture blo
 we have got the llm outputs and then we have compared the loss with the targets and with these outputs and then we have
 55:46
 collected an aggregate matric of this loss so here you can see I've got the training loss and I've got the
+
+
+
+
+***
+
+
+
+
+
 55:51
 validation loss and I got it live in less than 30 seconds I would say now you you can take this code and you can do
 Next steps
@@ -471,6 +488,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
