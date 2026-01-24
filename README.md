@@ -54,7 +54,7 @@ $ uv run jupyter lab
 | [Lecture 25 -- Coding GPT-2 to predict the next token](https://www.youtube.com/watch?v=F1Sm7z2R96w&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=25) |  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md) | 21/01/2026 |
 |---|---|---|
 | [Lecture 26 -- Measuring the LLM loss function](https://www.youtube.com/watch?v=7TKCrt--bWI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=26) |  [Notes26](https://github.com/muarshad01/LLM/blob/main/Notes/lecture26_notes.md) | 22/01/2026 |
-| [Lecture 27 -- Evaluating LLM performance on real dataset - Hands on project - Book data](https://www.youtube.com/watch?v=zuj_NJNouAA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=27) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) ||
+| [Lecture 27 -- Evaluating LLM performance on real dataset - Hands on project - Book data](https://www.youtube.com/watch?v=zuj_NJNouAA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=27) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) | 23/01/2026 |
 |---|---|---|
 | [Lecture 28 -- Coding the entire LLM Pre-training Loop](https://www.youtube.com/watch?v=Zxf-34voZss&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=28) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) ||
 | [Lecture 29 --Temperature Scaling in Large Language Models (LLMs)](https://www.youtube.com/watch?v=oG1FPVnY0pI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=29) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
