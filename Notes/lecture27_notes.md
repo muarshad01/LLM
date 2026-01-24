@@ -114,119 +114,10 @@ val_loader = create_dataloader_v1(
 
 * 40:00
 
-
-so we are going to create a data loader based on the training data what this does is that it uh it splits the
-40:21
-training data into the input and the target tensor pairs which we had seen uh over here
-40:28
-and we are also going to create a validation data loader which splits the validation data into input and the target pairs because we also need the
-40:34
-validation loss so here you see the train data loader is an object so we
-40:40
-create we uh we create the train data loader based on this create data loader version one function and uh we specify
-40:48
-that batch size equal to two maximum length is GPT config context length so that's 256 that's the context size
-40:56
-stride equal to the context size remember I had mentioned to you that generally when these llm architectures
-41:02
-are run the stride and the context size are um matched because we make sure that
-41:08
-no word is lost but at the same time there is no overlap between consecutive inputs awesome right and then drop last
-41:14
-equal to True Shuffle equal to true and we are not doing parallel processing so I I'm putting number of workers equal to
-41:21
-zero similarly we construct the validation loader with a batch size of
-41:26
-two MA X length which is the context length of 1024 and the stride sorry context length of 256 and the stride of
-41:33
-256 when gpt2 smallest version was trained they actually used a context length of 1024 and you can even do that
-41:40
-but it just takes a long time uh all you need to do is just replace this with 1024 and just run the same code which
-41:47
-I'll be providing to you but please be patient when you run the code on your end it might take some time we can do
-41:54
-some sanity check so ideally the number of uh tokens which we want in our
-41:59
-training data set should not be less than our back context length right because then we don't have enough tokens
-42:05
-to predict the next word so here I have just written that if this is the case if our number of training tokens is less
-42:11
-than our context length then print an error similarly if the number of validation tokens is less than the
-42:17
-context length print an error it does not print an error which means we are good to go uh one more thing I want to
-42:25
-mention here is that we are using a batch size of two in large language models in training GPT level models they
-42:31
-usually use a pretty large batch size but we use a relatively small batch size to reduce the computational resource
-42:37
-demand and because the data set is also very small to begin with to give you a
-42:42
-context Lama 2 7 billion was trained with a batch size of 1024 here we are using batch size of two because I want
-42:49
-to run it very quickly on my laptop one more check we can do to make
-42:54
-sure that the data is loaded correctly is that remember both in the training and the validation there are now X and Y
-43:00
-pairs input and Target pairs uh so the training has inputs and targets and the validation is inputs and targets let's
-43:08
-actually print out the shape of these inputs and targets so the training loader has this if you print out the X
-43:14
-and the y shape in the training loader it will look like this and if you print out the X and Y shape in the validation
-43:20
-loader it will look like this so if you look at the train loader let's look at the first row this is the X and what I'm
-43:27
-highlighting now is the Y what this represents is that the input um so in one batch so this is one
-43:35
-batch so first row corresponds to the first batch the First Column of the first row is the input the second column
-43:40
-of the first row is the output if you look at the first batch input you'll see that there are
-43:47
-two samples each sample has 256 tokens similarly if you look at the first batch
-43:54
-output you'll see that there are two samples and two 56 tokens this is the target which we want and this is the
-44:00
-input which is there similarly uh since 256 tokens are exhausted um in the input
-44:08
-and we have to Loop over the entire data set there are it turns out that there are nine such batches which are created
-44:14
-uh in the training data and there is one batch which is created in the validation data similar to the training data in the
-44:21
-validation data you'll see that the batch has two samples each sample has 256 tokens and I also printed the length
-44:28
-of the training loader here and you can even print the length of the validation loader and you will get
-44:35
-that uh the length of the training loader is equal to 9 because there are nine batches each batch has two samples
-44:42
-and the length of the validation loader is equal to one and uh there's just one batch with two samples I hope now this
-44:49
-part is clear to you to to make sure you understand this part that is why I
-44:54
-actually went through this entire whiteboard demonstration to show you that towards the end we are going to get
-45:00
-something like this in the in the code and remember I spent some time to explain these sizes and these Dimensions
-45:08
-I hope you are following along and if I directly went through the code and when you reach this part it it would have
-45:14
-been impossible for you to understand this that's why it was very important for me to go through this entire whiteboard demonstration so that you
-45:21
-understand the dimensions of what's really going on so up till now what we have created is that we have created Ed
-45:27
-the we have the input and the targets and we have badged them into the input and the uh Target data but we have still
-Coding: implementing the LLM architecture
-45:34
-not got the output predictions right we have still not um got the GPT model
-45:40
-predictions so that's what we are going to do next uh one more thing before going next
-45:46
-is that we can print out the training tokens and validation tokens uh uh just for the sake of Sanity so
-
-
-
-
 ***
 
+* 45:00
 
-45:54
 this makes sure that the data is now loaded correctly now we can actually go to the next part which is getting the
 46:00
 llm model outputs so in one of the previous lectures we have defined this GPT model class what this GPT model
@@ -488,6 +379,7 @@ if you can run it before the next lecture it's awesome if not it's fine I'll try
 that it's selfcontain thank you so much everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
