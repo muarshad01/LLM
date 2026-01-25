@@ -59,7 +59,7 @@
 
 * 25:00
 
-* ADAM
+* ADAM (Adaptive Moment Estimation) optimizer
 
 ***
 
@@ -68,9 +68,3 @@
 * AdamW Optimizer
 
 ***
-
-
-
-
-
-
