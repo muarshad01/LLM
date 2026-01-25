@@ -18,7 +18,8 @@
 ```
 * Embedding Parameters = Token Embedding  + Positional EMbedding 
                        = (vocab_size x embedding_dim ) + (context_size x embedding_dim)
-                       = (50,257 x 768) + (1,024 x 768) = 38.4 Million
+                       = (50,257 x 768) + (1,024 x 768)
+                       = 38.4 Million
 ```
 * Transformer Block Parameters = Multi-head attention
   * Query, Key, Value weights = 3 x 768 x 768 = 1.77 Million
@@ -40,5 +41,6 @@
 * AdamW Optimizer
 
 ***
+
 
 
