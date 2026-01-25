@@ -1,268 +1,22 @@
-next token generation
-0:00
-[Music]
-0:05
-hello everyone and welcome to this
-0:08
-lecture in the build large language
-0:10
-models from scratch Series today we are
-0:13
-going to learn about a very important
-0:15
-concept and that concept is called
-0:18
-temperature
-0:20
-scaling we'll understand what
-0:22
-temperature scaling is and why it is
-0:24
-used in large language
-0:26
-models first let me recap what all we
-0:29
-have done in the previous lecture in the
-0:31
-previous lecture we actually trained a
-0:33
-large language model completely from
-0:35
-scratch so here's the training process
-0:38
-which we had defined and we ran the
-0:40
-large language model for 10 EPO and we
-0:43
-saw the next Words which were predicted
-0:45
-so every effort moves was the input
-0:48
-token which we had or the input sentence
-0:50
-which we had given to the large language
-0:52
-model and then we recorded the output
-0:55
-tokens and then here you can see I
-0:57
-printed out the output tokens you know
-0:59
-was one of the XM he laid down across
-1:02
-dash dash dash so there are 50 output
-1:04
-tokens and as you can see the output
-1:07
-tokens don't really make too much of
-1:09
-sense right now and that's what we are
-1:11
-aiming to do in today's lecture our
-1:14
-whole goal in today's lecture is how to
-1:16
-make sure that the randomness in the
-1:19
-output tokens is
-1:22
-reduced how to make sure that the output
-1:25
-tokens eventually start making sense we
-1:28
-will learn techniques to do this in
-1:31
-today's lecture and one such technique
-1:33
-is called as the technique of
-1:35
-temperature
-1:37
-scaling this is the technique which we
-1:39
-are going to learn about today so let's
-1:41
-get started with today's
-1:43
-lecture Okay so until now what we have
-1:47
-seen is that the generated token is
-1:49
-selected corresponding to the largest
-1:52
-probability score among all the tokens
-1:54
-in the vocabulary what do I mean with
-1:57
-mean by this so this is the process
-1:58
-which we are following until now every
-2:01
-effort moves that's my input which is
-2:04
-fed to the GPT architecture and then I
-2:07
-get a logic tensor which is ultimately
-2:10
-passed through the soft Max and then I
-2:12
-get a tensor of probabilities like this
-2:14
-what we are doing until now to predict
-2:16
-the next token is we are looking at that
-2:18
-index or that token ID which has the
-2:21
-maximum probability and then we decode
-2:24
-that token ID which gives us the next
-2:26
-token so for example when every is the
-2:30
-input the token ID corresponding to this
-2:34
-second index where probability is 6
-2:36
-which is the highest that's the output
-2:38
-and that token ID is one and so the next
-2:41
-token is effort similarly when every
-2:44
-effort moves is the input we look at
-2:46
-this third row we trying we try to find
-2:48
-that entry which has the highest value
-2:51
-that entry is 34 the index number is
-2:54
-five or the token ID is five and then we
-2:56
-see that for token ID five the token
-2:58
-which corresponds to that is is you so
-3:00
-when every effort moves is the input U
-3:02
-should be the output right so until now
-3:06
-what we have seen is that the generated
-3:08
-token is selected corresponding to the
-3:10
-largest probability score among all the
-3:12
-tokens in the vocabulary what this leads
-3:15
-to is that this leads to a lot of
-3:18
-Randomness and diversity in the
-3:20
-generated text so since all of these are
-3:23
-probability scores why are we choosing
-3:26
-the next token in a deterministic manner
-3:28
-like this what if we
-Probabilistic next token generation
-3:31
-use what if we choose the next token in
-3:34
-a probabilistic manner what if we sample
-3:36
-the next token from a probability
-3:39
-distribution this is exactly what is
-3:41
-explored in the concept of temperature
-3:44
-scaling there are actually two
-3:46
-techniques which really help to control
-3:48
-the randomness and the two techniques
-3:50
-are used together with each other first
-3:53
-is temperature scaling and the second is
-3:55
-top case sampling this top case sampling
-3:58
-Technique we are going to look at in the
-4:00
-next lecture today we are going to focus
-4:02
-on temperature scaling so the main uh
-Multinomial probability distribution
-4:06
-main idea behind temperature scaling is
-4:09
-that first what we do is that instead of
-4:11
-taking the maximum probability and just
-4:14
-looking at the index which corresponds
-4:16
-to the ma maximum probability we replace
-4:19
-this ARG Max with a probability
-4:21
-distribution so for example here instead
-4:24
-of just choosing this token with a
-4:26
-maximum probability we will look at this
-4:29
-probability scores and then based on
-4:31
-this we'll sample from a probability
-4:34
-distribution and that probability
-4:36
-distribution turns out to be the
-4:38
-multinomial probability distribution so
-4:40
-the next token is then sampled according
-4:44
-to the probability score we don't just
-4:47
-blindly or we don't just choose the
-4:49
-token ID with the highest probability
-4:52
-value we sample the next token according
-4:55
-to the probability score this
-4:57
-distinction in terminology is very
-4:59
-important are sampling the next token so
-5:01
-it's not clear to us what the next token
-5:04
-is going to be because we are sampling
-5:06
-it so what the sampling mean to give you
-5:09
-an example let's look at the goian
-5:11
-distribution right and if I ask you to
-5:14
-sample values from a goian distribution
-5:17
-you I cannot tell you right now what the
+## Temperature Scaling
 
+* How to reduce the randomness in the output tokens
+* Until now, the generated token is selected corresponding to the largest probability score among all the tokens in the vocabulary.
+* this leads to a lot of randomness and diversity in the generated text
 
+#### Techniques to controlling randomness
+* We'll learn two techniques to control this randomness:
+1. Temperature scaling
+2. Top-k sampling 
+
+#### Temperature scaling
+*  Replace `argmax` with __probability distribution__
+* multi-nomial probability distribution samples next token according probability score.
 
 ***
 
-
-
-5:19
+* 5:00
+  
 value will be because I'm sampling it
 5:20
 from this distribution what I can tell
@@ -515,6 +269,13 @@ so then the next token will be every
 effort moves you and then forward will
 10:17
 be my predicted
+
+
+
+***
+
+
+
 10:18
 token here is where we are going to make
 10:21
@@ -1392,3 +1153,4 @@ thanks a lot and I'll see you in the
 next lecture
 
 ***
+
