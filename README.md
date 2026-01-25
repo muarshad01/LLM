@@ -57,8 +57,8 @@ $ uv run jupyter lab
 | [Lecture 27 -- Evaluating LLM performance on real dataset - Hands on project - Book data](https://www.youtube.com/watch?v=zuj_NJNouAA&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=27) |  [Notes27](https://github.com/muarshad01/LLM/blob/main/Notes/lecture27_notes.md) | 23/01/2026 |
 |---|---|---|
 | [Lecture 28 -- Coding the entire LLM Pre-training Loop](https://www.youtube.com/watch?v=Zxf-34voZss&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=28) |  [Notes28](https://github.com/muarshad01/LLM/blob/main/Notes/lecture28_notes.md) | 24/01/2026 |
-| [Lecture 29 --Temperature Scaling in Large Language Models (LLMs)](https://www.youtube.com/watch?v=oG1FPVnY0pI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=29) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
-| [Lecture 30 -- Top-k sampling in Large Language Models](https://www.youtube.com/watch?v=EhU32O7DkA4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=30) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) ||
+| [Lecture 29 --Temperature Scaling in LLMs](https://www.youtube.com/watch?v=oG1FPVnY0pI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=29) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) ||
+| [Lecture 30 -- Top-k sampling in LLMs](https://www.youtube.com/watch?v=EhU32O7DkA4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=30) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) ||
 | [Lecture 31 -- Saving and loading LLM model weights using PyTorch](https://www.youtube.com/watch?v=Bc-9sf0VihQ&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=31) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) ||
 | [Lecture 32 -- Loading pre-trained weights from OpenAI GPT-2](https://www.youtube.com/watch?v=yXrGeDNuymY&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=32) |  [Notes32](https://github.com/muarshad01/LLM/blob/main/Notes/lecture32_notes.md) ||
 |---|---|---|
