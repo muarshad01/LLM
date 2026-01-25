@@ -31,9 +31,16 @@
                                = Total = 2.36 Million
 ```
 
-* Feed-forward NN = 768 X (4 x 768) + 768 x (4 x 768) = 4.72 Million
-* Total for 12 Transfomer blocks = 12 x (2.36 + 4.72) = 85.2 Million
-  
+```
+* Feed-forward NN = 768 X (4 x 768) + 768 x (4 x 768)
+                  = 4.72 Million
+```
+
+```
+* Total for 12 Transfomer blocks = 12 x (2.36 + 4.72)
+                                 = 85.2 Million
+``` 
+
 ***
 
 * 25:00
@@ -47,6 +54,7 @@
 * AdamW Optimizer
 
 ***
+
 
 
 
