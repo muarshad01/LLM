@@ -8,7 +8,7 @@
 
 * 15:00
 
-* __Main step__: Find loss gradients using loss backward
+* __Main step__: Find loss gradients using `loss.backward()`
 
 * Input --> GPT model --> Logits --> Softmax --> Cross Entropy Loss (Output, Target)
 
@@ -27,3 +27,4 @@
 * AdamW Optimizer
 
 ***
+
