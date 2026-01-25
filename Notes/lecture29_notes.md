@@ -1,17 +1,17 @@
 ## Temperature Scaling
 
-* How to reduce the randomness in the output tokens
-* Until now, the generated token is selected corresponding to the largest probability score among all the tokens in the vocabulary.
-* this leads to a lot of randomness and diversity in the generated text
+* How to __reduce the randomness__ in the output tokens?
+* Until now, the generated token is selected corresponding to the __largest probability score__ among all the tokens in the vocabulary.
+* This leads to a lot of randomness and diversity in the generated text
 
-#### Techniques to controlling randomness
-* We'll learn two techniques to control this randomness:
-1. Temperature scaling
-2. Top-k sampling 
+#### Techniques for Controlling Randomness
+* There are two main techniques:
+1. Temperature Scaling
+2. Top-k Sampling 
 
 #### Temperature scaling
-*  Replace `argmax` with __probability distribution__
-* multi-nomial probability distribution samples next token according probability score.
+* Replace `argmax` with __probability distribution__
+* __Multi-nomial probability distribution__ samples next token according probability score.
 
 ***
 
@@ -24,3 +24,4 @@
 * Large Temperature value: Flatter distribution (more variety, but also more non-sense)
 
 ***
+
