@@ -23,7 +23,7 @@
 
 #### What is temperature
 * Fancy term for dividing the logits by a number greater than zero.
-* $$Scaled ~logits = \frac{Logits}{Temperature}$$
+* $$\text{Scaled ~logits} = \frac{Logits}{Temperature}$$
 
 we are going to make
 10:21
@@ -901,5 +901,6 @@ thanks a lot and I'll see you in the
 next lecture
 
 ***
+
 
 
