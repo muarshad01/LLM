@@ -28,7 +28,8 @@
                                = 3 x 768 x 768 = 1.77 Million
                                = Output head = 768 x 768
                                = 0.59 Million
-                               = Total = 2.36 Million
+                               = Total
+                               = 2.36 Million
 ```
 
 ```
@@ -40,6 +41,19 @@
 * Total for 12 Transfomer blocks = 12 x (2.36 + 4.72)
                                  = 85.2 Million
 ``` 
+
+```
+* Final layer (softmax) = 50,257 x 768
+                        = 38.4 Million
+```
+
+```
+* Total parameters to be optimized = 38.4 + 85.2 + 38.4
+                                   = ~161 Million
+```
+
+#### Weight Tying
+* GPT-2 has 124 Million parameters
 
 ***
 
@@ -54,6 +68,7 @@
 * AdamW Optimizer
 
 ***
+
 
 
 
