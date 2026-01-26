@@ -12,164 +12,16 @@ which has previously acquired patterns and features from an extensive data set, 
 * 5:00
 
 #### Finetuning Types
-* Instruction finetuning
-* classification finetuning
-7:42
-fine tuning itself there are two broad
-7:45
-categories of fine tuning and let me
-7:48
-Mark them here for you the first
-7:49
-category is called as instruction fine
-7:51
-tuning and this is much more common and
-7:53
-much more broader the second category is
-7:56
-called as classification F unun what's
-7:59
-the difference between the two so in
-8:01
-instruction find tuning what we do is
-8:03
-that we train the language model on a
-8:06
-set of tasks using Specific Instructions
-8:10
-so here I have given two examples for
-8:13
-instruction uh instruction based F
-8:15
-tuning so let's say the instructions are
-8:19
-U is the following text spam answer with
-8:22
-a yes or no this is an example of
-8:24
-instruction based fine tuning because we
-8:26
-are asking the llm that you will be
-8:28
-given text like this and your task is to
-8:31
-look at the text and answer whether it's
-8:33
-spam so classify or say whether it's yes
-8:35
-or no that's why this is an example of
-8:37
-instruction fine tuning we are adding
-8:39
-instructions here which are in blue
-8:41
-color that's very important or the
-8:43
-instruction could be your given sentence
-8:45
-and translate it into German
-8:47
-appropriately that is another example of
-8:49
-instruction find tuning so the llm takes
-8:52
-the input sentence in the first case it
-8:54
-gives the output as yes or no in the
-8:56
-second case it translates the English
-8:58
-sentence into German
-9:00
-the reason these are examples of
-9:01
-instruction fine tuning is that we are
-9:03
-giving a specific instruction and the
-9:05
-llm is behaving based on that
-9:09
-instruction the second example is
-9:11
-classification fine tuning this is not
-9:13
-as common but readers or listeners
-9:16
-rather who have learned about machine
-9:18
-learning and classification examples
-9:21
-such as brain tumor classification image
-9:23
-classification between cats and dogs
-9:25
-this is pretty similar but now you just
-9:27
-use a large language model inste of
-9:29
-let's say a convolutional neural network
-9:31
-for example or any other neural network
-9:34
-to make the classification so here no
-9:37
-instruction is given to the llm just the
-9:39
-input is given without
-9:41
-instructions and the llm has to classify
-9:44
-whether the email is Spam or not spam
-9:46
-here also we saw a Spam not spam example
-9:49
-right but here instructions were given
-9:51
-that the llm has to answer with a yes or
-9:53
-no but here instruction is not given
-9:56
-just two categories will be there spam
-9:57
-and not spam and we train the llm to
-10:00
-make the output based on these two
-10:02
-categories so the llm receives a text
-10:05
-and then it predicts whether it's a Spam
-10:06
-or no spam although the result is same
-10:08
-in this case and this case the way the
-10:12
-prompt itself is constructed or way the
-10:13
-llm is constructed is different that's
+1. Instruction finetuning
+* Training a language on a set of tokens using specific instructions
+2. classification finetuning
+* Model is trained to recognise a specific set of class labels, such as spam or no spam
 
 ***
 
 * 10:00
 
 
-why this what I'm highlighting right now
-10:18
-this is an example of instruction F
-10:20
-tuning and this example where the model
-10:23
-input is given without instructions
-10:24
-that's an example of classification
-10:26
-based fine
-10:28
-tuning uh um where we just classify into
-10:31
-categories using large language models
-10:33
-when I saw this it was pretty surprising
-10:35
 to me because I did not know that llms
 10:37
 could be used for classification tasks
@@ -1008,6 +860,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
