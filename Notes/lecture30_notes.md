@@ -250,6 +250,13 @@ is that we use the tor. we function and
 then uh the condition which we are using
 10:17
 is that all those logits which are less
+
+
+
+
+***
+
+
 10:20
 than uh
 10:22
@@ -500,6 +507,14 @@ top k
 so if the top K let's say set to three
 15:01
 we'll look at the logic tensor and only
+
+
+
+
+
+***
+
+
 15:04
 retain those values where the
 15:08
@@ -796,6 +811,12 @@ it's not there which means that the next
 tokens which have been generated are
 20:46
 completely new now it is a true
+
+
+
+***
+
+
 20:48
 generative AI model because it's not
 20:50
@@ -938,5 +959,6 @@ understanding thanks everyone and I look
 forward to seeing you in the next
 23:27
 lecture
+
 
 
