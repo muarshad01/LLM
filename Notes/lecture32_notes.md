@@ -355,84 +355,35 @@ gpt.to(device);
 
 * 40:00
 
-41:12
-neural network and where do we get the dimensions where do we get the weights of these we did not download this from
-41:18
-GPT right so the way gpt2 was designed is that it uses this concept of weight
-41:24
-tying which means that the token embedding weights are used for
-41:31
-constructing this output head so the same token embedding weights are used for this output head layer so we don't
-41:38
-have to Define any new weights for this layer we recycle the same weights what's used in the token embedding weight tying
-41:44
-is not used these days too much but it was used in the gpt2 architecture and so we are also using the concept of weight
-41:50
-tying that actually brings the total parameters from 162 million to 124 million if you don't do weight time the
-41:57
-number of parameters will be 164 million awesome right so what we have
-42:03
-done here is that until now this this piece of code over here load weights into GPT this code what it does is that
-42:10
-it takes two values the first it takes the instance of the GPT model class and the second it takes the params
-42:16
-dictionary so it takes this dictionary which essentially contains this dictionary which essentially contains
-42:21
-all the weights of gpt2 and then it just assigns all of these weights into the GP
-42:27
-G PT model that's what this load weights into GPT is doing and now if you see above we have already created an
-42:33
-instance of the GPT model class and if you scroll even above we have already got the we have already got the params
-42:40
-dictionary awesome right so now we just need to call this function and that's exactly what we are doing here we are
-42:46
-calling this function load weights into GPT what this function does is that it takes the params values and then it uh
-42:53
-which are downloaded from gpt2 and then it loads into our GPT model instance
-42:59
-which means that our own GPT model which we have constructed from scratch is now fully ready it's fully functional to be
-43:06
-tested so now let's go ahead and do the most exciting thing in this lecture which you all have been waiting for let
-43:12
-us test our model which we used our own architecture with the gpt2 pre-train
-43:19
-weights and let's see what the output is great so now let's go ahead and test our model uh so here you can see that here's
-Testing the pre-trained GPT2 model
-43:27
-the the generate function which basically generates new tokens and we are passing the model which we have
-43:32
-defined and that this model now had has the weights which have been downloaded from gpt2 the input token IDs are every
-43:40
-effort moves you and the maximum number of new tokens is 25 I have defined the temperature not too high 1.5 and the top
-43:48
-K is 50 which means that 50 tokens will have the chance or the opportunity to be in the among the maximum new tokens or
-43:56
-to be in the generated token so before we see the output for this let me show
-44:01
-you our performance without using gpt2 weights and here you can see that if we do not
-44:08
-use gpt2 weights we were getting something like this which did not make any sense at all and now what we are
-44:14
-going to do is that we are going to run this right now so I'm going to run this live and just to show you that once you
-44:21
-load the weights the running actually this code does not take too much time because we have already
-44:27
-we already have pre-trained weights so here you can see with the star symbol that it's running right now and now it
-44:34
-generated so every effort moves you toward finding an ideal new way to
-44:39
-practice something what makes us want to be on top of that this is incredible right this output sentence is much more
-44:46
-coherent than what we had obtained earlier so right now in this lecture we have built our own GPT from scratch and
-44:53
-it seems to be working that's incredible all all the other students which have not been through this course or who have
-45:00
-not seen these lectures would be just using chat GPT but now we have built our
-45:05
-own GPT from scratch isn't that incredible it took us a long time to get here and the code length is also um the
-45:14
-code length is also pretty large so you can scroll above and see how long the
-45:20
+#### Weight Tying
+* Sam token embedding weights are used for output head layer.
+* 162 Million --> 124 Million
+
+```python
+load_weights_into_gpt(gpt, params)
+gpt.to(device);
+```
+
+
+```python
+torch.manual_seed(123)
+
+token_ids = generate(
+    model=gpt,
+    idx=text_to_token_ids("Every effort moves you", tokenizer).to(device),
+    max_new_tokens=25,
+    context_size=NEW_CONFIG["context_length"],
+    top_k=50,
+    temperature=1.5
+)
+
+print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
+```
+
+
+***
+
+
 code has become but it's all worth it because we have learned how to build GPT from scratch now what you can do is you
 Research explorations and next steps
 45:26
