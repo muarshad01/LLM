@@ -264,6 +264,12 @@ have covered all of this in one lecture
 but then I would have to rush through it
 15:09
 instead I'm going to split this into
+
+
+
+***
+
+
 15:11
 five to six lectures so that you
 15:13
@@ -548,7 +554,15 @@ number of spam emails are
 to balance the data set we can see that
 20:46
 we now have an equal amount of spam and
-20:48
+
+
+
+
+***
+
+* 20:00
+
+
 no spam messages great this is exactly
 20:50
 what we wanted now we can go a step
@@ -800,6 +814,11 @@ can we load the pre-trend Ws how can we
 modify the model Etc you might be
 26:13
 thinking right how can a classification
+
+
+***
+
+
 26:15
 task be done using large language models
 26:18
@@ -860,6 +879,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
