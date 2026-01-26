@@ -267,6 +267,12 @@ based on your data how you generally
 write articles how your how you word the
 5:20
 different paragraphs on your website you
+
+
+
+***
+
+
 5:23
 have a specific tone and you want that
 5:25
@@ -520,6 +526,14 @@ in this case and this case the way the
 prompt itself is constructed or way the
 10:13
 llm is constructed is different that's
+
+
+
+
+***
+
+
+
 10:16
 why this what I'm highlighting right now
 10:18
@@ -1377,3 +1391,4 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
