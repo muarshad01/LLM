@@ -243,7 +243,7 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 #### Within Blocks we are gettign 4 things
 
 * Attention layers in Transfomer blocks:
-    * `transformer/h0/attn/c_attn (which is K,Q,W weights)/w` (similarly for h1,...,h12)
+    * `transformer/h0/attn/c_attn/w` (c_attn, which is K,Q,W weights); (similarly for h1,...,h12)
     * `transformer/h0/attn/c_attn/b (biases)`                 (similarly for h1,...,h12)
 
 * Feedforward NN weights in Transfomer blocks:
@@ -730,6 +730,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
