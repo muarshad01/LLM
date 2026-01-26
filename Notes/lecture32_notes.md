@@ -1,124 +1,12 @@
 ## Loading Pre-Trained OpenAI Weights
 
-
 * [GPT-2: 1.5B release](https://openai.com/index/gpt-2-1-5b-release/)
-
 * [Kaggle.com](https://www.kaggle.com/datasets)
-
-etrained weights
-0:00
-[Music]
-0:05
-hello everyone and welcome to this lecture in the build large language models from scratch Series today I am
-0:13
-very excited for this lecture because we are going to look at how to load pre-trained open AI weights into the GPT
-0:21
-model which we have constructed so that the text generation
-0:26
-is coherent this lecture will serve as a culmination of all the hard work which
-0:32
-we have put in in the previous lecture previous lectures U because we are going
-0:37
-to use the exact GPT architecture which we have built ourselves using this
-0:43
-schematic which I'm showing you right now and the GPT model class which we have defined in this lecture series and
-0:50
-we are going to integrate this model class with the gpt2 open AI weights
-0:56
-which they have publicly released so let's get started with today's
-1:02
-lecture first let me cover what all we have completed so far until now what we
-1:08
-saw in this pre-training series is that we first saw how to define the losses for a large language model how the cross
-1:16
-entropy loss comes into the picture to find the loss between the
-1:21
-llm predicted output and the target sentence then we looked at the llm
-1:26
-pre-training Loop itself and we generated output text using our pre-training Loop the text which was
-1:33
-generated from our Loop was not not very coherent so let me just show you uh the
-1:39
-text which was generated using our training so this was the training Loop which we had and here you see that the
-1:45
-input was every effort moves you and the output was not very coherent it was not
-1:50
-making too much sense and that is understandable because we just we had just trained this on one small book with
-1:58
-a which was a very small data set and we had run it for 10ox later what we saw was we integrated decoding strategies to
-2:05
-reduce overfitting the first strategy we looked at was temperature scaling and
-2:11
-then the second strategy which we looked at was topk sampling introduction of
-2:16
-these two strategies definitely reduced overfitting a bit but even then the next sentence which was generated as you can
-2:22
-see over here did not really make too much sense and now we have come to today's lecture where we are going to
-Open AI GPT-2 weights
-2:29
-load the pre-trained weights from open AI in in an in in the hope that with the
-2:35
-pre-trained weights from openai the next tokens which are generated or the next Tok or the next sentences which are
-2:41
-generated they start making a lot more sense we are going to spend a lot of
-2:47
-time in today's lecture in understanding first of all how to download these weights from open a second of all how to
-2:53
-integrate these weights with our code which we have written already so let's
-2:58
-Dive Right into today to lecture first I would like to thank open for releasing
-3:04
-these weights for gpt2 the training itself might have taken around millions of dollars because the training has been
-3:11
-done on a huge amount of data set and these gpt2 weights are now publicly available even on platforms such as
-3:18
-gagle so without access to this weights today's lecture would not have been possible and I would just like to take
-3:26
-this opportunity to thank all of the llm company who are in the open source
-3:31
-domain especially and who are publicly making available all the weights which are used by these
-3:37
-models okay so I'm going to take you to directly to code right now and let me
-Loading libraries
-3:42
-start explaining to you the different steps in the code so previously for
-3:48
-educational purposes we trained a small gpt2 model right which used a very limited data set it was just a book this
-3:56
-approach allowed us to focus on the fundamentals but we did not get coherent text as the our prediction what we are
-4:04
-going to do is that open a has fortunately shared their weights publicly so we are going to load these
-4:09
-weights into our GPT model class and we are going to use this model class itself
-4:15
-for the next text Generation Um one thing to note before
-4:20
-we get started is that open originally saved the gpt2 weights via tensor flow
-4:25
-whereas all of the coding which we have done so far in this lecture series is using pytorch so we will have to install
-4:32
-tensor flow and one more Library which we are going to install is called tqdm to track the download progress so here
-4:40
-you can see that in this line of code I'm installing tensor flow and I'm also installing the tqdm library the
-4:46
-tensorflow version should be greater than or equal to 2.15 and the tqdm
-4:51
-library version should be greater than or equal to 4.66 so you can install both of these
-4:57
-two libraries and then import them so here I printed the tensorflow version and the tqdm version on my
-5:04
-system once you install this these two libraries you can you can pause the video for the time being and then you
-5:10
-can continue with the rest of this video now comes the very important step of
-Gpt2 weights downloading introduction
-5:15
-downloading the gpt2 weights and their parameters this is a step which still
-
 
 ***
 
-
-5:22
+* 5:00
+  
 might be complex to so many students and Engineers so I want to explain this in a lot of detail first of all when you go
 5:29
 to platforms like kagle you will find files to download so these are the seven
@@ -1007,5 +895,6 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
