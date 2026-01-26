@@ -60,7 +60,7 @@ $ uv run jupyter lab
 | [Lecture 29 --Temperature Scaling in LLMs](https://www.youtube.com/watch?v=oG1FPVnY0pI&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=29) |  [Notes29](https://github.com/muarshad01/LLM/blob/main/Notes/lecture29_notes.md) | 25/01/2026 |
 | [Lecture 30 -- Top-k Sampling in LLMs](https://www.youtube.com/watch?v=EhU32O7DkA4&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=30) |  [Notes30](https://github.com/muarshad01/LLM/blob/main/Notes/lecture30_notes.md) | 25/01/2026 |
 |---|---|---|
-| [Lecture 31 -- Saving and loading LLM model weights using PyTorch](https://www.youtube.com/watch?v=Bc-9sf0VihQ&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=31) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) ||
+| [Lecture 31 -- Saving and loading LLM model weights using PyTorch](https://www.youtube.com/watch?v=Bc-9sf0VihQ&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=31) |  [Notes31](https://github.com/muarshad01/LLM/blob/main/Notes/lecture31_notes.md) | 25/01/2026 |
 | [Lecture 32 -- Loading pre-trained weights from OpenAI GPT-2](https://www.youtube.com/watch?v=yXrGeDNuymY&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=32) |  [Notes32](https://github.com/muarshad01/LLM/blob/main/Notes/lecture32_notes.md) ||
 |---|---|---|
 | [Lecture 33 -- Introduction to LLM Finetuning - Python Coding with hands-on-example](https://www.youtube.com/watch?v=yZpy_hsC1bE&list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu&index=33) |  [Notes33](https://github.com/muarshad01/LLM/blob/main/Notes/lecture33_notes.md) ||
