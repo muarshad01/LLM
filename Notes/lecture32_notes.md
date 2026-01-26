@@ -61,9 +61,6 @@ gpt = GPTModel(NEW_CONFIG)
 gpt.eval();
 ```
 
-
-
-
 ```python
 # Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).
 # Source for "Build a Large Language Model From Scratch"
@@ -569,3 +566,4 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
