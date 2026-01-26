@@ -106,6 +106,11 @@ can continue with the rest of this video now comes the very important step of
 Gpt2 weights downloading introduction
 5:15
 downloading the gpt2 weights and their parameters this is a step which still
+
+
+***
+
+
 5:22
 might be complex to so many students and Engineers so I want to explain this in a lot of detail first of all when you go
 5:29
@@ -215,6 +220,12 @@ what is the embedding Dimension essentially all the token IDs which you see over
 every token has a token ID right and every token ID will be converted converted into a 768 dimensional Vector
 10:54
 space uh these vectors are not trained and our training will involve parameters
+
+
+***
+
+
+
 10:59
 corresponding to these as well then n heads so n heads is basically the number
 11:05
@@ -325,6 +336,13 @@ the number of dimensions in the hidden layer are four times the input and then w
 projects it back to the same size so this first layer
 16:29
 uh so this first layer of the neural network is is the fully connected layer so I'm going to name it as FC and the
+
+
+
+***
+
+
+
 16:37
 second is the output projection layer so I'm going to call it as P both of these layers will have trainable weights so
 16:43
@@ -407,6 +425,13 @@ and then and this attention mechanism also has the output projection so we
 need to specify in the attention mechanism what we are looking for in the attention mechanism currently we are
 20:51
 looking for CN what is CN it is the fused Matrix of query key and value and
+
+
+
+***
+
+
+
 20:58
 within the this fuse Matrix we are looking at the weights So within this fuse Matrix we are looking at the
 21:03
@@ -975,3 +1000,4 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
