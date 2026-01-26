@@ -288,6 +288,9 @@ instance of the multi-ad attention class what we are going to do is that we are 
 going to make sure that when you define this at object the query key and the
 35:47
 value matrices are assigned to the query key and the value matrices which are obtained from the parameters
+
+***
+
 35:54
 dictionary uh from this dictionary over here this the attention layers from this
 36:00
@@ -388,6 +391,12 @@ and then we are assigning our GPT model class scale and shift values to whatever
 gpt2 now you must be thinking that okay there is if I look at the architecture closely there is this final layer there
 41:05
 is this linear output layer and careful readers might remember that this linear output layer also is a
+
+
+
+***
+
+
 41:12
 neural network and where do we get the dimensions where do we get the weights of these we did not download this from
 41:18
@@ -478,6 +487,14 @@ since we have built our own GPT we can explore with so many things so here you s
 to 10 and let's see the output text which is coming right now ideally it should be a bit random because
 45:51
 increasing the temperature increases the entropy now see the output every effort moves you towards finding an ideal new
+
+
+
+
+***
+
+
+
 45:57
 set piece but only at times or for hours I was working on my first game called G
 46:03
@@ -566,4 +583,3 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
-
