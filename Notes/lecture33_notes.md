@@ -11,138 +11,9 @@ which has previously acquired patterns and features from an extensive data set, 
 
 * 5:00
 
-based on your data how you generally
-5:17
-write articles how your how you word the
-5:20
-different paragraphs on your website you
-
-
-
-***
-
-
-5:23
-have a specific tone and you want that
-5:25
-tone to come in your chat bot how will
-5:27
-you do this with pre training it's not
-5:30
-possible because in the pre-train model
-5:33
-might be your data is not even there in
-5:35
-the pre-training so then you will need
-5:37
-to find tune you will need to give
-5:38
-additional data such as whatever is
-5:40
-present on my website my blogs my
-5:42
-Publications my talks so that the model
-5:45
-can understand and learn what is your
-5:47
-tone of speaking how do you generally
-5:49
-construct sentences and then it will
-5:51
-adapt so the resulting chatbot which
-5:55
-will be developed will now be speaking
-5:58
-in your tone or my tone rather in this
-6:01
-example that is called as fine tuning so
-6:03
-the specific application which I'm
-6:05
-looking for is constructing a chatbot
-6:07
-which speaks in my tone for this
-6:09
-specific application I have this
-6:11
-additional data which is my website my
-6:13
-Publications my talks and my media which
-6:15
-I'll feed to the model and I'll ask the
-6:17
-model to be trained again or rather I'll
-6:19
-train the model again based on this
-6:22
-additional data this process of training
-6:24
-the model again is called as finetuning
-6:27
-so now the finetune model will behave EX
-6:29
-exactly like how I want it will speak in
-6:32
-my tone it will use grammatical
-6:34
-sentences like I do that's a practical
-6:36
-example of fine tuning another example
-6:39
-is let's say you have uh your research
-6:43
-Publications like how I'm describing
-6:45
-right here and you want to make a
-6:46
-chatbot which basically answers people's
-6:50
-queries about your Publications so then
-6:52
-you can feed specific data based on your
-6:54
-Publications that's another example of
-6:57
-fine tuning in fact uh the reason I
-7:00
-thought of this example was I saw a Blog
-7:03
-uh in fact I saw a question asked on the
-7:06
-open AI question Forum where the person
-7:09
-was saying that they are a beginner at
-7:11
-learning fine tuning and their purpose
-7:13
-is to create the model which could use
-7:15
-the tone of their voice from their blog
-7:17
-exactly like what we had discussed and
-7:20
-they are asking a number of questions
-7:22
-about how exactly to go about this how
-7:25
-to make sure that the accuracy obtained
-7:27
-is very good how to prevent
-7:28
-hallucinations which are wrong answers
-7:30
-Etc so and then there are number of
-7:32
-answers which is given by the opena
-7:34
-community to help this person F tune
-7:36
-their
-7:38
-model great so this is the general
-7:40
-introduction of fine tuning now within
-Instruction and classification finetuning
+#### Finetuning Types
+* Instruction finetuning
+* classification finetuning
 7:42
 fine tuning itself there are two broad
 7:45
@@ -1137,5 +1008,6 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
