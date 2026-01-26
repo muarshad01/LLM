@@ -233,105 +233,20 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 
 * 15:00
 
-Transformer block so already you understood the purposes of the first two keys this is for the token embeddings
-15:32
-parameters the wp is for the positional embedding parameters now after we get
-15:38
-the input embedding we have the Dropout layer Dropout layer has no trainable weights so we don't have any Keys
-15:44
-corresponding to that then we move into this Transformer block the Transformer block has several places where trainable
-15:51
-weights exist the first place is the multi-head attention layer we have queries keys and the values weight
-15:57
-matrices over here right and these metries consists of parameters which we don't know so this is one scope
-16:05
-for trainable parameters the second scope for trainable parameters is the speed forward neural network remember
-16:11
-this speed forward neural network has an input so there's an input which comes in then it passes through hidden layer the
-16:18
-the number of dimensions in the hidden layer are four times the input and then we have a final output layer which
-16:24
-projects it back to the same size so this first layer
-16:29
-uh so this first layer of the neural network is is the fully connected layer so I'm going to name it as FC and the
 
+#### Paremeter, Dictonary Keys:
+1. wte: Token Embeddings (50,257 X 768)
+2. wpe: Positional Embeddings (1,024 X 768)
+3. Blocks (12 Transfomer Blocks)
+4. g: Final norm scale
+5. b: Final norm shift
 
+* LayerNorm-1, LayerNorm-2 (Scale + Shift)
 
 ***
 
+* 20:00
 
-
-16:37
-second is the output projection layer so I'm going to call it as P both of these layers will have trainable weights so
-16:43
-that's the second scope for trainable weights now if you look at the layer normalization one and layer
-16:48
-normalization 2 let me highlight them with a different color layer normalization um let me choose purple
-16:55
-color so if you look at layer normalization 2 and if you look at layer normalization one normally layer
-17:01
-normalization does not have any weights because we just subtract the mean and divide by the square root of variance
-17:07
-right but the way we have defined layer normalization is that after we do the scaling after we subtract the mean and
-17:13
-divide by the square root of variance we also multiply with a trainable parameter
-17:19
-called scale and we add a trainable parameter called shift it turns out that these two parameters actually make a big
-17:26
-difference so that's why we have uh layer normalization 2 and layer
-17:31
-normalization one also which come into the trainable weight parameters category and then we have the final output layer
-17:38
-the final normalization layer which is another trainable weight Matrix category where wherever we have parameters to
-17:45
-train those are Keys corresponding to this parameter dictionary so you already
-17:50
-saw token embeddings and positional embeddings blocks corresponds to all the
-17:55
-trainable weights and parameters in this Transformer block in this blue color Transformer block and then G and B
-18:02
-correspond to the trainable weight parameters in this final layer Norm which is indicated as four right
-18:08
-now so uh token embeddings right I hope you remember what what are token
-18:14
-embeddings we have a vocabulary size of 50257 right and corresponding to every
-18:21
-token we have a vector whose Dimension is 768 so the size of this is 50257 rows
-18:27
-and 768 columns these are token embeddings now positional embeddings are governed by the context size in gpt2 the
-18:35
-smallest model which we are considering the contact size is 1024 because maximum we can look at 1024
-18:42
-positions and then make the next token prediction the one 25th position does not matter to us so we only need for we
-18:50
-only need embeddings corresponding to position number one position number two up till position number
-18:56
-1024 and these embeddings each of these embeddings also has a dimension of 768 because we need to add the token
-19:03
-embeddings to the positional embeddings the vector dimension of both of these need to be exactly the same and that's
-19:09
-there because it's 768 in both of these cases now so this WT key will have all
-19:16
-these values corresponding to the Token embedding Matrix the wp key will have all the values corresponding to the
-19:23
-positional embeddings Matrix now let's come to the blocks when you come to the blocks there are several things which
-19:28
-which are happening in the block so let me just rub this part a bit so that
-19:33
-things are a little more clearer over here great first we are going to look at the Mast multi-ad
-19:40
-attention right this has the query this has the key and this as the
-19:46
-value in GPT 2 when they release the weight they fuse this into one single
-19:52
-big Matrix so we need all the weights corresponding to this large Matrix so that later we can split it into query
-19:58
-key and value trainable Matrix so the way it is done in this blocks dictionary
-20:04
-is that there will be a dictionary called or there will be a dictionary called parameter within that there will be a keys blocks this will link to
-20:11
-another dictionary which has the keys Transformer this will link to another dictionary which is the keys H not why H
-20:18
 not because there are 11 such 12 such Transformer blocks remember gpt2 has 12
 20:24
 Transformer blocks so whatever I'm showed you right now that will be replicated 12 times right so there are 12 Transformer blocks
@@ -918,6 +833,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
