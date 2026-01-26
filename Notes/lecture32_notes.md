@@ -263,182 +263,17 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 
 ***
 
-* 25:00
+* 30:00
   
-we'll access the weights of the query key and the value uh matrices in the attention block attention layers so
-26:20
-that's why we need all of these five Keys which are returned by the parameter dictionary so the whole goal
-26:26
-of this GP load gpt2 params from the tensorflow checkpoint is to get the
-26:32
-parameter values uh from this checkpoint and then convert the parameter values
-26:38
-into this params dictionary so here you see we Define the params dictionary which is empty currently and we first
-26:44
-only Define the blocks keys and then we fill the blocks keys with every attention layer the feed forward neural
-26:50
-network the output projection head all of these are already present in the model checkpoint but we just need to put
-26:56
-them in the appropriate values I'm not going to explain this part of the code but because the main learning lies in
-27:02
-you understanding these five keys so this is how the blocks Keys is filled up
-27:08
-and similarly all the other Keys wte WP uh G and B they are already present
-27:14
-in this uh model checkpoint path so we just augment the params dictionary with
-27:20
-all of those keys so when you finally execute the load gpt2 params from TF
-27:26
-checkpoint which is mentioned over here the params dictionary will have those five Keys which I mentioned to you on
-27:32
-the Whiteboard this is what is happening in this piece of code and then when you finish this function you return return
-27:38
-two things you return return the settings dictionary which consists of the vocabulary size context length
-27:44
-embeding Dimension number of attention heads and number of Transformer blocks and you also return the params which is
-27:50
-the params dictionary consisting of the five Keys which I just showed to you on the Whiteboard I could have just skipped
-27:57
-this part but then I really wanted to show you the nuts and bols of how the downloading is done if you want to do
-28:03
-research in large language models it is very likely that you will need to download the pre-trained weights to do
-28:09
-uh some testing or some training and for that you really need to understand the format in which gpt2 releases these
-28:16
-weights if you don't understand the format and if you don't understand how to convert this format into this
-28:23
-parameter dictionary it will be difficult to do novel research so I hope you have understood this this part uh
-28:29
-now let me move back to the go uh to the Jupiter notebook and uh until now we
-28:36
-have reached this stage where uh right up till here where we will now what we'll be doing is that from this GPT
-Downloading gpt-2 weights into Python code
-28:43
-download 3py this python file we'll import the download and load gpt2 function it this
-28:49
-function the download and load gpt2 function and then what we are going to do is that we are just going to run this
-28:55
-function we have to pass two things we have to pass the model size because remember that the model size can be 355
-29:01
-million 774 million and 1558 million also and I encourage you to experiment
-29:07
-with this after today's lecture is over so we put in this model size and we specify the directory so I have
-29:13
-specified the directory to be gpt2 so here you can see in the folder name gpt2 all of my files have been stored and
-29:20
-then what you can do is that you can run this piece of code so then settings dictionary as we saw we'll get the
-29:26
-settings dictionary and we'll get the par dictionary when you run this piece of code now when you run this as I told
-29:32
-you this total size of all of this is around 500 megabytes initially when I ran this code it took a very long time
-29:38
-on my laptop because my laptop kept crashing it was not in a good internet
-29:44
-area and then I moved to another place where the internet connectivity was a bit strong so here you can see I was
-29:50
-getting speeds of 5 225 mb per second and then this entire loading took around
-29:55
-5 to 10 minutes so I encourage you to SA sit in a place with a good internet connectivity and don't restart your
-30:01
-session or close your laptop during this time because once this is loaded the rest of the code proceeds in a very
-30:07
-smooth manner this is the most time consuming part of the code until this point now let's say this code is
-30:14
-executed after it's executed since we have loaded this tqdm Library we'll see the progress which is happening so here
-30:20
-you can see that I've have reached 100% in all of the different steps uh so after this code has been completed you
-30:27
-can inspect things you can inspect the settings dictionary and you can inspect the parameter dictionary keys so if you
-30:33
-print out the settings dictionary you'll see that it has keys like n vocab nctx n embed n head and N layer now as I
-30:41
-mentioned this this is exactly the same as the ham. Json file here it's just
-30:47
-being converted into a dictionary now uh and if you print the parameter dictionary Keys you will see blocks b g
-30:54
-WP and wte we learned about this EXA ly on the Whiteboard where we saw that the
-31:00
-parameter dictionary will have these five Keys wte WP blocks G and
-31:06
-B awesome so I hope you have understood until this part where we have actually loaded uh the gpt2 architecture right
-31:15
-now we have loaded all of the parameters into our laptop and the
-31:21
-parameters seem to be loaded correctly what we can also do is that uh we could have printed the
-31:28
-um parameter weight contents but that would take a lot of screen space hence we only printed the parameter dictionary
-31:34
-keys not its values but we can go a step ahead and look at the params dictionary
-31:39
-and print out the wte which is the key corresponding to the Token embedding
-31:45
-vector and we saw that the dimension should be 50257 rows 768 columns let's
-31:51
-just see if the dimensions make sense so if you if you access the params dictionary with the key wte you get this
-31:58
-tensor whose shapee is 50257 and 768 at least the dimensions seem to be
-32:03
-making sense great so these values which you see on the screen right now they are
-32:09
-optimized values which means that for every token the token embedding weight
-32:14
-Dimension encodes some semantic meaning again we should be thankful to open a for releasing the weights publicly
-32:20
-because they would have spent about a million dollars or even more for this pre-training awesome so as a I told you
-32:28
-we could have also downloaded the 355 million 774 million or 1.5 billion parameter which is this release which
-32:35
-gpt2 had made and you can feel free to experiment with that but we have loaded the 124 million parameter now before
-32:42
-moving forward one change which we'll need to do is until now when we use the GPT configuration in this lecture series
-32:49
-we used a GPT we used this thing called GPT config 124 million and the
-32:54
-configuration was almost exactly same as what's actually used in gpt2 except that
-32:59
-we used a context size of 256 whereas the actual context size is 1024 so we'll
-33:05
-need to change that so what we are going to do is that we are going to say that the new configuration is the same as our
-33:11
-old configuration but we'll update the context length to be 10 to4 and the
-33:16
-second thing which we are going to update is the query key value bias so when we trained the attention mechanism
-33:23
-and when we run our own llm before we have put this query key value bias to false but in gpt2 this was actually put
-33:30
-to true so we are also going to put this to True uh here I have added a small note that uh bias vectors are not
-33:38
-commonly used in llms anymore because they don't improve the modeling performance and they are not that
-33:44
-necessary however since we are working with pre-trained weights we need to match the settings for consistency and
-33:50
-that's why what we are going to do is we are going to enable the query key value bias to be equal to true and we are
-33:56
-going to use the context l to be 1024 so then we uh create an instance of
-34:01
-the GPT model class with this new configuration I just want to show you the GPT model class which we have so
-34:08
-that it is on the screen in case you have you coming to this lecture for the first time we have
-34:15
-developed a GPT model class which looks something like this yeah this is our GPT
-34:20
-model class uh and now the main goal which we have is how are we going to
-34:26
-integrate the weights which we have downloaded with the GPT model class which we have defined so let's learn about that a bit
-Integrating the gpt-2 weights with our LLM architecture
-34:34
-so there is a specific way in which we are going to do this integration so look at the GPT model class what we are doing
-34:40
-currently is that we are just initializing the token embedding matrices the positional embedding matrices the Transformer blocks weights
-34:48
-we are initializing them to random values but now our main goal is that the
-34:53
-weights which we have downloaded from gpt2 and which are currently stored in this params dictionary which we have
-34:59
-returned we need to somehow make sure that these weights are integrated with our GPT model class and instead of these
-35:06
-random initializations using NM do nn. embedding we actually make the
-35:11
+```python
+settings, params = download_and_load_gpt2(model_size="124M", models_dir="gpt2")
+```
+
+***
+
+* 35:00
+
+  
 initializations uh from the downloaded gpt2 parameters so for that we first
 35:16
 need to look at the Transformer block and I want to show you a couple of things in this uh Transformer block so I
@@ -730,6 +565,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
