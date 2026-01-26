@@ -1,0 +1,1218 @@
+ature Scaling recap
+0:00
+[Music]
+0:05
+hello everyone and welcome to this
+0:07
+lecture in the build large language
+0:09
+models from scratch Series today we
+0:13
+continue our discussion regarding
+0:15
+strategies for llm decoding to reduce
+0:18
+Randomness in the previous lecture we
+0:20
+learned about this technique which is
+0:22
+called as temperature scaling and in
+0:25
+today's lecture we are going to learn
+0:26
+about another technique which is a
+0:29
+decoding strategy for llms and that is
+0:31
+called as top K
+0:33
+sampling topk sampling is used along
+0:36
+with temperature scaling so if you have
+0:38
+not been through the previous lecture I
+0:40
+would highly recommend you to watch the
+0:42
+previous lecture if you are coming to
+0:44
+this lecture for the first time no
+0:46
+problem I've designed it in such a way
+0:48
+that it's selfcontain and you will
+0:50
+understand everything what's going on
+0:52
+what are llm decoding strategies and why
+0:54
+did we even start learning about them
+0:57
+the reason we require llm decoding
+0:58
+strategies is that if you if you
+1:01
+generate the next token using the first
+1:04
+strategy which we had and that first
+1:06
+strategy was basically something very
+1:07
+simple what the first strategy was is
+1:10
+that the generated token is just
+1:12
+selected corresponding to the largest
+1:15
+probability score among all the tokens
+1:17
+in the vocabulary so
+1:20
+we uh we have the input tokens and then
+1:23
+to predict the next token we look at the
+1:26
+indices which correspond to the maximum
+1:28
+probability score and we say that those
+1:30
+will be the next token this leads to a
+1:32
+lot of issues because let's say if every
+1:35
+effort moves is the input and let's say
+1:38
+using that knif decoding strategy we
+1:42
+print out the next 25 tokens you'll see
+1:44
+that the next 25 tokens look something
+1:46
+like this they are very random and it's
+1:49
+difficult to get tokens which actually
+1:51
+Mak sense and the reason is because we
+1:54
+are giving too much importance to that
+1:55
+token which has the maximum probability
+1:58
+wouldn't it make sense to instead of
+2:00
+choosing a token in a deterministic
+2:03
+manner wouldn't it make more sense to
+2:05
+sample the token from a probability
+2:08
+distribution and that's where
+2:09
+temperature scaling comes into the
+2:11
+picture what we do is that we have this
+2:13
+logic stenor right whenever we get
+2:16
+output from the GPT architecture we have
+2:19
+a logit tensor we apply soft Max and
+2:22
+convert it into a tensor of
+2:23
+probabilities right and then instead of
+2:26
+choosing the max index corresponding to
+2:29
+the maximum value
+2:30
+what we now do is that we sample from
+2:33
+the we sample using the multinomial
+2:35
+distribution what the multinomial
+2:37
+distribution does is that let's say if
+2:39
+you have this tensor of probabilities
+2:41
+instead of choosing the token with the
+2:44
+maximum probability We Choose Or we
+2:47
+sample the next token in a probabilistic
+2:49
+manner and the way the multinomial
+2:52
+distribution does it is that uh it
+2:55
+samples the next token proportional to
+2:57
+its probability score so here we can can
+3:00
+see that among this probability tensor
+3:02
+5721 is the maximum
+3:05
+value uh so in our KN strategy the token
+3:10
+corresponding to this will be the next
+3:13
+token always in a very deterministic
+3:15
+manner right but what happens in a
+3:17
+multinomial distribution is that still
+3:19
+this will be given the largest
+3:20
+probability but it will now be sampled
+3:22
+from a probability distribution which
+3:24
+means that other tokens might also be
+3:26
+selected as the next token compared to
+3:28
+their probability values so if you
+3:31
+sample thousand times using this
+3:32
+multinomial distribution the token
+3:35
+corresponding to the maximum probability
+3:37
+will come of course more number of times
+3:39
+582 times but there are other tokens
+3:41
+which also come into the picture now
+3:43
+that was not possible with the
+3:44
+deterministic prediction and this
+3:47
+actually enables to have more creativity
+3:49
+in the llm output it helps us to control
+3:52
+Randomness a bit by sampling from a
+3:55
+probability distribution then we
+3:57
+introduce the concept of temperature
+3:58
+where we just divide the logits with
+4:00
+this value called as temperature and uh
+4:03
+then we take the soft Max the
+4:05
+temperature has the effect that if the
+4:07
+temperature is actually increased then
+4:09
+all the tokens have kind of uniform
+4:11
+probability of being the next token
+4:13
+whereas if the temperature is very low
+4:16
+then that means that we have sharper
+4:17
+distribution where only one token will
+4:19
+be selectively favored so uh when we
+4:23
+divide the logits by the temperature
+4:26
+here you can see uh an animation which
+4:28
+shows that as the temperature goes from
+4:30
+low to high the different tokens have
+4:33
+different probabilities of being sampled
+4:34
+the distribution changes from being a
+4:36
+sharper distribution at lower
+4:37
+temperature to a uniform
+4:40
+distribution so this was the case with
+4:43
+introducing temperature but there was an
+4:46
+issue which we saw even when we
+4:47
+introduce temperature let's say if the
+4:49
+temperature value is equal to five uh
+4:52
+then you can see that when every effort
+4:54
+moves is the uh when every effort moves
+4:57
+is
+4:57
+the uh every effort moves you is the
+5:00
+input then there is also the probability
+5:03
+of tokens such as Pizza being the next
+5:06
+token so if the temperature value is
+5:08
+equal to five there is about 4% chance
+5:12
+that the next token will be Visa so that
+5:14
+is not very good right and that's the
+5:17
+issue with just using temperature
+5:18
+scaling if we just use temperature
+5:20
+scaling all the tokens are all the
+5:23
+tokens remain in the picture to become
+5:25
+the next possible token all the tokens
+5:27
+have a kind of probability or a chance
+5:29
+to become the next token even completely
+5:31
+random tokens and we don't want that we
+5:34
+want to restrict that opportunity of
+5:36
+being the next token to only a few
+5:38
+number of tokens that's the best way to
+What is top-k sampling?
+5:41
+introduce you to the concept of topk
+5:43
+sampling we want to restrict the
+5:45
+opportunity of being the next token to
+5:47
+only a few tokens which makes
+5:50
+sense so what we are going to do is that
+5:53
+in the concept of topk sampling is
+5:56
+essentially pretty
+5:57
+simple uh we restrict the sample tokens
+6:01
+to the top K most likely tokens and we
+6:04
+will exclude all the other tokens let me
+6:07
+illustrate to you what this means let's
+6:08
+say we have the logic sensor which looks
+6:10
+something like this right now before
+6:13
+applying soft Max what we are going to
+6:15
+do is that we are only going to look at
+6:17
+the top K logits and if K is equal to
+6:19
+three we will only look at the top three
+6:21
+logits which is this 4.51 6.75 and
+6:25
+6.28 and uh we will ensure that when we
+6:29
+apply soft Max all these other Logics
+6:32
+are effectively not in the picture at
+6:34
+all they are not considered and what's
+6:37
+the best way to do this the best way to
+6:39
+do this is to essentially replace all of
+6:41
+these values which are not in the top
+6:43
+three with negative
+6:44
+Infinity when we replace these all other
+6:47
+values with negative Infinity when we
+6:49
+take soft Max we will ensure that all of
+6:51
+these will effectively be zero so then
+6:54
+they will not contribute to being the
+6:55
+next token at all and only the top three
+6:58
+values which we have
+7:00
+Will
+7:01
+Survive what this essentially does is
+7:03
+that it removes all the other tokens
+7:05
+which we which are which does not make
+7:07
+sense at all right every effort moves
+7:09
+you pizza has no should not have the
+7:12
+opportunity to become the next token at
+7:14
+all right so why should we even consider
+7:16
+pizza so the token ID corresponding to
+7:18
+pizza will be replaced with infinity
+7:20
+when we take soft Max that will be uh
+7:23
+reduced to zero now let us see this in
+7:26
+action in code so I'm going to take you
+Coding top-k sampling in Python
+7:28
+to python code now just before that I've
+7:31
+written a few
+7:34
+uh conceptual understanding sentences
+7:37
+here so let me go through that in the
+7:39
+previous section we implemented a
+7:41
+probabilistic sampling approach coupled
+7:43
+with temperature scaling as I just
+7:45
+describ to you and we saw that higher
+7:47
+temperature values result in more
+7:49
+uniformly distributed next token
+7:51
+probabilities which result in more
+7:53
+diverse
+7:55
+outputs okay this method allows for
+7:58
+exploring less likely but potentially
+8:00
+more interesting and creative paths but
+8:02
+one downside of this approach is that
+8:05
+sometimes it leads to grammatically
+8:06
+incorrect or completely nonsensical
+8:08
+output such as every effort moves you
+8:11
+Piza does not make any sense at all in
+8:14
+this section we introduce another
+8:16
+concept which is called as top K
+8:18
+sampling and later we'll see how to
+8:20
+combine it with probabilistic sampling
+8:22
+and temperature scaling for now let me
+8:25
+just introduce to you the concept
+8:27
+through a simple demonstration
+8:30
+so let's say we have this next token
+8:32
+logits which is a tensor that looks
+8:34
+something like this
+8:37
+uh yeah so this is the next token Logics
+8:42
+it looks like this and let me again
+8:44
+bring it over
+8:45
+here so the next token logic tensor
+8:49
+looks something like this and as I
+8:51
+mentioned the first step to do in the
+8:53
+topk sampling is to select how many
+8:55
+tokens you want as the top so here I'm
+8:57
+selecting the top K tokens to be equal
+9:00
+to I want three tokens right then what
+9:03
+you do is that P torch has this function
+9:06
+called torch. top K what it does is that
+9:09
+let's say if you give it a tensor it
+9:11
+will look at this tensor and it will
+9:12
+return two things it will return the top
+9:15
+uh top three values which have the
+9:17
+maximum value and it will return the
+9:19
+indices corresponding to them so you
+9:22
+apply this function t. top K to this
+9:25
+next token logit sensor and then the top
+9:28
+logits are returned and the position at
+9:30
+which these top logits occur is also
+9:32
+returned so you'll see that the top
+9:34
+logits are
+9:35
+6.75 which is this 6.28 which is this
+9:39
+and 4.51 which is this and they occur in
+9:42
+position numbers 3 7 and 0 awesome so
+9:46
+here you will see that this is the
+9:48
+torch. topk implementation in pytorch
+9:51
+I'll be sharing the link to this when I
+9:54
+uh in the YouTube information
+9:57
+section okay now what we are going to do
+9:59
+next is that we have identified the top
+10:02
+Logics and we have identified the
+10:03
+positions as I mentioned now we are
+10:05
+going to replace all the other values
+10:07
+which don't belong in top three with
+10:09
+negative Infinity so the way to do this
+10:11
+is that we use the tor. we function and
+10:14
+then uh the condition which we are using
+10:17
+is that all those logits which are less
+10:20
+than uh
+10:22
+4.51 they will be replaced with minus
+10:24
+infinity and then we print the new logit
+10:27
+tensor and you'll see that except for
+10:28
+the top three values
+10:30
+4.51 6.75 and 6.28 all the others have
+10:35
+been replaced with negative infinity and
+10:37
+then you do the soft Max and then you
+10:40
+will see that all the other values don't
+10:42
+have any probability score associated
+10:44
+with them and only the top three uh
+10:47
+tokens with the maximum probabilities
+10:48
+have survived and they add up to one
+10:50
+this is how we make sure that only the
+10:53
+top tokens have an opportunity to be the
+10:56
+next
+10:56
+token and here is where the the
+Merging temperature scaling with top-k sampling
+10:59
+temperature and the multinomial
+11:01
+distribution which we discussed in the
+11:03
+previous lecture comes into the picture
+11:06
+what we are going to do is that before
+11:07
+we apply soft Max let's say we have this
+11:09
+Infinity mask what we are going to do
+11:12
+here is that at this moment we are going
+11:13
+to take the logits and we are going to
+11:16
+divide it by temperature like what we
+11:18
+did
+11:19
+earlier and then what we are going to do
+11:22
+is that then we are going to sample from
+11:24
+the multinomial
+11:25
+distribution exactly what we had learned
+11:27
+in the previous lecture sample from
+11:30
+multinomial so what this will do is that
+11:32
+it will make sure that let's say only
+11:34
+these these tokens have survived right
+11:36
+4.51 6.75
+11:39
+6.28 we'll divide by temperature uh for
+11:42
+sure we'll divide by temperature and
+11:44
+then we'll apply the soft Max so let's
+11:49
+say the probability distribution is now
+11:50
+something like this so then we'll sample
+11:53
+from multinomial so what we'll do is
+11:55
+that we'll say that every time this
+11:57
+token is not selected we know it has the
+11:59
+highest probability but it will be
+12:01
+sampled based on how high the
+12:03
+probability is from the multinomial
+12:05
+distribution so many times this token
+12:07
+will also be sampled many times this
+12:08
+token will also be sampled but the most
+12:10
+number of times this token will be
+12:12
+sampled because it has the probability
+12:13
+of 57 this is how we are going to
+12:16
+integrate the top K sampling with uh the
+12:20
+temperature scaling so to give you a
+12:22
+sense of the entire procedure you first
+12:25
+have the logic tensor which is which is
+12:27
+received from the llm output
+12:29
+architecture then you um perform topk
+12:34
+sampling on this which means that you
+12:36
+only return those Logics which have the
+12:38
+maximum values only those K logits and
+12:41
+then you replace all the others with
+12:42
+negative Infinity then you uh divide the
+12:45
+Logics by the
+12:49
+temperature then you take the soft
+12:54
+Max and then you sample from
+12:57
+uh then then you sample from the
+12:59
+multinomial
+13:03
+distribution this is the entire workflow
+13:05
+of the decoding strategy which we are
+13:07
+going to follow this will ensure that uh
+13:11
+temperature is integrated which means
+13:13
+that we also have some amount of
+13:15
+creativity in the process and we'll
+13:17
+ensure that random tokens have not are
+13:19
+not given an opportunity to become the
+13:21
+next token using topk and using the
+13:24
+multinomial distribution we make sure
+13:26
+that the next token selection is not a
+13:27
+deterministic process but but it's a
+13:29
+probabilistic
+13:30
+process so let's see this an action in
+Coding top-k sampling + temperature scaling in Python
+13:33
+code now we are going to write a
+13:35
+function which predicts the next token
+13:37
+which will merge the temperature scaling
+13:39
+and top case sampling as I'm going
+13:42
+through the code for this part please
+13:43
+keep in mind this schematic which I've
+13:45
+shown over here logits then top K logits
+13:47
+divide by
+13:49
+temperature then soft Max and then
+13:51
+sample from
+13:53
+multinomial remember when you apply top
+13:55
+K all the other values which are not in
+13:57
+the top K are replaced with negative
+14:00
+Infinity great now what we are going to
+14:03
+do is that we can apply the temperature
+14:05
+scaling and multinomial function for
+14:07
+probabilistic sampling to select the
+14:10
+next token among the three nonzero
+14:14
+probability scores so here you see the
+14:16
+probability scores have been obtained
+14:18
+now we will uh apply multinomial
+14:20
+sampling here as we have seen before so
+14:23
+let me take you through the function
+14:24
+which I'm going to write right now this
+14:26
+is the final function which will
+14:28
+generate the next to for us it will take
+14:30
+the model which is an instance of the
+14:32
+GPT model class we have defined earlier
+14:35
+it will take the maximum new tokens
+14:36
+which it has to generate uh and context
+14:39
+size so all of this was there in the
+14:40
+previous generate function also the new
+14:43
+things are the temperature value the top
+14:45
+K value and the end of sample ID I'll
+14:49
+explain to you what this
+14:50
+means first what we'll do is that we
+14:53
+have the logic sensor which is generated
+14:55
+uh from the GPT output then we'll apply
+14:58
+top k
+14:59
+so if the top K let's say set to three
+15:01
+we'll look at the logic tensor and only
+15:04
+retain those values where the
+15:08
+logits where the only return the top K
+15:12
+values in the logit tensor and we
+15:14
+replace all the other values with
+15:16
+negative
+15:17
+Infinity that's what is being done in
+15:19
+this part of the code then as I
+15:21
+mentioned so after top K is applied then
+15:24
+we'll scale with
+15:26
+temperature so in the next step what we
+15:29
+are going to do is that if temperature
+15:30
+is greater than zero we are going to
+15:32
+scale the logits with temperature then
+15:34
+we are going to take the soft Max and
+15:36
+then we are going to do the next token
+15:38
+ID using the multinomial probability
+15:40
+distribution so exactly these three
+15:42
+steps you scale with the temperature you
+15:45
+take the soft Max and then you sample
+15:47
+from multinomial this is how you select
+15:49
+the next token ID and what you predict
+15:51
+the next token ID to
+15:53
+be now if temperature is not specified
+15:56
+so if the user does not specify the
+15:58
+temperature
+15:59
+we will just uh do the sampling as
+16:02
+before we'll just get the token with the
+16:06
+maximum probability and we'll say that
+16:08
+uh we'll get the token ID with the
+16:10
+maximum probability and we'll say that
+16:12
+this corresponds to the next token in my
+16:14
+sequence but mostly when GPT
+16:17
+architectures are developed and built
+16:19
+the temperature value is specified I'll
+16:21
+come to that in a
+16:22
+moment there is one more uh loop here
+16:25
+which is basically if end of sequence
+16:27
+token so this EOS is actually end of
+16:29
+sequence if end of sequence token is
+16:33
+encountered then uh we can stop
+16:37
+early however if end of sequence is end
+16:40
+of sequence ID is not specified then we
+16:43
+can just uh keep on generating the next
+16:47
+token and then what we do is that uh we
+16:50
+append the new generated token ID to the
+16:53
+current ID until we reach this maximum
+16:56
+number of new tokens which are to be
+16:58
+generated so here you can see the flow
+17:00
+we have the logit tensor we apply the
+17:03
+top K sampling then we scale the logits
+17:05
+with the temperature and then we sample
+17:07
+the next token from a multinomial
+17:09
+probability distribution uh if
+17:11
+temperature is not specified then we
+17:13
+just use the argmax which was done
+17:16
+previously then we choose the next token
+17:18
+uh as that one which has the maximum
+17:20
+probability score and then we just keep
+17:23
+on appending the next token ID until the
+17:26
+maximum number of new tokens limit is
+17:28
+reached
+17:30
+this is exactly what is happening in the
+17:32
+uh generate function which we have
+17:34
+defined right now to generate the new
+17:36
+token and now what I'm going to do is
+Testing top-k + temperature scaling on demo example
+17:38
+that I'm going to generate 25 new tokens
+17:42
+and let's compare the performance with
+17:44
+what we had earlier so earlier when the
+17:46
+KN decoding strategy was used of just
+17:49
+using the maximum probability you'll see
+17:51
+that the next tokens were was one of the
+17:53
+xmc laid down across the seers and
+17:55
+silver of an exquisitely appointed these
+17:58
+words we're not making too much sense so
+18:01
+let's say if the decoding has improved
+18:03
+using this new generate
+18:05
+function so I'm going to use this new
+18:07
+generate function now which has been
+18:09
+defined over here and we are going to
+18:11
+pass in the GPT model and then we have
+18:14
+to pass in the input token IDs which is
+18:16
+now every effort moves you maximum
+18:19
+number of new tokens I'm setting to be
+18:20
+15 the top ke tokens I'm setting to be
+18:23
+25 uh so I'm just going to look at the
+18:26
+25 tokens so remember the vocab size is
+18:30
+50257 and I'm going to look at the 25
+18:33
+tokens which have the highest
+18:34
+probabilities in those 50 to
+18:37
+57 and the temperature value have set to
+18:40
+1.4 this is a good trade-off because if
+18:42
+the temperature value is too low we'll
+18:44
+have sharper probability distributions
+18:46
+if it's too high then we'll get a
+18:48
+non-sensical output so 1.4 seems to be
+18:51
+like a good tradeoff you can even
+18:52
+experiment with this further so when I
+18:54
+run this I can see that the next output
+18:57
+which the next tokens which are
+18:59
+generated are every effort moves you
+19:01
+stand to work on surprise one of us had
+19:03
+gone with
+19:04
+random it is uh very different from the
+Role of decoding strategies in reducing overfitting
+19:07
+one we had previously generated so
+19:09
+although here also we can see that uh
+19:13
+the next token does not make too much
+19:15
+sense but at least the overfitting
+19:16
+problem is solved what was happening
+19:18
+earlier is that we were making a
+19:20
+deterministic prediction right so when
+19:22
+the next tokens were selected it was
+19:24
+overfitting which means that the next
+19:26
+tokens were just being uh uh just being
+19:29
+taken from the text which we had so here
+19:31
+if you see the next tokens were directly
+19:34
+some of the next tokens were directly
+19:36
+taken from the text which is a classic
+19:37
+sign of overfitting the decoding
+19:39
+strategies which we have implemented are
+19:41
+probabilistic in nature which really
+19:43
+makes sense to avoid overfitting since
+19:47
+the sampling is probabilistic we it the
+19:50
+GPT model will not memorize the passage
+19:52
+when predicting the next words and
+19:53
+that's very important for us you will
+19:55
+have noticed that when you interact with
+19:57
+chat GPT it always gives you new output
+19:59
+right doesn't really memorize what you
+20:01
+have written and that is because of this
+20:03
+decoding strategies such as topk
+20:05
+sampling and temperature scaling they
+20:07
+really help to avoid overfitting and
+20:09
+that's one of the main purposes why we
+20:11
+also learn about decoding
+20:13
+strategies so you'll see that these new
+20:15
+words uh moves us stand to work on
+20:18
+surprise were not present in the
+20:19
+original text and we can check that
+20:25
+actually so this is the original text
+20:28
+and let's contrl F to see whether this
+20:30
+these words are actually present in the
+20:32
+original text moves you stand to work so
+20:36
+let me control F moves you it's not
+20:39
+there right let me search stand to work
+20:42
+it's not there which means that the next
+20:45
+tokens which have been generated are
+20:46
+completely new now it is a true
+20:48
+generative AI model because it's not
+20:50
+just memorizing what was there in the
+20:52
+original text it is actually generating
+20:54
+new tokens it is generating some new
+20:56
+sentences
+20:59
+awesome so that's the reason why we
+21:01
+learned about decoding strategies in
+21:03
+these modules you have now learned about
+21:05
+two decoding strategies first you
+21:07
+learned about temperature scaling and
+21:09
+that was very important to help us
+21:12
+intuitively get either sharper
+21:14
+distributions or uniform distributions
+21:16
+and it also helps to prevent overfitting
+21:19
+since we use multinomial probability
+21:21
+distribution to sample then we use topk
+21:24
+sampling because it addresses the issue
+21:26
+in temperature scaling where random also
+21:29
+or random tokens have the opportunity of
+21:31
+being the next token in top Cas sampling
+21:34
+we restrict the sample tokens to the top
+21:37
+K most likely tokens and we prevent
+21:39
+other tokens from even getting an
+21:40
+opportunity to become the next token and
+21:43
+that improves the meaning in the
+21:45
+generated next tokens it prevents us
+21:47
+from getting nonsensical or random
+21:50
+output uh as we conclude this lecture
+21:52
+please keep this workflow in mind where
+21:54
+you first uh you first obtain the logic
+21:57
+tensor from the GPT model then you apply
+22:01
+the topk sampling then what you do is
+22:04
+after topk sampling those tokens which
+22:07
+are not in the top K will be replaced
+22:08
+with negative Infinity then you do
+22:10
+temperature scaling so you divide the
+22:12
+logits with the temperature value then
+22:14
+you apply soft Max and then finally you
+22:16
+sample from the multinomial to predict
+22:18
+the next token this will make sure that
+22:22
+uh
+22:25
+overfitting overfitting is reduced or
+22:27
+overfitting is is
+22:30
+minimized uh thanks everyone this brings
+22:33
+us to the end of today's lecture where
+22:34
+we learned about the second decoding
+22:36
+strategy in the next lecture we'll look
+22:39
+at some interesting examples where we
+22:41
+will start to load pre-trained weights
+22:42
+from open AI itself and we'll learn at
+22:45
+we'll look at some other pre-training
+22:47
+strategies and after these set of
+22:50
+lectures are over we'll go to fine
+22:51
+tuning and look at applications thank
+22:54
+you so much everyone I hope you are
+22:55
+liking these series of lectures I have a
+22:58
+combination of whiteboard approach as
+23:00
+well as taking you through code I'm sure
+23:04
+that there are no other YouTube videos
+23:05
+right now which explain about large
+23:07
+language models in such a detailed
+23:09
+fashion so if you have reached this
+23:11
+stage I congratulate you for making this
+23:13
+way this much uh Headway into the course
+23:17
+if you are watching this for the first
+23:18
+time I encourage you to look at all the
+23:20
+previous videos which have been uploaded
+23:22
+in the course to develop your
+23:24
+understanding thanks everyone and I look
+23:25
+forward to seeing you in the next
+23:27
+lecture
+
