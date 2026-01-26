@@ -350,128 +350,10 @@ def load_weights_into_gpt(gpt, params):
 load_weights_into_gpt(gpt, params)
 gpt.to(device);
 ```
-  
-initializations uh from the downloaded gpt2 parameters so for that we first
-35:16
-need to look at the Transformer block and I want to show you a couple of things in this uh Transformer block so I
-35:24
-just control F here and searched for the Transformer block um yeah so here's the Transformer block
-35:30
-okay what we are going to do in the code is that here you can see that there is a object called attention so that's a
-35:37
-instance of the multi-ad attention class what we are going to do is that we are going to take this object and we are
-35:42
-going to make sure that when you define this at object the query key and the
-35:47
-value matrices are assigned to the query key and the value matrices which are obtained from the parameters
 
 ***
 
-35:54
-dictionary uh from this dictionary over here this the attention layers from this
-36:00
-dictionary similarly when we look at the feed forward neural network FF object we
-36:05
-are going to make sure that this feed forward neural network receives values from this feed forward neural network
-36:12
-weights dictionary which we have in the parameters dictionary so let me again take you back
-36:19
-to the current code it's a bit down below but let me scroll down below so that um you understand what's really
-36:27
-going on one awesome so now what we are going to do as I said is that we are going to link our GPT model class with
-36:33
-the downloaded weights from open AI gpt2 so the way we are going to do this is
-36:39
-that first let's take a look at the attention block right let's take a look at the attention block and let's take a
-36:45
-look at the queries the keys and the values so what we are doing here is that first let's access the queries keys and
-36:52
-the values downloaded from open a gpt2 and the way to access it as we have already seen is that you go to the
-36:59
-params dictionary you go to the blocks Keys then you go to the Transformer sub Keys the hn the ATN the C ATN and the W
-37:08
-this is exactly how we are accessing these weights but remember these weights are Fusion of queries keys and the
-37:13
-values so we are going to split these along the columns and then we'll get the queries weight Matrix the keys weight
-37:19
-Matrix and the values weight Matrix as I told you before we are going to get the at object remember I showed you in the
-37:26
-Transformer block class the at object and then in that object I'm going to assign the queries the key and the value
-37:34
-weight equal to the qore W the Kore W and the Vore W which has been obtained
-37:41
-from open a gp22 that's it it's as simple as that this right here is the assignment
-37:47
-step and the A and assign is the function which we have defined here what this assign does is that it takes left
-37:53
-and right and uh it will first check whether these two values the shape is matching and if the shape is matching we
-38:01
-just return the right values which means the left is just assigned the value equal to the right and then we return it
-38:06
-if the shape does not match we it will give us an error and that means that we are not loading the gpt2 weights
-38:13
-correctly and not assigning them correctly so this is the part where the trans uh where the attention block query
-38:20
-key and the value weight matrices are updated similarly in this part the bias
-38:26
-is updated so it's the same as the earlier part but then W is replaced with b um to update the bias
-38:34
-terms now if you look at the Transformer block there are other things also there is this output projection layer which is
-38:40
-accessible to trans through Transformer dh- at and- c-w so what we are going to do is that
-38:48
-again we are going to access this output projection layer weights and we are going to assign these weights downloaded
-38:54
-from open a to the at. output projection weight so we are going to look at the at
-38:59
-object again and then we are going to assign output projection weights equal to what we have downloaded and this is
-39:05
-the same for weights as well as biases right then we are going to look at the feed forward neural network what I'm
-39:11
-highlighting on the screen right now is for the first layer which is the fully connected layer as I've shown over here
-39:17
-the feed forward neural network has two layers the fully connected layer and the projection layer so in the fully
-39:23
-connected layer what we are doing here is that we are accessing ing the weights and the biases of the fully connected
-39:29
-layer from the gpt2 downloaded values and then we are assigning these weights
-39:35
-and biases to the FF object which we saw in the Transformer block so that way the
-39:40
-neural network the fully connected layer weights and biases are equal to the gpt2 downloaded weights and biases now this
-39:47
-same thing is done for the second layer which is the projection or the output layer of the multi-layer perceptron or
-39:53
-the feed forward neural network and then finally we come to the last uh puzzle or
-39:58
-the last building block of the Transformers rather and that is the layer normalization so there are two
-40:05
-layer normalization the layer normalization one and Layer normalization Two and both have scale as
-40:10
-well as shift right so this is what's Happening Here what I'm highlighting right now we
-40:16
-are accessing the uh shift and the scale parameters from the gpt2 downloaded and
-40:22
-then we're assigning those parameters to our GPT model class and what I'm
-40:28
-highlighting on the screen right now is the similar process done for the second normalization layer which comes after
-40:34
-the attention mechanism in the Transformer block okay now when we come
-40:39
-out of the Transformer block you see there is another normalization layer right the final normalization layer and
-40:45
-it just accessible through G and the B keys so what we are doing is that we are accessing the param G and the params B
-40:52
-and then we are assigning our GPT model class scale and shift values to whatever is down loed from
-40:58
-gpt2 now you must be thinking that okay there is if I look at the architecture closely there is this final layer there
-41:05
-is this linear output layer and careful readers might remember that this linear output layer also is a
-
-
-
-***
-
+* 40:00
 
 41:12
 neural network and where do we get the dimensions where do we get the weights of these we did not download this from
@@ -565,13 +447,10 @@ to 10 and let's see the output text which is coming right now ideally it should 
 increasing the temperature increases the entropy now see the output every effort moves you towards finding an ideal new
 
 
-
-
 ***
 
-
-
-45:57
+* 45:00
+  
 set piece but only at times or for hours I was working on my first game called G
 46:03
 so as expected increasing the temperature has given me random outputs but you see now this opens the door to
@@ -659,4 +538,3 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
-
