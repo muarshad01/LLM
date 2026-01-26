@@ -264,6 +264,10 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 ***
 
 * 30:00
+
+```python
+from gpt_download import download_and_load_gpt2
+```
   
 ```python
 settings, params = download_and_load_gpt2(model_size="124M", models_dir="gpt2")
@@ -565,15 +569,3 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
-
-
-
-
-
-
-
-
-
-
-
-
