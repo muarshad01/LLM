@@ -6,7 +6,8 @@
 ***
 
 #### Courses
+* [Neural Networks from Scratch - Raj Abhijit Dandekar](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
 * [Introduction to Deep Learning - Sebastian Raschka](https://sebastianraschka.com/blog/2021/dl-course.html)
-* -- 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers
+* 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers
 
 *** 
