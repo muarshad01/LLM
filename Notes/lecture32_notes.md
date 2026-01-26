@@ -1,3 +1,10 @@
+## Loading Pre-Trained OpenAI Weights
+
+
+* [GPT-2: 1.5B release](https://openai.com/index/gpt-2-1-5b-release/)
+
+* [Kaggle.com](https://www.kaggle.com/datasets)
+
 etrained weights
 0:00
 [Music]
@@ -1000,4 +1007,5 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
