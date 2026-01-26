@@ -240,6 +240,25 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 
 ***
 
+* Attention layers in Transfomer blocks:
+    * `transformer/h0/attn/c_attn (which is K,Q,W weights)/w` (similarly for h1,...,h12)
+    * `transformer/h0/attn/c_attn/b (biases)`                 (similarly for h1,...,h12)
+
+* Feedforward neural network weights in Transfomer blocks:
+    * `transformer/h0/mlp/c_fc/w`    (similarly for h1,...,h12); MLP: Multi-layer perceptron
+    * `transformer/h0/mlp/c_fc/b`    (similarly for h1,...,h12)
+    * `transformer/h0/mlp/c_proj/w`  (similarly for h1,...,h12); Projection layer
+    * `transformer/h0/mlp/c_proj/b`  (similarly for h1,...,h12)
+
+* Output projection layers in transfomer block:
+    * `transformer/h0/attn/c_proj/b` (similarly for h1,...,h12)
+
+* Layer normalization:
+    * `transformer/h0/ln_1/c_proj/g` -- layer norm scale
+    * `transformer/h0/ln_1/c_proj/b` -- layer norm shift
+    * `transformer/h0/ln_2/c_proj/g` -- layer norm scale
+    * `transformer/h0/ln_2/c_proj/b` -- layer norm shift
+
 not because there are 11 such 12 such Transformer blocks remember gpt2 has 12
 20:24
 Transformer blocks so whatever I'm showed you right now that will be replicated 12 times right so there are 12 Transformer blocks
@@ -826,6 +845,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
