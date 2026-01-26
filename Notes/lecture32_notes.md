@@ -240,11 +240,13 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 
 ***
 
+#### Within Blocks we are gettign 4 things
+
 * Attention layers in Transfomer blocks:
     * `transformer/h0/attn/c_attn (which is K,Q,W weights)/w` (similarly for h1,...,h12)
     * `transformer/h0/attn/c_attn/b (biases)`                 (similarly for h1,...,h12)
 
-* Feedforward neural network weights in Transfomer blocks:
+* Feedforward NN weights in Transfomer blocks:
     * `transformer/h0/mlp/c_fc/w`    (similarly for h1,...,h12); MLP: Multi-layer perceptron
     * `transformer/h0/mlp/c_fc/b`    (similarly for h1,...,h12)
     * `transformer/h0/mlp/c_proj/w`  (similarly for h1,...,h12); Projection layer
@@ -259,127 +261,10 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
     * `transformer/h0/ln_2/c_proj/g` -- layer norm scale
     * `transformer/h0/ln_2/c_proj/b` -- layer norm shift
 
-not because there are 11 such 12 such Transformer blocks remember gpt2 has 12
-20:24
-Transformer blocks so whatever I'm showed you right now that will be replicated 12 times right so there are 12 Transformer blocks
-20:31
-the first one is h0 then there will be a key called ATN why because we are looking at the attention mechanism right
-20:39
-and then and this attention mechanism also has the output projection so we
-20:44
-need to specify in the attention mechanism what we are looking for in the attention mechanism currently we are
-20:51
-looking for CN what is CN it is the fused Matrix of query key and value and
-
-
-
 ***
 
-
-
-20:58
-within the this fuse Matrix we are looking at the weights So within this fuse Matrix we are looking at the
-21:03
-weights so you see that's how we access the weight Matrix of the um attention
-21:08
-layer so we look at the blocks key within that Transformers so let me show it to you here now we look at the blocks
-21:14
-key within that we look at the Transformers within that we look at H not then attention then C attention
-21:20
-which is the fused query key value and then we look at the weights similarly we do all this for the
-21:26
-biases of the qu key quy and value this is only for one Transformer Block H we
-21:32
-are going to repeat this for H1 H2 up till h11 since there are 12 such Transformer blocks so this is how you
-21:39
-access the weights in the attention layers of the Transformer blocks you access this is how you access the
-21:44
-weights and biases of the attention layer in the Transformer block uh and when I say attention layer I I mean the
-21:51
-query key and the value weight matrices and the biases corresponding to each of these right so that's the first
-21:58
-component which we looked at the second component is this feed forward neural network now here if you look closely
-22:05
-there are two layers there's a fully connected layer and there is a projection layer so we'll have weights and biases corresponding to this first
-22:12
-layer as well as the second layer and that is clearly mentioned here if you look at the fully connect feed forward
-22:19
-neural network you have the Transformer Keys within that you have the H not which is the first Transformer block
-22:25
-within that there is a key called MLP multi-layer perceptron because we are looking at that expansion contraction
-22:30
-neural network currently we are accessing the fully connected layer and the weights of that layer fully
-22:36
-connected layer the biases of that layer so what I'm highlighting right now corresponds to the first the fully
-22:42
-connected layer and its weights and biases similarly to access the weights and biases of the projection layer we
-22:48
-just have the key as ccore PJ and we access the weights and the biases so this is how we access the
-22:55
-weights and the biases of the feed forward neural network work within the Transformer block okay and then usually
-23:02
-at the end of the Transformer it's not shown here but we we actually have this output projection
-23:07
-head this output this output
-23:13
-projection and there are weights associated with that also so to access the C projection in the OR to access the
-23:21
-output projection layer we just do Transformers then we go to hn the first
-23:26
-block then go to ATN c pro which is the output projection layer and we get the weights and similarly we do this for H1
-23:33
-H2 up to h11 so the 12 Transformer blocks so this is how you get the weights and the biases of the attention
-23:40
-layers of the feed forward neural network and the output projection layer
-23:45
-in the Transformer block but remember the Transformer block has two additional things it has the layer Norm one and
-23:50
-layer Norm two and both of these have trainable scale and shift parameters
-23:56
-right so we need to access those so the last thing which we are going to access in the Transformer block keys so these
-24:02
-blocks Keys is that we are going to access Transformer slh not/ layer
-24:08
-normalization one then the scaling which is denoted by G and the shifting which is denoted by B this is the scale
-24:15
-parameter and B is the shift parameter similarly with respect to layer normalization 2 we will get the scale
-24:23
-parameter denoted by G and we'll get the shift parameter denoted by B remember
-24:28
-that all of these are sub dictionaries within the blocks dictionary and within the subd dictionaries ultimately we
-24:34
-access the parameters so if you look at the blocks blocks Keys within the block Keys we are
-24:41
-actually getting four things we are getting the attention layer weights query key value weights we are getting
-24:47
-the feed forward neural network weights we are getting the output projection layer weights and we are getting the
-24:52
-layer normalization weights so essentially with this we get all the trainable parameters within the trans
-24:58
-Transformer block itself awesome but our task is not yet over because when we come outside of the Transformer block
-25:05
-there is this final layer normalization right and actually let me Mark it with a different color there is this final
-25:11
-layer normalization and similar to the layer normalizations earlier it will have the scale and the shift now
-25:17
-remember that there are entirely different keys for the final normalization layer scale and that's the
-25:23
-key named G and for the final normalization shift there is an entirely new key which is is called B so the
-25:29
-params is the dictionary and then when you do params B params B you'll get the
-25:35
-final Norm shift parameters and if you do params of G you'll get the final Norm
-25:43
-scale parameters but to access let's say the attention head what you'll need to do is that I'm just showing a part of
-25:49
-the code which lies ahead but I think it is important to get the attention head you'll do params blocks so you'll access
-25:56
-the blocks Keys then you'll specify that block number 1 2 12 Etc then you will go
-26:02
-to the ATN Keys what we mentioned over here ATN
-26:07
-Keys then we'll go to the C ATN keys and then we'll go to the W key this is how
-26:12
+* 25:00
+  
 we'll access the weights of the query key and the value uh matrices in the attention block attention layers so
 26:20
 that's why we need all of these five Keys which are returned by the parameter dictionary so the whole goal
@@ -845,6 +730,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
