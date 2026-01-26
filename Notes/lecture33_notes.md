@@ -1,267 +1,16 @@
+## LLM finetuning approaches
 
-0:00
-[Music]
-0:05
-hello everyone and welcome to this
-0:07
-lecture in the build large language
-0:09
-models from scratch Series today what we
-0:12
-are going to do is that we are going to
-0:14
-have an introductory lecture on large
-0:17
-language model fine tuning if you have
-0:20
-followed this series so far we have
-0:21
-conducted around 30 to 32 lectures and
-0:25
-Within These lectures we have finished
-0:27
-the stage one which is understanding the
-0:29
-L Market Ure the attention mechanism
-0:31
-data preparation and sampling and we
-0:34
-have also finished stage number two
-0:36
-which is pre-training the large language
-0:38
-model model evaluation and loading
-0:40
-pre-trained
-0:42
-weights now that stage one and stage two
-0:44
-are finished we are now ready to move to
-0:47
-the last stage of building a large
-0:49
-language model from scratch and that is
-0:51
-the stage of
-0:53
-fine-tuning with pre-training we saw
-0:55
-that we are getting good results and
-0:57
-when we give an input text we are
-1:00
-getting output which makes a lot of
-1:02
-sense and it's pretty awesome so it's
-1:04
-like we have built our own GPT from
-1:07
-scratch and here's the architecture
-1:09
-which we use to construct our large
-1:11
-language model uh we spent a huge amount
-1:14
-of time and a number of lectures to
-1:15
-understand this
-1:17
-architecture awesome so now we are ready
-1:19
-to begin with this next stage which is
-1:22
-the stage of fine tuning so first you
-1:24
-might be thinking that okay we already
-1:26
-pre-trained the large language model and
-1:28
-it seems to already work pretty well
-1:30
-right so then does that mean we have
-1:33
-finished building our llm
-1:35
-no let me explain to you why do we need
-1:38
-fine tuning so let's say if you have
-What is finetuning?
-1:41
-pre-trained the model that's fine but
-1:43
-what if you have a specific task so that
-1:46
-specific task can be constructing a
-1:48
-chatbot based on your own data as a
-1:50
-company or let's say you're an
-1:52
-educational company who wants to make an
-1:55
-educational app using your data let's
-1:58
-say if you want to make a chatbot as an
-2:00
-airline using your
-2:03
-data essentially if you want to make a
-2:06
-specific
-2:08
-application the pre-trained model is not
-2:10
-enough because it's pre-trained on
-2:12
-General data available from all over the
-2:14
-Internet you need to train the model
-2:18
-again on additional data this is called
-2:21
-as
-2:22
-finetuning so the formal definition of
-2:25
-fine tuning is adapting a pre-trained
-2:27
-model to a specific task
-2:30
-by training the model again on fine tune
-2:33
-on additional data there are some things
-2:35
-which are very important here some
-2:37
-terminologies the first terminology is
-2:39
-this specific
-2:41
-task so uh fine tuning is needed when
-2:44
-you have certain specific tasks which
-2:46
-need to be performed such as if you are
-2:48
-a company and if you want to develop a
-2:50
-model put it into production you cannot
-2:52
-just use a pre-trained model as I
-2:55
-mentioned it's trained on a generic data
-2:57
-right it will not give answers which you
-2:59
-expect based on your individual private
-3:01
-data so there is a specific task if you
-3:05
-need to do a specific task you need to
-3:07
-fine tune the pre-trend model and the
-3:09
-second thing is training the model again
-3:12
-that means that until now the certain
-3:14
-weights and biases of the model have
-3:16
-been optimized during the pre
-3:18
-pre-training but now you are going to
-3:20
-feed the model with additional data so
-3:22
-naturally you will need to train the
-3:24
-model again the parameters the weights
-3:25
-the biases are going to change and
-3:28
-that's usually done in the process of
-3:29
-fine
-3:30
-tuning so there are some in fact a lot
-3:34
-of Articles written about fine tuning so
-3:36
-here is the schematic you have a large
-3:38
-language model which is pre-trained then
-3:40
-you train it further on custom data set
-3:43
-and that leads to a fine tuned large
-3:46
-language model okay so the formal
-3:48
-definition of llm fine tuning is that
-3:51
-fine tuning llm
-3:54
-involves the additional training of a
-3:58
-pre-existing model
-4:00
-which has previously acquired patterns
-4:02
-and features from an extensive data set
-4:04
-using a smaller domain specific data set
-4:08
-so see we are training a pre-existing
-4:10
-model again so that's why it's called
-4:12
-additional training why are we training
-4:14
-this model again because we have a newer
-4:16
-smaller domain specific data set so we
-4:19
-need to train the model again so that it
-4:21
-adapt its parameters it adapt it adapts
-4:24
-its weights and its
-4:26
-biases okay so fine tuning is necessary
-4:31
-to to be done after pre-training is done
-4:34
-okay so open AI even provides this
-4:38
-uh description about fine tuning where
-4:42
-it gives you instructions about how you
-4:44
-can do fine tuning using open models so
-Finetuning practical example
-4:47
-to give you a practical example of fine
-4:49
-tuning this is the website which I had
-4:51
-made in the final year of my PhD it
-4:54
-talks about my Publications my talks my
-4:56
-media Etc so let's say if you also have
-4:59
-a website or if you have a blog post
-5:01
-site like this and if you want to make a
-5:03
-chatbot which does not answer like how
-5:06
-chat GPT answers but you want the
-5:09
-chatbot to answer like how you speak
-5:11
-right you want the chatbot to answer
-5:15
+* __Finetuning__: Adapting a pretrained model to a specific task by training the model on additional data.
+
+#### What is LLM Fine-tuning?
+
+* Fine-tuning LLM involves the additional training of a pre-existing model,
+which has previously acquired patterns and features from an extensive data set, using a smaller, domain-specific dataset. In the context of "LLM Fine-tuning," LLM denotes a "Large Language Model," such as the GPT series by OpenAI.
+ 
+***
+
+* 5:00
+
 based on your data how you generally
 5:17
 write articles how your how you word the
@@ -527,14 +276,11 @@ prompt itself is constructed or way the
 10:13
 llm is constructed is different that's
 
-
-
-
 ***
 
+* 10:00
 
 
-10:16
 why this what I'm highlighting right now
 10:18
 this is an example of instruction F
@@ -1391,4 +1137,5 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
