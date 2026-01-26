@@ -6,6 +6,27 @@
 ***
 
 * 5:00
+
+```python
+# pip install tensorflow tqdm
+```
+
+```python
+print("TensorFlow version:", version("tensorflow"))
+print("tqdm version:", version("tqdm"))
+```
+
+```python
+# Relative import from the gpt_download.py contained in this folder
+
+from gpt_download import download_and_load_gpt2
+# Alternatively:
+# from llms_from_scratch.ch05 import download_and_load_gpt2
+```
+
+```python
+settings, params = download_and_load_gpt2(model_size="124M", models_dir="gpt2")
+```
   
 might be complex to so many students and Engineers so I want to explain this in a lot of detail first of all when you go
 5:29
@@ -895,6 +916,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
