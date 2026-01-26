@@ -27,7 +27,43 @@ from gpt_download import download_and_load_gpt2
 ```python
 settings, params = download_and_load_gpt2(model_size="124M", models_dir="gpt2")
 ```
-  
+
+```python
+print("Settings:", settings)
+```
+
+```python
+print("Parameter dictionary keys:", params.keys())
+```
+
+```python
+print(params["wte"])
+print("Token embedding weight tensor dimensions:", params["wte"].shape)
+```
+
+
+```python
+# Define model configurations in a dictionary for compactness
+model_configs = {
+    "gpt2-small (124M)": {"emb_dim": 768, "n_layers": 12, "n_heads": 12},
+    "gpt2-medium (355M)": {"emb_dim": 1024, "n_layers": 24, "n_heads": 16},
+    "gpt2-large (774M)": {"emb_dim": 1280, "n_layers": 36, "n_heads": 20},
+    "gpt2-xl (1558M)": {"emb_dim": 1600, "n_layers": 48, "n_heads": 25},
+}
+
+# Copy the base configuration and update with specific model settings
+model_name = "gpt2-small (124M)"  # Example model name
+NEW_CONFIG = GPT_CONFIG_124M.copy()
+NEW_CONFIG.update(model_configs[model_name])
+NEW_CONFIG.update({"context_length": 1024, "qkv_bias": True})
+
+gpt = GPTModel(NEW_CONFIG)
+gpt.eval();
+```
+
+
+
+
 might be complex to so many students and Engineers so I want to explain this in a lot of detail first of all when you go
 5:29
 to platforms like kagle you will find files to download so these are the seven
@@ -916,6 +952,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
