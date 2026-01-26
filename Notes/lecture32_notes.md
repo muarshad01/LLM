@@ -227,12 +227,7 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 
 ***
 
-* 10:00
-
-***
-
-* 15:00
-
+* 20:00
 
 #### Paremeter, Dictonary Keys:
 1. wte: Token Embeddings (50,257 X 768)
@@ -244,8 +239,6 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
 * LayerNorm-1, LayerNorm-2 (Scale + Shift)
 
 ***
-
-* 20:00
 
 not because there are 11 such 12 such Transformer blocks remember gpt2 has 12
 20:24
@@ -833,6 +826,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
