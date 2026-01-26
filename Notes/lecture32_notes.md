@@ -64,209 +64,175 @@ gpt.eval();
 
 
 
-might be complex to so many students and Engineers so I want to explain this in a lot of detail first of all when you go
-5:29
-to platforms like kagle you will find files to download so these are the seven
-5:34
-files um which contain all of the information basically and you'll see that the file size is about 500
-5:40
-megabytes but after you download this there is a number of pre-processing steps which need to be done before the
-5:47
-weights can be integrated with our GPT architecture and I'm going to explain
-5:52
-those steps to you right now so let me take you through to the vs code interface where we are going to
-6:00
-look at this uh GPT download 3 function and or this file this code file which
-6:07
-will help us download um these seven files and not just download we are going to extract
-6:13
-the parameters from these seven files and then we are going to store them in a very specific format all right so here
-6:20
-you can see the GPT download 3. py file and first of all you'll see that when
-6:26
-you open this file it has three functions it has the down load and load gpt2 function which is the main function
-6:32
-which we are going to look at then this function utilizes two helper functions
-6:38
-the first is called download file and the second is load gpt2 params from the TF checkpoint so as the file names
-6:45
-itself suggest what this main function is going to do is that it's going to do two things first it's going to download
-6:52
-the seven files these seven files which I just showed you on kagle also it's going to download those files and it's
-6:58
-going to save them on my Lo loal computer that's what it's going to do as the step number one and then in the
-7:04
-Second Step what we are going to do is that we are going to take the downloaded file and then we are going to call this
-7:10
-load gpt2 params from uh TF checkpoint
-7:16
-and uh what this function is going to do is that this function is going to store
-7:22
-the parameters in the dictionary called as params and this dictionary has a very
-7:27
-specific format which we are going to see just in in a moment so just downloading the data from kaggle is not
-7:33
-enough you need to understand the rest of the code and the format in which this params dictionary is returned so let's
-7:40
-start understanding this code sequentially before that I just want to take a moment and explain these
-7:45
-downloaded files so once you run this code you will see that you'll get these files which are downloaded on your local
-7:51
-machine without even running this code you can even go to kaggle and download these seven files now if a student has
-Understanding the gpt downloaded files
-7:58
-not been through this llm lecture series which we have developed they will not understand these files and they might
-8:04
-seem a bit complicated these files but for us for those students who have
-8:10
-followed this lecture series I want to show you that now these files are very easy to understand so I want to explain
-8:16
-each of these files sequentially the first thing is checkpoint so if you go to this file named checkpoint you will
-8:23
-see this thing called Model checkpoint path what this essentially means is that this is the path where all the current
-8:30
-parameters the weights of the gpt2 model are stored so you'll see that model. CPT
-8:36
-we have three files named model. CPT the most important file is model. cp. dat
-8:42
-this is where all the weights of the gpt2 model are stored so this checkpoint
-8:47
-is just going to indicate the path at which the model weights are stored the second file is encoder do Json so let me
-8:55
-come to the top of this file this file as a whole looks complex but it's actually a vocabulary it's a vocabulary
-9:01
-of keys uh and token IDs so we have
-9:07
-tokens here and corresponding to every token there is a token ID that's the vocabulary which we are using and if you
-9:13
-remember the vocabulary size it's 50257 so it starts from zero and then the end of text is 50256 so there are
-9:20
-50257 tokens in our vocabulary then the second file is w.
-9:26
-bpe remember if you have followed this lecture series we learned about the bite pair encoder it's a subword tokenization
-9:33
-scheme and the way this encoder works is that it looks for pairs of tokens which are occurring the most frequently and
-9:39
-then it merges this pair and that becomes a token in itself that's why it's called subord tokenizer so this W
-9:46
-cap. BP gives a list of the tokens which have been merged with the highest
-9:51
-probability at the top so all the tokens which have been merged have been mentioned in this list and the tokens
-9:57
-which have which come with the maximum probability they at the top of this list so you might be thinking what is this g
-10:03
-dot right this g dot is a special convention uh which basically indicates
-10:08
-that one token has ended and a new token has begin so you can think of it as a space and which marks the beginning of a
-10:15
-new token so it's a special convention used by open AI to indicate the end of one token and the start of a new
-10:22
-token then the third file which I want to show you is ham. Json this is the
-10:27
-file which essentially contains all the the settings of our model the vocabulary size which we are using is
-10:33
-50257 the context length which we have is 1024 the embedding Dimension is 768
-10:40
-what is the embedding Dimension essentially all the token IDs which you see over here if you see any any token
-10:47
-every token has a token ID right and every token ID will be converted converted into a 768 dimensional Vector
-10:54
-space uh these vectors are not trained and our training will involve parameters
+```python
+# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).
+# Source for "Build a Large Language Model From Scratch"
+#   - https://www.manning.com/books/build-a-large-language-model-from-scratch
+# Code: https://github.com/rasbt/LLMs-from-scratch
 
+
+import os
+import urllib.request
+
+# import requests
+import json
+import numpy as np
+import tensorflow as tf
+from tqdm import tqdm
+
+
+def download_and_load_gpt2(model_size, models_dir):
+    # Validate model size
+    allowed_sizes = ("124M", "355M", "774M", "1558M")
+    if model_size not in allowed_sizes:
+        raise ValueError(f"Model size not in {allowed_sizes}")
+
+    # Define paths
+    model_dir = os.path.join(models_dir, model_size)
+    base_url = "https://openaipublic.blob.core.windows.net/gpt-2/models"
+    backup_base_url = "https://f001.backblazeb2.com/file/LLMs-from-scratch/gpt2"
+    filenames = [
+        "checkpoint", "encoder.json", "hparams.json",
+        "model.ckpt.data-00000-of-00001", "model.ckpt.index",
+        "model.ckpt.meta", "vocab.bpe"
+    ]
+
+    # Download files
+    os.makedirs(model_dir, exist_ok=True)
+    for filename in filenames:
+        file_url = os.path.join(base_url, model_size, filename)
+        backup_url = os.path.join(backup_base_url, model_size, filename)
+        file_path = os.path.join(model_dir, filename)
+        download_file(file_url, file_path, backup_url)
+
+    # Load settings and params
+    tf_ckpt_path = tf.train.latest_checkpoint(model_dir)
+    settings = json.load(open(os.path.join(model_dir, "hparams.json"), "r", encoding="utf-8"))
+    params = load_gpt2_params_from_tf_ckpt(tf_ckpt_path, settings)
+
+    return settings, params
+
+
+def download_file(url, destination, backup_url=None):
+    def _attempt_download(download_url):
+        with urllib.request.urlopen(download_url) as response:
+            # Get the total file size from headers, defaulting to 0 if not present
+            file_size = int(response.headers.get("Content-Length", 0))
+
+            # Check if file exists and has the same size
+            if os.path.exists(destination):
+                file_size_local = os.path.getsize(destination)
+                if file_size == file_size_local:
+                    print(f"File already exists and is up-to-date: {destination}")
+                    return True  # Indicate success without re-downloading
+
+            block_size = 1024  # 1 Kilobyte
+
+            # Initialize the progress bar with total file size
+            progress_bar_description = os.path.basename(download_url)
+            with tqdm(total=file_size, unit="iB", unit_scale=True, desc=progress_bar_description) as progress_bar:
+                with open(destination, "wb") as file:
+                    while True:
+                        chunk = response.read(block_size)
+                        if not chunk:
+                            break
+                        file.write(chunk)
+                        progress_bar.update(len(chunk))
+            return True
+
+    try:
+        if _attempt_download(url):
+            return
+    except (urllib.error.HTTPError, urllib.error.URLError):
+        if backup_url is not None:
+            print(f"Primary URL ({url}) failed. Attempting backup URL: {backup_url}")
+            try:
+                if _attempt_download(backup_url):
+                    return
+            except urllib.error.HTTPError:
+                pass
+
+        # If we reach here, both attempts have failed
+        error_message = (
+            f"Failed to download from both primary URL ({url})"
+            f"{' and backup URL (' + backup_url + ')' if backup_url else ''}."
+            "\nCheck your internet connection or the file availability.\n"
+            "For help, visit: https://github.com/rasbt/LLMs-from-scratch/discussions/273"
+        )
+        print(error_message)
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+# Alternative way using `requests`
+"""
+def download_file(url, destination):
+    # Send a GET request to download the file in streaming mode
+    response = requests.get(url, stream=True)
+
+    # Get the total file size from headers, defaulting to 0 if not present
+    file_size = int(response.headers.get("content-length", 0))
+
+    # Check if file exists and has the same size
+    if os.path.exists(destination):
+        file_size_local = os.path.getsize(destination)
+        if file_size == file_size_local:
+            print(f"File already exists and is up-to-date: {destination}")
+            return
+
+    # Define the block size for reading the file
+    block_size = 1024  # 1 Kilobyte
+
+    # Initialize the progress bar with total file size
+    progress_bar_description = url.split("/")[-1]  # Extract filename from URL
+    with tqdm(total=file_size, unit="iB", unit_scale=True, desc=progress_bar_description) as progress_bar:
+        # Open the destination file in binary write mode
+        with open(destination, "wb") as file:
+            # Iterate over the file data in chunks
+            for chunk in response.iter_content(block_size):
+                progress_bar.update(len(chunk))  # Update progress bar
+                file.write(chunk)  # Write the chunk to the file
+"""
+
+
+def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
+    # Initialize parameters dictionary with empty blocks for each layer
+    params = {"blocks": [{} for _ in range(settings["n_layer"])]}
+
+    # Iterate over each variable in the checkpoint
+    for name, _ in tf.train.list_variables(ckpt_path):
+        # Load the variable and remove singleton dimensions
+        variable_array = np.squeeze(tf.train.load_variable(ckpt_path, name))
+
+        # Process the variable name to extract relevant parts
+        variable_name_parts = name.split("/")[1:]  # Skip the 'model/' prefix
+
+        # Identify the target dictionary for the variable
+        target_dict = params
+        if variable_name_parts[0].startswith("h"):
+            layer_number = int(variable_name_parts[0][1:])
+            target_dict = params["blocks"][layer_number]
+
+        # Recursively access or create nested dictionaries
+        for key in variable_name_parts[1:-1]:
+            target_dict = target_dict.setdefault(key, {})
+
+        # Assign the variable array to the last key
+        last_key = variable_name_parts[-1]
+        target_dict[last_key] = variable_array
+
+    return params
+
+```
 
 ***
 
+* 10:00
 
+***
 
-10:59
-corresponding to these as well then n heads so n heads is basically the number
-11:05
-of attention heads present in each Transformer block and N layer is
-11:11
-essentially the number of number of Transformer blocks itself now remember
-11:17
-these are the these parameters the setting values which I'm showing you
-11:22
-they are for the smallest uh gpt2 model when open made the GP B2 weights public
-11:30
-they actually made the weights of their larger models also public so 124 million 355 million
-11:37
-774 million and 1558 million the weights of all of these models were made public
-11:43
-but for the sake of Simplicity we are going to look at 124 million model right now which had 12 Transformer blocks as
-11:49
-you increase in the complexity of the gpt2 model the number of Transformer blocks also increase remember that the
-11:56
-same code which I'm going to show you today can be run for these larger architectures as well okay so I hope you
-12:03
-have understood the meanings of all of these files now let us start going through uh this download and load gpt2
-Understanding the gpt-2 download code
-12:10
-code step by step and understand every single sentence so the first thing is that we
-12:16
-mention the URL so we'll make a call to this API and we'll download these files
-12:21
-download the seven files which are present on my local computer right now so the download file function will be
-12:27
-called for this and I'm not going to go through this in detail because this is just downloading the file onto the local
-12:32
-machine the real interest which I have is showing you what happens after the file is downloaded so after the file is
-12:40
-downloaded first we have this PF checkpoint path which is uh the latest
-12:45
-checkpoint directory where all the model parameters are stored so what this function will do is that tf. train so
-12:52
-tensorflow do tr. latest checkpoint model directory so it will go to our directory and it will look for this
-12:58
-checkpoint and it will look for this model checkpoint path which is model. CPT so it will know where the model
-13:04
-parameters are stored awesome the next thing is that settings we are going to maintain
-13:10
-another dictionary which is called as settings and what the settings dictionary is that it will exactly
-13:16
-contain the same thing what is present in the ham. Json so it will contain the vocabulary size it will contain the
-13:22
-context length the embedding Dimension the number of attention heads and the number of Transformer blocks
-13:30
-uh so let me go back to the code again right so this is the settings dictionary
-13:35
-and then in this last line of the code this is where all the magic is essentially happening and you really
-13:41
-need to go into depth to understand what happens in this one line of code so here what we are doing is that uh we are
-13:47
-looking at the model path which is given by this TF ckpt checkpoint answer flow
-13:53
-checkpoint path and we are going to take the parameters from that path and we are
-13:58
-going to use the settings dictionary and then the we'll return a params dictionary and the code which does that
-14:05
-is this load gpt2 params from TF checkpoint so from the TF checkpoint parameters we are going to load the
-14:12
-parameters into a special dictionary called as params before explaining to you what is
-14:18
-happening in this code I first want to show you what the params dictionary looks like all right so here is how the
-Understanding the gpt-2 parameter dictionary
-14:24
-params dictionary actually looks like the dictionary will have five Keys which I'm going to show to you right now what
-14:31
-are these five keys and what do they exactly mean the first key which this dictionary is going to have is wte the
-14:38
-second key is WP the third key is blocks the fourth key is the final
-14:44
-normalization scale and the fifth key is final normalization shift to really
-14:50
-understand these five keys and why do we need these five Keys you need to understand the GPT
-14:55
-architecture um and we have spent a lot of time on this I just just want to summarize it quickly so that you can
-15:01
-relate to these keys so whenever a token comes in whenever sentence comes in rather we have to first convert the
-15:08
-input token IDs into token embeddings so this will require weights this will require parameters which need
-15:14
-to be trained then we will need to add positional embeddings these are also parameters which need to be trained the
-15:21
-result of token embeddings plus positional embeddings is input embeddings and these pass on to the
-15:26
+* 15:00
+
 Transformer block so already you understood the purposes of the first two keys this is for the token embeddings
 15:32
 parameters the wp is for the positional embedding parameters now after we get
@@ -952,6 +918,7 @@ also be happy to see what all research you have worked on by using this code fil
 lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
