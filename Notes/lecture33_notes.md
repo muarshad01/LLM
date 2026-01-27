@@ -32,6 +32,7 @@ which has previously acquired patterns and features from an extensive data set, 
 * Step-1: Download and process dataset
 * Step-2: Creating dataloaders
 
+* [Welcome to the UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
 
 ```python
 import urllib.request
@@ -429,6 +430,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
