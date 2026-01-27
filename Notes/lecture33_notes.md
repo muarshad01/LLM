@@ -14,6 +14,10 @@ which has previously acquired patterns and features from an extensive data set, 
 #### Finetuning Types
 1. Instruction finetuning
 * Training a language on a set of tokens using specific instructions
+* Can handle broader set of tasks
+* Larger datasets, greater computational power needed
+* LoRA / QLoRA
+* LoRA: Two smaller martices that approximate a larger martirx are fine-tuned.
 2. classification finetuning
 * Model is trained to recognise a specific set of class labels, such as spam or no spam
 
@@ -21,256 +25,10 @@ which has previously acquired patterns and features from an extensive data set, 
 
 * 10:00
 
-
-to me because I did not know that llms
-10:37
-could be used for classification tasks
-10:39
-in fact classification fing is also used
-10:42
-for sentiment classification such as
-10:44
-angry sad happy Etc if you have given
-10:46
-piece of text and if you want to
-10:48
-classify it into either of these five
-10:49
-buckets you can use class you can use
-10:52
-classification fine
-10:53
-tuning but instruction fine tuning is a
-10:56
-much more uh common B common fine tuning
-11:01
-it can handle broader set of
-11:03
-tasks and usually it can even handle or
-11:06
-it rather needs larger data sets because
-11:09
-you want it to handle a broader set of
-11:11
-tasks right so greater amount of
-11:14
-computational power is also usually
-11:16
-needed for instruction based Point
-11:17
-tuning why is greater amount of
-11:19
-computational power needed because you
-11:21
-have given instructions to the model and
-11:23
-it has to search for the entire Corpus
-11:25
-based on the instructions which you have
-11:27
-given right and the actions which it
-11:29
-perform is not specific so for example
-11:31
-here the action is pretty specific spam
-11:33
-or no spam the action here which it has
-11:36
-to perform can be something complex as
-11:38
-translation using the same instruction
-11:40
-based model you can do other other
-11:42
-things also so one instruction based
-11:44
-model can actually handle broader set of
-11:46
-tasks such as translation summarization
-11:49
-Etc but in classification fine tuning
-11:52
-the only action which is performed is
-11:55
-classifying in which category the text
-11:57
-belongs so so that's why the
-12:00
-classification fine tuning can handle an
-12:01
-arrow set of
-12:03
-prompts so when you think of fine tuning
-12:05
-people usually only talk about
-12:07
-instruction based fine tuning but I find
-12:09
-that classification fine tuning is also
-12:11
-equally important so the example which
-12:13
-we are going to start in today's lecture
-12:15
-is actually based on the concept of
-12:16
-classification fine
-12:19
-tuning okay so now in instruction based
-12:22
-fine tuning what usually people also
-12:25
-talk about is methods to make the fine
-12:27
-tuning more efficient So within
-12:29
-instruction based fine tuning there are
-12:31
-actually two other methods which are
-12:34
-called as Laura and QA so basically
-12:37
-these come under the category of
-12:39
-parameter efficient fine tuning so it's
-12:41
-a form of instruction fine tuning which
-12:43
-is more efficient than full fine tuning
-12:46
-essentially what is done in parameter
-12:48
-efficient fine tuning is that we only
-12:51
-update a subset of parameters and freeze
-12:53
-the rest of the parameters at a time so
-12:56
-this reduces the number of trainable
-12:58
-parameters making memory requirements
-13:00
-for instruction fine tuning more
-13:02
-manageable so Laura is
-13:05
-uh basically an improved fine tuning
-13:08
-method where instead of fine tuning all
-13:10
-the weights that constitute the weight
-13:12
-Matrix two smaller matrices that
-13:15
-approximate this larger Matrix are fine
-13:17
-tuned right now we are not going into
-13:19
-details of Laura we'll cover that in a
-13:21
-subsequent lecture as it's a pretty
-13:22
-broad topic but I just want to introduce
-13:24
-the concept to you today and the second
-13:27
-is Q Laura which is basically quantized
-13:31
-Laura and this is a more memory
-13:33
-efficient iteration of Laura and Q Laura
-13:36
-takes Laura a step further by quantizing
-13:39
-the weights of the Laura adapters to
-13:41
-lower Precision so right now just keep
-13:43
-in mind that Laura and qora are forms of
-13:46
-more efficient fine tuning which reduce
-13:49
-the memory requirement which is
-13:51
-traditionally needed in instruction
-13:53
-based V
-13:54
-tuning awesome so I hope you have
-13:57
-understood the differences between
-14:00
-uh instruction fine tuning and
-14:03
-classification fine tuning right and now
-14:06
-what we are going to do in today's
-14:07
-lecture is we are going to start working
-14:09
-on a Hands-On problem which is a fine
-14:12
-tuning classification problem so we are
-14:15
-going to look at the second category now
-14:17
-and we are going to take a real data set
-Hands on project: email classification finetuning
-14:20
-we are going to look at emails a youth
-14:22
-set of emails which are spam as well as
-14:24
-no spam and we are going to train a
-14:26
-large language model to classify whether
-14:28
-it's spam or or nopan we won't be doing
-14:31
-all of this in today's lecture because
-14:33
-this this involves a lot of steps first
-14:35
-we have to download the data set
-14:37
-pre-process the data set create data
-14:39
-loaders this is in the stage one of data
-14:41
-set
-14:42
-preparation this data set will be the
-14:44
-all the emails which will be classifying
-14:46
-into spam and no spam then in stage
-14:49
-number two we'll have to initialize the
-14:50
-llm model load pre-train weights then
-14:53
-modify the model for fine tuning
-14:55
-Implement evaluation utilities and then
-14:57
-in the final stage we are going to
-14:59
-finetune the model evaluate the finetune
-15:02
-model and use model on new data I could
-15:05
-have covered all of this in one lecture
-15:07
-but then I would have to rush through it
-15:09
-instead I'm going to split this into
-
-
-
 ***
 
-
-15:11
+* 15:00
+  
 five to six lectures so that you
 15:13
 understand the entire fine tuning
@@ -879,6 +637,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
