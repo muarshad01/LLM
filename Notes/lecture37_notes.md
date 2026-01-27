@@ -15,275 +15,10 @@
 
 * 10:00
 
-consists of 1100 pairs of instruction
-10:09
-and responses and let's see how some
-10:12
-examples are defined over here so let's
-10:14
-take any example so let's take this so
-10:18
-you see there are if you think of it as
-10:21
-dictionary there are these keys so there
-10:22
-is an instruction for
-10:25
-each uh for each instruction response
-10:28
-pair we have an instruction an input and
-10:30
-an output so instruction is edit the
-10:32
-following sentence for grammar the input
-10:35
-is he goes to the park every day and the
-10:38
-output is he goes so the input is he go
-10:40
-to the park every day and the output is
-10:43
-he goes to the park every day so
-10:44
-remember three things we have to give
-10:46
-the instruction we have to give the
-10:47
-input and we have to give the output
-10:49
-that's done for all the questions so
-10:51
-here see instruction what are the first
-10:53
-10 square numbers in this case there is
-10:55
-no need to give an input because there
-10:57
-is a fixed answer and then the output is
-11:00
-14916 up to
-11:03
-100 uh then instruction is translate the
-11:06
-following sentence into French the input
-11:08
-is where is the nearest restaurant and
-11:10
-the output is it's translated into
-11:12
-French so as you scroll down you'll see
-11:14
-that there are instruction input output
-11:16
-pairs there are 1100 of them and some of
-11:20
-them have
-11:21
-inputs as you can see some of them have
-11:24
-inputs but some of them don't have an
-11:25
-input at all so for example if the
-11:28
-instruction is converted fet to meters
-11:30
-there is one answer to this right we
-11:31
-don't need to specify an input
-11:33
-separately so there is just the
-11:35
-instruction and there is just the
-11:37
-output so this is the data set which we
-11:39
-are going to load in the first step and
-11:41
-we are going to use the function called
-11:42
-download and load file so what this
-11:45
-function does is that it goes to this
-11:46
-URL which I just shared with you and it
-11:49
-downloads the data set from this URL so
-11:51
-you can run this function and it even
-11:52
-prints out the number of entries in this
-11:54
-function so we can see that the number
-11:56
-of entries is
-11:58
-1100 that indicates that we have indeed
-12:01
-downloaded the data set correctly now
-12:04
-let's go to the next step uh the data
-12:06
-list which we loaded from the Json file
-12:09
-contains 1100 entries of the instruction
-12:11
-data set let us print one of these so
-12:14
-let us print the 50th entry so data is
-12:17
-my final uh data set and I'm going to
-12:19
-access the 50th entry so this says that
-12:22
-identify the correct spelling of the
-12:24
-following word occasion and the correct
-12:26
-spelling is occasion let's check if this
-12:28
-is present in this data set so I'm going
-12:30
-to control F occasion and see it's
-12:33
-present this is the 50th entry great let
-12:37
-us print another entry which is 999 so
-12:40
-here you can see that instruction what
-12:41
-is the antonym of complicated there is
-12:43
-no input over here the output is the
-12:46
-antonym of complicated is
-12:48
-simple antonym is opposite awesome so we
-12:52
-have just tested that the data is loaded
-12:55
-correctly and we are able to access
-12:57
-specific instances or specific um index
-13:02
-of the data to see what is the
-13:03
-instruction input and the output
-13:05
-remember three things instruction input
-13:09
-and the
-13:10
-output next thing which we have to do is
-Converting instructions into Alpaca prompt format
-13:13
-that we cannot leave the instruction
-13:14
-input and output in this format because
-13:17
-researchers have discovered that or
-13:19
-found out through experimentation that
-13:21
-there is a specific way in which the
-13:23
-prompt needs to be given to the llm
-13:25
-during the training process and that
-13:28
-specific way is
-13:30
-documented in terms of formats so for
-13:32
-example there is a specific format
-13:34
-through which you have to give these
-13:36
-instructions as mentioned by Stanford
-13:38
-alpaka there is one more different
-13:40
-format which was used by 53 so 53
-13:45
-Microsoft uh so for 53 open models there
-13:48
-was a different format which was used
-13:50
-for fine tuning but the most common one
-13:53
-which I've seen is uh the Stanford
-13:56
-alpaka based format in which what these
-13:59
-people do is that they also have similar
-14:02
-Json file where they have a list of
-14:03
-52,000 input output Pairs and they have
-14:07
-constructed a very specific prompt out
-14:09
-of these input output pairs so you can
-14:11
-see that as we showed you they have an
-14:13
-instruction they have an input and they
-14:14
-have an output for every uh input
-14:17
-response pair but then they convert it
-14:20
-into a prompt like
-14:21
-this so the prompt which they give to
-14:24
-finetune the alpaka model is that below
-14:27
-is an instruction that describes a task
-14:30
-paired with an input that provides
-14:33
-further context Write a response that
-14:36
-appropriately completes the request this
-14:38
-is the prompt which they train the llm
-14:40
-with below is an instruction that
-14:42
-describes a task paired with an input
-14:45
-that provides further context Write a
-14:49
-response that appropriately completes
-14:51
-the request and then they provide the
-14:53
-instruction the input and the response
-14:56
-so instruction is provided through this
-14:59
-this instruction which is over
-15:02
-here uh input is the input which is
-15:06
-accessed through the input field and
-15:08
-then the response is accessed through
-15:10
-this output field so this instruction
-15:12
-input and output is converted into a
-15:15
-prompt like this which is then provided
-15:17
-to the large language
-
-
-
 ***
 
+* 15:00
 
-15:19
 model uh and this is exactly what we are
 15:21
 going to do in the code right now before
@@ -549,6 +284,12 @@ a data which has the input right what if
 we have an example of a data which does
 20:29
 not have the input so data index by
+
+
+
+***
+
+
 20:32
 999 you see here the instruction is what
 20:35
@@ -804,6 +545,7 @@ as selfcontained as possible thanks
 everyone and I look forward to seeing
 25:24
 you in the next lecture
+
 
 
 
