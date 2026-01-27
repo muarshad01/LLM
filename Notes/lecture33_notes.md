@@ -16,9 +16,9 @@ which has previously acquired patterns and features from an extensive data set, 
 * Training a language on a set of tokens using specific instructions
 * Can handle broader set of tasks
 * Larger datasets, greater computational power needed
-* LoRA / QLoRA
-* LoRA: Two smaller martices that approximate a larger martirx are fine-tuned.
-2. classification finetuning
+* __LoRA / QLoRA__
+  * LoRA: Two smaller martices that approximate a larger martirx are fine-tuned.
+2.Classification finetuning
 * Model is trained to recognise a specific set of class labels, such as spam or no spam
 
 ***
@@ -133,3 +133,4 @@ test_df.to_csv("test.csv", index=None)
 ```
 
 ***
+
