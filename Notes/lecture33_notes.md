@@ -294,6 +294,11 @@ can match the number of spam instances
 that's equal to 747 it's done by this
 20:22
 line of code uh and then we combine the
+
+
+***
+
+
 20:25
 ham subset with the spam so the total
 20:28
@@ -637,6 +642,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
