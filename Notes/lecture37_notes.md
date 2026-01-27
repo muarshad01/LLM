@@ -277,6 +277,12 @@ input and output is converted into a
 prompt like this which is then provided
 15:17
 to the large language
+
+
+
+***
+
+
 15:19
 model uh and this is exactly what we are
 15:21
@@ -798,5 +804,6 @@ as selfcontained as possible thanks
 everyone and I look forward to seeing
 25:24
 you in the next lecture
+
 
 
