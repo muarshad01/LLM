@@ -28,273 +28,60 @@ which has previously acquired patterns and features from an extensive data set, 
 ***
 
 * 15:00
-  
-five to six lectures so that you
-15:13
-understand the entire fine tuning
-15:14
-process sequentially this is the
-15:16
-philosophy which we follow in all of the
-15:18
-lectures in this series I take you
-15:20
-through every single step in a lot of
-15:22
-detail first on a whiteboard and then
-15:24
-through code today what we are going to
-15:27
-do is we are going to do two things we
-15:28
-are going
-15:29
-to first download the data set and the
-15:33
-second thing what we are going to do is
-15:34
-we are going to pre-process the data set
-15:37
-and in the next lecture we'll create
-15:39
-data loaders initialize the model and
-15:41
-then later we'll also load the pre-train
-15:43
-weights for now let's just focus on step
-15:45
-number one and step number yeah actually
-15:48
-just step number one in this lecture
-15:49
-which is download and pre-process the
-15:51
-data set in the next lecture we'll look
-15:53
-at step two which is creating data
-Coding: downloading the email classification dataset
-15:55
-loaders so let me take you through code
-15:57
-right now uh um right so in this section
-16:02
-of the this section of the code I have
-16:03
-titled as fine tuning for classification
-16:06
-the first step as I mentioned is
-16:07
-downloading the data set this is just
-16:09
-the code for downloading and unzipping
-16:11
-the data set let me take you through the
-16:14
-place where the data set exists so this
-16:16
-is the UC arwine machine learning
-16:18
-repository it's quite famous because it
-16:20
-has a large number of data sets within
-16:23
-this repository there is also an SMS
-16:25
-spam collection data this is the data
-16:27
-set which we'll be using it contains a
-16:29
-huge list of emails both spam as well as
-16:32
-non-spam so if you scroll down here you
-16:35
-will see that uh you'll see information
-16:38
-about what exactly is present in this
-16:39
-data set first you will see that 425 SMS
-16:43
-spam messages were manually
-16:46
-extracted uh this is a UK Forum in which
-16:48
-cell phone users make public claims
-16:50
-about SMS spam messages so 425 spam
-16:54
-messages and they also have 322 more
-16:56
-spam messages which are publicly
-16:58
-available some other website so overall
-17:00
-there are 747 spam messages now let's
-17:04
-look at the no spam so in no spam they
-17:07
-have a large number of messages as you
-17:08
-can imagine it's it's easier to Source
-17:12
-legitimate no spam messages the way they
-17:15
-collected no spam messages is at the
-17:18
-department of computer science at the
-17:19
-National University of Singapore so
-17:22
-naturally if it's emails originating in
-17:25
-the University between students uh they
-17:28
-are likely to be not spam so we have
-17:30
-much larger no spam messages compared to
-17:33
-spam messages so the data set is a bit
-17:36
-not balanced and the no spam messages
-17:38
-are also called ham messages I'm not
-17:41
-sure why this terminology exists but no
-17:44
-spam messages are called ham and the
-17:46
-spam messages are just called spam
-17:47
-messages so this is the data set you can
-17:50
-even download the data set from here or
-17:53
-you can just run the code which I will
-17:54
-be providing to you which downloads and
-17:56
-unzips the data once you run this piece
-17:59
-of code the data set will be downloaded
-18:01
-onto your local machine and uh it will
-18:05
-be downloaded in this collection SMS
-18:07
-spam collection. tsv so here you can see
-18:11
-on my vs code there is this folder
-18:12
-called SMS spam collection and this is
-18:15
-the tsv file which I'm showing on the
-18:17
-screen to you right now uh so here you
-18:19
-can see that the messages can either be
-18:21
-ham which is no spam or spam so ham
-18:25
-means not a Spam and spam is of course
-18:27
-spam so as expected spam uh is free
-18:30
-entry and uh winner basically as things
-18:33
-like this so here we can see that these
-18:35
-emails are indeed making sense and this
-18:37
-classification is making sense so this
-18:40
-is the entire data set which you can
-18:42
-download either through code or you can
-18:44
-download it from the UC repository which
-18:47
-I just showed you once the data set is
-18:49
-downloaded what you can do is that you
-18:51
-can use pandas and you can convert it
-18:53
-into a data frame so that reading the
-18:55
-data becomes much more easier so you can
-18:57
-print out the data frame and it looks
-18:59
-something like this so the label is
-19:00
-either ham or spam so here we can see
-19:04
-that there are total 5572 rows so 5572
-19:08
-emails but now we can print the value
-Coding: Balancing the dataset
-19:11
-counts for the label in this data frame
-19:14
-so the label is a column name and we can
-19:17
-print out the number of ham entries
-19:19
-which are 4825 which are no spam and the
-19:22
-number of spam entries is much lesser
-19:24
-which is
-19:25
-747 now uh what what we can do here is
-19:29
-that we need to make the data set
-19:31
-balanced right there are number of ways
-19:33
-to make the data set balanced but we
-19:35
-will uh take a simple approach here
-19:38
-since this is not a classification
-19:39
-machine learning class this is a class
-19:42
-on large language models so we are going
-19:44
-to take a simple approach and we are
-19:45
-just going to randomly take 747 entries
-19:49
-from no spam so that the number of no
-19:51
-spam and the number of spam emails match
-19:53
-each other both should be
-19:55
-747 so as has been written here for simp
-19:58
-licity and because we prefer a small
-20:00
-data set for educational purposes we
-20:03
-subsample the data set so that it
-20:04
-contains 747 instances from each class
-20:08
-so this is a function which creates a
-20:10
-Balan data set what this function is
-20:11
-going to do is that it's it's going to
-20:14
-randomly sample ham instances so that we
-20:17
-can match the number of spam instances
-20:19
-that's equal to 747 it's done by this
-20:22
-line of code uh and then we combine the
 
+* Step-1: Download and process dataset
+* Step-2: Creating dataloaders
+
+
+```python
+import urllib.request
+import zipfile
+import os
+from pathlib import Path
+
+url = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip"
+zip_path = "sms_spam_collection.zip"
+extracted_path = "sms_spam_collection"
+data_file_path = Path(extracted_path) / "SMSSpamCollection.tsv"
+
+def download_and_unzip_spam_data(url, zip_path, extracted_path, data_file_path):
+    if data_file_path.exists():
+        print(f"{data_file_path} already exists. Skipping download and extraction.")
+        return
+
+    # Downloading the file
+    with urllib.request.urlopen(url) as response:
+        with open(zip_path, "wb") as out_file:
+            out_file.write(response.read())
+
+    # Unzipping the file
+    with zipfile.ZipFile(zip_path, "r") as zip_ref:
+        zip_ref.extractall(extracted_path)
+
+    # Add .tsv file extension
+    original_file_path = Path(extracted_path) / "SMSSpamCollection"
+    os.rename(original_file_path, data_file_path)
+    print(f"File downloaded and saved as {data_file_path}")
+
+try:
+    download_and_unzip_spam_data(url, zip_path, extracted_path, data_file_path)
+except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+    print(f"Primary URL failed: {e}. Trying backup URL...")
+    url = "https://f001.backblazeb2.com/file/LLMs-from-scratch/sms%2Bspam%2Bcollection.zip"
+    download_and_unzip_spam_data(url, zip_path, extracted_path, data_file_path) 
+```
+
+
+```python
+import pandas as pd
+
+df = pd.read_csv(data_file_path, sep="\t", header=None, names=["Label", "Text"])
+df
+```
+
+```python
+print(df["Label"].value_counts())
+```
 
 ***
 
@@ -642,6 +429,7 @@ lot everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
