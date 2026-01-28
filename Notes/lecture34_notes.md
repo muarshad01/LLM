@@ -4,106 +4,14 @@
 
 ***
 
+* 5:00
 
-5:34
-the reason we are using this data set and data loaders is ultimately we want to take our data set and convert it into
-5:40
-input Target batches like these so this is just one batch we'll have multiple batches since we have 747 samples so
-5:48
-this is a batch of only eight samples so this is where we want to reach at the end of the lecture uh but
-Equal text length for all data samples
-5:55
-at the start of the lecture we are at this point where we have uh text
-6:00
-um and here I have provided a snippet of what each email looks like and we have labels as zero or one this is where we
-6:07
-are right now but here if you see we want every text email to be of the same
-6:13
-token length right however if you look at the email length the email length is
-6:18
-not the same one email might be longer one email might be shorter how do we make sure that all the email or all the
-6:26
-text messages rather are of the same length so the first problem is that in our data set the text messages are of
-6:32
-varying length but we want to create a batch like this right and when we are dealing with batches every every row
-6:39
-here should have the same number of columns so we need to somehow make sure that every text message has the same
-6:45
-length and there are two options to do this first what we do is that you check
-6:50
-all the emails and then you find that email which has the shortest length so let's say let's say there are five
-6:57
-emails right now and who lengths I've given to be representative by these
-7:03
-sizes there are five emails the first option is that you just look at the shortest length which is this and you
-7:08
-truncate all other emails to this and you get rid of the remaining
-7:14
-part in all these other images so then the size of all the emails will be the same or the text messages and then we
-7:20
-can group them in a batch can you think of what the disadvantage would be of this particular
-7:27
-approach the disadvantage would be that that will lose all of this information which is present otherwise in the longer
-7:34
-text so if the data set consists of emails which are much longer than this
-7:40
-shorter shortest email then we'll lose all of that data so this is not a recommended approach so what can we do
-7:47
-as an alternative approach well the alternative approach is as follows what if we use the longest so what if we use
-7:55
-the first let me rub this so that um all of us are on the same page okay so I've
-8:01
-rubb this now so what if we use the longest email uh let's say this is the
-8:08
-longest email and then for all the other emails we pad them with certain tokens
-8:14
-we pad them which means we add additional tokens till they reach the longest
-8:19
-email so this is what we are actually going to do because this will make sure that we don't lose out on any
-8:25
-information so your question would be what are we going to pad them with we are going to pad them with a token which
-End of text padding
-8:31
-is called as the end of text token I'll talk about this in a moment
-8:39
-uh but first let me illustrate what does it mean by we are going to pad all the
-8:44
-messages to match the length of the longest message so the way this looks like is that let's say we have a first
-8:51
-text message we tokenize it first right and the way to
-8:56
-tokenize Any Given sentence is basically we are going to use the bite pair encoder so if you have followed the
-9:03
-previous lectures there is this Library called tick token and tick token is a tokenizer library which open AI uses
-9:10
-what this tick token does is that you give it any sentence it converts it into a bunch of token IDs now it's a bite
-9:18
-pair encoder which means every word is not equal to one token let's say if you have given the word hello word this will
-9:24
-not just be two tokens simply or three tokens because of the space bar bite pair encoder is a subword tokenizer so
-9:32
-it's a bit more complex than that and uh based on this tokenizer um every
-9:38
-sentence will be converted into a bunch of tokens so the first step is that we are going to take input messages and we
-9:45
-are going to tokenize them uh using the bite pair encoder tokenizer which is the
-9:50
-one which also GPT models use so every text is going to be converted into token IDs like this now of course some text
-9:58
-would be longer some would be shorter so the number of token IDs won't match what we are then going to do is that let's
-10:04
-say I have only three text messages in the data set this looks to be the longest right so what I'll do is that
-10:11
-for the other ones I'm going to pad this with a token called f token named 50256
-10:18
-until uh the length of all the token IDs is the same now what is this
-
-
+* [tiktoken - OpenAI](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html)
 
 ***
 
+* 10:00
 
-10:24
 50256 let me uh show you what this 50256 is so here's what I'm showing you on the
 10:31
 screen right now is the vocabulary which is used by gpt2 what is meant by vocabulary is that there are tokens and
@@ -518,4 +426,5 @@ lecture
 
 
 Coding th
+
 
