@@ -18,124 +18,11 @@
 
 * 20:00
 
-gpt2 tokenizer from tick token and then allows us to pad or truncate the
-20:14
-sequences to uniform length defined by either the longest sequence or predefined maximum length if the user
-20:21
-defines their own maximum length what we can now do is we can create an instance of the spam data set class using the
-20:27
-train. CSV file uh which we obtained in the previous lecture and here you can see I do not
-20:34
-set the maximum length so the maximum length is computed from the data set itself and when you print the maximum
-20:39
-length you can see that it's 120 that makes sense uh since the longest sequence in our data set contains no
-20:46
-more than 120 tokens it seems like a common length for text messages so one
-20:51
-sentence is around 15 to 20 tokens let's say so six sentences uh then that's the maximum
-20:57
-length so it's worth noting that the model can handle sequences of up to 1024
-21:02
-tokens because the context length of gpt2 which we have defined as the model here is
-21:08
-1024 right so you can pass max length Max up to a maximum value of 1024 over
-21:15
-here when you call this function um now what we are going to do
-21:20
-is that we are also going to uh pad the validation and test data sets to match the length of the longest training
-21:27
-sequence it it is important to note that any validation and test samples exceeding the length of the longest
-21:33
-training examples are truncated so now what we are going to do is that when we create an instance of the spam data set
-21:39
-class for the validation and the test data set we pass in the maximum length and that maximum length will be equal to
-21:46
-120 which is the maximum length in the training data set so we will encounter
-21:51
-this Loop where maximum length has been defined so there might be some sequences
-21:56
-in the tra testing and validation set which are last lger than the maximum length so we will need to truncate those
-22:01
-sequences that's what I've written over here however one thing to not is that
-22:07
-you can even set the maximum length equal to none here there is no such requirement that the maximum length
-22:12
-which you set here has to be equal to the maximum length in the training data set uh you can try out by setting this
-22:19
-to none as well okay now uh so here you can see
-22:24
-that you can create instances of the validation data set and the testing data set as well and then you can print out
-22:31
-the maximum length but right now if you print out the maximum length it will just be equal to 120 because we have
-22:37
-passed in that so if you print out the maximum length you can see that it's 120
-22:43
-because we passed in this parameter as a user defined and this was already
-22:49
-120 all right now the data set has been defined right now the data set will
-Coding the Data Loaders
-22:55
-serve as an input to the data loader so so remember there are two things here first uh we have to implement a data set
-23:03
-and the data set will then be served as an input to the data loader so now what
-23:08
-we are going to do next is that we are going to use the data set as the input and then we will instantiate data
-23:14
-loaders right uh okay so in when we create or when we pass the data set as
-23:21
-an input to the data loader remember that we can set the batch size and we can also set the number of workers
-23:27
-that's for parallel processing so here what we are doing is that we are setting the batch size equal to 8 and we
-23:32
-are setting the number of workers equal to zero setting number of workers equal to zero is just for the sake of
-23:38
-Simplicity we don't want any parallel processing here drop last equal to True
-23:43
-means that if the last batch has a smaller data we just drop it uh great so
-23:51
-now here you can see train loader you create an instance of the data loader and then you pass in the train data set
-23:58
-as the input you similarly you can create the validation loader and the test loader as well so now this test
-24:05
-loader validation loader and trade loader when you run this part they'll be initialized and then you can use these
-24:11
-loaders to essentially create entire data sets in this format what I'm showing to you on the screen right now
-24:17
-so for example when you run the training data loader and you can extract batches from it now you can extract the first
-24:24
-batch and then it will give you the uh encoded and the you can extract the
-24:29
-second batch you can extract the eighth batch in a very easy manner so after you run this what we can now do is that we
-24:36
-can run a test to make sure that the data loaders are working and indeed returning batches of the expected size
-24:43
-so here what I'm doing is that I'm iterating through the training data loader uh right till the end and then
-24:49
-then I'm going to print the input badge Dimension and the label batch Dimension so if you uh iterate through the
-24:56
-training loader till the end you'll see that the input badge Dimension has the size of 8 by 120 can you think what this
-25:02
-means and the label badge Dimensions has torch dot size 8 can you try to think what this means you can pause the video
-25:09
-here for a moment so these input B Dimension means that since the batch size was eight
-25:16
-every input batch has eight rows and 120 columns because the maximum token ID
-25:22
-length was 120 so this is exactly what I've shown you over here right on the screen what you're seeing right now
-25:29
-uh on the screen what you're seeing is if you look at yeah if you look at this first answer
-25:38
-this right here what I'm showing with the arrow right now that that's the input badge and if you look at this input
-25:45
-batch you'll see that it has eight rows and it has 120 columns so that's why the size here is 8 by
-25:52
-120 okay similarly you can look at the labels label sensor and here you can see
-
-
 ***
 
+* 25:00
 
-25:59
+
 that it just has eight rows over here and it can either have zeros or ones so that's why the size here is 8 and this
 26:07
 what I'm showing here is just one batch remember that there are 747 uh examples corresponding to spam
@@ -235,6 +122,7 @@ lecture
 
 
 Coding th
+
 
 
 
