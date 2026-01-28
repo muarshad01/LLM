@@ -129,6 +129,7 @@ $ uv run jupyter lab
 #### TODO
 1. [Build DeepSeek from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)
 2. [Reasoning LLMs from Scratch (Reinforcement Learning)](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSijcbUrRZHm6BrdinLuelPs)
+3. [Build a Diffusion Language Model from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZShhDDPgy1ygii42nwOngUaf)
 
 ***
 
