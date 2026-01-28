@@ -12,119 +12,12 @@
 
 * 10:00
 
-50256 let me uh show you what this 50256 is so here's what I'm showing you on the
-10:31
-screen right now is the vocabulary which is used by gpt2 what is meant by vocabulary is that there are tokens and
-10:37
-every token has an Associated token ID right so now if you scroll down to the
-10:42
-end of this you'll see that the vocabulary size which gpt2 uses is
-10:48
-essentially uh 50257 so it starts with 0 the token
-10:54
-ID and if you look at the last entry in this vocabulary it's this end of text and and the token ID corresponding to
-11:00
-this end of text is 50256 this signifies that we have reached the end of a document and or end
-11:08
-of a sentence and then we are starting the next sentence so typically this end of text token is used by while training
-11:15
-GPT to distinguish between separate document sources and what this vocabulary means is that essentially if
-11:21
-you are given any text right um it's first the text is essentially converted
-11:27
-into a bunch of tokens and then those tokens are assigned token IDs based on this vocabulary or based on
-11:34
-this dictionary so it's kind of the you can think of it like a dictionary Oxford
-11:40
-dictionary right you have words and you have their meanings similarly here you have words and there is a token ID
-11:46
-associated with each word so remember this 50256 that's essentially the end of text what we are going to do here is
-11:53
-that all the text messages which have a lesser number of token IDs we are going
-11:58
-to append them with this end of text as the padding token 50256 ideally we can use any token as
-12:05
-the padding token but the thing is the end of text just is makes symbolic sense
-12:10
-right because it signifies that there are no additional letters over here so
-12:16
-when the model will encounter end of text it will not get confused by any random word so that way that's why we
-12:23
-have used 50256 okay so overall the workflow which
-12:29
-we are going to follow is going to look like this we have the we have the input text which is the CSV files in the code
-12:36
-right now we have the train validation and test input text we are going to use a tokenizer and we are going to convert
-12:43
-this input text into a bunch of token IDs then what we are going to do is that we are going to look for that sentence
-12:49
-or that email in our data set which is the longest email and then we are going to make sure that all the text messages
-12:55
-have that same length by padding them with this uh end of text token of
-13:01
-50256 now let me take you through code and show you how this is exactly
-Coding the Spam Dataset class in Python
-13:07
-implemented okay so uh
-13:13
-yeah so as we have seen earlier we first need to implement a pytorch data set
-13:18
-which specifies exactly how the data is loaded and processed before we can instantiate the data loader so there are
-13:25
-two things here there is a data set and data loader data data set specifies the
-13:30
-how how the data is supposed to be loaded what are the input and Target Pairs and data loader essentially then
-13:36
-we can instantiate the data loader but first the data set needs to be defined so that's why initially what we are
-13:42
-going to do is we are going to define the spam data set class what this class is going to do is that first of all it's
-13:49
-going to identify the longest sequence in the training data set why do we need the longest sequence because we are
-13:54
-going to make sure that all the sequences are of the same length as the longest sequence second what it does is
-14:00
-that it takes every text message and then it converts it into token IDs and finally the most important thing it does
-14:07
-is that it ensures that all the other sequences are padded with a padding token to match the length of the longest
-14:13
-sequence essentially this spam data set class is going to perform all of the three steps which we described over
-14:20
-here so let's get right into it and start understanding the class when you create an instance of the spam data set
-14:27
-class you will need to specify some things so first you have to specify the CSV file so imagine that we have given
-14:33
-the training data CSV file right and uh second you have to specify what is the
-14:39
-tokenizer which you're using we are going to use this tick token Library a bite pair encoder tokenizer to convert
-14:47
-the um to convert essentially the sentence into a bunch of tokens and then those tokens will be converted into
-14:54
-token IDs right then we have to specify the max ma length so this max length is
-15:00
-basically if you look at the output batch which we saw the max length will
-15:06
-be the maximum um length of the email in the entire data set so we are going to
-15:13
-look at that email which is the longest length but here what we have given is that we have even given a provision for
-15:18
-the user to externally Define the maximum length that is also possible um now the pad token ID is
-15:25
-50256 this means that all the emails which have length shorter than the maximum length we are going to pad them
-15:32
-with 50256 so the first step as we have seen on the Whiteboard over here first step
-15:37
-is this tokenization right so what we are going to do is that we are going to take the tokenizer and this will be the
-15:44
-bite pair encoder tokenizer uh we are going to take the text which is the text file
-15:52
-um and then what we are going to do is that we are going to take every single sentence and then we are going to convert that sentence into a bunch of
-
+* `<|endoftext|>`  is token ID 50256 for GPT-2
 
 ***
 
+* 15:00
 
-
-15:59
 token IDs so tokenizer encod takes sentences converts it into tokens and
 16:04
 then using the vocabulary converts those tokens into token IDs so this data is
@@ -426,5 +319,6 @@ lecture
 
 
 Coding th
+
 
 
