@@ -1,109 +1,6 @@
-finetuning
-0:00
-[Music]
-0:05
-hello everyone welcome to this lecture in the build large language models from scratch Series in the last lecture we
-0:12
-started learning about fine tuning about large language models fine tuning and we
-0:19
-saw that fine tuning essentially is adapting a pre-trained model to a specific task by training the
-0:27
-model on additional data and then we saw that there are essentially two types of
-0:32
-fine tuning the first type is instruction fine tuning and the second type is classification fine
-0:39
-tuning we went a step further in the previous lecture and we started working on a Hands-On project which was based on
-0:46
-classification fine tuning the problem which we considered was that of email classification and uh
-0:55
-the whole goal in this problem was for us to use a large language model for a
-1:00
-specific task and that task was to look at emails and to classify them into either
-1:07
-of the two categories either spam or not a Spam right so in the last lecture what
-1:14
-we did was we looked at the first two steps which I've mentioned in stage one over here we downloaded the email data
-1:21
-set and we pre-processed the data set so let me quickly revise what all we implemented in the previous lecture so
-1:29
-here's the email data set which we collected from the UC arvine machine learning repository it had a data of
-1:36
-around 747 spam emails and more than 3,000 not
-1:41
-spam emails not spam is also called ham over here so it's basically a
-1:47
-classification between ham and spam what we did then in the code was that we downloaded this data set so here
-1:54
-you can see that we had a function for downloading and unzipping the data set and we took a look at the form of the
-2:00
-data set so we saw that every U every point or every entry in the data was
-2:06
-essentially a text and then there was a label ham which means no spam and spam
-2:11
-right and then we saw that there were 4825 entries for no spam and there were
-2:18
-only 747 entries for a spam what we did next was that we balanced the data set
-2:24
-we randomly sampled 747 entries from no spam so that the entries of both spam as
-2:30
-well as no spam is equal to 747 then what we did was instead of having spam and ham as labels we encoded
-2:37
-them so ham was encoded to zero and spam is encoded to one finally we took the
-2:43
-entire data set and we split it into training testing and validation we used 70% of the data for training 10% of the
-2:51
-data for validation and the remaining 20% of the data for
-2:56
-testing and U we converted our dat data frames into CSV files so at this stage
-3:03
-where we are in right now we have the CSV files for the training data the validation data and the testing
-3:09
-data eventually what we need to do is that we need to use a large language model architecture something like what
-3:15
-I've defined over here what will feed into this architecture is
-3:20
-the input text and what we will aim to get out of this is whether it's a
-3:27
-Spam so whether it's a Spam or it's not a
-3:32
-Spam however to reach this model stage there is still one more step which needs to be done and that is the main purpose
-Datasets and Dataloaders introduction
-3:39
-of today's lecture in today's lecture we are going to learn about creating data loaders so if you remember we have
-3:47
-learned about data loaders earlier when we looked at llm pre-processing and we
-3:52
-saw that input Target pairs in a large language model needed to be fed through a data loader it just better to manage
-3:59
-the data and at that time we had utilized the data set and data set and data loader in pytorch
-4:08
-so if you type data set and data loaders in pytorch you will see that pytorch provides t.s. datal loader do. u.d. dat
-4:18
-set that allows us to use our own data set uh to essentially we can get easy
-4:24
-access to samples we can easily run batches on our data we can even do
-4:29
-parallel processing so it's highly recommended to use data sets and data loaders I'll explain to you what these
-4:35
-mean exactly um and that's the main purpose of today's lecture essentially you can think of today's lecture as okay
-4:42
-we have got the data set how do we bucket them into input Target pairs so
-4:48
-that we manage the data quite effectively right okay so let's see uh
-4:53
-ultimately we at the end of the lecture we want to get to a stage like this where let's say an email is given we
-5:02
-want to convert this email into tokens and we want every single image to be converted into the same number of tokens
-5:09
-so that one so this is one full batch you can see that this batch consists of eight emails and all the emails have a
-5:16
-length of 120 tokens this will be my
-5:22
-input and corresponding to each input email that is either zero or one so
-5:27
-here's my input tensor over here and this is is my target tensor over here the reason I'm creating data loaders and
 
-
+* [Datasets & DataLoaders](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html)
+* (Input, Target) pairs
 
 ***
 
@@ -621,3 +518,4 @@ lecture
 
 
 Coding th
+
