@@ -16,92 +16,8 @@
 
 ***
 
-* 15:00
+* 20:00
 
-token IDs so tokenizer encod takes sentences converts it into tokens and
-16:04
-then using the vocabulary converts those tokens into token IDs so this data is
-16:09
-pd. read CSV so let's say we have passed this CSV file first we'll store the data
-16:16
-of the P of the CSV file into this data object and then what we'll do is that we'll look at every single email or text
-16:23
-message in this data and convert it into a bunch of token IDs to get a sense of the visual representation of this take a
-16:30
-look here so at this first step what we are doing is that we taking every single
-16:35
-text message and converting it into a bunch of token IDs right now if the user
-16:40
-has not specified a maximum length here what we'll first do is we'll find the maximum length of the text message in
-16:47
-the entire data set and that will be found through this longest encoded length token longest encoded length
-16:53
-function and if you scroll down below you'll see the longest encoded length what it does is that it just finds the
-17:00
-length of all of the text messages and then it Returns the maximum length uh
-17:07
-among all the text messages so now max length variable contains the longest
-17:12
-email length right this is if the user does not specify the max length if the
-17:17
-user has specified the max length then the max length will be equal to whatever the user has specified awesome now if
-17:25
-there are some sequences in the data set which are longer than the max maximum length this might happen if the user has
-17:31
-specified the max length and there are some sequences which are longer than the maximum length we'll have to truncate
-17:37
-those text messages so that their length equals the maximum length if the maximum
-17:43
-length is selected from the data itself this problem will not arise uh right now this is the next part
-17:51
-which is the most important what we do is that for all the text messages we are going to
-17:59
-append the token IDs this pad token ID which is 50256 we are going to append it
-18:05
-and how many such token idies we are going to append we are going to append how many our token IDs which are needed
-18:11
-to get that text message to the maximum length so that is essentially shown in
-18:17
-this step we are going to append the token IDs append the 50257 token ID to
-18:22
-all the text messages so that all of them have the same size and what is that size that size is max length
-18:31
-great and then finally this function is the most important what this function will do is that it will uh create two
-18:38
-such tensors it will create a tensor name encoded and it will create a tensor named label the tensor named encoded
-18:46
-basically uh will will make sure that every text message has
-18:51
-uh has this kind of a encoding in terms of token IDs like this what I've shown
-18:56
-on the screen right now so let me just re name this a bit so this Matrix which you seeing on the screen right
-19:03
-now and let me Mark it this this Matrix here that is the encoding Matrix or the
-19:10
-encoded uh let me check the name here the name is encoded so this is the encoded Matrix or tensor I should call
-19:17
-it and this Matrix which I'm or this tensor which I'm highlighting right now that's the label so what this data set
-19:24
-will do is that the main function it will is the get item function and when you you call get item it will convert
-19:30
-the data set into two tensors the encoded tensor and the labeled tensor the encoded will make sure that every
-19:36
-sentence in the data set is converted into a bunch of token IDs and all of the sentences have equal length so that they
-19:43
-can be batched together and then the label s tensor will just have zeros or
-19:48
-ones right so this is essentially uh what we are doing in the spam data set
-19:55
-class okay now uh I have just written here what the spam data set class does
-20:01
-the spam data set class loads the data from the CSV files which we have created earlier tokenizes the text using the
-
-
-
-***
-
-
-20:09
 gpt2 tokenizer from tick token and then allows us to pad or truncate the
 20:14
 sequences to uniform length defined by either the longest sequence or predefined maximum length if the user
@@ -319,6 +235,7 @@ lecture
 
 
 Coding th
+
 
 
 
