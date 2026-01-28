@@ -91,6 +91,7 @@ $ uv run jupyter lab
 
 ***
 
+* [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF)
 * [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)
 * [[Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)
 * [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)
