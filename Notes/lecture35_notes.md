@@ -17,101 +17,12 @@
 
 * 15:00
 
+***
 
-not given the model any data set about our spam or no spam so far we are just checking whether based on the gpt2
-15:39
-training itself can it answer this so when you pass it through the generate teex simple function let's see the
-15:45
-answer so this is the question and the answer with gpt2 generates is that the following teex spam answer with yes or
-15:53
-no you are a winner so it clearly fails the model struggles with following
-15:58
-instructions and this is because the model has only undergone gone pre-training right it
-16:03
-lacks any fine tuning so without any classification fine tuning as we saw the model is not being able to uh perform
-16:11
-correctly and that is expected so now let us go to step
-Adding classification head to model architecture
-16:16
-number let us go to step number two so step number one was loading prer and
-16:21
-gpt2 weights into the model and that we have finished right now and now we are moving to step number two step number
-16:28
-two is modif ifying the architecture by adding a classification head so let me explain this to you in detail actually
-16:35
-so you might be thinking that our model has been trained to predict the next token right how are we doing
-16:41
-classification so here's the part where this magic happens so if you remember the output layer so let's look at this
-16:47
-linear output layer in the text classification or in the text generation task for which this
-16:54
-llm is typically trained on this output layer looks like this where you have input which is 768 of the embedding
-17:01
-Dimension size and the output is equal to 50257 because that's the vocabulary
-17:06
-size so when you have every effort
-17:13
-moves you if this is the input the output for every for every Row the
-17:19
-output will have 50257 columns because that's equal to vocabulary size so there will be 50257
-17:27
-entries for every 50 257 entries for effort 50257 entries for moves and 50257
-17:34
-entries for youu so if you want to predict the next token after every effort moves you you look at the final
-17:40
-row and then you choose that token ID with the maximum probability that gives you the next token this is how you
-17:45
-predict the next tokens but now we don't need the next token prediction right now
-17:51
-our job is to Simply classify whether it's a yes or no so what we are going to
-17:56
-now do is that uh we are going to do the same thing but the output Dimension will
-18:01
-change every effort moves you this is my input right now for every token we want
-18:07
-two outputs either it's a yes or it's a no so two outputs for every two outputs for
-18:14
-effort two outputs for moves and two outputs for U so to get the final answer we are going to look at the final row
-18:21
-which is U since it contains all of the previous information and then we are going to see the yes value and then we
-18:27
-are going to see the no value these values will be indicative of probabilities so then we are going to
-18:33
-based on Which is higher we'll classify whether it's spam or no spam so instead of having this final neural network
-18:40
-output layer size is 50257 we are going to replace replace
-18:47
-the original linear output layer with a layer that maps from 768 hidden units
-18:52
-into only two units and what are these two units corresponding to the two units are corresponding to Simply span
-18:59
-uh versus no spam this is the only change which we
-19:05
-are going to do in the llm architecture when I saw this for the first time I was pretty Amazed by it because I had never
-19:11
-seen a classification head so this can be thought of as the classification head right now so let me just write the name
-19:18
-this can be thought of as a classification head I was pretty Amazed by this because
-19:25
-I had only done classification using neural networks and decision Tre before I never thought you can add this
-19:31
-classification head on top of a GPT architecture and use that itself as the classifier it might be overkilling it
-19:39
-because even a decision tree or a neural network might work but this is just a fun application to consider that llms
-19:44
-can actually be used to perform classification tasks whether llms perform better than neural networks or
-19:50
-decision trees that's a question of open research and that needs to be figured out
-19:56
-still okay so this is the classific head now which is added on top of the GPT model architecture and that is used to
-20:04
-classify whether the answer is yes or no okay one more thing which I would like
-Select layers which want to fine-tune
-20:09
-to mention before we dive into the code is that we can actually select which layers we want to find tune so of course
-20:15
-when you add this classification head this was not present in the original gpt2 architecture so these parameters we
-20:21
+* 20:00
+
+* Step-3: Select which layers you want to finetune
+
 will need to find tune but we have an option to choose among all of these parameters uh gpt2 has already given me
 20:29
 many parameters so how much do I need to find tune so that's a call which you need to make right so one thing which I
@@ -401,6 +312,7 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
 
 
 
