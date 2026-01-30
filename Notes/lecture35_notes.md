@@ -39,102 +39,10 @@
 
 * 25:00
 
-hardcoding the output nodes but we are getting the number of classes and we are setting the final number of output nodes
-26:04
-equal to that so for example if you have three classes such as technology sports or medicine our same code is going to
-26:11
-work for this modification because then the final number of output nodes will be equal to three that just a small detail
-26:17
-which I wanted to mention so before we construct the model architecture we can print the original model architecture so
-26:24
-we print out the original model architecture and you can see that there are 12 Transformer blocks so here you
-26:31
-see so the number of Transformer block goes from 0 to 11 that's why there are 12 Transformer blocks and there is an
-26:37
-output projection layer at the end um awesome so this is the output
-26:42
-head so here you see this has input dimension of 768 and output feature dimension of 50257 this is the one which
-26:49
-we plan to change to two instead of 0257 we just want two as the output
-26:55
-features uh so as discussed earlier the GPT model consists of embedding layers token embedding and positional embedding
-27:02
-followed by 12 identical Transformer block followed by a final layer normalization and the output layer
-27:09
-output head so what we are going to do is that we are going to replace the output head with a new output layer as
-27:15
-we have Illustrated in this figure over here we want to replace this original output head with this new output head
-27:22
-right to do that to get the model ready for classification fine tuning we first freeze the model which means that we are
-27:29
-going to first make all the layers non-trainable so the way to freeze the
-27:34
-entire model is that we just do for all the parameters in model. parameters we
-27:40
-say that requires grad is equal to True equal to false which means that we are not going to update this parameter at
-27:46
-all which means that we are going to freeze all the model parameters then we are going to we are going to tell this
-27:53
-model which are the parameters which we are going to find tune so as I mentioned
-27:58
-there are three sets of parameters which we are going to fine tune there is the final output head there is the final
-28:04
-Transformer block and there's the final layer Norm module so first let's modify the final output head architecture so we
-28:11
-are going to say that model. output head is now the size is input features are
-28:17
-the embedding Dimension the input feature Remains the Same that's equal to 768 the output features now is equal to
-28:24
-the number of classes so if number of classes equal to two the output features will will be two which is in this case
-28:29
-spam versus no spam if number of classes is three the output features will be equal to three so that's one simple
-28:35
-change which you make this indicates to pytorch that these parameters need to be updated these parameters need to
-28:42
-change um okay so this new model model. output output layer has its requires
-28:50
-grad attributes set to True by default which means that it's the only layer in the model that will be updated during
-28:56
-training so here we have freezed all the parameters but when we change the model output head structure the new model
-29:02
-output head output layer has requires grad attribute set to True by default which means we are going to update those
-29:09
-parameters uh so additionally as I mentioned we are going to update two more sets of parameters we are going to
-29:15
-look at the last Transformer block the 12th Transformer block and we are going to modify its parameters as well and we
-29:22
-are going to look at the final layer normalization uh which connects the output of the Transformer block to the
-29:29
-final output head these we are going to make as trainable so I mentioned this to you over here right the final
-29:34
-Transformer block and the final layer normalization those we are going to make trainable so here you see what I'm doing
-29:41
-I'm saying that you look at the Transformer blocks and this minus one indicates that you look at the last
-29:47
-Transformer block you look at the parameters in the last Transformer block and then you set all of those parameters
-29:53
-to be equal to trainable by setting requires grad equal to true and then you look at look at the model final
-29:59
-normalization parameters which will be shift and scale and those you change to params do required grad equal to true
-30:05
-now you see there is a lot of scope for experimentation here you can even switch this off and try to see the result you
-30:11
-can make the parameters of last two Transformer blocks to be trainable you can switch this off you can see the
-30:17
-results you can maybe make this as false and check the results so whatever code which I'm showing to you right now
-30:23
-there's a lot of room for exploration over here awesome so now you can see that we
-30:29
-have added a new output layer and Mark certain layers as trainable or non-trainable great so let us just take
-30:36
-one sample input so the sample input corresponds to do you have time uh so
-
-
 ***
 
+* 30:00
 
-
-30:42
 this has four token IDs and what we are going to do is that we are going to pass the inputs through our model now and
 30:47
 let's see the output so as expected do has two tokens you has two tokens have
@@ -215,6 +123,7 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
 
 
 
