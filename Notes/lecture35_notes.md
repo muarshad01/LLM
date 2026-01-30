@@ -1,108 +1,18 @@
 ## Model initialization with pre-trained weights
 
-
 ***
 
 * 5:00
 
-gpt2 and then we will modify the model architecture bit for fine tuning uh and then finally we will
-5:33
-Implement evaluation Utilities in today's lecture we will do step number four step number five and step number
-5:40
-six uh so it will be a comprehensive lecture and let's get started now we
-5:46
-have these data loaders training testing and validation so now we come to the GPT architecture so here you see in this
-5:52
-lecture Series so far we have constructed this architecture which is uh which I zoomed in on the screen right
-5:58
-now uh don't focus on these two images on the right just look at this Gray colored architecture this is the llm
-6:04
-architecture which we have focused up till now what we are going to do first is that we are going to first load the
-Loading OpenAI GPT-2 pretrained weights
-6:10
-pre-trained gpt2 weights into this architecture and if you have not seen
-6:15
-the previous lectures let me just give you that recap open a has basically made the gp2 gpt2 weights free freely
-6:22
-available to the public and they have made weights available for multiple parameters 107 million 124 million 7 74
-6:30
-million Etc opena even had a public announcement for uh gpt2 and that they release these
-6:37
-weights what we are going to do is that instead of pre-training ourselves which would involve a huge amount of cost and
-6:44
-computational resources we are just going to load the pre-trained GPT 28s into this GPT model and we have done
-6:51
-this before when we uh when we trained our large language model so let's get
-6:57
-into code right now to see how this part is done and then we'll move to step number two okay so I'm going to take you
-7:04
-to code right now most of this lecture which we are going to do today will involve going through the code so I'll
-7:10
-explain each part of the code to you step by step okay so now our first task is to
-7:16
-prepare the model which we will use for classification fine tuning to identify spam messages and what we are going to
-7:22
-do is that we are going to use the same architecture which we have used and then load the pre-trained weights later later
-7:29
-we'll do a slight modification at this final layer but for now let's just see how to load the pre-train weights so you
-7:36
-can see that uh GPT when you download the weights from gpt2 you'll have models
-7:41
-small model medium large and the extra large we are going to choose the GPT small with gpt2 small which has 124
-7:49
-million parameters right so we have a base configuration which means that the vocabulary size is 50257 the context
-7:57
-length is 1024 the dropout rate is zero and the query key value bias term is set
-8:03
-to True these are the same values which were used when gpt2 was trained and since we are recycling those weights we
-8:09
-are using the same weights the pre-trend gpt2 weights we are retaining this configuration we are going to upload
-8:16
-this base configuration with the model which we are going to choose and here you see we are choosing from this model
-8:22
-configs dictionary we are choosing this choose model equal to GPT small so we have updated this base configuration
-8:28
-with our model configuration is GPT to small in this last code what we are doing is that if our training data set
-8:36
-has some text messages whose maximum length is greater than the context length which is
-8:41
-1024 uh what we are going to do is that we are going to set the maximum length
-8:46
-equal to the context length in short we are going to remove all of the uh tokens
-8:53
-which have higher length than the context length this is because our llm
-8:58
-can only process tokens with the maximum length equal to the context length and that is equal to 1,24 in this particular
-9:06
-case awesome now that we have the configuration ready what we are going to do is that we are going to uh we are
-9:15
-going to download the gpt2 parameters and there is a specific way to download
-9:21
-the gpt2 parameters and for that I'm going to I'm going to take you through
-9:27
-the code file right now so let me take you through vs code yeah so as I mentioned there is a
-9:34
-specific way to download the GPT parameters and we have written this code called download and load gpt2 what this
-9:41
-code does is that it basically downloads the weights and the entire model details
-9:46
-which have been prescribed by open when they made the gpd2 weights public so we
-9:52
-are going to download all these files and then we are going to convert or we
-9:58
-are going to return two things we going to return settings and we are going to return params what settings is basically
-10:04
-is just these configurations the vocabulary size the context length the embedding Dimension number of attention
-10:11
-heads and number of Transformer layers what this params is basically is that the params is a dictionary uh and
-10:18
-this dictionary has has been constructed in a very specific format so here is how the params dictionary looks like when
+* Step-1: Load pre-trained GPT-2 weights
+* Step-2: Modify the architecture by adding a classification head
 
+* [OpenAI GPT-2 Weights](https://www.kaggle.com/datasets/xhlulu/openai-gpt2-weights)
 
 ***
 
+* 10:00
 
-10:25
 the params dictionary is returned we get five we get a dictionary with five Keys we get token embeddings we get
 10:32
 positional embeddings we get all the parameters which are present in this Transformer block which I'm marking in
@@ -588,4 +498,5 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
 
