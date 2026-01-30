@@ -13,108 +13,11 @@
 
 * 10:00
 
-the params dictionary is returned we get five we get a dictionary with five Keys we get token embeddings we get
-10:32
-positional embeddings we get all the parameters which are present in this Transformer block which I'm marking in
-10:38
-blue right now then we get the final normalization layer scale and shift parameters there's a separate lecture
-10:45
-where we actually explain all of these parameters and how these keys are imported from gpt2 but for now all you
-10:52
-need to know is that when you run this function when you run this function load
-10:58
-uh download and load gpt2 it will give you the settings dictionary which is a list of the uh gpt2 configuration and it
-11:06
-will give you the params dictionary which consists of all the parameters organized in a specific format you get
-11:13
-the token embeddings positional embeddings the Transformer layer parameters and the output final
-11:18
-normalization layer parameters as well essentially the params dictionary contains all the parameters you will
-11:24
-need now let's go back to code again uh right so what we are going to
-11:30
-do is that from this file called GPT download 3 we are going to import download and load gpt2 that's the
-11:36
-function which I just showed you right now and when you run this function you have to pass in two arguments the first
-11:41
-is the model size and the model size we are going to get from this uh choose model and that's going to be 124 million
-11:48
-that's the model size and then you have to pass in the directory where you want to store the parameters so the directory
-11:54
-I'm passing it as gpt2 when you run this code you will get two dictionaries settings and the params
-12:01
-settings will contain the configuration file params will essentially contain all the different um parameters of gpt2 then
-12:11
-what we do is that we initialize a instance of the GPT model class which we have defined earlier uh and then we call
-12:18
-this function load weights into GPT what this function does is that it takes the params dictionary and then it loads all
-12:25
-the weights from params into our model so let me show you what this load dictionary does it takes this
-12:33
-model uh it takes this model which we have created and at all the different
-12:38
-places of this model where there are trainable parameters such as multi-head attention layer normalization feed
-12:44
-forward neural network token embedding positional embedding whatever I have marked with an arrow right now has pable
-12:50
-parameters right so this load this load weights into GPT function
-12:55
-what this does is that it takes the GPT to parameters and it loads all of those
-13:01
-parameters into this model basically you can think of our model being fully
-13:06
-equipped with the best parameters which have directly directly been loaded from gpt2 in one of the previous lectures
-13:13
-which is called pre-training uh we have explained this entire code what is this function load
-13:18
-weights into GPT the GPT model class etc for now just you can just follow along
-13:24
-by understanding that we are loading the parameters of gpt2 into our model so
-13:30
-that our model is already pre-trained and if you have already loaded this before this should run very
-13:36
-fast because the file already exists if you are running this for the first time please keep in mind that the total U
-13:44
-parameter file size which is provided by gpt2 if you see these seven files if you
-13:50
-add it up it comes to be around 500 megabytes so it may take time depending on the internet speed once this is
-13:56
-downloaded you'll see that your model is now updated with all the weights from gpt2 you can even test whether the model
-14:03
-was loaded correctly so you can pass in the input text every effort moves you and then you have the output function
-14:10
-generate teex simple which we had defined earlier what this function does is that it takes in the input text it
-14:16
-passes the input text through our model and then it generates an output so it generate 15 new
-14:22
-tokens so here you can see that every effort moves you is the input and then the 15 new tokens are forward dot the
-14:29
-first step is to understand the importance of your work awesome right which means that the pre-train parameters are working because this is
-14:35
-reasonable this text makes sense it is proper English now until now we are at a
-14:42
-point where the GPT model parameters are loaded into our architecture now we come
-14:47
-to the next stage where we have to start fine tuning the model right but before we start fine tuning the model as a Spam
-14:54
-classifier let's see if our model can already classify spam messages by prompting it with instructions so note
-15:01
-that until now the model just predicts next tokens we have not yet trained it to predict whether spam or no spam but
-15:08
-let's see if our model has inherently learned these capabilities so what I'm going to do is that instead of providing
-15:14
-text such as every effort moves you in the text prompt itself I'm going to say is the following text spam answer with a
-15:21
-yes or no and then I'm going to give the text you are a winner you have specifically selected you have been
-15:27
-specifically selected to receive ,000 cash or $2,000 reward note that we have
-
-
 ***
 
+* 15:00
 
 
-15:32
 not given the model any data set about our spam or no spam so far we are just checking whether based on the gpt2
 15:39
 training itself can it answer this so when you pass it through the generate teex simple function let's see the
@@ -498,5 +401,6 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
 
 
