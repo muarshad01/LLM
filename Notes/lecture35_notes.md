@@ -23,119 +23,22 @@
 
 * Step-3: Select which layers you want to finetune
 
-will need to find tune but we have an option to choose among all of these parameters uh gpt2 has already given me
-20:29
-many parameters so how much do I need to find tune so that's a call which you need to make right so one thing which I
-20:35
-mentioned here is that since we already start with a pre-train model as we have loaded the gpt2 weights it is really not
-20:42
-necessary for us to F tune all the layers this is because the lower layers
-20:47
-such as the token embedding layer the positional embedding layer the layer normalization here Etc these lower
-20:54
-layers really capture the basic language structures and semantics which are applicable across a wide range of tasks
-21:00
-and data set this is very important the lower layers if you see the lower layers
-21:05
-have token embedding which captur captures the semantic meaning it has the positional embedding and then we have
-21:12
-some amount of multi-ad attention Etc where token embeddings are converted into context vectors or input embeddings
-21:18
-are converted into context vectors which contain information about how much attention one token pays to all other
-21:24
-tokens and gpt2 has been trained on huge amounts of tech so it already contains some information
-21:31
-about meaning Etc so if you give an email let's say there is already some intution baked in about whether this
-21:38
-email is kind of a Spam or what kind of information is it representing that information is already captured in these
-21:45
-lower layer somehow because gpt2 is a very smart and intelligent model it does
-21:50
-capture this information so we have a choice as to which layers we want to find tune so the choice which we are
-21:56
-making here is that we are only going to find the last layers so we are definitely going to fine tune this
+* Since we already start with a pretrained model, it is not necessary to finetune all layers.
+* This is because the lower layers capture basic language structures and sementics, which are applicable across a wide range of tasks and datasets.
+* Finetuning last layers is enough.
 
+* We will finetune:
+  * Final output head
+  * Final transformer block
+  * Final LayerNorm module
+  * We'll freeze all other parameters
+
+* Step-4: Extract last output token
 
 ***
 
-22:01
-classification head we will definitely F tune the final linear normalization layer which has the scale and the shift
-22:08
-parameters and we are going to fine tune the final Transformer block so remember
-22:13
-the gpt2 architecture had 12 Transformer blocks like this right instead of fine-tuning all of the
-22:21
-12 Transformer blocks we are only going to f tune the final Transformer block we are going to assume that all the other
-22:27
-Transformer blocks inherently contains some information about what the text in the data represents so this is a good
-22:34
-mix between achieving good accuracy as well as reducing the computational cost
-22:39
-remember if you are to F tune everything again then what's the purpose of loading pre-trained weights right the reason we
-22:45
-loaded pre-train weights from gpt2 is because it would hopefully capture some semantic meaning uh as to what the text
-22:53
-represents so what we are going to do is that we are only going to f tune three things we we are going to fine tune the
-22:59
-final output head which is this classification head over here because of course that was not present in gpt2 then
-23:06
-we are going to find tune the final Transformer block the 12th Transformer block and we are going to f tune the
-23:11
-final layer normalization module that is what we are going to do these three things we are going to fine tune rest
-23:18
-all the other parameters we are going to freeze which means we are not going to train the remaining
-23:24
-parameters uh and one more thing which I wanted to explain before we go to the the code is that let's see here right so
-23:31
-every token will produce output two tokens right so let's say every effort
-23:36
-moves you is my sentence so what is the output whether it's spam or not spam which of these four tokens should I look
-23:43
-at should I look at the first token the second token third token or fourth token because all of them will have this yes
-23:48
-no values which token should I look at so here there's a nice schematic to mention that why should we always
-23:55
-extract the last output token we should always EXT ract the last output token because the last token is the only one
-24:03
-which with an attention score to all the other tokens if you look at the second token let's say it will only contain the
-24:09
-attention with respect to First token if you look at the third token it will only contain attention with respect to
-24:15
-previous two tokens whereas the last token has all the information it contains attention with respect to all
-24:20
-the previous tokens so if you want to predict whether it's a Spam or not a spam you want to predict from that row
-24:28
-which contains maximum amount of information present in the sentence so that is equal to the last token right
-24:33
-here so we are going to extract the last token output row and we are going to use
-24:39
-that to predict whether the email is Spam or whether the email is not a Spam so this is exactly all of this is what
-24:45
-I'm going to show you in the code right now so let's go to code uh the first thing which we are going to do is add a
-24:52
-classification head at the top which is what I showed you over here in the figure we are going to replace the this
-24:58
-original output head with a classification head so in this section we modify the
-Coding the finetuning architecture
-25:04
-pre-trained large language model to prepare it for classification finetuning to do this we replace the original
-25:11
-output layer which maps The Hidden representation to a vocabulary size of 50257 with a smaller output layer that
-25:18
-maps to only two classes zero and one so look at this we want this kind of an output layer which only has two outputs
-25:25
-either zero or one so two neurons at the end so one thing which I would like to
-25:30
-mention is that mention is that we could technically use a single output node since we are dealing with a binary
-25:36
-classification task right uh however this is not a generic approach if we use
-25:41
-a single output head that's not generic if we have more number of classes so here what we have what we are doing is
-25:47
-that we are doing a more General approach what we are going to say when we code the model architecture is that
-25:52
-we are going to say that the final number of output nodes should be equal to the number of classes so we are not
-25:58
+* 25:00
+
 hardcoding the output nodes but we are getting the number of classes and we are setting the final number of output nodes
 26:04
 equal to that so for example if you have three classes such as technology sports or medicine our same code is going to
@@ -312,6 +215,7 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
 
 
 
