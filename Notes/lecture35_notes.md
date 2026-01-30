@@ -1,106 +1,10 @@
-classification fine-tuning so far
-0:00
-[Music]
-0:05
-hello everyone and welcome to this lecture in the build large language models from scratch Series today we are
-0:13
-going to continue with the classification F tuning example which we have been seeing for the past two
-0:19
-lectures the main goal of today's lecture is to perform model initialization with pre-trained weights
-0:26
-and then we'll also do some changes in the GPT or the llm architecture so that
-0:31
-it can perform classification tasks let me give you a quick recap of what all we
-0:37
-have been doing in this handson llm classification project basically we started out with this problem where we
-0:44
-have been given certain text as data and we want
-0:49
-to use a large language model to classify whether it's a Spam or whether it's a not a Spam and this comes under
-0:57
-the category of fine tuning we already have built a pre-trained llm model in
-1:03
-this lecture series however we have not fine tuned it further fine tuning is extremely
-1:10
-essential for adapting a pre-train model to a specific task so there are two types instruction fine tuning and
-1:16
-classification fine tuning we have started with instruction fine tuning and are looking at this Hands-On email
-1:22
-classification example so here are the steps which we are going to follow when we make this
-1:30
-classification up till now we have covered these three steps which have been marked in blue so we downloaded the
-1:36
-data set we pre-processed the data set and we created data loaders let me quickly show you these three steps and
-1:42
-what all we have implemented so far so this is the data set which you
-1:48
-can see in the UC arwine machine learning repository it's called SMS spam collection and when you download this
-1:55
-data set you'll see that it looks something like this so you have labels as ham which is not a Spam and spam and
-2:03
-uh the data set when you download it you'll see that the no spam there are 4825 and spam there are only 747 so the
-2:11
-first step we did was to balance this data set so that both the spam as well as no spam have 747 data counts so
-2:19
-that's data pre-processing then what we did is we created data loaders so that we can feed in the input and get feed in
-2:27
-the input in batches so the name of data loaders was also to convert the data set
-2:33
-into a set of input and Target pairs so let me show you how these input and Target pairs actually looked like in the
-2:40
-last lecture we converted the data set into these two tensors so this first tensor here is the input sensor and this
-2:48
-second tensor here is the target sensor you'll see that here every batch has
-2:54
-eight input samples so this I'm showing one batch over here and it has eight text samples so each row here
-3:00
-corresponds to one such sample and every column here corresponds to the number of tokens so we have broken down these
-3:08
-sentences into tokens and use the bite pair encoder to convert these into token IDs we have made sure that all of these
-3:15
-sentences are converted into equal number of token IDs and wherever the
-3:20
-sentences are short we have padded them with the token 50256 token ID which
-3:25
-corresponds to the end of text so here you can see this is the input tensor it has eight rows and it has 120 tokens we
-3:34
-get this number 120 based on the longest text message in the data set and then if
-3:39
-you look at the output tensor it just zeros or ones so zero meemes zero stands for no spam and one stands for spam so
-3:48
-whenever you have uh you have the data set right now and when we want to train
-3:54
-on the data set the optimizer which will Define later will process each batch so
-4:00
-in each batch it will process these eight text samples and it also has these
-4:05
-outputs to work with so using data loaders has made our job very easy in terms of data
-4:10
-management so you see we have covered these three steps so far downloading the data set pre-processing the data set by
-4:17
-making sure that the no spam and spam categories are balanced and then finally we also created the training data loader
-4:25
-the testing data loader and validation data loader we have used 70% % of the data for training 10% of the data for
-4:33
-validation and 20% of the data for testing and you'll also see that in the code over here so you can see here 7 is
-4:40
-the training data point one is the validation data and point two is the fraction of the testing data right and
-4:48
-uh we have this spam data set class which is then fed as an input to our data loaders so this is the training
-4:55
-data loader validation data loader and the testing data loader the output of this data loaders are in the batched
-5:01
-format which I showed you in this visual representation if you want a more detailed description of how we did the
-5:09
-data downloading and how we performed the data pre-processing I would highly encourage you to go through the previous
-5:15
-two lectures now we have come to stage two where our goal will be to First
-5:20
-initialize the large language model which we are going to use then we are going to load pre-trained weights from
+## Model initialization with pre-trained weights
+
 
 ***
 
-5:26
+* 5:00
+
 gpt2 and then we will modify the model architecture bit for fine tuning uh and then finally we will
 5:33
 Implement evaluation Utilities in today's lecture we will do step number four step number five and step number
@@ -684,3 +588,4 @@ everyone I hope you learned a lot and I look forward to seeing you in the next l
 
 
 ***
+
