@@ -99,6 +99,12 @@ stage where we pass in this input and we get an output which is a tensor of 1x 4
 batch uh so batch size so each batch has only one sample so it's one four because
 5:19
 there are four tokens every do is the first token you is the second token have
+
+
+
+***
+
+
 5:25
 is the third token time is the fourth token and two because every token as as I showed you has two outputs
 5:31
@@ -948,3 +954,4 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
