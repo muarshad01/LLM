@@ -7,111 +7,18 @@
 
 ***
 
+* 5:00
 
-5:25
-is the third token time is the fourth token and two because every token as as I showed you has two outputs
-5:31
-corresponding to uh has two outputs corresponding to spam or no spam then
-5:38
-what we saw is that we are going to look at the last output token um and the last output token will give us two
-5:44
-values so this will be value number one and this will be value number two we have reached up till this stage now in
-Converting LLM outputs to predicted labels
-5:51
-today's lecture what we are going to see is that okay once you get the final two outputs from the last token what will
-5:59
-you do with these outputs so we will first Implement two Matrix we'll get the accuracy we'll get
-6:06
-the loss function then we will Implement a backward pass so that we can train our architecture to minimize the loss
-6:13
-function we'll modify all the parameters so that the loss is minimized and then we will do the testing on some new data
-6:20
-which the model has not seen awesome so let's get started the first thing which we'll need to do as I've mentioned in
-6:26
-the code also is that we we need to First discuss how we can convert the model outputs
-6:32
-into class label predictions so let's say if you have the input text message
-6:38
-as you won the lottery until now we have seen that we can extract the outputs corresponding to the last row right and
-6:44
-let's say the output look like this based on this output how can we say that whether it's a Spam or not a
-6:51
-Spam uh what we can do in practice is that we can apply a soft Max function on this so that these two outputs are
-6:57
-converted into a set of probabilities so then the first value will be99 the second will be
-7:03
-0.01 then we look at the index which has the highest probability value so since
-7:09
-99 is the highest is a higher probability than 0.01 which means index
-7:14
-number 0 is more likely to be the answer and index number zero is no spam that's
-7:20
-why this text message will be classified as no spam similarly if you have second text messages do you have time if the
-7:27
-output corresponding to the last last row are these two tokens we'll again apply soft Max and then we'll have a
-7:34
-tensor of probability 0.01 and99 then index number one is higher
-7:40
-and so the output which our model will predict will be one and that will be spam so these are the steps we'll
-7:46
-Implement in the code you'll see later that there is actually no need to even Implement soft Max since we are only
-7:52
-seeing the index of the value Which is higher so for example even if we look at
-7:57
-these values the index this index is higher so index zero is higher so it will be no spam if we look at these two
-8:03
-the index one will be higher so it will be spam so let's go to code right now and
-8:09
-discuss how we can convert the model outputs into class label predictions Okay so until now we let's
-8:15
-say have a last token output which looks something like this minus 35983 and 3.99
-8:21
-02 as we discussed first we'll apply the soft Max so that we'll convert this into a set of probabilities so let's say we
-8:28
-apply soft Max to these outputs and let me actually print let me actually print the soft Max
-8:36
-values over here so you'll see that when you apply softmax to these two the
-8:41
-output tensor has two values 0.005 and 0.9995 and since
-8:48
-0.9995 is higher what we then do is that we actually look at the argmax which
-8:53
-means we look at the index which has a higher value and that will be index number one so our class label prediction
-8:59
-will be be number one so in this case the code returns one meaning that the model predicts that the input text is
-9:05
-Spam as I mentioned using the soft Max is optional because the largest outputs directly correspond to the highest
-9:11
-probability scores so we can just take a look at these output and find the ARG Max so that's what we are going to do
-9:18
-let's say we look at the final token and we look at its outputs we are going to take the ARG Max which will give me the
-9:24
-index with the higher value and that will be index number one so my class label will just be
-9:30
-that label do item and so we'll get it the output as one so now this is my uh
-Measuring classification accuracy
-9:36
-classification accuracy which measures the percentage of correct predictions
-9:42
-which are seen across a data set so if let's say the correct answer is class
-9:48
-label one and if I get a class label one it's awesome then my it will be good so
-9:53
-we'll actually compare our model prediction and the correct label prediction and then that will give me my
-9:59
-accuracy so to determine the classification accuracy we apply the argmax based prediction code to all
-10:05
-examples in the data set and then what we are going to do is that we are going to uh actually compare it with the
-
-
-
-
+```python
+probas = torch.softmax(outputs[:, -1, :], dim=-1)
+label = torch.argmax(probas)
+print("Class label:", label.item())
+```
 
 ***
 
+* 10:00
 
-
-10:11
 actual value in the data set and then we are going to find the accuracy so to illustrate this what we are going to do
 10:18
 is that let's say our batch looks something like this which I told you before let me rub this right now so
@@ -220,6 +127,14 @@ things now we can we have the target which is the true values and we have the
 predicted values right now what we will need to do is that based on the True
 15:47
 Values and the predicted values we'll need to define a loss function and once the loss function is
+
+
+
+
+
+***
+
+
 15:55
 defined then what we'll do is that we'll simply take the partial derivative of the loss function with respect to all my
 16:00
@@ -866,6 +781,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
