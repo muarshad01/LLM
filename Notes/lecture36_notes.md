@@ -25,91 +25,19 @@ print("Class label:", label.item())
 
 * $$\text{Loss} = -\sum_{i}y_i\log(p_i)$$
 
-* 
-defined then what we'll do is that we'll simply take the partial derivative of the loss function with respect to all my
-16:00
-trainable weights we'll calculate the gradient with respect to the trainable weights
-16:06
-and then we'll just uh update so weight new is equal to weight old minus the
-16:14
-partial derivative of loss with respect to that weight so we'll use a variation of this simple gradient descent called
-16:20
-Adam or Adam W and so then we'll just continue updating these parameters until the loss function is minimized So
-16:27
-currently so let's say the loss function looks like this it of course won't be as simple as this but I'm taking a
-16:33
-simplified example initially we start out with this where the loss is not that
-16:38
-low and then we move down this loss function and hopefully we'll Reach This Global Minima where the loss is
-16:45
-minimized and once loss is minimized then we'll make sure that the accuracy is also higher automatically so then
-16:52
-comes the question of how do you define the loss function and what loss function to use if you have studied neural
-16:57
-networks and machine learning learning before we know that if we have uh if we
-17:03
-have targets um which are Pi or let's say if the targets are
-17:10
-Yi and if my predictions are Pi then the loss function which is used in this case
-17:16
-is the categorical cross entropy loss and is defined by negative of Sigma which is adding over all the class
-17:22
-labels and minus Yi into log of
-17:27
-Pi let me illustrate with a simple example here let's say if we have a text Data whose True Value is that it's not a
-17:34
-Spam which means that it's one hot encoding is one and zero so let's say this is not a Spam but our predicted
-17:41
-values our predicted values after or predicted values here are 08 and 02 then
-17:48
-the cross entropy loss is negative of we'll need to sum over all the classes Yi into log of Pi Yi is the true value
-17:56
-Yi is the true value and Pi is the predicted value
-18:02
-right so let's multiply so we'll multiply one which is the true value multiplied by log of8 so 1 will be
-18:10
-multiplied by log of8 and 0 will be multiplied by log of0 2 and we'll take the negative sign of this so 0 * log
-18:18
-point2 is 0 and then 1 * log point8 if you take the negative that's 2 2231 why
-18:25
-is this a good measure of loss because if our predicted value was 1 and zero which is exactly equal to true this
-18:32
-second will anyway be zero but the first but the first entry will be 1 into log 1
-18:39
-which will be equal to zero so if the predicted value equals to the True Value then our loss will be
-18:45
-zero which is exactly what we want so this negative of Y log Pi is a very good
-18:51
-loss function to be to calculate the loss in the case of this categorical
-18:56
-predictions in the in classification tasks uh so to give you just a
-19:03
-brief visual flavor negative of log negative of log of x looks something
-19:08
-like this so this is X and this is negative of log of x and we want X to be
-19:14
-as close to one as possible which is this probability of the correct class So eventually we'll start out from some
-19:20
-high loss and our goal is to make the loss as close to zero as possible
-19:25
-another advantage of the Cross entropy loss is that it's differentiable so it's very useful for us in the case of back
-19:31
-propagation right um okay so let's actually Define the cross entropy loss now along with this uh calculation of
-19:39
-accuracy loader what we are also going to do is that we are going to define a loss function which is the cross entropy
-19:45
-loss why can't we use just classification accuracy and take the inverse of that accuracy maybe to get
-19:51
-the loss it's because classification accuracy is not a differentiable function so we will use the cross
-19:57
-entropy loss as a proxy to maximize the accuracy this is the same as the cross entropy loss which we use to pre-train
-20:03
-the large language model so uh okay so what we are going to
-20:08
-do now is that let's say we get an input batch and a Target batch always when an input and Target batch is given your
-20:15
-visual mind should take you to this figure where we have an input batch and we have a Target batch so what what has
-20:21
+```python
+def calc_loss_batch(input_batch, target_batch, model, device):
+    input_batch, target_batch = input_batch.to(device), target_batch.to(device)
+    logits = model(input_batch)[:, -1, :]  # Logits of last output token
+    loss = torch.nn.functional.cross_entropy(logits, target_batch)
+    return loss
+```
+
+***
+
+* 20:00
+
+
 to be done here is that once you get the input batch you pass in through the model and then you only look at the
 20:27
 Logics of the last output token because that contains the most information and then you find the categorical cross
@@ -671,6 +599,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
