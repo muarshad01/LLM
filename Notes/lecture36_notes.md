@@ -1,106 +1,9 @@
- classification fine-tuning so far
-0:00
-[Music]
-0:06
-hello everyone and uh welcome to this lecture in the build large language models from scratch Series today we are
-0:14
-going to continue with the fine tuning based classification project which we
-0:21
-have been working on for the past three lectures today we are going to look at calculating the classification loss and
-0:28
-the accuracy and we will also implement the training Loop today the testing Loop
-0:34
-and essentially we'll complete we'll complete the entire fine tuning project
-0:39
-so let's get started with today's lecture first I want to recap what all we have covered so far in this
-0:46
-classification based fine-tuning handson project initially we downloaded the data
-0:53
-set then we preprocessed the data set and created data loaders to give you a sense of what the data set actually was
-0:59
-let me scroll up a bit in the code to show you the data set and how it looked
-1:04
-like so essentially the data set was a Spam no spam email classification so you
-1:10
-can even check this from the UCL machine learning repository we downloaded the
-1:15
-SMS spam collection data set from here which consists of text messages which are either spam or not spam upon
-1:22
-downloading this data set we saw that it was imbalanced so there were around 4,800 no spam messages and only 747 spam
-1:31
-messages so then we balance the data set so that in the no spam category and in
-1:36
-the spam category both there were there are 747 messages that's the First Data
-1:41
-pre-processing step we did after that we implemented data loaders when we implemented data loaders
-1:48
-the entire data set was batched into the input and uh the target so basically
-1:57
-imagine the data set that's being split into training testing and validation 70% for training 20% for testing and 10% for
-2:06
-validation if you look at the 70% training data right now due to the data
-2:11
-loaders that data will be split into input and Target so in the input we have defined batches each containing eight
-2:18
-samples so there are around 130 such batches of the training data and the
-2:23
-number of columns is equal to 120 which are the number of token IDs corresponding to each text message
-2:30
-to make sure that all the text messages have similar number or exact same token IDs we have padded the smaller text
-2:37
-messages with this token 50256 which is the token ID corresponding to the end of text token
-2:44
-so this is the input tensor and here what I'm showing is the target tensor this just has zeros and ones so zero
-2:51
-means no spam and one means spam so when you implement the data loader for the training data it looks something like
-2:57
-this and it has 130 batch es when you implement data loader for the validation
-3:03
-and the testing data the data is batched into similar batches so we have 130
-3:10
-training batches 19 validation batches and 38 test batches so that's what we implemented uh
-3:18
-in this first three steps which was downloading the downloading the data set pre-processing the data set and creating
-3:25
-data loaders in the next steps what we did was we took our model architecture
-3:31
-and the model architecture looked something like this initially what we did was we looked at
-3:36
-the final output layer and initially that output layer looked like this neural network which took in the input
-3:44
-equal to the size of the embedding Dimension that's 768 and the output was 50257 which was the vocabulary size
-3:51
-since we are doing a classification task what we did is we replaced this neural network with this kind of a
-3:58
-classification head as the output where the number of inputs to the neural network is 768 but the number of outputs
-4:04
-is equal to two spam or no
-4:10
-spam by the end of the last lecture what we saw is that if we pass in any input
-4:16
-to this modified architecture so let's say if we pass in an input such as
-4:22
-uh um let me show you let's say we pass in an input such as do you have time and
-4:28
-we pass this input to this mod ified architecture the output will look something like this
-4:34
-do you have time and then for each of these
-4:41
-token there will be two outputs corresponding to spam or no
-4:48
-spam then what we saw is that instead of looking at all of these four outputs we only look at the output corresponding to
-4:54
-the last token which is time in this case because this last token contains information of all the other tokens
-5:01
-through its attention weights um so we have reached until this
-5:06
-stage where we pass in this input and we get an output which is a tensor of 1x 4X two since this is one
-5:14
-batch uh so batch size so each batch has only one sample so it's one four because
-5:19
-there are four tokens every do is the first token you is the second token have
+## Calculating the classification loss and the accuracy 
 
-
+* [Welcome to the UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
+* Training batch = 8 samples
+* 8 x 120
+* (batch_size, num_tokens, num_classes)
 
 ***
 
@@ -954,4 +857,5 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
