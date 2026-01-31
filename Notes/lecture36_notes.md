@@ -19,123 +19,13 @@ print("Class label:", label.item())
 
 * 10:00
 
-actual value in the data set and then we are going to find the accuracy so to illustrate this what we are going to do
-10:18
-is that let's say our batch looks something like this which I told you before let me rub this right now so
-10:24
-let's say our batch looks something like this so what I'm going to do is that let's say if this is my first input
-10:30
-right I will pass in through my model and I will get those two logits then I will apply the AR Max function and then
-10:37
-predict whether it's spam or no spam let's say it's predicted spam so the so similar to this output labels I'll have
-10:44
-another labels which are the predicted labels so these output labels are also
-10:49
-called as the target labels which are my true values and here I have my predicted
-10:55
-labels and then I'll just compare these two and that way I'll get the ACC
-11:00
-score so this is exactly what we are going to do in the code right now so here you can see um we are going to
-11:08
-Define this calculate accuracy given a loader so let's say if you are given a training data loader what we are going
-11:15
-to first do is that if number of batches is not specified we are just going to use the length of the data loader as the
-11:21
-number of batches or the batch size so here you can see each batch consists of
-11:26
-eight training examples and so the number number of batches are equal to 130 like this for the training data
-11:33
-sample so the number of batches will be 130 if we have not specified it if we have specified the number of batches
-11:40
-here then the number of batches will be minimum of what we have specified here let's say that's 50 and 130 so then it
-11:46
-we'll consider the number of batches to be equal to 50 and only compute the accuracy for those many number of
-11:53
-batches so let's say what will happen in this code is that we'll look at each batch in this data loader so let's say
-11:59
-we are looking at the first batch even the first batch you can see has eight samples right so when we are looking at
-12:05
-each batch so let's say we are going to look at each batch in the data loader and each batch has eight samples
-12:14
-so I'm going to uh pass in all the samples of a batch and I'm going to find the logits which are the two output
-12:20
-values the logits of the last output token similar to this but now imagine
-12:26
-that one batch has eight samples so I I'll have eight such tensor and then what I'll be doing is that I'll
-12:32
-actually be finding the ARG Max which are the values for that entire batch and then what I'll be doing is that I'll
-12:38
-compare the predicted labels with the target labels which is my actual answer and if it's uh if it's a correct
-12:46
-prediction which means if they are equal I'll update the correct predictions I'll increase the number of correct predictions by one number and as I'm
-12:54
-going through the examples I'll also uh whenever I make a prediction I'll increase the number of examples by one
-13:00
-so if I'm going through the first example here and if I make a prediction so if I'm going through the first
-13:06
-example here and if I make a prediction here the number of examples the number of examples will
-13:13
-increase by one number of examples increases by one so when I make the second prediction
-13:20
-it will again increase by one so I'm just keeping a track of the number of examples and correct predictions so
-13:26
-towards the end to find the accuracy score I'll just take the correct correct predictions and divide by the number of examples so if the number of examples is
-13:33
-th and if the correct predictions are 600 my accuracy will be 600 divided by th000 we are doing a very simple thing
-13:40
-here we are just calculating the prediction from our model and we are comparing it with the actual values and
-13:46
-then we are adding up how many predictions we got correct that's the simplest way to find the accuracy right
-13:52
-so this is the code calcul calculate accuracy loader now what we are going to do is that we are going to use this
-13:58
-function calculate accuracy loader and I'm just going to specify the number of batches equal to 10 for the sake of
-14:04
-Simplicity our training data loader actually has 130 batches but I'm specifying your number of batches equal
-14:10
-to 10 so that you can just see whether we are able to calculate the training the validation and the testing accuracy
-14:17
-on our entire data set of course nothing is optimized here so our values will not be
-14:23
-uh uh very good but I just want to show you that this code indeed runs so you
-14:28
-have this function Cal calculate accuracy loader and first you pass in the training loader so that will have
-14:33
-data such as this from from the training data set that 70% of our data then you pass in the validation loader that's 10%
-14:40
-of your data and then you pass in the test loader that's 20% of your data in each case we specify the number of
-14:46
-batches equal to 10 right uh and then we print out the training accuracy
-14:52
-validation accuracy and test accuracy the model has not been optimized we have not yet implemented back propagation so
-14:58
-these accuracy m won't be good but let's just see what they are so when you print out the training accuracy the validation
-15:05
-accuracy and the test accuracy you get that the training accuracy is 46% validation accuracy is 45% and test
-15:12
-accuracy is 48% it's pretty bad it's even worse than a coin toss I could have
-15:17
-just done a coin toss and randomly predicted values and I would have been right 50% of the
-Cross entropy loss function implementation
-15:23
-time so to improve the prediction accuracies we need to fine tune the model right so remember what how do we F
-15:29
-tune or how do we optimize the model parameters the way to optimize the model parameters is that we now we can do two
-15:36
-things now we can we have the target which is the true values and we have the
-15:42
-predicted values right now what we will need to do is that based on the True
-15:47
-Values and the predicted values we'll need to define a loss function and once the loss function is
-
-
-
-
-
 ***
 
+* 15:00
 
-15:55
+* $$\text{Loss} = -\sum_{i}y_i\log(p_i)$$
+
+* 
 defined then what we'll do is that we'll simply take the partial derivative of the loss function with respect to all my
 16:00
 trainable weights we'll calculate the gradient with respect to the trainable weights
@@ -781,6 +671,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
