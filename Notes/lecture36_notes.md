@@ -102,6 +102,15 @@ we'll actually compare our model prediction and the correct label prediction and
 accuracy so to determine the classification accuracy we apply the argmax based prediction code to all
 10:05
 examples in the data set and then what we are going to do is that we are going to uh actually compare it with the
+
+
+
+
+
+***
+
+
+
 10:11
 actual value in the data set and then we are going to find the accuracy so to illustrate this what we are going to do
 10:18
@@ -857,5 +866,6 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
