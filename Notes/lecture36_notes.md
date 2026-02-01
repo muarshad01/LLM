@@ -132,6 +132,13 @@ updated we print the training and the validation loss and then we keep on doing 
 of epox so that the parameters are getting updated so the simplest way to think about this is that the most
 25:12
 important step is this backward pass once we do the backward pass we get the loss gradients that's why we needed the
+
+
+
+***
+
+
+
 25:18
 loss function to be differentiable once we get the loss gradients with respect to the parameters we can actually update
 25:24
@@ -234,6 +241,13 @@ sometimes if you want to show quick evaluation on a sample data set you don't wa
 here you can just set the number of evaluation iterations to be five or 10 since the number of batches is 130 this
 30:28
 this will really save us time when we print out the train loss and the validation loss so this actually
+
+
+
+***
+
+
+
 30:33
 evaluation step is optional but when we do the training you'll see that the train loss and validation loss are
 30:38
@@ -599,6 +613,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
