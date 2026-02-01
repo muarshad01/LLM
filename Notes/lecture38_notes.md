@@ -1,0 +1,999 @@
+on finetuning recap so far
+0:00
+[Music]
+0:05
+hello everyone and welcome to this lecture in the build large language models from scratch Series today we are
+0:13
+going to continue with the instruction fine tuning Hands-On example which we started in the previous lecture and
+0:19
+today we are going to look at organizing data into training batches let's first quickly recap what
+0:25
+we saw in the previous lecture in the previous lecture we started looking at in instruction fine tuning so we saw
+0:32
+that pre-trained llms are good at text completion but they really struggle with following Specific Instructions those
+0:39
+instructions can be fix the grammar in the text or convert this text into passive voice so pre-trained llms
+0:46
+struggle with these and that's why we need to do the process of instruction fine tuning in the process of
+0:52
+instruction fine tuning we need to provide the llm with a data set and the data set consists of a list of
+0:59
+instruction and the desired responses which we want so here's the data set which we
+1:05
+will actually use this is a data set which consists of 1100 instruction and
+1:10
+output pairs so you can see a sample instruction output pair such as translate the following sentence into
+1:16
+French that's the instruction the input is where is the nearest restaurant and the output is the French translation
+1:23
+similarly here the instruction is rewrite the following sentence so that
+1:28
+it is in active voice the input is the cake was baked by Sarah
+1:34
+and the output is Sarah baked the cake in some instruction output pairs there
+1:39
+is no input so for example convert the active sentence to passive and then the sentence is given in the instruction
+1:45
+itself so that does not have an input and we have the output directly then what is the capital of
+1:51
+Indonesia that does not have an input but directly we have the output the capital of Indonesia is
+1:57
+Jakarta so these are the instru ction and the response pairs which we give as
+2:02
+the data to pre-train a large language model so first thing which we did in
+2:08
+yesterday's lecture is that we downloaded the data set and then we formatted the data set what does it mean
+2:16
+formatting we converted the data set into a format which is called as alpaka prompt style so remember when I showed
+2:24
+you that when we looked at the data set it had these three keys or these three
+2:29
+values instruction input and output it turns out that there is a specific way
+2:34
+this needs to be converted into a prompt before we feed it to the large language model for fine tuning and that prompt is
+2:42
+called as the alpaka prompt style so Stanford maintains this Stanford alpaka
+2:47
+repository where they give you instructions on when you have the instruction response pairs such as what
+2:53
+we have here how can you convert them into a prompt so here is the specific
+2:59
+formatting for the alpaka style prompt where you when you have an instruction input and response The Prompt needs to
+3:06
+be constructed like this below is an instruction that describes a task paired with an input that provides further
+3:13
+context Write a response that appropriately completes the request and
+3:18
+then you mention the instruction and give the instruction which you had in your data set then you mention the input
+3:24
+give the input which you have in the data set and then you collect the response and show the output which you
+3:29
+had uh in the data set so what we did in the previous lecture actually was that
+3:35
+we we used this alpaka prompt style we took our data set and we converted this
+3:42
+data set into an alpaka prompt style and then we partition the data set into training testing and validation we use
+3:49
+85% for training 10% for testing and the remaining 5% for validation so let me
+3:55
+show you the code which we used in the previous lecture in this part of the code what we did is we prepared the data
+4:02
+set so we made an API call to this URL we downloaded the data set and here you
+4:08
+can see there are 1100 entries we printed the 50th example in this data
+4:13
+set we printed the 999th example of this data set and we saw that they matched what we actually have in the data set
+4:21
+this confirmed that the data set was loaded correctly then we wrote a function called format input to convert
+4:27
+the instructions into the alpaka prompt format this format input function takes the entry and the entry is essentially the
+4:35
+instruction input output pairs like these and then it converts it into the alpaka
+4:40
+prompt so here we have the instruction plus the input and then we append the response as an output so then here you
+4:48
+can see that whenever you have an entry such as this when you pass it into the
+4:53
+model when you pass it into the format input you have the first line then you have the instruction and then the input
+5:00
+and then you have to append this model input to the desired response and then you have the entire prompt like this so
+5:06
+then this is the alpaka style prompt which has this first first sentence then it has the instruction it has the input
+5:13
+and it has the response the large language model will be trained with these prompts which are then constructed
+5:19
+for all of the instruction input output pairs which we have in the data set all 1100
+5:25
+pairs right so now okay one last thing is this splitting the data set into
+5:30
+training testing and validation so here you can see that we have used 85% for training 10% for testing and the
+5:38
+remaining 5% for validation you can print out the training set length which is 935 out of the 1100 pairs the
+5:45
+validation set is 55 and the test set is 110 out of the 1100 pairs awesome now
+Batching the dataset introduction
+5:53
+what we are going to do in today's lecture is we are going to come to step number two and step number two is
+5:58
+batching the data set this is a bit more complicated than what
+6:04
+we have seen before and that's why I'm dedicating this entire lecture to this there are number of finer and subtle
+6:10
+things which you need to understand in this lecture and that will really help you to understand the details of the
+6:16
+fine tuning process so please pay close attention to whatever I'm showing on the
+6:21
+Whiteboard and then I'll show you the entire process through code what does it mean batching the data
+6:27
+set well it means that let's say we have uh one data which is like this so I have
+6:33
+taken a screenshot here and then I'll bring it to my whiteboard okay so we have one data like this which is the
+6:40
+instruction input output uh and we have actually let me use the prompt itself
+6:47
+because the data will be converted into a prompt right so let's say for the First Data I have a prompt like
+6:54
+this um right and uh for the second data I have a prompt like this for the third
+7:02
+data let's say I have a prompt like this now when we have data batches we need to
+7:07
+convert this we need to convert all of the data set into a batch so let's say
+7:13
+I'm having a batch which has three data samples so let's say this is my batch and this is the data sample number
+7:21
+one this is the data sample number two and here is the data sample number
+7:28
+three right what I want to do now is that I want to have I want to convert the first
+7:35
+data set into a numerical representation so that it forms the first row the
+7:40
+second data set needs to be converted into a numerical representation so that it forms the second row and the third
+7:46
+data set needs to be converted into a numerical representation so that it forms the third row this whole lecture
+7:52
+is about how we are going to construct this numerical representation so that the size of the first row is the same as
+7:59
+the size of the second row and it's the same as the size of the third row and when I say size I mean the number of
+8:05
+columns which I'm highlighting right now how will we make sure that these prompts
+8:11
+which are different for different instruction output pairs right their length may also be different so for
+8:17
+example The Prompt which is constructed for this pair will be very different than the prompt which is for this the
+8:23
+length also will be different so how do I batch it into these kind of numerical representations
+8:30
+and we are going to follow a sequential workflow for this and I'm first I'm going to explain to you the entire
+8:35
+workflow on the Whiteboard and then I will take you through code earlier I was thinking I'll show you on the Whiteboard
+8:41
+take you through code show you on the Whiteboard take you through code and cycle this multiple times but I found
+8:47
+that for this lecture in particular it's much better if you first have a visual understanding of the entire flow have it
+8:53
+as a mind map and then you can follow the code as I'm going through it okay so
+8:58
+first we have the data and we'll format it using the prompt template using the alpaka prompt template and then the
+9:04
+formatted data looks something like this right the first step to convert the data
+Tokenizing formatted data
+9:10
+into a numerical representation as I mentioned over here is to tokenize the data so we are going to use a tokenizer
+9:18
+and that tokenizer is going to be the bite pair encoder which is used by open a what this tokenizer does is that it
+9:25
+takes a sentence and converts it into a bunch of token IDs right so that's the first step for every so
+9:32
+let's say this is the prompt below is an instruction that describes a task Write a response that appropriately con
+9:37
+completes the request let's say there is an instruction there is an input and there is a response I'm going to take
+9:43
+this prompt and I'm going to convert this entire prompt into token IDs that's going to be my first step right so I
+9:51
+have written it in a lot of detail over here so let's say if this is the let's say if this is the data set which you
+9:59
+have then you convert it into the alpaka prompt style and then it starts looking like this and then it then you convert
+10:05
+it into a bunch of token idies using the tick token Library using the tick token library
+10:13
+right uh and this you do for the first instruction input output data then you
+10:19
+do the same for the second you convert it into the alpaka format and then you convert it into a bunch of token IDs and
+10:26
+you do the same process for all of these um instruction input output data which
+10:32
+you have in your data set that's the first step but you see the problem here the number of token IDs which are
+10:38
+present let's say the number of token IDs which are present over here will be different than the number of token IDs
+10:44
+which are present over here because of course the length of the prompt might differ right so if you look at this this
+10:51
+first prompt it looks longer than the second prompt so the number of token IDs in the first prompt are greater than the
+10:57
+number of token IDs in the second prompt but as you but as I told you over here we need the numerical representation of
+11:04
+all the samples in one batch so let's say sample one and Sample two are in one batch we need the number of columns
+11:10
+which is the numerical representation or the number of token IDs we need the number of token IDs for each sample to
+11:17
+be same so I'm just mentioning it over here we need the number of token IDs for
+11:23
+each sample to be same so how do we make sure that the number of token IDs of all
+Padding token IDs
+11:28
+samples are the same and that brings us to The Next Step so until now we saw the
+11:33
+tokenization the next step is that we are going to adjust the length of every uh a set of token IDs and we are
+11:41
+going to pad them with tokens so that the length of all uh numerical
+11:47
+representations is exactly the same the way we are going to do this is as has been shown over here so let's say if we
+11:54
+have the first batch and the token IDs for the first input are 0 1 2 3 4 the
+11:59
+token IDs for the second input in this batch are five and six the token IDs for the third input is 7 8 and N this is one
+12:06
+batch now take a look at the length of the token ID here the length of the token ID is five here it's two and here
+12:13
+it's three so it's not the same right so what we'll do is that in each batch we'll find that sequence which has the
+12:20
+longest number of longest length so this clearly has the longest length so we
+12:27
+keep it as it is but the remaining ones we pad them with these tokens so that
+12:33
+their length becomes equal to the longest length so for example the input
+12:38
+two has only two tokens five and six so we P three additional tokens 50256 uh similarly the third input has
+12:46
+three token ID 7 8 and N we pad it with two additional token IDs now if you see
+12:52
+because of this padding procedure which is done the length of all of these three is equal is the same and there are five
+12:59
+token IDs in all the numerical representation that is exactly what I want now you may be thinking what's the
+13:06
+50256 that's the end of text token so gpt2 uh if you look at gpt2 it has a
+13:13
+vocabulary size of 5257 um so 50257 is the vocabulary size
+13:20
+so that means the first token has a token ID of zero and the last token has a token ID of
+13:26
+50256 and this last token which has the token ID of 50256 corresponds to the end
+13:32
+of text token so it conveys that one particular text sample has ended and it's the start
+13:38
+of a new text sample so we are just appending it with the end of text because it does not mean anything if we
+13:44
+use any other token ID it might be associated with a token so that might confuse the training so that's why we
+13:50
+append it with this with this end of text token ID which is 50256 now one thing which we are going
+13:56
+to do here is that let's say this is the first batch and when you look at the second batch we are going to implement the exact same
+14:02
+procedure we are going to find that token with the largest token length and we are going to append this
+14:09
+50256 to all the remaining uh token sequences so that the length of all becomes the same so each
+14:17
+batch we are going to process sequentially and differently in each batch we are first going to find that representation which has the largest
+14:24
+number of tokens and to all the other representations we are going to append 50 256 so that the length of uh so that
+14:33
+the length of the converted or the token ID number for all of the inputs is equal
+14:39
+is the same and then it starts looking like a batch so here you see this definitely looks like a batch because
+14:45
+their number of columns are the same and then I can process all of these together in a
+14:50
+batch right so that's the step number three we adjust to the same length with padding tokens so we add the end of text
+14:58
+tokens to p add the data samples so that in a batch all of the samples have the same length that is the same number of
+15:04
+token IDs right The Next Step what we are going to do is that we are going to create Target token IDs which means that
+Creating target IDs for training
+15:12
+uh let me show you what it actually means so let's say if you have an input right um and that's this prompt over
+15:19
+here let's say this is the prompt and that has been converted into a bunch of token IDs which look something like this
+15:25
+we need some output right which is the true Target which we want to approximate similar to what we did for large
+15:31
+language model training the target is constructed by Shifting the input to the right by one so let's say the input is 0
+15:38
+1 2 3 4 right the target will be you forget the first uh entry here and you
+15:45
+take the remaining entries and then you add a padding token 50256 so that the length of the Target
+15:52
+and the length of the input is equal to are similar to each other or are exactly same
+15:57
+rather here is the second input so if the input is 56 50256 50256
+16:04
+50256 uh the way we construct the target is that we get rid of this first index
+16:09
+we take all of the remaining in the input and then we pad it with an extra token which is 50256 do keep this in mind this is the
+16:16
+most important step in the fine tuning process and sometimes this is also a step which is very hard to grasp so
+16:23
+think about what is exactly happening in this so let's say uh if we have a prompt and I'm I'm going to focus on this
+16:30
+prompt further now so that I can explain to you why we construct the target like
+16:35
+like this when I learned about this for the first time I really did not
+16:40
+understand what is actually happening so if we have a if we have a prompt like
+16:46
+this right what we are essentially doing in the when we construct the target pair is
+16:52
+that let's say why is the target pair shifted to the right by one because we
+16:58
+are still doing the next prediction task so if my let's actually let me take the
+17:04
+screenshot of this also so that I can explain to you what is going
+17:09
+on so if I take a screenshot of this and I'll paste this over
+17:18
+here what this input Target sequence means is that if you have the
+17:25
+input as zero the output should be equal to 1 if the input is 0 and 1 the target is
+17:31
+equal to 2 if the input is 0 1 and 2 the target is equal to 3 if the input is 0 1
+17:37
+2 3 0 1 2 3 the target is equal to 4 and if the input is 0 1 2 3 4 then we are at
+17:44
+the end of the sentence you can think about what we are really training the model over here we are training the
+17:49
+model that if below is the input then below is is the output if below is is
+17:55
+the input below is and is the output similarly as this happens sequentially we'll train the model that if below is
+18:02
+an instruction task which describes write a sequ Write a response that appropriately completes the request if
+18:08
+this much is the input then this this should be the output then we train the
+18:14
+model that if this much is the input this should be the output I agree that there is some redundant training which
+18:21
+is happening here because all the training which we really need to do is tell that if this much is the input
+18:26
+instruction and the input this is the response which needs to be constructed and the way we are going about this is
+18:31
+through this next word prediction task or next token prediction task that's why we shift that's why the target is the
+18:37
+input which is shifted to the right by one please keep this in mind this is a bit not easy to understand and it's not
+18:44
+intuitive as well when I first learned about instruction find tuning I thought
+18:49
+that the input should be input should be this much and the target should be the response right but the input is this
+18:56
+full thing the input is this full thing and the target is this full representation just shifted to the right
+19:03
+by one so within the input itself we have the input and the output actually
+19:09
+that is exactly how llms work we are using the next word predi or the next token prediction task so what this does
+19:15
+is that as we are predicting the next token in the sequence of training we reach a stage with this much is the
+19:22
+input the output will be the response so through learning how to predict the next
+19:27
+token the llm learns to follow the instructions so there's a lot of similarity between instruction fine
+19:33
+tuning and the pre-training process itself in the pre-training we did exactly the same thing we had the target
+19:39
+shifted by one and it's nonintuitive that in instruction fine tuning the same thing can work but it does work because
+19:47
+as the llm learns to predict the next token it learns to take the instruction the input and predict the
+19:54
+response okay so I hope you have understood this part about how to create the target token IDs so the way to
+20:00
+create the target token IDs is that we shift the inputs by one and we add an additional padding token to indicate
+20:06
+that it's the end of the sentence so whenever we shift the input to the right by one we add this extra padding token
+20:13
+right so that is how the target token IDs are created for training and the last step is that we'll replace in the
+20:20
+Target token IDs this 5256 which is there wherever it is coming we'll replace it with minus 100 and there is a
+20:28
+specific way to do this so if you look at this last part which is replace the
+20:34
+padding tokens with placeholders so let's say this is my first Target tensor right um or let's look at the second
+20:41
+target tensor let's look at 50256 there are four 50256 values right I'll leave
+20:47
+this first one because that indicates the end of text and I'll replace all of the remaining with the value of minus
+20:54
+100 similarly if you look at Target three uh it has three 50256 values I'll
+21:00
+leave the first one because it symbolizes end of text and I'll replace all of the remaining 50256 with - 100
+21:08
+similarly if you look at Target one now uh this 50256 represents end of text so
+21:13
+I won't I won't replace this it remains like this so that is something to keep in mind we don't replace all the 50256
+21:19
+tokon IDS with minus 100 we only replace the we leave out the first one and replace all of the rest with minus 100
+21:27
+so you you might be thinking what is the significance of minus 100 and I'll explain to this in a lot of detail when
+21:33
+we come to code but for now just know that it comes from this cross entropy loss ignore index so ignore index so by
+21:41
+default the ignore index for pytorch is equal to minus 100 so when we mention
+21:46
+minus 100 here it kind of makes sure that when we calculate the loss function all of these token IDs which do not
+21:53
+matter at all we have randomly added them to the Target right they are not included in the loss function this makes
+21:59
+the training much more efficient and does not unnecessarily include tokens which are not
+22:04
+important this first 50256 needed to be retained because it indicates the end of
+22:10
+uh end of a particular uh end of a particular text so that is very
+22:15
+important but the remaining 50256 token IDs are not needed and we can just replace them with a value of minus 100
+22:23
+awesome so now uh we have understood this whole procedure so let me repeat the whole proced procedure ones so data
+22:29
+batching is actually done in five steps and we are going to see all of these five five steps in code shortly the
+22:36
+first step is to of course format the data using the promt template then convert the promt template into token
+22:42
+IDs now all of these token IDs won't have equal length so the next step after
+22:49
+this is to append U the data samples with the padding tokens of 50256 so that
+22:55
+in each batch the length of every data sample is the same and that is equal to the sample which
+23:00
+has the maximum number of token IDs then what we do is that we create Target token IDs which will be needed because
+23:07
+we need to know what the right answer is and the right answer is just the input shifted to the right by one this is a
+23:14
+bit counterintuitive but it does work because the llm learns to predict the next token and in that process it learns
+23:20
+that here is the instruction here is the input and I have to predict the output and then finally the last thing
+Replace padding tokens with “ignore index = -100”
+23:26
+is we we replace all all the tokens except for the First 50256 with a value
+23:32
+of minus 100 and the reason we do this is that we need to exclude these tokens from the training loss and py torch
+23:38
+cross entropy loss implementation has the ignore index of minus 100 and that's why we are going to use this minus 100
+23:45
+we'll see this in a lot of detail when we come to code right so I hope you have all understood this
+23:52
+process uh this is very important for you to have as a road map because now we are going to go to code code and
+23:59
+everything in the code will be much more clearer and easy to understand once you remember this road map which I've
+24:04
+introduced over here so let us jump directly right into code right now so as
+24:09
+I mentioned before until now we have converted the data set into training testing and validation batches right the
+24:16
+training is 85% of the data testing is 10% of the data and the remaining 5% is
+24:22
+for validation the next step is to organize the data into training batches as we saw on the Whiteboard first first
+24:28
+what we are going to do is that uh we are going to code an instruction data set class what this
+Coding the Instruction Dataset class
+24:35
+class does is that it takes in the data set in this format and it converts it
+24:40
+first of all into this alpaka style format that's the first step over here if you recall the first step is format
+24:46
+data using prom template so we are going to use the format input function which I
+24:53
+explained to you at the start of this lecture this format input function over here which takes in the um instruction
+25:00
+input output pair like this and converts U that pair into this first
+25:05
+sentence instruction and the input and then we need to append the response or the output so here if you look at the
+25:12
+code this instruction class data set when we create an instance of this class
+25:18
+it first creates an object self. data and assigns the data set uh which is
+25:23
+something like this you can think of the data set like this and then what we do is that for each entry in the data set
+25:30
+it first applies this format input function to the entry and then appends the response so the full text in the
+25:36
+alpaka format is created and then what we do is that as I mentioned in the next step over here we are going to tokenize
+25:43
+the formatted data so we uh we first Define a empty list and then we start
+25:50
+appending the token IDs to this Mt list so let's say if you have a prompt which looks like this each of the tokens here
+25:57
+are conver ConEd into token IDs and then appended to a list so for every prompt corresponding to each input output pair
+26:04
+now we have a list of token IDs which is mentioned in the step one over here see here what we are doing is that every
+26:11
+prompt we are converting it into token IDs and for that the tokenizer which we are going to use is we also need to pass
+26:19
+this to the instruction data set class but it's going to be the tick token Library I'll share the link to this uh
+26:26
+in the chat we have had a separate lecture on bite pair encoder in this lecture Series so if you want to
+26:32
+understand about this library in detail I highly encourage you to uh watch that
+26:37
+lecture right so now what does the instruction class ENT instruction data
+26:42
+set class essentially return return well it returns for every uh for every data
+26:48
+which is in this format it converts it into the alpaka style prompt and then it returns uh a bunch of token IDs for
+26:56
+every entry awesome so uh let's go to the next part
+27:03
+now before coming to the next part I just want to show you the end of text token and its corresponding token ID as
+27:11
+we had seen on the Whiteboard and it's indeed 5256 so that's why we are using this
+27:17
+50256 token ID because it conveys the end of text okay now as I mentioned what
+27:23
+we are going to do here is that we are going to define a custom colate function what this custom colet function does is
+27:29
+that the name may sound complex but it actually does a very simple thing it takes the inputs in each data set that's
+27:36
+the first thing it takes the input in each batch it finds that input with the maximum length and then it appends the
+27:43
+50256 or pads the 50256 token ID to all other inputs that's the only thing which
+27:49
+it is doing so this custom colate draft one it takes the batch so you can think of the
+Coding the custom collate padding function
+27:55
+batch as coming in this format like this uh and then it has you have to give the
+28:01
+padding token ID which is 50256 and the device which is CPU so this function
+28:06
+implements four steps first it finds the longest sequence in the batch and then it pads the other sequences so that the
+28:12
+length is equal to the longest sequence that's it and then it converts the list of inputs into a tensor and transfers to
+28:18
+our Target device which is the CPU so this entire thing is converted into a tensor what Ive marked with this orange
+28:25
+color over here that's the function of of the custom colla draft so let's see how it does it the first thing this
+28:32
+function does is that it will find the longest sequence in the batch and it will add it by one so let's say if you
+28:39
+have these three it if you have these three the longest sequence length is five and then it will add it by one so
+28:45
+then it will be six there is a reason why you add it by one and I'll come to that later but after you add it by one
+28:51
+what you do is that for every item in the batch you first add a token ID so even for the first one even for for the
+28:58
+first item you add this 50256 token that's the first thing which you do and then you pad the 50256 again so that the
+29:06
+length is equal to the maximum length and then what you do is you
+29:11
+remove uh you remove the extra added token so here essentially what we are
+29:16
+doing is that let's say if you have uh I'll actually remove this in the code
+29:22
+what we are trying to do is that we add first a 50256 token ID to all of these
+29:28
+so even to the first one we add this 50256 token and to the other ones we add the 50256 token then this will be added
+29:36
+one 2 three three more times so total it will be added four times and here we'll add it a total of three times right but
+29:43
+then you might think why are we adding an extra 50256 token because here we don't need to add 50256 here also we
+29:50
+need to add three times here also we need to add it two times so then we get rid of that extra token later the reason
+29:57
+we do this EXT extra addition is that it later helps us to create the target token because if you already add an
+30:03
+extra token creating the target creating the target is just simple because then you just use this much to create the
+30:09
+target as we saw before the target is just the input you remove the first element and then you add
+30:15
+50256 so earlier adding the 50256 token to all of the inputs in this part of the
+30:22
+code it's important because it easily helps us to create the target ID uh to
+30:27
+create the target for every inputs so essentially what we do is we add an extra 50256 and then get rid of it later
+30:34
+and then we pad everything all the other inputs with 50256 so that the length is equal to the maximum token ID length or
+30:42
+the that input which has the maximum length so essentially uh when you reach this part
+30:49
+of the code every item in the batch so all of these three items essentially
+30:54
+will have the same length that's what is happening in the code and ultimately we convert this um into a tensor and the
+31:02
+tensor is the input tensor which is returned by this function custom colate draft one now let's see a practical
+31:09
+application of this if you have uh these three inputs like this if inputs one has the size of five inputs
+31:16
+two has the size of two and inputs three has the size of three the batch you create a batch with these three inputs
+31:22
+and then you pass these you pass this batch into the custom Cola draft one now let's see the output as you can see the
+31:29
+first input remains unchanged it has five token IDs because those are the maximum length in the second inputs we
+31:35
+pad 50256 three times so that the length becomes same as the first input sequence
+31:40
+and in the third input we pad 50256 two times so that the length becomes the same as the first two so now you can see
+31:47
+we have an input stenor in which every row has the L has five columns
+31:52
+awesome so as we can see here all inputs have been ped to the
+31:58
+length of the longest input list inputs one which contains five token IDs
+32:03
+awesome uh so until now we have reached this stage where we have padded the inputs with the token IDs and now we
+Coding target token IDs
+32:10
+have to implement the next part of this process the next part is essentially creating Target token IDs for
+32:17
+training so until now we have just implemented our first custom colate function to create batches from list of
+32:24
+inputs however as you have learned in previous lessons we also need to create batches with the target token IDs right
+32:30
+because we need to know what the real answer is the target token IDs are crucial because they represent what we
+32:36
+want the model to generate and based on the target token IDs itself we'll get the loss function
+32:43
+ultimately so as I explained to you thoroughly on the Whiteboard the way to get the target token ID is just to shift
+32:50
+the input uh to the right by one and then add an additional padding token towards
+32:56
+the end and that's exactly what we are going to do in the code so if you see in the code until this part it Remains the
+33:03
+Same we have the inputs um and they're padded by the 50256 token and now if you
+33:08
+see the targets token it just shifted to the right by one so here you see one colon which means that you forget the
+33:15
+first entry and you take the remaining entries uh and here you don't even need to add the 50256 token we because we
+33:22
+have already added added an extra 5256 token and this is why we add that extra
+33:27
+5 0256 token as I showed you earlier because here you see actually in the
+33:33
+first input you don't need to add the 50256 token but if you add it it makes it very easy to create the target um it
+33:42
+makes it very easy to create the the target sensor why because you just ignore the first element and take
+33:48
+everything from the second element so here you ignore the first element which is zero and take everything from the
+33:55
+second element so the target will be 1 2 3 4 4 5256 in the second the target will be 6
+34:01
+50256 50256 50256 and one more 5256 so it's the inputs which are
+34:07
+shifted to the right by one so that is how you create the target tensor and
+34:12
+then you just return the input tensor and the target tensor so the simplest way to think
+34:19
+about this code is that until now we have made sure that the inputs are of the same length due to the padding which
+34:24
+we have done and the targets is the inputs which are shifted to the right by one this is the very important process
+34:30
+and as I mentioned to you this is the non-intuitive step because uh the true
+34:37
+value is just the input which is shifted to the right by one and that is what is nonintuitive you might think that the
+34:43
+response needs to be given in the True Value right why is the instruction and input also given in the True Value but
+34:50
+it's given because in the next word prediction task the llm automatically learns that when you have the instruction and the input you have to
+34:56
+predict the response this was a bit harder for me to explain but I hope you have got this idea um in
+35:04
+the code if it's difficult to understand just try imagining it through the visual representation which I showed to you on
+35:09
+the Whiteboard you can even try going back as you are learning this lecture to see the Whiteboard explanation before
+35:15
+you try to understand the code so there are actually only two things which are happening in this custom colate draft 2
+35:22
+it takes it truncates the last token for the inputs so that everything is of the same length and it shifts
+35:28
+the input to the right by one to get the target tens and we can check this now let's say we have these three inputs as
+35:34
+before we create a batch of these three inputs and then we call the custom col draft two function on this batch and
+35:40
+we'll print the inputs and the targets so let's see as we learned before the inputs is just the first row Remains the
+35:47
+Same the second row has three 50256 tokens padded the third row has 250 256
+35:53
+tokens padded and let's look at the Target if you look at the first row of the targets
+35:58
+it's the first dra of the inputs you shift to the right by one so you take the remaining four and then you have 50
+36:04
+256 token similarly if you look at the second row of the target it's basically the second row of the input you shift to
+36:11
+the right by one which means you take only the remaining four values and then you add an extra
+36:17
+5256 similarly if you take the third row of the targets it's essentially the
+36:22
+third input but you shift to the right by one so you ignore the first and you take all the four and then you append an
+36:28
+extra 50256 token ID towards the end that's how you get the inputs and the target tensor so the first tensor
+36:35
+represents the inputs and the second tensor represents the target
+36:41
+awesome now after this step is implemented we come to the next step which is essentially creating uh or
+Coding the padding token replacement with “ignore index = -100”
+36:47
+replacing the padding tokens with placeholders which means that except for the first 50256 we'll replace all the
+36:54
+remaining with minus 100 uh so in the next step we assign a minus 100
+37:00
+placeholder to all the padding tokens this special value allows us to exclude these padding tokens from contributing
+37:06
+to the training loss calculation as we saw on the white board
+37:12
+um okay so in the following code okay one more thing to mention is that as I
+37:17
+told you on the Whiteboard when we replace this 5025 tokens with minus 100 we retain one 50256 token and the reason
+37:25
+we retain one end of text token is because it allows the llm to learn when to generate an end of text token in the
+37:31
+response to instructions which we use an which we use as an indicator that the generated
+37:37
+response is now complete so you need one 5256 token ID to say that or to
+37:42
+represent that this is indeed the end of text so now what we have to do is that
+37:47
+we have to take this custom colate draft two and then we have to modify it further so most of the function is the
+37:53
+same which now I'm calling Custom colate function which takes in my batch my padding token ID and my ignore index so
+38:01
+that's minus 100 so what this does now is that until now here the steps are the same you get
+38:08
+the inputs and the target sensor but now what you do is that you take the target sensor only and all the indexes except
+38:16
+for the first 50256 you replace it with the ignore index so you first create a
+38:22
+mask and that mask has all the indexes which has the padding token ID then you ignore the first index which has the
+38:28
+padding token ID that's the first 50256 value and then you replace all the remaining ones with ignore index which
+38:34
+is minus 100 uh okay so this now creates my input
+38:41
+this now creates my input sensor and this creates my Target stenor and these
+38:46
+are both returned by this function which is custom colate
+38:52
+function okay until now if you note through the Whiteboard what we have
+38:57
+implemented is that we have implemented this part of the code where you can see in the figure that
+39:04
+uh here so except for the first 50256 we replace all of the remaining 50256 with
+39:11
+the value of minus 100 and now we are going to see why we replace the remaining 50256 token IDs
+39:19
+with minus 100 so to to see why we
+39:24
+replace the remaining token IDs with minus 100 we are going to see some implementations using pytorch but before
+39:32
+that let's actually see whether our custom colate function is really working
+39:37
+so to test that you take three inputs you have the inputs one as 0 1 2 3 4 You have the inputs two as 5 comma 6 and you
+39:44
+have the inputs three as 7 8 and 9 you create a batch with these three inputs
+39:49
+similar to the batch we have created before and then you create the inputs and targets based on the custom collate
+39:55
+function now if you see the inputs and targets tensor which we had obtained before the inputs and targets tensor
+40:02
+which we obtain now is actually exactly the same except that in the Target
+40:08
+sensor uh except for the first 50256 all the remaining 50256 values
+40:14
+have been replaced with minus 100 this is the only change which has been done there is no changes to the input sensor
+40:21
+the only change happens in the Target sensor where except for the first 50256
+40:27
+all the remaining have been replaced with minus 100 and now you can appreciate this code
+40:34
+which is the custom colate function where in this 15 to 20 lines of code what we are essentially doing is that we
+40:40
+we are implementing all of the steps which we have learned on the Whiteboard we implementing all of the steps over
+40:47
+here so essentially we are implementing the we are implementing the padding we
+40:54
+are implementing creating Target token IDs we are also implementing replacing the padding tokens with the placeholder
+41:00
+value of minus 100 and that's also called ignore index so up till now it's working right
+Significance of PyTorch “ignore index = -100”
+41:07
+but now you might be thinking that the modified colate function works as expected altering the target list by
+41:13
+inserting the token ID of minus 100 but what is the logic behind this adjustment
+41:18
+why do we replace with minus 100 so let us take a small demonstration uh and I'm
+41:24
+going to show you the categorical or the cross entropy loss calculation right and the cross entropy loss calculation is
+41:31
+based on a logic sensor and a Target sensor I'm not going into details of this Logics and targets because I have
+41:38
+just taken two sample examples but for now you can think of it that the true answer is 0a 1 and the logits predicted
+41:46
+are minus minus one and one for the first training example and for the second training example the Logics
+41:52
+predictor are Min -.5 and 1.5 so this this is my predicted value and these are
+41:57
+the targets to calculate the loss between the prediction and the target we use the cross entropy loss so I'll share
+42:05
+the link to the pytorch Cross entropy loss which which calculates this loss between the prediction and the Target
+42:11
+and if you print out the loss you'll get it to be 1.1 1269 that's good then what
+42:16
+we do is that we add one more additional token ID in the prediction so in the
+42:21
+logits two now we have three training examples with three predictions and we have three true answers
+42:27
+so then we are using the categorical or the cross entropy function to calculate the loss between the prediction and
+42:35
+between the actual value and here if you print out the loss you'll see that the loss is 7936 it differs from the
+42:41
+previous loss because we added one more example now what I want to show you is that let's say instead of the targets
+42:48
+two being 0 1 and one what if the targets three is 0 1 and minus
+42:53
+100 so the Logics two will remain the same so the logits which are my predictions will remain the same but now
+43:00
+the targets are 0 1 and minus 100 now I want to show you a interesting thing
+43:06
+even if you add a minus 100 here and if you have a third example when you calculate this new loss you'll see that
+43:13
+the loss for this is the same as the first loss which you had obtained so
+43:18
+it's almost like adding the third training example made no difference at all so the loss here is 1.1 1269 and if
+43:26
+you saw the the loss in the first logits one and targets one that was also 1.12 69 so essentially there was no effect of
+43:33
+this third prediction and the reason there was no effect of this third prediction is that the targets had minus
+43:39
+100 that is the effect of ignore index equal to minus 100 so in other words the cross entropy
+43:46
+loss function ignored the third entry in the targets three Vector the token ID corresponding to minus 100 so you can
+43:54
+try reading replacing the minus 100 with another token and then the loss will not be the same it's only for minus 100 so
+44:01
+what's special aboutus 100 that it's ignored by the cross entropy loss well the default setting of the Cross entropy
+44:08
+function in pytorch is cross entropy ignore index equal to minus 100 and you
+44:14
+can see this over here also if you look at Cross entropy loss formulation you'll see that the ignore index is equal to
+44:20
+minus 100 over here that's the default setting of the pytorch Cross entropy loss this means that pytorch ignores all
+44:27
+the targets which are labeled with minus 100 so now if my target tensor has minus
+44:32
+100 over here it will ignore all of those predictions corresponding to these indices which have minus 100 in the
+44:38
+targets and that's good for us because these anyways don't represent anything meaningful that's why they won't
+44:44
+contribute to our loss function um so in this chapter we
+44:50
+actually take advantage of this ignore index to ignore the additional end of text padding tokens that we that we use
+44:57
+to pad so we we take advantage of this ignore index to ignore the additional
+45:03
+end of text tokens that we used to pad the training examples to have the same length in each batch however as I
+45:09
+mentioned we kept one 15256 token ID so this I will reiterate again because
+45:15
+sometimes students forget this we we we retain this this first
+45:20
+50256 we retain the first 50256 in all of the targets so even if
+45:26
+you see in the even if you replace the other 50256 with minus 100 you retain the first
+45:32
+one and you retain the first one because it helps the llm to learn to generate end of text tokens and that's an
+45:38
+indicator that the response is complete so this is the entire process and this is the entire workflow for
+45:45
+implementing the batching in the training data set there are very few videos which explain this batching
+45:50
+process in detail but as I say so many times the devil lies in the details so if you directly go to the model training
+45:57
+right now I could have shown you that directly without explaining this lecture but there is so much information to
+46:03
+learn here this padding tokens this minus 100 then creating Target token IDs
+46:08
+which are just shifted uh to the right hand side by one all of this information would have been lost if I directly
+46:14
+jumped to the fine tuning process so in the instruction fine tuning creating
+46:19
+these batches is very important to learn because as I explained to you there is a specific fstep process to do this first
+46:26
+you you have to convert the data to the alpaka prom template then you have to tokenize the formatted data into token
+46:32
+ID then you have to append padding tokens to all the tokenized input sequences in in each batch remember we
+46:39
+are doing this separately for each batch so that in each batch the length of all input sequences should be the same then
+46:47
+we create the target token IDs which is just the input token ID tensor shifted to the right by one and then we replace
+46:53
+the padding tokens with uh 50256 withus 100 except for the first 50256 which
+47:00
+indicates the end of text okay one last thing which I want to cover is that sometimes some researchers
+Masking target token IDs
+47:07
+also mask the target token IDs so if this is
+47:12
+my this is my prompt and that's tokenized into this right as input IDs
+47:19
+in Target we we shift to the right by one right so as I told you here we shift to the right by one so the target tensor
+47:25
+is now the in put shifted to the right which means only this part is the target
+47:32
+text but now as I mentioned to you before why should I learn all these other things in the Target all I should
+47:39
+learn is the response right so what if I mask the entire other thing in the
+47:45
+target with the tokens minus 100 so only the response matters to me I
+47:50
+want my llm to learn the instruction input and then produce this response why should I keep the instruction and the
+47:56
+input as I mentioned here in the Target text isn't that doing unnecessary
+48:02
+computations so why don't we replace the token ID is in the Target text with minus 100 so that they are ignored in
+48:08
+the loss function calculation and in fact this part is actually still not yet
+48:14
+finalized so let me explain this part a bit better in addition to masking out
+48:19
+padding tokens it is common to mask out the target token IDs that correspond to the instructions as I mentioned over
+48:25
+here this is called mask asking the target token IDs um by masking out the target token
+48:31
+IDs that correspond to the instruction the llm cross entropy loss is only calculated for the generated response
+48:37
+Target IDs right and by masking out the instruction tokens the model is trained to focus on generating accurate
+48:44
+responses rather than memorizing instructions and that helps with overfitting or reducing overfitting so
+48:51
+if this instruction is not even present in the Target the llm won't memorize this as the output so it will reduce
+48:58
+overfitting now there is still there are some researchers who are trying this but
+49:04
+it's not yet confirmed which approach works the best so as is mentioned here currently researchers are divided on
+49:10
+whether masking the instructions is universally beneficial during instruction fine tuning for instance a
+49:16
+recent paper titled instruction tuning with loss over instructions demonstrated that not masking the instruction
+49:22
+benefits the llm performance so let me actually display this paper paper so that you can see see this paper um so
+49:30
+this paper is instruction tuning with loss over instructions this paper demonstrated that uh fine
+49:37
+tuning with masking is actually not good so this paper demonstrated that not
+49:42
+masking actually benefits the llm performance so it's not yet finalized
+49:47
+which is the best method and it's and it's a subject for open research which all of you who are listening to this
+49:53
+lecture can also actively contribute by testing out master and no masking as I
+49:58
+mentioned it's very easy to mask you just replace the token IDs of the target text with minus 100 as is seen over here
+50:04
+on the white board uh okay so in this implementation
+50:10
+in this series we are not going to apply the masking and we will leave it as an optional exercise for you but the more
+50:16
+optional exercises like these which you perform the more confident you will be of the subject and the stronger llm
+50:22
+engineer or machine learning engineer you will become so at many places I'm introducing these open areas of research
+50:29
+to you so you can even do this research and publish an impactful paper if you thoroughly investigate the effect of
+50:35
+masking Target token IDs in instruction fine tuning awesome right so this brings
+Recap and summary
+50:42
+us to the end of the lecture where we covered batching the data set and it
+50:47
+sounds simple batching the data set you might think what's so complicated in this but it took me the full lecture to
+50:53
+explain the second part itself which is batching the data set and the reason is because this batching
+51:00
+itself involved five detailed steps which I needed to explain to you in a lot of detail along with the code so I
+51:07
+hope you I hope you liking the style of whiteboard Plus Code and I'm trying my best to explain this to you in as simple
+51:13
+manner as possible in the next lectures we'll create data loaders then we'll load the pre-trend llm then will
+51:20
+instruction fine tune the llm inspect the loss accuracy generate the responses
+51:26
+and and even do an evaluation and score the responses uh we'll ultimately even package this into a chat GPT prompt
+51:32
+style so you'll get the feeling that you have built your own chat GPT thanks a lot everyone I'm making
+51:39
+this nuts and bols approach of learning large language models deliberately because I feel that's the strongest way
+51:44
+to build machine learning Engineers rather than just doing applications without understanding the basics
+51:50
+foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
+
+***
