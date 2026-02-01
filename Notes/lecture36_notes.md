@@ -37,218 +37,17 @@ def calc_loss_batch(input_batch, target_batch, model, device):
 
 * 20:00
 
+***
 
-to be done here is that once you get the input batch you pass in through the model and then you only look at the
-20:27
-Logics of the last output token because that contains the most information and then you find the categorical cross
-20:33
-entropy loss between this logic sensor which is the output of the last token and the target batch so the logic sensor
-20:42
-output can be something like uh8 and 02 and the target out is one Z so when you
-20:48
-calculate the cross entropy loss you'll get some value of the loss function so I'll just show you here torch.nn do
-20:56
-functional cross entropy this is the P torch functionality which we are using over here to find the cross entropy
-21:03
-loss awesome and this is differentiable so it will be very useful for us when we do the back
-21:09
-propagation okay so we will use this calculate loss batch function to compute the loss for a single batch and we can
-21:16
-also use it to calculate the loss for a multiple set of batches so for to calculate the LW for multiple batches we
-21:24
-have to use similar code lines as we used over here so so if number of batches is not specified then we take
-21:32
-the number of batches to be equal to the length of the data loader if number of batches is specified then it's equal to
-21:37
-the minimum of the number of batches specified and what is the length of the data loader very similar to the accuracy
-21:43
-classification code which we saw then what we are going to do is that we are going to take one input batch one target
-21:49
-batch calculate the loss between all the samples of the input batch and the target batch using this calculate loss
-21:54
-batch which will implement the categorical cross entropy we are going to add the loss every time we get a loss
-22:01
-we are going to add the loss and then that is in the total loss um awesome and then what we are
-22:08
-ultimately going to do is that we'll divide the total loss with the number of batches so that will kind of give us an average loss per batch and this is the
-22:16
-loss which we will eventually try to minimize using back propagation that is the whole workflow which we are going to
-22:22
-follow so now what we can do is that we can implement this loss function on our data set again we have not implemented
-22:29
-back propagation so the loss will be very high but I just want to show you the initial values of the training loss
-22:35
-the validation loss and the test loss so here again I'm setting the number of batches equal to five U because actually
-22:41
-the train data loader has 130 batches I think so that will take a long time to calculate and anyway we have not done
-22:48
-the training here so I just want to illustrate that the loss can be found on five batches like this so you you
-22:55
-implement the Cal Closs loader function and you pass in train loader then validation loader and the test loader
-23:02
-and then you also pass in the number of batches so then you can print out the training loss you can print out the
-23:07
-validation loss and you can print out the test loss and you can see these are the high these are the values which are
-23:12
-pretty high it's again if you in the accuracy we saw that the accuracy was very bad and that is reflected in the
-23:18
-loss values as well now we will Implement a training function to fine tune the model which means that we'll
-23:24
-adjust the parameters to minimize the training loss and and then we'll also print out the validation loss and we'll
-23:31
-print out the test loss so let's start looking at that part of the code right now so until now we
-23:38
-have finished a number of steps here we have finished uh let's see we have
-23:43
-finished downloading the data set pre-processing the data set create data loaders initialize model load pre-train
-23:49
-weights modify model for fine tuning Implement evaluation utilities which is the loss and the accuracy
-23:56
-basically and now we we are at this stage where we will actually fine tune the model which means that we'll Define
-24:02
-the training Loop and we'll Implement back propagation so this is the training Loop
-Fine-tuning training loop implementation
-24:07
-which we are going to Define first we'll have the EPO which means one Epoch is going through the entire data set once
-24:14
-right so let's say if you if you are running in one particular Epoch the
-24:19
-second Loop is that you have to go within each batch so each batch has eight samples at least that's how we
-24:25
-Define the training data loader to be so then we'll look at each particular sample and then we'll calculate the loss
-24:32
-on the current batch uh and uh we'll Implement a backward pass to calculate
-24:38
-the loss gradients and then we'll update the model weights using the loss gradient so here what we are doing is
-24:43
-that W new is equal to W old
-24:49
-minus Alpha * the partial derivatives this is exactly what we written over we
-24:54
-wrote over here also uh and then once the weights are
-25:00
-updated we print the training and the validation loss and then we keep on doing the same thing for multiple number
-25:06
-of epox so that the parameters are getting updated so the simplest way to think about this is that the most
-25:12
-important step is this backward pass once we do the backward pass we get the loss gradients that's why we needed the
-
-
+* 25:00
 
 ***
 
-
-
-25:18
-loss function to be differentiable once we get the loss gradients with respect to the parameters we can actually update
-25:24
-the parameters and once we do this enough number of times the par parameters will get updated and
-25:29
-hopefully we'll reach a value of the loss where the loss function is minimized this is the exact same
-25:36
-training function which we had implemented to pre-train the llm and
-25:41
-here's what I'm what I want to show you is that when we finetune the model on supervised data which means data set
-25:48
-such as the spam no spam label I showed you we need to again train the model so there is training process involved in
-25:55
-pre-training and there is training process involved in fin tuning that's why it's called pre-training actually
-26:00
-because it's before this second training process which needs to be implemented so let's see how the
-26:06
-training process is implemented in code right now so this section I have named as finetuning the model on supervised
-26:13
-data so until now we have actually not trained the model on the data set at all
-26:18
-which means that that's why the parameters are not optimized so in this section we'll Define and use the
-26:23
-training function to fine tune the pre-trained llm and improve its spam classification accur
-26:28
-accuracy uh a note here is that if you have followed these lectures you'll see that the training function is very close
-26:34
-to the train model simple function which we used for pre-training earlier the only distinction is that we are tracking
-26:40
-the number of examples here the number of text samples instead of tracking the number of tokens which we had calculated
-26:47
-earlier so in the code what we are going to do is that there are seven steps the first step is that we have to set the
-26:53
-model to training mode uh so here you see we set the model to train training mode that's the first
-26:59
-step the second step is reset the loss gradients from previous batch so when we look at each every batch we have to
-27:06
-reset the loss gradients again so let's say we are looking at one batch right now uh we reset the loss gradients from
-27:13
-the previous batch iteration then the third step is calculating the loss gradients and updating model weights
-27:19
-these are the most important step so then what you do is you find the loss in that batch and then you calculate the
-27:26
-loss gradients through a backward propagation then you do Optimizer do step this is where the optimizer comes
-27:31
-into the picture in on the Whiteboard I showed you simple vanilla gradient desent over here but in practice we'll
-27:38
-use a a more complicated optimization algorithm which keeps track of the previous gradient which keeps track of
-27:45
-the previous gradient Square Etc so that the optimization is done in a in a
-27:51
-better Manner and so that the model does not get stuck in local Minima then the next step is that we
-27:58
-keeping track of the number of examples so we just keep track of the number of examples which we are seeing so input
-28:04
-batch. shape zero is that let's say if each batch has eight samples when you
-28:09
-look at the first shape uh first value of the batch shape it will give us the number of samples in the batch so for
-28:16
-example if the batch has eight uh eight samples and the number of tokens is
-28:22
-120 so then we'll get eight here input badge. shape zero which will give us the number of samples over here
-28:30
-so then we keep track of the number of example scen so you can just think of this example scene as when you look at
-28:35
-one text message that's one example seen when you look at second text message you increment the number of example seen by
-28:41
-one whenever you go through a full batch you increase the global step by one
-28:46
-right awesome now here we have that if Global step percentage of evaluation
-28:53
-frequency equal to zero so we have to specify an evaluation frequency now if the training batch has 130 if the
-29:00
-training uh data loader has 130 batches in training and if the evaluation frequency
-29:08
-is 50 it means that for after 50 batches
-29:13
-are processed after 50 batches are
-29:19
-processed for each Epoch after 50 batches are processed in each Epoch we
-29:25
-print and what are we going to print we are going to print the training loss and we are going to print the validation
-29:32
-loss so this evaluation frequency just specifies how after how many batches are
-29:38
-completed we print the training and the validation loss so here later we are
-29:44
-going to set the evaluation frequency to 50 which means that after 50 batches are processed in each Epoch we are going to
-29:50
-print so in every Epoch we are going to print on an average of two times because 130 divided 50 is around 2.6 so we are
-29:57
-going to print 2 two times in every Epoch okay awesome so now to print the
-30:03
-training loss and the validation loss we are going to calculate the evaluate model so evaluate model gives you an
-30:09
-option to specify the evaluation iteration which means that the number of batches you want to use for evaluation
-30:16
-sometimes if you want to show quick evaluation on a sample data set you don't want to use all the batches so
-30:21
-here you can just set the number of evaluation iterations to be five or 10 since the number of batches is 130 this
-30:28
-this will really save us time when we print out the train loss and the validation loss so this actually
+* 30:00
 
 
 
-***
 
-
-
-30:33
 evaluation step is optional but when we do the training you'll see that the train loss and validation loss are
 30:38
 printed after every 50 batches due to this evaluation step then what we are going to do is
@@ -613,6 +412,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
