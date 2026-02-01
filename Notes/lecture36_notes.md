@@ -45,118 +45,11 @@ def calc_loss_batch(input_batch, target_batch, model, device):
 
 * 30:00
 
+***
+
+* 35:00
 
 
-
-evaluation step is optional but when we do the training you'll see that the train loss and validation loss are
-30:38
-printed after every 50 batches due to this evaluation step then what we are going to do is
-30:44
-that after every Epoch we are going to calculate the training accuracy and validation accuracy and we are going to
-30:50
-print it out so after every Epoch what we are going to do is that we are going to print the training and the validation
-30:55
-accuracy and after every batches we are going to print the training loss and the validation loss so let's do the training
-31:03
-process now for me this training process took uh around 8.8 minutes and I have a
-31:08
-MacBook Air 2020 um it does not have very high end configurations but it's a good laptop if you have an i5 or i7
-31:16
-laptop or a Macbook this training should take only 7 to 10 minutes for you so here you can see that this is the main
-31:23
-code where we write about the training so we are going to use adamw optimal
-31:28
-izer let me show you a bit about this t. optim adamw it's a modification of the
-31:33
-Adam Optimizer with weight DEC so it's very good to avoid local Minima this
-31:40
-algorithm converges in a smooth Manner and it also leads to faster convergence you can try various things here you can
-31:46
-try Adam you can try to change the learning rate weight Decay so this is why this kind of code opens the door for
-31:53
-research if you just use chat GPT you will never get to change all of these things which are happening
-31:59
-under the hood but once I share this code with you you can try playing around with various parameters and try seeing
-32:05
-the effect on the loss function on the accuracy Etc so this is the optimizer which we
-32:11
-have defined right now and then what we are going to do is that we're going to call this train classifier simple so I'm
-32:18
-calling this train classifier simple function and I have to I have to pass the model so the model which I'm passing
-32:24
-in is the GPT model class which we have created with the modified architecture
-32:31
-so the modified architecture is this where the architecture has a classification head on top of
-32:37
-it let me show you yeah this is the modified architecture which has this classification head on top of it this is
-32:44
-the model which we are passing in and then we pass the train loader the
-32:50
-validation loader the optimizer which is the admw uh number of epo evaluation
-32:55
-frequency so this evaluation frequency as I mentioned here is after 50 batches we print the train loss and validation
-33:01
-loss and evaluation iteration is basically when you print this train loss and validation loss how many batches you
-33:08
-want to evaluate so I'm just doing five batches here so that the calculations would be quick if you do evaluation
-33:14
-iteration equal to 50 batches or 100 batches it will just take more time to do the evaluation of course this is not
-33:20
-the best way to evaluate evaluate because we are only evaluating on five later in I have a code where we actually
-33:27
-evalate on the entire data set for now this gives us a good sense at every iteration how the training loss and
-33:33
-validation loss is progressing awesome so after I run this code you can see that I've already run it and it's 8.83
-Analysing training results
-33:40
-minutes so if you look at the training loss the training loss goes down to 0.083 and the validation loss goes down
-33:47
-to 0.074 training accuracy improves to around 100% And validation accuracy is
-33:55
-97.5% you can even print the training loss and validation loss and
-34:00
-along with it you can also print the example scene because then you can see the more examples the model sees the
-34:07
-more text messages you can see that the training loss goes down as indicated by the blue line and the validation loss
-34:14
-also goes down as indicated by the Orange Line This is actually perfect training because training loss is very
-34:19
-low validation loss is also very low that's awesome that indicates that there is not too much overfitting here so as
-34:26
-we can see based on the sharp downward slope the model is learning well from the training data and there is little to
-34:32
-no indication of overfitting that is there is no noticeable gap between the training and the validation set
-34:38
-losses that is exactly what we wanted if the validation loss is much higher than training loss let's say if the
-34:44
-validation loss is somewhere here that is a sign of overfitting Now using the same plot we
-34:50
-can also plot the classification accuracies so as the loss is decreasing the training and the validation loss you
-34:55
-can also see that the training accuracy has shown by the blue line is increasing and then it reaches one the validation
-35:01
-accuracy also increases and it reaches around 97 and plate uh one thing to note is that it's
-35:08
-important to note that we have set evaluation iteration to be equal to five as I mentioned over here we have set the
-35:14
-evaluation iteration to be equal to five so that's not so the values which we are seeing here of the accuracy are not
-35:21
-representative of the accuracy on the entire data set since we only evaluate on five batches so this this means that
-35:28
-our training and validation performance were based on only five batches for efficiency during training to calculate
-35:34
-the performance matrics for the training validation and entire testing set for the full data
-35:40
-set uh we can also do that so all we need to do is that then we have to run the calculation accuracy loader and then
-35:47
-we have to pass in the train loader we have to pass in the model and we have to pass in the device either it's a CPU or
-35:53
-a GPU so what this calculation accuracy loader will do as we have already defined earlier uh this calcul calculate
-36:01
-uh this calculate accuracy loader will take in our model and then it will do the prediction it will compare it with
-36:08
-the actual value then it will print out the accuracy and it will do this for all the batches in the training set so it's
-36:14
 not only five batches so this um this accuracy measure for the training
 36:20
 testing and validation data set is a much better representative than these plots because these plots are only for
@@ -412,6 +305,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
