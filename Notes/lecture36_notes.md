@@ -49,88 +49,11 @@ def calc_loss_batch(input_batch, target_batch, model, device):
 
 * 35:00
 
+***
 
-not only five batches so this um this accuracy measure for the training
-36:20
-testing and validation data set is a much better representative than these plots because these plots are only for
-36:26
-evaluation iteration which was set to be equal to five so let's print out these train
-36:33
-accuracy validation accuracy and test accuracy on the entire data set so when you print out these you will see that
-36:38
-the training accuracy is 97% the validation accuracy is also 97%
-36:44
-and the test accuracy is 95% so the training and the test set performances are almost identical a
-36:51
-slight discrepancy between the training and the test set accuracy so the test set accuracy slightly less right
-36:57
-compared to the training it suggests that there is small amount of overfitting although there's small only
-37:02
-2% difference is there but it still indicates that slight amount of overfitting is there on the training data typically the validation set
-37:10
-accuracy is somewhat higher than the test set accuracy because the model development often involves fine-tuning
-37:15
-parameters on the validation set this situation is common but the Gap
-37:21
-could potentially be minimized by adjusting the model settings such as increasing the dropout rate or the
-37:26
-weight Decap parameter in the optimizer configuration as I mentioned before once I share this notebook with you you will
-37:32
-have a lot of scope to experiment so you can experiment with dropout rate in the model architecture you can even
-37:39
-experiment with learning rate parameter weight DK parameter in the optimizer um you can also experiment
-37:46
-with things like unfreezing certain parameters so if if you remember from our previous lecture the only parameters
-37:52
-which are being trained here is of course the output classification head and along with that we are also training
-37:57
-the last Transformer block the 12th Transformer block and the final normalization layer you can do some
-38:04
-changes here so you can make sure that the last three Transformer blocks are trained Etc you can make sure that maybe
-38:11
-this is false and that leads to better answers who knows so this kind of experimentation is open and I'll be very
-38:19
-happy if you experiment with various options that will even improve your understanding further and try to see if
-38:25
-you can increase the test accur further to match that of the training
-38:31
-accuracy awesome so until now what we have done is that we have uh um let's see what all we have done we
-Testing model on new data
-38:39
-have fine tuned on the supervised data and we have even plotted the training
-38:44
-and the validation loss now the last step is remaining which is using model on new data so whatever is shown in the
-38:51
-tick mark here downloading the data set pre-processing the data set creating data loaders initializing the model load
-38:57
-pre-train weights modify model for fine tuning Implement loss and accuracy functions then actually doing the backo
-39:05
-pass and fine tuning the model and training and validating the model these nine steps we have done now what we have
-39:11
-to do is that we have to use the model on new data which the model has not seen before so that is the real test whether
-39:17
-our model our large language model how its performance is as a Spam classifier so let's go to the last
-39:24
-section of this project right now and uh let's see whether our model is actually performing well on data which it has not
-39:31
-seen so after fine-tuning and evaluating the model in the previous sections we are now in the final stage of this
-39:37
-chapter where we will use the model to classify spam messages right so finally
-39:43
-let's use the fine tuned GPT based spam spam classification model we'll need to
-39:48
-define a function first we'll need to define a function called classify review which will take in any text and it will
-39:54
-predict whether it's a Spam or not and what this function will do is that it will do a number of things first it will
-40:00
-uh and let me actually write this down in description so let's say a text is given such as
-40:07
-you let's say a text is given such as you on a lottery right if a text is
-40:13
-given the first thing which we will do is that we'll convert this text into token IDs we'll convert this text into token
-40:20
-IDs actually there is a nice representation of the data pre-processing which we had looked at before I'm just I'll just take you to
-40:26
+* 40:00
+
+
 that part so that you can see how this yeah so if a new text is given we'll
 40:31
 first convert the text into token IDs something like this and that's the first thing which we have written in the code
@@ -305,6 +228,7 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
