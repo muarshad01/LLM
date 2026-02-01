@@ -158,6 +158,14 @@ attaching a classification head on top of the GPT architecture it really blew my
 we have brought down the loss we have increased the accuracy and we have tested this model on new text samples
 45:52
 and it seems to be performing well um this is pretty awesome right and through this I hope you also understood the
+
+
+
+
+
+***
+
+
 45:59
 concept of fine tuning remember we have used pre-trained weights from gpt2 but
 46:04
@@ -228,13 +236,3 @@ llm architecture changing and testing various llm architecture but also with res
 various CL classification projects thanks so much everyone I look forward to seeing you in the next lecture
 
 ***
-
-
-
-
-
-
-
-
-
-
