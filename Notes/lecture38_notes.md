@@ -109,6 +109,12 @@ pairs right so now okay one last thing is this splitting the data set into
 training testing and validation so here you can see that we have used 85% for training 10% for testing and the
 5:38
 remaining 5% for validation you can print out the training set length which is 935 out of the 1100 pairs the
+
+
+
+
+***
+
 5:45
 validation set is 55 and the test set is 110 out of the 1100 pairs awesome now
 Batching the dataset introduction
@@ -209,6 +215,12 @@ present let's say the number of token IDs which are present over here will be di
 which are present over here because of course the length of the prompt might differ right so if you look at this this
 10:51
 first prompt it looks longer than the second prompt so the number of token IDs in the first prompt are greater than the
+
+
+
+
+***
+
 10:57
 number of token IDs in the second prompt but as you but as I told you over here we need the numerical representation of
 11:04
@@ -303,6 +315,14 @@ language model training the target is constructed by Shifting the input to the r
 take the remaining entries and then you add a padding token 50256 so that the length of the Target
 15:52
 and the length of the input is equal to are similar to each other or are exactly same
+
+
+
+
+
+***
+
+
 15:57
 rather here is the second input so if the input is 56 50256 50256
 16:04
@@ -397,6 +417,13 @@ padding tokens with placeholders so let's say this is my first Target tensor rig
 target tensor let's look at 50256 there are four 50256 values right I'll leave
 20:47
 this first one because that indicates the end of text and I'll replace all of the remaining with the value of minus
+
+
+
+***
+
+
+
 20:54
 100 similarly if you look at Target three uh it has three 50256 values I'll
 21:00
@@ -489,6 +516,13 @@ it first creates an object self. data and assigns the data set uh which is
 something like this you can think of the data set like this and then what we do is that for each entry in the data set
 25:30
 it first applies this format input function to the entry and then appends the response so the full text in the
+
+
+
+***
+
+
+
 25:36
 alpaka format is created and then what we do is that as I mentioned in the next step over here we are going to tokenize
 25:43
@@ -584,6 +618,12 @@ code it's important because it easily helps us to create the target ID uh to
 create the target for every inputs so essentially what we do is we add an extra 50256 and then get rid of it later
 30:34
 and then we pad everything all the other inputs with 50256 so that the length is equal to the maximum token ID length or
+
+
+
+***
+
+
 30:42
 the that input which has the maximum length so essentially uh when you reach this part
 30:49
@@ -685,6 +725,16 @@ we'll print the inputs and the targets so let's see as we learned before the inp
 Same the second row has three 50256 tokens padded the third row has 250 256
 35:53
 tokens padded and let's look at the Target if you look at the first row of the targets
+
+
+
+
+
+
+
+***
+
+
 35:58
 it's the first dra of the inputs you shift to the right by one so you take the remaining four and then you have 50
 36:04
@@ -782,6 +832,12 @@ we are implementing all of the steps which we have learned on the Whiteboard we 
 here so essentially we are implementing the we are implementing the padding we
 40:54
 are implementing creating Target token IDs we are also implementing replacing the padding tokens with the placeholder
+
+
+
+***
+
+
 41:00
 value of minus 100 and that's also called ignore index so up till now it's working right
 Significance of PyTorch “ignore index = -100”
@@ -873,6 +929,13 @@ you see in the even if you replace the other 50256 with minus 100 you retain the
 one and you retain the first one because it helps the llm to learn to generate end of text tokens and that's an
 45:38
 indicator that the response is complete so this is the entire process and this is the entire workflow for
+
+
+
+
+***
+
+
 45:45
 implementing the batching in the training data set there are very few videos which explain this batching
 45:50
@@ -975,6 +1038,13 @@ Recap and summary
 us to the end of the lecture where we covered batching the data set and it
 50:47
 sounds simple batching the data set you might think what's so complicated in this but it took me the full lecture to
+
+
+
+
+***
+
+
 50:53
 explain the second part itself which is batching the data set and the reason is because this batching
 51:00
