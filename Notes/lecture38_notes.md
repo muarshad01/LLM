@@ -209,6 +209,13 @@ it's given because in the next word prediction task the llm automatically learns
 predict the response this was a bit harder for me to explain but I hope you have got this idea um in
 35:04
 the code if it's difficult to understand just try imagining it through the visual representation which I showed to you on
+
+
+
+***
+
+
+
 35:09
 the Whiteboard you can even try going back as you are learning this lecture to see the Whiteboard explanation before
 35:15
@@ -567,6 +574,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
