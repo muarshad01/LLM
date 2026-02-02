@@ -11,111 +11,13 @@
 
 * 10:00
 
-
-right uh and this you do for the first instruction input output data then you
-10:19
-do the same for the second you convert it into the alpaka format and then you convert it into a bunch of token IDs and
-10:26
-you do the same process for all of these um instruction input output data which
-10:32
-you have in your data set that's the first step but you see the problem here the number of token IDs which are
-10:38
-present let's say the number of token IDs which are present over here will be different than the number of token IDs
-10:44
-which are present over here because of course the length of the prompt might differ right so if you look at this this
-10:51
-first prompt it looks longer than the second prompt so the number of token IDs in the first prompt are greater than the
-
-
-
-
 ***
 
-10:57
-number of token IDs in the second prompt but as you but as I told you over here we need the numerical representation of
-11:04
-all the samples in one batch so let's say sample one and Sample two are in one batch we need the number of columns
-11:10
-which is the numerical representation or the number of token IDs we need the number of token IDs for each sample to
-11:17
-be same so I'm just mentioning it over here we need the number of token IDs for
-11:23
-each sample to be same so how do we make sure that the number of token IDs of all
-Padding token IDs
-11:28
-samples are the same and that brings us to The Next Step so until now we saw the
-11:33
-tokenization the next step is that we are going to adjust the length of every uh a set of token IDs and we are
-11:41
-going to pad them with tokens so that the length of all uh numerical
-11:47
-representations is exactly the same the way we are going to do this is as has been shown over here so let's say if we
-11:54
-have the first batch and the token IDs for the first input are 0 1 2 3 4 the
-11:59
-token IDs for the second input in this batch are five and six the token IDs for the third input is 7 8 and N this is one
-12:06
-batch now take a look at the length of the token ID here the length of the token ID is five here it's two and here
-12:13
-it's three so it's not the same right so what we'll do is that in each batch we'll find that sequence which has the
-12:20
-longest number of longest length so this clearly has the longest length so we
-12:27
-keep it as it is but the remaining ones we pad them with these tokens so that
-12:33
-their length becomes equal to the longest length so for example the input
-12:38
-two has only two tokens five and six so we P three additional tokens 50256 uh similarly the third input has
-12:46
-three token ID 7 8 and N we pad it with two additional token IDs now if you see
-12:52
-because of this padding procedure which is done the length of all of these three is equal is the same and there are five
-12:59
-token IDs in all the numerical representation that is exactly what I want now you may be thinking what's the
-13:06
-50256 that's the end of text token so gpt2 uh if you look at gpt2 it has a
-13:13
-vocabulary size of 5257 um so 50257 is the vocabulary size
-13:20
-so that means the first token has a token ID of zero and the last token has a token ID of
-13:26
-50256 and this last token which has the token ID of 50256 corresponds to the end
-13:32
-of text token so it conveys that one particular text sample has ended and it's the start
-13:38
-of a new text sample so we are just appending it with the end of text because it does not mean anything if we
-13:44
-use any other token ID it might be associated with a token so that might confuse the training so that's why we
-13:50
-append it with this with this end of text token ID which is 50256 now one thing which we are going
-13:56
-to do here is that let's say this is the first batch and when you look at the second batch we are going to implement the exact same
-14:02
-procedure we are going to find that token with the largest token length and we are going to append this
-14:09
-50256 to all the remaining uh token sequences so that the length of all becomes the same so each
-14:17
-batch we are going to process sequentially and differently in each batch we are first going to find that representation which has the largest
-14:24
-number of tokens and to all the other representations we are going to append 50 256 so that the length of uh so that
-14:33
-the length of the converted or the token ID number for all of the inputs is equal
-14:39
-is the same and then it starts looking like a batch so here you see this definitely looks like a batch because
-14:45
-their number of columns are the same and then I can process all of these together in a
-14:50
-batch right so that's the step number three we adjust to the same length with padding tokens so we add the end of text
-14:58
-tokens to p add the data samples so that in a batch all of the samples have the same length that is the same number of
-15:04
-token IDs right The Next Step what we are going to do is that we are going to create Target token IDs which means that
-Creating target IDs for training
-15:12
-uh let me show you what it actually means so let's say if you have an input right um and that's this prompt over
-15:19
-here let's say this is the prompt and that has been converted into a bunch of token IDs which look something like this
-15:25
+* 15:00
+
+
+
+
 we need some output right which is the true Target which we want to approximate similar to what we did for large
 15:31
 language model training the target is constructed by Shifting the input to the right by one so let's say the input is 0
@@ -877,5 +779,6 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
