@@ -19,128 +19,9 @@
 
 * 20:00
 
-
-
-en to indicate
-20:06
-that it's the end of the sentence so whenever we shift the input to the right by one we add this extra padding token
-20:13
-right so that is how the target token IDs are created for training and the last step is that we'll replace in the
-20:20
-Target token IDs this 5256 which is there wherever it is coming we'll replace it with minus 100 and there is a
-20:28
-specific way to do this so if you look at this last part which is replace the
-20:34
-padding tokens with placeholders so let's say this is my first Target tensor right um or let's look at the second
-20:41
-target tensor let's look at 50256 there are four 50256 values right I'll leave
-20:47
-this first one because that indicates the end of text and I'll replace all of the remaining with the value of minus
-
-
-
 ***
 
-
-
-20:54
-100 similarly if you look at Target three uh it has three 50256 values I'll
-21:00
-leave the first one because it symbolizes end of text and I'll replace all of the remaining 50256 with - 100
-21:08
-similarly if you look at Target one now uh this 50256 represents end of text so
-21:13
-I won't I won't replace this it remains like this so that is something to keep in mind we don't replace all the 50256
-21:19
-tokon IDS with minus 100 we only replace the we leave out the first one and replace all of the rest with minus 100
-21:27
-so you you might be thinking what is the significance of minus 100 and I'll explain to this in a lot of detail when
-21:33
-we come to code but for now just know that it comes from this cross entropy loss ignore index so ignore index so by
-21:41
-default the ignore index for pytorch is equal to minus 100 so when we mention
-21:46
-minus 100 here it kind of makes sure that when we calculate the loss function all of these token IDs which do not
-21:53
-matter at all we have randomly added them to the Target right they are not included in the loss function this makes
-21:59
-the training much more efficient and does not unnecessarily include tokens which are not
-22:04
-important this first 50256 needed to be retained because it indicates the end of
-22:10
-uh end of a particular uh end of a particular text so that is very
-22:15
-important but the remaining 50256 token IDs are not needed and we can just replace them with a value of minus 100
-22:23
-awesome so now uh we have understood this whole procedure so let me repeat the whole proced procedure ones so data
-22:29
-batching is actually done in five steps and we are going to see all of these five five steps in code shortly the
-22:36
-first step is to of course format the data using the promt template then convert the promt template into token
-22:42
-IDs now all of these token IDs won't have equal length so the next step after
-22:49
-this is to append U the data samples with the padding tokens of 50256 so that
-22:55
-in each batch the length of every data sample is the same and that is equal to the sample which
-23:00
-has the maximum number of token IDs then what we do is that we create Target token IDs which will be needed because
-23:07
-we need to know what the right answer is and the right answer is just the input shifted to the right by one this is a
-23:14
-bit counterintuitive but it does work because the llm learns to predict the next token and in that process it learns
-23:20
-that here is the instruction here is the input and I have to predict the output and then finally the last thing
-Replace padding tokens with “ignore index = -100”
-23:26
-is we we replace all all the tokens except for the First 50256 with a value
-23:32
-of minus 100 and the reason we do this is that we need to exclude these tokens from the training loss and py torch
-23:38
-cross entropy loss implementation has the ignore index of minus 100 and that's why we are going to use this minus 100
-23:45
-we'll see this in a lot of detail when we come to code right so I hope you have all understood this
-23:52
-process uh this is very important for you to have as a road map because now we are going to go to code code and
-23:59
-everything in the code will be much more clearer and easy to understand once you remember this road map which I've
-24:04
-introduced over here so let us jump directly right into code right now so as
-24:09
-I mentioned before until now we have converted the data set into training testing and validation batches right the
-24:16
-training is 85% of the data testing is 10% of the data and the remaining 5% is
-24:22
-for validation the next step is to organize the data into training batches as we saw on the Whiteboard first first
-24:28
-what we are going to do is that uh we are going to code an instruction data set class what this
-Coding the Instruction Dataset class
-24:35
-class does is that it takes in the data set in this format and it converts it
-24:40
-first of all into this alpaka style format that's the first step over here if you recall the first step is format
-24:46
-data using prom template so we are going to use the format input function which I
-24:53
-explained to you at the start of this lecture this format input function over here which takes in the um instruction
-25:00
-input output pair like this and converts U that pair into this first
-25:05
-sentence instruction and the input and then we need to append the response or the output so here if you look at the
-25:12
-code this instruction class data set when we create an instance of this class
-25:18
-it first creates an object self. data and assigns the data set uh which is
-25:23
-something like this you can think of the data set like this and then what we do is that for each entry in the data set
-25:30
-it first applies this format input function to the entry and then appends the response so the full text in the
-
-
-
-***
-
-
+* 25:00
 
 25:36
 alpaka format is created and then what we do is that as I mentioned in the next step over here we are going to tokenize
@@ -686,6 +567,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
