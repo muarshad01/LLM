@@ -27,122 +27,10 @@
 
 * 30:00
 
-30:42
-the that input which has the maximum length so essentially uh when you reach this part
-30:49
-of the code every item in the batch so all of these three items essentially
-30:54
-will have the same length that's what is happening in the code and ultimately we convert this um into a tensor and the
-31:02
-tensor is the input tensor which is returned by this function custom colate draft one now let's see a practical
-31:09
-application of this if you have uh these three inputs like this if inputs one has the size of five inputs
-31:16
-two has the size of two and inputs three has the size of three the batch you create a batch with these three inputs
-31:22
-and then you pass these you pass this batch into the custom Cola draft one now let's see the output as you can see the
-31:29
-first input remains unchanged it has five token IDs because those are the maximum length in the second inputs we
-31:35
-pad 50256 three times so that the length becomes same as the first input sequence
-31:40
-and in the third input we pad 50256 two times so that the length becomes the same as the first two so now you can see
-31:47
-we have an input stenor in which every row has the L has five columns
-31:52
-awesome so as we can see here all inputs have been ped to the
-31:58
-length of the longest input list inputs one which contains five token IDs
-32:03
-awesome uh so until now we have reached this stage where we have padded the inputs with the token IDs and now we
-Coding target token IDs
-32:10
-have to implement the next part of this process the next part is essentially creating Target token IDs for
-32:17
-training so until now we have just implemented our first custom colate function to create batches from list of
-32:24
-inputs however as you have learned in previous lessons we also need to create batches with the target token IDs right
-32:30
-because we need to know what the real answer is the target token IDs are crucial because they represent what we
-32:36
-want the model to generate and based on the target token IDs itself we'll get the loss function
-32:43
-ultimately so as I explained to you thoroughly on the Whiteboard the way to get the target token ID is just to shift
-32:50
-the input uh to the right by one and then add an additional padding token towards
-32:56
-the end and that's exactly what we are going to do in the code so if you see in the code until this part it Remains the
-33:03
-Same we have the inputs um and they're padded by the 50256 token and now if you
-33:08
-see the targets token it just shifted to the right by one so here you see one colon which means that you forget the
-33:15
-first entry and you take the remaining entries uh and here you don't even need to add the 50256 token we because we
-33:22
-have already added added an extra 5256 token and this is why we add that extra
-33:27
-5 0256 token as I showed you earlier because here you see actually in the
-33:33
-first input you don't need to add the 50256 token but if you add it it makes it very easy to create the target um it
-33:42
-makes it very easy to create the the target sensor why because you just ignore the first element and take
-33:48
-everything from the second element so here you ignore the first element which is zero and take everything from the
-33:55
-second element so the target will be 1 2 3 4 4 5256 in the second the target will be 6
-34:01
-50256 50256 50256 and one more 5256 so it's the inputs which are
-34:07
-shifted to the right by one so that is how you create the target tensor and
-34:12
-then you just return the input tensor and the target tensor so the simplest way to think
-34:19
-about this code is that until now we have made sure that the inputs are of the same length due to the padding which
-34:24
-we have done and the targets is the inputs which are shifted to the right by one this is the very important process
-34:30
-and as I mentioned to you this is the non-intuitive step because uh the true
-34:37
-value is just the input which is shifted to the right by one and that is what is nonintuitive you might think that the
-34:43
-response needs to be given in the True Value right why is the instruction and input also given in the True Value but
-34:50
-it's given because in the next word prediction task the llm automatically learns that when you have the instruction and the input you have to
-34:56
-predict the response this was a bit harder for me to explain but I hope you have got this idea um in
-35:04
-the code if it's difficult to understand just try imagining it through the visual representation which I showed to you on
-
-
-
 ***
 
+* 35:00
 
-
-35:09
-the Whiteboard you can even try going back as you are learning this lecture to see the Whiteboard explanation before
-35:15
-you try to understand the code so there are actually only two things which are happening in this custom colate draft 2
-35:22
-it takes it truncates the last token for the inputs so that everything is of the same length and it shifts
-35:28
-the input to the right by one to get the target tens and we can check this now let's say we have these three inputs as
-35:34
-before we create a batch of these three inputs and then we call the custom col draft two function on this batch and
-35:40
-we'll print the inputs and the targets so let's see as we learned before the inputs is just the first row Remains the
-35:47
-Same the second row has three 50256 tokens padded the third row has 250 256
-35:53
-tokens padded and let's look at the Target if you look at the first row of the targets
-
-
-
-
-
-
-
-***
 
 
 35:58
@@ -477,6 +365,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
