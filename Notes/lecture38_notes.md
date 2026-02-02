@@ -15,106 +15,13 @@
 
 * 15:00
 
-
-
-
-we need some output right which is the true Target which we want to approximate similar to what we did for large
-15:31
-language model training the target is constructed by Shifting the input to the right by one so let's say the input is 0
-15:38
-1 2 3 4 right the target will be you forget the first uh entry here and you
-15:45
-take the remaining entries and then you add a padding token 50256 so that the length of the Target
-15:52
-and the length of the input is equal to are similar to each other or are exactly same
-
-
-
-
-
 ***
 
+* 20:00
 
-15:57
-rather here is the second input so if the input is 56 50256 50256
-16:04
-50256 uh the way we construct the target is that we get rid of this first index
-16:09
-we take all of the remaining in the input and then we pad it with an extra token which is 50256 do keep this in mind this is the
-16:16
-most important step in the fine tuning process and sometimes this is also a step which is very hard to grasp so
-16:23
-think about what is exactly happening in this so let's say uh if we have a prompt and I'm I'm going to focus on this
-16:30
-prompt further now so that I can explain to you why we construct the target like
-16:35
-like this when I learned about this for the first time I really did not
-16:40
-understand what is actually happening so if we have a if we have a prompt like
-16:46
-this right what we are essentially doing in the when we construct the target pair is
-16:52
-that let's say why is the target pair shifted to the right by one because we
-16:58
-are still doing the next prediction task so if my let's actually let me take the
-17:04
-screenshot of this also so that I can explain to you what is going
-17:09
-on so if I take a screenshot of this and I'll paste this over
-17:18
-here what this input Target sequence means is that if you have the
-17:25
-input as zero the output should be equal to 1 if the input is 0 and 1 the target is
-17:31
-equal to 2 if the input is 0 1 and 2 the target is equal to 3 if the input is 0 1
-17:37
-2 3 0 1 2 3 the target is equal to 4 and if the input is 0 1 2 3 4 then we are at
-17:44
-the end of the sentence you can think about what we are really training the model over here we are training the
-17:49
-model that if below is the input then below is is the output if below is is
-17:55
-the input below is and is the output similarly as this happens sequentially we'll train the model that if below is
-18:02
-an instruction task which describes write a sequ Write a response that appropriately completes the request if
-18:08
-this much is the input then this this should be the output then we train the
-18:14
-model that if this much is the input this should be the output I agree that there is some redundant training which
-18:21
-is happening here because all the training which we really need to do is tell that if this much is the input
-18:26
-instruction and the input this is the response which needs to be constructed and the way we are going about this is
-18:31
-through this next word prediction task or next token prediction task that's why we shift that's why the target is the
-18:37
-input which is shifted to the right by one please keep this in mind this is a bit not easy to understand and it's not
-18:44
-intuitive as well when I first learned about instruction find tuning I thought
-18:49
-that the input should be input should be this much and the target should be the response right but the input is this
-18:56
-full thing the input is this full thing and the target is this full representation just shifted to the right
-19:03
-by one so within the input itself we have the input and the output actually
-19:09
-that is exactly how llms work we are using the next word predi or the next token prediction task so what this does
-19:15
-is that as we are predicting the next token in the sequence of training we reach a stage with this much is the
-19:22
-input the output will be the response so through learning how to predict the next
-19:27
-token the llm learns to follow the instructions so there's a lot of similarity between instruction fine
-19:33
-tuning and the pre-training process itself in the pre-training we did exactly the same thing we had the target
-19:39
-shifted by one and it's nonintuitive that in instruction fine tuning the same thing can work but it does work because
-19:47
-as the llm learns to predict the next token it learns to take the instruction the input and predict the
-19:54
-response okay so I hope you have understood this part about how to create the target token IDs so the way to
-20:00
-create the target token IDs is that we shift the inputs by one and we add an additional padding token to indicate
+
+
+en to indicate
 20:06
 that it's the end of the sentence so whenever we shift the input to the right by one we add this extra padding token
 20:13
@@ -779,6 +686,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
