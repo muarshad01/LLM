@@ -5,30 +5,6 @@
 
 ***
 
-* 5:00
-
-***
-
-* 10:00
-
-***
-
-* 15:00
-
-***
-
-* 20:00
-
-***
-
-* 25:00
-
-***
-
-* 30:00
-
-***
-
 * 35:00
 
 
@@ -116,6 +92,12 @@ function now if you see the inputs and targets tensor which we had obtained befo
 which we obtain now is actually exactly the same except that in the Target
 40:08
 sensor uh except for the first 50256 all the remaining 50256 values
+
+
+
+***
+
+
 40:14
 have been replaced with minus 100 this is the only change which has been done there is no changes to the input sensor
 40:21
@@ -365,6 +347,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
