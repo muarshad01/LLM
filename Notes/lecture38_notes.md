@@ -7,95 +7,10 @@
 
 * 35:00
 
-
-
-35:58
-it's the first dra of the inputs you shift to the right by one so you take the remaining four and then you have 50
-36:04
-256 token similarly if you look at the second row of the target it's basically the second row of the input you shift to
-36:11
-the right by one which means you take only the remaining four values and then you add an extra
-36:17
-5256 similarly if you take the third row of the targets it's essentially the
-36:22
-third input but you shift to the right by one so you ignore the first and you take all the four and then you append an
-36:28
-extra 50256 token ID towards the end that's how you get the inputs and the target tensor so the first tensor
-36:35
-represents the inputs and the second tensor represents the target
-36:41
-awesome now after this step is implemented we come to the next step which is essentially creating uh or
-Coding the padding token replacement with “ignore index = -100”
-36:47
-replacing the padding tokens with placeholders which means that except for the first 50256 we'll replace all the
-36:54
-remaining with minus 100 uh so in the next step we assign a minus 100
-37:00
-placeholder to all the padding tokens this special value allows us to exclude these padding tokens from contributing
-37:06
-to the training loss calculation as we saw on the white board
-37:12
-um okay so in the following code okay one more thing to mention is that as I
-37:17
-told you on the Whiteboard when we replace this 5025 tokens with minus 100 we retain one 50256 token and the reason
-37:25
-we retain one end of text token is because it allows the llm to learn when to generate an end of text token in the
-37:31
-response to instructions which we use an which we use as an indicator that the generated
-37:37
-response is now complete so you need one 5256 token ID to say that or to
-37:42
-represent that this is indeed the end of text so now what we have to do is that
-37:47
-we have to take this custom colate draft two and then we have to modify it further so most of the function is the
-37:53
-same which now I'm calling Custom colate function which takes in my batch my padding token ID and my ignore index so
-38:01
-that's minus 100 so what this does now is that until now here the steps are the same you get
-38:08
-the inputs and the target sensor but now what you do is that you take the target sensor only and all the indexes except
-38:16
-for the first 50256 you replace it with the ignore index so you first create a
-38:22
-mask and that mask has all the indexes which has the padding token ID then you ignore the first index which has the
-38:28
-padding token ID that's the first 50256 value and then you replace all the remaining ones with ignore index which
-38:34
-is minus 100 uh okay so this now creates my input
-38:41
-this now creates my input sensor and this creates my Target stenor and these
-38:46
-are both returned by this function which is custom colate
-38:52
-function okay until now if you note through the Whiteboard what we have
-38:57
-implemented is that we have implemented this part of the code where you can see in the figure that
-39:04
-uh here so except for the first 50256 we replace all of the remaining 50256 with
-39:11
-the value of minus 100 and now we are going to see why we replace the remaining 50256 token IDs
-39:19
-with minus 100 so to to see why we
-39:24
-replace the remaining token IDs with minus 100 we are going to see some implementations using pytorch but before
-39:32
-that let's actually see whether our custom colate function is really working
-39:37
-so to test that you take three inputs you have the inputs one as 0 1 2 3 4 You have the inputs two as 5 comma 6 and you
-39:44
-have the inputs three as 7 8 and 9 you create a batch with these three inputs
-39:49
-similar to the batch we have created before and then you create the inputs and targets based on the custom collate
-39:55
-function now if you see the inputs and targets tensor which we had obtained before the inputs and targets tensor
-40:02
-which we obtain now is actually exactly the same except that in the Target
-40:08
-sensor uh except for the first 50256 all the remaining 50256 values
-
-
-
 ***
+
+* 40:00
+
 
 
 40:14
@@ -347,6 +262,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
