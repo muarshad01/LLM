@@ -23,106 +23,9 @@
 
 * 25:00
 
-25:36
-alpaka format is created and then what we do is that as I mentioned in the next step over here we are going to tokenize
-25:43
-the formatted data so we uh we first Define a empty list and then we start
-25:50
-appending the token IDs to this Mt list so let's say if you have a prompt which looks like this each of the tokens here
-25:57
-are conver ConEd into token IDs and then appended to a list so for every prompt corresponding to each input output pair
-26:04
-now we have a list of token IDs which is mentioned in the step one over here see here what we are doing is that every
-26:11
-prompt we are converting it into token IDs and for that the tokenizer which we are going to use is we also need to pass
-26:19
-this to the instruction data set class but it's going to be the tick token Library I'll share the link to this uh
-26:26
-in the chat we have had a separate lecture on bite pair encoder in this lecture Series so if you want to
-26:32
-understand about this library in detail I highly encourage you to uh watch that
-26:37
-lecture right so now what does the instruction class ENT instruction data
-26:42
-set class essentially return return well it returns for every uh for every data
-26:48
-which is in this format it converts it into the alpaka style prompt and then it returns uh a bunch of token IDs for
-26:56
-every entry awesome so uh let's go to the next part
-27:03
-now before coming to the next part I just want to show you the end of text token and its corresponding token ID as
-27:11
-we had seen on the Whiteboard and it's indeed 5256 so that's why we are using this
-27:17
-50256 token ID because it conveys the end of text okay now as I mentioned what
-27:23
-we are going to do here is that we are going to define a custom colate function what this custom colet function does is
-27:29
-that the name may sound complex but it actually does a very simple thing it takes the inputs in each data set that's
-27:36
-the first thing it takes the input in each batch it finds that input with the maximum length and then it appends the
-27:43
-50256 or pads the 50256 token ID to all other inputs that's the only thing which
-27:49
-it is doing so this custom colate draft one it takes the batch so you can think of the
-Coding the custom collate padding function
-27:55
-batch as coming in this format like this uh and then it has you have to give the
-28:01
-padding token ID which is 50256 and the device which is CPU so this function
-28:06
-implements four steps first it finds the longest sequence in the batch and then it pads the other sequences so that the
-28:12
-length is equal to the longest sequence that's it and then it converts the list of inputs into a tensor and transfers to
-28:18
-our Target device which is the CPU so this entire thing is converted into a tensor what Ive marked with this orange
-28:25
-color over here that's the function of of the custom colla draft so let's see how it does it the first thing this
-28:32
-function does is that it will find the longest sequence in the batch and it will add it by one so let's say if you
-28:39
-have these three it if you have these three the longest sequence length is five and then it will add it by one so
-28:45
-then it will be six there is a reason why you add it by one and I'll come to that later but after you add it by one
-28:51
-what you do is that for every item in the batch you first add a token ID so even for the first one even for for the
-28:58
-first item you add this 50256 token that's the first thing which you do and then you pad the 50256 again so that the
-29:06
-length is equal to the maximum length and then what you do is you
-29:11
-remove uh you remove the extra added token so here essentially what we are
-29:16
-doing is that let's say if you have uh I'll actually remove this in the code
-29:22
-what we are trying to do is that we add first a 50256 token ID to all of these
-29:28
-so even to the first one we add this 50256 token and to the other ones we add the 50256 token then this will be added
-29:36
-one 2 three three more times so total it will be added four times and here we'll add it a total of three times right but
-29:43
-then you might think why are we adding an extra 50256 token because here we don't need to add 50256 here also we
-29:50
-need to add three times here also we need to add it two times so then we get rid of that extra token later the reason
-29:57
-we do this EXT extra addition is that it later helps us to create the target token because if you already add an
-30:03
-extra token creating the target creating the target is just simple because then you just use this much to create the
-30:09
-target as we saw before the target is just the input you remove the first element and then you add
-30:15
-50256 so earlier adding the 50256 token to all of the inputs in this part of the
-30:22
-code it's important because it easily helps us to create the target ID uh to
-30:27
-create the target for every inputs so essentially what we do is we add an extra 50256 and then get rid of it later
-30:34
-and then we pad everything all the other inputs with 50256 so that the length is equal to the maximum token ID length or
-
-
-
 ***
 
+* 30:00
 
 30:42
 the that input which has the maximum length so essentially uh when you reach this part
@@ -574,6 +477,7 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 
 
