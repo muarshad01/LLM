@@ -7,95 +7,11 @@
 
 * 5:00
 
+***
+
+* 10:00
 
 
-5:45
-validation set is 55 and the test set is 110 out of the 1100 pairs awesome now
-Batching the dataset introduction
-5:53
-what we are going to do in today's lecture is we are going to come to step number two and step number two is
-5:58
-batching the data set this is a bit more complicated than what
-6:04
-we have seen before and that's why I'm dedicating this entire lecture to this there are number of finer and subtle
-6:10
-things which you need to understand in this lecture and that will really help you to understand the details of the
-6:16
-fine tuning process so please pay close attention to whatever I'm showing on the
-6:21
-Whiteboard and then I'll show you the entire process through code what does it mean batching the data
-6:27
-set well it means that let's say we have uh one data which is like this so I have
-6:33
-taken a screenshot here and then I'll bring it to my whiteboard okay so we have one data like this which is the
-6:40
-instruction input output uh and we have actually let me use the prompt itself
-6:47
-because the data will be converted into a prompt right so let's say for the First Data I have a prompt like
-6:54
-this um right and uh for the second data I have a prompt like this for the third
-7:02
-data let's say I have a prompt like this now when we have data batches we need to
-7:07
-convert this we need to convert all of the data set into a batch so let's say
-7:13
-I'm having a batch which has three data samples so let's say this is my batch and this is the data sample number
-7:21
-one this is the data sample number two and here is the data sample number
-7:28
-three right what I want to do now is that I want to have I want to convert the first
-7:35
-data set into a numerical representation so that it forms the first row the
-7:40
-second data set needs to be converted into a numerical representation so that it forms the second row and the third
-7:46
-data set needs to be converted into a numerical representation so that it forms the third row this whole lecture
-7:52
-is about how we are going to construct this numerical representation so that the size of the first row is the same as
-7:59
-the size of the second row and it's the same as the size of the third row and when I say size I mean the number of
-8:05
-columns which I'm highlighting right now how will we make sure that these prompts
-8:11
-which are different for different instruction output pairs right their length may also be different so for
-8:17
-example The Prompt which is constructed for this pair will be very different than the prompt which is for this the
-8:23
-length also will be different so how do I batch it into these kind of numerical representations
-8:30
-and we are going to follow a sequential workflow for this and I'm first I'm going to explain to you the entire
-8:35
-workflow on the Whiteboard and then I will take you through code earlier I was thinking I'll show you on the Whiteboard
-8:41
-take you through code show you on the Whiteboard take you through code and cycle this multiple times but I found
-8:47
-that for this lecture in particular it's much better if you first have a visual understanding of the entire flow have it
-8:53
-as a mind map and then you can follow the code as I'm going through it okay so
-8:58
-first we have the data and we'll format it using the prompt template using the alpaka prompt template and then the
-9:04
-formatted data looks something like this right the first step to convert the data
-Tokenizing formatted data
-9:10
-into a numerical representation as I mentioned over here is to tokenize the data so we are going to use a tokenizer
-9:18
-and that tokenizer is going to be the bite pair encoder which is used by open a what this tokenizer does is that it
-9:25
-takes a sentence and converts it into a bunch of token IDs right so that's the first step for every so
-9:32
-let's say this is the prompt below is an instruction that describes a task Write a response that appropriately con
-9:37
-completes the request let's say there is an instruction there is an input and there is a response I'm going to take
-9:43
-this prompt and I'm going to convert this entire prompt into token IDs that's going to be my first step right so I
-9:51
-have written it in a lot of detail over here so let's say if this is the let's say if this is the data set which you
-9:59
-have then you convert it into the alpaka prompt style and then it starts looking like this and then it then you convert
-10:05
-it into a bunch of token idies using the tick token Library using the tick token library
-10:13
 right uh and this you do for the first instruction input output data then you
 10:19
 do the same for the second you convert it into the alpaka format and then you convert it into a bunch of token IDs and
@@ -961,4 +877,5 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
