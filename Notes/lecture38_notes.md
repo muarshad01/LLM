@@ -1,119 +1,13 @@
-on finetuning recap so far
-0:00
-[Music]
-0:05
-hello everyone and welcome to this lecture in the build large language models from scratch Series today we are
-0:13
-going to continue with the instruction fine tuning Hands-On example which we started in the previous lecture and
-0:19
-today we are going to look at organizing data into training batches let's first quickly recap what
-0:25
-we saw in the previous lecture in the previous lecture we started looking at in instruction fine tuning so we saw
-0:32
-that pre-trained llms are good at text completion but they really struggle with following Specific Instructions those
-0:39
-instructions can be fix the grammar in the text or convert this text into passive voice so pre-trained llms
-0:46
-struggle with these and that's why we need to do the process of instruction fine tuning in the process of
-0:52
-instruction fine tuning we need to provide the llm with a data set and the data set consists of a list of
-0:59
-instruction and the desired responses which we want so here's the data set which we
-1:05
-will actually use this is a data set which consists of 1100 instruction and
-1:10
-output pairs so you can see a sample instruction output pair such as translate the following sentence into
-1:16
-French that's the instruction the input is where is the nearest restaurant and the output is the French translation
-1:23
-similarly here the instruction is rewrite the following sentence so that
-1:28
-it is in active voice the input is the cake was baked by Sarah
-1:34
-and the output is Sarah baked the cake in some instruction output pairs there
-1:39
-is no input so for example convert the active sentence to passive and then the sentence is given in the instruction
-1:45
-itself so that does not have an input and we have the output directly then what is the capital of
-1:51
-Indonesia that does not have an input but directly we have the output the capital of Indonesia is
-1:57
-Jakarta so these are the instru ction and the response pairs which we give as
-2:02
-the data to pre-train a large language model so first thing which we did in
-2:08
-yesterday's lecture is that we downloaded the data set and then we formatted the data set what does it mean
-2:16
-formatting we converted the data set into a format which is called as alpaka prompt style so remember when I showed
-2:24
-you that when we looked at the data set it had these three keys or these three
-2:29
-values instruction input and output it turns out that there is a specific way
-2:34
-this needs to be converted into a prompt before we feed it to the large language model for fine tuning and that prompt is
-2:42
-called as the alpaka prompt style so Stanford maintains this Stanford alpaka
-2:47
-repository where they give you instructions on when you have the instruction response pairs such as what
-2:53
-we have here how can you convert them into a prompt so here is the specific
-2:59
-formatting for the alpaka style prompt where you when you have an instruction input and response The Prompt needs to
-3:06
-be constructed like this below is an instruction that describes a task paired with an input that provides further
-3:13
-context Write a response that appropriately completes the request and
-3:18
-then you mention the instruction and give the instruction which you had in your data set then you mention the input
-3:24
-give the input which you have in the data set and then you collect the response and show the output which you
-3:29
-had uh in the data set so what we did in the previous lecture actually was that
-3:35
-we we used this alpaka prompt style we took our data set and we converted this
-3:42
-data set into an alpaka prompt style and then we partition the data set into training testing and validation we use
-3:49
-85% for training 10% for testing and the remaining 5% for validation so let me
-3:55
-show you the code which we used in the previous lecture in this part of the code what we did is we prepared the data
-4:02
-set so we made an API call to this URL we downloaded the data set and here you
-4:08
-can see there are 1100 entries we printed the 50th example in this data
-4:13
-set we printed the 999th example of this data set and we saw that they matched what we actually have in the data set
-4:21
-this confirmed that the data set was loaded correctly then we wrote a function called format input to convert
-4:27
-the instructions into the alpaka prompt format this format input function takes the entry and the entry is essentially the
-4:35
-instruction input output pairs like these and then it converts it into the alpaka
-4:40
-prompt so here we have the instruction plus the input and then we append the response as an output so then here you
-4:48
-can see that whenever you have an entry such as this when you pass it into the
-4:53
-model when you pass it into the format input you have the first line then you have the instruction and then the input
-5:00
-and then you have to append this model input to the desired response and then you have the entire prompt like this so
-5:06
-then this is the alpaka style prompt which has this first first sentence then it has the instruction it has the input
-5:13
-and it has the response the large language model will be trained with these prompts which are then constructed
-5:19
-for all of the instruction input output pairs which we have in the data set all 1100
-5:25
-pairs right so now okay one last thing is this splitting the data set into
-5:30
-training testing and validation so here you can see that we have used 85% for training 10% for testing and the
-5:38
-remaining 5% for validation you can print out the training set length which is 935 out of the 1100 pairs the
+## Organizing data into training batches 
 
-
-
+* Apply Alpaca prompt style template
+* [Alpaca: A Strong, Replicable Instruction-Following Model](https://crfm.stanford.edu/2023/03/13/alpaca.html)
 
 ***
+
+* 5:00
+
+
 
 5:45
 validation set is 55 and the test set is 110 out of the 1100 pairs awesome now
@@ -1067,3 +961,4 @@ to build machine learning Engineers rather than just doing applications without 
 foundations are the most important thanks a lot everyone and I look forward to seeing you in the next lecture
 
 ***
+
