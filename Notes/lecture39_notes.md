@@ -262,6 +262,10 @@ as I mentioned is format data using the
 5:15
 prom template and we use the alpaka
 5:18
+
+***
+
+
 template there is also the 53 template
 5:20
 which is used by Microsoft uh and you
@@ -520,6 +524,12 @@ is that uh we have the training testing
 10:07
 and validation data sets right and we
 10:09
+
+
+***
+
+
+
 have also batched the data set which
 10:11
 means that we have created multiple
@@ -769,6 +779,14 @@ in them separately and I'll do that
 15:02
 using the partial
 15:04
+
+
+
+***
+
+
+
+
 command so we will be using the partial
 15:07
 function from pytorch Funk tools
@@ -1014,6 +1032,14 @@ batch now let's look at the second batch
 20:02
 why is the second entor 76 and in the
 20:05
+
+
+
+***
+
+
+
+
 first it was only 61 the reason it's 76
 20:08
 is that when we look at the second batch
@@ -1244,3 +1270,5 @@ performance thanks a lot everyone and I
 look forward to seeing you in the next
 24:17
 lecture
+
+***
