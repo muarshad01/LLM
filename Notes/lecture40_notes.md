@@ -2,7 +2,7 @@
 
 * [OpenAI GPT-2 Weights](https://www.kaggle.com/datasets/xhlulu/openai-gpt2-weights)
 
-* Model starts from a knowledgeable state.
+* Model starts from a knowledgeable state, instead of a random initialization.
 
 netuning recap
 0:00
@@ -1023,5 +1023,6 @@ fine-tuning the model process and I look
 forward to seeing you in the next
 19:23
 lecture
+
 
 
