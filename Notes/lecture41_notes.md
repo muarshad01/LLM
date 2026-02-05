@@ -547,6 +547,17 @@ the training data loader we pass the
 10:21
 train loader if you want to calculate
 10:23
+
+
+
+
+
+
+
+
+***
+
+
 the loss for the testing or validation
 10:25
 we pass the test loader or validation
@@ -1248,3 +1259,4 @@ lectures which are a mix of whiteboard
 plus coding approach I look forward to
 23:39
 seeing you in the next lecture
+
