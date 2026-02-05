@@ -1,3 +1,7 @@
+
+
+* [OpenAI GPT-2 Weights](https://www.kaggle.com/datasets/xhlulu/openai-gpt2-weights)
+
 netuning recap
 0:00
 [Music]
@@ -1017,3 +1021,4 @@ fine-tuning the model process and I look
 forward to seeing you in the next
 19:23
 lecture
+
