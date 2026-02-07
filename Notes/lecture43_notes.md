@@ -276,6 +276,12 @@ semantic meaning of different tokens is
 5:07
 capture when you project the tokens into
 5:10
+
+
+***
+
+
+
 higher dimensional Vector space then you
 5:12
 have to add uh the positional embeddings
@@ -574,6 +580,13 @@ Transformer block within the Transformer
 10:25
 block there is another module which is
 10:27
+
+
+
+***
+
+
+
 called as the attention module so the
 10:29
 attention mechanism which we learned
@@ -868,6 +881,12 @@ gpt2 and then we actually predicted the
 15:36
 next token based on the input input
 15:39
+
+
+***
+
+
+
 sentence this was the first fundamental
 15:41
 result which we achieved in this lecture
@@ -1070,3 +1089,4 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
