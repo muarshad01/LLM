@@ -1,4 +1,4 @@
-## Evaluating the LLM
+## Evaluating the LLM (Whole Field!!!)
 
 #### How to measure LLM Performance?
 
@@ -826,6 +826,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
