@@ -19,7 +19,7 @@ In practice, instruction-finetuned LLMs such as chatbots are evaluated via multi
 
 ***
 
-20:00
+* 20:00
 
 #### Evaluating the fine-tuned LLM
 
@@ -478,6 +478,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
