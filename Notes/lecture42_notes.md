@@ -8,110 +8,13 @@
 
 * 10:00
 
+1. Short-answer and multiple choice benchmarks such as MMLU [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300), which test the general knowldge of a model.
+2. Human preference comparison to other LLMs, such as LMSYS chatbot arena -  [LMSYS Org](https://lmsys.org/)
+3. Automated conversational benchmarks, where another LLM like GPT-4 is used to evaluate the responses, such as [AlpacaEval](https://tatsu-lab.github.io/alpaca_eval/) completes the request.
 
-is the final test example name the author of Pride and Prejudice the correct response is Jane Austin but the
-10:36
-model response is the author of Pride ande Prejudice is George Bernard Shaw clearly this is a mistake so out of
-10:43
-these three test samples without even looking at any evaluation metric qualitatively I can say that for the
-10:49
-first test sample it's very close for the second test sample it's not technically wrong but it does not answer
-10:56
-correctly and for the third test sample it's fully wrong
-11:01
-U so firstly the reason why the llm is making mistakes here is because we have trained it only on one Epoch just
-11:07
-increasing the epox to two will really improve the quality of the responses uh even with these number of
-11:14
-epox now you can see that actually measuring the performance is quite hard right even for me as a person I can
-11:20
-answer this qualitatively but how can I give a performance score how do I give an evaluation score as machine learning
-11:27
-Engineers we always like score right such as accuracy such as the classification loss how do I give an
-11:33
-evaluation score to these responses so as we can see based on the
-11:39
-test instructions the model performs relatively well the answer to the first
-11:44
-instruction is clearly correct while the second answer and the third answers are not correct this is because we have done
-11:50
-the fine tuning only for one Epoch due to Hardware limitations to get better results we need to increase the EPO to
-11:56
-at least two that's number one number two is that that model evaluation is not
-3 methods to evaluate instruction fine-tuned LLM performance
-12:01
-straightforward in previously we had done a f classification fine tuning for
-12:07
-spam and no spam emails right there it's so easy to evaluate the accuracy if the
-12:13
-correct answer is Spam and the model predicts no spam it's not accurate if the correct answer is Spam and the model
-12:18
-predict spam it's good but in this case it's not as straight forward so what do
-12:24
-researchers do there is a whole field of llm evaluation which is becoming extremely important because people are
-12:31
-realizing that along with training llms and fine-tuning llms an equally
-12:36
-important field to pay attention to is llm evaluation Because unless we have a
-12:42
-metric to evaluate llms we will not know what is good and what is bad then how do we know whether research is happening in
-12:48
-a successful manner or in an unsuccessful manner so re researchers have basically
-12:54
-developed three methods for evaluating llms this is still a very new field and
-12:59
-Rapid progress is happening as we speak but these are the three most common ways of evaluating instruction fine tuned
-13:06
-llms so the first way is which is a very common way is by giving the llm a
-Evaluation Method 1 - MMLU
-13:12
-general knowledge test and by benchmarking it on actual known responses and this is known as measuring
-13:19
-massive multitask language understanding or M mlu so MML score is a very popular
-13:26
-term now and the simplest way to understand it is that that this is a score which tests the general knowledge
-13:32
-of a model so this test measures the model performance on a huge range of questions in various fields and then uh
-13:39
-you can get the score of the model so for example if we have our fine tuned llm right uh to pass this MML test we
-13:47
-have to ask those 57 questions which have mention which are mentioned in this paper and we'll note down the responses
-13:53
-given by our fine tuned llm then we'll compare it with the actual responses and based on that a score will be generated
-14:00
-so for example here's the paper majoring massive multitask language understanding
-14:06
-M mlu and if you scroll down below here you can see that these are the 57
-14:12
-questions which are tested in this in abstract algebra Anatomy astronomy business ethics high school biology
-14:19
-chemistry computer science then international law management marketing moral disputes public relations security
-14:27
-relations in all of these fields there are number of questions which are asked so essentially these are the 57 tasks
-14:34
-which the model needs to be tested on I asked to summarize this paper to a
-14:40
-notebook LM which is an awesome tool developed by Google to summarize research papers and here's what it
-14:46
-showed so MML uh is a benchmark for measuring language model
-14:52
-knowledge it is designed to evaluate a text model's ability to learn and apply Knowledge from various domains the
-14:59
-authors of this paper argue that existing NLP benchmarks while useful do not ACC adequately assess the breadth
-15:06
-and depth of knowledge that language models are exposed that is why mlu consists of 57 tasks covering stem
-15:14
-Humanity social sciences and other areas ranging from elementary to professional levels of difficulty we can use MML to
-15:21
-evaluate our custom instruction fine tuned llm by testing its performance on these 57 tasks in fact many of the
-15:29
-research papers if you read in the instruction finetuned llm space they show the mlu score which means how the
-15:36
-llm is performing on all of these general knowledge tasks that's the first approach for
-15:41
-evaluating llms the second approach is human preference comparison where basically humans look at the answers
-Evaluation Method 2 - Human preference comparison
-15:48
+***
+
+
 given by multiple llms and then they compare the performance between the large language models so this is
 15:54
 basically having a human in the loop and the human using their own intuition and
@@ -826,6 +729,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
