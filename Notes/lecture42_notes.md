@@ -25,184 +25,21 @@ In practice, instruction-finetuned LLMs such as chatbots are evaluated via multi
 
 * [Ollama](https://ollama.com/)
 
+* [meta-llama/Meta-Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B)
 
-21:02
-data dictionary so if you print out the first element you'll see that we have the instruction we have the input we
-21:08
-have the output and then we have the model response as well the the output is here and then the model response is here
-21:15
-so the test data dictionary essentially now uh consists of everything which we
-21:21
-need it consists of the instruction the input output and the model response now what we can do is that once
-21:28
-we have uh we have this file so everything is ready for us to evaluate the output and the model response now
-Saving the LLM parameters
-21:35
-what we'll do is that we'll just save our fine tune model this is extremely important because if you accidentally
-21:41
-close your working session then you don't want to fine tune again right remember fine tuning took four hours for
-21:48
-me on my PC and I just want to I just want to reuse the fine tune weights again when I start my session the next
-21:54
-time so please don't forget about this step it's very simple you just have to use the tor. save command and model.
-22:01
-state dictionary which will ensure that all the train parameters will be stored in this file name which is gpt2 medium
-22:09
-355 million sf. pth this is the file where we are storing the model and to
-22:15
-load the model in a future session you simply have to do load State dict so two commands are important tor. save model.
-22:22
-State dict and tor. save or load State dict rather the first command is model
-22:28
-do State dict so saving this and the second is load State dict and then you have to load the file in which you have
-22:36
-stored the parameters awesome I hope everyone of you is with me until this point so we
-22:43
-have reached this stage where we have successfully collected the responses in a file called
-22:49
-instruction instruction data with response. Json we have collected the responses in this file and we have also
-22:56
-discussed about a way in which we are going to compare the output and the model response we have not discussed too
-23:02
-many details about this but we have seen the three Frameworks for evaluation and we have shortlisted this last framework
-23:08
-where we'll use use an llm to compare between the output and the model
-23:13
-response now we are ready to move to the next part which is essentially evaluating the fine tuned large language
-23:20
-model so the evaluation process essentially will will come in this building block
-23:28
-what we we have seen Okay so until now we saw extracting the responses and we have also seen qualitative evaluation
-23:34
-where we looked at the response so let's say for example I can qualitatively look at the output and I can look at the
-23:41
-response and I can say whether it's correct or not qualitatively right but we have not yet mathematically or
-23:47
-Quantified scoring the responses this is the part which we'll Implement in evaluating the llm so after extracting
-23:55
-the responses by our fine tuned llm we will use another large language model to automatically evaluate these responses
-24:03
-and let's see how we are going to do that in practice which is the large language model which we are going to
-Evaluating the fine-tuning LLM introduction
-24:08
-use so this brings us to the step number seven in the evaluating the fine tuned llm and as I mentioned in this section
-24:15
-we will Implement a method to automate the response evaluation of the fine tuned llm using a another larger llm so
-24:22
-we'll use a bigger larger llm which is pre-trained and it's extremely supremely knowledgeable to compare our model
-24:29
-response and the true response and to assign a score to implement this evaluation step
-Ollama introduction and setup
-24:35
-we are going to use a software or it can be called as an application which is
-24:40
-called as AMA so let me take you to the AMA
-24:46
-application so here if you go to ama.com you can just type it ama.com you'll see that this interface
-24:54
-essentially comes up and the simplest way to think about AMA is that it's an efficient application to run large
-25:00
-language models on your laptop so you can learn you can run various large language models you can run Lama 3 which
-25:07
-is developed by meta you can run 53 developed by Microsoft you can run
-25:13
-Mistral you can leun gamma 2 similarly you can leun several models on your PC
-25:18
-and remember using o Lama you do not do pre-training you just do inference which means that the model is already
-25:24
-pre-trained you just look at the responses or uh you look at the output
-25:30
-which is given by the model you use the model in inference mode using AMA you do not use it in
-25:36
-pre-training mode so what we are going to do is that we are going to implement the evaluation step uh by utilizing an
-25:44
-instruction ftuned 88 billion parameter Lama 3 Model so we are going to be using
-25:50
-an 8 billion parameter Lama 3 Model uh and that's and we are going to access
-25:56
-that through olama so the reason we are going to utilize
-26:02
-this instruction fine tuned model is that because it's already fine tuned on a huge number of instructions so if you
-26:08
-search about this this is the Lama 38 billion instruction fine tuning model
-26:14
-and here the par 8 billion parameters are already optimized which means that this model is already trained to follow
-26:21
-instructions and it's supremely smart so what we are going to do is that we are going to utilize this model to compare
-26:28
-between the True Result and the our llm model output so using this Lama 38
-26:34
-billion we are going to compare the actual output and our model response and we are going to assign a score so we are
-26:41
-going to tell this instruction finetune Lama model that your next instruction is
-26:47
-that look at the output look at the model response and assign a score to how well my model is doing and since this
-26:53
-llama model is already trained for instruction for following instruction it will do a great job at this new
-27:00
-instruction which is essentially finding an evaluation score this is also a great time for all
-27:06
-of you to learn about AMA which is a very commonly used uh llm inference
-27:11
-application okay so uh one thing to remember is that ama is only a tool for
-27:17
-generating text using llm inference and it does not support training or fine-tuning llm so let me now show you
-27:24
-uh the download process for AMA so that you can follow the similar instruction functions on your laptop all right so
-27:30
-the next step for us is to download olama um so I'm using a Mac here so I'm
-27:36
-going to show you how to install it and run it on Mac and I'll also give you instructions if you're using Windows so
-27:43
-you have to go to ama.com so let me type ama.com here and you have to just click
-27:48
-on download over here once you click on download uh the entire so if you are on
-27:54
-Mac OS or Linux or Windows you can download the Appo rate version for you so I have clicked
-28:01
-on download for mac o and you can see that the download process starts here it's a file which is
-28:07
-177 uh 177 MB so you can download it and then you can open it follow instructions
-28:13
-click on next next and next and then AMA will be installed it's pretty simple the installation process does not take too
-28:20
-much time I'm going to cancel this download over here because I've already installed it then what you can do is
-28:26
-that then you have to open your terminal so so here you can see Ive opened my Mac terminal over here and then what you
-28:32
-have to essentially type is that you have to type O Lama run Lama 3 so this is the correct command o Lama run Lama 3
-28:40
-and let me type it over here also uh o Lama run Lama 3 this is the command
-28:48
-which you have to type on the terminal and if you are using a Mac you can directly type this command if you are
-28:53
-using Windows then the command which you might need to type might be o Lama
-29:00
-serve so if you're using Windows type this command first o Lama serve and then type O Lama run Lama 3 okay um so type
-29:11
-these commands in the sequence if you're using Mac you can directly type or o Lama run Lama 3 let me show you my
-29:17
-terminal again so here you can see I have typed o Lama run Lama let me expand
-29:23
-this let me expand my terminal so that you can see it in more detail so here
-29:28
-you can see that Ive run o Lama run Lama 3 and the when you try to run Lama 3 the
-29:35
-files which are downloaded are of size 4.7 GB so it's an 8 billion parameter
-29:40
-model right so it takes a lot of space and memory to download this so it took around 15 to 20 minutes for me to
-29:47
-download this on my desktop uh but as the downloading is happening you'll see
-29:53
-all of these instructions being printed out on your terminal and at the end you will see success U when you see the
-29:59
-success these arrows will appear these right hand side arrows which means that now the Lama 3 is loaded which means you
-30:05
-can interact with Lama 3 large language model you can ask any question to this so for example here I have asked what do
-30:11
-llamas eat and now the llm which will respond to you is not chat GPT or any
-30:17
-other llm the llm which will respond is this Lama 38 billion instruct this is that llm which will
+```
+$ ollama server (only on Windows)
+$ ollama run llam3
+```
+
+***
+
+* 30:00
+
+
+
+
+
 30:23
 respond to you um so that's what AMA helps you to do so currently have run
 30:28
@@ -641,6 +478,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
