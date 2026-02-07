@@ -1,8 +1,8 @@
 ## Evaluating the LLM (Whole Field!!!)
 
-#### How to measure LLM Performance?
+* How to measure LLM Performance?
 
-#### Extracting and Saving Responses
+* Extracting and Saving Responses
 
 ***
 
@@ -15,106 +15,10 @@ In practice, instruction-finetuned LLMs such as chatbots are evaluated via multi
 
 ***
 
+* 15:00
 
-given by multiple llms and then they compare the performance between the large language models so this is
-15:54
-basically having a human in the loop and the human using their own intuition and
-16:00
-understanding they Benchmark or compare llms that's the second way the Third Way which is also fairly common is using a
-Evaluation Method 3 - LLM measures another LLM
-16:07
-large language model itself to evaluate how close the llm responses to the
-16:13
-actual output so let's say here I have collected a file which has the instruction input output but it also has
-16:19
-the model response so in the third category what is done is basically you look at the true data which is the true
-16:25
-output which we expected and we look at the model response and then we ask a large language model
-16:31
-itself to compare between the output and the model response and to assign a score so this is very uh this is fairly
-16:38
-straightforward to do because it's fully automated we just look at the output we look at the model response and then we
-16:44
-ask a trained a very massive large language model to uh compare these two
-16:49
-and find the score if you think about it this is also like taking the easy way out because we don't know how the llm is
-16:56
-evaluating right what are the metrics through which the llm itself is comparing between the output the true
-17:02
-output and the model's response we are trusting the llm is extremely and supremely smart to do this to get this
-17:10
-score for us since this method is simple we are also going to implement this method in this particular video or in
-17:17
-this particular lecture Series where what we are going to do is that we have the output and the model response we are
-17:24
-going to ask an llm to look at the output to look at the model response to compare and to ass a
-17:29
-score but it's very important for you all to be aware of these three types of llm evaluation which is extremely
-17:37
-important uh so considering the scale of the task at hand we will Implement an approach similar to method three which
-17:43
-involves evaluating the responses automatically using another llm this will allow us to efficiently assess the
-17:50
-quality of the generated responses without the need for extensive human involvement thereby saving time and
-17:57
-resources while still obtaining meaningful performance indicators if you
-18:02
-have this code and if you can run this code using the mlu test uh that would be
-18:08
-awesome and I would really like to see if someone works on that part of the
-18:14
-code and take the instruction find T llm and run the MML test on it awesome now
-Collecting LLM responses in JSON format
-18:20
-the next step is that we need to basically collect the responses for the entire test file right earlier we only
-18:28
-saw the responses for three for the first three examples of the test data now what we need to do is that we need
-18:34
-to collect model responses for all of the uh all of the instructions in the
-18:40
-test data set and we need to collect these responses in a separate file so what we are doing now is that we'll
-18:47
-prepare the responses for the evaluation process and we will essentially construct a new file or create a new
-18:54
-file which is titled instruction data with response. Json for record keeping
-18:59
-this file will essentially contain the instruction input the true output and also the model
-19:05
-response um so to give you a visual this is how that file will look like now if you look at this first file which is
-19:11
-just the instruction data. Json file over here instruction data. Json this only con consists of the instruction the
-19:18
-input and the true output it does not contain the model response but now we are developing one more file or creating
-19:25
-one more file which is called instruction data with response so this Con consists of the instruction the
-19:31
-input output and it also consists of the model response this will make it very easy for us to later evaluate the
-19:38
-performance of the model because then we simply have to compare the output and the model response for every instruction
-19:44
-and assign a score so in this piece of code what is done here is that uh in this piece of
-19:51
-code if you see we are looking at all of the in all of the input instructions in the test data and we are generating the
-19:58
-response for all of the inputs in the test data and then we are collecting the responses in a file called instruction
-20:04
-data with response that's all so when you run this code the generate function will be called on all of the instruction
-20:10
-input pairs in the test data the responses will be generated and only the
-20:16
-response will be collected and then it will be appended to the instruction data with response file so overall the
-20:22
-instruction data with response file will look exactly like what I'm showing on the screen right now where in the
-20:28
-instruction input and output dictionary the model response will also be appended now for every single uh instruction
-20:36
-input output pair awesome now if you run this process it will take some time for me it took
-20:42
-around 10 to 15 minutes to create this instruction data with response file but it will be created and then it will be
-20:48
-stored for you so remember now this test data is the dictionary which consists of
-20:56
-the instruction input output and the model response also we can test this by printing the first element of the test
+***
+
 21:02
 data dictionary so if you print out the first element you'll see that we have the instruction we have the input we
 21:08
@@ -730,6 +634,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
