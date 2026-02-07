@@ -19,6 +19,13 @@ In practice, instruction-finetuned LLMs such as chatbots are evaluated via multi
 
 ***
 
+20:00
+
+#### Evaluating the fine-tuned LLM
+
+* [Ollama](https://ollama.com/)
+
+
 21:02
 data dictionary so if you print out the first element you'll see that we have the instruction we have the input we
 21:08
@@ -634,6 +641,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
