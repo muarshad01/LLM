@@ -1,104 +1,6 @@
-g recap
-0:00
-[Music]
-0:05
-hello everyone and welcome to this lecture in the build large language models from scratch Series today it's a
-0:12
-very interesting and exciting lecture because we are going to complete the instruction fine tuning project which we
-0:18
-have started in the previous lecture we fine tuned the large language model on
-0:23
-this instruction input and output data set and we proved that after the
-0:29
-fineable the llm is much better at responding to instructions so the previous lecture was
-0:36
-an awesome lecture and we optained a great result at the end of it if you have not seen the previous lecture I
-0:41
-would highly encourage you to go back check that lecture again so let me just
-0:46
-show you in the FL map where we are in the stage of the fine tuning process so
-0:52
-we have finished the stage number one so let me change to purple ink we have
-0:58
-finished the stage number one which is preparation of the data set and this involved data set download batching the
-1:04
-data set and creating data loaders just to revise this is the data set which we
-1:09
-have been using which consists of 1100 instruction input and output Pairs and
-1:15
-we are telling the llm that hey we know that you are pre-trained very well but you are not very good at responding to
-1:21
-instructions currently CCT currently and I want to train you again so that you are better at responding to instructions
-1:28
-here is the data which I have and I want you to learn from this data so that you get better at responding to
-1:34
-instructions so this is the data set we need we spent a lot of time earlier on batching the data set so we needed to
-1:41
-implement several steps so that within each batch all of the input samples have the same number of token IDs and after
-1:50
-the batching is done we created the training we created the training the testing and the validation data loaders
-1:57
-remember that we used 85 % of the data for 85% of the data for training 10% of
-2:04
-the data for testing and 5% of the data for validation and when I say data I
-2:10
-mean this instruction data file instruction input and output pairs right then we also completed stage
-2:17
-number two in stage number two we loaded a pre-trained llm so we loaded the weights which are publicly available
-2:23
-from gpt2 so that the model has a good foundational base and then on top of it
-2:28
-in the previous lecture we find in tuned the llm which means that we trained the llm again um so that it learns based on
-2:36
-this instruction input output data set and then we also saw the loss
-2:41
-function in the code so just let me take you to code right now and show you the loss function which we obtained so
-2:47
-here's the training and the validation loss function which we obtained in the previous lecture due to the memory and
-2:52
-the compute limitations on my CPU I just ran it for one Epoch but as I mentioned in the last lecture as well if you have
-2:59
-access to a GPU or if you have a stronger PC such as a Macbook M3 for example you can definitely try running
-3:06
-this code for two apox or even more we are using a GPT gpt2 model with 355
-3:14
-million weights so it's a pretty huge model and that's why a lot of llm
-3:19
-computations really depend on the architecture of the CPU whether you're using a GPU how fast is your computer
-3:27
-Etc anyways I I have shown you this code on a computer with minimal configuration
-3:33
-so if I am able to run this on my PC I'm pretty sure all of you would be able to run up till here on your PC as well so
-3:39
-let's look at the response which we have got we tested using one one test or one validation sample and the validation
-3:46
-sample was that write a response that appropriately completes the request and the request was convert the active
-3:53
-sentence to passive convert the active sentence to passive and the sentence was
-3:58
-the chef Cooks the me every day the response given by our large language model was the meal is prepared by the
-4:04
-chef every day now this was not the correct answer right the correct answer is the meal is cooked by the chef every
-4:12
-day whereas our llm used prepared and that's probably because we did not train it for multiple epochs due to the
-4:18
-compute limitations in fact I know for a fact that if you run it for two epochs instead of one this output changes to
-4:25
-the meal is cooked every day by the chef even with one Epoch we can see that the LM is doing much better instead of just
-4:31
-answering randomly before fine tuning so this is the stage we are at
-The need for LLM evaluation
-4:37
-right now and now we have to move to the third stage which is evaluating large language models so you might be thinking
-4:43
-that we fine tuned the model and now LM is responding to instructions that's great right well the things do not stop
-4:50
-here because there is one big challenge now you can see that this response the meal is prepared by the every day by the
-4:57
-chef is not exactly correct because the correct answer should be the meal is cooked every day by the chef in fact
-5:03
-let's look at the correct answer um so Chef so let me type Chef here and let's
-5:11
+
+***
+
 go to the actual
 5:18
 instruction yeah I think this was the actual instruction which we had given convert the active sentence to passive
@@ -1015,4 +917,5 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
