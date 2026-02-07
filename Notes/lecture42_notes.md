@@ -1,105 +1,14 @@
+## Evaluating the LLM
+
+#### How to measure LLM Performance?
+
+#### Extracting and Saving Responses
 
 ***
 
-go to the actual
-5:18
-instruction yeah I think this was the actual instruction which we had given convert the active sentence to passive
-5:24
-the chef Cooks the meal every day and this is the actual ground truth answer the meal is scooped by the chef every
-5:31
-day whereas the llm which we have trained or fine tuned answered the meal is prepared every day by the chef so
-5:37
-it's clearly not correct right the real question which we want to ask in the
-5:42
-evaluation stage of the llm is that how do we know how correct are we so how to
-5:52
-measure how to measure the llm performance it's not a straightforward
-5:58
-answer as a yes or no by binary classification right we have to compare between two sentences and we have to
-6:04
-compare and say that okay ideally uh ideally it should have been
-6:09
-cooked but instead my llm is saying prepared so I deduct some points for it but how do we Define the scoring system
-6:16
-how do we compare between two sentences and understand whether the llm is doing a good job or the llm is not doing a
-6:22
-good job and that's why we have to devote a whole separate lecture to evaluating the large language model so
-6:29
-this itself consists of three stages which we are going to look at the first is extracting the responses from the llm
-6:35
-the second is qualitative evaluation and the third is scoring the responses so let's start implementing the first step
-Extracting and saving LLM responses
-6:42
-which is extracting the responses uh extracting and saving the
-6:47
-responses from the llm now u in the code I've mentioned
-6:53
-this as step number six which is extracting and saving responses right okay so as I mentioned after finetuning
-7:00
-the llm on the training portion of the instruction data set we now proceed to evaluate its performance on the testing
-7:06
-data set to accomplish this first we need to extract the responses generated
-7:12
-for the model for every input right in the test data set and collect them for manual analysis so if you look at this
-7:18
-data set right now this entire data set is 1100 uh instruction input output Pairs
-7:25
-and out of this I'm using 10% as test data so what I now need to do is that I need to take my f tuned llm and I need
-7:32
-to I need to give it the test data and I need to generate the responses for all of the test data and only then I will be
-7:39
-able to compare it with the output right currently I showed you only one response over here which is the llm response for
-7:46
-one instruction output pair but now I want to collect the llm responses for all the instruction input in the test
-7:54
-data and then I will compare it with the ground Roo data awesome so so uh let's do just that
-8:02
-before that before we do it for all the different uh instruction output pairs I
-8:07
-just want to show you the results of our llm for three test set samples which are there in the data set so what I'm going
-8:14
-to do here is that I'm going to uh look at three instructions in the test data
-8:20
-set and I'm going to run the fine tuned llm on these instructions and then we are going to look at the generated
-8:25
-response so here you can see we are looping over the test data and then we are looking at the first three entries
-8:32
-um then what we are doing is that we are generating the output from our fine tuned llm we are going to convert the
-8:39
-token IDs into text which will give us the final generated output and then remember that the final output consists
-8:45
-of the instruction input as well we need to remove all that and just need to consider the response which is given by
-8:51
-the large language model and then we are printing out the input text which is the
-8:57
-instruction then we are ALS also printing the correct response and then we are printing the model response for
-9:03
-three test samples so let's look at these let's look at the model predictions and the true responses for
-9:10
-these three test samples so the first test sample is rewrite the sentence using a simile and the input is the car
-9:18
-is very fast so simile is basically using similar words so the correct answer to this car
-9:25
-is very fast the correct response is the car is as fast as Lightning whereas our fine tuned llm predicted that the car is
-9:32
-as fast as a bullet um that's the first now here you can see that this is quite good right
-9:39
-the correct response and the model response are actually very close to each other that's awesome now let's look at
-9:44
-the second instruction what type of cloud is typically associated with thunderstorms the correct response to
-9:52
-this was the type of cloud typically associated with thunderstorms is cumulonimbus cumulonimbus
-9:59
-uh whereas the model response is a thunderstorm is a type of cloud that typically forms in the atmosphere or a
-10:05
-region of high pressure it typically produces a strong wind that blows across the area creating a dense dense Cloud so
-10:12
-clearly we can see that the model response is not good right because we wanted a type of cloud which is
-10:18
-associated with thunderstorms so just qualitatively I can look at the correct response and I can look at my model
-10:24
-response and I can see that it's not really doing what it's asked to do and let's look at the the third test which
-10:30
+* 10:00
+
+
 is the final test example name the author of Pride and Prejudice the correct response is Jane Austin but the
 10:36
 model response is the author of Pride ande Prejudice is George Bernard Shaw clearly this is a mistake so out of
@@ -917,5 +826,6 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
