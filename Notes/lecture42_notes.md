@@ -8,6 +8,7 @@
 
 * 10:00
 
+In practice, instruction-finetuned LLMs such as chatbots are evaluated via multiple approaches:
 1. Short-answer and multiple choice benchmarks such as MMLU [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300), which test the general knowldge of a model.
 2. Human preference comparison to other LLMs, such as LMSYS chatbot arena -  [LMSYS Org](https://lmsys.org/)
 3. Automated conversational benchmarks, where another LLM like GPT-4 is used to evaluate the responses, such as [AlpacaEval](https://tatsu-lab.github.io/alpaca_eval/) completes the request.
@@ -729,6 +730,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
