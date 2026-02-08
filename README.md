@@ -95,7 +95,8 @@ $ uv run jupyter lab
 
 | Lecture	Notes	| Date| 
 |---|---|
-| [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4); [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781) | Feb 08, 2026 |
+| [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) 
+  [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781) | Feb 08, 2026 |
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
