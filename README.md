@@ -102,6 +102,7 @@ $ uv run jupyter lab
 |---|---|
 | [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
 | [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
+| [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
 | [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
 | [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
 | [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
@@ -117,16 +118,11 @@ $ uv run jupyter lab
 | [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
 | [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
 |---|---|
-
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)||
-
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
-
 | Autoencoders - Deep Learning Animated||
 | [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
-
 | [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)||
-| [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
 
 ***
 
