@@ -130,8 +130,8 @@ $ uv run jupyter lab
 ***
 
 #### TODO
-2. [Reasoning LLMs from Scratch (Reinforcement Learning)](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSijcbUrRZHm6BrdinLuelPs)
-3. [Build a Diffusion Language Model from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZShhDDPgy1ygii42nwOngUaf)
+1. [Reasoning LLMs from Scratch (Reinforcement Learning)](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSijcbUrRZHm6BrdinLuelPs)
+2. [Build a Diffusion Language Model from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZShhDDPgy1ygii42nwOngUaf)
 
 ***
 
