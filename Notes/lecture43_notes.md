@@ -2,6 +2,7 @@
 
 ***
 
+* scaling by $$\sqrt{d-keys}$$ + dropout + softmax
 
 embeddings is because along with
 5:30
@@ -792,5 +793,6 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
