@@ -96,29 +96,37 @@ $ uv run jupyter lab
 | Lecture	Notes	| Date| 
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
-| [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs) ||
 | [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
 | [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
-| [Understanding Large Language Model - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
-| [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
-| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
-| [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
+|---|---|
+| [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
+| [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
+| [Large Language Models (LLMs) explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)||
+|---|---|
 | [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
+| [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
+| [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
+|---|---|
+| [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
+|---|---|
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
 | [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)||
 | [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)||
 | [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)||
 | [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)||
-| [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
-| [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)||
-| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
+
+
+| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
+| [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
+
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)||
-| [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
+
+| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
+
 | [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)||
 | Autoencoders - Deep Learning Animated||
 | [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
-| [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
-| [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
+
 | [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)||
 | [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
 
