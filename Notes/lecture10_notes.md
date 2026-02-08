@@ -1,4 +1,7 @@
 ## Token Embeddings
+
+* [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781)
+
 * Also called Vector Embeddings / Word Embedding
 * Preferred token embeddings 
 
@@ -57,3 +60,4 @@ the llm training process
 * output = X.W^T
 * exploited spatial similarities between features in vctor embeddings we have already exploited the semantic relationship and the semantic meaning between words
 ***
+
