@@ -96,7 +96,7 @@ $ uv run jupyter lab
 | Lecture	Notes	| Date| 
 |---|---|
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) | Feb 08, 2026 |
-| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
+| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ) | Feb 08, 2026 |
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
 | [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
