@@ -96,9 +96,6 @@ $ uv run jupyter lab
 | Lecture	Notes	| Date| 
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
-| [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
-| [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
-|---|---|
 | [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
 | [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
 | [Large Language Models (LLMs) explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)||
@@ -114,8 +111,10 @@ $ uv run jupyter lab
 | [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)||
 | [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)||
 | [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)||
-
-
+|---|---|
+| [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
+| [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
+|---|---|
 | [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
 | [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
 
