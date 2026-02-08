@@ -2,7 +2,10 @@
 
 ***
 
-* scaling by $$\sqrt{d-keys}$$ + dropout + softmax
+* Attention Score
+* Scaling by $$\sqrt{d-keys}$$ + dropout + softmax
+* Attention Weights
+* Context Vector = Attention Weights X $$W_{V}$$
 
 embeddings is because along with
 5:30
@@ -793,6 +796,7 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
