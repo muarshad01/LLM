@@ -97,6 +97,7 @@ $ uv run jupyter lab
 |---|---|
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) | Feb 08, 2026 |
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ) | Feb 08, 2026 |
+| [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs) ||
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
 | [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
@@ -128,10 +129,6 @@ $ uv run jupyter lab
 ***
 
 #### [Open Source LLM Tools - Chip Huyen](https://huyenchip.com/llama-police.html)
-
-***
-
-#### [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs)
 
 ***
 
