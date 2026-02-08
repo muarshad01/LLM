@@ -80,15 +80,15 @@ $ uv run jupyter lab
 ***
 
 ## Deep Learning
-|Lecture | Notes|
-|---|---|
-| [Deep Learning Chapter 1 -- But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) ||
-| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) ||
-| [Deep Learning Chapter 3 -- Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) ||
-| [Deep Learning Chapter 4 -- Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) ||
-| [Deep Learning Chapter 5 -- Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) ||
-| [Deep Learning Chapter 6 -- Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) ||
-| [Deep Learning Chapter 7 -- How might LLMs store facts ](https://www.youtube.com/watch?v=9-Jl0dxWQs8) ||
+|Lecture | Notes| Date |
+|---|---|---|
+| [Deep Learning Chapter 1 -- But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) |||
+| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) |||
+| [Deep Learning Chapter 3 -- Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) |||
+| [Deep Learning Chapter 4 -- Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) |||
+| [Deep Learning Chapter 5 -- Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) |||
+| [Deep Learning Chapter 6 -- Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) |||
+| [Deep Learning Chapter 7 -- How might LLMs store facts ](https://www.youtube.com/watch?v=9-Jl0dxWQs8) |||
 
 ***
 
