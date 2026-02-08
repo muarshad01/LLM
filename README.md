@@ -95,6 +95,9 @@ $ uv run jupyter lab
 
 | Lecture	Notes	| Date| 
 |---|---|
+| [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)||
+| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
+|---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
 | [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
 | [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
@@ -118,8 +121,6 @@ $ uv run jupyter lab
 | [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
 | [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
 |---|---|
-| [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)||
-| [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
 | Autoencoders - Deep Learning Animated||
 | [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
 | [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)||
