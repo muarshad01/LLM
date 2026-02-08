@@ -103,7 +103,6 @@ $ uv run jupyter lab
 | [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
 | [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
 | [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
-|---|---|
 | [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
 |---|---|
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
