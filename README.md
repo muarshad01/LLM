@@ -111,7 +111,6 @@ $ uv run jupyter lab
 | [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
 | [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
 | [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
-
 |---|---|
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
 | [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)||
