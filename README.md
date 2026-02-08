@@ -122,7 +122,7 @@ $ uv run jupyter lab
 | [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
 | [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
 |---|---|
-| Autoencoders - Deep Learning Animated||
+| [Autoencoders - Deep Learning Animated](https://www.youtube.com/watch?v=hZ4a4NgM3u0)||
 | [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
 | [ML Foundations for AI Engineers (in 34 Minutes)](https://www.youtube.com/watch?v=BUTjcAjfMgY)||
 
