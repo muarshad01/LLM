@@ -44,97 +44,10 @@ $ ollama run llam3
 
 * 40:00
 
+***
 
+* 45:00
 
-
-40:29
-stating that thunderstorms for more high pressure regions whereas the llm pointed out that thunderstorms can actually
-40:35
-occur in various weather patterns that's why the score is 20 out of 100 in the third question the actual
-40:42
-response was Jane Austin but the response of the model was the author of Pride and Prejudice is George Bernard
-40:48
-Shaw this is wrong so the llm rates is zero out of 100 the correct answer is
-40:53
-Jane Austin not George Bernard Shaw George Bernard Shaw was an Irish playright and author but he did not
-40:59
-write Pride and Prejudice the response is completely Incorrect and does not provide any relevant information this is
-41:05
-awesome right it looks that the llm which we are using is pretty smart and it's doing an awesome job at qualitative
-41:11
-or even quantitative evaluation so as human I can think of some qualitative uh similarities or
-41:18
-qualitatively I can think how to evaluate the evaluate the model's response but even the qualitative
-41:24
-evaluation of the llm is actually amazing the kind of points which the llm introduced do not come naturally to me
-41:31
-for example as a human I did not think about this dramatic effect um as a human I did not know
-41:39
-that uh thunderstorms can also occur in various weather patterns and uh stating
-41:45
-that thunderstorms form over high pressure regions might be inaccurate so as humans I have some limitations even
-41:51
-in qualitative qualitative evaluation and the llm is filling those limitations it's doing an awesome job at qualitative
-41:58
-evaluation and although the quantitative evaluation I'm not still sure why it's 85 why it's 20 it kind of makes sense
-42:05
-here it's 20 because most of the answer was wrong here it's zero because it's a
-42:10
-factual question so the answer is factually incorrect and here it's 85 because most of the answer seems to be
-42:15
-generally correct so I would trust actually the responses which have been given by this large language model and I
-42:22
-would say that this evaluation is being done nicely we even have a quantitative metric now
-42:31
-great so based on the generated response we can observe that the Lama 3 Model provides reasonable evaluations and is
-42:37
-capable of also assigning partial points or even zero points when the answer is incorrect the previous prompts however
-42:44
-returned highly detailed evaluations we don't want these qualitative evaluations we just want a score so then we can
-42:50
-change the prompt by saying that respond with integer number only and when you do that the the result you can see is only
-42:57
-with integer numbers and this is now the metric which we are evaluating instead of reporting the model accuracy the
-43:04
-classification accuracy we are using another llm to evaluate our llm and we
-43:09
-are going to assign a quantitative score it's still not as robust as a
-43:15
-classification accuracy because many people might argue that why not assign a score of 88 or 90 and this is still
-43:22
-subjective but it generally makes sense and I would like to go ahead with with this evaluation although there might be
-43:29
-other evaluations which also make sense and that's why this field of llm evaluation is a field of such
-43:36
-a um such an open research because there is a huge scope for what are the metrics
-43:42
-which we should use for evaluations uh does it make sense to use mlu does it make sense to use another
-43:48
-llm to evaluate one llm it just leaves room open for a lot of subjectivity when
-43:54
-you are doing a brain tumor classification problem the accuracy just has one value based on how many correct
-43:59
-answers are there and based on how many wrong answers are there but in this case there is no one correct value right um
-44:06
-there can be many correct values for this there is a lot of subjectivity in the evaluation over here and this
-44:12
-subjectivity itself leaves room for a lot of research and lot of
-44:18
-Explorations U if you have compute power on your system or if you're using GPU
-44:23
-here is a function which I have written which actually goes through the entire test data set and gives and calculates
-44:29
-this kind of a score for the for all of the um instructions in the test data set
-44:35
-and then finds an average score uh so I'm not actually running the
-44:40
-above function because of Hardware Hardware limitations I'm using MacBook Air 2020 if you have a M3 MacBook Air it
-44:48
-takes about 1 minute on that if you have a GPU it might be of a similar speed it will be very
-44:54
-fast so when you run the above code you will see see that our model the fine tune model achieves an average score
-45:01
-above 50 which provides a useful Benchmark for comparison against other models or experimenting with different
 45:07
 training configurations it's worth noting that ama is not entirely deterministic which
 45:13
@@ -289,6 +202,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
