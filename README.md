@@ -20,6 +20,7 @@ $ uv run jupyter lab
 #### Building LLMs From Scratch
 * [GitHub Link for Book - Code](https://github.com/rasbt/LLMs-from-scratch)
 * [ALL Video Lectures](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
+* [Vizura LLM Code](https://github.com/muarshad01/LLM/tree/main/vizuara-llm-code)
 
 ***
 
