@@ -104,13 +104,14 @@ $ uv run jupyter lab
 | [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
 | [Large Language Models (LLMs) explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)||
 |---|---|
-| [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
-| [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
-| [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
-| [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
-| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
 | [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
 | [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)||
+| [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
+| [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
+| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
+| [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
+| [How DeepSeek Rewrote the Transformer [MLA]](https://www.youtube.com/watch?v=0VLAoVGf_74)||
+
 |---|---|
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
 | [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)||
