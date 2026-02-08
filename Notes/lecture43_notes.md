@@ -2,6 +2,9 @@
 
 ***
 
+* $$(W_Q, W_K, W_V)$$
+* Queries, Keys, Values
+* Queries X Keys^{T}
 * Attention Score
 * Scaling by $$\sqrt{d-keys}$$ + dropout + softmax
 * Attention Weights
@@ -796,6 +799,7 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
