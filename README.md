@@ -139,6 +139,7 @@ $ uv run jupyter lab
 * [ai71 - UAE](https://ai71.ai/careers)
 * [HUMAIN - Saudi Arabia](https://www.humain.com/)
   * Phase-1: 25,000 NVIDIA H100 GPUS (world's most advanced)
+  * [HUMAIN and NVIDIA Announce Strategic Partnership to Build AI Factories of the Future in Saudi Arabia](https://nvidianews.nvidia.com/news/humain-and-nvidia-announce-strategic-partnership-to-build-ai-factories-of-the-future-in-saudi-arabia) 
 * [QAI - Qatar](https://www.qailab.qa/)
 
 ***
