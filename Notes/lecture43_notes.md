@@ -1,7 +1,4 @@
 
-
-***
-
 * $$(W_Q, W_K, W_V)$$
 * $$Q, K, V$$
 * $$Q \times K^{T}$$
@@ -15,89 +12,9 @@
 
 ***
 
-08
-layer and then we have a Dropout layer
-10:11
-and then we have these input embeddings
-10:13
-which are then passed into this Blue
-10:15
-Block which is the Transformer block the
-10:17
-Transformer block is where all the magic
-10:19
-happens so you might be thinking okay
-10:21
-now where does attention fit within the
-10:23
-Transformer block within the Transformer
-10:25
-block there is another module which is
-10:27
-
-
 
 ***
 
-
-
-called as the attention module so the
-10:29
-attention mechanism which we learned
-10:31
-about earlier and the key query value
-10:33
-all of these things are actually
-10:34
-happening inside this mask multi-ad
-10:36
-attention modu so within the Transformer
-10:39
-block there is a normalization layer
-10:40
-multi-head attention Dropout layer these
-10:42
-are shortcut connection then other
-10:44
-normalization layer a feed forward
-10:46
-neural network another Dropout layer one
-10:49
-more shortcut connection and then we
-10:50
-come out of the Transformer block after
-10:53
-coming out of the Transformer block
-10:54
-there's a layer normalization layer and
-10:56
-a final neural network which converts
-10:58
-the trans former outputs into something
-11:00
-which is called as the loged sensor the
-11:03
-loged sensor is then used to predict the
-11:05
-next token given a given uh given an
-11:08
-input
-11:09
-sequence now when you look at a gpt2
-11:12
-let's say there are 12 such Transformer
-11:14
-blocks which are arranged together for
-11:15
-larger llms even multiple more
-11:18
-Transformer blocks are arranged together
-11:20
-and Within These Transformer blocks
-11:22
-there is multi-ad attention so within
-11:24
-every Transformer block there can be 12
 11:26
 or there can be 24 attention heads so
 11:28
@@ -543,6 +460,7 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
