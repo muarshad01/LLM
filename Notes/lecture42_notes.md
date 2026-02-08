@@ -36,105 +36,8 @@ $ ollama run llam3
 
 * 30:00
 
+***
 
-
-
-
-30:23
-respond to you um so that's what AMA helps you to do so currently have run
-30:28
-Lama 3 over here right similarly you can use o Lama to run uh any other llm also
-30:34
-you can use o Lama to run 53 you can use it to run mistal GMA 2 Etc on your
-30:40
-laptop so I'm running this on my laptop and all these results which I'm seeing are on my laptop as well awesome so once
-30:47
-you reach this stage it will mean that o am I successfully running for you so when when I'm going to implement the
-30:54
-next part of this code please keep o Lama running if you shut down this terminal AMA will not be running and
-31:00
-then your code won't execute so please keep AMA running the simplest way to test is that just make sure to ask some
-31:08
-question over here and if you get a response it means that ama has been running successfully awesome now I'm going to
-31:15
-move back or switch back to code to explain the rest to you okay I hope you
-31:20
-have installed AMA now and you have run the O Lama run Lama 3 command on the
-31:25
-terminal which I have demonstrated I have just provided a simple code block here which verifies that the AMA session
-31:32
-is running properly before we use AMA to evaluate the test set responses so our
-31:37
-final goal is to use o Lama and Lama 3 especially to compare the output and the
-31:43
-model response to assign a score but before doing that we need to check whether o Lama is running or not so you
-31:49
-can run this code and here it should come O Lama running is equal to true if this comes false which means that ama is
-31:56
-not successfully running uh now I showed you the O Lama run command on the terminal right there is
-Query Llama 3 and generate response
-32:03
-an alternative for this command instead of going to the terminal each time we can interact with the Lama model uh
-32:09
-using the API through python so we can create a function which is called as the query model what this function does is
-32:15
-that uh you can pass in the model so here I'm using Lama 3 so this function when it's called it will pass a query to
-32:22
-Lama 3 and the query will also be provided by us so we'll be providing the query
-32:29
-uh we'll be providing the query as the prompt so when you call this function query model you'll have to provide a
-32:34
-prompt and you'll have to provide a model and what this function will do is that this this function will send a
-32:40
-request uh will send an API request to this Lama 3 Model based on the prompt and then the response will be generated
-32:47
-and then the response will be returned so instead of writing or instead of running
-32:53
-the uh o Lama run Lama 3 on the the terminal each time we can simply do an
-32:59
-API call where we can fetch the results and bring it into our jupyter notebook interface I'm not going through this
-33:06
-code in detail because this will distract us from the main purpose of this whole video lecture which is to uh
-33:13
-perform the model evaluation so simply note that what this query model does is
-33:19
-that it helps us to pass in a prompt to Lama 3 or whichever llm which we are
-33:24
-using through o Lama and to give us the responses that's it so now what we'll do is that the prompt
-33:30
-which we are going to give here is that these are this is the output this is the model response compare these and assign
-33:37
-a score that's it that's all we are going to do but this function query model will be very important to us
-33:42
-because we are going to pass in the prompt through this function okay now again I want to
-33:48
-mention that before running the subsequent code cells ensure that all Lama is still running the previous code
-33:54
-which I showed you over here should print o Lama running to be equal to True uh to confirm that the model is
-34:01
-active and ready to receive requests so now here is just a small demo of how the query model works so in the query model
-34:08
-here you can prescribe the uh input which is what do llamas eat and then you
-34:13
-can also mention the model so here I'm using Lama 3 in O Lama you can use various models so you can search models
-34:20
-here and view all so you can see the different types of models which are present um in in ama so you can do gamma
-34:30
-2 also here so I can do I can do gamma 2 also over here but
-34:36
-the reason we are sticking with Lama 3 is that we are using this 8 billion instruction fine tuned model since it's
-34:42
-already fine tuned on the instruction or use instruction data set okay so uh to the query model
-34:49
-function you pass in any prompt and the model and that llm will look at the prompt and generate a response so you
-34:55
-can print out the response over here now please note here that this process also takes a lot of compute memory so to
-35:03
-print out one result here it took a long time for me because I on CPU I highly
-35:08
-encourage if you have a GPU access for all of you to uh use the GPU wherever
-35:13
-possible if you have a CPU it's fine I'm showing you only those things which can run on a CPU but just make sure that
 35:19
 this will take time and at least free up memory space free up at least 15 to 20 GB on your desktop for this entire code
 35:27
@@ -478,6 +381,7 @@ assembled those will be the students who will be strong ml Engineers strong llm 
 who contribute to Noel research or breakthroughs thank you so much everyone I look forward to seeing you in the next
 52:55
 lecture
+
 
 
 
