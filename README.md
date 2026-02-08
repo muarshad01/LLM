@@ -103,25 +103,25 @@ $ uv run jupyter lab
 | [Vision Transformers](https://www.youtube.com/shorts/qPUYBX0C6ic)||
 | [Self-Attention in Transformer](https://www.youtube.com/shorts/l8_OrR9kUNw)||
 | [Visualizing transformers and attention - Talk for TNG Big Tech Day '24](https://www.youtube.com/watch?v=KJtZARuO3JY)||
+| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
 | [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
+| [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)||
 |---|---|
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
 | [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM)||
 | [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ)||
 | [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)||
 | [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw)||
+| [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
 |---|---|
 | [Deep Learning 101 - Cross-Entropy Loss Function Demystified](https://www.youtube.com/watch?v=FODwUM-1PyI)||
 | [A Review of 10 Most Popular Activation Functions in Neural Networks](https://www.youtube.com/watch?v=56ZxEmGRt2k)||
 |---|---|
-| [Generative Machine Learning - Attention Mechanisms with Math](https://www.youtube.com/playlist?list=PLs8w1Cdi-zvalz9ltXmarqyeQ49wfKFqf)||
-| [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
 
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4)||
 
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ)||
 
-| [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)||
 | Autoencoders - Deep Learning Animated||
 | [The Most Important Algorithm in Machine Learning](https://www.youtube.com/watch?v=SmZmBKc7Lrs)||
 
