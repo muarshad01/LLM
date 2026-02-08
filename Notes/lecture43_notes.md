@@ -4,7 +4,7 @@
 
 * $$(W_Q, W_K, W_V)$$
 * $$Q, K, V$$
-* $$Q X K^{T}$$
+* $$Q \times K^{T}$$
 * Attention Score
 * Scaling by $$\sqrt{d-keys}$$ + dropout + softmax
 * Attention Weights
@@ -799,6 +799,7 @@ much everyone and I look forward to
 seeing you in the next lecture
 
 ***
+
 
 
 
