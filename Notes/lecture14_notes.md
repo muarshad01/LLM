@@ -38,7 +38,7 @@ inputs = torch.tensor(
 * The goal of all of these mechanisms is the same we need to convert the __embedding Vector__ into __context vectors__, which are then inputs to the LLMS.
 
 
-* $$\\{x^{1}, x^{2}, x^{3}\\}$$
+* $$\\big{x^{1}, x^{2}, x^{3}\\big}$$
 
 * $$z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3}$$
 
@@ -234,5 +234,6 @@ Words like "The", "cat", and "sat" might have low-similarity score because they 
 
 
 ***
+
 
 
