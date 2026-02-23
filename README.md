@@ -43,8 +43,8 @@ $ uv run jupyter lab
 | [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | Jan 13, 2026 |
 | [Lecture 15 -- Coding the Self Attention Mechanism with key, query and value (K, Q, V) matrices](https://www.youtube.com/watch?v=UjdRN80c6p8) |  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md) | Jan 14, 2026 |
 | [Lecture 16 -- Causal Self Attention Mechanism - Coded from scratch in Python](https://www.youtube.com/watch?v=h94TQOK7NRA) |  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md) | Jan 15, 2026 |
-| [Lecture 17 -- Multi Head Attention Part 1 - Basics and Python code](https://www.youtube.com/watch?v=cPaBCoNdCtE) |  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md) | Jan 15, 2026 |
-| [Lecture 18 -- Multi Head Attention Part 2 - Entire mathematics explained](https://www.youtube.com/watch?v=K5u9eEaoxFg) |  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md) | Jan 15, 2026 |
+| [Lecture 17 -- Multi-Head Attention (MHA) Part 1 - Basics and Python code](https://www.youtube.com/watch?v=cPaBCoNdCtE) |  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md) | Jan 15, 2026 |
+| [Lecture 18 -- Multi-Head Attention (MHA) Part 2 - Entire mathematics explained](https://www.youtube.com/watch?v=K5u9eEaoxFg) |  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md) | Jan 15, 2026 |
 |---|---|
 | [Lecture 19 -- Birds Eye View of the LLM Architecture](https://www.youtube.com/watch?v=4i23dYoXp-A) |  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md) | Jan 16, 2026 |
 | [Lecture 20 -- Layer Normalization in the LLM Architecture](https://www.youtube.com/watch?v=G3W-LT79LSI) |  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md) | Jan 17, 2026 |
