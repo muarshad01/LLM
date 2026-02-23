@@ -22,7 +22,7 @@
 * [Build a Multi-Agent System (from Scratch) With MCP and A2A (Summer 2026 (estimated))](https://www.manning.com/books/build-a-multi-agent-system-from-scratch)
 
 #### RAG
-* [Essential GraphRAG Knowledge Graph-Enhanced RAG by Tomaž Bratanič and Oskar Hane - July 2025](https://www.manning.com/books/essential-graphrag#reviews)
+* [Essential GraphRAG Knowledge Graph-Enhanced RAG by Tomaž Bratanič and Oskar Hane (July 2025) - 176 pages](https://www.manning.com/books/essential-graphrag#reviews)
 
 ***
 
