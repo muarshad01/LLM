@@ -101,8 +101,8 @@ $ uv run jupyter lab
 |---|---|
 | [LLM Architecture Explained in 60 seconds](https://www.youtube.com/watch?v=xBKVlsnA6z4&list=PLPTV0NXA_ZSiXq_kpauJ_G5kejrFsM_yF) ||
 | [Understanding Large Language Model (LLM) - Under The Hood](https://www.youtube.com/playlist?list=PLUfbC589u-FSwnqsvTHXVcgmLg8UnbIy3)||
-| [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
 | [Large Language Models (LLMs) explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs&t=2s)||
+| [Build a Small Language Model (SLM) From Scratch](https://www.youtube.com/watch?v=pOFcwcwtv3k)||
 |---|---|
 | [How Attention Mechanism Works in Transformer Architecture](https://www.youtube.com/watch?v=KMHkbXzHn7s)||
 | [I Visualised Attention in Transformers](https://www.youtube.com/watch?v=RNF0FvRjGZk)||
