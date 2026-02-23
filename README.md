@@ -115,7 +115,7 @@ $ uv run jupyter lab
 | [How RNNs Help AI Understand Language](https://www.youtube.com/shorts/w67EHFHGHUQ)||
 | [How does NN work in 60 seconds](https://www.youtube.com/shorts/Dbcx2_MO0LM) | Feb 21, 2026 |
 | [BERT Networks in 60 seconds](https://www.youtube.com/shorts/HBOloY08auQ) | Feb 19, 2026 |
-| [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA)||
+| [What is RAG](https://www.youtube.com/shorts/CbAQUqnrDcA) | Feb 23, 2026 |
 | [MCP Protocol](https://www.youtube.com/shorts/7CHr0qwTcJw) | Feb 21, 2026 |
 | [AGI Lambda](https://www.youtube.com/@AGI.Lambdaa/shorts)||
 |---|---|
