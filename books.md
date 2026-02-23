@@ -1,8 +1,11 @@
 #### LLM
 * [Hands-On Large Language Models: Language Understanding and Generation 1st Edition (October 2024)](https://www.amazon.com/Hands-Large-Language-Models-Understanding/dp/1098150961)
 * [Book - Build a Large Language Model (From Scratch) by Sebastian Raschka (October 2024)](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?adgrpid=186568885419&dib=eyJ2IjoiMSJ9.4aksU58BPWhOPrzkY0x_-vygt-ueYbeZO3NZCcItOJhwUkUI29dKBu191StjAX_6kFIlMZDQaXqiikWYV4yCxJyCN-1fORiR8HXdYk1pnOy5pMuFLCLhD5oeLTs9Ckz_Gnoe1ZnkxkuYsSetETUZjciRj-PrGLoJVEoGdjR8eqwYDRrYz3VpxBUSY6KP-X8vtpcM45C3qypNE1aMCVFd5L0U8ZmbFp0Tl28wzFU-cxg.P3ksogW4khJ39syyd4KIpkFJva8xg6NeQUZtKnKBgbM&dib_tag=se&hvadid=779542975090&hvdev=c&hvexpln=0&hvlocphy=9008257&hvnetw=g&hvocijid=12364010510054860427--&hvqmt=b&hvrand=12364010510054860427&hvtargid=kwd-2192499717731&hydadcr=16405_13751106_11567&keywords=build+an+llm+from+scratch&mcid=c7100230a49531d7af7d4236df7c0991&qid=1767193721&sr=8-1)
+
 #### Deep Learning
 * [Book - Deep Learning with Python, Third Edition -- Francois Chollet (Nov 2025)](https://www.amazon.com/Learning-Python-Third-Francois-Chollet/dp/1633436586/ref=sr_1_1?crid=2KEJ41ZSYQDRH&dib=eyJ2IjoiMSJ9.3gmenwdh98gYeTmQMPJIFj-7tGliPYqNCpuiFB-3YQ-_-jBcihed0BZXZxB2C07JeFG0CJ2OS4jnnMtJvK9xOrS5-CMUUXmU6lYOcBhy5BJqOXCFjE2hpDgSVDXVWivvKiWuD7LpjACNTzwPg-5lLNWk_eiR89lGR9jhkvWI-c7hC51IrrddqiseSoedcOx5BPR6zXIfGVo_24vuV6ZAX8rrlaJVvBbLYyIEh-BWui0.WAYmmA7ycnfvqKsblRhDpyjDd40QVW6cUDzO_mQaGl8&dib_tag=se&keywords=deep+learning+with+python&qid=1769400483&sprefix=%2Caps%2C114&sr=8-1)
+
+#### Reasoning
 * [Book - Build a Reasoning Model (From Scratch) by Sebastian Raschka (July 2026)](https://www.amazon.com/Build-Reasoning-Scratch-Sebastian-Raschka/dp/1633434672/ref=books_amazonstores_desktop_mfs_aufs_ap_sc_dsk_0?_encoding=UTF8&pd_rd_w=zMkKG&content-id=amzn1.sym.6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_p=6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_r=134-4549822-7099125&pd_rd_wg=B5Q4A&pd_rd_r=2a487d40-aa7b-4d23-bc7c-39bc39664b9a)
 
 #### DeepSeek
