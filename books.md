@@ -24,6 +24,9 @@
 #### RAG
 * [Essential GraphRAG Knowledge Graph-Enhanced RAG by Tomaž Bratanič and Oskar Hane (July 2025) - 176 pages](https://www.manning.com/books/essential-graphrag#reviews)
 
+#### RL
+* [Deep Reinforcement Learning Hands-On: A practical and easy-to-follow guide to RL from Q-learning and DQNs to PPO and RLHF,  3rd Edition by Maxim Lapan - (November 2024)](https://www.amazon.com/Reinforcement-Learning-Hands-easy-follow/dp/1835882706)
+
 ***
 
 #### Courses
