@@ -148,3 +148,8 @@ $ uv run jupyter lab
 * Qai (Qatar Artificial Intelligence Company)
 
 ***
+
+#### Other
+* [LLM-D](https://llm-d.ai/)
+
+*** 
