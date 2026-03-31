@@ -95,6 +95,7 @@ $ uv run jupyter lab
 
 | Lecture	Notes	| Date| 
 |---|---|
+| [Fourier Transform Best Explanation (for Beginners)](https://www.youtube.com/watch?v=PcYFnVBS_bg) ||
 | [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) | Feb 08, 2026 |
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ) | Feb 08, 2026 |
