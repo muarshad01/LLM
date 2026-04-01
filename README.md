@@ -95,6 +95,7 @@ $ uv run jupyter lab
 
 | Lecture	Notes	| Date| 
 |---|---|
+| [Best Explanation of Partial Derivatives and Gradients](https://www.youtube.com/watch?v=TYLyAfFn_ME) ||
 | [Fourier Transform Best Explanation (for Beginners)](https://www.youtube.com/watch?v=PcYFnVBS_bg) ||
 | [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) | Feb 08, 2026 |
