@@ -37,3 +37,7 @@
 * 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers
 
 *** 
+
+#### [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
+
+***
