@@ -38,6 +38,8 @@
 
 *** 
 
+* [The Ultra-Scale Playbook: Training LLMs on GPU Clusters (2025)](https://huggingface.co/nanotron)
+
 * [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
 
 * [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
