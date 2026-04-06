@@ -38,9 +38,9 @@
 
 *** 
 
-#### [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
+* [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
 
-
-[Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
+* [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
 by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
+
 ***
