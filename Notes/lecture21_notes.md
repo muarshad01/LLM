@@ -1,3 +1,18 @@
+
+The FFN has two linear layers:
+```
+FFN(x) = ReLU(x · W₁ + b₁) · W₂ + b₂
+
+Where:
+  W₁: (d_model, d_ff)  = (4, 16)   "up-projection"
+  b₁: (d_ff,)          = (16,)
+  W₂: (d_ff, d_model)  = (16, 4)   "down-projection"
+  b₂: (d_model,)       = (4,)
+```
+
+***
+
+
 #### GELU Activation Function & Feed Forward Neural Network
 * We'll implement a small NN sub-module that is a part of LLM transformer block.
 
