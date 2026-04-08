@@ -16,9 +16,12 @@
 #### GenAI
 * ~~[Book - Demystifying Generative AI: A Practical and Intuitive Introduction (Januray 2026)](https://www.amazon.com/Demystifying-Generative-Practical-Intuitive-Introduction/dp/0135429412/ref=sr_1_1?crid=3T6Y43XUPV2W6&dib=eyJ2IjoiMSJ9.HQe3QSze6HnFMP5XKUEvWlvACwl64U44fsPvayR4p7RZKYjVB2ZsJZnJJFkxtFBxhXFwEmBoFOC1tgMRB6WvFm1g3Ut3alJX4akIokHy77F-oggifKUlKzdhEk1XbKx-IYWQcXrk6BRXK6KZM3aIwVauL7yLCWrxD81LGAMkzebj50BD4w0I1Vxuywr0ImuQSUzDARPB1L0zoo6JOOcB2O3dh38v4WS__90LsP1LDBQ.o2Yk0s9iUxWzf5NhZddhBvTPmcUVdGm3YEOSjV4Kd9Y&dib_tag=se&keywords=demystifying+generative+ai&qid=1768588993&sprefix=demystifying+gen%2Caps%2C133&sr=8-1)~~
 
-#### CUDA
+#### CUDA Programming
 * [CUDA for Deep Learning (Summer 2026 (estimated)) by Elliot Arledge](https://www.manning.com/books/cuda-for-deep-learning)
   * [Elliot Arledge Books](https://elliotarledge.com/books)
+* [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
+by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
+* [Programming Massively Parallel Processors - A Hands-on Approach - 5th Edition - September 1, 2026 - Authors: Wen-mei W. Hwu, David B. Kirk, Izzat El Hajj](https://shop.elsevier.com/books/programming-massively-parallel-processors/hwu/978-0-443-43900-1)
 
 #### MCP
 * [Build a Multi-Agent System (from Scratch) With MCP and A2A (Summer 2026 (estimated))](https://www.manning.com/books/build-a-multi-agent-system-from-scratch)
@@ -43,15 +46,5 @@
 * [Neural Networks from Scratch - Raj Abhijit Dandekar](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
 * [Introduction to Deep Learning - Sebastian Raschka](https://sebastianraschka.com/blog/2021/dl-course.html)
 * 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers
-
-*** 
-
-
-* [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
-by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
-
-***
-
-* [Programming Massively Parallel Processors - A Hands-on Approach - 5th Edition - September 1, 2026 - Authors: Wen-mei W. Hwu, David B. Kirk, Izzat El Hajj](https://shop.elsevier.com/books/programming-massively-parallel-processors/hwu/978-0-443-43900-1)
 
 ***
