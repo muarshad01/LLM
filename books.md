@@ -9,6 +9,14 @@
 #### Reasoning
 * [Book - Build a Reasoning Model (From Scratch) by Sebastian Raschka (July 2026)](https://www.amazon.com/Build-Reasoning-Scratch-Sebastian-Raschka/dp/1633434672/ref=books_amazonstores_desktop_mfs_aufs_ap_sc_dsk_0?_encoding=UTF8&pd_rd_w=zMkKG&content-id=amzn1.sym.6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_p=6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_r=134-4549822-7099125&pd_rd_wg=B5Q4A&pd_rd_r=2a487d40-aa7b-4d23-bc7c-39bc39664b9a)
 
+#### The Ultra-Scale Playbook
+* [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
+* [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Ist Edition -  by Chris Fregly - (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
+
+#### Inference
+* [Inference Engineering - Philip Kiely](https://www.baseten.co/inference-engineering/)
+  * https://philipkiely.com/ -  has excellent blog on how to write books!
+
 #### Deep Learning
 * [Book - Deep Learning with Python, Third Edition -- Francois Chollet (Nov 2025)](https://www.amazon.com/Learning-Python-Third-Francois-Chollet/dp/1633436586/ref=sr_1_1?crid=2KEJ41ZSYQDRH&dib=eyJ2IjoiMSJ9.3gmenwdh98gYeTmQMPJIFj-7tGliPYqNCpuiFB-3YQ-_-jBcihed0BZXZxB2C07JeFG0CJ2OS4jnnMtJvK9xOrS5-CMUUXmU6lYOcBhy5BJqOXCFjE2hpDgSVDXVWivvKiWuD7LpjACNTzwPg-5lLNWk_eiR89lGR9jhkvWI-c7hC51IrrddqiseSoedcOx5BPR6zXIfGVo_24vuV6ZAX8rrlaJVvBbLYyIEh-BWui0.WAYmmA7ycnfvqKsblRhDpyjDd40QVW6cUDzO_mQaGl8&dib_tag=se&keywords=deep+learning+with+python&qid=1769400483&sprefix=%2Caps%2C114&sr=8-1)
 * [Deep Learning with PyTorch, Second Edition: Training and applying deep learning and generative AI models 2nd Edition (March 2026)](https://www.amazon.com/Deep-Learning-PyTorch-Second-generative/dp/1633438856/ref=sr_1_1?crid=MRN4Y4YT6ZOH&dib=eyJ2IjoiMSJ9.0XImz4DyBj8VwHNshf51tysK6S6a7aKEwwAcBbWQ6SSFIe9uW3RXfdNsx4bi6T9fpojDLrj0Y0zXQYcum4rNURZXlYGFXaJxhyXxyRMHzzTu-d_fH5HzVVmu4G3zznGZwmDEbu4S2JeK2EzMDDKyeIXm0aTL7eSs6X_mbwl5qdk_fkoURZg5uZJDgvnO7HzJjeXEvF55gW6OnyHcUfwSMvE1WToB_sAuBwqjT7xunkA.GqXkr3I-4TV6dDMma-cDqYTkjDQBSC3EiBY4sclbvYg&dib_tag=se&keywords=eli+stevens&qid=1772860293&s=books&sprefix=eli+stevens%2Cstripbooks%2C92&sr=1-1) -- Creator of PyTorch
@@ -32,13 +40,6 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 #### RL
 * [Deep Reinforcement Learning Hands-On: A practical and easy-to-follow guide to RL from Q-learning and DQNs to PPO and RLHF,  3rd Edition by Maxim Lapan - (November 2024)](https://www.amazon.com/Reinforcement-Learning-Hands-easy-follow/dp/1835882706)
 
-#### Inference
-* [Inference Engineering - Philip Kiely](https://www.baseten.co/inference-engineering/)
-  * https://philipkiely.com/ -  has excellent blog on how to write books!
-
-#### The Ultra-Scale Playbook
-* [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
-* [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Ist Edition -  by Chris Fregly - (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
 
 ***
 
