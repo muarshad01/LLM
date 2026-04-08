@@ -15,7 +15,7 @@
 
 #### Inference
 * [Inference Engineering - Philip Kiely](https://www.baseten.co/inference-engineering/)
-  * https://philipkiely.com/ -  has excellent blog on how to write books!
+  * [Philip Kiely](https://philipkiely.com/) -  has excellent blogs on how to write books!
 
 #### Deep Learning
 * [Book - Deep Learning with Python, Third Edition -- Francois Chollet (Nov 2025)](https://www.amazon.com/Learning-Python-Third-Francois-Chollet/dp/1633436586/ref=sr_1_1?crid=2KEJ41ZSYQDRH&dib=eyJ2IjoiMSJ9.3gmenwdh98gYeTmQMPJIFj-7tGliPYqNCpuiFB-3YQ-_-jBcihed0BZXZxB2C07JeFG0CJ2OS4jnnMtJvK9xOrS5-CMUUXmU6lYOcBhy5BJqOXCFjE2hpDgSVDXVWivvKiWuD7LpjACNTzwPg-5lLNWk_eiR89lGR9jhkvWI-c7hC51IrrddqiseSoedcOx5BPR6zXIfGVo_24vuV6ZAX8rrlaJVvBbLYyIEh-BWui0.WAYmmA7ycnfvqKsblRhDpyjDd40QVW6cUDzO_mQaGl8&dib_tag=se&keywords=deep+learning+with+python&qid=1769400483&sprefix=%2Caps%2C114&sr=8-1)
