@@ -83,7 +83,7 @@ $ uv run jupyter lab
 |Lecture | Notes| Date |
 |---|---|---|
 | [Deep Learning Chapter 1 -- But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) |||
-| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) |||
+| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn(https://www.youtube.com/watch?v=IHZwWFHWa-w) |||
 | [Deep Learning Chapter 3 -- Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) |||
 | [Deep Learning Chapter 4 -- Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) |||
 | [Deep Learning Chapter 5 -- Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) |||
@@ -96,11 +96,10 @@ $ uv run jupyter lab
 | Lecture	Notes	| Date| 
 |---|---|
 | [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
-| [Divergence and curl: The language of Maxwell's equations, fluid flow, and more
-](https://www.youtube.com/watch?v=rB83DpBJQsE) ||
+| [Divergence and curl: The language of Maxwell's equations, fluid flow, and more](https://www.youtube.com/watch?v=rB83DpBJQsE) ||
 | [Best Explanation of Partial Derivatives and Gradients](https://www.youtube.com/watch?v=TYLyAfFn_ME) ||
 | [Fourier Transform Best Explanation (for Beginners)](https://www.youtube.com/watch?v=PcYFnVBS_bg) ||
-| [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
+|---|---|
 | [How word vectors encode meaning](https://www.youtube.com/shorts/FJtFZwbvkI4) | Feb 08, 2026 |
 | [What is Tensor](https://www.youtube.com/shorts/J4Tg4gAPMMQ) | Feb 08, 2026 |
 | [What's The Difference Between Matrices And Tensors?](https://www.youtube.com/watch?v=1GwAEnegaRs) ||
