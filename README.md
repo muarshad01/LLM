@@ -95,6 +95,7 @@ $ uv run jupyter lab
 
 | Lecture	Notes	| Date| 
 |---|---|
+| [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) ||
 | [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
 | [Divergence and curl: The language of Maxwell's equations, fluid flow, and more](https://www.youtube.com/watch?v=rB83DpBJQsE) ||
 | [Best Explanation of Partial Derivatives and Gradients](https://www.youtube.com/watch?v=TYLyAfFn_ME) ||
