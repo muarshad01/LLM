@@ -83,7 +83,7 @@ $ uv run jupyter lab
 |Lecture | Notes| Date |
 |---|---|---|
 | [Deep Learning Chapter 1 -- But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) |||
-| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn(https://www.youtube.com/watch?v=IHZwWFHWa-w) |||
+| [Deep Learning Chapter 2 -- Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) |||
 | [Deep Learning Chapter 3 -- Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) |||
 | [Deep Learning Chapter 4 -- Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) |||
 | [Deep Learning Chapter 5 -- Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) |||
