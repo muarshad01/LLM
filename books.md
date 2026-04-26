@@ -41,6 +41,10 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 
 ***
 
+* [Transformers for Vision Book by ](https://github.com/VizuaraAI/Transformers-for-vision-BOOK)
+
+***
+
 #### Courses
 * [Neural Networks from Scratch - Raj Abhijit Dandekar](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj6tNyn_UadmUeU3Q3oR-hu)
 * [Introduction to Deep Learning - Sebastian Raschka](https://sebastianraschka.com/blog/2021/dl-course.html)
