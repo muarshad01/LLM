@@ -36,6 +36,10 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 #### RL
 * ~~[Deep Reinforcement Learning Hands-On: A practical and easy-to-follow guide to RL from Q-learning and DQNs to PPO and RLHF,  3rd Edition by Maxim Lapan - (November 2024)](https://www.amazon.com/Reinforcement-Learning-Hands-easy-follow/dp/1835882706)~~
 
+
+#### GenAI
+* [Build a Text-to-Image Generator (from Scratch) ](https://www.manning.com/books/build-a-text-to-image-generator-from-scratch#reviews)
+
 #### GenAI
 * ~~[Book - Demystifying Generative AI: A Practical and Intuitive Introduction (Januray 2026)](https://www.amazon.com/Demystifying-Generative-Practical-Intuitive-Introduction/dp/0135429412/ref=sr_1_1?crid=3T6Y43XUPV2W6&dib=eyJ2IjoiMSJ9.HQe3QSze6HnFMP5XKUEvWlvACwl64U44fsPvayR4p7RZKYjVB2ZsJZnJJFkxtFBxhXFwEmBoFOC1tgMRB6WvFm1g3Ut3alJX4akIokHy77F-oggifKUlKzdhEk1XbKx-IYWQcXrk6BRXK6KZM3aIwVauL7yLCWrxD81LGAMkzebj50BD4w0I1Vxuywr0ImuQSUzDARPB1L0zoo6JOOcB2O3dh38v4WS__90LsP1LDBQ.o2Yk0s9iUxWzf5NhZddhBvTPmcUVdGm3YEOSjV4Kd9Y&dib_tag=se&keywords=demystifying+generative+ai&qid=1768588993&sprefix=demystifying+gen%2Caps%2C133&sr=8-1)~~
 
