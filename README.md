@@ -24,6 +24,11 @@ $ uv run jupyter lab
 
 ***
 
+#### SLM
+* [Build a SLM from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZShuk6u31pgjHjFO2eS9p5EV)
+
+***
+
 | Lecture | Notes | Date Updated |
 |---|---|---|
 | [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| Jan 01, 2026 |
