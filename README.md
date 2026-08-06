@@ -26,6 +26,7 @@ $ uv run jupyter lab
 
 #### SLM
 * [Build a SLM from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZShuk6u31pgjHjFO2eS9p5EV)
+* [Tiktokenizer App](https://tiktokenizer.vercel.app/)
 
 ***
 
