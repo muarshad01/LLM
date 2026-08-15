@@ -30,20 +30,20 @@ $ uv run jupyter lab
 
 ***
 
-| Lecture | Notes | Date Updated |
-|---|---|---|
-| [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| Jan 01, 2026 |
-| [Lecture 02 -- LLM basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md) | Jan 01, 2026 |
-| [Lecture 03 -- Pretraining LLMs vs finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | Jan 01, 2026 |
-| [Lecture 04 -- What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) |  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md) | Jan 01, 2026 |
-| [Lecture 05 -- How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | Jan 01, 2026 |
-| [Lecture 06 -- Stages of building an LLM from scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | Jan 01, 2026 |
-| [Lecture 07 -- Code an LLM tokenizer from scratch in Python](https://www.youtube.com/watch?v=rsy5Ragmso8) |  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md) | Jan 05, 2026 |
-| [Lecture 08 -- The GPT tokenizer: Byte Pair Encoding (BPE)](https://www.youtube.com/watch?v=fKd8s29e-l4) |  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md) | Jan 05, 2026 |
-| [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | Jan 06, 2026 |
-| [Lecture 10 -- What are Token Embeddings?](https://www.youtube.com/watch?v=ghCSGRgVB_o) |  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md) | Jan 07, 2026 |
-| [Lecture 11 -- The importance of Positional Embeddings](https://www.youtube.com/watch?v=ufrPLpKnapU) |  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md) | Jan 08, 2026 |
-| [Lecture 12 -- The entire Data Preprocessing Pipeline of LLMs](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
+| Lecture | Notes | Date Updated ||
+|---|---|---||
+| [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| Jan 01, 2026 ||
+| [Lecture 02 -- LLM basics](https://www.youtube.com/watch?v=3dWzNZXA8DY)| [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md) | Jan 01, 2026 ||
+| [Lecture 03 -- Pretraining LLMs vs finetuning LLMs](https://www.youtube.com/watch?v=-bsa3fCNGg4)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md) | Jan 01, 2026 ||
+| [Lecture 04 -- What are transformers?](https://www.youtube.com/watch?v=NLn4eetGmf8) |  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md) | Jan 01, 2026 ||
+| [Lecture 05 -- How does GPT-3 really work?](https://www.youtube.com/watch?v=xbaYCf2FHSY) |  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md) | Jan 01, 2026 ||
+| [Lecture 06 -- Stages of building an LLM from scratch](https://www.youtube.com/watch?v=z9fgKz1Drlc) |  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md) | Jan 01, 2026 ||
+| [Lecture 07 -- Code an LLM tokenizer from scratch in Python](https://www.youtube.com/watch?v=rsy5Ragmso8) |  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md) | Jan 05, 2026 ||
+| [Lecture 08 -- The GPT tokenizer: Byte Pair Encoding (BPE)](https://www.youtube.com/watch?v=fKd8s29e-l4) |  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md) | Jan 05, 2026 ||
+| [Lecture 09 -- Creating Input-Target data pairs using Python DataLoader](https://www.youtube.com/watch?v=iQZFH8dr2yI) |  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md) | Jan 06, 2026 ||
+| [Lecture 10 -- What are Token Embeddings?](https://www.youtube.com/watch?v=ghCSGRgVB_o) |  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md) | Jan 07, 2026 ||
+| [Lecture 11 -- The importance of Positional Embeddings](https://www.youtube.com/watch?v=ufrPLpKnapU) |  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md) | Jan 08, 2026 ||
+| [Lecture 12 -- The entire Data Preprocessing Pipeline of LLMs](https://www.youtube.com/watch?v=mk-6cFebjis) |  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| ||
 |---|---|
 | [Lecture 13 -- Introduction to the Attention Mechanism in LLMs](https://www.youtube.com/watch?v=XN7sevVxyUM) |  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md) | Jan 12, 2026 |
 | [Lecture 14 -- Simplified Attention Mechanism - Coded from scratch in Python - No trainable weights](https://www.youtube.com/watch?v=eSRhpYLerw4) |  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md) | Jan 13, 2026 |
