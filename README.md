@@ -169,3 +169,10 @@ $ uv run jupyter lab
 * [LLM-D](https://llm-d.ai/)
 
 *** 
+
+#### Courses 
+* [ECE 498 - AI Systems & Engineering: UIUC Fall 2026](https://courses.grainger.illinois.edu/ECE498JH/fa2026/index.html)
+
+***
+
+  
