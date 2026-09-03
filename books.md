@@ -1,3 +1,8 @@
+#### Reasoning
+* [Book - Build a Reasoning Model (From Scratch) by Sebastian Raschka (July 2026)](https://www.amazon.com/Build-Reasoning-Scratch-Sebastian-Raschka/dp/1633434672/ref=books_amazonstores_desktop_mfs_aufs_ap_sc_dsk_0?_encoding=UTF8&pd_rd_w=zMkKG&content-id=amzn1.sym.6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_p=6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_r=134-4549822-7099125&pd_rd_wg=B5Q4A&pd_rd_r=2a487d40-aa7b-4d23-bc7c-39bc39664b9a)
+
+#### DeepSeek
+* [Book - Build a DeepSeek Model (From Scratch) Raj Abhijit Dandekar et al. (June 2026)](https://www.amazon.com/Build-DeepSeek-Scratch-Abhijit-Dandekar/dp/163343432X/ref=sr_1_1?crid=2LUC6MVW83U8S&dib=eyJ2IjoiMSJ9.eQJGSpzHuCjoIweVeAcJ_PtXrSaFbaF7k9s0AIXyp990jsrxFUCNXde2CiflJn3hRT0_2b2hdDEDZX9baXwEBkLufGK4la0nPH0t3EkMX1N4qWwjomsjvoaQhOwFcfgqmPqJDcVrOuJCMufK38RUzfv7MRfglJDi1gmO3HHyKivZ3t12X72NymF01IOBExUgh83lAGeNDx6LHqZoRuYJlg.yR9YP39UT5uUbBXQmGCI4ixXqiA1lxFD5RHDuwIv1uU&dib_tag=se&keywords=deepseek+from+scratch&qid=1768319033&sprefix=deepseek+from+s%2Caps%2C106&sr=8-1)
 
 #### SLM
 * [Domain-Specific Small Language Models: Efficient AI for local deployment by Guglielmo Iozzia (Author)  - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
@@ -8,12 +13,6 @@
 
 * ~~[Hands-On Large Language Models: Language Understanding and Generation 1st Edition (October 2024)](https://www.amazon.com/Hands-Large-Language-Models-Understanding/dp/1098150961)~~
 * ~~[Book - Rearchitecting LLMs - Structural techniques for efficient models by Pere Martra (Fall 2026)](https://www.manning.com/books/rearchitecting-llms)~~
-
-#### DeepSeek
-* [Book - Build a DeepSeek Model (From Scratch) Raj Abhijit Dandekar et al. (June 2026)](https://www.amazon.com/Build-DeepSeek-Scratch-Abhijit-Dandekar/dp/163343432X/ref=sr_1_1?crid=2LUC6MVW83U8S&dib=eyJ2IjoiMSJ9.eQJGSpzHuCjoIweVeAcJ_PtXrSaFbaF7k9s0AIXyp990jsrxFUCNXde2CiflJn3hRT0_2b2hdDEDZX9baXwEBkLufGK4la0nPH0t3EkMX1N4qWwjomsjvoaQhOwFcfgqmPqJDcVrOuJCMufK38RUzfv7MRfglJDi1gmO3HHyKivZ3t12X72NymF01IOBExUgh83lAGeNDx6LHqZoRuYJlg.yR9YP39UT5uUbBXQmGCI4ixXqiA1lxFD5RHDuwIv1uU&dib_tag=se&keywords=deepseek+from+scratch&qid=1768319033&sprefix=deepseek+from+s%2Caps%2C106&sr=8-1)
-
-#### Reasoning
-* [Book - Build a Reasoning Model (From Scratch) by Sebastian Raschka (July 2026)](https://www.amazon.com/Build-Reasoning-Scratch-Sebastian-Raschka/dp/1633434672/ref=books_amazonstores_desktop_mfs_aufs_ap_sc_dsk_0?_encoding=UTF8&pd_rd_w=zMkKG&content-id=amzn1.sym.6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_p=6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_r=134-4549822-7099125&pd_rd_wg=B5Q4A&pd_rd_r=2a487d40-aa7b-4d23-bc7c-39bc39664b9a)
 
 #### The Ultra-Scale Playbook
 * [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
