@@ -1,5 +1,4 @@
-#### [Domain-Specific Small Language Models: Efficient AI for local deployment
-by Guglielmo Iozzia (Author)  - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
+#### [Domain-Specific Small Language Models: Efficient AI for local deployment by Guglielmo Iozzia (Author)  - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
 ***
 
 #### LLM
