@@ -1,3 +1,7 @@
+#### [Domain-Specific Small Language Models: Efficient AI for local deployment
+by Guglielmo Iozzia (Author)  - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
+***
+
 #### LLM
 * [Book - Build a Large Language Model (From Scratch) by Sebastian Raschka (October 2024)](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?adgrpid=186568885419&dib=eyJ2IjoiMSJ9.4aksU58BPWhOPrzkY0x_-vygt-ueYbeZO3NZCcItOJhwUkUI29dKBu191StjAX_6kFIlMZDQaXqiikWYV4yCxJyCN-1fORiR8HXdYk1pnOy5pMuFLCLhD5oeLTs9Ckz_Gnoe1ZnkxkuYsSetETUZjciRj-PrGLoJVEoGdjR8eqwYDRrYz3VpxBUSY6KP-X8vtpcM45C3qypNE1aMCVFd5L0U8ZmbFp0Tl28wzFU-cxg.P3ksogW4khJ39syyd4KIpkFJva8xg6NeQUZtKnKBgbM&dib_tag=se&hvadid=779542975090&hvdev=c&hvexpln=0&hvlocphy=9008257&hvnetw=g&hvocijid=12364010510054860427--&hvqmt=b&hvrand=12364010510054860427&hvtargid=kwd-2192499717731&hydadcr=16405_13751106_11567&keywords=build+an+llm+from+scratch&mcid=c7100230a49531d7af7d4236df7c0991&qid=1767193721&sr=8-1)
 
