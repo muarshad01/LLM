@@ -49,6 +49,11 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 
 ***
 
+#### Quantization
+* [Quantization and Fast Inference A practitioner’s guide to efficient AI (2027)](https://www.manning.com/books/quantization-and-fast-inference)
+
+***
+
 * [Transformers for Vision Book by ](https://github.com/VizuaraAI/Transformers-for-vision-BOOK)
 
 ***
