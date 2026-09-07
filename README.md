@@ -85,8 +85,6 @@ $ uv run jupyter lab
 
 ***
 
-***
-
 ## Deep Learning
 |Lecture | Notes| Date |
 |---|---|---|
@@ -100,9 +98,9 @@ $ uv run jupyter lab
 
 ***
 
-
 | Lecture	Notes	| Date| 
 |---|---|
+| [Visual AI](https://www.youtube.com/@VisualAIOfficial) ||
 | [Modern Transformer Architecture Explained](https://www.youtube.com/playlist?list=PLdUcsPPD8lGzctkUXlvcmSBL1GeoErrd5)||
 | [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) ||
 | [Best Explanation of Gradient, Divergence and Curl](https://www.youtube.com/watch?v=m_Psx7CdvDk) ||
