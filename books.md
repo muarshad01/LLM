@@ -32,6 +32,7 @@
 * [GPU Programming with Triton Accelerate AI training and inference (August 2026)](https://www.manning.com/books/gpu-programming-with-triton)
 * [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
 by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
+* [Grokking Parallel Programming With Examples in CUDA](https://www.manning.com/books/grokking-parallel-programming?utm_campaign=12191138-Daily%20mailer&utm_medium=email&_hsenc=p2ANqtz-8KQ-CD_RGfR0AcP6k4wXaJrN2lPzLJ2k5eDc8uF_vsVAXNkVHIIf8uWFBc4HstEM517QcJdBP0weHKabc4AHWczW5-GMhS3W19-OU5YZhDFbYRMYE&_hsmi=438406765&utm_content=438406765&utm_source=hs_automation)
 
 #### MCP
 * [Build a Multi-Agent System (from Scratch) With MCP and A2A (Summer 2026 (estimated))](https://www.manning.com/books/build-a-multi-agent-system-from-scratch)
