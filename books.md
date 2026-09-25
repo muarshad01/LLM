@@ -17,6 +17,7 @@
 #### The Ultra-Scale Playbook
 * [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
 * [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Ist Edition -  by Chris Fregly - (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
+* [CUDA for LLMs Building fast transformer kernels - Oct 2026](https://www.manning.com/books/cuda-for-llms)
 
 #### Inference
 * [Inference Engineering - Philip Kiely](https://www.baseten.co/inference-engineering/)
