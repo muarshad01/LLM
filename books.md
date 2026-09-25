@@ -17,7 +17,6 @@
 #### The Ultra-Scale Playbook
 * [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
 * [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Ist Edition -  by Chris Fregly - (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
-* [CUDA for LLMs Building fast transformer kernels - Oct 2026](https://www.manning.com/books/cuda-for-llms)
 
 #### Inference
 * [Inference Engineering - Philip Kiely](https://www.baseten.co/inference-engineering/)
@@ -28,9 +27,10 @@
 * [Deep Learning with PyTorch, Second Edition: Training and applying deep learning and generative AI models 2nd Edition (March 2026)](https://www.amazon.com/Deep-Learning-PyTorch-Second-generative/dp/1633438856/ref=sr_1_1?crid=MRN4Y4YT6ZOH&dib=eyJ2IjoiMSJ9.0XImz4DyBj8VwHNshf51tysK6S6a7aKEwwAcBbWQ6SSFIe9uW3RXfdNsx4bi6T9fpojDLrj0Y0zXQYcum4rNURZXlYGFXaJxhyXxyRMHzzTu-d_fH5HzVVmu4G3zznGZwmDEbu4S2JeK2EzMDDKyeIXm0aTL7eSs6X_mbwl5qdk_fkoURZg5uZJDgvnO7HzJjeXEvF55gW6OnyHcUfwSMvE1WToB_sAuBwqjT7xunkA.GqXkr3I-4TV6dDMma-cDqYTkjDQBSC3EiBY4sclbvYg&dib_tag=se&keywords=eli+stevens&qid=1772860293&s=books&sprefix=eli+stevens%2Cstripbooks%2C92&sr=1-1) -- Creator of PyTorch
 
 #### CUDA Programming
+* [CUDA for LLMs Building fast transformer kernels - Oct 2026](https://www.manning.com/books/cuda-for-llms)
+* [GPU Programming with Triton Accelerate AI training and inference (August 2026)](https://www.manning.com/books/gpu-programming-with-triton)
 * [CUDA for Deep Learning (Summer 2026 (estimated)) by Elliot Arledge](https://www.manning.com/books/cuda-for-deep-learning)
   * [Elliot Arledge Books](https://elliotarledge.com/books)
-* [GPU Programming with Triton Accelerate AI training and inference (August 2026)](https://www.manning.com/books/gpu-programming-with-triton)
 * [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
 by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
 * [Grokking Parallel Programming With Examples in CUDA](https://www.manning.com/books/grokking-parallel-programming?utm_campaign=12191138-Daily%20mailer&utm_medium=email&_hsenc=p2ANqtz-8KQ-CD_RGfR0AcP6k4wXaJrN2lPzLJ2k5eDc8uF_vsVAXNkVHIIf8uWFBc4HstEM517QcJdBP0weHKabc4AHWczW5-GMhS3W19-OU5YZhDFbYRMYE&_hsmi=438406765&utm_content=438406765&utm_source=hs_automation)
