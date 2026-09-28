@@ -15,8 +15,7 @@
 * ~~[Book - Rearchitecting LLMs - Structural techniques for efficient models by Pere Martra (Fall 2026)](https://www.manning.com/books/rearchitecting-llms)~~
 
 #### The Ultra-Scale Playbook
-* [The Ultra-Scale
-* Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
+* [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
 * [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Ist Edition -  by Chris Fregly - (Dec 2025)](https://www.amazon.com/Systems-Performance-Engineering-Optimizing-Inference/dp/B0F47689K8)
 
 #### Inference
