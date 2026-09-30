@@ -41,6 +41,7 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 #### Distributed AI
 * [Distributed AI Systems: A practical guide to building scalable training, inference, and serving systems for production AI](https://www.amazon.com/dp/1807301710?lv=shuf&channelId=500&plpRedirect=mhFallback)
   * [Git Code](https://github.com/PacktPublishing/Distributed-AI-Systems)
+* [AI Workload Optimization with GPUs, CUDA, and PyTorch: A Practical Guide to Faster Training, Lower Inference Latency, Better Throughput, and Scalable Deployment by Steven J. Maranto (Author)](https://www.amazon.com/dp/B0H56TR2K5?lv=shuf&channelId=500&plpRedirect=mhFallback)
 
 ***
 
