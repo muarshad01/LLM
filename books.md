@@ -39,7 +39,9 @@
 
 #### CUDA Programming
 * [CUDA for LLMs Building fast transformer kernels - Oct 2026](https://www.manning.com/books/cuda-for-llms)
-* [GPU Programming with Triton Accelerate AI training and inference (August 2026)](https://www.manning.com/books/gpu-programming-with-triton)
+
+#### Triton
+* [GPU Programming with Triton Accelerate AI training and inference (Spring 2027)](https://www.manning.com/books/gpu-programming-with-triton)
 * ~~[CUDA for Deep Learning (Summer 2026 (estimated)) by Elliot Arledge](https://www.manning.com/books/cuda-for-deep-learning)~~
   * [Elliot Arledge Books](https://elliotarledge.com/books)
 * [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
