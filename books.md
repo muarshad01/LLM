@@ -4,8 +4,6 @@
 #### DeepSeek
 * [Build a DeepSeek Model (From Scratch) - Raj Abhijit Dandekar et al. (June 2026)](https://www.amazon.com/Build-DeepSeek-Scratch-Abhijit-Dandekar/dp/163343432X/ref=sr_1_1?crid=2LUC6MVW83U8S&dib=eyJ2IjoiMSJ9.eQJGSpzHuCjoIweVeAcJ_PtXrSaFbaF7k9s0AIXyp990jsrxFUCNXde2CiflJn3hRT0_2b2hdDEDZX9baXwEBkLufGK4la0nPH0t3EkMX1N4qWwjomsjvoaQhOwFcfgqmPqJDcVrOuJCMufK38RUzfv7MRfglJDi1gmO3HHyKivZ3t12X72NymF01IOBExUgh83lAGeNDx6LHqZoRuYJlg.yR9YP39UT5uUbBXQmGCI4ixXqiA1lxFD5RHDuwIv1uU&dib_tag=se&keywords=deepseek+from+scratch&qid=1768319033&sprefix=deepseek+from+s%2Caps%2C106&sr=8-1)
 
-#### SLM
-* [Domain-Specific Small Language Models: Efficient AI for local deployment by Guglielmo Iozzia - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
 ***
 
 #### LLM
@@ -13,6 +11,13 @@
 * [LLM Customization and Fine-Tuning Adaptation, distillation, and alignment - Dec 2026](https://www.manning.com/books/llm-customization-and-fine-tuning)
 * ~~[Hands-On Large Language Models: Language Understanding and Generation 1st Edition (October 2024)](https://www.amazon.com/Hands-Large-Language-Models-Understanding/dp/1098150961)~~
 * ~~[Book - Rearchitecting LLMs - Structural techniques for efficient models by Pere Martra (Fall 2026)](https://www.manning.com/books/rearchitecting-llms)~~
+
+***
+
+#### SLM
+* [Domain-Specific Small Language Models: Efficient AI for local deployment by Guglielmo Iozzia - May 2026](https://www.amazon.com/Domain-Specific-Language-Models-Guglielmo-Iozzia/dp/1633436705?psc=1&pd_rd_w=T5aaD&content-id=amzn1.sym.7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_p=7154b216-2f41-4765-8779-9a282bdc557c&pf_rd_r=R89DFQYKE6PFM089TV6C&pd_rd_wg=qFoBH&pd_rd_r=515d0aef-b070-481d-ab89-02bcbb2ae48f&ref_=sspa_dk_detail_sbb_img_0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM=)
+
+*** 
 
 #### The Ultra-Scale Playbook
 * [The Ultra-Scale Playbook: Training LLMs on GPU Clusters -  (2025)](https://huggingface.co/nanotron)
