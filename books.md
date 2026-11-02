@@ -98,3 +98,17 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 * 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers
 
 ***
+
+```
+Architecture of Reasoining
+Fast Python
+Hugging Face in Action
+Transformers in Action
+AI Agents in Action
+Multi-Agent System
+Self-Improving Agents
+Agent Design Patterns
+Designing AI Agents
+Knowledge Graphs in Action
+```
+Text-to-Image Generator
