@@ -30,6 +30,11 @@ $ uv run jupyter lab
 
 ***
 
+#### Transformer versus Looped Transformer
+* [Dory1.0-4B: A Looped Normalized-GPT](https://arxiv.org/html/2611.03998v1)
+
+***
+
 | Lecture | Notes | Date Updated ||
 |---|---|---|---|
 | [Lecture 01 -- Building LLMs from scratch: Series introduction](https://www.youtube.com/watch?v=Xpr8D6LeAtw) |  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| Jan 01, 2026 | Free |
