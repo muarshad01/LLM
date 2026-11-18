@@ -115,3 +115,17 @@ Designing AI Agents
 Knowledge Graphs in Action
 ```
 Text-to-Image Generator
+
+***
+
+1. The Architecture of Reasoning
+2. Self-Improving Agents
+3. Build an AI Agent (From Scratch)
+4. AI Agents and Applications With LangChain, LangGraph, and MCP
+
+***
+
+
+
+
+
