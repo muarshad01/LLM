@@ -55,9 +55,9 @@
 #### Triton
 * [GPU Programming with Triton Accelerate AI training and inference (Spring 2027)](https://www.manning.com/books/gpu-programming-with-triton)
 * ~~[CUDA for Deep Learning (Summer 2026 (estimated)) by Elliot Arledge](https://www.manning.com/books/cuda-for-deep-learning)~~
-* [Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
-by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)
-* [Grokking Parallel Programming With Examples in CUDA](https://www.manning.com/books/grokking-parallel-programming?utm_campaign=12191138-Daily%20mailer&utm_medium=email&_hsenc=p2ANqtz-8KQ-CD_RGfR0AcP6k4wXaJrN2lPzLJ2k5eDc8uF_vsVAXNkVHIIf8uWFBc4HstEM517QcJdBP0weHKabc4AHWczW5-GMhS3W19-OU5YZhDFbYRMYE&_hsmi=438406765&utm_content=438406765&utm_source=hs_automation)
+* ~~[Programming Massively Parallel Processors: A Hands-on Approach  - 5th Edition - 
+by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands-ebook/dp/B0DRCSRMXC/ref=sr_1_1?crid=1ZS8454DWKKVG&dib=eyJ2IjoiMSJ9.2VCbQm6MeEUckmWch6gbrwNuLxH8zxnMh8le-5abEVlrQ3eozHMVN1CaHy2aeEeezEGWbFAW93ulMPlV3EQnSucVnQv3_AEsYQVa9lMs3CMj5HOUWONGfbjRPkqjO64FgRSFJq8YdP8HSJU8spwy9s_l3q_PIX74iXUZvHVSmiHMiXlCDgIfqfZig6vpDY99WQOdcZa1lKd8VoQVDCBVGteWLD1Pywl9P2pch7XS58U.C5HvrEBCNcAfr4Q-mfrZMBu4MfFx5gEWwU1ac0phpxI&dib_tag=se&keywords=Programming+Massively+Parallel+Processors%3A+A+Hands-on+Approach+5th+Edition&nsdOptOutParam=true&qid=1775451331&s=books&sprefix=programming+massively+parallel+processors+a+hands-on+approach+5th+edition%2Cstripbooks%2C126&sr=1-1)~~
+* ~~[Grokking Parallel Programming With Examples in CUDA](https://www.manning.com/books/grokking-parallel-programming?utm_campaign=12191138-Daily%20mailer&utm_medium=email&_hsenc=p2ANqtz-8KQ-CD_RGfR0AcP6k4wXaJrN2lPzLJ2k5eDc8uF_vsVAXNkVHIIf8uWFBc4HstEM517QcJdBP0weHKabc4AHWczW5-GMhS3W19-OU5YZhDFbYRMYE&_hsmi=438406765&utm_content=438406765&utm_source=hs_automation)~~
 
 ***
 
@@ -65,8 +65,8 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 * [Distributed AI Systems: A practical guide to building scalable training, inference, and serving systems for production AI - June 2026](https://www.amazon.com/dp/1807301710?lv=shuf&channelId=500&plpRedirect=mhFallback)
   * [Git Code](https://github.com/PacktPublishing/Distributed-AI-Systems)
 * [AI Workload Optimization with GPUs, CUDA, and PyTorch: A Practical Guide to Faster Training, Lower Inference Latency, Better Throughput, and Scalable Deployment by Steven J. Maranto (Author) - June 2026](https://www.amazon.com/dp/B0H56TR2K5?lv=shuf&channelId=500&plpRedirect=mhFallback)
-* [AI Performance Engineering with PyTorch : A Practical Guide to GPUs, CUDA, Memory, and Distributed Systems]()
-* [The GPU Performance Engineering Field Manual : Diagnose and Fix Slow, Costly AI Training and Inference with CUDA, PyTorch, and vLLM]()
+* ~~[AI Performance Engineering with PyTorch : A Practical Guide to GPUs, CUDA, Memory, and Distributed Systems]()~~
+* ~~[The GPU Performance Engineering Field Manual : Diagnose and Fix Slow, Costly AI Training and Inference with CUDA, PyTorch, and vLLM]()~~
 
 ***
 
