@@ -78,7 +78,7 @@ by Wen-mei W. Hwu (Feb 2026)](https://www.amazon.com/Programming-Massively-Paral
 
 #### RL
 * ~~[Deep Reinforcement Learning Hands-On: A practical and easy-to-follow guide to RL from Q-learning and DQNs to PPO and RLHF,  3rd Edition by Maxim Lapan - (November 2024)](https://www.amazon.com/Reinforcement-Learning-Hands-easy-follow/dp/1835882706)~~
-
+* [Applied Reinforcement Learning Business optimization and LLM fine-tuning](https://www.manning.com/books/applied-reinforcement-learning)
 
 #### GenAI
 * [Build a Text-to-Image Generator (from Scratch) ](https://www.manning.com/books/build-a-text-to-image-generator-from-scratch#reviews)
