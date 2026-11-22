@@ -1,4 +1,5 @@
 #### [Mastering PTX and SASS: Low-Level GPU Programming for NVIDIA Architectures (GPU Expert Engineering: Mastering Design, Programming, and Optimization](https://www.amazon.com/Mastering-PTX-SASS-Architectures-Optimization/dp/B0H7S4LZRH/ref=sr_1_1?keywords=9798185830765&linkCode=qs&qid=1793885452&s=books&sr=1-1#averageCustomerReviewsAnchor) -- TODO
+
 ***
 
 #### Reasoning
@@ -49,7 +50,8 @@
 #### CUDA Programming
 * [CUDA for LLMs Building fast transformer kernels by Elliot Arledge - Oct 2026](https://www.manning.com/books/cuda-for-llms)
   * [Elliot Arledge Books](https://elliotarledge.com/books)
-
+* [GPU Programming with CUDA For Beginners: A Practical Guide to CUDA Programming, GPU Kernels, Memory Management, and Parallel Computing (CUDA Programming Series)
+by Alvin Marsh (Author)  Format: Paperback](https://www.amazon.com/GPU-Programming-CUDA-Beginners-Management/dp/B0HHSP3KSD/ref=sr_1_3?crid=25Y4U52G20TBU&dib=eyJ2IjoiMSJ9.Hux7EniYxKxc2JUoE6U9l0-KiVh41N9hFu66X7bLuviqOdVSUxMrjBDTwcN-TrdvQ8XVDqsgnLdTFfhRuGPJdfGuf6-Czg0k5PEV5ujmkdaJcqcoPMqpmBFSz1hWGSxUEmb4Hs6V07Ct4qQzmBXkSR0kSEyebtNOC4lF270M7O04oU06L1KllgbBAPPNJhvoRRUJLHSxzv6KzqIVxfeqax-LGnu1fLjoVxerawdFKuQ.0GnZnWHiqTbSj7RUPxUBGVjF8tYPEtY_DXwusCW6PEA&dib_tag=se&keywords=CUDA+for+LLMs+Building+fast+transformer+kernels&qid=1795366128&sprefix=cuda+for+llms+building+fast+transformer+kernels%2Caps%2C84&sr=8-3)
 ***
 
 #### Triton
