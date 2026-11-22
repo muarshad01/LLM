@@ -1,4 +1,4 @@
-#### [Mastering PTX and SASS: Low-Level GPU Programming for NVIDIA Architectures (GPU Expert Engineering: Mastering Design, Programming, and Optimization](https://www.amazon.com/Mastering-PTX-SASS-Architectures-Optimization/dp/B0H7S4LZRH/ref=sr_1_1?keywords=9798185830765&linkCode=qs&qid=1793885452&s=books&sr=1-1#averageCustomerReviewsAnchor)
+#### [Mastering PTX and SASS: Low-Level GPU Programming for NVIDIA Architectures (GPU Expert Engineering: Mastering Design, Programming, and Optimization](https://www.amazon.com/Mastering-PTX-SASS-Architectures-Optimization/dp/B0H7S4LZRH/ref=sr_1_1?keywords=9798185830765&linkCode=qs&qid=1793885452&s=books&sr=1-1#averageCustomerReviewsAnchor) -- TODO
 ***
 
 #### Reasoning
