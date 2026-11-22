@@ -1,3 +1,10 @@
+#### [Self-Attention Explained: How Transformers Actually Work (Full Visual Breakdown)](https://www.youtube.com/watch?v=vkhPtpUiLd8)
+* **Step-1: Words -> Vectors**
+  * $X \in R^{n\times d_{model}}$ 
+* **Step-2: Projecting to O,K,V**
+
+***
+
 #### Self Attention Mechanism with Trainable Weights 
 * (Key, Query, Value)
 * Scaled dot product
