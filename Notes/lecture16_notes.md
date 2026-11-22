@@ -1,3 +1,7 @@
+#### [Causal Attention Explained Visually | How GPT Generates Text Step by Step](https://www.youtube.com/watch?v=4qstqQH9ehY)
+
+***
+
 #### Causal Self Attention
 
 #### What is Causal Attention?
