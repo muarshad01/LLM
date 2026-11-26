@@ -2,6 +2,10 @@
 
 ***
 
+#### [NVIDIA: Open Source Ecosystem](https://www.oreilly.com/library/view/nvidia-open-source/0642572433864/)
+
+***
+
 #### Reasoning
 * [Book - Build a Reasoning Model (From Scratch) by Sebastian Raschka - Aug 2026](https://www.amazon.com/Build-Reasoning-Scratch-Sebastian-Raschka/dp/1633434672/ref=books_amazonstores_desktop_mfs_aufs_ap_sc_dsk_0?_encoding=UTF8&pd_rd_w=zMkKG&content-id=amzn1.sym.6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_p=6d92b4c0-97d6-4063-b66e-20890dfbd616&pf_rd_r=134-4549822-7099125&pd_rd_wg=B5Q4A&pd_rd_r=2a487d40-aa7b-4d23-bc7c-39bc39664b9a)
 
